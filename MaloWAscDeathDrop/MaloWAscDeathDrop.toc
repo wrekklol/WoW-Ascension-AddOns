@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: MaloWAscDeathDrop
+## DefaultState: enabled
+## Notes: Shows of a list of items dropped when killed by other players on Ascension realms.
+## Version 1
+## Author: MaloW
+## Dependencies: MaloWUtils
+
+MaloWAscDeathDrop.lua

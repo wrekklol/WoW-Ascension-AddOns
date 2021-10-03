@@ -1,0 +1,43 @@
+v1.0 05/29/2020
+- Initial release based off PrimalWoW edited Atlasloot
+- Added Ascension PVP Enchants
+- Added Ascension Epic Progression5 PVP Gear
+- Added Ascension Epic PVP Accessories
+- Added Setis Loot as new World boss
+--------------------------------------------------------------------------------------------------------
+v1.1 05/30/2020
+- Fixed KT (Naxx 60) Phylactory for Ascension itemID
+- Readded ilvl 68 Rare PVP gear along with ilvl 63 Rare PVP gear
+- Added Ascension Rare PVP Weapons
+- Added missing navigation arrows to:  Karazhan, Misc PVP Rewards
+- Added Ascension custom cooking recipes
+- Corrected Honor prices on assortment of items
+- Corrected Kazzak (Classic) item slots
+- Added Setis item slots
+--------------------------------------------------------------------------------------------------------
+v1.2 05/30/2020
+- Fixed item quality on various PVP items
+--------------------------------------------------------------------------------------------------------
+v1.3 05/31/2020
+- Updated Druid class name/descriptions from "Hero" to "Druid"
+
+TBC improvements contributed by Szyler:
+- Rep window shows TBC reputations by default
+- Karazhan boss order correction
+- TBC tokens show class
+--------------------------------------------------------------------------------------------------------
+v1.4 06/07/2020
+- Sets collection cleanup for TBC
+- Added Heroic gear
+- Dropdown menu visuals/order changed.
+	- To view keys click the Dungeon/Raid headers
+--------------------------------------------------------------------------------------------------------
+v1.5 09/08/2020
+- Added new 2H tank sets
+- Bloody item server query
+- Optional query on page load
+- Bloody Link in chat
+	- To link bloody items, click the Query Server button which will load all items and bloody versions
+	   Then right click an item and the bloody version will show in chat.  
+	   (Must have 'Safe Chat Links' enabled in your options)
+--------------------------------------------------------------------------------------------------------

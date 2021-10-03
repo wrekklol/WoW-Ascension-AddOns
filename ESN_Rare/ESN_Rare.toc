@@ -1,0 +1,24 @@
+﻿## Interface: 30300
+## Title: ESN_Rare
+## Notes: Displays a message when you spot a Rare Mob.
+## Notes-deDE: Zeigt einen Hinweis sobald ein seltener Gegner gefunden wurde.
+## Notes-ruRU: Выводит сообщение илипроигрывает звук при обнаружении редкого существа.
+## Author: EnSabahNur
+## Author-enUS: EnSabahNur (Übersetzung: Bl4ckSh33p)
+## Author-ruRU: EnSabahNur (Преревод: StingerSoft)
+## Version: 0.9.5
+## SavedVariables: ESN_RareDB
+## Dependencies: 
+## OptionalDeps: Ace3, LibSink-2.0, TomTom, HandyNotes, LibSharedMedia-3.0, "AceHook-3.0"
+## X-Embeds: Ace3, LibSink-2.0, LibSharedMedia-3.0
+## X-Category: Misc
+## X-eMail: ensabahnur77@gmail.com
+
+embeds.xml
+
+Locale-deDE.lua
+Locale-enUS.lua
+Locale-ruRU.lua
+
+Core.lua
+HandyNotes.lua

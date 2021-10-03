@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets
+END
+SharedFunctions.lua
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets/SharedFunctions.lua
+END
+BorderWidget.lua
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets/BorderWidget.lua
+END
+widget.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets/widget.xml
+END
+BackgroundWidget.lua
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets/BackgroundWidget.lua
+END
+FontWidget.lua
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets/FontWidget.lua
+END
+SoundWidget.lua
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets/SoundWidget.lua
+END
+StatusbarWidget.lua
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/60/trunk/ESN_Rare/libs/AceGUI-3.0-SharedMediaWidgets/StatusbarWidget.lua
+END

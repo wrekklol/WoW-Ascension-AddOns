@@ -1,0 +1,6 @@
+## Title: AscBookAutoLearn by Nihilianth
+## Version: 0.1
+## Author: nihilianth
+## Interface: 30300
+
+core.lua

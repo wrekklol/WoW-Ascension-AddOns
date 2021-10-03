@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: |Tinterface\icons\INV_ScrollofExp_Awakening.blp03:0|t|cFFff9900A|rscensionEnchantList
+## Author: Arkoniel
+## Notes: IN-GAME list or Random enchantments.
+## Version: 1.1
+
+ItemList.lua

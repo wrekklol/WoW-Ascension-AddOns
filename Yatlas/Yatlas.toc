@@ -1,0 +1,23 @@
+## Interface: 30200
+## Title: Yatlas
+## Version: 0.8.3
+## Notes: Yet another atlas
+## X-LastChangedDate: $LastChangedDate: 2009-08-05 12:01:01 -0000 (Wed, 5 Aug 2009) $
+## OptionalDeps: myAddOns
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: YatlasOptions
+l10n.lua
+l10n.deDE.lua
+l10n.zhCN.lua
+mapdb.lua
+mapdb2.lua
+mapdb.deDE.lua
+mapdb.zhCN.lua
+Points.lua
+Yatlas.lua
+Templates.xml
+Yatlas.xml
+sets\index.xml
+OptionsFrame.xml
+YatlasButton.xml
