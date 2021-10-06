@@ -104,15 +104,21 @@ function Questomatic:QUEST_GREETING(eventName, ...)
         return;
     end
     
-    if (self.db.profile.toggle) and (self.db.profile.greeting) and ( not IsControlKeyDown() ) then
+    if (self.db.profile.toggle) and (self.db.profile.greeting) and ( not IsShiftKeyDown() ) then
         local numact,numava = GetNumActiveQuests(), GetNumAvailableQuests()
         if numact+numava == 0 then return end
 
-        if numava > 0 then
-            SelectAvailableQuest(1);
-        end
-        if numact > 0 then
-            SelectActiveQuest(1);
+        if IsControlKeyDown() then
+            if numact > 0 then
+                SelectActiveQuest(1);
+            end
+        else
+            if numava > 0 then
+                SelectAvailableQuest(1);
+            end
+            if numact > 0 then
+                SelectActiveQuest(1);
+            end
         end
     end
 end
@@ -122,11 +128,18 @@ function Questomatic:GOSSIP_SHOW(eventName, ...)
         return;
     end
     
-    if (self.db.profile.toggle) and (self.db.profile.greeting) and ( not IsControlKeyDown() ) then
-        if GetGossipAvailableQuests() then
-            SelectGossipAvailableQuest(1);
-        elseif GetGossipActiveQuests() then
-            SelectGossipActiveQuest(1);
+    if (self.db.profile.toggle) and (self.db.profile.greeting) and ( not IsShiftKeyDown() ) then
+
+        if IsControlKeyDown() then
+            if GetGossipActiveQuests() then
+                SelectGossipActiveQuest(1);
+            end
+        else
+            if GetGossipAvailableQuests() then
+                SelectGossipAvailableQuest(1);
+            elseif GetGossipActiveQuests() then
+                SelectGossipActiveQuest(1);
+            end
         end
     end
 end
@@ -136,7 +149,7 @@ function Questomatic:QUEST_DETAIL(eventName, ...)
         return;
     end
     
-    if (self.db.profile.toggle) and (self.db.profile.accept) and ( not IsControlKeyDown() ) then
+    if (self.db.profile.toggle) and (self.db.profile.accept) and ( not IsShiftKeyDown() ) then
         AcceptQuest();
     end
 end
@@ -146,19 +159,19 @@ function Questomatic:QUEST_ACCEPT_CONFIRM(eventName, ...)
         return;
     end
     
-    if (self.db.profile.toggle) and (self.db.profile.escort) and ( not IsControlKeyDown() ) then
+    if (self.db.profile.toggle) and (self.db.profile.escort) and ( not IsShiftKeyDown() ) then
         ConfirmAcceptQuest();
     end
 end
 
 function Questomatic:QUEST_PROGRESS(eventName, ...)
-    if (self.db.profile.toggle) and (self.db.profile.complete) and ( not IsControlKeyDown() ) then
+    if (self.db.profile.toggle) and (self.db.profile.complete) and ( not IsShiftKeyDown() ) then
         CompleteQuest();
     end
 end
 
 function Questomatic:QUEST_COMPLETE(eventName, ...)
-    if (self.db.profile.toggle) and (self.db.profile.complete) and ( not IsControlKeyDown() ) then
+    if (self.db.profile.toggle) and (self.db.profile.complete) and ( not IsShiftKeyDown() ) then
         if GetNumQuestChoices() == 0 then
             GetQuestReward(QuestFrameRewardPanel.itemChoice);
         end
