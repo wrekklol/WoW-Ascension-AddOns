@@ -1,0 +1,7 @@
+## Title: Sell Shits by Wrekk
+## Version: 0.1
+## Author: wrekk
+## Interface: 30300
+
+SellShits.lua
+SellShits.xml

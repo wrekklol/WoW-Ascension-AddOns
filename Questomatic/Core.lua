@@ -117,7 +117,12 @@ function Questomatic:QUEST_GREETING(eventName, ...)
                 SelectAvailableQuest(1);
             end
             if numact > 0 then
-                SelectActiveQuest(1);
+                -- local IsHighRiskCache = CheckIfHighRiskCache()
+                -- if (IsHighRiskCache != -1)
+                --     SelectActiveQuest(IsHighRiskCache);
+                -- else
+                    SelectActiveQuest(1);
+                -- end
             end
         end
     end
@@ -138,7 +143,12 @@ function Questomatic:GOSSIP_SHOW(eventName, ...)
             if GetGossipAvailableQuests() then
                 SelectGossipAvailableQuest(1);
             elseif GetGossipActiveQuests() then
-                SelectGossipActiveQuest(1);
+                -- local IsHighRiskCache = CheckIfHighRiskCache()
+                -- if (IsHighRiskCache != -1)
+                --     SelectGossipActiveQuest(IsHighRiskCache);
+                -- else
+                    SelectGossipActiveQuest(1);
+                -- end
             end
         end
     end
@@ -177,3 +187,18 @@ function Questomatic:QUEST_COMPLETE(eventName, ...)
         end
     end
 end
+
+
+
+-- function Questomatic:CheckIfHighRiskCache()
+--     local activeQuests = {GetGossipActiveQuests()}
+--     local numActiveQuests = table.getn(activeQuests)
+--     for i=1, numActiveQuests, 4 do
+--         if activeQuests[i] == "Smash the Chest" or activeQuests[i] == "Destroy Nest" then
+--             -- SelectActiveQuest((i + 3) / 4);
+--             return (i + 3) / 4
+--         end
+--     end
+
+--     return -1
+-- end
