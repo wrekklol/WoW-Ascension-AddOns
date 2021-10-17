@@ -12,9 +12,9 @@ function arEvent()
 					valC=repairAllCost%100;
 					valS=math.floor((repairAllCost%10000)/100);
 					valG=math.floor(repairAllCost/10000);
-					DEFAULT_CHAT_FRAME:AddMessage("Ваши вещи были отремонтированы за "..valG.."з. "..valS.."с. "..valC.."м.",255,255,0);
+					DEFAULT_CHAT_FRAME:AddMessage("Repair cost "..valG.."g "..valS.."s "..valC.."c",255,255,0);
 				else
-					DEFAULT_CHAT_FRAME:AddMessage("У вас не хватает денег на подчинку!",255,0,0);
+					DEFAULT_CHAT_FRAME:AddMessage("Not enough gold to repair.",255,0,0);
 				end
 			end
 		end

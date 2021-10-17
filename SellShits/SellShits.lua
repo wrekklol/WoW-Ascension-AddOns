@@ -2,9 +2,7 @@ SellShits = { }
 
 function SellShits:OnInitialize()
 	SellButton:Hide()
-end;
 
-function SellShits:OnEnable()
 	self:RegisterEvent("MERCHANT_SHOW");
 	self:RegisterEvent("MERCHANT_CLOSED");
 end;
