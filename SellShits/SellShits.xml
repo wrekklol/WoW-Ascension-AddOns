@@ -1,8 +1,11 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 	<Frame name="SellShits" parent="UIParent" hidden="true">
 		<Scripts>
+			<OnEvent>
+				ssEvent();
+			</OnEvent>
 			<OnLoad>
-				SellShits:OnInitialize();
+				ssInit();
 			</OnLoad>
 		</Scripts>
 		<Size>
@@ -29,7 +32,7 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
-					<OnClick> SellShits:Sell(false) </OnClick>
+					<OnClick> Sell(false) </OnClick>
 				</Scripts>
 				<NormalTexture file="Interface\Icons\INV_Misc_Coin_02">
 					<Anchors>

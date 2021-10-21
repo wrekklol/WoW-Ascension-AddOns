@@ -1,22 +1,20 @@
-SellShits = { }
+function ssInit()
+	SellButton:Hide();
 
-function SellShits:OnInitialize()
-	SellButton:Hide()
+	this:RegisterEvent("MERCHANT_SHOW");
+	this:RegisterEvent("MERCHANT_CLOSED");
+end
 
-	self:RegisterEvent("MERCHANT_SHOW");
-	self:RegisterEvent("MERCHANT_CLOSED");
-end;
+function ssEvent()
+	if event == "MERCHANT_SHOW" then
+		SellButton:Show();
+		Sell(true);
+	elseif event == "MERCHANT_CLOSED" then
+		SellButton:Hide();
+	end
+end
 
-function SellShits:MERCHANT_SHOW()
-	SellButton:Show()
-	self:Sell(true);
-end;
-
-function SellShits:MERCHANT_CLOSED()
-	SellButton:Hide()
-end;
-
-function SellShits:Sell(bTrashOnly)
+function Sell(bTrashOnly)
 	-- local qstr = "";
 	local i = 0;
 	-- local _, caClass = UnitClass("player");
@@ -44,4 +42,4 @@ function SellShits:Sell(bTrashOnly)
 		end
 		i = i + 1;
 	until i >= 5
-end;
+end
