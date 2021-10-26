@@ -1,4 +1,8 @@
-SexyMap.borderPresets = {				
+SexyMap.borderPresets = {	
+	["CLEAR"] = {
+		borders = { },
+		shape = "Textures\\MinimapMask"
+	},			
 	["Blue Rune Circles"] = {
 		borders = {
 			{
