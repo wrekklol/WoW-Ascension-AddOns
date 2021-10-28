@@ -2,8 +2,11 @@
 local Postal_Express = Postal:NewModule("Express", "AceEvent-3.0", "AceHook-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Postal")
 Postal_Express.description = L["Mouse click short cuts for mail."]
+-- Postal_Express.description2 = L[ [[|cFFFFCC00*|r Shift-Click to take item/money from mail.
+-- |cFFFFCC00*|r Ctrl-Click to return mail.
+-- |cFFFFCC00*|r Alt-Click to move an item from your inventory to the current outgoing mail (same as right click in default UI).
+-- |cFFFFCC00*|r Mousewheel to scroll the inbox.]] ]
 Postal_Express.description2 = L[ [[|cFFFFCC00*|r Shift-Click to take item/money from mail.
-|cFFFFCC00*|r Ctrl-Click to return mail.
 |cFFFFCC00*|r Alt-Click to move an item from your inventory to the current outgoing mail (same as right click in default UI).
 |cFFFFCC00*|r Mousewheel to scroll the inbox.]] ]
 
@@ -65,9 +68,9 @@ function Postal_Express:InboxFrameItem_OnEnter(this, motion)
 	if (money > 0 or hasItem) and (not COD or COD == 0) then
 		tooltip:AddLine(L["|cffeda55fShift-Click|r to take the contents."])
 	end
-	if not wasReturned and canReply then
-		tooltip:AddLine(L["|cffeda55fCtrl-Click|r to return it to sender."])
-	end
+	-- if not wasReturned and canReply then
+	-- 	tooltip:AddLine(L["|cffeda55fCtrl-Click|r to return it to sender."])
+	-- end
 	tooltip:Show()
 end
 
@@ -78,11 +81,11 @@ function Postal_Express:InboxFrame_OnClick(button, index)
 			AutoLootMailItem(index)
 		end
 		--button:SetChecked(not button:GetChecked())
-	elseif IsControlKeyDown() then
-		local wasReturned, _, canReply = select(10, GetInboxHeaderInfo(index))
-		if not wasReturned and canReply then
-			ReturnInboxItem(index)
-		end
+	-- elseif IsControlKeyDown() then
+	-- 	local wasReturned, _, canReply = select(10, GetInboxHeaderInfo(index))
+	-- 	if not wasReturned and canReply then
+	-- 		ReturnInboxItem(index)
+	-- 	end
 	else
 		return self.hooks["InboxFrame_OnClick"](button, index)
 	end
