@@ -12,7 +12,7 @@
 ## X-eMail: manager@atlasloot.net
 ## X-Category: Map
 ## X-License: GPL v2
-## X-Website: http://www.atlasloot.net
+## X-Website: https://discord.gg/uYCE2X2FgA
 ## Dependencies: AtlasLoot
 ## LoadOnDemand: 1
 ## X-Curse-Packaged-Version: v5.11.04

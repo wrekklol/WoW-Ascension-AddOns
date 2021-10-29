@@ -4114,10 +4114,10 @@ local BabbleFaction = AtlasLoot_GetLocaleLibBabble("LibBabble-Faction-3.0")
 		{ 18, 23549, "", "=q4=Fortitude of the Scourge", "=ds=#s3# #e17#" },
 		{ 19, 23548, "", "=q4=Might of the Scourge", "=ds=#s3# #e17#" },
 		Prev = "NAXLoatheb";
-		Next = "NAXKelThuzard";
+		Next = "NAXKelThuzad";
 	};
 
-	AtlasLoot_Data["NAXKelThuzard"] = {
+	AtlasLoot_Data["NAXKelThuzad"] = {
 		{ 1, 22802, "", "=q4=Kingsfall", "=ds=#h1#, #w4#" },
 		{ 2, 23054, "", "=q4=Gressil, Dawn of Ruin", "=ds=#h1#, #w10#" },
 		{ 3, 23577, "", "=q4=The Hungering Cold", "=ds=#h1#, #w10#" }, 

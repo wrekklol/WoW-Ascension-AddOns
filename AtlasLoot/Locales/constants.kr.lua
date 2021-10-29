@@ -1302,7 +1302,7 @@ if AL then
 	AL[".  Right click on any other item to refresh the loot page."] = "에 대한 정보를 요청합니다.  다른 아이템을 우클릭하면 페이지가 수정됩니다.";
 
 	-- Incomplete Table Registry error message
---	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at http://www.atlasloot.net"] = true;
+--	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at https://discord.gg/uYCE2X2FgA"] = true;
 
 	-- LoD Module disabled or missing
 --	AL[" is unavailable, the following load on demand module is required: "] = true;

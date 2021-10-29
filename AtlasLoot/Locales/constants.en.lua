@@ -23,6 +23,7 @@ if AL then
 	AL["AtlasLoot"] = true;
 	AL["Select Loot Table"] = true;
 	AL["Select Sub-Table"] = true;
+	AL["Select Difficulty"] = true;
 	AL["Drop Rate: "] = true;
 	AL["DKP"] = true;
 	AL["Priority:"] = true;
@@ -38,8 +39,9 @@ if AL then
 	AL["Misc"] = true;
 	AL["Miscellaneous"] = true;
 	AL["Rewards"] = true;
-	AL["Show 10 Man Loot"] = true;
-	AL["Show 25 Man Loot"] = true;
+	AL["Show Normal Loot"] = true;
+	AL["Show Heroic/Ascended Loot"] = true;
+	AL["Bloodforged"] = true;
 	AL["Factions - Original WoW"] = true;
 	AL["Factions - Burning Crusade"] = true;
 	AL["Factions - Wrath of the Lich King"] = true;
@@ -64,7 +66,14 @@ if AL then
 	AL["Hide Text"] = true;
 	AL["Hide Icon"] = true;
 	AL["Minimap Button Options"] = true;
-
+	AL["Normal"] = true;
+	AL["Heroic"] = true;
+	AL["Mythic"] = true;
+	AL["Normal Flex"] = true;
+	AL["Heroic Flex"] = true;
+	AL["Ascended"] = true;
+	AL["Normal/Heroic"] = true;
+	AL["Crafting Patterns"] = true;
 	-- Text for Options Panel
 	AL["Atlasloot Options"] = true;
 	AL["Safe Chat Links"] = true;
@@ -105,6 +114,18 @@ if AL then
 	AL["Loot Browser Style:"] = true;
 	AL["New Style"] = true;
 	AL["Classic Style"] = true;
+	AL["Select Mythic Pluss Tier:"] = true;
+	AL["Mythic Tier 0"] = true;
+	AL["Mythic Tier 1"] = true;
+	AL["Mythic Tier 2"] = true;
+	AL["Mythic Tier 3"] = true;
+	AL["Mythic Tier 4"] = true;
+	AL["Mythic Tier 5"] = true;
+	AL["Mythic Tier 6"] = true;
+	AL["Mythic Tier 7"] = true;
+	AL["Mythic Tier 8"] = true;
+	AL["Mythic Tier 9"] = true;
+	AL["Mythic Tier 10"] = true;										
 
 	-- Slash commands
 	AL["reset"] = true;
@@ -143,6 +164,12 @@ if AL then
 	AL["Crafted Sets"] = true;
 	AL["Crafted Epic Weapons"] = true;
 	AL["Dragon's Eye"] = true;
+	AL["Crafting Patterns Uncommon"] = true;
+	AL["Crafting Patterns Rare"] = true;
+	AL["Crafting Patterns Epic"] = true;
+	AL["Item Uncommon"] = true;
+	AL["Item Rare"] = true;
+	AL["Item Epic"] = true;
 
 	-- Sets/Collections Menu
 	AL["Badge of Justice Rewards"] = true;
@@ -406,7 +433,7 @@ if AL then
 
 	-- Labels for loot table sections
 	AL["Additional Heroic Loot"] = true;
-	AL["Heroic Mode"] = true;
+	AL["Ascended Mode"] = true;
 	AL["Normal Mode"] = true;
 	AL["Raid"] = true;
 	AL["Hard Mode"] = true;
@@ -443,6 +470,7 @@ if AL then
 	AL["PvP Accessories (Level 70)"] = true;
 	AL["PvP Weapons (Level 70)"] = true;
 	AL["PvP Reputation Sets (Level 70)"] = true;
+	AL["Arena Season 0 Weapons"] = true;
 	AL["Arena Season 1 Weapons"] = true;
 	AL["Arena Season 2 Weapons"] = true;
 	AL["Arena Season 3 Weapons"] = true;
@@ -877,6 +905,7 @@ if AL then
 	AL["The Earthfury"] = true;
 	AL["Felheart Raiment"] = true;
 	AL["Battlegear of Might"] = true;
+	AL["Fury of Might"] = true;
 
 	-- Tier 2 Sets
 	AL["Stormrage Raiment"] = true;
@@ -888,6 +917,7 @@ if AL then
 	AL["The Ten Storms"] = true;
 	AL["Nemesis Raiment"] = true;
 	AL["Battlegear of Wrath"] = true;
+	AL["Fury of Wrath"] = true;
 
 	-- Tier 3 Sets
 	AL["Dreamwalker Raiment"] = true;
@@ -899,6 +929,8 @@ if AL then
 	AL["The Earthshatterer"] = true;
 	AL["Plagueheart Raiment"] = true;
 	AL["Dreadnaught's Battlegear"] = true;
+	AL["Fury's Battlegear"] = true;
+	AL["Dreadborne Warplate"] = true;
 
 	-- Tier 4 Sets
 	AL["Malorne Harness"] = true;
@@ -1487,7 +1519,7 @@ if AL then
 	AL[".  Right click on any other item to refresh the loot page."] = true;
 
 	-- Incomplete Table Registry error message
-	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at http://www.atlasloot.net"] = true;
+	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at https://discord.gg/uYCE2X2FgA"] = true;
 
 	-- LoD Module disabled or missing
 	AL[" is unavailable, the following load on demand module is required: "] = true;

@@ -205,7 +205,7 @@ function AtlasLoot_DisplayHelp()
             WHITE..AL["Use the reset buttons available in the options menu, or type '/al reset' in your chat window."].."\n\n"..
             ORANGE..AL["How do I view Bloodforged items?"].."\n"..
             WHITE..AL["You must have 'Safe Chat Links' enabled in your options, and the Bloodforged item in your item cache.  When viewing a page, click the 'Query Server' button to load the items and Bloodforged equivalents, then right click on an item to display item links for the original and Bloodforged versions in your chat."].."\n\n"..
-            GREY..AL["For further help, see our website and forums: "]..GREEN.."http://www.atlasloot.net"
+            GREY..AL["For further help, see our website and forums: "]..GREEN.."https://discord.gg/uYCE2X2FgA"
             );
 			Text:SetWidth(framewidht-80)
 			Text:SetJustifyH("LEFT")
@@ -237,6 +237,7 @@ function AtlasLoot_CreateOptionsInfoTooltips()
       AtlasLoot_AddTooltip("AtlasLootOptionsFrame_FuBarShow", nil) -- AL["Show FuBar Plugin"]
       AtlasLoot_AddTooltip("AtlasLootOptionsFrame_FuBarHide", nil) -- AL["Hide FuBar Plugin"]
       AtlasLoot_AddTooltip("AtlasLoot_SelectLootBrowserStyle", nil) 
+      --AtlasLoot_AddTooltip("AtlasLoot_SelectMythicPlussTier", nil)
 end
 
 function AtlasLoot_OptionsOnShow()
@@ -248,6 +249,10 @@ function AtlasLoot_OptionsOnShow()
     UIDropDownMenu_Initialize(AtlasLoot_CraftingLink, AtlasLoot_CraftingLink_Initialize);
 	UIDropDownMenu_SetSelectedID(AtlasLoot_CraftingLink, AtlasLoot.db.profile.CraftingLink);
 	UIDropDownMenu_SetWidth(AtlasLoot_CraftingLink, 150);
+    -- AtlasLoot_SelectMythicPlussTier_Label:SetText(AL["Select Mythic Pluss Tier:"]);
+    -- UIDropDownMenu_Initialize(AtlasLoot_SelectMythicPlussTier, AtlasLoot_SelectMythicPlussTier_Initialize);
+	-- UIDropDownMenu_SetSelectedID(AtlasLoot_SelectMythicPlussTier, AtlasLoot.db.profile.MythicPlussTier);
+	-- UIDropDownMenu_SetWidth(AtlasLoot_SelectMythicPlussTier, 150);
 end
 
 function AtlasLoot_SelectLootBrowserStyle_Initialize()
@@ -292,13 +297,37 @@ end
 
 function AtlasLoot_CraftingLink_OnClick()
     local thisID = this:GetID();
-	UIDropDownMenu_SetSelectedID(AtlasLoot_CraftingLink, thisID);
+    UIDropDownMenu_SetSelectedID(AtlasLoot_CraftingLink, thisID);
     AtlasLoot.db.profile.CraftingLink = thisID;
     if AtlasLootItemsFrame:IsVisible() and AtlasLootItemsFrame.refresh then
         AtlasLoot_ShowItemsFrame(AtlasLootItemsFrame.refresh[1], AtlasLootItemsFrame.refresh[2], AtlasLootItemsFrame.refresh[3], AtlasLootItemsFrame.refresh[4]);
     end
     AtlasLoot_OptionsOnShow();
 end
+
+-- function AtlasLoot_SelectMythicPlussTier_Initialize()
+	-- local info;
+	
+	-- for t = 0, 10, 1 do
+		-- info = {
+			-- text = AL["Mythic Tier "..t];
+			-- func = AtlasLoot_MythicPlussTier_OnClick;
+		-- };
+		-- UIDropDownMenu_AddButton(info);
+	-- end
+	
+-- end
+
+-- function AtlasLoot_MythicPlussTier_OnClick()
+    -- local thisID = this:GetID();
+    -- UIDropDownMenu_SetSelectedID(AtlasLoot_SelectMythicPlussTier, thisID);
+    -- AtlasLoot.db.profile.MythicPlussTier = thisID;
+    -- if AtlasLootItemsFrame:IsVisible() and AtlasLootItemsFrame.refresh then
+		-- Mythic_Reload();
+        -- AtlasLoot_ShowItemsFrame(AtlasLootItemsFrame.refresh[1], AtlasLootItemsFrame.refresh[2], AtlasLootItemsFrame.refresh[3], AtlasLootItemsFrame.refresh[4]);
+    -- end
+    -- AtlasLoot_OptionsOnShow();
+-- end
 
 local Authors = {
 	["Calî"] = "Arthas",

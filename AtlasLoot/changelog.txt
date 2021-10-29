@@ -1,10 +1,105 @@
-v1.0 05/29/2020
-- Initial release based off PrimalWoW edited Atlasloot
-- Added Ascension PVP Enchants
-- Added Ascension Epic Progression5 PVP Gear
-- Added Ascension Epic PVP Accessories
-- Added Setis Loot as new World boss
---------------------------------------------------------------------------------------------------------
+v2.02 08/29/2021
+- Added forward and previous arrows to all classic dungeons (Credit: alexs and Powerthegreat)
+- Added forward and previous arrows to all classic world bosses (Credit: Powerthegreat)
+- Moved TBC world boss to the bottom of the dropdown
+- Added missing Keys to High Risk Balcksmithing and Crusader High Risk craft (Credit: Rvng)
+- Added missing Lures to High Risk Cooking
+- Added forward and previous arrows to High Risk crafting
+---------------------------------------------------------------------------------------------------------------------------
+v2.01 08/28/2021
+- Fixed lua Error when "Query Server" is used to query all items on the page
+- Added High Risk crafting materials and crafts (Credit: Rvng)
+- (Actually) Fixed Heroic ZG pages
+---------------------------------------------------------------------------------------------------------------------------
+v2.0 08/20/2021
+- Added Heroic and Mythic Vanilla dungeons
+- Added back the Normal/Heroic versions of TBC dungeons. You can now use the same Heroic/Ascended button to swap between Themios
+- Fixed Heroic ZG showing the same as Ascended ZG
+---------------------------------------------------------------------------------------------------------------------------
+v1.8.1 07/15/2021
+- Moved Undaunted Might drop to Maulgar
+---------------------------------------------------------------------------------------------------------------------------
+v1.8 07/13/2021
+- Added Ascension custom enchants: Crushing Wave, Undaunted Might, and Faith
+- Added t5 Glaive Vials from Vashj and Kael'thas
+- Added Magtheridon's Agility version of his Polearm
+- Added "armour" and "armourpen" / "armourpenetration" as a keyword
+- Fixed armor penetration stat search filter
+---------------------------------------------------------------------------------------------------------------------------
+v1.7 06/25/2021
+THIS REPLACES NORMAL/HEROIC MODE LOOT 
+- Fixed Normal SSC loot
+- Fixed some m0 items like keys and recipes
+- Added @Krazh's initial search filter (allows to search for items with ">40 crit" from your cached items)
+---------------------------------------------------------------------------------------------------------------------------
+v1.6.1 05/13/2021
+- Fixed Heroic Flex Gruul's Lair and Magtheridon's Lair item IDs.
+---------------------------------------------------------------------------------------------------------------------------
+v1.6 04/29/2021
+- Added new Heroic Flex difficulty
+- Repurposed the 10/25 man button to go between Normal/Heroic/Ascended items 
+	- This still works as normal for Wotlk raids, but the button text will be wrong
+- Added Heroic Flex raid dropped items
+- Added Heroic Flex set items to Sets/Collections using the old 10/25 man button
+- Renamed "Heroic Mode" to "Ascended Mode"
+	- This still works as normal for TBC Heroic dungeons, and will be fixed when mythic dungeons comes out.
+---------------------------------------------------------------------------------------------------------------------------
+v1.5.4 04/25/2021
+- Fixed the order of t2.5 warrior set
+- Added T3 warrior dps set
+- Fixed the names of t1 and t2 warrior dps set
+- Added additional drop locations of some BWL items 
+- Added Naxxramas heroic items and new item from Sapphiron 
+---------------------------------------------------------------------------------------------------------------------------
+v1.5.3 03/26/2021
+- Added cross boss loot in BWL for first three bosses
+- Added cross boss loot in BWL to Nefarion
+- Removed extra warrior set on heroic tier 1/2 tab
+---------------------------------------------------------------------------------------------------------------------------
+v1.5.2 03/05/2021
+- Sets/Collections Menu now lists T1-T10 sets instead of having submenus
+- Removed Mount, Pet, and Tabard collections
+- PVP link from Sets/Collections removed, but is still accessible through Loot Table dropdown
+- New custom DPS warrior has it's own listing under T1/2/3
+- Added T2 DPS Warrior set
+- Level 70 Blue PVP items added
+	- Weapons are listed under Arena Season 0
+	- Armor is available under the PVP Reputation sets Sub-menu
+- Wintergrasp and Grizzly Hills PVP menus moved to BG/Open PVP sub-menu
+- Added Smoldering Emberwyrm and Magmatic Steed to Prince and Ragnaros respectively
+---------------------------------------------------------------------------------------------------------------------------
+v1.5.1 02/08/2021
+- Added new T1 Warrior DPS set
+- Added Heroic Thunderfury and Sulfuras
+- Added Magtheridon's Glaive to Heroic Magtheridon
+- Corrected item ID of Heroic Magtheridon head
+---------------------------------------------------------------------------------------------------------------------------
+v1.5 09/08/2020
+- Added new 2H tank sets
+- Bloody item server query
+- Optional query on page load
+- Bloody Link in chat
+	- To link bloody items, click the Query Server button which will load all items and bloody versions
+	   Then right click an item and the bloody version will show in chat.  
+	   (Must have 'Safe Chat Links' enabled in your options)
+---------------------------------------------------------------------------------------------------------------------------
+v1.4 06/07/2020
+- Sets collection cleanup for TBC
+- Added Heroic gear
+- Dropdown menu visuals/order changed.
+	- To view keys click the Dungeon/Raid headers
+---------------------------------------------------------------------------------------------------------------------------
+v1.3 05/31/2020
+- Updated Druid class name/descriptions from "Hero" to "Druid"
+
+TBC improvements contributed by Szyler:
+- Rep window shows TBC reputations by default
+- Karazhan boss order correction
+- TBC tokens show class
+---------------------------------------------------------------------------------------------------------------------------
+v1.2 05/30/2020
+- Fixed item quality on various PVP items
+---------------------------------------------------------------------------------------------------------------------------
 v1.1 05/30/2020
 - Fixed KT (Naxx 60) Phylactory for Ascension itemID
 - Readded ilvl 68 Rare PVP gear along with ilvl 63 Rare PVP gear
@@ -14,30 +109,11 @@ v1.1 05/30/2020
 - Corrected Honor prices on assortment of items
 - Corrected Kazzak (Classic) item slots
 - Added Setis item slots
---------------------------------------------------------------------------------------------------------
-v1.2 05/30/2020
-- Fixed item quality on various PVP items
---------------------------------------------------------------------------------------------------------
-v1.3 05/31/2020
-- Updated Druid class name/descriptions from "Hero" to "Druid"
-
-TBC improvements contributed by Szyler:
-- Rep window shows TBC reputations by default
-- Karazhan boss order correction
-- TBC tokens show class
---------------------------------------------------------------------------------------------------------
-v1.4 06/07/2020
-- Sets collection cleanup for TBC
-- Added Heroic gear
-- Dropdown menu visuals/order changed.
-	- To view keys click the Dungeon/Raid headers
---------------------------------------------------------------------------------------------------------
-v1.5 09/08/2020
-- Added new 2H tank sets
-- Bloody item server query
-- Optional query on page load
-- Bloody Link in chat
-	- To link bloody items, click the Query Server button which will load all items and bloody versions
-	   Then right click an item and the bloody version will show in chat.  
-	   (Must have 'Safe Chat Links' enabled in your options)
---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+v1.0 05/29/2020
+- Initial release based off PrimalWoW edited Atlasloot
+- Added Ascension PVP Enchants
+- Added Ascension Epic Progression5 PVP Gear
+- Added Ascension Epic PVP Accessories
+- Added Setis Loot as new World boss
+---------------------------------------------------------------------------------------------------------------------------

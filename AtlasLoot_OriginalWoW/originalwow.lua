@@ -1,7 +1,7 @@
 local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
 local BabbleBoss = AtlasLoot_GetLocaleLibBabble("LibBabble-Boss-3.0")
 local BabbleFaction = AtlasLoot_GetLocaleLibBabble("LibBabble-Faction-3.0")
-
+local MythicTier = (AtlasLoot.db.profile.MythicPlussTier or 1) - 1 + 4
 
 -- Index
 --- Dungeons & Raids
@@ -282,808 +282,364 @@ local BabbleFaction = AtlasLoot_GetLocaleLibBabble("LibBabble-Faction-3.0")
 
 	
 	------------------------------------------------
-	--- Ahn'Qiraj: The Ruins of Ahn'Qiraj HEROIC ---
+	--- Ahn'Qiraj: The Ruins of Ahn'Qiraj HEROIC FLEX ---
 	------------------------------------------------
 
-AtlasLoot_Data["AQ20KurinnaxxHEROIC"] = {
-	{ 1, 221499, "", "=q4=Vestments of the Shifting Sands", "=ds=#s5#, #a1#", "", "7.34%"};
-	{ 2, 221498, "", "=q4=Qiraji Sacrificial Dagger", "=ds=#h1#, #w4#", "", "7.53%"};
-	{ 4, 221500, "", "=q3=Belt of the Inquisition", "=ds=#s10#, #a1#", "", "14.84%"};
-	{ 5, 221501, "", "=q3=Toughened Silithid Hide Gloves", "=ds=#s9#, #a2#", "", "12.91%"};
-	{ 6, 221502, "", "=q3=Sand Reaver Wristguards", "=ds=#s8#, #a3#", "", "13.79%"};
-	{ 7, 221503, "", "=q3=Belt of the Sand Reaver", "=ds=#s10#, #a4#", "", "14.38%"};
-	{ 9, 22217, "", "=q1=Kurinnaxx's Venom Sac", "=ds=#m3#", "", "100%"};
-	{ 16, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "30.83%"};
-	{ 17, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "30.25%"};
-	{ 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "7.98%"};
-	{ 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "7.80%"};
-	Next = "AQ20RajaxxHEROIC";
-};
-
-AtlasLoot_Data["AQ20RajaxxHEROIC"] = {
-	{ 1, 221493, "", "=q4=Boots of the Vanguard", "=ds=#s12#, #a2#", "", "8.13%"};
-	{ 2, 221492, "", "=q4=Manslayer of the Qiraji", "=ds=#h2#, #w10#", "", "10.04%"};
-	{ 4, 221496, "", "=q3=Bracers of Qiraji Command", "=ds=#s8#, #a1#", "", "15.79%"};
-	{ 5, 221494, "", "=q3=Southwind's Grasp", "=ds=#s10#, #a2#", "", "15.13%"};
-	{ 6, 221497, "", "=q3=Boots of the Qiraji General", "=ds=#s12#, #a3#", "", "15.45%"};
-	{ 7, 221495, "", "=q3=Legplates of the Qiraji Command", "=ds=#s11#, #a4#", "", "15.47%"};
-	{ 9, 0, "INV_Box_01", "=q6="..AL["Rajaxx's Captains"], ""};
-	{ 10, 221810, "", "=q3=Treads of the Wandering Nomad", "=ds=#s12#, #a1#", "", "3.11%"};
-	{ 11, 221809, "", "=q3=Fury of the Forgotten Swarm", "=ds=#s2#", "", "3.20%"};
-	{ 12, 221806, "", "=q3=Gavel of Qiraji Authority", "=ds=#h2#, #w6#", "", "3.04%"};
-	{ 16, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "36.51%"};
-	{ 17, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "33.97%"};
-	{ 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "8.82%"};
-	{ 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.56%"};
-	{ 21, 0, "INV_Box_01", "=q6="..BabbleBoss["Lieutenant General Andorov"], ""};
-	{ 22, 22221, "", "=q1=Plans: Obsidian Mail Tunic", "=ds=#p2# (300)"};
-	{ 23, 22219, "", "=q1=Plans: Jagged Obsidian Shield", "=ds=#p2# (300)"};
-	Prev = "AQ20KurinnaxxHEROIC";
-	Next = "AQ20MoamHEROIC";
-};
-
-AtlasLoot_Data["AQ20MoamHEROIC"] = {
-	{ 1, 221472, "", "=q4=Dustwind Turban", "=ds=#s1#, #a1#", "", "7.76%"};
-	{ 2, 221467, "", "=q4=Thick Silithid Chestguard", "=ds=#s5#, #a2#", "", "6.76%"};
-	{ 3, 221479, "", "=q4=Gauntlets of the Immovable", "=ds=#s9#, #a4#", "", "7.12%"};
-	{ 4, 221471, "", "=q4=Talon of Furious Concentration", "=ds=#s15#", "", "7.39%"};
-	{ 6, 221470, "", "=q3=Cloak of the Savior", "=ds=#s4#", "", "14.23%"};
-	{ 7, 221468, "", "=q3=Mantle of Maz'Nadir", "=ds=#s3#, #a1#", "", "15.86%"};
-	{ 8, 221455, "", "=q3=Southwind Helm", "=ds=#s1#, #a2#", "", "14.08%"};
-	{ 9, 221474, "", "=q3=Chitinous Shoulderguards", "=ds=#s3#, #a2#", "", "15.25%"};
-	{ 10, 221469, "", "=q3=Gauntlets of Southwind", "=ds=#s9#, #a2#", "", "15.28%"};
-	{ 11, 221476, "", "=q3=Obsidian Scaled Leggings", "=ds=#s11#, #a3#", "", "6.81%"};
-	{ 12, 221475, "", "=q3=Legplates of the Destroyer", "=ds=#s11#, #a4#", "", "10.39%"};
-	{ 13, 221477, "", "=q3=Ring of Fury", "=ds=#s13#", "", "14.42%"};
-	{ 14, 221473, "", "=q3=Eye of Moam", "=ds=#s14#", "", "14.74%"};
-	{ 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "36.38%"};
-	{ 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "33.16%"};
-	{ 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "7.56%"};
-	{ 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.34%"};
-	{ 21, 22220, "", "=q3=Plans: Black Grasp of the Destroyer", "=ds=#p2# (300)", "", "4.11%"};
-	{ 22, 22194, "", "=q4=Black Grasp of the Destroyer", "=ds=#s9#, #a3#"};
-	Prev = "AQ20RajaxxHEROIC";
-	Next = "AQ20BuruHEROIC";
-};
-
-AtlasLoot_Data["AQ20BuruHEROIC"] = {
-	{ 1, 221487, "", "=q4=Slimy Scaled Gauntlets", "=ds=#s9#, #a3#", "", "2.64%"};
-	{ 2, 221486, "", "=q4=Gloves of the Swarm", "=ds=#s9#, #a4#", "", "5.22%"};
-	{ 3, 221485, "", "=q4=Buru's Skull Fragment", "=ds=#w8#", "", "7.88%"};
-	{ 5, 221489, "", "=q3=Quicksand Waders", "=ds=#s12#, #a1#", "", "15.95%"};
-	{ 6, 221491, "", "=q3=Scaled Bracers of the Gorger", "=ds=#s8#, #a2#", "", "16.51%"};
-	{ 7, 221490, "", "=q3=Slime Kickers", "=ds=#s12#, #a4#", "", "15.99%"};
-	{ 8, 221488, "", "=q3=Fetish of Chitinous Spikes", "=ds=#s14#", "", "17.22%"};
-	{ 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "8.31%"};
-	{ 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "8.98%"};
-	{ 18, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "9.77%"};
-	{ 19, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "9.84%"};
-	{ 20, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "26.98%"};
-	{ 21, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "25.58%"};
-	Prev = "AQ20MoamHEROIC";
-	Next = "AQ20Ayamiss";
-};
-
-AtlasLoot_Data["AQ20AyamissHEROIC"] = {
-	{ 1, 221479, "", "=q4=Gauntlets of the Immovable", "=ds=#s9#, #a4#", "", "6.18%"};
-	{ 2, 221466, "", "=q4=Stinger of Ayamiss", "=ds=#h3#, #w6#", "", "2.06%"};
-	{ 3, 221478, "", "=q4=Bow of Taut Sinew", "=ds=#w2#", "", "10.14%"};
-	{ 5, 221484, "", "=q3=Helm of Regrowth", "=ds=#s1#, #a2#", "", "15.85%"};
-	{ 6, 221480, "", "=q3=Scaled Silithid Gauntlets", "=ds=#s9#, #a3#", "", "17.10%"};
-	{ 7, 221482, "", "=q3=Boots of the Fiery Sands", "=ds=#s12#, #a3#", "", "4.92%"};
-	{ 8, 221481, "", "=q3=Boots of the Desert Protector", "=ds=#s12#, #a4#", "", "11.08%"};
-	{ 9, 221483, "", "=q3=Ring of the Desert Winds", "=ds=#s13#", "", "16.32%"};
-	{ 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "8.24%"};
-	{ 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "8.21%"};
-	{ 18, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "8.85%"};
-	{ 19, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "10.97%"};
-	{ 20, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "26.98%"};
-	{ 21, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "27.50%"};
-	Prev = "AQ20BuruHEROIC";
-	Next = "AQ20OssirianHEROIC";
-};
-
-AtlasLoot_Data["AQ20OssirianHEROIC"] = {
-	{ 1, 221456, "", "=q4=Sandstorm Cloak", "=ds=#s4#", "", "10.89%"};
-	{ 2, 221464, "", "=q4=Shackles of the Unscarred", "=ds=#s8#, #a1#", "", "12.62%"};
-	{ 3, 221462, "", "=q4=Gloves of Dark Wisdom", "=ds=#s9#, #a1#", "", "11.89%"};
-	{ 4, 221461, "", "=q4=Leggings of the Black Blizzard", "=ds=#s11#, #a1#", "", "12.83%"};
-	{ 5, 221458, "", "=q4=Gauntlets of New Life", "=ds=#s9#, #a2#", "", "13.25%"};
-	{ 6, 221454, "", "=q4=Runic Stone Shoulders", "=ds=#s3#, #a3#", "", "4.10%"};
-	{ 7, 221463, "", "=q4=Ossirian's Binding", "=ds=#s10#, #a3#", "", "12.27%"};
-	{ 8, 221460, "", "=q4=Helm of Domination", "=ds=#s1#, #a4#", "", "12.18%"};
-	{ 9, 221453, "", "=q4=Mantle of the Horusath", "=ds=#s3#, #a4#", "", "6.96%"};
-	{ 10, 221457, "", "=q4=Bracers of Brutality", "=ds=#s8#, #a4#", "", "10.74%"};
-	{ 11, 221715, "", "=q4=Sand Polished Hammer", "=ds=#h1#, #w6#", "", "5.95%"};
-	{ 12, 221459, "", "=q4=Crossbow of Imminent Doom", "=ds=#w3#", "", "6.12%"};
-	{ 13, 221452, "", "=q4=Staff of the Ruins", "=ds=#w9#", "", "10.32%"};
-	{ 16, 21220, "", "=q4=Head of Ossirian the Unscarred", "=ds=#m2#", "", "100%"};
-	{ 17, 21504, "", "=q4=Charm of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
-	{ 18, 21507, "", "=q4=Amulet of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
-	{ 19, 21505, "", "=q4=Choker of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
-	{ 20, 21506, "", "=q4=Pendant of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
-	{ 22, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "35.27%"};
-	{ 23, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "30.69%"};
-	{ 24, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "9.65%"};
-	{ 25, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.53%"};
-	Prev = "AQ20AyamissHEROIC";
-};
-
-AtlasLoot_Data["AQ20TrashHEROIC"] = {
-	{ 1, 20873, "", "=q3=Alabaster Idol", "=ds=#e15#", "", "0.39%"};
-	{ 2, 20869, "", "=q3=Amber Idol", "=ds=#e15#", "", "0.36%"};
-	{ 3, 20866, "", "=q3=Azure Idol", "=ds=#e15#", "", "0.48%"};
-	{ 4, 20870, "", "=q3=Jasper Idol", "=ds=#e15#", "", "0.52%"};
-	{ 5, 20868, "", "=q3=Lambent Idol", "=ds=#e15#", "", "0.48%"};
-	{ 6, 20871, "", "=q3=Obsidian Idol", "=ds=#e15#", "", "0.41%"};
-	{ 7, 20867, "", "=q3=Onyx Idol", "=ds=#e15#", "", "0.36%"};
-	{ 8, 20872, "", "=q3=Vermillion Idol", "=ds=#e15#", "", "0.31%"};
-	{ 10, 22202, "", "=q1=Small Obsidian Shard", "=ds=#e8#"};
-	{ 11, 22203, "", "=q1=Large Obsidian Shard", "=ds=#e8#"};
-	{ 16, 20864, "", "=q2=Bone Scarab", "=ds=#e15#", "", "0.84%"};
-	{ 17, 20861, "", "=q2=Bronze Scarab", "=ds=#e15#", "", "0.88%"};
-	{ 18, 20863, "", "=q2=Clay Scarab", "=ds=#e15#", "", "0.95%"};
-	{ 19, 20862, "", "=q2=Crystal Scarab", "=ds=#e15#", "", "0.99%"};
-	{ 20, 20859, "", "=q2=Gold Scarab", "=ds=#e15#", "", "0.96%"};
-	{ 21, 20865, "", "=q2=Ivory Scarab", "=ds=#e15#", "", "0.93%"};
-	{ 22, 20860, "", "=q2=Silver Scarab", "=ds=#e15#", "", "1.82%"};
-	{ 23, 20858, "", "=q2=Stone Scarab", "=ds=#e15#", "", "0.86%"};
-	{ 25, 21761, "", "=q1=Scarab Coffer Key", "=ds=#e9#", "", "7.27%"};
-};
-
-AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
-	{ 1, 21294, "", "=q3=Book of Healing Touch XI", "=q1=#m1# =ds=#c1#", "", "4.12%"};
-	{ 2, 21296, "", "=q3=Book of Rejuvenation XI", "=q1=#m1# =ds=#c1#", "", "4.20%"};
-	{ 3, 21295, "", "=q3=Book of Starfire VII", "=q1=#m1# =ds=#c1#", "", "4.00%"};
-	{ 4, 21306, "", "=q3=Guide: Serpent Sting IX", "=q1=#m1# =ds=#c2#", "", "4.85%"};
-	{ 5, 21304, "", "=q3=Guide: Multi-Shot V", "=q1=#m1# =ds=#c2#", "", "4.66%"};
-	{ 6, 21307, "", "=q3=Guide: Aspect of the Hawk VII", "=q1=#m1# =ds=#c2#", "", "4.65%"};
-	{ 7, 21279, "", "=q3=Tome of Fireball XII", "=q1=#m1# =ds=#c3#", "", "5.15%"};
-	{ 8, 21214, "", "=q3=Tome of Frostbolt XI", "=q1=#m1# =ds=#c3#", "", "5.10%"};
-	{ 9, 21280, "", "=q3=Tome of Arcane Missiles VIII", "=q1=#m1# =ds=#c3#", "", "5.03%"};
-	{ 10, 21288, "", "=q3=Libram: Blessing of Wisdom VI", "=q1=#m1# =ds=#c4#", "", "3.50%"};
-	{ 11, 21289, "", "=q3=Libram: Blessing of Might VII", "=q1=#m1# =ds=#c4#", "", "3.07%"};
-	{ 12, 21290, "", "=q3=Libram: Holy Light IX", "=q1=#m1# =ds=#c4#", "", "3.09%"};
-	{ 13, 21284, "", "=q3=Codex of Greater Heal V", "=q1=#m1# =ds=#c5#", "", "5.15%"};
-	{ 14, 21287, "", "=q3=Codex of Prayer of Healing V", "=q1=#m1# =ds=#c5#", "", "4.89%"};
-	{ 15, 21285, "", "=q3=Codex of Renew X", "=q1=#m1# =ds=#c5#", "", "4.91%"};
-	{ 16, 21300, "", "=q3=Handbook of Backstab IX", "=q1=#m1# =ds=#c6#", "", "4.29%"};
-	{ 17, 21303, "", "=q3=Handbook of Feint V", "=q1=#m1# =ds=#c6#", "", "4.79%"};
-	{ 18, 21302, "", "=q3=Handbook of Deadly Poison V", "=q1=#m1# =ds=#c6#", "", "5.47%"};
-	{ 19, 21291, "", "=q3=Tablet of Healing Wave X", "=q1=#m1# =ds=#c7#", "", "2.05%"};
-	{ 20, 21292, "", "=q3=Tablet of Strength of Earth Totem V", "=q1=#m1# =ds=#c7#", "", "1.67%"};
-	{ 21, 21293, "", "=q3=Tablet of Grace of Air Totem III", "=q1=#m1# =ds=#c7#", "", "1.81%"};
-	{ 22, 21281, "", "=q3=Grimoire of Shadow Bolt X", "=q1=#m1# =ds=#c8#", "", "4.23%"};
-	{ 23, 21283, "", "=q3=Grimoire of Corruption VII", "=q1=#m1# =ds=#c8#", "", "3.82%"};
-	{ 24, 21282, "", "=q3=Grimoire of Immolate VIII", "=q1=#m1# =ds=#c8#", "", "4.51%"};
-	{ 25, 21298, "", "=q3=Manual of Battle Shout VII", "=q1=#m1# =ds=#c9#", "", "4.84%"};
-	{ 26, 21299, "", "=q3=Manual of Revenge VI", "=q1=#m1# =ds=#c9#", "", "4.78%"};
-	{ 27, 21297, "", "=q3=Manual of Heroic Strike IX", "=q1=#m1# =ds=#c9#", "", "4.83%"};
-};
-
-		------------------------------------------
-		--- Ahn'Qiraj: The Temple of Ahn'Qiraj ---
-		------------------------------------------
-
-	AtlasLoot_Data["AQ40Skeram"] = {
-		{ 1, 21701, "", "=q4=Cloak of Concentrated Hatred", "=ds=#s4#", "", "11.81%"};
-		{ 2, 21708, "", "=q4=Beetle Scaled Wristguards", "=ds=#s8#, #a2#", "", "12.85%"};
-		{ 3, 21698, "", "=q4=Leggings of Immersion", "=ds=#s11#, #a2#", "", " 10.99%"};
-		{ 4, 21699, "", "=q4=Barrage Shoulders", "=ds=#s3#, #a3#", "", "11.50%"};
-		{ 5, 21705, "", "=q4=Boots of the Fallen Prophet", "=ds=#s12#, #a3#", "", "3.33%"};
-		{ 6, 21814, "", "=q4=Breastplate of Annihilation", "=ds=#s5#, #a4#", "", "11.01%"};
-		{ 7, 21704, "", "=q4=Boots of the Redeemed Prophecy", "=ds=#s12#, #a4#", "", "7.75%"};
-		{ 8, 21706, "", "=q4=Boots of the Unwavering Will", "=ds=#s12#, #a4#", "", "12.23%"};
-		{ 10, 21702, "", "=q4=Amulet of Foul Warding", "=ds=#s2#", "", "12.20%"};
-		{ 11, 21700, "", "=q4=Pendant of the Qiraji Guardian", "=ds=#s2#", "", "11.57%"};
-		{ 12, 21707, "", "=q4=Ring of Swarming Thought", "=ds=#s13#", "", "12.57%"};
-		{ 13, 21703, "", "=q4=Hammer of Ji'zhi", "=ds=#h2#, #w6#", "", "7.14%"};
-		{ 14, 21128, "", "=q4=Staff of the Qiraji Prophets", "=ds=#w9#", "", " 6.32%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "1.74%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "1.32%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		{ 27, 22222, "", "=q3=Plans: Thick Obsidian Breastplate", "=ds=#p2# (300)", "", "5.00%"};
-		{ 28, 22196, "", "=q4=Thick Obsidian Breastplate", "=ds=#s5#, #a4#"};
-		Next = "AQ40Vem";
-	};
-
-	AtlasLoot_Data["AQ40Vem"] = {
-		{ 1, 21697, "", "=q4=Cape of the Trinity", "=ds=#s4# =q2=#m5#", "", "14%"};
-		{ 2, 21694, "", "=q4=Ternary Mantle", "=ds=#s3#, #a1# =q2=#m5#", "", "16%"};
-		{ 3, 21696, "", "=q4=Robes of the Triumvirate", "=ds=#s5#, #a1# =q2=#m5#", "", "13%"};
-		{ 4, 21693, "", "=q4=Guise of the Devourer", "=ds=#s1#, #a2# =q2=#m5#", "", "16%"};
-		{ 5, 21692, "", "=q4=Triad Girdle", "=ds=#s10#, #a4# =q2=#m5#", "", "16%"};
-		{ 6, 21695, "", "=q4=Angelista's Touch", "=ds=#s13# =q2=#m5#", "", "14%"};
-		{ 8, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3# =q2=#m5#", "", "7%"};
-		{ 9, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3# =q2=#m5#", "", "7%"};
-		{ 11, 21680, "", "=q4=Vest of Swift Execution", "=ds=#s5#, #a2# =q2=#n115#", "", "21%"};
-		{ 12, 21603, "", "=q4=Wand of Qiraji Nobility", "=ds=#w12# =q2=#n115#", "", "25%"};
-		{ 13, 21681, "", "=q4=Ring of the Devoured", "=ds=#s13# =q2=#n115#", "", "17%"};
-		{ 14, 21685, "", "=q4=Petrified Scarab", "=ds=#s14# =q2=#n115#", "", "21%"};
-		{ 16, 21689, "", "=q4=Gloves of Ebru", "=ds=#s9#, #a2# =q2=#n116#", "", "18%"};
-		{ 17, 21691, "", "=q4=Ooze-ridden Gauntlets", "=ds=#s9#, #a4# =q2=#n116#", "", "20%"};
-		{ 18, 21688, "", "=q4=Boots of the Fallen Hero", "=ds=#s12#, #a4# =q2=#n116#", "", "18%"};
-		{ 19, 21690, "", "=q4=Angelista's Charm", "=ds=#s2# =q2=#n116#", "", "20%"};
-		{ 21, 21686, "", "=q4=Mantle of Phrenic Power", "=ds=#s3#, #a1# =q2=#n117#", "", "13%"};
-		{ 22, 21682, "", "=q4=Bile-Covered Gauntlets", "=ds=#s9#, #a2# =q2=#n117#", "", "19%"};
-		{ 23, 21684, "", "=q4=Mantle of the Desert's Fury", "=ds=#s3#, #a3# =q2=#n117#", "", "16%"};
-		{ 24, 21683, "", "=q4=Mantle of the Desert Crusade", "=ds=#s3#, #a4# =q2=#n117#", "", "14%"};
-		{ 25, 21687, "", "=q4=Ukko's Ring of Darkness", "=ds=#s13# =q2=#n117#", "", "20%"};
-		Prev = "AQ40Skeram";
-		Next = "AQ40Sartura";
-	};
-
-	AtlasLoot_Data["AQ40Sartura"] = {
-		{ 1, 21671, "", "=q4=Robes of the Battleguard", "=ds=#s5#, #a1#", "", "13.30%"};
-		{ 2, 21676, "", "=q4=Leggings of the Festering Swarm", "=ds=#s11#, #a1#", "", "13.02%"};
-		{ 3, 21648, "", "=q4=Recomposed Boots", "=ds=#s12#, #a1#", "", "7.64%"};
-		{ 4, 21669, "", "=q4=Creeping Vine Helm", "=ds=#s1#, #a2#", "", "12.33%"};
-		{ 5, 21672, "", "=q4=Gloves of Enforcement", "=ds=#s9#, #a2#", "", "11.87%"};
-		{ 6, 21675, "", "=q4=Thick Qirajihide Belt", "=ds=#s10#, #a2#", "", "13.26%"};
-		{ 7, 21668, "", "=q4=Scaled Leggings of Qiraji Fury", "=ds=#s11#, #a3#", "", "4.03%"};
-		{ 8, 21674, "", "=q4=Gauntlets of Steadfast Determination", "=ds=#s9#, #a4#", "", "11.07%"};
-		{ 9, 21667, "", "=q4=Legplates of Blazing Light", "=ds=#s11#, #a4#", "", "7.44%"};
-		{ 11, 21678, "", "=q4=Necklace of Purity", "=ds=#s2#", "", "14.21%"};
-		{ 12, 21670, "", "=q4=Badge of the Swarmguard", "=ds=#s14#", "", "13.22%"};
-		{ 13, 21666, "", "=q4=Sartura's Might", "=ds=#s15#", "", "6.47%"};
-		{ 14, 21673, "", "=q4=Silithid Claw", "=ds=#h3#, #w13#", "", "7.16%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.01%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.02%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Vem";
-		Next = "AQ40Fankriss";
-	};
-
-	AtlasLoot_Data["AQ40Fankriss"] = {
-		{ 1, 21627, "", "=q4=Cloak of Untold Secrets", "=ds=#s4#", "", "12.51%"};
-		{ 2, 21663, "", "=q4=Robes of the Guardian Saint", "=ds=#s5#, #a1#", "", "12.95%"};
-		{ 3, 21665, "", "=q4=Mantle of Wicked Revenge", "=ds=#s3#, #a2#", "", "13.25%"};
-		{ 4, 21645, "", "=q4=Hive Tunneler's Boots", "=ds=#s12#, #a2#", "", "14.04%"};
-		{ 5, 21651, "", "=q4=Scaled Sand Reaver Leggings", "=ds=#s11#, #a3#", "", "12.91%"};
-		{ 6, 21639, "", "=q4=Pauldrons of the Unrelenting", "=ds=#s3#, #a4#", "", "14.78%"};
-		{ 7, 21652, "", "=q4=Silithid Carapace Chestguard", "=ds=#s5#, #a4#", "", "10.29%"};
-		{ 9, 21647, "", "=q4=Fetish of the Sand Reaver", "=ds=#s14#", "", "13.82%"};
-		{ 10, 21664, "", "=q4=Barbed Choker", "=ds=#s2#", "", "12.63%"};
-		{ 11, 22402, "", "=q4=Libram of Grace", "=ds=#s16#, #w16#", "", "4.21%"};
-		{ 12, 22396, "", "=q4=Totem of Life", "=ds=#s16#, #w15#", "", "1.69%"};
-		{ 13, 21650, "", "=q4=Ancient Qiraji Ripper", "=ds=#h1#, #w10#", "", " 7.19%"};
-		{ 14, 21635, "", "=q4=Barb of the Sand Reaver", "=ds=#w7#", "", "6.61%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.84%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.09%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Sartura";
-		Next = "AQ40Viscidus";
-	};
-
-	AtlasLoot_Data["AQ40Viscidus"] = {
-		{ 1, 21624, "", "=q4=Gauntlets of Kalimdor", "=ds=#s9#, #a3#", "", "3.90%"};
-		{ 2, 21626, "", "=q4=Slime-coated Leggings", "=ds=#s11#, #a3#", "", "13.66%"};
-		{ 3, 21623, "", "=q4=Gauntlets of the Righteous Champion", "=ds=#s9#, #a4#", "", "5.37%"};
-		{ 5, 21677, "", "=q4=Ring of the Qiraji Fury", "=ds=#s13#", "", "2.93%"};
-		{ 6, 21625, "", "=q4=Scarab Brooch", "=ds=#s14#", "", "21.46%"};
-		{ 7, 22399, "", "=q4=Idol of Health", "=ds=#s16#, #w14#", "", "7.32%"};
-		{ 8, 21622, "", "=q4=Sharpened Silithid Femur", "=ds=#h3#, #w10#", "", "15.12%"};
-		{ 10, 20932, "", "=q4=Qiraji Bindings of Dominance", "=q1=#m1# =ds=#c8#, #c3#, #c7#, #c1#, #c4#", "", "100%"};
-		{ 11, 20928, "", "=q4=Qiraji Bindings of Command", "=q1=#m1# =ds=#c5#, #c6#, #c9#, #c2#", "", "100%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "3.19%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "6.86%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Fankriss";
-		Next = "AQ40Huhuran";
-	};
-
-	AtlasLoot_Data["AQ40Huhuran"] = {
-		{ 1, 21619, "", "=q4=Gloves of the Messiah", "=ds=#s9#, #a1#", "", "12.01%"};
-		{ 2, 21621, "", "=q4=Cloak of the Golden Hive", "=ds=#s4#", "", "12.56%"};
-		{ 3, 21617, "", "=q4=Wasphide Gauntlets", "=ds=#s9#, #a2#", "", "11.97%"};
-		{ 4, 21618, "", "=q4=Hive Defiler Wristguards", "=ds=#s8#, #a4#", "", "10.34%"};
-		{ 6, 21620, "", "=q4=Ring of the Martyr", "=ds=#s13#", "", "12.97%"};
-		{ 7, 21616, "", "=q4=Huhuran's Stinger", "=ds=#w2#", "", "5.71%"};
-		{ 9, 20932, "", "=q4=Qiraji Bindings of Dominance", "=q1=#m1# =ds=#c8#, #c3#, #c7#, #c1#, #c4#", "", "100%"};
-		{ 10, 20928, "", "=q4=Qiraji Bindings of Command", "=q1=#m1# =ds=#c5#, #c6#, #c9#, #c2#", "", "100%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.31%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.11%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Viscidus";
-		Next = "AQ40Emperors";
-	};
-
-	AtlasLoot_Data["AQ40Emperors"] = {
-		{ 1, 20930, "", "=q4=Vek'lor's Diadem", "=q1=#m1# =ds=#c7#, #c1#, #c6#, #c2#, #c4#", "", "100%"};
-		{ 2, 21600, "", "=q4=Boots of Epiphany", "=ds=#s12#, #a1#", "", "15.77%"};
-		{ 3, 21602, "", "=q4=Qiraji Execution Bracers", "=ds=#s8#, #a2#", "", "15.95%"};
-		{ 4, 21599, "", "=q4=Vek'lor's Gloves of Devastation", "=ds=#s9#, #a3#", "", "15.77%"};
-		{ 5, 21598, "", "=q4=Royal Qiraji Belt", "=ds=#s10#, #a4#", "", "9.84%"};
-		{ 6, 21597, "", "=q4=Royal Scepter of Vek'lor", "=ds=#s15#", "", "6.99%"};
-		{ 7, 21601, "", "=q4=Ring of Emperor Vek'lor", "=ds=#s13#", "", "17.27%"};
-		{ 8, 20735, "", "=q3=Formula: Enchant Cloak - Subtlety", "=ds=#p4# (300)", "", "6.62%"};
-		{ 11, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "6.25%"};
-		{ 12, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 13, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 14, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 15, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		{ 16, 20926, "", "=q4=Vek'nilash's Circlet", "=q1=#m1# =ds=#c8#, #c3#, #c5#, #c9#", "", "100%"};
-		{ 17, 21604, "", "=q4=Bracelets of Royal Redemption", "=ds=#s8#, #a1#", "", "12.51%"};
-		{ 18, 21605, "", "=q4=Gloves of the Hidden Temple", "=ds=#s9#, #a2#", "", "15.45%"};
-		{ 19, 21609, "", "=q4=Regenerating Belt of Vek'nilash", "=ds=#s10#, #a2#", "", "13.35%"};
-		{ 20, 21607, "", "=q4=Grasp of the Fallen Emperor", "=ds=#s10#, #a3#", "", "2.72%"};
-		{ 21, 21606, "", "=q4=Belt of the Fallen Emperor", "=ds=#s10#, #a4#", "", "12.22%"};
-		{ 22, 21679, "", "=q4=Kalimdor's Revenge", "=ds=#h2#, #w10#", "", "9.25%"};
-		{ 23, 21608, "", "=q4=Amulet of Vek'nilash", "=ds=#s2#", "", "14.25%"};
-		{ 24, 20726, "", "=q3=Formula: Enchant Gloves - Threat", "=ds=#p4# (300)", "", "6.24%"};
-		{ 26, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "5.00%"};
-		{ 27, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 28, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 29, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		Prev = "AQ40Huhuran";
-		Next = "AQ40Ouro";
-	};
-
-	AtlasLoot_Data["AQ40Ouro"] = {
-		{ 1, 21615, "", "=q4=Don Rigoberto's Lost Hat", "=ds=#s1#, #a1#", "", "28.63%"};
-		{ 2, 21611, "", "=q4=Burrower Bracers", "=ds=#s8#, #a1#", "", "24.44%"};
-		{ 3, 23558, "", "=q4=The Burrower's Shell", "=ds=#s14#", "", "2.90%"};
-		{ 4, 23570, "", "=q4=Jom Gabbar", "=ds=#s14#", "", "2.80%"};
-		{ 5, 23557, "", "=q4=Larvae of the Great Worm", "=ds=#w5#", "", "3.95%"};
-		{ 6, 21610, "", "=q4=Wormscale Blocker", "=ds=#w8#", "", "16.54%"};
-		{ 8, 20927, "", "=q4=Ouro's Intact Hide", "=q1=#m1# =ds=#c3#, #c5#, #c6#, #c9#", "", "100%"};
-		{ 9, 20931, "", "=q4=Skin of the Great Sandworm", "=q1=#m1# =ds=#c8#, #c7#, #c1#, #c2#, #c4#", "", "100%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "5.20%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4# =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4# =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4# =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.10%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4# =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4# =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4# =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4# =ds=#w8#"};
-		Prev = "AQ40Emperors";
-		Next = "AQ40CThun";
-	};
-
-	AtlasLoot_Data["AQ40CThun"] = {
-		{ 1, 21583, "", "=q4=Cloak of Clarity", "=ds=#s4#", "", "14.45%"};
-		{ 2, 22731, "", "=q4=Cloak of the Devoured", "=ds=#s4#", "", "16.34%"};
-		{ 3, 21585, "", "=q4=Dark Storm Gauntlets", "=ds=#s9#, #a1#", "", "13.63%"};
-		{ 4, 22730, "", "=q4=Eyestalk Waist Cord", "=ds=#s10#, #a1#", "", "10.41%"};
-		{ 5, 21582, "", "=q4=Grasp of the Old God", "=ds=#s10#, #a1#", "", "15.04%"};
-		{ 6, 21586, "", "=q4=Belt of Never-ending Agony", "=ds=#s10#, #a2#", "", "11.24%"};
-		{ 7, 21581, "", "=q4=Gauntlets of Annihilation", "=ds=#s9#, #a4#", "", "12.04%"};
-		{ 9, 22732, "", "=q4=Mark of C'Thun", "=ds=#s2#", "", "10.62%"};
-		{ 10, 21596, "", "=q4=Ring of the Godslayer", "=ds=#s13#", "", "11.83%"};
-		{ 11, 21579, "", "=q4=Vanquished Tentacle of C'Thun", "=ds=#s14#", "", "12.18%"};
-		{ 12, 21126, "", "=q4=Death's Sting", "=ds=#h1#, #w4#", "", "6.84%"};
-		{ 13, 21134, "", "=q4=Dark Edge of Insanity", "=ds=#h2#, #w1#", "", "5.93%"};
-		{ 14, 21839, "", "=q4=Scepter of the False Prophet", "=ds=#h3#, #w6#", "", "4.75%"};
-		{ 16, 20933, "", "=q4=Husk of the Old God", "=q1=#m1# =ds=#c8#, #c3#, #c1#, #c5#", "", "100%"};
-		{ 17, 20929, "", "=q4=Carapace of the Old God", "=q1=#m1# =ds=#c7#, #c6#, #c9#, #c2#, #c4#", "", "100%"};
-		{ 19, 21221, "", "=q4=Eye of C'Thun", "=ds=#m2#", "", "100%"};
-		{ 20, 21710, "", "=q4=Cloak of the Fallen God", "=q1=#m4#: =ds=#s4#"};
-		{ 21, 21712, "", "=q4=Amulet of the Fallen God", "=q1=#m4#: =ds=#s2#"};
-		{ 22, 21709, "", "=q4=Ring of the Fallen God", "=q1=#m4#: =ds=#s13#"};
-		{ 24, 22734, "", "=q1=Base of Atiesh", "=ds=#m3#"};
-		{ 25, 22632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#"};
-		{ 26, 22589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#"};
-		{ 27, 22631, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c5#"};
-		{ 28, 22630, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c8#"};
-		Prev = "AQ40Ouro";
-	};
-
-	AtlasLoot_Data["AQ40Trash1"] = {
-		{ 1, 21838, "", "=q4=Garb of Royal Ascension", "=ds=#s5#, #a1#", "", "0.20%"};
-		{ 2, 21888, "", "=q4=Gloves of the Immortal", "=ds=#s9#, #a1#", "", "0.16%"};
-		{ 3, 21889, "", "=q4=Gloves of the Redeemed Prophecy", "=ds=#s9#, #a4# =q1=#m1# =ds=#c4#", "", "0.39%"};
-		{ 4, 21836, "", "=q4=Ritssyn's Ring of Chaos", "=ds=#s13#", "", "0.18%"};
-		{ 5, 21891, "", "=q4=Shard of the Fallen Star", "=ds=#s14#", "", "0.59%"};
-		{ 6, 21856, "", "=q4=Neretzek, The Blood Drinker", "=ds=#h2#, #w1#", "", "0.20%"};
-		{ 7, 21837, "", "=q4=Anubisath Warhammer", "=ds=#h1#, #w6#", "", "0.21%"};
-		{ 9, 22202, "", "=q1=Small Obsidian Shard", "=ds=#e8#"};
-		{ 10, 22203, "", "=q1=Large Obsidian Shard", "=ds=#e8#"};
-		{ 16, 21218, "", "=q3=Blue Qiraji Resonating Crystal", "=ds=#e12#", "", "10.64%"};
-		{ 17, 21324, "", "=q3=Yellow Qiraji Resonating Crystal", "=ds=#e12#", "", "12.15%"};
-		{ 18, 21323, "", "=q3=Green Qiraji Resonating Crystal", "=ds=#e12#", "", "11.62%"};
-		{ 19, 21321, "", "=q3=Red Qiraji Resonating Crystal", "=ds=#e12#", "", "1.39%"};
-		Next = "AQ40Trash2";
-	};
-
-	AtlasLoot_Data["AQ40Trash2"] = {
-		{ 1, 20876, "", "=q3=Idol of Death", "=ds=#e15#", "", "0.26%"};
-		{ 2, 20879, "", "=q3=Idol of Life", "=ds=#e15#", "", "0.29%"};
-		{ 3, 20875, "", "=q3=Idol of Night", "=ds=#e15#", "", "0.29%"};
-		{ 4, 20878, "", "=q3=Idol of Rebirth", "=ds=#e15#", "", "0.28%"};
-		{ 5, 20881, "", "=q3=Idol of Strife", "=ds=#e15#", "", "0.21%"};
-		{ 6, 20877, "", "=q3=Idol of the Sage", "=ds=#e15#", "", "0.33%"};
-		{ 7, 20874, "", "=q3=Idol of the Sun", "=ds=#e15#", "", "0.21%"};
-		{ 8, 20882, "", "=q3=Idol of War", "=ds=#e15#", "", "0.30%"};
-		{ 10, 21230, "", "=q1=Ancient Qiraji Artifact", "=ds=#m2#"};
-		{ 12, 21762, "", "=q1=Greater Scarab Coffer Key", "=ds=#e9#", "", "7.03%"};
-		{ 16, 20864, "", "=q2=Bone Scarab", "=ds=#e15#", "", "0.84%"};
-		{ 17, 20861, "", "=q2=Bronze Scarab", "=ds=#e15#", "", "0.88%"};
-		{ 18, 20863, "", "=q2=Clay Scarab", "=ds=#e15#", "", "0.95%"};
-		{ 19, 20862, "", "=q2=Crystal Scarab", "=ds=#e15#", "", "0.99%"};
-		{ 20, 20859, "", "=q2=Gold Scarab", "=ds=#e15#", "", "0.96%"};
-		{ 21, 20865, "", "=q2=Ivory Scarab", "=ds=#e15#", "", "0.93%"};
-		{ 22, 20860, "", "=q2=Silver Scarab", "=ds=#e15#", "", "1.82%"};
-		{ 23, 20858, "", "=q2=Stone Scarab", "=ds=#e15#", "", "0.86%"};
-		Prev = "AQ40Trash1";
-	};
-
-		-------------------
-		--- AQ Enchants ---
-		-------------------
-
-	AtlasLoot_Data["AQEnchants"] = {
-		{ 1, 20728, "", "=q3=Formula: Enchant Gloves - Frost Power", "=ds=#p4# (300)"};
-		{ 2, 20731, "", "=q3=Formula: Enchant Gloves - Superior Agility", "=ds=#p4# (300)"};
-		{ 3, 20734, "", "=q3=Formula: Enchant Cloak - Stealth", "=ds=#p4# (300)"};
-		{ 4, 20729, "", "=q3=Formula: Enchant Gloves - Fire Power", "=ds=#p4# (300)"};
-		{ 5, 20736, "", "=q3=Formula: Enchant Cloak - Dodge", "=ds=#p4# (300)"};
-		{ 6, 20730, "", "=q3=Formula: Enchant Gloves - Healing Power", "=ds=#p4# (300)"};
-		{ 7, 20727, "", "=q3=Formula: Enchant Gloves - Shadow Power", "=ds=#p4# (300)"};
-	};
-
-	AtlasLoot_Data["AQOpening"] = {
-		{ 1, 21138, "", "=q1=Red Scepter Shard", "=ds=#m3#"};
-		{ 2, 21530, "", "=q4=Onyx Embedded Leggings", "=ds=#s11#, #a3#"};
-		{ 3, 21529, "", "=q4=Amulet of Shadow Shielding", "=ds=#s2#"};
-		{ 5, 21139, "", "=q1=Green Scepter Shard", "=ds=#m3#"};
-		{ 6, 21532, "", "=q4=Drudge Boots", "=ds=#s12#, #a2#"};
-		{ 7, 21531, "", "=q4=Drake Tooth Necklace", "=ds=#s2#"};
-		{ 9, 21137, "", "=q1=Blue Scepter Shard", "=ds=#m3#"};
-		{ 10, 21517, "", "=q4=Gnomish Turban of Psychic Might", "=ds=#s1#, #a1#"};
-		{ 11, 21527, "", "=q4=Darkwater Robes", "=ds=#s5#, #a1#"};
-		{ 12, 21526, "", "=q4=Band of Icy Depths", "=ds=#s13#"};
-		{ 13, 21025, "", "=q4=Recipe: Dirge's Kickin' Chimaerok Chops", "=ds=#p3# (300)"};
-		{ 16, 21175, "", "=q1=The Scepter of the Shifting Sands", "=ds=#m3#"};
-		{ 17, 21176, "", "=q5=Black Qiraji Resonating Crystal", "=ds=#e12#"};
-		{ 18, 21522, "", "=q4=Shadowsong's Sorrow", "=ds=#h1#, #w4#"};
-		{ 19, 21523, "", "=q4=Fang of Korialstrasz", "=ds=#h3#, #w4#"};
-		{ 20, 21520, "", "=q4=Ravencrest's Legacy", "=ds=#h1#, #w10#"};
-		{ 21, 21521, "", "=q4=Runesword of the Red", "=ds=#h3#, #w10#"};
-	};
-
+    AtlasLoot_Data["AQ20Kurinnaxx25Man"] = {
+        { 1, 321499, "", "=q4=Vestments of the Shifting Sands", "=ds=#s5#, #a1#", "", "7.34%"};
+        { 2, 321498, "", "=q4=Qiraji Sacrificial Dagger", "=ds=#h1#, #w4#", "", "7.53%"};
+        { 4, 321500, "", "=q3=Belt of the Inquisition", "=ds=#s10#, #a1#", "", "14.84%"};
+        { 5, 321501, "", "=q3=Toughened Silithid Hide Gloves", "=ds=#s9#, #a2#", "", "12.91%"};
+        { 6, 321502, "", "=q3=Sand Reaver Wristguards", "=ds=#s8#, #a3#", "", "13.79%"};
+        { 7, 321503, "", "=q3=Belt of the Sand Reaver", "=ds=#s10#, #a4#", "", "14.38%"};
+        { 9, 22217, "", "=q1=Kurinnaxx's Venom Sac", "=ds=#m3#", "", "100%"};
+        { 16, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "30.83%"};
+        { 17, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "30.25%"};
+        { 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "7.98%"};
+        { 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "7.80%"};
+        Next = "AQ20Rajaxx25Man";
+    };
+    
+    AtlasLoot_Data["AQ20Rajaxx25Man"] = {
+        { 1, 321493, "", "=q4=Boots of the Vanguard", "=ds=#s12#, #a2#", "", "8.13%"};
+        { 2, 321492, "", "=q4=Manslayer of the Qiraji", "=ds=#h2#, #w10#", "", "10.04%"};
+        { 4, 321496, "", "=q3=Bracers of Qiraji Command", "=ds=#s8#, #a1#", "", "15.79%"};
+        { 5, 321494, "", "=q3=Southwind's Grasp", "=ds=#s10#, #a2#", "", "15.13%"};
+        { 6, 321497, "", "=q3=Boots of the Qiraji General", "=ds=#s12#, #a3#", "", "15.45%"};
+        { 7, 321495, "", "=q3=Legplates of the Qiraji Command", "=ds=#s11#, #a4#", "", "15.47%"};
+        { 9, 0, "INV_Box_01", "=q6="..AL["Rajaxx's Captains"], ""};
+        { 10, 221810, "", "=q3=Treads of the Wandering Nomad", "=ds=#s12#, #a1#", "", "3.11%"};
+        { 11, 221809, "", "=q3=Fury of the Forgotten Swarm", "=ds=#s2#", "", "3.20%"};
+        { 12, 221806, "", "=q3=Gavel of Qiraji Authority", "=ds=#h2#, #w6#", "", "3.04%"};
+        { 16, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "36.51%"};
+        { 17, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "33.97%"};
+        { 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "8.82%"};
+        { 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.56%"};
+        { 21, 0, "INV_Box_01", "=q6="..BabbleBoss["Lieutenant General Andorov"], ""};
+        { 22, 22221, "", "=q1=Plans: Obsidian Mail Tunic", "=ds=#p2# (300)"};
+        { 23, 22219, "", "=q1=Plans: Jagged Obsidian Shield", "=ds=#p2# (300)"};
+        Prev = "AQ20Kurinnaxx25Man";
+        Next = "AQ20Moam25Man";
+    };
+    
+    AtlasLoot_Data["AQ20Moam25Man"] = {
+        { 1, 321472, "", "=q4=Dustwind Turban", "=ds=#s1#, #a1#", "", "7.76%"};
+        { 2, 321467, "", "=q4=Thick Silithid Chestguard", "=ds=#s5#, #a2#", "", "6.76%"};
+        { 3, 321479, "", "=q4=Gauntlets of the Immovable", "=ds=#s9#, #a4#", "", "7.12%"};
+        { 4, 321471, "", "=q4=Talon of Furious Concentration", "=ds=#s15#", "", "7.39%"};
+        { 6, 321470, "", "=q3=Cloak of the Savior", "=ds=#s4#", "", "14.23%"};
+        { 7, 321468, "", "=q3=Mantle of Maz'Nadir", "=ds=#s3#, #a1#", "", "15.86%"};
+        { 8, 321455, "", "=q3=Southwind Helm", "=ds=#s1#, #a2#", "", "14.08%"};
+        { 9, 321474, "", "=q3=Chitinous Shoulderguards", "=ds=#s3#, #a2#", "", "15.25%"};
+        { 10, 221469, "", "=q3=Gauntlets of Southwind", "=ds=#s9#, #a2#", "", "15.28%"};
+        { 11, 221476, "", "=q3=Obsidian Scaled Leggings", "=ds=#s11#, #a3#", "", "6.81%"};
+        { 12, 221475, "", "=q3=Legplates of the Destroyer", "=ds=#s11#, #a4#", "", "10.39%"};
+        { 13, 221477, "", "=q3=Ring of Fury", "=ds=#s13#", "", "14.42%"};
+        { 14, 221473, "", "=q3=Eye of Moam", "=ds=#s14#", "", "14.74%"};
+        { 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "36.38%"};
+        { 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "33.16%"};
+        { 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "7.56%"};
+        { 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.34%"};
+        { 21, 22220, "", "=q3=Plans: Black Grasp of the Destroyer", "=ds=#p2# (300)", "", "4.11%"};
+        { 22, 22194, "", "=q4=Black Grasp of the Destroyer", "=ds=#s9#, #a3#"};
+        Prev = "AQ20Rajaxx25Man";
+        Next = "AQ20Buru25Man";
+    };
+    
+    AtlasLoot_Data["AQ20Buru25Man"] = {
+        { 1, 321487, "", "=q4=Slimy Scaled Gauntlets", "=ds=#s9#, #a3#", "", "2.64%"};
+        { 2, 321486, "", "=q4=Gloves of the Swarm", "=ds=#s9#, #a4#", "", "5.22%"};
+        { 3, 321485, "", "=q4=Buru's Skull Fragment", "=ds=#w8#", "", "7.88%"};
+        { 5, 321489, "", "=q3=Quicksand Waders", "=ds=#s12#, #a1#", "", "15.95%"};
+        { 6, 321491, "", "=q3=Scaled Bracers of the Gorger", "=ds=#s8#, #a2#", "", "16.51%"};
+        { 7, 321490, "", "=q3=Slime Kickers", "=ds=#s12#, #a4#", "", "15.99%"};
+        { 8, 321488, "", "=q3=Fetish of Chitinous Spikes", "=ds=#s14#", "", "17.22%"};
+        { 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "8.31%"};
+        { 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "8.98%"};
+        { 18, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "9.77%"};
+        { 19, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "9.84%"};
+        { 20, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "26.98%"};
+        { 21, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "25.58%"};
+        Prev = "AQ20Moam25Man";
+        Next = "AQ20Ayamiss";
+    };
+    
+    AtlasLoot_Data["AQ20Ayamiss25Man"] = {
+        { 1, 321479, "", "=q4=Gauntlets of the Immovable", "=ds=#s9#, #a4#", "", "6.18%"};
+        { 2, 321466, "", "=q4=Stinger of Ayamiss", "=ds=#h3#, #w6#", "", "2.06%"};
+        { 3, 321478, "", "=q4=Bow of Taut Sinew", "=ds=#w2#", "", "10.14%"};
+        { 5, 321484, "", "=q3=Helm of Regrowth", "=ds=#s1#, #a2#", "", "15.85%"};
+        { 6, 321480, "", "=q3=Scaled Silithid Gauntlets", "=ds=#s9#, #a3#", "", "17.10%"};
+        { 7, 321482, "", "=q3=Boots of the Fiery Sands", "=ds=#s12#, #a3#", "", "4.92%"};
+        { 8, 321481, "", "=q3=Boots of the Desert Protector", "=ds=#s12#, #a4#", "", "11.08%"};
+        { 9, 321483, "", "=q3=Ring of the Desert Winds", "=ds=#s13#", "", "16.32%"};
+        { 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "8.24%"};
+        { 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "8.21%"};
+        { 18, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "8.85%"};
+        { 19, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "10.97%"};
+        { 20, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "26.98%"};
+        { 21, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "27.50%"};
+        Prev = "AQ20Buru25Man";
+        Next = "AQ20Ossirian25Man";
+    };
+    
+    AtlasLoot_Data["AQ20Ossirian25Man"] = {
+        { 1, 321456, "", "=q4=Sandstorm Cloak", "=ds=#s4#", "", "10.89%"};
+        { 2, 321464, "", "=q4=Shackles of the Unscarred", "=ds=#s8#, #a1#", "", "12.62%"};
+        { 3, 321462, "", "=q4=Gloves of Dark Wisdom", "=ds=#s9#, #a1#", "", "11.89%"};
+        { 4, 321461, "", "=q4=Leggings of the Black Blizzard", "=ds=#s11#, #a1#", "", "12.83%"};
+        { 5, 321458, "", "=q4=Gauntlets of New Life", "=ds=#s9#, #a2#", "", "13.25%"};
+        { 6, 321454, "", "=q4=Runic Stone Shoulders", "=ds=#s3#, #a3#", "", "4.10%"};
+        { 7, 321463, "", "=q4=Ossirian's Binding", "=ds=#s10#, #a3#", "", "12.27%"};
+        { 8, 321460, "", "=q4=Helm of Domination", "=ds=#s1#, #a4#", "", "12.18%"};
+        { 9, 321453, "", "=q4=Mantle of the Horusath", "=ds=#s3#, #a4#", "", "6.96%"};
+        { 10, 221457, "", "=q4=Bracers of Brutality", "=ds=#s8#, #a4#", "", "10.74%"};
+        { 11, 221715, "", "=q4=Sand Polished Hammer", "=ds=#h1#, #w6#", "", "5.95%"};
+        { 12, 221459, "", "=q4=Crossbow of Imminent Doom", "=ds=#w3#", "", "6.12%"};
+        { 13, 221452, "", "=q4=Staff of the Ruins", "=ds=#w9#", "", "10.32%"};
+        { 16, 21220, "", "=q4=Head of Ossirian the Unscarred", "=ds=#m2#", "", "100%"};
+        { 17, 21504, "", "=q4=Charm of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 18, 21507, "", "=q4=Amulet of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 19, 21505, "", "=q4=Choker of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 20, 21506, "", "=q4=Pendant of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 22, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "35.27%"};
+        { 23, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "30.69%"};
+        { 24, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "9.65%"};
+        { 25, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.53%"};
+        Prev = "AQ20Ayamiss25Man";
+    };
+    
+    AtlasLoot_Data["AQ20Trash25Man"] = {
+        { 1, 20873, "", "=q3=Alabaster Idol", "=ds=#e15#", "", "0.39%"};
+        { 2, 20869, "", "=q3=Amber Idol", "=ds=#e15#", "", "0.36%"};
+        { 3, 20866, "", "=q3=Azure Idol", "=ds=#e15#", "", "0.48%"};
+        { 4, 20870, "", "=q3=Jasper Idol", "=ds=#e15#", "", "0.52%"};
+        { 5, 20868, "", "=q3=Lambent Idol", "=ds=#e15#", "", "0.48%"};
+        { 6, 20871, "", "=q3=Obsidian Idol", "=ds=#e15#", "", "0.41%"};
+        { 7, 20867, "", "=q3=Onyx Idol", "=ds=#e15#", "", "0.36%"};
+        { 8, 20872, "", "=q3=Vermillion Idol", "=ds=#e15#", "", "0.31%"};
+        { 10, 22202, "", "=q1=Small Obsidian Shard", "=ds=#e8#"};
+        { 11, 22203, "", "=q1=Large Obsidian Shard", "=ds=#e8#"};
+        { 16, 20864, "", "=q2=Bone Scarab", "=ds=#e15#", "", "0.84%"};
+        { 17, 20861, "", "=q2=Bronze Scarab", "=ds=#e15#", "", "0.88%"};
+        { 18, 20863, "", "=q2=Clay Scarab", "=ds=#e15#", "", "0.95%"};
+        { 19, 20862, "", "=q2=Crystal Scarab", "=ds=#e15#", "", "0.99%"};
+        { 20, 20859, "", "=q2=Gold Scarab", "=ds=#e15#", "", "0.96%"};
+        { 21, 20865, "", "=q2=Ivory Scarab", "=ds=#e15#", "", "0.93%"};
+        { 22, 20860, "", "=q2=Silver Scarab", "=ds=#e15#", "", "1.82%"};
+        { 23, 20858, "", "=q2=Stone Scarab", "=ds=#e15#", "", "0.86%"};
+        { 25, 21761, "", "=q1=Scarab Coffer Key", "=ds=#e9#", "", "7.27%"};
+    };
+    
+    AtlasLoot_Data["AQ20ClassBooks25Man"] = {
+        { 1, 21294, "", "=q3=Book of Healing Touch XI", "=q1=#m1# =ds=#c1#", "", "4.12%"};
+        { 2, 21296, "", "=q3=Book of Rejuvenation XI", "=q1=#m1# =ds=#c1#", "", "4.20%"};
+        { 3, 21295, "", "=q3=Book of Starfire VII", "=q1=#m1# =ds=#c1#", "", "4.00%"};
+        { 4, 21306, "", "=q3=Guide: Serpent Sting IX", "=q1=#m1# =ds=#c2#", "", "4.85%"};
+        { 5, 21304, "", "=q3=Guide: Multi-Shot V", "=q1=#m1# =ds=#c2#", "", "4.66%"};
+        { 6, 21307, "", "=q3=Guide: Aspect of the Hawk VII", "=q1=#m1# =ds=#c2#", "", "4.65%"};
+        { 7, 21279, "", "=q3=Tome of Fireball XII", "=q1=#m1# =ds=#c3#", "", "5.15%"};
+        { 8, 21214, "", "=q3=Tome of Frostbolt XI", "=q1=#m1# =ds=#c3#", "", "5.10%"};
+        { 9, 21280, "", "=q3=Tome of Arcane Missiles VIII", "=q1=#m1# =ds=#c3#", "", "5.03%"};
+        { 10, 21288, "", "=q3=Libram: Blessing of Wisdom VI", "=q1=#m1# =ds=#c4#", "", "3.50%"};
+        { 11, 21289, "", "=q3=Libram: Blessing of Might VII", "=q1=#m1# =ds=#c4#", "", "3.07%"};
+        { 12, 21290, "", "=q3=Libram: Holy Light IX", "=q1=#m1# =ds=#c4#", "", "3.09%"};
+        { 13, 21284, "", "=q3=Codex of Greater Heal V", "=q1=#m1# =ds=#c5#", "", "5.15%"};
+        { 14, 21287, "", "=q3=Codex of Prayer of Healing V", "=q1=#m1# =ds=#c5#", "", "4.89%"};
+        { 15, 21285, "", "=q3=Codex of Renew X", "=q1=#m1# =ds=#c5#", "", "4.91%"};
+        { 16, 21300, "", "=q3=Handbook of Backstab IX", "=q1=#m1# =ds=#c6#", "", "4.29%"};
+        { 17, 21303, "", "=q3=Handbook of Feint V", "=q1=#m1# =ds=#c6#", "", "4.79%"};
+        { 18, 21302, "", "=q3=Handbook of Deadly Poison V", "=q1=#m1# =ds=#c6#", "", "5.47%"};
+        { 19, 21291, "", "=q3=Tablet of Healing Wave X", "=q1=#m1# =ds=#c7#", "", "2.05%"};
+        { 20, 21292, "", "=q3=Tablet of Strength of Earth Totem V", "=q1=#m1# =ds=#c7#", "", "1.67%"};
+        { 21, 21293, "", "=q3=Tablet of Grace of Air Totem III", "=q1=#m1# =ds=#c7#", "", "1.81%"};
+        { 22, 21281, "", "=q3=Grimoire of Shadow Bolt X", "=q1=#m1# =ds=#c8#", "", "4.23%"};
+        { 23, 21283, "", "=q3=Grimoire of Corruption VII", "=q1=#m1# =ds=#c8#", "", "3.82%"};
+        { 24, 21282, "", "=q3=Grimoire of Immolate VIII", "=q1=#m1# =ds=#c8#", "", "4.51%"};
+        { 25, 21298, "", "=q3=Manual of Battle Shout VII", "=q1=#m1# =ds=#c9#", "", "4.84%"};
+        { 26, 21299, "", "=q3=Manual of Revenge VI", "=q1=#m1# =ds=#c9#", "", "4.78%"};
+        { 27, 21297, "", "=q3=Manual of 25Man Strike IX", "=q1=#m1# =ds=#c9#", "", "4.83%"};
+    };	
 	
-		------------------------------------------
-		--- Ahn'Qiraj: The Temple of Ahn'Qiraj ---
-		------------------------------------------
+	------------------------------------------------
+	--- Ahn'Qiraj: The Ruins of Ahn'Qiraj ASCENDED ---
+	------------------------------------------------
 
-	AtlasLoot_Data["AQ40Skeram"] = {
-		{ 1, 21701, "", "=q4=Cloak of Concentrated Hatred", "=ds=#s4#", "", "11.81%"};
-		{ 2, 21708, "", "=q4=Beetle Scaled Wristguards", "=ds=#s8#, #a2#", "", "12.85%"};
-		{ 3, 21698, "", "=q4=Leggings of Immersion", "=ds=#s11#, #a2#", "", " 10.99%"};
-		{ 4, 21699, "", "=q4=Barrage Shoulders", "=ds=#s3#, #a3#", "", "11.50%"};
-		{ 5, 21705, "", "=q4=Boots of the Fallen Prophet", "=ds=#s12#, #a3#", "", "3.33%"};
-		{ 6, 21814, "", "=q4=Breastplate of Annihilation", "=ds=#s5#, #a4#", "", "11.01%"};
-		{ 7, 21704, "", "=q4=Boots of the Redeemed Prophecy", "=ds=#s12#, #a4#", "", "7.75%"};
-		{ 8, 21706, "", "=q4=Boots of the Unwavering Will", "=ds=#s12#, #a4#", "", "12.23%"};
-		{ 10, 21702, "", "=q4=Amulet of Foul Warding", "=ds=#s2#", "", "12.20%"};
-		{ 11, 21700, "", "=q4=Pendant of the Qiraji Guardian", "=ds=#s2#", "", "11.57%"};
-		{ 12, 21707, "", "=q4=Ring of Swarming Thought", "=ds=#s13#", "", "12.57%"};
-		{ 13, 21703, "", "=q4=Hammer of Ji'zhi", "=ds=#h2#, #w6#", "", "7.14%"};
-		{ 14, 21128, "", "=q4=Staff of the Qiraji Prophets", "=ds=#w9#", "", " 6.32%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "1.74%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "1.32%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		{ 27, 22222, "", "=q3=Plans: Thick Obsidian Breastplate", "=ds=#p2# (300)", "", "5.00%"};
-		{ 28, 22196, "", "=q4=Thick Obsidian Breastplate", "=ds=#s5#, #a4#"};
-		Next = "AQ40Vem";
-	};
-
-	AtlasLoot_Data["AQ40Vem"] = {
-		{ 1, 21697, "", "=q4=Cape of the Trinity", "=ds=#s4# =q2=#m5#", "", "14%"};
-		{ 2, 21694, "", "=q4=Ternary Mantle", "=ds=#s3#, #a1# =q2=#m5#", "", "16%"};
-		{ 3, 21696, "", "=q4=Robes of the Triumvirate", "=ds=#s5#, #a1# =q2=#m5#", "", "13%"};
-		{ 4, 21693, "", "=q4=Guise of the Devourer", "=ds=#s1#, #a2# =q2=#m5#", "", "16%"};
-		{ 5, 21692, "", "=q4=Triad Girdle", "=ds=#s10#, #a4# =q2=#m5#", "", "16%"};
-		{ 6, 21695, "", "=q4=Angelista's Touch", "=ds=#s13# =q2=#m5#", "", "14%"};
-		{ 8, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3# =q2=#m5#", "", "7%"};
-		{ 9, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3# =q2=#m5#", "", "7%"};
-		{ 11, 21680, "", "=q4=Vest of Swift Execution", "=ds=#s5#, #a2# =q2=#n115#", "", "21%"};
-		{ 12, 21603, "", "=q4=Wand of Qiraji Nobility", "=ds=#w12# =q2=#n115#", "", "25%"};
-		{ 13, 21681, "", "=q4=Ring of the Devoured", "=ds=#s13# =q2=#n115#", "", "17%"};
-		{ 14, 21685, "", "=q4=Petrified Scarab", "=ds=#s14# =q2=#n115#", "", "21%"};
-		{ 16, 21689, "", "=q4=Gloves of Ebru", "=ds=#s9#, #a2# =q2=#n116#", "", "18%"};
-		{ 17, 21691, "", "=q4=Ooze-ridden Gauntlets", "=ds=#s9#, #a4# =q2=#n116#", "", "20%"};
-		{ 18, 21688, "", "=q4=Boots of the Fallen Hero", "=ds=#s12#, #a4# =q2=#n116#", "", "18%"};
-		{ 19, 21690, "", "=q4=Angelista's Charm", "=ds=#s2# =q2=#n116#", "", "20%"};
-		{ 21, 21686, "", "=q4=Mantle of Phrenic Power", "=ds=#s3#, #a1# =q2=#n117#", "", "13%"};
-		{ 22, 21682, "", "=q4=Bile-Covered Gauntlets", "=ds=#s9#, #a2# =q2=#n117#", "", "19%"};
-		{ 23, 21684, "", "=q4=Mantle of the Desert's Fury", "=ds=#s3#, #a3# =q2=#n117#", "", "16%"};
-		{ 24, 21683, "", "=q4=Mantle of the Desert Crusade", "=ds=#s3#, #a4# =q2=#n117#", "", "14%"};
-		{ 25, 21687, "", "=q4=Ukko's Ring of Darkness", "=ds=#s13# =q2=#n117#", "", "20%"};
-		Prev = "AQ40Skeram";
-		Next = "AQ40Sartura";
-	};
-
-	AtlasLoot_Data["AQ40Sartura"] = {
-		{ 1, 21671, "", "=q4=Robes of the Battleguard", "=ds=#s5#, #a1#", "", "13.30%"};
-		{ 2, 21676, "", "=q4=Leggings of the Festering Swarm", "=ds=#s11#, #a1#", "", "13.02%"};
-		{ 3, 21648, "", "=q4=Recomposed Boots", "=ds=#s12#, #a1#", "", "7.64%"};
-		{ 4, 21669, "", "=q4=Creeping Vine Helm", "=ds=#s1#, #a2#", "", "12.33%"};
-		{ 5, 21672, "", "=q4=Gloves of Enforcement", "=ds=#s9#, #a2#", "", "11.87%"};
-		{ 6, 21675, "", "=q4=Thick Qirajihide Belt", "=ds=#s10#, #a2#", "", "13.26%"};
-		{ 7, 21668, "", "=q4=Scaled Leggings of Qiraji Fury", "=ds=#s11#, #a3#", "", "4.03%"};
-		{ 8, 21674, "", "=q4=Gauntlets of Steadfast Determination", "=ds=#s9#, #a4#", "", "11.07%"};
-		{ 9, 21667, "", "=q4=Legplates of Blazing Light", "=ds=#s11#, #a4#", "", "7.44%"};
-		{ 11, 21678, "", "=q4=Necklace of Purity", "=ds=#s2#", "", "14.21%"};
-		{ 12, 21670, "", "=q4=Badge of the Swarmguard", "=ds=#s14#", "", "13.22%"};
-		{ 13, 21666, "", "=q4=Sartura's Might", "=ds=#s15#", "", "6.47%"};
-		{ 14, 21673, "", "=q4=Silithid Claw", "=ds=#h3#, #w13#", "", "7.16%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.01%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.02%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Vem";
-		Next = "AQ40Fankriss";
-	};
-
-	AtlasLoot_Data["AQ40Fankriss"] = {
-		{ 1, 21627, "", "=q4=Cloak of Untold Secrets", "=ds=#s4#", "", "12.51%"};
-		{ 2, 21663, "", "=q4=Robes of the Guardian Saint", "=ds=#s5#, #a1#", "", "12.95%"};
-		{ 3, 21665, "", "=q4=Mantle of Wicked Revenge", "=ds=#s3#, #a2#", "", "13.25%"};
-		{ 4, 21645, "", "=q4=Hive Tunneler's Boots", "=ds=#s12#, #a2#", "", "14.04%"};
-		{ 5, 21651, "", "=q4=Scaled Sand Reaver Leggings", "=ds=#s11#, #a3#", "", "12.91%"};
-		{ 6, 21639, "", "=q4=Pauldrons of the Unrelenting", "=ds=#s3#, #a4#", "", "14.78%"};
-		{ 7, 21652, "", "=q4=Silithid Carapace Chestguard", "=ds=#s5#, #a4#", "", "10.29%"};
-		{ 9, 21647, "", "=q4=Fetish of the Sand Reaver", "=ds=#s14#", "", "13.82%"};
-		{ 10, 21664, "", "=q4=Barbed Choker", "=ds=#s2#", "", "12.63%"};
-		{ 11, 22402, "", "=q4=Libram of Grace", "=ds=#s16#, #w16#", "", "4.21%"};
-		{ 12, 22396, "", "=q4=Totem of Life", "=ds=#s16#, #w15#", "", "1.69%"};
-		{ 13, 21650, "", "=q4=Ancient Qiraji Ripper", "=ds=#h1#, #w10#", "", " 7.19%"};
-		{ 14, 21635, "", "=q4=Barb of the Sand Reaver", "=ds=#w7#", "", "6.61%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.84%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.09%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Sartura";
-		Next = "AQ40Viscidus";
-	};
-
-	AtlasLoot_Data["AQ40Viscidus"] = {
-		{ 1, 21624, "", "=q4=Gauntlets of Kalimdor", "=ds=#s9#, #a3#", "", "3.90%"};
-		{ 2, 21626, "", "=q4=Slime-coated Leggings", "=ds=#s11#, #a3#", "", "13.66%"};
-		{ 3, 21623, "", "=q4=Gauntlets of the Righteous Champion", "=ds=#s9#, #a4#", "", "5.37%"};
-		{ 5, 21677, "", "=q4=Ring of the Qiraji Fury", "=ds=#s13#", "", "2.93%"};
-		{ 6, 21625, "", "=q4=Scarab Brooch", "=ds=#s14#", "", "21.46%"};
-		{ 7, 22399, "", "=q4=Idol of Health", "=ds=#s16#, #w14#", "", "7.32%"};
-		{ 8, 21622, "", "=q4=Sharpened Silithid Femur", "=ds=#h3#, #w10#", "", "15.12%"};
-		{ 10, 20932, "", "=q4=Qiraji Bindings of Dominance", "=q1=#m1# =ds=#c8#, #c3#, #c7#, #c1#, #c4#", "", "100%"};
-		{ 11, 20928, "", "=q4=Qiraji Bindings of Command", "=q1=#m1# =ds=#c5#, #c6#, #c9#, #c2#", "", "100%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "3.19%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "6.86%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Fankriss";
-		Next = "AQ40Huhuran";
-	};
-
-	AtlasLoot_Data["AQ40Huhuran"] = {
-		{ 1, 21619, "", "=q4=Gloves of the Messiah", "=ds=#s9#, #a1#", "", "12.01%"};
-		{ 2, 21621, "", "=q4=Cloak of the Golden Hive", "=ds=#s4#", "", "12.56%"};
-		{ 3, 21617, "", "=q4=Wasphide Gauntlets", "=ds=#s9#, #a2#", "", "11.97%"};
-		{ 4, 21618, "", "=q4=Hive Defiler Wristguards", "=ds=#s8#, #a4#", "", "10.34%"};
-		{ 6, 21620, "", "=q4=Ring of the Martyr", "=ds=#s13#", "", "12.97%"};
-		{ 7, 21616, "", "=q4=Huhuran's Stinger", "=ds=#w2#", "", "5.71%"};
-		{ 9, 20932, "", "=q4=Qiraji Bindings of Dominance", "=q1=#m1# =ds=#c8#, #c3#, #c7#, #c1#, #c4#", "", "100%"};
-		{ 10, 20928, "", "=q4=Qiraji Bindings of Command", "=q1=#m1# =ds=#c5#, #c6#, #c9#, #c2#", "", "100%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.31%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.11%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40Viscidus";
-		Next = "AQ40Emperors";
-	};
-
-	AtlasLoot_Data["AQ40Emperors"] = {
-		{ 1, 20930, "", "=q4=Vek'lor's Diadem", "=q1=#m1# =ds=#c7#, #c1#, #c6#, #c2#, #c4#", "", "100%"};
-		{ 2, 21600, "", "=q4=Boots of Epiphany", "=ds=#s12#, #a1#", "", "15.77%"};
-		{ 3, 21602, "", "=q4=Qiraji Execution Bracers", "=ds=#s8#, #a2#", "", "15.95%"};
-		{ 4, 21599, "", "=q4=Vek'lor's Gloves of Devastation", "=ds=#s9#, #a3#", "", "15.77%"};
-		{ 5, 21598, "", "=q4=Royal Qiraji Belt", "=ds=#s10#, #a4#", "", "9.84%"};
-		{ 6, 21597, "", "=q4=Royal Scepter of Vek'lor", "=ds=#s15#", "", "6.99%"};
-		{ 7, 21601, "", "=q4=Ring of Emperor Vek'lor", "=ds=#s13#", "", "17.27%"};
-		{ 8, 20735, "", "=q3=Formula: Enchant Cloak - Subtlety", "=ds=#p4# (300)", "", "6.62%"};
-		{ 11, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "6.25%"};
-		{ 12, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
-		{ 13, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
-		{ 14, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
-		{ 15, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		{ 16, 20926, "", "=q4=Vek'nilash's Circlet", "=q1=#m1# =ds=#c8#, #c3#, #c5#, #c9#", "", "100%"};
-		{ 17, 21604, "", "=q4=Bracelets of Royal Redemption", "=ds=#s8#, #a1#", "", "12.51%"};
-		{ 18, 21605, "", "=q4=Gloves of the Hidden Temple", "=ds=#s9#, #a2#", "", "15.45%"};
-		{ 19, 21609, "", "=q4=Regenerating Belt of Vek'nilash", "=ds=#s10#, #a2#", "", "13.35%"};
-		{ 20, 21607, "", "=q4=Grasp of the Fallen Emperor", "=ds=#s10#, #a3#", "", "2.72%"};
-		{ 21, 21606, "", "=q4=Belt of the Fallen Emperor", "=ds=#s10#, #a4#", "", "12.22%"};
-		{ 22, 21679, "", "=q4=Kalimdor's Revenge", "=ds=#h2#, #w10#", "", "9.25%"};
-		{ 23, 21608, "", "=q4=Amulet of Vek'nilash", "=ds=#s2#", "", "14.25%"};
-		{ 24, 20726, "", "=q3=Formula: Enchant Gloves - Threat", "=ds=#p4# (300)", "", "6.24%"};
-		{ 26, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "5.00%"};
-		{ 27, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 28, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
-		{ 29, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		Prev = "AQ40Huhuran";
-		Next = "AQ40Ouro";
-	};
-
-	AtlasLoot_Data["AQ40Ouro"] = {
-		{ 1, 21615, "", "=q4=Don Rigoberto's Lost Hat", "=ds=#s1#, #a1#", "", "28.63%"};
-		{ 2, 21611, "", "=q4=Burrower Bracers", "=ds=#s8#, #a1#", "", "24.44%"};
-		{ 3, 23558, "", "=q4=The Burrower's Shell", "=ds=#s14#", "", "2.90%"};
-		{ 4, 23570, "", "=q4=Jom Gabbar", "=ds=#s14#", "", "2.80%"};
-		{ 5, 23557, "", "=q4=Larvae of the Great Worm", "=ds=#w5#", "", "3.95%"};
-		{ 6, 21610, "", "=q4=Wormscale Blocker", "=ds=#w8#", "", "16.54%"};
-		{ 8, 20927, "", "=q4=Ouro's Intact Hide", "=q1=#m1# =ds=#c3#, #c5#, #c6#, #c9#", "", "100%"};
-		{ 9, 20931, "", "=q4=Skin of the Great Sandworm", "=q1=#m1# =ds=#c8#, #c7#, #c1#, #c2#, #c4#", "", "100%"};
-		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "5.20%"};
-		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4# =ds=#w9#"};
-		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4# =ds=#w9#"};
-		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4# =ds=#h1#, #w6#"};
-		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.10%"};
-		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4# =ds=#h1#, #w1#"};
-		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4# =ds=#w5#"};
-		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4# =ds=#h1#, #w4#"};
-		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4# =ds=#w8#"};
-		Prev = "AQ40Emperors";
-		Next = "AQ40CThun";
-	};
-
-	AtlasLoot_Data["AQ40CThun"] = {
-		{ 1, 21583, "", "=q4=Cloak of Clarity", "=ds=#s4#", "", "14.45%"};
-		{ 2, 22731, "", "=q4=Cloak of the Devoured", "=ds=#s4#", "", "16.34%"};
-		{ 3, 21585, "", "=q4=Dark Storm Gauntlets", "=ds=#s9#, #a1#", "", "13.63%"};
-		{ 4, 22730, "", "=q4=Eyestalk Waist Cord", "=ds=#s10#, #a1#", "", "10.41%"};
-		{ 5, 21582, "", "=q4=Grasp of the Old God", "=ds=#s10#, #a1#", "", "15.04%"};
-		{ 6, 21586, "", "=q4=Belt of Never-ending Agony", "=ds=#s10#, #a2#", "", "11.24%"};
-		{ 7, 21581, "", "=q4=Gauntlets of Annihilation", "=ds=#s9#, #a4#", "", "12.04%"};
-		{ 9, 22732, "", "=q4=Mark of C'Thun", "=ds=#s2#", "", "10.62%"};
-		{ 10, 21596, "", "=q4=Ring of the Godslayer", "=ds=#s13#", "", "11.83%"};
-		{ 11, 21579, "", "=q4=Vanquished Tentacle of C'Thun", "=ds=#s14#", "", "12.18%"};
-		{ 12, 21126, "", "=q4=Death's Sting", "=ds=#h1#, #w4#", "", "6.84%"};
-		{ 13, 21134, "", "=q4=Dark Edge of Insanity", "=ds=#h2#, #w1#", "", "5.93%"};
-		{ 14, 21839, "", "=q4=Scepter of the False Prophet", "=ds=#h3#, #w6#", "", "4.75%"};
-		{ 16, 20933, "", "=q4=Husk of the Old God", "=q1=#m1# =ds=#c8#, #c3#, #c1#, #c5#", "", "100%"};
-		{ 17, 20929, "", "=q4=Carapace of the Old God", "=q1=#m1# =ds=#c7#, #c6#, #c9#, #c2#, #c4#", "", "100%"};
-		{ 19, 21221, "", "=q4=Eye of C'Thun", "=ds=#m2#", "", "100%"};
-		{ 20, 21710, "", "=q4=Cloak of the Fallen God", "=q1=#m4#: =ds=#s4#"};
-		{ 21, 21712, "", "=q4=Amulet of the Fallen God", "=q1=#m4#: =ds=#s2#"};
-		{ 22, 21709, "", "=q4=Ring of the Fallen God", "=q1=#m4#: =ds=#s13#"};
-		{ 24, 22734, "", "=q1=Base of Atiesh", "=ds=#m3#"};
-		{ 25, 22632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#"};
-		{ 26, 22589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#"};
-		{ 27, 22631, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c5#"};
-		{ 28, 22630, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c8#"};
-		Prev = "AQ40Ouro";
-	};
-
-	AtlasLoot_Data["AQ40Trash1"] = {
-		{ 1, 21838, "", "=q4=Garb of Royal Ascension", "=ds=#s5#, #a1#", "", "0.20%"};
-		{ 2, 21888, "", "=q4=Gloves of the Immortal", "=ds=#s9#, #a1#", "", "0.16%"};
-		{ 3, 21889, "", "=q4=Gloves of the Redeemed Prophecy", "=ds=#s9#, #a4# =q1=#m1# =ds=#c4#", "", "0.39%"};
-		{ 4, 21836, "", "=q4=Ritssyn's Ring of Chaos", "=ds=#s13#", "", "0.18%"};
-		{ 5, 21891, "", "=q4=Shard of the Fallen Star", "=ds=#s14#", "", "0.59%"};
-		{ 6, 21856, "", "=q4=Neretzek, The Blood Drinker", "=ds=#h2#, #w1#", "", "0.20%"};
-		{ 7, 21837, "", "=q4=Anubisath Warhammer", "=ds=#h1#, #w6#", "", "0.21%"};
-		{ 9, 22202, "", "=q1=Small Obsidian Shard", "=ds=#e8#"};
-		{ 10, 22203, "", "=q1=Large Obsidian Shard", "=ds=#e8#"};
-		{ 16, 21218, "", "=q3=Blue Qiraji Resonating Crystal", "=ds=#e12#", "", "10.64%"};
-		{ 17, 21324, "", "=q3=Yellow Qiraji Resonating Crystal", "=ds=#e12#", "", "12.15%"};
-		{ 18, 21323, "", "=q3=Green Qiraji Resonating Crystal", "=ds=#e12#", "", "11.62%"};
-		{ 19, 21321, "", "=q3=Red Qiraji Resonating Crystal", "=ds=#e12#", "", "1.39%"};
-		Next = "AQ40Trash2";
-	};
-
-	AtlasLoot_Data["AQ40Trash2"] = {
-		{ 1, 20876, "", "=q3=Idol of Death", "=ds=#e15#", "", "0.26%"};
-		{ 2, 20879, "", "=q3=Idol of Life", "=ds=#e15#", "", "0.29%"};
-		{ 3, 20875, "", "=q3=Idol of Night", "=ds=#e15#", "", "0.29%"};
-		{ 4, 20878, "", "=q3=Idol of Rebirth", "=ds=#e15#", "", "0.28%"};
-		{ 5, 20881, "", "=q3=Idol of Strife", "=ds=#e15#", "", "0.21%"};
-		{ 6, 20877, "", "=q3=Idol of the Sage", "=ds=#e15#", "", "0.33%"};
-		{ 7, 20874, "", "=q3=Idol of the Sun", "=ds=#e15#", "", "0.21%"};
-		{ 8, 20882, "", "=q3=Idol of War", "=ds=#e15#", "", "0.30%"};
-		{ 10, 21230, "", "=q1=Ancient Qiraji Artifact", "=ds=#m2#"};
-		{ 12, 21762, "", "=q1=Greater Scarab Coffer Key", "=ds=#e9#", "", "7.03%"};
-		{ 16, 20864, "", "=q2=Bone Scarab", "=ds=#e15#", "", "0.84%"};
-		{ 17, 20861, "", "=q2=Bronze Scarab", "=ds=#e15#", "", "0.88%"};
-		{ 18, 20863, "", "=q2=Clay Scarab", "=ds=#e15#", "", "0.95%"};
-		{ 19, 20862, "", "=q2=Crystal Scarab", "=ds=#e15#", "", "0.99%"};
-		{ 20, 20859, "", "=q2=Gold Scarab", "=ds=#e15#", "", "0.96%"};
-		{ 21, 20865, "", "=q2=Ivory Scarab", "=ds=#e15#", "", "0.93%"};
-		{ 22, 20860, "", "=q2=Silver Scarab", "=ds=#e15#", "", "1.82%"};
-		{ 23, 20858, "", "=q2=Stone Scarab", "=ds=#e15#", "", "0.86%"};
-		Prev = "AQ40Trash1";
-	};
-
-		-------------------
-		--- AQ Enchants ---
-		-------------------
-
-	AtlasLoot_Data["AQEnchants"] = {
-		{ 1, 20728, "", "=q3=Formula: Enchant Gloves - Frost Power", "=ds=#p4# (300)"};
-		{ 2, 20731, "", "=q3=Formula: Enchant Gloves - Superior Agility", "=ds=#p4# (300)"};
-		{ 3, 20734, "", "=q3=Formula: Enchant Cloak - Stealth", "=ds=#p4# (300)"};
-		{ 4, 20729, "", "=q3=Formula: Enchant Gloves - Fire Power", "=ds=#p4# (300)"};
-		{ 5, 20736, "", "=q3=Formula: Enchant Cloak - Dodge", "=ds=#p4# (300)"};
-		{ 6, 20730, "", "=q3=Formula: Enchant Gloves - Healing Power", "=ds=#p4# (300)"};
-		{ 7, 20727, "", "=q3=Formula: Enchant Gloves - Shadow Power", "=ds=#p4# (300)"};
-	};
-
-	AtlasLoot_Data["AQOpening"] = {
-		{ 1, 21138, "", "=q1=Red Scepter Shard", "=ds=#m3#"};
-		{ 2, 21530, "", "=q4=Onyx Embedded Leggings", "=ds=#s11#, #a3#"};
-		{ 3, 21529, "", "=q4=Amulet of Shadow Shielding", "=ds=#s2#"};
-		{ 5, 21139, "", "=q1=Green Scepter Shard", "=ds=#m3#"};
-		{ 6, 21532, "", "=q4=Drudge Boots", "=ds=#s12#, #a2#"};
-		{ 7, 21531, "", "=q4=Drake Tooth Necklace", "=ds=#s2#"};
-		{ 9, 21137, "", "=q1=Blue Scepter Shard", "=ds=#m3#"};
-		{ 10, 21517, "", "=q4=Gnomish Turban of Psychic Might", "=ds=#s1#, #a1#"};
-		{ 11, 21527, "", "=q4=Darkwater Robes", "=ds=#s5#, #a1#"};
-		{ 12, 21526, "", "=q4=Band of Icy Depths", "=ds=#s13#"};
-		{ 13, 21025, "", "=q4=Recipe: Dirge's Kickin' Chimaerok Chops", "=ds=#p3# (300)"};
-		{ 16, 21175, "", "=q1=The Scepter of the Shifting Sands", "=ds=#m3#"};
-		{ 17, 21176, "", "=q5=Black Qiraji Resonating Crystal", "=ds=#e12#"};
-		{ 18, 21522, "", "=q4=Shadowsong's Sorrow", "=ds=#h1#, #w4#"};
-		{ 19, 21523, "", "=q4=Fang of Korialstrasz", "=ds=#h3#, #w4#"};
-		{ 20, 21520, "", "=q4=Ravencrest's Legacy", "=ds=#h1#, #w10#"};
-		{ 21, 21521, "", "=q4=Runesword of the Red", "=ds=#h3#, #w10#"};
-	};
-
+    AtlasLoot_Data["AQ20Kurinnaxx25ManHEROIC"] = {
+        { 1, 221499, "", "=q4=Vestments of the Shifting Sands", "=ds=#s5#, #a1#", "", "7.34%"};
+        { 2, 221498, "", "=q4=Qiraji Sacrificial Dagger", "=ds=#h1#, #w4#", "", "7.53%"};
+        { 4, 221500, "", "=q3=Belt of the Inquisition", "=ds=#s10#, #a1#", "", "14.84%"};
+        { 5, 221501, "", "=q3=Toughened Silithid Hide Gloves", "=ds=#s9#, #a2#", "", "12.91%"};
+        { 6, 221502, "", "=q3=Sand Reaver Wristguards", "=ds=#s8#, #a3#", "", "13.79%"};
+        { 7, 221503, "", "=q3=Belt of the Sand Reaver", "=ds=#s10#, #a4#", "", "14.38%"};
+        { 9, 22217, "", "=q1=Kurinnaxx's Venom Sac", "=ds=#m3#", "", "100%"};
+        { 16, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "30.83%"};
+        { 17, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "30.25%"};
+        { 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "7.98%"};
+        { 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "7.80%"};
+        Next = "AQ20Rajaxx25ManHEROIC";
+    };
+    
+    AtlasLoot_Data["AQ20Rajaxx25ManHEROIC"] = {
+        { 1, 221493, "", "=q4=Boots of the Vanguard", "=ds=#s12#, #a2#", "", "8.13%"};
+        { 2, 221492, "", "=q4=Manslayer of the Qiraji", "=ds=#h2#, #w10#", "", "10.04%"};
+        { 4, 221496, "", "=q3=Bracers of Qiraji Command", "=ds=#s8#, #a1#", "", "15.79%"};
+        { 5, 221494, "", "=q3=Southwind's Grasp", "=ds=#s10#, #a2#", "", "15.13%"};
+        { 6, 221497, "", "=q3=Boots of the Qiraji General", "=ds=#s12#, #a3#", "", "15.45%"};
+        { 7, 221495, "", "=q3=Legplates of the Qiraji Command", "=ds=#s11#, #a4#", "", "15.47%"};
+        { 9, 0, "INV_Box_01", "=q6="..AL["Rajaxx's Captains"], ""};
+        { 10, 221810, "", "=q3=Treads of the Wandering Nomad", "=ds=#s12#, #a1#", "", "3.11%"};
+        { 11, 221809, "", "=q3=Fury of the Forgotten Swarm", "=ds=#s2#", "", "3.20%"};
+        { 12, 221806, "", "=q3=Gavel of Qiraji Authority", "=ds=#h2#, #w6#", "", "3.04%"};
+        { 16, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "36.51%"};
+        { 17, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "33.97%"};
+        { 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "8.82%"};
+        { 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.56%"};
+        { 21, 0, "INV_Box_01", "=q6="..BabbleBoss["Lieutenant General Andorov"], ""};
+        { 22, 22221, "", "=q1=Plans: Obsidian Mail Tunic", "=ds=#p2# (300)"};
+        { 23, 22219, "", "=q1=Plans: Jagged Obsidian Shield", "=ds=#p2# (300)"};
+        Prev = "AQ20Kurinnaxx25ManHEROIC";
+        Next = "AQ20Moam25ManHEROIC";
+    };
+    
+    AtlasLoot_Data["AQ20Moam25ManHEROIC"] = {
+        { 1, 221472, "", "=q4=Dustwind Turban", "=ds=#s1#, #a1#", "", "7.76%"};
+        { 2, 221467, "", "=q4=Thick Silithid Chestguard", "=ds=#s5#, #a2#", "", "6.76%"};
+        { 3, 221479, "", "=q4=Gauntlets of the Immovable", "=ds=#s9#, #a4#", "", "7.12%"};
+        { 4, 221471, "", "=q4=Talon of Furious Concentration", "=ds=#s15#", "", "7.39%"};
+        { 6, 221470, "", "=q3=Cloak of the Savior", "=ds=#s4#", "", "14.23%"};
+        { 7, 221468, "", "=q3=Mantle of Maz'Nadir", "=ds=#s3#, #a1#", "", "15.86%"};
+        { 8, 221455, "", "=q3=Southwind Helm", "=ds=#s1#, #a2#", "", "14.08%"};
+        { 9, 221474, "", "=q3=Chitinous Shoulderguards", "=ds=#s3#, #a2#", "", "15.25%"};
+        { 10, 221469, "", "=q3=Gauntlets of Southwind", "=ds=#s9#, #a2#", "", "15.28%"};
+        { 11, 221476, "", "=q3=Obsidian Scaled Leggings", "=ds=#s11#, #a3#", "", "6.81%"};
+        { 12, 221475, "", "=q3=Legplates of the Destroyer", "=ds=#s11#, #a4#", "", "10.39%"};
+        { 13, 221477, "", "=q3=Ring of Fury", "=ds=#s13#", "", "14.42%"};
+        { 14, 221473, "", "=q3=Eye of Moam", "=ds=#s14#", "", "14.74%"};
+        { 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "36.38%"};
+        { 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "33.16%"};
+        { 18, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "7.56%"};
+        { 19, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.34%"};
+        { 21, 22220, "", "=q3=Plans: Black Grasp of the Destroyer", "=ds=#p2# (300)", "", "4.11%"};
+        { 22, 22194, "", "=q4=Black Grasp of the Destroyer", "=ds=#s9#, #a3#"};
+        Prev = "AQ20Rajaxx25ManHEROIC";
+        Next = "AQ20Buru25ManHEROIC";
+    };
+    
+    AtlasLoot_Data["AQ20Buru25ManHEROIC"] = {
+        { 1, 221487, "", "=q4=Slimy Scaled Gauntlets", "=ds=#s9#, #a3#", "", "2.64%"};
+        { 2, 221486, "", "=q4=Gloves of the Swarm", "=ds=#s9#, #a4#", "", "5.22%"};
+        { 3, 221485, "", "=q4=Buru's Skull Fragment", "=ds=#w8#", "", "7.88%"};
+        { 5, 221489, "", "=q3=Quicksand Waders", "=ds=#s12#, #a1#", "", "15.95%"};
+        { 6, 221491, "", "=q3=Scaled Bracers of the Gorger", "=ds=#s8#, #a2#", "", "16.51%"};
+        { 7, 221490, "", "=q3=Slime Kickers", "=ds=#s12#, #a4#", "", "15.99%"};
+        { 8, 221488, "", "=q3=Fetish of Chitinous Spikes", "=ds=#s14#", "", "17.22%"};
+        { 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "8.31%"};
+        { 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "8.98%"};
+        { 18, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "9.77%"};
+        { 19, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "9.84%"};
+        { 20, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "26.98%"};
+        { 21, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "25.58%"};
+        Prev = "AQ20Moam25ManHEROIC";
+        Next = "AQ20Ayamiss";
+    };
+    
+    AtlasLoot_Data["AQ20Ayamiss25ManHEROIC"] = {
+        { 1, 221479, "", "=q4=Gauntlets of the Immovable", "=ds=#s9#, #a4#", "", "6.18%"};
+        { 2, 221466, "", "=q4=Stinger of Ayamiss", "=ds=#h3#, #w6#", "", "2.06%"};
+        { 3, 221478, "", "=q4=Bow of Taut Sinew", "=ds=#w2#", "", "10.14%"};
+        { 5, 221484, "", "=q3=Helm of Regrowth", "=ds=#s1#, #a2#", "", "15.85%"};
+        { 6, 221480, "", "=q3=Scaled Silithid Gauntlets", "=ds=#s9#, #a3#", "", "17.10%"};
+        { 7, 221482, "", "=q3=Boots of the Fiery Sands", "=ds=#s12#, #a3#", "", "4.92%"};
+        { 8, 221481, "", "=q3=Boots of the Desert Protector", "=ds=#s12#, #a4#", "", "11.08%"};
+        { 9, 221483, "", "=q3=Ring of the Desert Winds", "=ds=#s13#", "", "16.32%"};
+        { 16, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "8.24%"};
+        { 17, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "8.21%"};
+        { 18, 20889, "", "=q3=Qiraji Regal Drape", "#m3#", "", "8.85%"};
+        { 19, 20885, "", "=q3=Qiraji Martial Drape", "#m3#", "", "10.97%"};
+        { 20, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "26.98%"};
+        { 21, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "27.50%"};
+        Prev = "AQ20Buru25ManHEROIC";
+        Next = "AQ20Ossirian25ManHEROIC";
+    };
+    
+    AtlasLoot_Data["AQ20Ossirian25ManHEROIC"] = {
+        { 1, 221456, "", "=q4=Sandstorm Cloak", "=ds=#s4#", "", "10.89%"};
+        { 2, 221464, "", "=q4=Shackles of the Unscarred", "=ds=#s8#, #a1#", "", "12.62%"};
+        { 3, 221462, "", "=q4=Gloves of Dark Wisdom", "=ds=#s9#, #a1#", "", "11.89%"};
+        { 4, 221461, "", "=q4=Leggings of the Black Blizzard", "=ds=#s11#, #a1#", "", "12.83%"};
+        { 5, 221458, "", "=q4=Gauntlets of New Life", "=ds=#s9#, #a2#", "", "13.25%"};
+        { 6, 221454, "", "=q4=Runic Stone Shoulders", "=ds=#s3#, #a3#", "", "4.10%"};
+        { 7, 221463, "", "=q4=Ossirian's Binding", "=ds=#s10#, #a3#", "", "12.27%"};
+        { 8, 221460, "", "=q4=Helm of Domination", "=ds=#s1#, #a4#", "", "12.18%"};
+        { 9, 221453, "", "=q4=Mantle of the Horusath", "=ds=#s3#, #a4#", "", "6.96%"};
+        { 10, 221457, "", "=q4=Bracers of Brutality", "=ds=#s8#, #a4#", "", "10.74%"};
+        { 11, 221715, "", "=q4=Sand Polished Hammer", "=ds=#h1#, #w6#", "", "5.95%"};
+        { 12, 221459, "", "=q4=Crossbow of Imminent Doom", "=ds=#w3#", "", "6.12%"};
+        { 13, 221452, "", "=q4=Staff of the Ruins", "=ds=#w9#", "", "10.32%"};
+        { 16, 21220, "", "=q4=Head of Ossirian the Unscarred", "=ds=#m2#", "", "100%"};
+        { 17, 21504, "", "=q4=Charm of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 18, 21507, "", "=q4=Amulet of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 19, 21505, "", "=q4=Choker of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 20, 21506, "", "=q4=Pendant of the Shifting Sands", "=q1=#m4#: =ds=#s2#"};
+        { 22, 20886, "", "=q4=Qiraji Spiked Hilt", "#m3#", "", "35.27%"};
+        { 23, 20890, "", "=q4=Qiraji Ornate Hilt", "#m3#", "", "30.69%"};
+        { 24, 20884, "", "=q3=Qiraji Magisterial Ring", "#m3#", "", "9.65%"};
+        { 25, 20888, "", "=q3=Qiraji Ceremonial Ring", "#m3#", "", "8.53%"};
+        Prev = "AQ20Ayamiss25ManHEROIC";
+    };
+    
+    AtlasLoot_Data["AQ20Trash25ManHEROIC"] = {
+        { 1, 20873, "", "=q3=Alabaster Idol", "=ds=#e15#", "", "0.39%"};
+        { 2, 20869, "", "=q3=Amber Idol", "=ds=#e15#", "", "0.36%"};
+        { 3, 20866, "", "=q3=Azure Idol", "=ds=#e15#", "", "0.48%"};
+        { 4, 20870, "", "=q3=Jasper Idol", "=ds=#e15#", "", "0.52%"};
+        { 5, 20868, "", "=q3=Lambent Idol", "=ds=#e15#", "", "0.48%"};
+        { 6, 20871, "", "=q3=Obsidian Idol", "=ds=#e15#", "", "0.41%"};
+        { 7, 20867, "", "=q3=Onyx Idol", "=ds=#e15#", "", "0.36%"};
+        { 8, 20872, "", "=q3=Vermillion Idol", "=ds=#e15#", "", "0.31%"};
+        { 10, 22202, "", "=q1=Small Obsidian Shard", "=ds=#e8#"};
+        { 11, 22203, "", "=q1=Large Obsidian Shard", "=ds=#e8#"};
+        { 16, 20864, "", "=q2=Bone Scarab", "=ds=#e15#", "", "0.84%"};
+        { 17, 20861, "", "=q2=Bronze Scarab", "=ds=#e15#", "", "0.88%"};
+        { 18, 20863, "", "=q2=Clay Scarab", "=ds=#e15#", "", "0.95%"};
+        { 19, 20862, "", "=q2=Crystal Scarab", "=ds=#e15#", "", "0.99%"};
+        { 20, 20859, "", "=q2=Gold Scarab", "=ds=#e15#", "", "0.96%"};
+        { 21, 20865, "", "=q2=Ivory Scarab", "=ds=#e15#", "", "0.93%"};
+        { 22, 20860, "", "=q2=Silver Scarab", "=ds=#e15#", "", "1.82%"};
+        { 23, 20858, "", "=q2=Stone Scarab", "=ds=#e15#", "", "0.86%"};
+        { 25, 21761, "", "=q1=Scarab Coffer Key", "=ds=#e9#", "", "7.27%"};
+    };
+    
+    AtlasLoot_Data["AQ20ClassBooks25ManHEROIC"] = {
+        { 1, 21294, "", "=q3=Book of Healing Touch XI", "=q1=#m1# =ds=#c1#", "", "4.12%"};
+        { 2, 21296, "", "=q3=Book of Rejuvenation XI", "=q1=#m1# =ds=#c1#", "", "4.20%"};
+        { 3, 21295, "", "=q3=Book of Starfire VII", "=q1=#m1# =ds=#c1#", "", "4.00%"};
+        { 4, 21306, "", "=q3=Guide: Serpent Sting IX", "=q1=#m1# =ds=#c2#", "", "4.85%"};
+        { 5, 21304, "", "=q3=Guide: Multi-Shot V", "=q1=#m1# =ds=#c2#", "", "4.66%"};
+        { 6, 21307, "", "=q3=Guide: Aspect of the Hawk VII", "=q1=#m1# =ds=#c2#", "", "4.65%"};
+        { 7, 21279, "", "=q3=Tome of Fireball XII", "=q1=#m1# =ds=#c3#", "", "5.15%"};
+        { 8, 21214, "", "=q3=Tome of Frostbolt XI", "=q1=#m1# =ds=#c3#", "", "5.10%"};
+        { 9, 21280, "", "=q3=Tome of Arcane Missiles VIII", "=q1=#m1# =ds=#c3#", "", "5.03%"};
+        { 10, 21288, "", "=q3=Libram: Blessing of Wisdom VI", "=q1=#m1# =ds=#c4#", "", "3.50%"};
+        { 11, 21289, "", "=q3=Libram: Blessing of Might VII", "=q1=#m1# =ds=#c4#", "", "3.07%"};
+        { 12, 21290, "", "=q3=Libram: Holy Light IX", "=q1=#m1# =ds=#c4#", "", "3.09%"};
+        { 13, 21284, "", "=q3=Codex of Greater Heal V", "=q1=#m1# =ds=#c5#", "", "5.15%"};
+        { 14, 21287, "", "=q3=Codex of Prayer of Healing V", "=q1=#m1# =ds=#c5#", "", "4.89%"};
+        { 15, 21285, "", "=q3=Codex of Renew X", "=q1=#m1# =ds=#c5#", "", "4.91%"};
+        { 16, 21300, "", "=q3=Handbook of Backstab IX", "=q1=#m1# =ds=#c6#", "", "4.29%"};
+        { 17, 21303, "", "=q3=Handbook of Feint V", "=q1=#m1# =ds=#c6#", "", "4.79%"};
+        { 18, 21302, "", "=q3=Handbook of Deadly Poison V", "=q1=#m1# =ds=#c6#", "", "5.47%"};
+        { 19, 21291, "", "=q3=Tablet of Healing Wave X", "=q1=#m1# =ds=#c7#", "", "2.05%"};
+        { 20, 21292, "", "=q3=Tablet of Strength of Earth Totem V", "=q1=#m1# =ds=#c7#", "", "1.67%"};
+        { 21, 21293, "", "=q3=Tablet of Grace of Air Totem III", "=q1=#m1# =ds=#c7#", "", "1.81%"};
+        { 22, 21281, "", "=q3=Grimoire of Shadow Bolt X", "=q1=#m1# =ds=#c8#", "", "4.23%"};
+        { 23, 21283, "", "=q3=Grimoire of Corruption VII", "=q1=#m1# =ds=#c8#", "", "3.82%"};
+        { 24, 21282, "", "=q3=Grimoire of Immolate VIII", "=q1=#m1# =ds=#c8#", "", "4.51%"};
+        { 25, 21298, "", "=q3=Manual of Battle Shout VII", "=q1=#m1# =ds=#c9#", "", "4.84%"};
+        { 26, 21299, "", "=q3=Manual of Revenge VI", "=q1=#m1# =ds=#c9#", "", "4.78%"};
+        { 27, 21297, "", "=q3=Manual of 25ManHEROIC Strike IX", "=q1=#m1# =ds=#c9#", "", "4.83%"};
+    };
 
 		------------------------------------------
 		--- Ahn'Qiraj: The Temple of Ahn'Qiraj ---
@@ -1397,10 +953,287 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 	};
 
 	-------------------------------------------------
-	--- Ahn'Qiraj: The Temple of Ahn'Qiraj HEROIC ---
+	--- Ahn'Qiraj: The Temple of Ahn'Qiraj HEROIC FLEX ---
 	-------------------------------------------------
 
-	AtlasLoot_Data["AQ40SkeramHEROIC"] = {
+	AtlasLoot_Data["AQ40Skeram25Man"] = {
+		{ 1, 321701, "", "=q4=Cloak of Concentrated Hatred", "=ds=#s4#", "", "11.81%"};
+		{ 2, 321708, "", "=q4=Beetle Scaled Wristguards", "=ds=#s8#, #a2#", "", "12.85%"};
+		{ 3, 321698, "", "=q4=Leggings of Immersion", "=ds=#s11#, #a2#", "", " 10.99%"};
+		{ 4, 321699, "", "=q4=Barrage Shoulders", "=ds=#s3#, #a3#", "", "11.50%"};
+		{ 5, 321705, "", "=q4=Boots of the Fallen Prophet", "=ds=#s12#, #a3#", "", "3.33%"};
+		{ 6, 321814, "", "=q4=Breastplate of Annihilation", "=ds=#s5#, #a4#", "", "11.01%"};
+		{ 7, 321704, "", "=q4=Boots of the Redeemed Prophecy", "=ds=#s12#, #a4#", "", "7.75%"};
+		{ 8, 321706, "", "=q4=Boots of the Unwavering Will", "=ds=#s12#, #a4#", "", "12.23%"};
+		{ 10, 321702, "", "=q4=Amulet of Foul Warding", "=ds=#s2#", "", "12.20%"};
+		{ 11, 321700, "", "=q4=Pendant of the Qiraji Guardian", "=ds=#s2#", "", "11.57%"};
+		{ 12, 321707, "", "=q4=Ring of Swarming Thought", "=ds=#s13#", "", "12.57%"};
+		{ 13, 321703, "", "=q4=Hammer of Ji'zhi", "=ds=#h2#, #w6#", "", "7.14%"};
+		{ 14, 321128, "", "=q4=Staff of the Qiraji Prophets", "=ds=#w9#", "", " 6.32%"};
+		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "1.74%"};
+		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
+		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "1.32%"};
+		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
+		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
+		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
+		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
+		{ 27, 22222, "", "=q3=Plans: Thick Obsidian Breastplate", "=ds=#p2# (300)", "", "5.00%"};
+		{ 28, 22196, "", "=q4=Thick Obsidian Breastplate", "=ds=#s5#, #a4#"};
+		Next = "AQ40Vem25Man";
+	};
+
+	AtlasLoot_Data["AQ40Vem25Man"] = {
+		{ 1, 321697, "", "=q4=Cape of the Trinity", "=ds=#s4# =q2=#m5#", "", "14%"};
+		{ 2, 321694, "", "=q4=Ternary Mantle", "=ds=#s3#, #a1# =q2=#m5#", "", "16%"};
+		{ 3, 321696, "", "=q4=Robes of the Triumvirate", "=ds=#s5#, #a1# =q2=#m5#", "", "13%"};
+		{ 4, 321693, "", "=q4=Guise of the Devourer", "=ds=#s1#, #a2# =q2=#m5#", "", "16%"};
+		{ 5, 321692, "", "=q4=Triad Girdle", "=ds=#s10#, #a4# =q2=#m5#", "", "16%"};
+		{ 6, 321695, "", "=q4=Angelista's Touch", "=ds=#s13# =q2=#m5#", "", "14%"};
+		{ 8, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3# =q2=#m5#", "", "7%"};
+		{ 9, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3# =q2=#m5#", "", "7%"};
+		{ 11, 321680, "", "=q4=Vest of Swift Execution", "=ds=#s5#, #a2# =q2=#n115#", "", "21%"};
+		{ 12, 321603, "", "=q4=Wand of Qiraji Nobility", "=ds=#w12# =q2=#n115#", "", "25%"};
+		{ 13, 321681, "", "=q4=Ring of the Devoured", "=ds=#s13# =q2=#n115#", "", "17%"};
+		{ 14, 321685, "", "=q4=Petrified Scarab", "=ds=#s14# =q2=#n115#", "", "21%"};
+		{ 16, 321689, "", "=q4=Gloves of Ebru", "=ds=#s9#, #a2# =q2=#n116#", "", "18%"};
+		{ 17, 321691, "", "=q4=Ooze-ridden Gauntlets", "=ds=#s9#, #a4# =q2=#n116#", "", "20%"};
+		{ 18, 321688, "", "=q4=Boots of the Fallen Hero", "=ds=#s12#, #a4# =q2=#n116#", "", "18%"};
+		{ 19, 321690, "", "=q4=Angelista's Charm", "=ds=#s2# =q2=#n116#", "", "20%"};
+		{ 21, 321686, "", "=q4=Mantle of Phrenic Power", "=ds=#s3#, #a1# =q2=#n117#", "", "13%"};
+		{ 22, 321682, "", "=q4=Bile-Covered Gauntlets", "=ds=#s9#, #a2# =q2=#n117#", "", "19%"};
+		{ 23, 321684, "", "=q4=Mantle of the Desert's Fury", "=ds=#s3#, #a3# =q2=#n117#", "", "16%"};
+		{ 24, 321683, "", "=q4=Mantle of the Desert Crusade", "=ds=#s3#, #a4# =q2=#n117#", "", "14%"};
+		{ 25, 321687, "", "=q4=Ukko's Ring of Darkness", "=ds=#s13# =q2=#n117#", "", "20%"};
+		Prev = "AQ40Skeram25Man";
+		Next = "AQ40Sartura25Man";
+	};
+
+	AtlasLoot_Data["AQ40Sartura25Man"] = {
+		{ 1, 321671, "", "=q4=Robes of the Battleguard", "=ds=#s5#, #a1#", "", "13.30%"};
+		{ 2, 321676, "", "=q4=Leggings of the Festering Swarm", "=ds=#s11#, #a1#", "", "13.02%"};
+		{ 3, 321648, "", "=q4=Recomposed Boots", "=ds=#s12#, #a1#", "", "7.64%"};
+		{ 4, 321669, "", "=q4=Creeping Vine Helm", "=ds=#s1#, #a2#", "", "12.33%"};
+		{ 5, 321672, "", "=q4=Gloves of Enforcement", "=ds=#s9#, #a2#", "", "11.87%"};
+		{ 6, 321675, "", "=q4=Thick Qirajihide Belt", "=ds=#s10#, #a2#", "", "13.26%"};
+		{ 7, 321668, "", "=q4=Scaled Leggings of Qiraji Fury", "=ds=#s11#, #a3#", "", "4.03%"};
+		{ 8, 321674, "", "=q4=Gauntlets of Steadfast Determination", "=ds=#s9#, #a4#", "", "11.07%"};
+		{ 9, 321667, "", "=q4=Legplates of Blazing Light", "=ds=#s11#, #a4#", "", "7.44%"};
+		{ 11, 321678, "", "=q4=Necklace of Purity", "=ds=#s2#", "", "14.21%"};
+		{ 12, 321670, "", "=q4=Badge of the Swarmguard", "=ds=#s14#", "", "13.22%"};
+		{ 13, 321666, "", "=q4=Sartura's Might", "=ds=#s15#", "", "6.47%"};
+		{ 14, 321673, "", "=q4=Silithid Claw", "=ds=#h3#, #w13#", "", "7.16%"};
+		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.01%"};
+		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
+		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.02%"};
+		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
+		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
+		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
+		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
+		Prev = "AQ40Vem25Man";
+		Next = "AQ40Fankriss25Man";
+	};
+
+	AtlasLoot_Data["AQ40Fankriss25Man"] = {
+		{ 1, 321627, "", "=q4=Cloak of Untold Secrets", "=ds=#s4#", "", "12.51%"};
+		{ 2, 321663, "", "=q4=Robes of the Guardian Saint", "=ds=#s5#, #a1#", "", "12.95%"};
+		{ 3, 321665, "", "=q4=Mantle of Wicked Revenge", "=ds=#s3#, #a2#", "", "13.25%"};
+		{ 4, 321645, "", "=q4=Hive Tunneler's Boots", "=ds=#s12#, #a2#", "", "14.04%"};
+		{ 5, 321651, "", "=q4=Scaled Sand Reaver Leggings", "=ds=#s11#, #a3#", "", "12.91%"};
+		{ 6, 321639, "", "=q4=Pauldrons of the Unrelenting", "=ds=#s3#, #a4#", "", "14.78%"};
+		{ 7, 321652, "", "=q4=Silithid Carapace Chestguard", "=ds=#s5#, #a4#", "", "10.29%"};
+		{ 9, 321647, "", "=q4=Fetish of the Sand Reaver", "=ds=#s14#", "", "13.82%"};
+		{ 10, 321664, "", "=q4=Barbed Choker", "=ds=#s2#", "", "12.63%"};
+		{ 11, 322402, "", "=q4=Libram of Grace", "=ds=#s16#, #w16#", "", "4.21%"};
+		{ 12, 322396, "", "=q4=Totem of Life", "=ds=#s16#, #w15#", "", "1.69%"};
+		{ 13, 321650, "", "=q4=Ancient Qiraji Ripper", "=ds=#h1#, #w10#", "", " 7.19%"};
+		{ 14, 321635, "", "=q4=Barb of the Sand Reaver", "=ds=#w7#", "", "6.61%"};
+		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.84%"};
+		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
+		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.09%"};
+		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
+		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
+		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
+		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
+		Prev = "AQ40Sartura25Man";
+		Next = "AQ40Viscidus25Man";
+	};
+
+	AtlasLoot_Data["AQ40Viscidus25Man"] = {
+		{ 1, 321624, "", "=q4=Gauntlets of Kalimdor", "=ds=#s9#, #a3#", "", "3.90%"};
+		{ 2, 321626, "", "=q4=Slime-coated Leggings", "=ds=#s11#, #a3#", "", "13.66%"};
+		{ 3, 321623, "", "=q4=Gauntlets of the Righteous Champion", "=ds=#s9#, #a4#", "", "5.37%"};
+		{ 5, 321677, "", "=q4=Ring of the Qiraji Fury", "=ds=#s13#", "", "2.93%"};
+		{ 6, 321625, "", "=q4=Scarab Brooch", "=ds=#s14#", "", "21.46%"};
+		{ 7, 322399, "", "=q4=Idol of Health", "=ds=#s16#, #w14#", "", "7.32%"};
+		{ 8, 321622, "", "=q4=Sharpened Silithid Femur", "=ds=#h3#, #w10#", "", "15.12%"};
+		{ 10, 20932, "", "=q4=Qiraji Bindings of Dominance", "=q1=#m1# =ds=#c8#, #c3#, #c7#, #c1#, #c4#", "", "100%"};
+		{ 11, 20928, "", "=q4=Qiraji Bindings of Command", "=q1=#m1# =ds=#c5#, #c6#, #c9#, #c2#", "", "100%"};
+		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "3.19%"};
+		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
+		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "6.86%"};
+		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
+		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
+		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
+		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
+		Prev = "AQ40Fankriss25Man";
+		Next = "AQ40Huhuran25Man";
+	};
+
+	AtlasLoot_Data["AQ40Huhuran25Man"] = {
+		{ 1, 321619, "", "=q4=Gloves of the Messiah", "=ds=#s9#, #a1#", "", "12.01%"};
+		{ 2, 321621, "", "=q4=Cloak of the Golden Hive", "=ds=#s4#", "", "12.56%"};
+		{ 3, 321617, "", "=q4=Wasphide Gauntlets", "=ds=#s9#, #a2#", "", "11.97%"};
+		{ 4, 321618, "", "=q4=Hive Defiler Wristguards", "=ds=#s8#, #a4#", "", "10.34%"};
+		{ 6, 321620, "", "=q4=Ring of the Martyr", "=ds=#s13#", "", "12.97%"};
+		{ 7, 321616, "", "=q4=Huhuran's Stinger", "=ds=#w2#", "", "5.71%"};
+		{ 9, 20932, "", "=q4=Qiraji Bindings of Dominance", "=q1=#m1# =ds=#c8#, #c3#, #c7#, #c1#, #c4#", "", "100%"};
+		{ 10, 20928, "", "=q4=Qiraji Bindings of Command", "=q1=#m1# =ds=#c5#, #c6#, #c9#, #c2#", "", "100%"};
+		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.31%"};
+		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
+		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.11%"};
+		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
+		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
+		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
+		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
+		Prev = "AQ40Viscidus25Man";
+		Next = "AQ40Emperors25Man";
+	};
+
+	AtlasLoot_Data["AQ40Emperors25Man"] = {
+		{ 1, 20930, "", "=q4=Vek'lor's Diadem", "=q1=#m1# =ds=#c7#, #c1#, #c6#, #c2#, #c4#", "", "100%"};
+		{ 2, 321600, "", "=q4=Boots of Epiphany", "=ds=#s12#, #a1#", "", "15.77%"};
+		{ 3, 321602, "", "=q4=Qiraji Execution Bracers", "=ds=#s8#, #a2#", "", "15.95%"};
+		{ 4, 321599, "", "=q4=Vek'lor's Gloves of Devastation", "=ds=#s9#, #a3#", "", "15.77%"};
+		{ 5, 321598, "", "=q4=Royal Qiraji Belt", "=ds=#s10#, #a4#", "", "9.84%"};
+		{ 6, 321597, "", "=q4=Royal Scepter of Vek'lor", "=ds=#s15#", "", "6.99%"};
+		{ 7, 321601, "", "=q4=Ring of Emperor Vek'lor", "=ds=#s13#", "", "17.27%"};
+		{ 8, 20735, "", "=q3=Formula: Enchant Cloak - Subtlety", "=ds=#p4# (300)", "", "6.62%"};
+		{ 11, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "6.25%"};
+		{ 12, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4#, =ds=#h1#, #w1#"};
+		{ 13, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
+		{ 14, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
+		{ 15, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
+		{ 16, 20926, "", "=q4=Vek'nilash's Circlet", "=q1=#m1# =ds=#c8#, #c3#, #c5#, #c9#", "", "100%"};
+		{ 17, 321604, "", "=q4=Bracelets of Royal Redemption", "=ds=#s8#, #a1#", "", "12.51%"};
+		{ 18, 321605, "", "=q4=Gloves of the Hidden Temple", "=ds=#s9#, #a2#", "", "15.45%"};
+		{ 19, 321609, "", "=q4=Regenerating Belt of Vek'nilash", "=ds=#s10#, #a2#", "", "13.35%"};
+		{ 20, 321607, "", "=q4=Grasp of the Fallen Emperor", "=ds=#s10#, #a3#", "", "2.72%"};
+		{ 21, 321606, "", "=q4=Belt of the Fallen Emperor", "=ds=#s10#, #a4#", "", "12.22%"};
+		{ 22, 321679, "", "=q4=Kalimdor's Revenge", "=ds=#h2#, #w10#", "", "9.25%"};
+		{ 23, 321608, "", "=q4=Amulet of Vek'nilash", "=ds=#s2#", "", "14.25%"};
+		{ 24, 20726, "", "=q3=Formula: Enchant Gloves - Threat", "=ds=#p4# (300)", "", "6.24%"};
+		{ 26, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "5.00%"};
+		{ 27, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 28, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
+		{ 29, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
+		Prev = "AQ40Huhuran25Man";
+		Next = "AQ40Ouro25Man";
+	};
+
+	AtlasLoot_Data["AQ40Ouro25Man"] = {
+		{ 1, 321615, "", "=q4=Don Rigoberto's Lost Hat", "=ds=#s1#, #a1#", "", "28.63%"};
+		{ 2, 321611, "", "=q4=Burrower Bracers", "=ds=#s8#, #a1#", "", "24.44%"};
+		{ 3, 323558, "", "=q4=The Burrower's Shell", "=ds=#s14#", "", "2.90%"};
+		{ 4, 323570, "", "=q4=Jom Gabbar", "=ds=#s14#", "", "2.80%"};
+		{ 5, 323557, "", "=q4=Larvae of the Great Worm", "=ds=#w5#", "", "3.95%"};
+		{ 6, 321610, "", "=q4=Wormscale Blocker", "=ds=#w8#", "", "16.54%"};
+		{ 8, 20927, "", "=q4=Ouro's Intact Hide", "=q1=#m1# =ds=#c3#, #c5#, #c6#, #c9#", "", "100%"};
+		{ 9, 20931, "", "=q4=Skin of the Great Sandworm", "=q1=#m1# =ds=#c8#, #c7#, #c1#, #c2#, #c4#", "", "100%"};
+		{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "5.20%"};
+		{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4# =ds=#w9#"};
+		{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4# =ds=#w9#"};
+		{ 19, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4# =ds=#h1#, #w6#"};
+		{ 21, 21232, "", "=q4=Imperial Qiraji Armaments", "=ds=#m3#", "", "4.10%"};
+		{ 22, 21242, "", "=q4=Blessed Qiraji War Axe", "=q1=#m4# =ds=#h1#, #w1#"};
+		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4# =ds=#w5#"};
+		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4# =ds=#h1#, #w4#"};
+		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4# =ds=#w8#"};
+		Prev = "AQ40Emperors25Man";
+		Next = "AQ40CThun25Man";
+	};
+
+	AtlasLoot_Data["AQ40CThun25Man"] = {
+		{ 1, 321583, "", "=q4=Cloak of Clarity", "=ds=#s4#", "", "14.45%"};
+		{ 2, 322731, "", "=q4=Cloak of the Devoured", "=ds=#s4#", "", "16.34%"};
+		{ 3, 321585, "", "=q4=Dark Storm Gauntlets", "=ds=#s9#, #a1#", "", "13.63%"};
+		{ 4, 322730, "", "=q4=Eyestalk Waist Cord", "=ds=#s10#, #a1#", "", "10.41%"};
+		{ 5, 321582, "", "=q4=Grasp of the Old God", "=ds=#s10#, #a1#", "", "15.04%"};
+		{ 6, 321586, "", "=q4=Belt of Never-ending Agony", "=ds=#s10#, #a2#", "", "11.24%"};
+		{ 7, 321581, "", "=q4=Gauntlets of Annihilation", "=ds=#s9#, #a4#", "", "12.04%"};
+		{ 9, 322732, "", "=q4=Mark of C'Thun", "=ds=#s2#", "", "10.62%"};
+		{ 10, 321596, "", "=q4=Ring of the Godslayer", "=ds=#s13#", "", "11.83%"};
+		{ 11, 321579, "", "=q4=Vanquished Tentacle of C'Thun", "=ds=#s14#", "", "12.18%"};
+		{ 12, 321126, "", "=q4=Death's Sting", "=ds=#h1#, #w4#", "", "6.84%"};
+		{ 13, 321134, "", "=q4=Dark Edge of Insanity", "=ds=#h2#, #w1#", "", "5.93%"};
+		{ 14, 321839, "", "=q4=Scepter of the False Prophet", "=ds=#h3#, #w6#", "", "4.75%"};
+		{ 16, 20933, "", "=q4=Husk of the Old God", "=q1=#m1# =ds=#c8#, #c3#, #c1#, #c5#", "", "100%"};
+		{ 17, 20929, "", "=q4=Carapace of the Old God", "=q1=#m1# =ds=#c7#, #c6#, #c9#, #c2#, #c4#", "", "100%"};
+		{ 19, 21221, "", "=q4=Eye of C'Thun", "=ds=#m2#", "", "100%"};
+		{ 20, 21710, "", "=q4=Cloak of the Fallen God", "=q1=#m4#: =ds=#s4#"};
+		{ 21, 21712, "", "=q4=Amulet of the Fallen God", "=q1=#m4#: =ds=#s2#"};
+		{ 22, 21709, "", "=q4=Ring of the Fallen God", "=q1=#m4#: =ds=#s13#"};
+		{ 24, 22734, "", "=q1=Base of Atiesh", "=ds=#m3#"};
+		{ 25, 22632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#"};
+		{ 26, 22589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#"};
+		{ 27, 22631, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c5#"};
+		{ 28, 22630, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c8#"};
+		Prev = "AQ40Ouro25Man";
+	};
+
+	AtlasLoot_Data["AQ40Trash125Man"] = {
+		{ 1, 321838, "", "=q4=Garb of Royal Ascension", "=ds=#s5#, #a1#", "", "0.20%"};
+		{ 2, 321888, "", "=q4=Gloves of the Immortal", "=ds=#s9#, #a1#", "", "0.16%"};
+		{ 3, 321889, "", "=q4=Gloves of the Redeemed Prophecy", "=ds=#s9#, #a4# =q1=#m1# =ds=#c4#", "", "0.39%"};
+		{ 4, 321836, "", "=q4=Ritssyn's Ring of Chaos", "=ds=#s13#", "", "0.18%"};
+		{ 5, 321891, "", "=q4=Shard of the Fallen Star", "=ds=#s14#", "", "0.59%"};
+		{ 6, 321856, "", "=q4=Neretzek, The Blood Drinker", "=ds=#h2#, #w1#", "", "0.20%"};
+		{ 7, 321837, "", "=q4=Anubisath Warhammer", "=ds=#h1#, #w6#", "", "0.21%"};
+		{ 9, 22202, "", "=q1=Small Obsidian Shard", "=ds=#e8#"};
+		{ 10, 22203, "", "=q1=Large Obsidian Shard", "=ds=#e8#"};
+		{ 16, 21218, "", "=q3=Blue Qiraji Resonating Crystal", "=ds=#e12#", "", "10.64%"};
+		{ 17, 21324, "", "=q3=Yellow Qiraji Resonating Crystal", "=ds=#e12#", "", "12.15%"};
+		{ 18, 21323, "", "=q3=Green Qiraji Resonating Crystal", "=ds=#e12#", "", "11.62%"};
+		{ 19, 21321, "", "=q3=Red Qiraji Resonating Crystal", "=ds=#e12#", "", "1.39%"};
+		Next = "AQ40Trash225Man";
+	};
+
+	AtlasLoot_Data["AQ40Trash225Man"] = {
+		{ 1, 20876, "", "=q3=Idol of Death", "=ds=#e15#", "", "0.26%"};
+		{ 2, 20879, "", "=q3=Idol of Life", "=ds=#e15#", "", "0.29%"};
+		{ 3, 20875, "", "=q3=Idol of Night", "=ds=#e15#", "", "0.29%"};
+		{ 4, 20878, "", "=q3=Idol of Rebirth", "=ds=#e15#", "", "0.28%"};
+		{ 5, 20881, "", "=q3=Idol of Strife", "=ds=#e15#", "", "0.21%"};
+		{ 6, 20877, "", "=q3=Idol of the Sage", "=ds=#e15#", "", "0.33%"};
+		{ 7, 20874, "", "=q3=Idol of the Sun", "=ds=#e15#", "", "0.21%"};
+		{ 8, 20882, "", "=q3=Idol of War", "=ds=#e15#", "", "0.30%"};
+		{ 10, 21230, "", "=q1=Ancient Qiraji Artifact", "=ds=#m2#"};
+		{ 12, 21762, "", "=q1=Greater Scarab Coffer Key", "=ds=#e9#", "", "7.03%"};
+		{ 16, 20864, "", "=q2=Bone Scarab", "=ds=#e15#", "", "0.84%"};
+		{ 17, 20861, "", "=q2=Bronze Scarab", "=ds=#e15#", "", "0.88%"};
+		{ 18, 20863, "", "=q2=Clay Scarab", "=ds=#e15#", "", "0.95%"};
+		{ 19, 20862, "", "=q2=Crystal Scarab", "=ds=#e15#", "", "0.99%"};
+		{ 20, 20859, "", "=q2=Gold Scarab", "=ds=#e15#", "", "0.96%"};
+		{ 21, 20865, "", "=q2=Ivory Scarab", "=ds=#e15#", "", "0.93%"};
+		{ 22, 20860, "", "=q2=Silver Scarab", "=ds=#e15#", "", "1.82%"};
+		{ 23, 20858, "", "=q2=Stone Scarab", "=ds=#e15#", "", "0.86%"};
+		Prev = "AQ40Trash125Man";
+	};
+
+	-------------------------------------------------
+	--- Ahn'Qiraj: The Temple of Ahn'Qiraj ASCENDED ---
+	-------------------------------------------------
+
+	AtlasLoot_Data["AQ40Skeram25ManHEROIC"] = {
 		{ 1, 221701, "", "=q4=Cloak of Concentrated Hatred", "=ds=#s4#", "", "11.81%"};
 		{ 2, 221708, "", "=q4=Beetle Scaled Wristguards", "=ds=#s8#, #a2#", "", "12.85%"};
 		{ 3, 221698, "", "=q4=Leggings of Immersion", "=ds=#s11#, #a2#", "", " 10.99%"};
@@ -1425,10 +1258,10 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
 		{ 27, 22222, "", "=q3=Plans: Thick Obsidian Breastplate", "=ds=#p2# (300)", "", "5.00%"};
 		{ 28, 22196, "", "=q4=Thick Obsidian Breastplate", "=ds=#s5#, #a4#"};
-		Next = "AQ40VemHEROIC";
+		Next = "AQ40Vem25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40VemHEROIC"] = {
+	AtlasLoot_Data["AQ40Vem25ManHEROIC"] = {
 		{ 1, 221697, "", "=q4=Cape of the Trinity", "=ds=#s4# =q2=#m5#", "", "14%"};
 		{ 2, 221694, "", "=q4=Ternary Mantle", "=ds=#s3#, #a1# =q2=#m5#", "", "16%"};
 		{ 3, 221696, "", "=q4=Robes of the Triumvirate", "=ds=#s5#, #a1# =q2=#m5#", "", "13%"};
@@ -1450,11 +1283,11 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 221684, "", "=q4=Mantle of the Desert's Fury", "=ds=#s3#, #a3# =q2=#n117#", "", "16%"};
 		{ 24, 221683, "", "=q4=Mantle of the Desert Crusade", "=ds=#s3#, #a4# =q2=#n117#", "", "14%"};
 		{ 25, 221687, "", "=q4=Ukko's Ring of Darkness", "=ds=#s13# =q2=#n117#", "", "20%"};
-		Prev = "AQ40SkeramHEROIC";
-		Next = "AQ40SarturaHEROIC";
+		Prev = "AQ40Skeram25ManHEROIC";
+		Next = "AQ40Sartura25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40SarturaHEROIC"] = {
+	AtlasLoot_Data["AQ40Sartura25ManHEROIC"] = {
 		{ 1, 221671, "", "=q4=Robes of the Battleguard", "=ds=#s5#, #a1#", "", "13.30%"};
 		{ 2, 221676, "", "=q4=Leggings of the Festering Swarm", "=ds=#s11#, #a1#", "", "13.02%"};
 		{ 3, 221648, "", "=q4=Recomposed Boots", "=ds=#s12#, #a1#", "", "7.64%"};
@@ -1477,11 +1310,11 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40VemHEROIC";
-		Next = "AQ40FankrissHEROIC";
+		Prev = "AQ40Vem25ManHEROIC";
+		Next = "AQ40Fankriss25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40FankrissHEROIC"] = {
+	AtlasLoot_Data["AQ40Fankriss25ManHEROIC"] = {
 		{ 1, 221627, "", "=q4=Cloak of Untold Secrets", "=ds=#s4#", "", "12.51%"};
 		{ 2, 221663, "", "=q4=Robes of the Guardian Saint", "=ds=#s5#, #a1#", "", "12.95%"};
 		{ 3, 221665, "", "=q4=Mantle of Wicked Revenge", "=ds=#s3#, #a2#", "", "13.25%"};
@@ -1504,11 +1337,11 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40SarturaHEROIC";
-		Next = "AQ40ViscidusHEROIC";
+		Prev = "AQ40Sartura25ManHEROIC";
+		Next = "AQ40Viscidus25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40ViscidusHEROIC"] = {
+	AtlasLoot_Data["AQ40Viscidus25ManHEROIC"] = {
 		{ 1, 221624, "", "=q4=Gauntlets of Kalimdor", "=ds=#s9#, #a3#", "", "3.90%"};
 		{ 2, 221626, "", "=q4=Slime-coated Leggings", "=ds=#s11#, #a3#", "", "13.66%"};
 		{ 3, 221623, "", "=q4=Gauntlets of the Righteous Champion", "=ds=#s9#, #a4#", "", "5.37%"};
@@ -1527,11 +1360,11 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40FankrissHEROIC";
-		Next = "AQ40HuhuranHEROIC";
+		Prev = "AQ40Fankriss25ManHEROIC";
+		Next = "AQ40Huhuran25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40HuhuranHEROIC"] = {
+	AtlasLoot_Data["AQ40Huhuran25ManHEROIC"] = {
 		{ 1, 221619, "", "=q4=Gloves of the Messiah", "=ds=#s9#, #a1#", "", "12.01%"};
 		{ 2, 221621, "", "=q4=Cloak of the Golden Hive", "=ds=#s4#", "", "12.56%"};
 		{ 3, 221617, "", "=q4=Wasphide Gauntlets", "=ds=#s9#, #a2#", "", "11.97%"};
@@ -1549,11 +1382,11 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-		Prev = "AQ40ViscidusHEROIC";
-		Next = "AQ40EmperorsHEROIC";
+		Prev = "AQ40Viscidus25ManHEROIC";
+		Next = "AQ40Emperors25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40EmperorsHEROIC"] = {
+	AtlasLoot_Data["AQ40Emperors25ManHEROIC"] = {
 		{ 1, 20930, "", "=q4=Vek'lor's Diadem", "=q1=#m1# =ds=#c7#, #c1#, #c6#, #c2#, #c4#", "", "100%"};
 		{ 2, 221600, "", "=q4=Boots of Epiphany", "=ds=#s12#, #a1#", "", "15.77%"};
 		{ 3, 221602, "", "=q4=Qiraji Execution Bracers", "=ds=#s8#, #a2#", "", "15.95%"};
@@ -1580,11 +1413,11 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
 		{ 28, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
 		{ 29, 21268, "", "=q4=Blessed Qiraji War Hammer", "=q1=#m4#, =ds=#h1#, #w6#"};
-		Prev = "AQ40HuhuranHEROIC";
-		Next = "AQ40OuroHEROIC";
+		Prev = "AQ40Huhuran25ManHEROIC";
+		Next = "AQ40Ouro25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40OuroHEROIC"] = {
+	AtlasLoot_Data["AQ40Ouro25ManHEROIC"] = {
 		{ 1, 221615, "", "=q4=Don Rigoberto's Lost Hat", "=ds=#s1#, #a1#", "", "28.63%"};
 		{ 2, 221611, "", "=q4=Burrower Bracers", "=ds=#s8#, #a1#", "", "24.44%"};
 		{ 3, 223558, "", "=q4=The Burrower's Shell", "=ds=#s14#", "", "2.90%"};
@@ -1602,11 +1435,11 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4# =ds=#w5#"};
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4# =ds=#h1#, #w4#"};
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4# =ds=#w8#"};
-		Prev = "AQ40EmperorsHEROIC";
-		Next = "AQ40CThunHEROIC";
+		Prev = "AQ40Emperors25ManHEROIC";
+		Next = "AQ40CThun25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40CThunHEROIC"] = {
+	AtlasLoot_Data["AQ40CThun25ManHEROIC"] = {
 		{ 1, 221583, "", "=q4=Cloak of Clarity", "=ds=#s4#", "", "14.45%"};
 		{ 2, 222731, "", "=q4=Cloak of the Devoured", "=ds=#s4#", "", "16.34%"};
 		{ 3, 221585, "", "=q4=Dark Storm Gauntlets", "=ds=#s9#, #a1#", "", "13.63%"};
@@ -1626,15 +1459,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 20, 21710, "", "=q4=Cloak of the Fallen God", "=q1=#m4#: =ds=#s4#"};
 		{ 21, 21712, "", "=q4=Amulet of the Fallen God", "=q1=#m4#: =ds=#s2#"};
 		{ 22, 21709, "", "=q4=Ring of the Fallen God", "=q1=#m4#: =ds=#s13#"};
-		{ 24, 22734, "", "=q1=Base of Atiesh", "=ds=#m3#"};
-		{ 25, 22632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#"};
-		{ 26, 22589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#"};
-		{ 27, 22631, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c5#"};
-		{ 28, 22630, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c8#"};
-		Prev = "AQ40OuroHEROIC";
+		{ 24, 222734, "", "=q1=Base of Atiesh", "=ds=#m3#"};
+		{ 25, 222632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#"};
+		{ 26, 222589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#"};
+		{ 27, 222631, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c5#"};
+		{ 28, 222630, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c8#"};
+		Prev = "AQ40Ouro25ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40Trash1HEROIC"] = {
+	AtlasLoot_Data["AQ40Trash125ManHEROIC"] = {
 		{ 1, 221838, "", "=q4=Garb of Royal Ascension", "=ds=#s5#, #a1#", "", "0.20%"};
 		{ 2, 221888, "", "=q4=Gloves of the Immortal", "=ds=#s9#, #a1#", "", "0.16%"};
 		{ 3, 221889, "", "=q4=Gloves of the Redeemed Prophecy", "=ds=#s9#, #a4# =q1=#m1# =ds=#c4#", "", "0.39%"};
@@ -1648,10 +1481,10 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 17, 21324, "", "=q3=Yellow Qiraji Resonating Crystal", "=ds=#e12#", "", "12.15%"};
 		{ 18, 21323, "", "=q3=Green Qiraji Resonating Crystal", "=ds=#e12#", "", "11.62%"};
 		{ 19, 21321, "", "=q3=Red Qiraji Resonating Crystal", "=ds=#e12#", "", "1.39%"};
-		Next = "AQ40Trash2HEROIC";
+		Next = "AQ40Trash225ManHEROIC";
 	};
 
-	AtlasLoot_Data["AQ40Trash2HEROIC"] = {
+	AtlasLoot_Data["AQ40Trash225ManHEROIC"] = {
 		{ 1, 20876, "", "=q3=Idol of Death", "=ds=#e15#", "", "0.26%"};
 		{ 2, 20879, "", "=q3=Idol of Life", "=ds=#e15#", "", "0.29%"};
 		{ 3, 20875, "", "=q3=Idol of Night", "=ds=#e15#", "", "0.29%"};
@@ -1670,7 +1503,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 21, 20865, "", "=q2=Ivory Scarab", "=ds=#e15#", "", "0.93%"};
 		{ 22, 20860, "", "=q2=Silver Scarab", "=ds=#e15#", "", "1.82%"};
 		{ 23, 20858, "", "=q2=Stone Scarab", "=ds=#e15#", "", "0.86%"};
-		Prev = "AQ40Trash1HEROIC";
+		Prev = "AQ40Trash125ManHEROIC";
 	};
 
 		-------------------
@@ -1761,12 +1594,14 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		Prev = "BlackfathomDeeps1";
 	};
 
+
 		--------------------------------------------
 		--- Blackrock Mountain: Blackrock Dephts ---
 		--------------------------------------------
 
 	AtlasLoot_Data["BRDPyron"] = {
 		{ 1, 14486, "", "=q3=Pattern: Cloak of Fire", "=ds=#p8# (275)", "", "17.95%"};
+		Next = "BRDLordRoccor";
 	};
 
 	AtlasLoot_Data["BRDLordRoccor"] = {
@@ -1777,6 +1612,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 5, 11630, "", "=q3=Rockshard Pellets", "=ds=#w18#", "", "16.82%"};
 		{ 16, 11813, "", "=q2=Formula: Smoking Heart of the Mountain", "=ds=#p4# (265)", "", "14.79%"};
 		{ 17, 11811, "", "=q3=Smoking Heart of the Mountain", "=ds=#s14#"};
+		Prev = "BRDPyron";
+		Next = "BRDHighInterrogatorGerstahn";
 	};
 
 	AtlasLoot_Data["BRDHighInterrogatorGerstahn"] = {
@@ -1785,6 +1622,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 22240, "", "=q3=Greaves of Withering Despair", "=ds=#s12#, #a3#", "", "16.81%"};
 		{ 4, 11625, "", "=q3=Enthralled Sphere", "=ds=#s15#", "", "23.14%"};
 		{ 6, 11140, "", "=q1=Prison Cell Key", "=ds=#e9#"};
+		Prev = "BRDLordRoccor";
+		Next = "BRDArena";
 	};
 
 	AtlasLoot_Data["BRDArena"] = {
@@ -1813,6 +1652,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 11665, "", "=q3=Ogreseer Fists", "=ds=#s9#, #a2# =q2=#brd6#", "", "28.16%"};
 		{ 28, 11728, "", "=q3=Savage Gladiator Leggings", "=ds=#s11#, #a3# =q2=#brd6#", "", "14.95%"};
 		{ 29, 11824, "", "=q3=Cyclopean Band", "=ds=#s13# =q2=#brd6#", "", "18.37%"};
+		Prev = "BRDHighInterrogatorGerstahn";
+		Next = "BRDTheldren";
 	};
 
 	AtlasLoot_Data["BRDTheldren"] = {
@@ -1822,6 +1663,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 22317, "", "=q3=Lefty's Brass Knuckle", "=ds=#h1#, #w13#", "", "26.15%"};
 		{ 5, 22318, "", "=q3=Malgen's Long Bow", "=ds=#w2#", "", "22.88%"};
 		{ 7, 22047, "", "=q1=Top Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
+		Prev = "BRDArena";
+		Next = "BRDHoundmaster";
 	};
 
 	AtlasLoot_Data["BRDHoundmaster"] = {
@@ -1830,10 +1673,14 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 11627, "", "=q3=Fleetfoot Greaves", "=ds=#s12#, #a3#", "", "32.09%"};
 		{ 4, 11628, "", "=q3=Houndmaster's Bow", "=ds=#w2#", "", "12.14%"};
 		{ 5, 11629, "", "=q3=Houndmaster's Rifle", "=ds=#w5#", "", "11.18%"};
+		Prev = "BRDTheldren";
+		Next = "BRDForgewright";
 	};
 
 	AtlasLoot_Data["BRDForgewright"] = {
 		{ 1, 11000, "", "=q1=Shadowforge Key", "=q1=#m4#: =ds=#e9#"};
+		Prev = "BRDHoundmaster";
+		Next = "BRDPyromantLoregrain";
 	};
 
 	AtlasLoot_Data["BRDPyromantLoregrain"] = {
@@ -1842,6 +1689,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 11750, "", "=q3=Kindling Stave", "=ds=#w9#", "", " 16.19%"};
 		{ 4, 11748, "", "=q3=Pyric Caduceus", "=ds=#w12#", "", "30.20%"};
 		{ 6, 11207, "", "=q2=Formula: Enchant Weapon - Fiery Weapon", "=ds=#p4# (265)", "", "13.32%"};
+		Prev = "BRDForgewright";
+		Next = "BRDTheVault";
 	};
 
 	AtlasLoot_Data["BRDTheVault"] = {
@@ -1860,6 +1709,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 17, 11752, "", "=q1=Black Blood of the Tormented", "=ds=#m3#", "", "44.48%"};
 		{ 18, 11751, "", "=q1=Burning Essence", "=ds=#m3#", "", "39.35%"};
 		{ 19, 11753, "", "=q1=Eye of Kajal", "=ds=#m3#", "", "39.95%"};
+		Prev = "BRDPyromantLoregrain";
+		Next = "BRDWarderStilgiss";
 	};
 
 	AtlasLoot_Data["BRDWarderStilgiss"] = {
@@ -1867,11 +1718,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 22241, "", "=q3=Dark Warder's Pauldrons", "=ds=#s3#, #a2#", "", "18.38%"};
 		{ 3, 11783, "", "=q3=Chillsteel Girdle", "=ds=#s10#, #a3#", "", "20.50%"};
 		{ 4, 11784, "", "=q3=Arbiter's Blade", "=ds=#h3#, #w10#", "", "21.54%"};
+		Prev = "BRDTheVault";
+		Next = "BRDVerek";
 	};
 
 	AtlasLoot_Data["BRDVerek"] = {
 		{ 1, 22242, "", "=q3=Verek's Leash", "=ds=#s10#, #a3#", "", "9.78%"};
 		{ 2, 11755, "", "=q3=Verek's Collar", "=ds=#s2#", "", "9.54%"};
+		Prev = "BRDWarderStilgiss";
+		Next = "BRDFineousDarkvire";
 	};
 
 	AtlasLoot_Data["BRDFineousDarkvire"] = {
@@ -1881,6 +1736,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 22223, "", "=q3=Foreman's Head Protector", "=ds=#s1#, #a4#", "", "19.73%"};
 		{ 6, 11840, "", "=q1=Master Builder's Shirt", "#s6#", "", "3.9%"};
 		{ 8, 10999, "", "=q1=Ironfel", "=ds=#m3#", "", "100%"};
+		Prev = "BRDVerek";
+		Next = "BRDLordIncendius";
 	};
 
 	AtlasLoot_Data["BRDLordIncendius"] = {
@@ -1892,6 +1749,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 19268, "", "=q3=Ace of Elementals", "=ds=#e16#", "", "2.10%"};
 		{ 8, 21987, "", "=q1=Incendicite of Incendius", "=ds=#m3#"};
 		{ 9, 11126, "", "=q1=Tablet of Kurniya", "=ds=#m3#"};
+		Prev = "BRDFineousDarkvire";
+		Next = "BRDBaelGar";
 	};
 
 	AtlasLoot_Data["BRDBaelGar"] = {
@@ -1899,6 +1758,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 11802, "", "=q3=Lavacrest Leggings", "=ds=#s11#, #a4#", "", "26.75%"};
 		{ 3, 11805, "", "=q3=Rubidium Hammer", "=ds=#h1#, #w6#", "", "17.02%"};
 		{ 4, 11803, "", "=q3=Force of Magma", "=ds=#h2#, #w6#", "", "27.47%"};
+		Prev = "BRDLordIncendius";
+		Next = "BRDGeneralAngerforge";
 	};
 
 	AtlasLoot_Data["BRDGeneralAngerforge"] = {
@@ -1908,6 +1769,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 11817, "", "=q3=Lord General's Sword", "=ds=#h1#, #w10# ", "", "14.72%"};
 		{ 5, 11816, "", "=q3=Angerforge's Battle Axe", "=ds=#h2#, #w1#", "", "16.41%"};
 		{ 7, 11464, "", "=q1=Marshal Windsor's Lost Information", "=ds=#m3#"};
+		Prev = "BRDBaelGar";
+		Next = "BRDGolemLordArgelmach";
 	};
 
 	AtlasLoot_Data["BRDGolemLordArgelmach"] = {
@@ -1918,6 +1781,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 21956, "", "=q2=Design: Dark Iron Scorpid", "=ds=#p12# (300)"};
 		{ 8, 11268, "", "=q1=Head of Argelmach", "=ds=#m3#"};
 		{ 9, 11465, "", "=q1=Marshal Windsor's Lost Information", "=ds=#m3#"};
+		Prev = "BRDGeneralAngerforge";
+		Next = "BRDGuzzler";
 	};
 
 	AtlasLoot_Data["BRDGuzzler"] = {
@@ -1945,6 +1810,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 28, 15759, "", "=q1=Pattern: Black Dragonscale Breastplate", "=ds=#p7# (290)"};
 		{ 29, 11602, "", "=q1=Grim Guzzler Key", "=ds=#e9#"};
 		{ 30, 11325, "", "=q1=Dark Iron Ale Mug", "=ds=#m3#"};
+		Prev = "BRDGolemLordArgelmach";
+		Next = "BRDFlamelash";
 	};
 
 	AtlasLoot_Data["BRDFlamelash"] = {
@@ -1954,6 +1821,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 5, 11832, "", "=q3=Burst of Knowledge", "=ds=#s14#", "", "14.61%"};
 		{ 6, 11809, "", "=q3=Flame Wrath", "=ds=#w7#", "", "18.69%"};
 		{ 8, 23320, "", "=q3=Tablet of Flame Shock VI", "=ds=#e10# =q1=#m1# =ds=#c7#"};
+		Prev = "BRDGuzzler";
+		Next = "BRDPanzor";
 	};
 
 	AtlasLoot_Data["BRDPanzor"] = {
@@ -1961,6 +1830,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 11787, "", "=q3=Shalehusk Boots", "=ds=#s12#, #a4#", "", "19.96%"};
 		{ 3, 11786, "", "=q3=Stone of the Earth", "=ds=#h2#, #w10#", "", "20.38%"};
 		{ 4, 11785, "", "=q3=Rock Golem Bulwark", "=ds=#w8#", "", "21.22%"};
+		Prev = "BRDFlamelash";
+		Next = "BRDTomb";
 	};
 
 	AtlasLoot_Data["BRDTomb"] = {
@@ -1973,11 +1844,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 7, 11920, "", "=q3=Wraith Scythe", "=ds=#h1# #w1#", "", "22.61%"};
 		{ 8, 11923, "", "=q3=The Hammer of Grace", "=ds=#h3#, #w6#", "", "21.29%"};
 		{ 9, 11921, "", "=q3=Impervious Giant", "=ds=#h2#, #w6#", "", "22.23%"};
+		Prev = "BRDPanzor";
+		Next = "BRDLyceum";
 	};
 
 	AtlasLoot_Data["BRDLyceum"] = {
 		{ 1, 0, "INV_Box_01", "=q6=#n44#", ""};
 		{ 2, 11885, "", "=q1=Shadowforge Torch", "=ds=#m20#"};
+		Prev = "BRDTomb";
+		Next = "BRDMagmus";
 	};
 
 	AtlasLoot_Data["BRDMagmus"] = {
@@ -1986,6 +1861,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 22395, "", "=q3=Totem of Rage", "=ds=#s16#, #w15#", "", "10.09%"};
 		{ 4, 22400, "", "=q3=Libram of Truth", "=ds=#s16#, #w16#", "", "9.75%"};
 		{ 5, 22208, "", "=q3=Lavastone Hammer", "=ds=#h2#, #w6#", "", "22.79%"};
+		Prev = "BRDLyceum";
+		Next = "BRDImperatorDagranThaurissan";
 	};
 
 	AtlasLoot_Data["BRDImperatorDagranThaurissan"] = {
@@ -2001,6 +1878,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 17, 11932, "", "=q3=Guiding Stave of Wisdom", "=ds=#w9#", "", "15.01%"};
 		{ 18, 11928, "", "=q3=Thaurissan's Royal Scepter", "=ds=#s15#", "", " 12.86%"};
 		{ 20, 12033, "", "=q1=Thaurissan Family Jewels", "=ds=#e7# #e1#", "", "2.2%"};
+		Prev = "BRDMagmus";
+		Next = "BRDPrincess";
 	};
 
 	AtlasLoot_Data["BRDPrincess"] = {
@@ -2008,11 +1887,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 12556, "", "=q3=High Priestess Boots", "=ds=#s12#, #a1#", "", "10.26%"};
 		{ 3, 12557, "", "=q3=Ebonsteel Spaulders", "=ds=#s3#, #a4#", "", "12.11%"};
 		{ 4, 12553, "", "=q3=Swiftwalker Boots", "=ds=#s12#, #a2#", "", "11.05%"};
+		Prev = "BRDImperatorDagranThaurissan";
+		Next = "BRDBSPlans";
 	};
 
 	AtlasLoot_Data["BRDBSPlans"] = {
 		{ 1, 11614, "", "=q2=Plans: Dark Iron Mail", "=ds=#p2# (270)", "", "13.38%"};
 		{ 2, 11615, "", "=q2=Plans: Dark Iron Shoulders", "=ds=#p2# (280)", "", "7.65%"};
+		Prev = "BRDPrincess";
+		Next = "BRDTrash";
 	};
 
 	AtlasLoot_Data["BRDTrash"] = {
@@ -2041,6 +1924,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 26, 18945, "", "=q1=Dark Iron Residue", "=ds=#m3#"};
 		{ 27, 11468, "", "=q1=Dark Iron Fanny Pack", "=ds=#m3#"};
 		{ 28, 11446, "", "=q1=A Crumpled Up Note", "=ds=#m2#"};
+		Prev = "BRDBSPlans";
 	};
 
 		-------------------------------------------------
@@ -2049,6 +1933,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 
 	AtlasLoot_Data["BRMScarshieldQuartermaster"] = {
 		{ 1, 18987, "", "=q1=Blackhand's Command", "=ds=#m2#", "", "100%"};
+		Next = "LBRSQuestItems";
 	};
 
 	AtlasLoot_Data["LBRSQuestItems"] = {
@@ -2059,11 +1944,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 12740, "", "=q1=Fifth Mosh'aru Tablet", "=ds=#m3#"};
 		{ 7, 12741, "", "=q1=Sixth Mosh'aru Tablet", "=ds=#m3#"};
 		{ 8, 12345, "", "=q1=Bijou's Belongings", "=ds=#m3#"};
+		Prev = "BRMScarshieldQuartermaster";
+		Next = "LBRSSpirestoneButcher";
 	};
 
 	AtlasLoot_Data["LBRSSpirestoneButcher"] = {
 		{ 1, 12608, "", "=q3=Butcher's Apron", "=ds=#s4#", "", "54.31%"};
 		{ 2, 13286, "", "=q3=Rivenspike", "=ds=#h1#, #w1#", "", "35.78%"};
+		Prev = "LBRSQuestItems";
+		Next = "LBRSOmokk";
 	};
 
 	AtlasLoot_Data["LBRSOmokk"] = {
@@ -2075,17 +1964,23 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 7, 12336, "", "=q2=Gemstone of Spirestone", "=ds=#m3#", "", "100%"};
 		{ 9, 12534, "", "=q1=Omokk's Head", "=ds=#m3#", "", "100%"};
 		{ 16, 16670, "", "=q3=Boots of Elements", "=ds=#s12#, #a3# (D1, #c7#)", "", "9.35%"};
+		Prev = "LBRSSpirestoneButcher";
+		Next = "LBRSSpirestoneLord";
 	};
 
 	AtlasLoot_Data["LBRSSpirestoneLord"] = {
 		{ 1, 13284, "", "=q3=Swiftdart Battleboots", "=ds=#s12#, #a3#", "", "48.68%"};
 		{ 2, 13285, "", "=q3=The Blackrock Slicer", "=ds=#h2#, #w1#", "", "34.87%"};
+		Prev = "LBRSOmokk";
+		Next = "LBRSLordMagus";
 	};
 
 	AtlasLoot_Data["LBRSLordMagus"] = {
 		{ 1, 13282, "", "=q3=Ogreseer Tower Boots", "=ds=#s12#, #a3#", "", "22.95%"};
 		{ 2, 13283, "", "=q3=Magus Ring", "=ds=#s13#", "", "38.01%"};
 		{ 3, 13261, "", "=q3=Globe of D'sak", "=ds=#s15#", "", "18.07%"};
+		Prev = "LBRSSpirestoneLord";
+		Next = "LBRSVosh";
 	};
 
 	AtlasLoot_Data["LBRSVosh"] = {
@@ -2098,6 +1993,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 8, 13352, "", "=q1=Vosh'gajin's Snakestone", "=ds=#m3#", "", "100%"};
 		{ 9, 12821, "", "=q3=Plans: Dawn's Edge", "=q1=#m4#: =ds=#p2# (275)"};
 		{ 16, 16712, "", "=q3=Shadowcraft Gloves", "=ds=#s9#, #a2# (D1, #c6#)", "", "11.89%"};
+		Prev = "LBRSLordMagus";
+		Next = "LBRSVoone";
 	};
 
 	AtlasLoot_Data["LBRSVoone"] = {
@@ -2108,6 +2005,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 5, 28972, "", "=q3=Flightblade Throwing Axe", "=ds=#w11#", "", "79.85%"};
 		{ 7, 12335, "", "=q2=Gemstone of Smolderthorn", "=ds=#m3#", "", "100%"};
 		{ 16, 16676, "", "=q3=Beaststalker's Gloves", "=ds=#s9#, #a3# (D1, #c2#)", "", "9.15%"};
+		Prev = "LBRSVosh";
+		Next = "LBRSGrayhoof";
 	};
 
 	AtlasLoot_Data["LBRSGrayhoof"] = {
@@ -2119,6 +2018,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 22322, "", "=q3=The Jaw Breaker", "=ds=#h1#, #w6#", "", "20.28%"};
 		{ 8, 21984, "", "=q1=Left Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
 		{ 9, 22046, "", "=q1=Right Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
+		Prev = "LBRSVoone";
+		Next = "LBRSGrimaxe";
 	};
 
 	AtlasLoot_Data["LBRSGrimaxe"] = {
@@ -2127,6 +2028,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 12621, "", "=q3=Demonfork", "=ds=#h1#, #w1#", "", "27.64%"};
 		{ 5, 12838, "", "=q3=Plans: Arcanite Reaper", "=ds=#p2# (300)", "", "6.73%"};
 		{ 6, 12784, "", "=q3=Arcanite Reaper", "=ds=#h2#, #w1#"};
+		Prev = "LBRSGrayhoof";
+		Next = "LBRSSmolderweb";
 	};
 
 	AtlasLoot_Data["LBRSSmolderweb"] = {
@@ -2134,12 +2037,16 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 13213, "", "=q3=Smolderweb's Eye", "=ds=#s14#", "", "24.97%"};
 		{ 3, 13183, "", "=q3=Venomspitter", "=ds=#h1#, #w6#", "", "12.49%"};
 		{ 16, 16715, "", "=q3=Wildheart Boots", "=ds=#s12#, #a2# (D1, #c1#)", "", "13.03%"};
+		Prev = "LBRSGrimaxe";
+		Next = "LBRSCrystalFang";
 	};
 
 	AtlasLoot_Data["LBRSCrystalFang"] = {
 		{ 1, 13185, "", "=q3=Sunderseer Mantle", "=ds=#s3#, #a1#", "", "28.10%"};
 		{ 2, 13184, "", "=q3=Fallbrush Handgrips", "=ds=#s9#, #a2#", "", "35.48%"};
 		{ 3, 13218, "", "=q3=Fang of the Crystal Spider", "=ds=#h1#, #w4#", "", "17.62%"};
+		Prev = "LBRSSmolderweb";
+		Next = "LBRSDoomhowl";
 	};
 
 	AtlasLoot_Data["LBRSDoomhowl"] = {
@@ -2151,6 +2058,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 7, 12725, "", "=q3=Plans: Enchanted Thorium Helm", "=q1=#m4#: =ds=#p2# (300)"};
 		{ 9, 12712, "", "=q1=Warosh's Mojo", "=ds=#m3#", "", "100%"};
 		{ 10, 15867, "", "=q2=Prismcharm", "=q1=#m4#: =ds=#s14#"};
+		Prev = "LBRSCrystalFang";
+		Next = "LBRSZigris";
 	};
 
 	AtlasLoot_Data["LBRSZigris"] = {
@@ -2159,6 +2068,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 12835, "", "=q3=Plans: Annihilator", "=ds=#p2# (300)", "", "8.37%"};
 		{ 5, 12798, "", "=q3=Annihilator", "=ds=#h1#, #w1#"};
 		{ 7, 21955, "", "=q2=Design: Black Diamond Crab", "=ds=#p12# (300)"};
+		Prev = "LBRSDoomhowl";
+		Next = "LBRSSlavener";
 	};
 
 	AtlasLoot_Data["LBRSSlavener"] = {
@@ -2166,6 +2077,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 13208, "", "=q3=Bleak Howler Armguards", "=ds=#s8#, #a2#", "", "18.02%"};
 		{ 3, 13205, "", "=q3=Rhombeard Protector", "=ds=#w8#", "", "16.93%"};
 		{ 16, 16718, "", "=q3=Wildheart Spaulders", "=ds=#s3#, #a2# (D1, #c1#)", "", "11.04%"};
+		Prev = "LBRSZigris";
+		Next = "LBRSHalycon";
 	};
 
 	AtlasLoot_Data["LBRSHalycon"] = {
@@ -2173,12 +2086,16 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 13210, "", "=q3=Pads of the Dread Wolf", "=ds=#s12#, #a2#", "", "9.88%"};
 		{ 3, 13211, "", "=q3=Slashclaw Bracers", "=ds=#s8#, #a3#", "", "20.32%"};
 		{ 4, 13212, "", "=q3=Halycon's Spiked Collar", "=ds=#s2#", "", "18.23%"};
+		Prev = "LBRSSlavener";
+		Next = "LBRSBashguud";
 	};
 
 	AtlasLoot_Data["LBRSBashguud"] = {
 		{ 1, 13203, "", "=q3=Armswake Cloak", "=ds=#s4#", "", "35.31%"};
 		{ 2, 13198, "", "=q3=Hurd Smasher", "=ds=#h1#, #w13#", "", "21.15%"};
 		{ 3, 13204, "", "=q3=Bashguuder", "=ds=#h1#, #w6#", "", "27.09%"};
+		Prev = "LBRSHalycon";
+		Next = "LBRSWyrmthalak";
 	};
 
 	AtlasLoot_Data["LBRSWyrmthalak"] = {
@@ -2191,11 +2108,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 8, 13161, "", "=q3=Trindlehaven Staff", "=ds=#w9#", "", "10.40%"};
 		{ 10, 12337, "", "=q2=Gemstone of Bloodaxe", "=ds=#m3#", "", "100%"};
 		{ 16, 16679, "", "=q3=Beaststalker's Mantle", "=ds=#s3#, #a3# (D1, #c2#)", "", "9.89%"};
+		Prev = "LBRSBashguud";
+		Next = "LBRSFelguard";
 	};
 
 	AtlasLoot_Data["LBRSFelguard"] = {
 		{ 1, 13181, "", "=q3=Demonskin Gloves", "=ds=#s9#, #a1#", "", "14.47%"};
 		{ 2, 13182, "", "=q3=Phase Blade", "=ds=#h1#, #w10#", "", "11.63%"};
+		Prev = "LBRSWyrmthalak";
+		Next = "LBRSTrash";
 	};
 
 	AtlasLoot_Data["LBRSTrash"] = {
@@ -2208,6 +2129,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 8, 15775, "", "=q2=Pattern: Volcanic Shoulders", "=ds=#p7# (300) =q1=#n74#", "", "10.56%"};
 		{ 10, 12219, "", "=q1=Unadorned Seal of Ascension", "=ds=#m3#"};
 		{ 11, 21982, "", "=q1=Ogre Warbeads", "=ds=#m3#"};
+		Prev = "LBRSFelguard";
 	};
 
 		-------------------------------------------------
@@ -2222,6 +2144,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 17322, "", "=q1=Eye of the Emberseer", "=ds=#m3#", "", "100%"};
 		{ 7, 21988, "", "=q1=Ember of Emberseer", "=ds=#m3#"};
 		{ 16, 16672, "", "=q3=Gauntlets of Elements", "=ds=#s9#, #a3# (D1, #c7#)", "", "14.23%"};
+		Next = "UBRSSolakar";
 	};
 
 	AtlasLoot_Data["UBRSSolakar"] = {
@@ -2232,21 +2155,29 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 18657, "", "=q2=Schematic: Hyper-Radiant Flame Reflector", "=ds=#p5# (290)", "", "7.38%"};
 		{ 7, 18638, "", "=q3=Hyper-Radiant Flame Reflector", "=ds=#s14#"};
 		{ 16, 16695, "", "=q3=Devout Mantle", "=ds=#s3#, #a1# (D1, #c5#)", "", "12.84%"};
+		Prev = "UBRSEmberseer";
+		Next = "UBRSFLAME";
 	};
 
 	AtlasLoot_Data["UBRSFLAME"] = {
 		{ 1, 13371, "", "=q2=Father Flame", "=ds=#s15#", "", "100%"};
+		Prev = "UBRSSolakar";
+		Next = "UBRSQuestItems";
 	};
 
 	AtlasLoot_Data["UBRSQuestItems"] = {
 		{ 1, 12358, "", "=q1=Darkstone Tablet", "=ds=#m3#"};
 		{ 2, 12352, "", "=q1=Doomrigger's Clasp", "=ds=#m3#"};
+		Prev = "UBRSFLAME";
+		Next = "UBRSRunewatcher";
 	};
 
 	AtlasLoot_Data["UBRSRunewatcher"] = {
 		{ 1, 12604, "", "=q3=Starfire Tiara", "=ds=#s1#, #a1#", "", "28.64%"};
 		{ 2, 12930, "", "=q3=Briarwood Reed", "=ds=#s14#", "", "26.36%"};
 		{ 3, 12605, "", "=q3=Serpentine Skuller", "=ds=#w12#", "", "32.95%"};
+		Prev = "UBRSQuestItems";
+		Next = "UBRSAnvilcrack";
 	};
 
 	AtlasLoot_Data["UBRSAnvilcrack"] = {
@@ -2263,6 +2194,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 0, "INV_Box_01", "=q6=#x10#", ""};
 		{ 17, 12806, "", "=q3=Unforged Rune Covered Breastplate", "=ds=#m3#"};
 		{ 18, 12696, "", "=q3=Plans: Demon Forged Breastplate", "=q1=#m4#: =ds=#p2# (285)"};
+		Prev = "UBRSRunewatcher";
+		Next = "UBRSRend";
 	};
 
 	AtlasLoot_Data["UBRSRend"] = {
@@ -2280,6 +2213,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 19, 12939, "", "=q3=Dal'Rend's Tribal Guardian", "=ds=#h4#, #w10#", "", "7.61%"};
 		{ 20, 12583, "", "=q3=Blackhand Doomsaw", "=ds=#w7#", "", "7.44%"};
 		{ 22, 12630, "", "=q1=Head of Rend Blackhand", "=ds=#m3#", "", "100%"};
+		Prev = "UBRSAnvilcrack";
+		Next = "UBRSGyth";
 	};
 
 	AtlasLoot_Data["UBRSGyth"] = {
@@ -2293,6 +2228,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 12952, "", "=q3=Gyth's Skull", "=ds=#s1#, #a4# =q2=#m16#", "", "12.43%"};
 		{ 11, 13522, "", "=q2=Recipe: Flask of Chromatic Resistance", "=ds=#p1# (300)", "", "2.95%"};
 		{ 16, 16669, "", "=q3=Pauldrons of Elements", "=ds=#s3#, #a3# (D1, #c7#)", "", "14.77%"};
+		Prev = "UBRSRend";
+		Next = "UBRSBeast";
 	};
 
 	AtlasLoot_Data["UBRSBeast"] = {
@@ -2312,6 +2249,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 16729, "", "=q3=Lightforge Spaulders", "=ds=#s3#, #a4# (D1, #c4#)", "", "13.62%"};
 		{ 18, 24101, "", "=q3=Book of Ferocious Bite V", "=ds=#e10# =q1=#m1# =ds=#c1#", "", "1.44%"};
 		{ 19, 19227, "", "=q3=Ace of Beasts", "=ds=#e16#", "", "4.53%"};
+		Prev = "UBRSGyth";
+		Next = "UBRSValthalak";
 	};
 
 	AtlasLoot_Data["UBRSValthalak"] = {
@@ -2324,6 +2263,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 7, 22339, "", "=q3=Rune Band of Wizardry", "=ds=#s13#", "", "15.49%"};
 		{ 8, 22335, "", "=q3=Lord Valthalak's Staff of Command", "=ds=#w9#", "", "14.67%"};
 		{ 9, 22336, "", "=q3=Draconian Aegis of the Legion", "=ds=#w8#", "", "17.66%"};
+		Prev = "UBRSBeast";
+		Next = "UBRSDrakkisath";
 	};
 
 	AtlasLoot_Data["UBRSDrakkisath"] = {
@@ -2349,6 +2290,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 16730, "", "=q3=Breastplate of Valor", "=ds=#s5#, #a4# (D1, #c9#)", "", "5.83%"};
 		{ 24, 16726, "", "=q3=Lightforge Breastplate", "=ds=#s5#, #a4# (D1, #c4#)", "", "3.76%"};
 		{ 30, 16663, "", "=q1=Blood of the Black Dragon Champion", "=ds=#m3#", "", "100%"};
+		Prev = "UBRSValthalak";
+		Next = "UBRSTrash";
 	};
 
 	AtlasLoot_Data["UBRSTrash"] = {
@@ -2357,6 +2300,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 16247, "", "=q2=Formula: Enchant 2H Weapon - Superior Impact", "=ds=#p4# (295) =q1=#n69#", "", "1.54%"};
 		{ 6, 12607, "", "=q3=Brilliant Chromatic Scale", "=ds=#m3#"};
 		{ 7, 12219, "", "=q1=Unadorned Seal of Ascension", "=ds=#m3#"};
+		Prev = "UBRSDrakkisath";
 	};
 
 		---------------------------------------
@@ -2615,6 +2559,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 28, 17106, "", "=q4=Malistar's Defender", "=ds=#w8#", "", "13.88%"};
 		{ 30, 21110, "", "=q1=Draconic for Dummies", "=ds=#m3#", "", "100%"};
 		Prev = "MCMajordomo";
+		Next = "MCTrashMobs";
 	};
 
 	AtlasLoot_Data["MCTrashMobs"] = {
@@ -2640,6 +2585,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 22, 16840, "", "=q4=Earthfury Bracers", "=q1=#m1# =ds=#c7# (T1)", "", "0.06%"};
 		{ 23, 16861, "", "=q4=Bracers of Might", "=q1=#m1# =ds=#c9# (T1)", "", "0.16%"};
 		{ 24, 16857, "", "=q4=Lawbringer Bracers", "=q1=#m1# =ds=#c4# (T1)", "", "0.11%"};
+		Prev = "MCRagnaros";
+		Next = "MCRANDOMBOSSDROPPS";
 	};
 
 	AtlasLoot_Data["MCRANDOMBOSSDROPPS"] = {
@@ -2661,311 +2608,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 25, 18257, "", "=q3=Recipe: Major Rejuvenation Potion", "=ds=#p1# (300)", "", "0.76%"};
 		{ 26, 18253, "", "=q1=Major Rejuvenation Potion", "=ds=#e2#"};
 		{ 28, 18260, "", "=q3=Formula: Enchant Weapon - Healing Power", "=ds=#p4# (300)", "", "0.75%"};
-	};
-
-	
-	----------------------------------------------
-	--- Blackrock Mountain: Molten Core HEROIC ---
-	----------------------------------------------
-
-	AtlasLoot_Data["MCLucifronHEROIC"] = {
-		{ 1, 218872, "", "=q4=Manastorm Leggings", "=ds=#s11#, #a1#", "", "1.93%"};
-		{ 2, 219145, "", "=q4=Robe of Volatile Power", "=ds=#s5#, #a1#", "", "1.84%"};
-		{ 3, 219146, "", "=q4=Wristguards of Stability", "=ds=#s8#, #a2#", "", "1.95%"};
-		{ 4, 218875, "", "=q4=Salamander Scale Pants", "=ds=#s11#, #a2#", "", "2.00%"};
-		{ 5, 218870, "", "=q4=Helm of the Lifegiver", "=ds=#s1#, #a3#", "", "1.09%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "2.15%"};
-		{ 7, 217109, "", "=q4=Choker of Enlightenment", "=ds=#s2#", "", "12.61%"};
-		{ 8, 218879, "", "=q4=Heavy Dark Iron Ring", "=ds=#s13#", "", "2.04%"};
-		{ 9, 219147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "2.23%"};
-		{ 10, 218878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.23%"};
-		{ 11, 217077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "1.60%"};
-		{ 16, 216800, "", "=q4=Arcanist Boots", "=q1=#m1# =ds=#c3# (T1)", "", "12.06%"};
-		{ 17, 216805, "", "=q4=Felheart Gloves", "=q1=#m1# =ds=#c8# (T1)", "", "14.89%"};
-		{ 18, 216829, "", "=q4=Cenarion Boots", "=q1=#m1# =ds=#c1# (T1)", "", "10.72%"};
-		{ 19, 216837, "", "=q4=Earthfury Boots", "=q1=#m1# =ds=#c7# (T1)", "", "4.16%"};
-		{ 20, 216863, "", "=q4=Gauntlets of Might", "=q1=#m1# =ds=#c9# (T1)", "", "16.40%"};
-		{ 21, 216859, "", "=q4=Lawbringer Boots", "=q1=#m1# =ds=#c4# (T1)", "", "7.20%"};
-		{ 22, 17329, "", "=q1=Hand of Lucifron", "=ds=#m3#"};
-		Next = "MCMagmadarHEROIC";
-	};
-
-	AtlasLoot_Data["MCMagmadarHEROIC"] = {
-		{ 1, 219136, "", "=q4=Mana Igniting Cord", "=ds=#s10#, #a1#", "", "4.79%"};
-		{ 2, 218823, "", "=q4=Aged Core Leather Gloves", "=ds=#s9#, #a2#", "", "6.18%"};
-		{ 3, 218829, "", "=q4=Deep Earth Spaulders", "=ds=#s3#, #a3#", "", "2.10%"};
-		{ 4, 219144, "", "=q4=Sabatons of the Flamewalker", "=ds=#s12#, #a3#", "", "1.86%"};
-		{ 5, 219143, "", "=q4=Flameguard Gauntlets", "=ds=#s9#, #a4#", "", "5.48%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "3.98%"};
-		{ 7, 218824, "", "=q4=Magma Tempered Boots", "=ds=#s12#, #a4#", "", "3.22%"};
-		{ 8, 217065, "", "=q4=Medallion of Steadfast Might", "=ds=#s2#", "", "14.05%"};
-		{ 9, 218821, "", "=q4=Quick Strike Ring", "=ds=#s13#", "", "5.79%"};
-		{ 10, 218820, "", "=q4=Talisman of Ephemeral Power", "=ds=#s14#", "", "5.55%"};
-		{ 11, 219142, "", "=q4=Fire Runed Grimoire", "=ds=#s15#", "", "5.42%"};
-		{ 12, 218203, "", "=q4=Eskhandar's Right Claw", "=ds=#h3#, #w13#", "", "17.82%"};
-		{ 13, 218822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "5.68%"};
-		{ 14, 217073, "", "=q4=Earthshaker", "=ds=#h2#, #w6#", "", "16.75%"};
-		{ 15, 217069, "", "=q4=Striker's Mark", "=ds=#w2#", "", "16.37%"};
-		{ 16, 216796, "", "=q4=Arcanist Leggings", "=q1=#m1# =ds=#c3# (T1)", "", "14.57%"};
-		{ 17, 216814, "", "=q4=Pants of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "14.33%"};
-		{ 18, 216810, "", "=q4=Felheart Pants", "=q1=#m1# =ds=#c8# (T1)", "", "13.75%"};
-		{ 19, 216822, "", "=q4=Nightslayer Pants", "=q1=#m1# =ds=#c6# (T1)", "", "13.83%"};
-		{ 20, 216847, "", "=q4=Giantstalker's Leggings", "=q1=#m1# =ds=#c2# (T1)", "", "13.28%"};
-		{ 21, 216835, "", "=q4=Cenarion Leggings", "=q1=#m1# =ds=#c1# (T1)", "", "12.90%"};
-		{ 22, 216843, "", "=q4=Earthfury Legguards", "=q1=#m1# =ds=#c7# (T1)", "", " 4.73%"};
-		{ 23, 216855, "", "=q4=Lawbringer Legplates", "=q1=#m1# =ds=#c4# (T1)", "", "8.54%"};
-		{ 24, 216867, "", "=q4=Legplates of Might", "=q1=#m1# =ds=#c9# (T1)", "", "13.97%"};
-		Prev = "MCLucifronHEROIC";
-		Next = "MCGehennasHEROIC";
-	};
-
-	AtlasLoot_Data["MCGehennasHEROIC"] = {
-		{ 1, 219145, "", "=q4=Robe of Volatile Power", "=ds=#s5#, #a1#", "", "3.83%"};
-		{ 2, 218872, "", "=q4=Manastorm Leggings", "=ds=#s11#, #a1#", "", "3.37%"};
-		{ 3, 219146, "", "=q4=Wristguards of Stability", "=ds=#s8#, #a2#", "", "3.53%"};
-		{ 4, 218875, "", "=q4=Salamander Scale Pants", "=ds=#s11#, #a2#", "", "3.57%"};
-		{ 5, 218870, "", "=q4=Helm of the Lifegiver", "=ds=#s1#, #a3#", "", "1.77%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "3.48%"};
-		{ 7, 218879, "", "=q4=Heavy Dark Iron Ring", "=ds=#s13#", "", "3.78%"};
-		{ 8, 219147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "3.78%"};
-		{ 9, 218878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "3.79%"};
-		{ 10, 217077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "3.34%"};
-		{ 16, 216812, "", "=q4=Gloves of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "18.65%"};
-		{ 17, 216826, "", "=q4=Nightslayer Gloves", "=q1=#m1# =ds=#c6# (T1)", "", "19.47%"};
-		{ 18, 216849, "", "=q4=Giantstalker's Boots", "=q1=#m1# =ds=#c2# (T1)", "", "14.54%"};
-		{ 19, 216839, "", "=q4=Earthfury Gauntlets", "=q1=#m1# =ds=#c7# (T1)", "", "7.38%"};
-		{ 20, 216862, "", "=q4=Sabatons of Might", "=q1=#m1# =ds=#c9# (T1)", "", "14.48%"};
-		{ 21, 216860, "", "=q4=Lawbringer Gauntlets", "=q1=#m1# =ds=#c4# (T1)", "", "11.77%"};
-		{ 23, 17331, "", "=q1=Hand of Gehennas", "=ds=#m3#"};
-		Prev = "MCMagmadarHEROIC";
-		Next = "MCGarrHEROIC";
-	};
-
-	AtlasLoot_Data["MCGarrHEROIC"] = {
-		{ 1, 219136, "", "=q4=Mana Igniting Cord", "=ds=#s10#, #a1#", "", "4.80%"};
-		{ 2, 218823, "", "=q4=Aged Core Leather Gloves", "=ds=#s9#, #a2#", "", "5.23%"};
-		{ 3, 218829, "", "=q4=Deep Earth Spaulders", "=ds=#s3#, #a3#", "", "1.68%"};
-		{ 4, 219144, "", "=q4=Sabatons of the Flamewalker", "=ds=#s12#, #a3#", "", "1.48%"};
-		{ 5, 219143, "", "=q4=Flameguard Gauntlets", "=ds=#s9#, #a4#", "", "3.84%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "2.82%"};
-		{ 7, 218824, "", "=q4=Magma Tempered Boots", "=ds=#s12#, #a4#", "", "3.05%"};
-		{ 8, 218821, "", "=q4=Quick Strike Ring", "=ds=#s13#", "", "4.48%"};
-		{ 9, 218820, "", "=q4=Talisman of Ephemeral Power", "=ds=#s14#", "", "4.13%"};
-		{ 10, 219142, "", "=q4=Fire Runed Grimoire", "=ds=#s15#", "", "3.69%"};
-		{ 11, 217071, "", "=q4=Gutgore Ripper", "=ds=#h1#, #w4#", "", "11.21%"};
-		{ 12, 218832, "", "=q4=Brutality Blade", "=ds=#h1#, #w10#", "", "13.27%"};
-		{ 13, 218822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "4.09%"};
-		{ 14, 217105, "", "=q4=Aurastone Hammer", "=ds=#h3#, #w6#", "", "12.67%"};
-		{ 15, 217066, "", "=q4=Drillborer Disk", "=ds=#w8#", "", "11.85%"};
-		{ 16, 216795, "", "=q4=Arcanist Crown", "=q1=#m1# =ds=#c3# (T1)", "", "11.31%"};
-		{ 17, 216813, "", "=q4=Circlet of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "11.36%"};
-		{ 18, 216808, "", "=q4=Felheart Horns", "=q1=#m1# =ds=#c8# (T1)", "", "10.62%"};
-		{ 19, 216846, "", "=q4=Giantstalker's Helmet", "=q1=#m1# =ds=#c2# (T1)", "", "11.57%"};
-		{ 20, 216834, "", "=q4=Cenarion Helm", "=q1=#m1# =ds=#c1# (T1)", "", "11.51%"};
-		{ 21, 216821, "", "=q4=Nightslayer Cover", "=q1=#m1# =ds=#c6# (T1)", "", "10.38%"};
-		{ 22, 216842, "", "=q4=Earthfury Helmet", "=q1=#m1# =ds=#c7# (T1)", "", "3.91%"};
-		{ 23, 216866, "", "=q4=Helm of Might", "=q1=#m1# =ds=#c9# (T1)", "", "11.39%"};
-		{ 24, 216854, "", "=q4=Lawbringer Helm", "=q1=#m1# =ds=#c4# (T1)", "", "7.23%"};
-		{ 26, 18564, "", "=q5=Bindings of the Windseeker", "=ds=#m3#, =q1=#m9#", "", "3.74%"};
-		{ 27, 19019, "", "=q5=Thunderfury, Blessed Blade of the Windseeker", "=q1=#m4#: =ds=#h1#, #w10#"};
-		Prev = "MCGehennasHEROIC";
-		Next = "MCShazzrahHEROIC";
-	};
-
-	AtlasLoot_Data["MCShazzrahHEROIC"] = {
-		{ 1, 219145, "", "=q4=Robe of Volatile Power", "=ds=#s5#, #a1#", "", "1.97%"};
-		{ 2, 218872, "", "=q4=Manastorm Leggings", "=ds=#s11#, #a1#", "", "1.84%"};
-		{ 3, 219146, "", "=q4=Wristguards of Stability", "=ds=#s8#, #a2#", "", "1.85%"};
-		{ 4, 218875, "", "=q4=Salamander Scale Pants", "=ds=#s11#, #a2#", "", "1.81%"};
-		{ 5, 218870, "", "=q4=Helm of the Lifegiver", "=ds=#s1#, #a3#", "", "0.78%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "2.22%"};
-		{ 7, 218879, "", "=q4=Heavy Dark Iron Ring", "=ds=#s13#", "", "1.72%"};
-		{ 8, 219147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "1.99%"};
-		{ 9, 218878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.27%"};
-		{ 10, 217077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "3.32%"};
-		{ 16, 216801, "", "=q4=Arcanist Gloves", "=q1=#m1# =ds=#c3# (T1)", "", "19.59%"};
-		{ 17, 216803, "", "=q4=Felheart Slippers", "=q1=#m1# =ds=#c8# (T1)", "", "15.28%"};
-		{ 18, 216811, "", "=q4=Boots of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "14.90%"};
-		{ 19, 216831, "", "=q4=Cenarion Gloves", "=q1=#m1# =ds=#c1# (T1)", "", "19.53%"};
-		{ 20, 216852, "", "=q4=Giantstalker's Gloves", "=q1=#m1# =ds=#c2# (T1)", "", "18.58%"};
-		{ 21, 216824, "", "=q4=Nightslayer Boots", "=q1=#m1# =ds=#c6# (T1)", "", "15.58%"};
-		{ 23, 17332, "", "=q1=Hand of Shazzrah", "=ds=#m3#"};
-		Prev = "MCGarrHEROIC";
-		Next = "MCGeddonHEROIC";
-	};
-
-	AtlasLoot_Data["MCGeddonHEROIC"] = {
-		{ 1, 219136, "", "=q4=Mana Igniting Cord", "=ds=#s10#, #a1#", "", "2.44%"};
-		{ 2, 218823, "", "=q4=Aged Core Leather Gloves", "=ds=#s9#, #a2#", "", "3.04%"};
-		{ 3, 218829, "", "=q4=Deep Earth Spaulders", "=ds=#s3#, #a3#", "", "1.04%"};
-		{ 4, 219144, "", "=q4=Sabatons of the Flamewalker", "=ds=#s12#, #a3#", "", "1.00%"};
-		{ 5, 219143, "", "=q4=Flameguard Gauntlets", "=ds=#s9#, #a4#", "", "2.61%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "1.77%"};
-		{ 7, 218824, "", "=q4=Magma Tempered Boots", "=ds=#s12#, #a4#", "", "1.48%"};
-		{ 8, 217110, "", "=q4=Seal of the Archmagus", "=ds=#s13#", "", "21.93%"};
-		{ 9, 218821, "", "=q4=Quick Strike Ring", "=ds=#s13#", "", "2.61%"};
-		{ 10, 218820, "", "=q4=Talisman of Ephemeral Power", "=ds=#s14#", "", "2.68%"};
-		{ 11, 219142, "", "=q4=Fire Runed Grimoire", "=ds=#s15#", "", "2.59%"};
-		{ 12, 218822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "2.70%"};
-		{ 16, 216797, "", "=q4=Arcanist Mantle", "=q1=#m1# =ds=#c3# (T1)", "", "19.92%"};
-		{ 17, 216807, "", "=q4=Felheart Shoulder Pads", "=q1=#m1# =ds=#c8# (T1)", "", "19.78%"};
-		{ 18, 216836, "", "=q4=Cenarion Spaulders", "=q1=#m1# =ds=#c1# (T1)", "", "19.52%"};
-		{ 19, 216856, "", "=q4=Lawbringer Spaulders", "=q1=#m1# =ds=#c4# (T1)", "", "12.62%"};
-		{ 20, 216844, "", "=q4=Earthfury Epaulets", "=q1=#m1# =ds=#c7# (T1)", "", "7.29%"};
-		{ 22, 18563, "", "=q5=Bindings of the Windseeker", " =ds=#m3#, =q1=#m10#", "", "3.78%"};
-		{ 23, 19019, "", "=q5=Thunderfury, Blessed Blade of the Windseeker", "=q1=#m4#: =ds=#h1#, #w10#"};
-		Prev = "MCShazzrahHEROIC";
-		Next = "MCGolemaggHEROIC";
-	};
-
-	AtlasLoot_Data["MCGolemaggHEROIC"] = {
-		{ 1, 219136, "", "=q4=Mana Igniting Cord", "=ds=#s10#, #a1#", "", "2.18%"};
-		{ 2, 218823, "", "=q4=Aged Core Leather Gloves", "=ds=#s9#, #a2#", "", "2.65%"};
-		{ 3, 218829, "", "=q4=Deep Earth Spaulders", "=ds=#s3#, #a3#", "", "1.20%"};
-		{ 4, 219144, "", "=q4=Sabatons of the Flamewalker", "=ds=#s12#, #a3#", "", "1.00%"};
-		{ 5, 219143, "", "=q4=Flameguard Gauntlets", "=ds=#s9#, #a4#", "", "2.17%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "1.44%"};
-		{ 7, 218824, "", "=q4=Magma Tempered Boots", "=ds=#s12#, #a4#", "", "1.69%"};
-		{ 8, 218821, "", "=q4=Quick Strike Ring", "=ds=#s13#", "", "2.26%"};
-		{ 9, 218820, "", "=q4=Talisman of Ephemeral Power", "=ds=#s14#", "", "2.91%"};
-		{ 10, 219142, "", "=q4=Fire Runed Grimoire", "=ds=#s15#", "", "2.46%"};
-		{ 11, 217103, "", "=q4=Azuresong Mageblade", "=ds=#h3#, #w10#", "", "17.59%"};
-		{ 12, 218822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "2.89%"};
-		{ 13, 218842, "", "=q4=Staff of Dominance", "=ds=#w9#", "", "18.95%"};
-		{ 14, 217072, "", "=q4=Blastershot Launcher", "=ds=#w5#", "", "17.83%"};
-		{ 16, 216798, "", "=q4=Arcanist Robes", "=q1=#m1# =ds=#c3# (T1)", "", "16.51%"};
-		{ 17, 216815, "", "=q4=Robes of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "15.65%"};
-		{ 18, 216809, "", "=q4=Felheart Robes", "=q1=#m1# =ds=#c8# (T1)", "", "15.66%"};
-		{ 19, 216820, "", "=q4=Nightslayer Chestpiece", "=q1=#m1# =ds=#c6# (T1)", "", "16.76%"};
-		{ 20, 216833, "", "=q4=Cenarion Vestments", "=q1=#m1# =ds=#c1# (T1)", "", "15.21%"};
-		{ 21, 216845, "", "=q4=Giantstalker's Breastplate", "=q1=#m1# =ds=#c2# (T1)", "", "15.83%"};
-		{ 22, 216841, "", "=q4=Earthfury Vestments", "=q1=#m1# =ds=#c7# (T1)", "", " 6.08%"};
-		{ 23, 216865, "", "=q4=Breastplate of Might", "=q1=#m1# =ds=#c9# (T1)", "", "15.28%"};
-		{ 24, 216853, "", "=q4=Lawbringer Chestguard", "=q1=#m1# =ds=#c4# (T1)", "", "9.53%"};
-		{ 26, 17203, "", "=q4=Sulfuron Ingot", "=ds=#m3#", "", "11.98%"};
-		{ 27, 17182, "", "=q5=Sulfuras, Hand of Ragnaros", "=q1=#m4#: =ds=#h2#, #w6#"};
-		Prev = "MCGeddonHEROIC";
-		Next = "MCSulfuronHEROIC";
-	};
-
-	AtlasLoot_Data["MCSulfuronHEROIC"] = {
-		{ 1, 219145, "", "=q4=Robe of Volatile Power", "=ds=#s5#, #a1#", "", "2.80%"};
-		{ 2, 218872, "", "=q4=Manastorm Leggings", "=ds=#s11#, #a1#", "", "2.54%"};
-		{ 3, 219146, "", "=q4=Wristguards of Stability", "=ds=#s8#, #a2#", "", "2.70%"};
-		{ 4, 218875, "", "=q4=Salamander Scale Pants", "=ds=#s11#, #a2#", "", "2.58%"};
-		{ 5, 218870, "", "=q4=Helm of the Lifegiver", "=ds=#s1#, #a3#", "", "1.26%"};
-		{ 6, 218861, "", "=q4=Flamewaker Legplates", "=ds=#s11#, #a4#", "", "2.54%"};
-		{ 7, 218879, "", "=q4=Heavy Dark Iron Ring", "=ds=#s13#", "", "2.32%"};
-		{ 8, 219147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "2.39%"};
-		{ 9, 218878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.53%"};
-		{ 10, 217074, "", "=q4=Shadowstrike", "=ds=#w7#", "", "23.50%"};
-		{ 11, 217077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "2.26%"};
-		{ 16, 216816, "", "=q4=Mantle of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "21.06%"};
-		{ 17, 216823, "", "=q4=Nightslayer Shoulder Pads", "=q1=#m1# =ds=#c6# (T1)", "", "20.66%"};
-		{ 18, 216848, "", "=q4=Giantstalker's Epaulets", "=q1=#m1# =ds=#c2# (T1)", "", "19.64%"};
-		{ 19, 216868, "", "=q4=Pauldrons of Might", "=q1=#m1# =ds=#c9# (T1)", "", "21.14%"};
-		{ 21, 17330, "", "=q1=Hand of Sulfuron", "=ds=#m3#"};
-		Prev = "MCGolemaggHEROIC";
-		Next = "MCMajordomoHEROIC";
-	};
-
-	AtlasLoot_Data["MCMajordomoHEROIC"] = {
-		{ 1, 218811, "", "=q4=Fireproof Cloak", "=ds=#s4#", "", "15.12%"};
-		{ 2, 218808, "", "=q4=Gloves of the Hypnotic Flame", "=ds=#s9#, #a1#", "", "15.36%"};
-		{ 3, 218809, "", "=q4=Sash of Whispered Secrets", "=ds=#s10#, #a1#", "", "15.93%"};
-		{ 4, 219139, "", "=q4=Fireguard Shoulders", "=ds=#s3#, #a2#", "", "15.87%"};
-		{ 5, 218810, "", "=q4=Wild Growth Spaulders", "=ds=#s3#, #a2#", "", "16.91%"};
-		{ 6, 218812, "", "=q4=Wristguards of True Flight", "=ds=#s8#, #a3#", "", "18.04%"};
-		{ 7, 218806, "", "=q4=Core Forged Greaves", "=ds=#s12#, #a4#", "", "16.53%"};
-		{ 8, 219140, "", "=q4=Cauterizing Band", "=ds=#s13#", "", "15.10%"};
-		{ 9, 218805, "", "=q4=Core Hound Tooth", "=ds=#h1#, #w4#", "", "16.06%"};
-		{ 10, 218803, "", "=q4=Finkle's Lava Dredger", "=ds=#h2#, #w6#", "", "12.43%"};
-		{ 16, 18703, "", "=q4=Ancient Petrified Leaf", "=ds=#m2# =q1=(#c2#)", "", "35.25%"};
-		{ 17, 18715, "", "=q4=Lok'delar, Stave of the Ancient Keepers", "=q1=#m4#: =ds=#w9#, =q1=#m1# =ds=#c2#"};
-		{ 18, 18713, "", "=q4=Rhok'delar, Longbow of the Ancient Keepers", "=q1=#m4#: =ds=#w2#, =q1=#m1# =ds=#c2#"};
-		{ 19, 18714, "", "=q4=Ancient Sinew Wrapped Lamina", "=q1=#m4#: =ds=#w19#, =q1=#m1# =ds=#c2#"};
-		{ 21, 18646, "", "=q4=The Eye of Divinity", "=ds=#m2# =q1=(#c5#)", "", "28.30%"};
-		{ 22, 18608, "", "=q4=Benediction", "=q1=#m4#: =ds=#w9#, =q1=#m1# =ds=#c5#"};
-		{ 23, 18609, "", "=q4=Anathema", "=q1=#m4#: =ds=#w9#, =q1=#m1# =ds=#c5#"};
-		Prev = "MCSulfuronHEROIC";
-		Next = "MCRagnarosHEROIC";
-	};
-
-	AtlasLoot_Data["MCRagnarosHEROIC"] = {
-		{ 1, 216915, "", "=q4=Netherwind Pants", "=q1=#m1# =ds=#c3# (T2)", "", "17.37%"};
-		{ 2, 216922, "", "=q4=Leggings of Transcendence", "=q1=#m1# =ds=#c5# (T2)", "", "17.30%"};
-		{ 3, 216930, "", "=q4=Nemesis Leggings", "=q1=#m1# =ds=#c8# (T2)", "", "16.87%"};
-		{ 4, 216909, "", "=q4=Bloodfang Pants", "=q1=#m1# =ds=#c6# (T2)", "", "17.18%"};
-		{ 5, 216901, "", "=q4=Stormrage Legguards", "=q1=#m1# =ds=#c1# (T2)", "", "15.49%"};
-		{ 6, 216938, "", "=q4=Dragonstalker's Legguards", "=q1=#m1# =ds=#c2# (T2)", "", "16.02%"};
-		{ 7, 216946, "", "=q4=Legplates of Ten Storms", "=q1=#m1# =ds=#c7# (T2)", "", "5.97%"};
-		{ 8, 216962, "", "=q4=Legplates of Wrath", "=q1=#m1# =ds=#c9# (T2)", "", "17.23%"};
-		{ 9, 216954, "", "=q4=Judgement Legplates", "=q1=#m1# =ds=#c4# (T2)", "", "10.81%"};
-		{ 11, 17204, "", "=q5=Eye of Sulfuras", "=ds=#m3#", "", "3.42%"};
-		{ 12, 17182, "", "=q5=Sulfuras, Hand of Ragnaros", "=q1=#m4#: =ds=#h2#, #w6#"};
-		{ 14, 19017, "", "=q1=Essence of the Firelord", "=ds=#m3#", "", "0.46%"};
-		{ 15, 19019, "", "=q5=Thunderfury, Blessed Blade of the Windseeker", "=q1=#m4#: =ds=#h1#, #w10#"};
-		{ 16, 217102, "", "=q4=Cloak of the Shrouded Mists", "=ds=#s4#", "", "14.31%"};
-		{ 17, 217107, "", "=q4=Dragon's Blood Cape", "=ds=#s4#", "", "15.32%"};
-		{ 18, 218817, "", "=q4=Crown of Destruction", "=ds=#s1#, #a3#", "", "16.75%"};
-		{ 19, 219137, "", "=q4=Onslaught Girdle", "=ds=#s10#, #a4#", "", "13.18%"};
-		{ 20, 218814, "", "=q4=Choker of the Fire Lord", "=ds=#s2#", "", "16.08%"};
-		{ 21, 219138, "", "=q4=Band of Sulfuras", "=ds=#s13#", "", "15.64%"};
-		{ 22, 217063, "", "=q4=Band of Accuria", "=ds=#s13#", "", "14.81%"};
-		{ 23, 217082, "", "=q4=Shard of the Flame", "=ds=#s14#", "", " 4.65%"};
-		{ 24, 218815, "", "=q4=Essence of the Pure Flame", "=ds=#s14#", "", "17.80%"};
-		{ 25, 218816, "", "=q4=Perdition's Blade", "=ds=#h1#, #w4#", "", "15.90%"};
-		{ 26, 217076, "", "=q4=Bonereaver's Edge", "=ds=#h2#, #w10#", "", "5.12%"};
-		{ 27, 217104, "", "=q4=Spinal Reaper", "=ds=#h2#, #w1#", "", " 4.63%"};
-		{ 28, 217106, "", "=q4=Malistar's Defender", "=ds=#w8#", "", "13.88%"};
-		{ 30, 21110, "", "=q1=Draconic for Dummies", "=ds=#m3#", "", "100%"};
-		Prev = "MCMajordomoHEROIC";
-	};
-
-	AtlasLoot_Data["MCTrashMobsHEROIC"] = {
-		{ 1, 216802, "", "=q4=Arcanist Belt", "=q1=#m1# =ds=#c3# (T1)", "", "0.16%"};
-		{ 2, 216817, "", "=q4=Girdle of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "0.18%"};
-		{ 3, 216806, "", "=q4=Felheart Belt", "=q1=#m1# =ds=#c8# (T1)", "", "0.19%"};
-		{ 4, 216827, "", "=q4=Nightslayer Belt", "=q1=#m1# =ds=#c6# (T1)", "", "0.15%"};
-		{ 5, 216828, "", "=q4=Cenarion Belt", "=q1=#m1# =ds=#c1# (T1)", "", "0.16%"};
-		{ 6, 216851, "", "=q4=Giantstalker's Belt", "=q1=#m1# =ds=#c2# (T1)", "", "0.17%"};
-		{ 7, 216838, "", "=q4=Earthfury Belt", "=q1=#m1# =ds=#c7# (T1)", "", "0.07%"};
-		{ 8, 216864, "", "=q4=Belt of Might", "=q1=#m1# =ds=#c9# (T1)", "", "0.16%"};
-		{ 9, 216858, "", "=q4=Lawbringer Belt", "=q1=#m1# =ds=#c4# (T1)", "", "0.10%"};
-		{ 11, 17010, "", "=q3=Fiery Core", "=ds=#e8#"};
-		{ 12, 17011, "", "=q3=Lava Core", "=ds=#e8#"};
-		{ 13, 11382, "", "=q2=Blood of the Mountain", "=ds=#e8#"};
-		{ 14, 17012, "", "=q1=Core Leather", "=ds=#e8#"};
-		{ 16, 216799, "", "=q4=Arcanist Bindings", "=q1=#m1# =ds=#c3# (T1)", "", "0.16%"};
-		{ 17, 216819, "", "=q4=Vambraces of Prophecy", "=q1=#m1# =ds=#c5# (T1)", "", "0.16%"};
-		{ 18, 216804, "", "=q4=Felheart Bracers", "=q1=#m1# =ds=#c8# (T1)", "", "0.16%"};
-		{ 19, 216825, "", "=q4=Nightslayer Bracelets", "=q1=#m1# =ds=#c6# (T1)", "", "0.17%"};
-		{ 20, 216830, "", "=q4=Cenarion Bracers", "=q1=#m1# =ds=#c1# (T1)", "", "0.17%"};
-		{ 21, 216850, "", "=q4=Giantstalker's Bracers", "=q1=#m1# =ds=#c2# (T1)", "", "0.18%"};
-		{ 22, 216840, "", "=q4=Earthfury Bracers", "=q1=#m1# =ds=#c7# (T1)", "", "0.06%"};
-		{ 23, 216861, "", "=q4=Bracers of Might", "=q1=#m1# =ds=#c9# (T1)", "", "0.16%"};
-		{ 24, 216857, "", "=q4=Lawbringer Bracers", "=q1=#m1# =ds=#c4# (T1)", "", "0.11%"};
-	};
-
-	AtlasLoot_Data["MCRANDOMBOSSDROPPSHEROIC"] = {
-		{ 1, 18264, "", "=q3=Plans: Elemental Sharpening Stone", "=ds=#p2# (300)", "", "1.02%"};
-		{ 2, 18262, "", "=q2=Elemental Sharpening Stone", "=ds=#e6#"};
-		{ 4, 18292, "", "=q3=Schematic: Core Marksman Rifle", "=ds=#p5# (300)", "", "0.96%"};
-		{ 5, 18282, "", "=q4=Core Marksman Rifle", "=ds=#w5#"};
-		{ 7, 18291, "", "=q3=Schematic: Force Reactive Disk", "=ds=#p5# (300)", "", "0.92%"};
-		{ 8, 18168, "", "=q4=Force Reactive Disk", "=ds=#w8#"};
-		{ 10, 18290, "", "=q3=Schematic: Biznicks 247x128 Accurascope", "=ds=#p5# (300)", "", "0.11%"};
-		{ 11, 18283, "", "=q3=Biznicks 247x128 Accurascope", "=ds=#e11#"};
-		{ 13, 18259, "", "=q3=Formula: Enchant Weapon - Spell Power", "=ds=#p4# (300)", "", "0.85%"};
-		{ 16, 18252, "", "=q3=Pattern: Core Armor Kit", "=ds=#p7# (300)", "", "0.85%"};
-		{ 17, 18251, "", "=q3=Core Armor Kit", "=ds=#e6#"};
-		{ 19, 18265, "", "=q3=Pattern: Flarecore Wraps", "=ds=#p8# (300)", "", "0.72%"};
-		{ 20, 18263, "", "=q4=Flarecore Wraps", "=ds=#s8#, #a1#"};
-		{ 22, 21371, "", "=q3=Pattern: Core Felcloth Bag", "=ds=#p8# (300)", "", "0.33%"};
-		{ 23, 21342, "", "=q4=Core Felcloth Bag", "=ds=#m11# #e1# =q1=#m1# #c8#"};
-		{ 25, 18257, "", "=q3=Recipe: Major Rejuvenation Potion", "=ds=#p1# (300)", "", "0.76%"};
-		{ 26, 18253, "", "=q1=Major Rejuvenation Potion", "=ds=#e2#"};
-		{ 28, 18260, "", "=q3=Formula: Enchant Weapon - Healing Power", "=ds=#p4# (300)", "", "0.75%"};
+		Prev = "MCTrashMobs";
 	};
 
 		------------------------------------------
@@ -2984,10 +2627,14 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 16951, "", "=q4=Judgement Bindings", "=q1=#m1# =ds=#c4#", "", "22.22%"};
 		{ 16, 19337, "", "=q4=The Black Book", "=ds=#s14#, =q1=#m1# =ds=#c8#", "", "20%"};
 		{ 17, 19336, "", "=q4=Arcane Infused Gem", "=ds=#s14#, =q1=#m1# =ds=#c2#", "", "20%"};
-		{ 19, 19370, "", "=q4=Mantle of the Blackwing Cabal", "=ds=#s3#, #a1#", "", "20%"};
-		{ 20, 19369, "", "=q4=Gloves of Rapid Evolution", "=ds=#s9#, #a1#", "", "20%"};
-		{ 21, 19334, "", "=q4=The Untamed Blade", "=ds=#h2#, #w10#", "", "10%"};
-		{ 22, 19335, "", "=q4=Spineshatter", "=ds=#h1#, #w6#", "", "10%"};
+		{ 18, 19344, "", "=q4=Natural Alignment Crystal", "=ds=#s14#, =q1=#m1# =ds=#c7#", "", "6.67%"};
+		{ 20, 19370, "", "=q4=Mantle of the Blackwing Cabal", "=ds=#s3#, #a1#", "", "20%"};
+		{ 21, 19369, "", "=q4=Gloves of Rapid Evolution", "=ds=#s9#, #a1#", "", "20%"};
+		{ 22, 19334, "", "=q4=The Untamed Blade", "=ds=#h2#, #w10#", "", "10%"};
+		{ 23, 19335, "", "=q4=Spineshatter", "=ds=#h1#, #w6#", "", "10%"};
+		{ 24, 19397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%"};
+		{ 25, 19357, "", "=q4=Herald of Woe", "=ds=#h2#, #w6#", "", "16.67%"};
+		{ 26, 19405, "", "=q4=Malfurion's Blessed Bulwark", "=ds=#s5#, #a2#", "", "16.67%"};
 		Next = "BWLVaelastrasz";
 	};
 
@@ -3007,6 +2654,9 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 20, 19371, "", "=q4=Pendant of the Fallen Dragon", "=ds=#s2#", "", "20%"};
 		{ 21, 19346, "", "=q4=Dragonfang Blade", "=ds=#h1#, #w4#", "", "10%"};
 		{ 22, 19348, "", "=q4=Red Dragonscale Protector", "=ds=#w8#", "", "10%"};
+		{ 23, 19430, "", "=q4=Shroud of Pure Thought", "=ds=#s4#", "", "16.67%"};
+		{ 24, 19403, "", "=q4=Band of Forced Concentration", "=ds=#s13#", "", "16.67%"};
+		{ 25, 19367, "", "=q4=Dragon's Touch", "=ds=#w12#", "", "16.67%"};
 		Prev = "BWLRazorgore";
 		Next = "BWLLashlayer";
 	};
@@ -3024,10 +2674,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 12, 20383, "", "=q1=Head of the Broodlord Lashlayer", "=ds=#m3#", "", "100%"};
 		{ 16, 19342, "", "=q4=Venomous Totem", "=ds=#s14#, =q1=#m1# =ds=#c6#", "", "20%"};
 		{ 17, 19341, "", "=q4=Lifegiving Gem", "=ds=#s14#, =q1=#m1# =ds=#c9#", "", "20%"};
-		{ 19, 19374, "", "=q4=Bracers of Arcane Accuracy", "=ds=#s8#, #a1#", "", "20%"};
-		{ 20, 19373, "", "=q4=Black Brood Pauldrons", "=ds=#s3#, #a3#", "", "20%"};
-		{ 21, 19351, "", "=q4=Maladath, Runed Blade of the Black Flight", "=ds=#h1#, #w10#", "", "10%"};
-		{ 22, 19350, "", "=q4=Heartstriker", "=ds=#w2#", "", "10%"};
+		{ 18, 19345, "", "=q4=Aegis of Preservation", "=ds=#s14#, =q1=#m1# =ds=#c5#", "", "16.67%"};
+		{ 20, 19374, "", "=q4=Bracers of Arcane Accuracy", "=ds=#s8#, #a1#", "", "20%"};
+		{ 21, 19373, "", "=q4=Black Brood Pauldrons", "=ds=#s3#, #a3#", "", "20%"};
+		{ 22, 19351, "", "=q4=Maladath, Runed Blade of the Black Flight", "=ds=#h1#, #w10#", "", "10%"};
+		{ 23, 19350, "", "=q4=Heartstriker", "=ds=#w2#", "", "10%"};
+		{ 24, 19402, "", "=q4=Legguards of the Fallen Crusader", "=ds=#s11#, #a4#", "", "12.5%"};
+		{ 25, 19365, "", "=q4=Claw of the Black Drake", "=ds=#h3#, #w13#", "", "12.5%"};
+		{ 26, 14000, "", "=q4=Ring of Trinity Force", "=ds=#h3#, #w13#", "", "12.5%"};
+		{ 27, 19432, "", "=q4=Circle of Applied Force", "=ds=#s13#", "", "16.67%"};
 		Prev = "BWLVaelastrasz";
 		Next = "BWLFiremaw";
 	};
@@ -3161,6 +2816,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 25, 19363, "", "=q4=Crul'shorukh, Edge of Chaos", "=ds=#h1#, #w1#", "", "16.67%"};
 		{ 26, 19360, "", "=q4=Lok'amir il Romathis", "=ds=#h3#, #w6#", "", "16.67%"};
 		{ 27, 19356, "", "=q4=Staff of the Shadow Flame", "=ds=#w9#", "", "16.67%%"};
+		{ 28, 14001, "", "=q4=Archimtiros' Ring of Armageddon", "=ds=#s13#", "", "16.67%%"};
 		Prev = "BWLChromaggus";
 		Next = "BWLNefarian2";
 	};
@@ -3188,229 +2844,6 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 18562, "", "=q4=Elementium Ore", "=ds=#e8#", "", "4.75%"};
 		{ 18, 21109, "", "=q1=Draconic for Dummies", "=ds=#m3#"};
 		Prev = "BWLNefarian2";
-	};
-
-
-	-------------------------------------------------
-	--- Blackrock Mountain: Blackwing Lair HEROIC ---
-	-------------------------------------------------
-
-	AtlasLoot_Data["BWLRazorgoreHEROIC"] = {
-		{ 1, 216918, "", "=q4=Netherwind Bindings", "=q1=#m1# =ds=#c3#", "", "22.22%"};
-		{ 2, 216926, "", "=q4=Bindings of Transcendence", "=q1=#m1# =ds=#c5#", "", "22.22%"};
-		{ 3, 216934, "", "=q4=Nemesis Bracers", "=q1=#m1# =ds=#c8#", "", "22.22%"};
-		{ 4, 216911, "", "=q4=Bloodfang Bracers", "=q1=#m1# =ds=#c6#", "", "22.22%"};
-		{ 5, 216904, "", "=q4=Stormrage Bracers", "=q1=#m1# =ds=#c1#", "", "22.22%"};
-		{ 6, 216935, "", "=q4=Dragonstalker's Bracers", "=q1=#m1# =ds=#c2#", "", "22.22%"};
-		{ 7, 216943, "", "=q4=Bracers of Ten Storms", "=q1=#m1# =ds=#c7#", "", "22.22%"};
-		{ 8, 216959, "", "=q4=Bracelets of Wrath", "=q1=#m1# =ds=#c9#", "", "22.22%"};
-		{ 9, 216951, "", "=q4=Judgement Bindings", "=q1=#m1# =ds=#c4#", "", "22.22%"};
-		{ 16, 219337, "", "=q4=The Black Book", "=ds=#s14#, =q1=#m1# =ds=#c8#", "", "20%"};
-		{ 17, 219336, "", "=q4=Arcane Infused Gem", "=ds=#s14#, =q1=#m1# =ds=#c2#", "", "20%"};
-		{ 19, 219370, "", "=q4=Mantle of the Blackwing Cabal", "=ds=#s3#, #a1#", "", "20%"};
-		{ 20, 219369, "", "=q4=Gloves of Rapid Evolution", "=ds=#s9#, #a1#", "", "20%"};
-		{ 21, 219334, "", "=q4=The Untamed Blade", "=ds=#h2#, #w10#", "", "10%"};
-		{ 22, 219335, "", "=q4=Spineshatter", "=ds=#h1#, #w6#", "", "10%"};
-		Next = "BWLVaelastraszHEROIC";
-	};
-
-	AtlasLoot_Data["BWLVaelastraszHEROIC"] = {
-		{ 1, 216818, "", "=q4=Netherwind Belt", "=q1=#m1# =ds=#c3#", "", "22.22%"};
-		{ 2, 216925, "", "=q4=Belt of Transcendence", "=q1=#m1# =ds=#c5#", "", "22.22%"};
-		{ 3, 216933, "", "=q4=Nemesis Belt", "=q1=#m1# =ds=#c8#", "", "22.22%"};
-		{ 4, 216936, "", "=q4=Dragonstalker's Belt", "=q1=#m1# =ds=#c2#", "", "22.22%"};
-		{ 5, 216903, "", "=q4=Stormrage Belt", "=q1=#m1# =ds=#c1#", "", "22.22%"};
-		{ 6, 216910, "", "=q4=Bloodfang Belt", "=q1=#m1# =ds=#c6#", "", "22.22%"};
-		{ 7, 216944, "", "=q4=Belt of Ten Storms", "=q1=#m1# =ds=#c7#", "", "22.22%"};
-		{ 8, 216960, "", "=q4=Waistband of Wrath", "=q1=#m1# =ds=#c9#", "", "22.22%"};
-		{ 9, 216952, "", "=q4=Judgement Belt", "=q1=#m1# =ds=#c4#", "", "22.22%%"};
-		{ 16, 219339, "", "=q4=Mind Quickening Gem", "=ds=#s14#, =q1=#m1# =ds=#c3#", "", "20%"};
-		{ 17, 219340, "", "=q4=Rune of Metamorphosis", "=ds=#s14#, =q1=#m1# =ds=#c1#", "", "20%"};
-		{ 19, 219372, "", "=q4=Helm of Endless Rage", "=ds=#s1#, #a4#", "", "20%"};
-		{ 20, 219371, "", "=q4=Pendant of the Fallen Dragon", "=ds=#s2#", "", "20%"};
-		{ 21, 219346, "", "=q4=Dragonfang Blade", "=ds=#h1#, #w4#", "", "10%"};
-		{ 22, 219348, "", "=q4=Red Dragonscale Protector", "=ds=#w8#", "", "10%"};
-		Prev = "BWLRazorgoreHEROIC";
-		Next = "BWLLashlayerHEROIC";
-	};
-
-	AtlasLoot_Data["BWLLashlayerHEROIC"] = {
-		{ 1, 216912, "", "=q4=Netherwind Boots", "=q1=#m1# =ds=#c3#", "", "22.22%"};
-		{ 2, 216919, "", "=q4=Boots of Transcendence", "=q1=#m1# =ds=#c5#", "", "22.22%"};
-		{ 3, 216927, "", "=q4=Nemesis Boots", "=q1=#m1# =ds=#c8#", "", "22.22%"};
-		{ 4, 216898, "", "=q4=Stormrage Boots", "=q1=#m1# =ds=#c1#", "", "22.22%"};
-		{ 5, 216906, "", "=q4=Bloodfang Boots", "=q1=#m1# =ds=#c6#", "", "22.22%"};
-		{ 6, 216941, "", "=q4=Dragonstalker's Greaves", "=q1=#m1# =ds=#c2#", "", "22.22%"};
-		{ 7, 216949, "", "=q4=Greaves of Ten Storms", "=q1=#m1# =ds=#c7#", "", "22.22%"};
-		{ 8, 216965, "", "=q4=Sabatons of Wrath", "=q1=#m1# =ds=#c9#", "", "22.22%"};
-		{ 9, 216957, "", "=q4=Judgement Sabatons", "=q1=#m1# =ds=#c4#", "", "22.22%%"};
-		{ 12, 20383, "", "=q1=Head of the Broodlord Lashlayer", "=ds=#m3#", "", "100%"};
-		{ 16, 219342, "", "=q4=Venomous Totem", "=ds=#s14#, =q1=#m1# =ds=#c6#", "", "20%"};
-		{ 17, 219341, "", "=q4=Lifegiving Gem", "=ds=#s14#, =q1=#m1# =ds=#c9#", "", "20%"};
-		{ 19, 219374, "", "=q4=Bracers of Arcane Accuracy", "=ds=#s8#, #a1#", "", "20%"};
-		{ 20, 219373, "", "=q4=Black Brood Pauldrons", "=ds=#s3#, #a3#", "", "20%"};
-		{ 21, 219351, "", "=q4=Maladath, Runed Blade of the Black Flight", "=ds=#h1#, #w10#", "", "10%"};
-		{ 22, 219350, "", "=q4=Heartstriker", "=ds=#w2#", "", "10%"};
-		Prev = "BWLVaelastraszHEROIC";
-		Next = "BWLFiremawHEROIC";
-	};
-
-	AtlasLoot_Data["BWLFiremawHEROIC"] = {
-		{ 1, 216913, "", "=q4=Netherwind Gloves", "=q1=#m1# =ds=#c3#", "", "6.67%"};
-		{ 2, 216920, "", "=q4=Handguards of Transcendence", "=q1=#m1# =ds=#c5#", "", "6.67%"};
-		{ 3, 216928, "", "=q4=Nemesis Gloves", "=q1=#m1# =ds=#c8#", "", "6.67%"};
-		{ 4, 216907, "", "=q4=Bloodfang Gloves", "=q1=#m1# =ds=#c6#", "", "6.67%"};
-		{ 5, 216940, "", "=q4=Dragonstalker's Gauntlets", "=q1=#m1# =ds=#c2#", "", "6.67%"};
-		{ 6, 216899, "", "=q4=Stormrage Handguards", "=q1=#m1# =ds=#c1#", "", "6.67%"};
-		{ 7, 216948, "", "=q4=Gauntlets of Ten Storms", "=q1=#m1# =ds=#c7#", "", "6.67%"};
-		{ 8, 216964, "", "=q4=Gauntlets of Wrath", "=q1=#m1# =ds=#c9#", "", "6.67%"};
-		{ 9, 216956, "", "=q4=Judgement Gauntlets", "=q1=#m1# =ds=#c4#", "", "6.67%"};
-		{ 11, 219365, "", "=q4=Claw of the Black Drake", "=ds=#h3#, #w13#", "", "12.5%"};
-		{ 12, 219355, "", "=q4=Shadow Wing Focus Staff", "=ds=#w9#", "", "6.67%"};
-		{ 13, 219353, "", "=q4=Drake Talon Cleaver", "=ds=#h2#, #w1#", "", "6.67%"};
-		{ 16, 219343, "", "=q4=Scrolls of Blinding Light", "=ds=#s14#, =q1=#m1# =ds=#c4#", "", "12.5%"};
-		{ 17, 219344, "", "=q4=Natural Alignment Crystal", "=ds=#s14#, =q1=#m1# =ds=#c7#", "", "6.67%"};
-		{ 19, 219398, "", "=q4=Cloak of Firemaw", "=ds=#s4#", "", "12.5%"};
-		{ 20, 219400, "", "=q4=Firemaw's Clutch", "=ds=#s10#, #a1#", "", "12.5%"};
-		{ 21, 219399, "", "=q4=Black Ash Robe", "=ds=#s5#, #a1#", "", "12.5%"};
-		{ 22, 219396, "", "=q4=Taut Dragonhide Belt", "=ds=#s10#, #a2#", "", "6.67%"};
-		{ 23, 219401, "", "=q4=Primalist's Linked Legguards", "=ds=#s11#, #a3#", "", "12.5%"};
-		{ 24, 219394, "", "=q4=Drake Talon Pauldrons", "=ds=#s3#, #a4#", "", "6.76%"};
-		{ 25, 219402, "", "=q4=Legguards of the Fallen Crusader", "=ds=#s11#, #a4#", "", "12.5%"};
-		{ 27, 219397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%"};
-		{ 28, 219395, "", "=q4=Rejuvenating Gem", "=ds=#s14#", "", "6.67%"};
-		Prev = "BWLLashlayerHEROIC";
-		Next = "BWLEbonrocHEROIC";
-	};
-
-	AtlasLoot_Data["BWLEbonrocHEROIC"] = {
-		{ 1, 216913, "", "=q4=Netherwind Gloves", "=q1=#m1# =ds=#c3#", "", "6.67%"};
-		{ 2, 216920, "", "=q4=Handguards of Transcendence", "=q1=#m1# =ds=#c5#", "", "6.67%"};
-		{ 3, 216928, "", "=q4=Nemesis Gloves", "=q1=#m1# =ds=#c8#", "", "6.67%"};
-		{ 4, 216907, "", "=q4=Bloodfang Gloves", "=q1=#m1# =ds=#c6#", "", "6.67%"};
-		{ 5, 216940, "", "=q4=Dragonstalker's Gauntlets", "=q1=#m1# =ds=#c2#", "", "6.67%"};
-		{ 6, 216899, "", "=q4=Stormrage Handguards", "=q1=#m1# =ds=#c1#", "", "6.67%"};
-		{ 7, 216948, "", "=q4=Gauntlets of Ten Storms", "=q1=#m1# =ds=#c7#", "", "6.67%"};
-		{ 8, 216964, "", "=q4=Gauntlets of Wrath", "=q1=#m1# =ds=#c9#", "", "6.67%"};
-		{ 9, 216956, "", "=q4=Judgement Gauntlets", "=q1=#m1# =ds=#c4#", "", "6.67%"};
-		{ 16, 219345, "", "=q4=Aegis of Preservation", "=ds=#s14#, =q1=#m1# =ds=#c5#", "", "16.67%"};
-		{ 18, 219407, "", "=q4=Ebony Flame Gloves", "=ds=#s9#, #a1#", "", "16.67%"};
-		{ 19, 219405, "", "=q4=Malfurion's Blessed Bulwark", "=ds=#s5#, #a2#", "", "16.67%"};
-		{ 20, 219396, "", "=q4=Taut Dragonhide Belt", "=ds=#s10#, #a2#", "", "6.67%"};
-		{ 21, 219394, "", "=q4=Drake Talon Pauldrons", "=ds=#s3#, #a4#", "", "6.67%"};
-		{ 23, 219403, "", "=q4=Band of Forced Concentration", "=ds=#s13#", "", "16.67%"};
-		{ 24, 219397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%"};
-		{ 25, 219406, "", "=q4=Drake Fang Talisman", "=ds=#s14#", "", "16.67%"};
-		{ 26, 219395, "", "=q4=Rejuvenating Gem", "=ds=#s14#", "", "6.67%"};
-		{ 28, 219353, "", "=q4=Drake Talon Cleaver", "=ds=#h2#, #w1#", "", "6.67%"};
-		{ 29, 219355, "", "=q4=Shadow Wing Focus Staff", "=ds=#w9#", "", "6.67%"};
-		{ 30, 219368, "", "=q4=Dragonbreath Hand Cannon", "=ds=#w5#", "", "16.67%"};
-		Prev = "BWLFiremawHEROIC";
-		Next = "BWLFlamegorHEROIC";
-	};
-
-	AtlasLoot_Data["BWLFlamegorHEROIC"] = {
-		{ 1, 216913, "", "=q4=Netherwind Gloves", "=q1=#m1# =ds=#c3#", "", "6.67%"};
-		{ 2, 216920, "", "=q4=Handguards of Transcendence", "=q1=#m1# =ds=#c5#", "", "6.67%"};
-		{ 3, 216928, "", "=q4=Nemesis Gloves", "=q1=#m1# =ds=#c8#", "", "6.67%"};
-		{ 4, 216907, "", "=q4=Bloodfang Gloves", "=q1=#m1# =ds=#c6#", "", "6.67%"};
-		{ 5, 216940, "", "=q4=Dragonstalker's Gauntlets", "=q1=#m1# =ds=#c2#", "", "6.67%"};
-		{ 6, 216899, "", "=q4=Stormrage Handguards", "=q1=#m1# =ds=#c1#", "", "6.67%"};
-		{ 7, 216948, "", "=q4=Gauntlets of Ten Storms", "=q1=#m1# =ds=#c7#", "", "6.67%"};
-		{ 8, 216964, "", "=q4=Gauntlets of Wrath", "=q1=#m1# =ds=#c9#", "", "6.67%"};
-		{ 9, 216956, "", "=q4=Judgement Gauntlets", "=q1=#m1# =ds=#c4#", "", "6.67%"};
-		{ 16, 219430, "", "=q4=Shroud of Pure Thought", "=ds=#s4#", "", "16.67%"};
-		{ 17, 219396, "", "=q4=Taut Dragonhide Belt", "=ds=#s10#, #a2#", "", "6.67%"};
-		{ 18, 219433, "", "=q4=Emberweave Leggings", "=ds=#s11#, #a3#", "", "16.67%"};
-		{ 19, 219394, "", "=q4=Drake Talon Pauldrons", "=ds=#s3#, #a4#", "", "6.67%"};
-		{ 21, 219397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%"};
-		{ 22, 219432, "", "=q4=Circle of Applied Force", "=ds=#s13#", "", "16.67%"};
-		{ 23, 219395, "", "=q4=Rejuvenating Gem", "=ds=#s14#", "", "6.67%"};
-		{ 24, 219431, "", "=q4=Styleen's Impeding Scarab", "=ds=#s14#", "", "16.67%"};
-		{ 26, 219353, "", "=q4=Drake Talon Cleaver", "=ds=#h2#, #w1#", "", "6.67%"};
-		{ 27, 219357, "", "=q4=Herald of Woe", "=ds=#h2#, #w6#", "", "16.67%"};
-		{ 28, 219355, "", "=q4=Shadow Wing Focus Staff", "=ds=#w9#", "", "6.67%"};
-		{ 29, 219367, "", "=q4=Dragon's Touch", "=ds=#w12#", "", "16.67%"};
-		Prev = "BWLEbonrocHEROIC";
-		Next = "BWLChromaggusHEROIC";
-	};
-
-	AtlasLoot_Data["BWLChromaggusHEROIC"] = {
-		{ 1, 216917, "", "=q4=Netherwind Mantle", "=q1=#m1# =ds=#c3#", "", "22.22%"};
-		{ 2, 216924, "", "=q4=Pauldrons of Transcendence", "=q1=#m1# =ds=#c5#", "", "22.22%"};
-		{ 3, 216932, "", "=q4=Nemesis Spaulders", "=q1=#m1# =ds=#c8#", "", "22.22%"};
-		{ 4, 216937, "", "=q4=Dragonstalker's Spaulders", "=q1=#m1# =ds=#c2#", "", "22.22%"};
-		{ 5, 216902, "", "=q4=Stormrage Pauldrons", "=q1=#m1# =ds=#c1#", "", "22.22%"};
-		{ 6, 216832, "", "=q4=Bloodfang Spaulders", "=q1=#m1# =ds=#c6#", "", "22.22%"};
-		{ 7, 216945, "", "=q4=Epaulets of Ten Storms", "=q1=#m1# =ds=#c7#", "", "22.22%"};
-		{ 8, 216953, "", "=q4=Judgement Spaulders", "=q1=#m1# =ds=#c4#", "", "22.22%"};
-		{ 9, 216961, "", "=q4=Pauldrons of Wrath", "=q1=#m1# =ds=#c9#", "", "22.22%"};
-		{ 16, 219386, "", "=q4=Elementium Threaded Cloak", "=ds=#s4#", "", "20%"};
-		{ 17, 219388, "", "=q4=Angelista's Grasp", "=ds=#s10#, #a1#", "", "20%"};
-		{ 18, 219385, "", "=q4=Empowered Leggings", "=ds=#s11#, #a1#", "", "20%"};
-		{ 19, 219391, "", "=q4=Shimmering Geta", "=ds=#s12#, #a1#", "", "20%"};
-		{ 20, 219389, "", "=q4=Taut Dragonhide Shoulderpads", "=ds=#s3#, #a2#", "", "20%"};
-		{ 21, 219390, "", "=q4=Taut Dragonhide Gloves", "=ds=#s9#, #a2#", "", "20%"};
-		{ 22, 219393, "", "=q4=Primalist's Linked Waistguard", "=ds=#s10#, #a3#", "", "10%"};
-		{ 23, 219392, "", "=q4=Girdle of the Fallen Crusader", "=ds=#s10#, #a4#", "", "10%"};
-		{ 24, 219387, "", "=q4=Chromatic Boots", "=ds=#s12#, #a4#", "", "20%"};
-		{ 26, 219347, "", "=q4=Claw of Chromaggus", "=ds=#h3#, #w4#", "", "10%"};
-		{ 27, 219352, "", "=q4=Chromatically Tempered Sword", "=ds=#h1#, #w10#", "", "10%"};
-		{ 28, 219349, "", "=q4=Elementium Reinforced Bulwark", "=ds=#w8#", "", "10%"};
-		{ 29, 219361, "", "=q4=Ashjre'thul, Crossbow of Smiting", "=ds=#w3#", "", "10%"};
-		Prev = "BWLFlamegorHEROIC";
-		Next = "BWLNefarian1HEROIC";
-	};
-
-	AtlasLoot_Data["BWLNefarian1HEROIC"] = {
-		{ 1, 216916, "", "=q4=Netherwind Robes", "=q1=#m1# =ds=#c3#", "", "22.22%"};
-		{ 2, 216931, "", "=q4=Nemesis Robes", "=q1=#m1# =ds=#c8#", "", "22.22%"};
-		{ 3, 216923, "", "=q4=Robes of Transcendence", "=q1=#m1# =ds=#c5#", "", "22.22%"};
-		{ 4, 216905, "", "=q4=Bloodfang Chestpiece", "=q1=#m1# =ds=#c6#", "", "22.22%"};
-		{ 5, 216897, "", "=q4=Stormrage Chestguard", "=q1=#m1# =ds=#c1#", "", "22.22%"};
-		{ 6, 216942, "", "=q4=Dragonstalker's Breastplate", "=q1=#m1# =ds=#c2#", "", "22.22%"};
-		{ 7, 216950, "", "=q4=Breastplate of Ten Storms", "=q1=#m1# =ds=#c7#", "", "22.22%"};
-		{ 8, 216966, "", "=q4=Breastplate of Wrath", "=q1=#m1# =ds=#c9#", "", "22.22%"};
-		{ 9, 216958, "", "=q4=Judgement Breastplate", "=q1=#m1# =ds=#c4#", "", "22.22%"};
-		{ 16, 219378, "", "=q4=Cloak of the Brood Lord", "=ds=#s4#", "", "16.67%"};
-		{ 17, 219375, "", "=q4=Mish'undare, Circlet of the Mind Flayer", "=ds=#s1#, #a1#", "", "16.67%"};
-		{ 18, 219381, "", "=q4=Boots of the Shadow Flame", "=ds=#s12#, #a2#", "", "16.67%"};
-		{ 19, 219380, "", "=q4=Therazane's Link", "=ds=#s10#, #a3#", "", "16.67%"};
-		{ 20, 219377, "", "=q4=Prestor's Talisman of Connivery", "=ds=#s2#", "", "16.67%"};
-		{ 21, 219376, "", "=q4=Archimtiros' Ring of Reckoning", "=ds=#s13#", "", "16.67%"};
-		{ 22, 219382, "", "=q4=Pure Elementium Band", "=ds=#s13#", "", "16.67%"};
-		{ 23, 219379, "", "=q4=Neltharion's Tear", "=ds=#s14#", "", "16.67%"};
-		{ 24, 219364, "", "=q4=Ashkandi, Greatsword of the Brotherhood", "=ds=#h2#, #w10#", "", "10%"};
-		{ 25, 219363, "", "=q4=Crul'shorukh, Edge of Chaos", "=ds=#h1#, #w1#", "", "16.67%"};
-		{ 26, 219360, "", "=q4=Lok'amir il Romathis", "=ds=#h3#, #w6#", "", "16.67%"};
-		{ 27, 219356, "", "=q4=Staff of the Shadow Flame", "=ds=#w9#", "", "16.67%%"};
-		Prev = "BWLChromaggusHEROIC";
-		Next = "BWLNefarian2HEROIC";
-	};
-
-	AtlasLoot_Data["BWLNefarian2HEROIC"] = {
-		{ 1, 19003, "", "=q4=Head of Nefarian", "=ds=#m2#", "", "100%"};
-		{ 2, 19383, "", "=q4=Master Dragonslayer's Medallion", "=q1=#m4#: =ds=#s2#"};
-		{ 3, 19384, "", "=q4=Master Dragonslayer's Ring", "=q1=#m4#: =ds=#s13#"};
-		{ 4, 19366, "", "=q4=Master Dragonslayer's Orb", "=q1=#m4#: =ds=#s15#"};
-		{ 6, 21138, "", "=q1=Red Scepter Shard", "=ds=#m3#", "", "100%"};
-		Prev = "BWLNefarian1HEROIC";
-		Next = "BWLTrashMobsHEROIC";
-	};
-
-	AtlasLoot_Data["BWLTrashMobsHEROIC"] = {
-		{ 1, 219436, "", "=q4=Cloak of Draconic Might", "=ds=#s4#", "", "2.53%"};
-		{ 2, 219437, "", "=q4=Boots of Pure Thought", "=ds=#s12#, #a1#", "", "2.33%"};
-		{ 3, 219438, "", "=q4=Ringo's Blizzard Boots", "=ds=#s12#, #a1#", "", "4.42%"};
-		{ 4, 219439, "", "=q4=Interlaced Shadow Jerkin", "=ds=#s5#, #a2#", "", "4.62%"};
-		{ 5, 219434, "", "=q4=Band of Dark Dominion", "=ds=#s13#", "", "1.57%"};
-		{ 6, 219362, "", "=q4=Doom's Edge", "=ds=#h1#, #w1#", "", "1.67%"};
-		{ 7, 219354, "", "=q4=Draconic Avenger", "=ds=#h2#, #w1#", "", "5.96%"};
-		{ 8, 219358, "", "=q4=Draconic Maul", "=ds=#h2#, #w6#", "", "2.30%"};
-		{ 9, 219435, "", "=q4=Essence Gatherer", "=ds=#w12#", "", "1.61%"};
-		{ 16, 18562, "", "=q4=Elementium Ore", "=ds=#e8#", "", "4.75%"};
-		{ 18, 21109, "", "=q1=Draconic for Dummies", "=ds=#m3#"};
-		Prev = "BWLNefarian2HEROIC";
 	};
 
 		-----------------------
@@ -3451,6 +2884,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 1, 18267, "", "=q2=Recipe: Runn Tum Tuber Surprise", "=ds=#p3# (275)", "", "71.55%"};
 		{ 3, 18261, "", "=q1=Book of Incantations", "=ds=#m3#", "", "100%"};
 		{ 4, 18249, "", "=q1=Crescent Key", "=ds=#e9#", "", "100%"};
+		Next = "DMEZevrimThornhoof";
 	};
 
 	AtlasLoot_Data["DMEZevrimThornhoof"] = {
@@ -3459,26 +2893,34 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 18323, "", "=q3=Satyr's Bow", "=ds=#w2#", "", "17.24%"};
 		{ 5, 18306, "", "=q2=Gloves of Shadowy Mist", "=ds=#s9#, #a1#", "", "21.40%"};
 		{ 6, 18308, "", "=q2=Clever Hat", "=ds=#s1#, #a2#", "", "23.73%"};
+		Prev = "DMEPusillin";
+		Next = "DMELethtendris";
 	};
 
 	AtlasLoot_Data["DMELethtendris"] = {
 		{ 1, 18325, "", "=q3=Felhide Cap", "=ds=#s1#, #a2#", "", "24.67%"};
 		{ 2, 18311, "", "=q3=Quel'dorai Channeling Rod", "=ds=#w9#", "", "7.30%"};
-		{ 4, 18302, "", "=q2=Band of Vigor", "=ds=#s13#", "", "29.30%"};
-		{ 5, 18301, "", "=q2=Lethtendris's Wand", "=ds=#w12#", "", "25.57%"};
+		{ 4, 18302, "", "=q3=Band of Vigor", "=ds=#s13#", "", "29.30%"};
+		{ 5, 18301, "", "=q3=Lethtendris's Wand", "=ds=#w12#", "", "25.57%"};
 		{ 7, 18426, "", "=q1=Lethtendris's Web", "=ds=#m3#"};
+		Prev = "DMEZevrimThornhoof";
+		Next = "DMEPimgib";
 	};
 
 	AtlasLoot_Data["DMEPimgib"] = {
 		{ 1, 18354, "", "=q3=Pimgib's Collar", "=ds=#s14#, =q1=#m1# =ds=#c8#", "", "18.68%"};
+		Prev = "DMELethtendris";
+		Next = "DMEHydro";
 	};
 
 	AtlasLoot_Data["DMEHydro"] = {
 		{ 1, 18322, "", "=q3=Waterspout Boots", "=ds=#s12#, #a2#", "", "16.42%"};
 		{ 2, 18317, "", "=q3=Tempest Talisman", "=ds=#s2#", "", "16.44%"};
 		{ 3, 18324, "", "=q3=Waveslicer", "=ds=#h2#, #w1#", "", "8.46%"};
-		{ 5, 18307, "", "=q2=Riptide Shoes", "=ds=#s12#, #a1#", "", "21.33%"};
-		{ 6, 18305, "", "=q2=Breakwater Legguards", "=ds=#s11#, #a4#", "", "22.75%"};
+		{ 5, 18307, "", "=q3=Riptide Shoes", "=ds=#s12#, #a1#", "", "21.33%"};
+		{ 6, 18305, "", "=q3=Breakwater Legguards", "=ds=#s11#, #a4#", "", "22.75%"};
+		Prev = "DMEPimgib";
+		Next = "DMEAlzzin";
 	};
 
 	AtlasLoot_Data["DMEAlzzin"] = {
@@ -3494,6 +2936,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 17, 18314, "", "=q3=Ring of Demonic Guile", "=ds=#s13#", "", "13.71%"};
 		{ 18, 18310, "", "=q3=Fiendish Machete", "=ds=#h1#, #w10#", "", "15.39%"};
 		{ 19, 18321, "", "=q3=Energetic Rod", "=ds=#h3#, #w6#", "", "15.94%"};
+		Prev = "DMEHydro";
+		Next = "DMEIsalien";
 	};
 
 	AtlasLoot_Data["DMEIsalien"] = {
@@ -3506,6 +2950,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 7, 22314, "", "=q3=Huntsman's Harpoon", "=ds=#w7#", "", "15.50%"};
 		{ 17, 21984, "", "=q1=Left Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
 		{ 18, 22046, "", "=q1=Right Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
+		Prev = "DMEAlzzin";
+		Next = "DMETrash";
 	};
 
 	AtlasLoot_Data["DMETrash"] = {
@@ -3513,6 +2959,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 18298, "", "=q3=Unbridled Leggings", "=ds=#s11#, #a2#", "", "0.62%"};
 		{ 3, 18296, "", "=q3=Marksman Bands", "=ds=#s8#, #a3#", "", "0.59%"};
 		{ 4, 18289, "", "=q3=Barbed Thorn Necklace", "=ds=#s2#", "", "0.87%"};
+		Prev = "DMEIsalien";
 	};
 
 		-----------------------
@@ -3526,33 +2973,38 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 18493, "", "=q3=Bulky Iron Spaulders", "=ds=#s3#, #a4#", "", "3.96%"};
 		{ 5, 18498, "", "=q3=Hedgecutter", "=ds=#h1#, #w1#", "", "4.94%"};
 		{ 7, 18268, "", "=q1=Gordok Inner Door Key", "=ds=#e9#", "", "100%"};
-		{ 16, 18450, "", "=q2=Robe of Combustion", "=ds=#s5#, #a1#", "", "6.57%"};
-		{ 17, 18451, "", "=q2=Hyena Hide Belt", "=ds=#s10#, #a2#", "", "6.61%"};
-		{ 18, 18458, "", "=q2=Modest Armguards", "=ds=#s8#, #a3#", "", "7.12%"};
-		{ 19, 18459, "", "=q2=Gallant's Wristguards", "=ds=#s8#, #a4#", "", "6.09%"};
-		{ 20, 18464, "", "=q2=Gordok Nose Ring", "=ds=#s13#", "", "6.52%"};
-		{ 21, 18462, "", "=q2=Jagged Bone Fist", "=ds=#h1#, #w13#", "", "7.54%"};
-		{ 22, 18463, "", "=q2=Ogre Pocket Knife", "=ds=#h1#, #w10#", "", "7.38%"};
-		{ 23, 18460, "", "=q2=Unsophisticated Hand Cannon", "=ds=#w5#", "", "5.86%"};
+		{ 16, 18450, "", "=q3=Robe of Combustion", "=ds=#s5#, #a1#", "", "6.57%"};
+		{ 17, 18451, "", "=q3=Hyena Hide Belt", "=ds=#s10#, #a2#", "", "6.61%"};
+		{ 18, 18458, "", "=q3=Modest Armguards", "=ds=#s8#, #a3#", "", "7.12%"};
+		{ 19, 18459, "", "=q3=Gallant's Wristguards", "=ds=#s8#, #a4#", "", "6.09%"};
+		{ 20, 18464, "", "=q3=Gordok Nose Ring", "=ds=#s13#", "", "6.52%"};
+		{ 21, 18462, "", "=q3=Jagged Bone Fist", "=ds=#h1#, #w13#", "", "7.54%"};
+		{ 22, 18463, "", "=q3=Ogre Pocket Knife", "=ds=#h1#, #w10#", "", "7.38%"};
+		{ 23, 18460, "", "=q3=Unsophisticated Hand Cannon", "=ds=#w5#", "", "5.86%"};
+		Next = "DMNStomperKreeg";
 	};
 
 	AtlasLoot_Data["DMNStomperKreeg"] = {
-		{ 1, 18425, "", "=q2=Kreeg's Mug", "=ds=#s15#", "", "40.24%"};
-		{ 2, 18269, "", "=q2=Gordok Green Grog", "=ds=#e4#", "", "100%"};
-		{ 3, 18284, "", "=q2=Kreeg's Stout Beatdown", "=ds=#e4#", "", "100%"};
+		{ 1, 18425, "", "=q3=Kreeg's Mug", "=ds=#s15#", "", "40.24%"};
+		{ 2, 18269, "", "=q3=Gordok Green Grog", "=ds=#e4#", "", "100%"};
+		{ 3, 18284, "", "=q3=Kreeg's Stout Beatdown", "=ds=#e4#", "", "100%"};
+		Prev = "DMNGuardMoldar";
+		Next = "DMNGuardFengus";
 	};
 
 	AtlasLoot_Data["DMNGuardFengus"] = {
-		{ 1, 18450, "", "=q2=Robe of Combustion", "=ds=#s5#, #a1#", "", "9.76%"};
-		{ 2, 18451, "", "=q2=Hyena Hide Belt", "=ds=#s10#, #a2#", "", "10.64%"};
-		{ 3, 18458, "", "=q2=Modest Armguards", "=ds=#s8#, #a3#", "", "11.41%"};
-		{ 4, 18459, "", "=q2=Gallant's Wristguards", "=ds=#s8#, #a4#", "", "9.60%"};
-		{ 5, 18464, "", "=q2=Gordok Nose Ring", "=ds=#s13#", "", "11.41%"};
-		{ 6, 18462, "", "=q2=Jagged Bone Fist", "=ds=#h1#, #w13#", "", "11.79%"};
-		{ 7, 18463, "", "=q2=Ogre Pocket Knife", "=ds=#h1#, #w10#", "", "11.02%"};
-		{ 8, 18460, "", "=q2=Unsophisticated Hand Cannon", "=ds=#w5#", "", "9.07%"};
+		{ 1, 18450, "", "=q3=Robe of Combustion", "=ds=#s5#, #a1#", "", "9.76%"};
+		{ 2, 18451, "", "=q3=Hyena Hide Belt", "=ds=#s10#, #a2#", "", "10.64%"};
+		{ 3, 18458, "", "=q3=Modest Armguards", "=ds=#s8#, #a3#", "", "11.41%"};
+		{ 4, 18459, "", "=q3=Gallant's Wristguards", "=ds=#s8#, #a4#", "", "9.60%"};
+		{ 5, 18464, "", "=q3=Gordok Nose Ring", "=ds=#s13#", "", "11.41%"};
+		{ 6, 18462, "", "=q3=Jagged Bone Fist", "=ds=#h1#, #w13#", "", "11.79%"};
+		{ 7, 18463, "", "=q3=Ogre Pocket Knife", "=ds=#h1#, #w10#", "", "11.02%"};
+		{ 8, 18460, "", "=q3=Unsophisticated Hand Cannon", "=ds=#w5#", "", "9.07%"};
 		{ 16, 0, "INV_Box_01", "=q6=#x7#", ""};
 		{ 17, 18266, "", "=q1=Gordok Courtyard Key", "=ds=#e9#", "", "100%"};
+		Prev = "DMNStomperKreeg";
+		Next = "DMNThimblejack";
 	};
 
 	AtlasLoot_Data["DMNThimblejack"] = {
@@ -3580,6 +3032,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 25, 18504, "", "=q3=Girdle of Insight", "=ds=#s10#, #a2#"};
 		{ 26, 18506, "", "=q3=Mongoose Boots", "=ds=#s12#, #a2#"};
 		{ 27, 18508, "", "=q3=Swift Flight Bracers", "=ds=#s8#, #a3#"};
+		Prev = "DMNGuardFengus";
+		Next = "DMNGuardSlipkik";
 	};
 
 	AtlasLoot_Data["DMNGuardSlipkik"] = {
@@ -3588,14 +3042,16 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 18494, "", "=q3=Denwatcher's Shoulders", "=ds=#s3#, #a3#", "", "5.70%"};
 		{ 4, 18493, "", "=q3=Bulky Iron Spaulders", "=ds=#s3#, #a4#", "", "4.89%"};
 		{ 5, 18498, "", "=q3=Hedgecutter", "=ds=#h1#, #w1#", "", "6.01%"};
-		{ 16, 18450, "", "=q2=Robe of Combustion", "=ds=#s5#, #a1#", "", "6.78%"};
-		{ 17, 18451, "", "=q2=Hyena Hide Belt", "=ds=#s10#, #a2#", "", "7.83%"};
-		{ 18, 18458, "", "=q2=Modest Armguards", "=ds=#s8#, #a3#", "", "7.63%"};
-		{ 19, 18459, "", "=q2=Gallant's Wristguards", "=ds=#s8#, #a4#", "", "6.98%"};
-		{ 20, 18464, "", "=q2=Gordok Nose Ring", "=ds=#s13#", "", "7.36%"};
-		{ 21, 18462, "", "=q2=Jagged Bone Fist", "=ds=#h1#, #w13#", "", "8.52%"};
-		{ 22, 18463, "", "=q2=Ogre Pocket Knife", "=ds=#h1#, #w10#", "", "7.74%"};
-		{ 23, 18460, "", "=q2=Unsophisticated Hand Cannon", "=ds=#w5#", "", "6.66%"};
+		{ 16, 18450, "", "=q3=Robe of Combustion", "=ds=#s5#, #a1#", "", "6.78%"};
+		{ 17, 18451, "", "=q3=Hyena Hide Belt", "=ds=#s10#, #a2#", "", "7.83%"};
+		{ 18, 18458, "", "=q3=Modest Armguards", "=ds=#s8#, #a3#", "", "7.63%"};
+		{ 19, 18459, "", "=q3=Gallant's Wristguards", "=ds=#s8#, #a4#", "", "6.98%"};
+		{ 20, 18464, "", "=q3=Gordok Nose Ring", "=ds=#s13#", "", "7.36%"};
+		{ 21, 18462, "", "=q3=Jagged Bone Fist", "=ds=#h1#, #w13#", "", "8.52%"};
+		{ 22, 18463, "", "=q3=Ogre Pocket Knife", "=ds=#h1#, #w10#", "", "7.74%"};
+		{ 23, 18460, "", "=q3=Unsophisticated Hand Cannon", "=ds=#w5#", "", "6.66%"};
+		Prev = "DMNThimblejack";
+		Next = "DMNCaptainKromcrush";
 	};
 
 	AtlasLoot_Data["DMNCaptainKromcrush"] = {
@@ -3603,6 +3059,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 18505, "", "=q3=Mugger's Belt", "=ds=#s10#, #a2#", "", "18.06%"};
 		{ 3, 18503, "", "=q3=Kromcrush's Chestplate", "=ds=#s5#, #a4#", "", "17.48%"};
 		{ 4, 18502, "", "=q3=Monstrous Glaive", "=ds=#w7#", "", "21.47%"};
+		Prev = "DMNGuardSlipkik";
+		Next = "DMNChoRush";
 	};
 
 	AtlasLoot_Data["DMNChoRush"] = {
@@ -3610,6 +3068,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 18484, "", "=q3=Cho'Rush's Blade", "=ds=#h1#, #w10#", "", "22.46%"};
 		{ 3, 18485, "", "=q3=Observer's Shield", "=ds=#w8#", "", "22.96%"};
 		{ 4, 18483, "", "=q3=Mana Channeling Wand", "=ds=#w12#", "", "19.01%"};
+		Prev = "DMNCaptainKromcrush";
+		Next = "DMNKingGordok";
 	};
 
 	AtlasLoot_Data["DMNKingGordok"] = {
@@ -3624,6 +3084,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 19258, "", "=q3=Ace of Warlords", "=ds=#e16#", "", "1.84%"};
 		{ 18, 18780, "", "=q3=Top Half of Advanced Armorsmithing: Volume I", "=ds=#m3#", "", "6.00%"};
 		{ 19, 12727, "", "=q3=Plans: Enchanted Thorium Breastplate", "=q1=#m4#: =ds=#p2# (300)"};
+		Prev = "DMNChoRush";
+		Next = "DMNTRIBUTERUN";
 	};
 
 	AtlasLoot_Data["DMNTRIBUTERUN"] = {
@@ -3648,6 +3110,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 22, 18481, "", "=q2=Skullcracking Mace", "=ds=#h2#, #w6#"};
 		{ 23, 18482, "", "=q2=Ogre Toothpick Shooter", "=ds=#w2#"};
 		{ 24, 18655, "", "=q2=Schematic: Major Recombobulator", "=ds=#p5# (275)"};
+		Prev = "DMNKingGordok";
 	};
 
 		----------------------
@@ -3657,29 +3120,36 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 	AtlasLoot_Data["DMWTendrisWarpwood"] = {
 		{ 1, 18390, "", "=q3=Tanglemoss Leggings", "=ds=#s11#, #a2#", "", "22.55%"};
 		{ 2, 18393, "", "=q3=Warpwood Binding", "=ds=#s10#, #a3#", "", "19.81%"};
-		{ 4, 18353, "", "=q2=Stoneflower Staff", "=ds=#w9#", "", "23.46%"};
-		{ 5, 18352, "", "=q2=Petrified Bark Shield", "=ds=#w8#", "", "21.67%"};
+		{ 4, 18353, "", "=q3=Stoneflower Staff", "=ds=#w9#", "", "23.46%"};
+		{ 5, 18352, "", "=q3=Petrified Bark Shield", "=ds=#w8#", "", "21.67%"};
+		Next = "DMWIllyannaRavenoak";
 	};
 
 	AtlasLoot_Data["DMWIllyannaRavenoak"] = {
 		{ 1, 18386, "", "=q3=Padre's Trousers", "=ds=#s11#, #a1#", "", "18.79%"};
 		{ 2, 18383, "", "=q3=Force Imbued Gauntlets", "=ds=#s9#, #a4#", "", "20.11%"};
-		{ 4, 18349, "", "=q2=Gauntlets of Accuracy", "=ds=#s9#, #a3#", "", "23.94%"};
-		{ 5, 18347, "", "=q2=Well Balanced Axe", "=ds=#h1#, #w1#", "", "22.44%"};
+		{ 4, 18349, "", "=q3=Gauntlets of Accuracy", "=ds=#s9#, #a3#", "", "23.94%"};
+		{ 5, 18347, "", "=q3=Well Balanced Axe", "=ds=#h1#, #w1#", "", "22.44%"};
+		Prev = "DMWTendrisWarpwood";
+		Next = "DMWMagisterKalendris";
 	};
 
 	AtlasLoot_Data["DMWMagisterKalendris"] = {
 		{ 1, 18374, "", "=q3=Flamescarred Shoulders", "=ds=#s3#, #a2#", "", "18.11%"};
 		{ 2, 18397, "", "=q3=Elder Magus Pendant", "=ds=#s2#", "", "17.46%"};
 		{ 3, 18371, "", "=q3=Mindtap Talisman", "=ds=#s14#", "", "7.45%"};
-		{ 5, 18350, "", "=q2=Amplifying Cloak", "=ds=#s4#", "", "21.44%"};
-		{ 6, 18351, "", "=q2=Magically Sealed Bracers", "=ds=#s8#, #a4#", "", "24.36%"};
+		{ 5, 18350, "", "=q3=Amplifying Cloak", "=ds=#s4#", "", "21.44%"};
+		{ 6, 18351, "", "=q3=Magically Sealed Bracers", "=ds=#s8#, #a4#", "", "24.36%"};
 		{ 7, 22309, "", "=q2=Pattern: Big Bag of Enchantment", "=ds=#p8# (300)"};
+		Prev = "DMWIllyannaRavenoak";
+		Next = "DMWTsuzee";
 	};
 	AtlasLoot_Data["DMWTsuzee"] = {
 		{ 1, 18387, "", "=q3=Brightspark Gloves", "=ds=#s9#, #a1#", "", "24.79%"};
-		{ 3, 18346, "", "=q2=Threadbare Trousers", "=ds=#s11#, #a1#", "", "33.94%"};
-		{ 4, 18345, "", "=q2=Murmuring Ring", "=ds=#s13#", "", "30.28%"};
+		{ 3, 18346, "", "=q3=Threadbare Trousers", "=ds=#s11#, #a1#", "", "33.94%"};
+		{ 4, 18345, "", "=q3=Murmuring Ring", "=ds=#s13#", "", "30.28%"};
+		Prev = "DMWMagisterKalendris";
+		Next = "DMWImmolthar";
 	};
 
 	AtlasLoot_Data["DMWImmolthar"] = {
@@ -3693,6 +3163,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 18381, "", "=q3=Evil Eye Pendant", "=ds=#s2#", "", "17.78%"};
 		{ 17, 18370, "", "=q3=Vigilance Charm", "=ds=#s14#", "", "6.30%"};
 		{ 18, 18372, "", "=q3=Blade of the New Moon", "=ds=#h1#, #w4#", "", "6.99%"};
+		Prev = "DMWTsuzee";
+		Next = "DMWHelnurath";
 	};
 
 	AtlasLoot_Data["DMWHelnurath"] = {
@@ -3700,6 +3172,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 18754, "", "=q3=Fel Hardened Bracers", "=ds=#s8#, #a4#", "", "19.24%"};
 		{ 3, 18756, "", "=q3=Dreadguard's Protector", "=ds=#w8#", "", "19.77%"};
 		{ 4, 18755, "", "=q3=Xorothian Firestick", "=ds=#w5#", "", "21.92%"};
+		Prev = "DMWImmolthar";
+		Next = "DMWPrinceTortheldrin";
 	};
 
 	AtlasLoot_Data["DMWPrinceTortheldrin"] = {
@@ -3715,16 +3189,21 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 17, 18396, "", "=q3=Mind Carver", "=ds=#h3#, #w10#", "", "14.62%"};
 		{ 18, 18376, "", "=q3=Timeworn Mace", "=ds=#h1#, #w6#", "", "14.40%"};
 		{ 19, 18388, "", "=q3=Stoneshatter", "=ds=#w3#", "", "7.72%"};
+		Prev = "DMWHelnurath";
+		Next = "DMWShendralarProvisioner";
 	};
 
 	AtlasLoot_Data["DMWShendralarProvisioner"] = {
 		{ 1, 18487, "", "=q1=Pattern: Mooncloth Robe", "=ds=#p8# (300)"};
+		Prev = "DMWPrinceTortheldrin";
+		Next = "DMWTrash";
 	};
 
 	AtlasLoot_Data["DMWTrash"] = {
 		{ 1, 18344, "", "=q3=Stonebark Gauntlets", "=ds=#s9#, #a2#", "", "0.47%"};
 		{ 2, 18340, "", "=q3=Eidolon Talisman", "=ds=#s2#", "", "0.58%"};
 		{ 3, 18338, "", "=q3=Wand of Arcane Potency", "=ds=#w12#", "", "0.78%"};
+		Prev = "DMWShendralarProvisioner";
 	};
 
 		------------------
@@ -3980,6 +3459,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 7717, "", "=q3=Ravager", "=ds=#h2#, #w1#", "", "12.86%"};
 		{ 6, 0, "INV_Box_01", "=q6=#n43#", ""};
 		{ 7, 23192, "", "=q2=Tabard of the Scarlet Crusade", "=ds=#s7#", "", "0.4%"};
+		Next = "SMCathedral";
 	};
 
 	AtlasLoot_Data["SMCathedral"] = {
@@ -3997,6 +3477,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 18, 7722, "", "=q3=Triune Amulet", "=ds=#s2#", "", "33.23%"};
 		{ 19, 7721, "", "=q3=Hand of Righteousness", "=ds=#h3#, #w6#", "", "18.32%"};
 		{ 20, 20976, "", "=q2=Design: Citrine Pendant of Golden Healing", "=ds=#p12# (190)", "", "100%"};
+		Prev = "SMHerod";
+		Next = "SMGraveyard";
 	};
 
 	AtlasLoot_Data["SMGraveyard"] = {
@@ -4018,6 +3500,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 22, 7691, "", "=q3=Embalmed Shroud", "=ds=#s1#, #a1#", "", "38.58%"};
 		{ 23, 7690, "", "=q3=Ebon Vise", "=ds=#s9#, #a2#", "", "37.83%"};
 		{ 24, 7689, "", "=q3=Morbid Dawn", "=ds=#h2#, #w10#", "", "19.15%"};
+		Prev = "SMCathedral";
+		Next = "SMLibrary";
 	};
 
 	AtlasLoot_Data["SMLibrary"] = {
@@ -4033,6 +3517,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 21, 7713, "", "=q3=Illusionary Rod", "=ds=#w9#", "", "38.44%"};
 		{ 23, 0, "INV_Box_01", "=q6=#x1#", ""};
 		{ 24, 7146, "", "=q2=The Scarlet Key", "=ds=#e9#"};
+		Prev = "SMGraveyard";
+		Next = "SMTrash";
 	};
 
 	AtlasLoot_Data["SMTrash"] = {
@@ -4063,6 +3549,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 26, 7757, "", "=q3=Windweaver Staff", "=ds=#w9#", "", "0.01%"};
 		{ 27, 7787, "", "=q3=Resplendent Guardian", "=ds=#w8#", "", "0.01%"};
 		{ 28, 7729, "", "=q3=Chesterfall Musket", "=ds=#w5#", "", "0.01%"};
+		Prev = "SMLibrary";
 	};
 
 		-------------------
@@ -4075,10 +3562,13 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 13448, "", "=q1=The Deed to Caer Darrow", "=ds=#m3#"};
 		{ 5, 13450, "", "=q1=The Deed to Southshore", "=ds=#m3#"};
 		{ 6, 13451, "", "=q1=The Deed to Tarren Mill", "=ds=#m3#"};
+		Next = "SCHOLOBloodStewardofKirtonos";
 	};
 
 	AtlasLoot_Data["SCHOLOBloodStewardofKirtonos"] = {
 		{ 1, 13523, "", "=q1=Blood of Innocents", "=ds=#m3#", "", "100%"};
+		Prev = "SCHOLOQuestItems";
+		Next = "SCHOLOKirtonostheHerald";
 	};
 
 	AtlasLoot_Data["SCHOLOKirtonostheHerald"] = {
@@ -4091,6 +3581,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 7, 14024, "", "=q3=Frightalon", "=ds=#h1#, #w4#", "", "15.55%"};
 		{ 8, 13983, "", "=q3=Gravestone War Axe", "=ds=#h2#, #w1#", "", "12.78%"};
 		{ 16, 16734, "", "=q3=Boots of Valor", "=ds=#s12#, #a4# (D1, #c9#)", "", "11.12%"};
+		Prev = "SCHOLOBloodStewardofKirtonos";
+		Next = "SCHOLOJandiceBarov";
 	};
 
 	AtlasLoot_Data["SCHOLOJandiceBarov"] = {
@@ -4104,6 +3596,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 13725, "", "=q1=Krastinov's Bag of Horrors", "=ds=#m3#", "", "100%"};
 		{ 10, 13523, "", "=q1=Blood of Innocents", "=ds=#m3#", "", "17.8%"};
 		{ 16, 16701, "", "=q3=Dreadmist Mantle", "=ds=#s3#, #a1# (D1, #c8#)", "", "12.20%"};
+		Prev = "SCHOLOKirtonostheHerald";
+		Next = "SCHOLORattlegore";
 	};
 
 	AtlasLoot_Data["SCHOLORattlegore"] = {
@@ -4117,6 +3611,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 16711, "", "=q3=Shadowcraft Boots", "=ds=#s12#, #a2# (D1, #c6#)", "", "14.32%"};
 		{ 18, 18782, "", "=q3=Top Half of Advanced Armorsmithing: Volume II", "=ds=#m3#", "", "5.71%"};
 		{ 19, 12726, "", "=q3=Plans: Enchanted Thorium Leggings", "=q1=#m4#: =ds=#p2# (300)"};
+		Prev = "SCHOLOJandiceBarov";
+		Next = "SCHOLODeathKnight";
 	};
 
 	AtlasLoot_Data["SCHOLODeathKnight"] = {
@@ -4125,16 +3621,22 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 18759, "", "=q3=Malicious Axe", "=ds=#h2#, #w1#", "", "24.75%"};
 		{ 4, 18761, "", "=q3=Oblivion's Touch", "=ds=#w12#", "", "17.17%"};
 		{ 6, 18749, "", "=q1=Charger's Lost Soul", "=ds=#m3#", "", "10.93%"};
+		Prev = "SCHOLORattlegore";
+		Next = "SCHOLOVectus";
 	};
 
 	AtlasLoot_Data["SCHOLOVectus"] = {
 		{ 1, 14577, "", "=q3=Skullsmoke Pants", "=ds=#s11#, #a1#", "", "5.24%"};
 		{ 2, 18691, "", "=q3=Dark Advisor's Pendant", "=ds=#s2#", "", "6.16%"};
+		Prev = "SCHOLODeathKnight";
+		Next = "SCHOLOMarduk";
 	};
 
 	AtlasLoot_Data["SCHOLOMarduk"] = {
 		{ 1, 18692, "", "=q3=Death Knight Sabatons", "=ds=#s12#, #a4#", "", "6.29%"};
 		{ 2, 14576, "", "=q3=Ebon Hilt of Marduk", "=ds=#h1#, #w10#", "", "6.55%"};
+		Prev = "SCHOLOVectus";
+		Next = "SCHOLORasFrostwhisper";
 	};
 
 	AtlasLoot_Data["SCHOLORasFrostwhisper"] = {
@@ -4159,6 +3661,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 24, 14002, "", "=q3=Darrowshire Strongguard", "=q1=#m4#: =ds=#w8#"};
 		{ 26, 0, "INV_Box_01", "=q6=#x12#", ""};
 		{ 27, 12736, "", "=q1=Frostwhisper's Embalming Fluid", "=ds=#m3#"};
+		Prev = "SCHOLOMarduk";
+		Next = "SCHOLOKormok";
 	};
 
 	AtlasLoot_Data["SCHOLOKormok"] = {
@@ -4170,6 +3674,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 22333, "", "=q3=Hammer of Divine Might", "=ds=#h2#, #w6#", "", "12.50%"};
 		{ 8, 21984, "", "=q1=Left Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
 		{ 9, 22046, "", "=q1=Right Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
+		Prev = "SCHOLORasFrostwhisper";
+		Next = "SCHOLOInstructorMalicia";
 	};
 
 	AtlasLoot_Data["SCHOLOInstructorMalicia"] = {
@@ -4201,6 +3707,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 23200, "", "=q3=Totem of Sustaining", "=ds=#s16#, #w15#", "", "3.5%"};
 		{ 28, 18683, "", "=q3=Hammer of the Vesper", "=ds=#h1#, #w6#", "", "1.39%"};
 		{ 29, 18680, "", "=q3=Ancient Bone Bow", "=ds=#w2#", "", "0.91%"};
+		Prev = "SCHOLOKormok";
+		Next = "SCHOLODoctorTheolenKrastinov";
 	};
 
 	AtlasLoot_Data["SCHOLODoctorTheolenKrastinov"] = {
@@ -4233,6 +3741,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 28, 18683, "", "=q3=Hammer of the Vesper", "=ds=#h1#, #w6#", "", "2.54%"};
 		{ 29, 18680, "", "=q3=Ancient Bone Bow", "=ds=#w2#", "", "3.21%"};
 		{ 30, 13523, "", "=q1=Blood of Innocents", "=ds=#m3#", "", "25.7%"};
+		Prev = "SCHOLOInstructorMalicia";
+		Next = "SCHOLOLorekeeperPolkelt";
 	};
 
 	AtlasLoot_Data["SCHOLOLorekeeperPolkelt"] = {
@@ -4264,6 +3774,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 23200, "", "=q3=Totem of Sustaining", "=ds=#s16#, #w15#", "", "3.5%"};
 		{ 28, 18683, "", "=q3=Hammer of the Vesper", "=ds=#h1#, #w6#", "", "0.67%"};
 		{ 29, 18680, "", "=q3=Ancient Bone Bow", "=ds=#w2#", "", "0.49%"};
+		Prev = "SCHOLODoctorTheolenKrastinov";
+		Next = "SCHOLOTheRavenian";
 	};
 
 	AtlasLoot_Data["SCHOLOTheRavenian"] = {
@@ -4295,6 +3807,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 23200, "", "=q3=Totem of Sustaining", "=ds=#s16#, #w15#", "", "3.5%"};
 		{ 28, 18683, "", "=q3=Hammer of the Vesper", "=ds=#h1#, #w6#", "", "1.52%"};
 		{ 29, 18680, "", "=q3=Ancient Bone Bow", "=ds=#w2#", "", "1.74%"};
+		Prev = "SCHOLOLorekeeperPolkelt";
+		Next = "SCHOLOLordAlexeiBarov";
 	};
 
 	AtlasLoot_Data["SCHOLOLordAlexeiBarov"] = {
@@ -4326,6 +3840,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 23200, "", "=q3=Totem of Sustaining", "=ds=#s16#, #w15#", "", "3.5%"};
 		{ 28, 18683, "", "=q3=Hammer of the Vesper", "=ds=#h1#, #w6#", "", "4.67%"};
 		{ 29, 18680, "", "=q3=Ancient Bone Bow", "=ds=#w2#", "", "4.70%"};
+		Prev = "SCHOLOTheRavenian";
+		Next = "SCHOLOLadyIlluciaBarov";
 	};
 
 	AtlasLoot_Data["SCHOLOLadyIlluciaBarov"] = {
@@ -4356,6 +3872,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 25, 23200, "", "=q3=Totem of Sustaining", "=ds=#s16#, #w15#", "", "3.5%"};
 		{ 26, 18683, "", "=q3=Hammer of the Vesper", "=ds=#h1#, #w6#", "", "1.35%"};
 		{ 27, 18680, "", "=q3=Ancient Bone Bow", "=ds=#w2#", "", "1.17%"};
+		Prev = "SCHOLOLordAlexeiBarov";
+		Next = "SCHOLODarkmasterGandling";
 	};
 
 	AtlasLoot_Data["SCHOLODarkmasterGandling"] = {
@@ -4381,6 +3899,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 24, 16727, "", "=q3=Lightforge Helm", "=ds=#s1#, #a4# (D1, #c4#)", "", "5.32%"};
 		{ 26, 19276, "", "=q3=Ace of Portals", "=ds=#e16#", "", "2.20%"};
 		{ 28, 13501, "", "=q2=Recipe: Major Mana Potion", "=ds=#p1# (295)", "", "8.64%"};
+		Prev = "SCHOLOLadyIlluciaBarov";
+		Next = "SCHOLOTrash";
 	};
 
 	AtlasLoot_Data["SCHOLOTrash"] = {
@@ -4403,6 +3923,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 19, 16710, "", "=q3=Shadowcraft Bracers", "=ds=#s8#, #a2# (D1)", "", "1.53%"};
 		{ 20, 16716, "", "=q3=Wildheart Belt", "=ds=#s8#, #a2# (D1)", "", "1.84%"};
 		{ 21, 16722, "", "=q3=Lightforge Bracers", "=ds=#s8#, #a4# (D1)", "", "2.72%"};
+		Prev = "SCHOLODarkmasterGandling";
 	};
 
 		-----------------------
@@ -4473,6 +3994,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 1, 13395, "", "=q3=Skul's Fingerbone Claws", "=ds=#s9#, #a2#", "", "36.52%"};
 		{ 2, 13394, "", "=q3=Skul's Cold Embrace", "=ds=#s5#, #a4#", "", "24.16%"};
 		{ 3, 13396, "", "=q3=Skul's Ghastly Touch", "=ds=#w12#", "", "16.85%"};
+		Next = "STRATStratholmeCourier";
 	};
 
 	AtlasLoot_Data["STRATStratholmeCourier"] = {
@@ -4482,15 +4004,21 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 13305, "", "=q1=Elders' Square Postbox Key", "=ds=#e9#", "", "36.87%"};
 		{ 5, 13302, "", "=q1=Market Row Postbox Key", "=ds=#e9#", "", "35.58%"};
 		{ 6, 13306, "", "=q1=King's Square Postbox Key", "=ds=#e9#", "", "37.69%"};
+		Prev = "STRATSkull";
+		Next = "STRATFrasSiabi";
 	};
 
 	AtlasLoot_Data["STRATFrasSiabi"] = {
 		{ 1, 13172, "", "=q1=Siabi's Premium Tobacco", "=ds=#m3#", "", "100%"};
 		{ 2, 13171, "", "=q2=Smokey's Lighter", "=q1=#m4#: =ds=#s14#"};
+		Prev = "STRATStratholmeCourier";
+		Next = "STRATAtiesh";
 	};
 
 	AtlasLoot_Data["STRATAtiesh"] = {
 		{ 1, 22736, "", "=q5=Andonisus, Reaper of Souls", "=q1=#m26#: =ds=#h3#, #w10#", "", "100%"};
+		Prev = "STRATFrasSiabi";
+		Next = "STRATHearthsingerForresten";
 	};
 
 	AtlasLoot_Data["STRATHearthsingerForresten"] = {
@@ -4499,6 +4027,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 13384, "", "=q3=Rainbow Girdle", "=ds=#s10#, #a4#", "", "19.21%"};
 		{ 4, 13379, "", "=q3=Piccolo of the Flaming Fire", "=ds=#s14#", "", "15.13%"};
 		{ 16, 16682, "", "=q3=Magister's Boots", "=ds=#s12#, #a1# (D1, #c3#)", "", "10.86%"};
+		Prev = "STRATAtiesh";
+		Next = "STRATTheUnforgiven";
 	};
 
 	AtlasLoot_Data["STRATTheUnforgiven"] = {
@@ -4507,6 +4037,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 13405, "", "=q3=Wailing Nightbane Pauldrons", "=ds=#s3#, #a4#", "", "12.10%"};
 		{ 4, 13408, "", "=q3=Soul Breaker", "=ds=#h1#, #w1#", "", "19.33%"};
 		{ 16, 16717, "", "=q3=Wildheart Gloves", "=ds=#s9#, #a2# (D1, #c1#)", "", "12.61%"};
+		Prev = "STRATHearthsingerForresten";
+		Next = "STRATTimmytheCruel";
 	};
 
 	AtlasLoot_Data["STRATTimmytheCruel"] = {
@@ -4515,11 +4047,15 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 13400, "", "=q3=Vambraces of the Sadist", "=ds=#s8#, #a4#", "", "14.02%"};
 		{ 4, 13401, "", "=q3=The Cruel Hand of Timmy", "=ds=#h1#, #w6#", "", "16.87%"};
 		{ 16, 16724, "", "=q3=Lightforge Gauntlets", "=ds=#s9#, #a4# (D1, #c4#)", "", "10.42%"};
+		Prev = "STRATTheUnforgiven";
+		Next = "STRATMalorsStrongbox";
 	};
 
 	AtlasLoot_Data["STRATMalorsStrongbox"] = {
 		{ 1, 0, "INV_Box_01", "=q6=#x13#", ""};
 		{ 2, 12845, "", "=q1=Medallion of Faith", "=ds=#m3#", "", "100%"};
+		Prev = "STRATTimmytheCruel";
+		Next = "STRATCrimsonHammersmith";
 	};
 
 	AtlasLoot_Data["STRATCrimsonHammersmith"] = {
@@ -4527,10 +4063,14 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 12726, "", "=q3=Plans: Enchanted Thorium Leggings", "=q1=#m4#: =ds=#p2# (300)"};
 		{ 4, 13351, "", "=q1=Crimson Hammersmith's Apron", "=ds=#m3#", "", "100%"};
 		{ 5, 12824, "", "=q2=Plans: Enchanted Battlehammer", "=q1=#m4#: =ds=#p2# (280)"};
+		Prev = "STRATMalorsStrongbox";
+		Next = "STRATBSPlansSerenity";
 	};
 
 	AtlasLoot_Data["STRATBSPlansSerenity"] = {
 		{ 1, 12827, "", "=q2=Plans: Serenity", "=ds=#p2# (285)", "", "100%"};
+		Prev = "STRATCrimsonHammersmith";
+		Next = "STRATCannonMasterWilley";
 	};
 
 	AtlasLoot_Data["STRATCannonMasterWilley"] = {
@@ -4547,6 +4087,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 16708, "", "=q3=Shadowcraft Spaulders", "=ds=#s3#, #a2# (D1, #c6#)", "", "10.68%"};
 		{ 18, 12839, "", "=q3=Plans: Heartseeker", "=ds=#p2# (300)", "", "4.98%"};
 		{ 19, 12783, "", "=q3=Heartseeker", "=ds=#h1#, #w4#"};
+		Prev = "STRATBSPlansSerenity";
+		Next = "STRATArchivistGalford";
 	};
 
 	AtlasLoot_Data["STRATArchivistGalford"] = {
@@ -4559,6 +4101,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 0, "INV_Box_01", "=q6=#x11#", ""};
 		{ 10, 14679, "", "=q1=Of Love and Family", "=ds=#m3#"};
 		{ 16, 16692, "", "=q3=Devout Gloves", "=ds=#s9#, #a1# (D1, #c5#)", "", "12.46%"};
+		Prev = "STRATCannonMasterWilley";
+		Next = "STRATBalnazzar";
 	};
 
 	AtlasLoot_Data["STRATBalnazzar"] = {
@@ -4577,6 +4121,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 16725, "", "=q3=Lightforge Boots", "=ds=#s12#, #a4# (D1, #c4#)", "", "11.11%"};
 		{ 18, 13520, "", "=q2=Recipe: Flask of Distilled Wisdom", "=ds=#p1# (300)", "", "1.94%"};
 		{ 20, 13250, "", "=q1=Head of Balnazzar", "=ds=#m2#"};
+		Prev = "STRATArchivistGalford";
+		Next = "STRATSothosJarien";
 	};
 
 	AtlasLoot_Data["STRATSothosJarien"] = {
@@ -4588,12 +4134,16 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 22329, "", "=q3=Scepter of Interminable Focus", "=ds=#s15#", "", "28.51%"};
 		{ 8, 21984, "", "=q1=Left Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
 		{ 9, 22046, "", "=q1=Right Piece of Lord Valthalak's Amulet", "=ds=#m3#"};
+		Prev = "STRATBalnazzar";
+		Next = "STRATStonespine";
 	};
 
 	AtlasLoot_Data["STRATStonespine"] = {
 		{ 1, 13397, "", "=q3=Stoneskin Gargoyle Cape", "=ds=#s4#", "", "23.44%"};
 		{ 2, 13954, "", "=q3=Verdant Footpads", "=ds=#s12#, #a2#", "", "25.36%"};
 		{ 3, 13399, "", "=q3=Gargoyle Shredder Talons", "=ds=#h4#, #w13#", "", "26.16%"};
+		Prev = "STRATSothosJarien";
+		Next = "STRATBaronessAnastari";
 	};
 
 	AtlasLoot_Data["STRATBaronessAnastari"] = {
@@ -4607,6 +4157,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 13539, "", "=q2=Banshee's Touch", "=ds=#s9#, #a4#", "", "8.27%"};
 		{ 10, 13514, "", "=q2=Wail of the Banshee", "=ds=#m8#", "", "7.73%"};
 		{ 16, 16704, "", "=q3=Dreadmist Sandals", "=ds=#s12#, #a1# (D1, #c8#)", "", "13.16%"};
+		Prev = "STRATStonespine";
+		Next = "STRATBlackGuardSwordsmith";
 	};
 
 	AtlasLoot_Data["STRATBlackGuardSwordsmith"] = {
@@ -4614,10 +4166,14 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 12725, "", "=q3=Plans: Enchanted Thorium Helm", "=q1=#m4#: =ds=#p2# (300)"};
 		{ 4, 13350, "", "=q1=Insignia of the Black Guard", "=ds=#m3#", "", "100%"};
 		{ 5, 12825, "", "=q2=Plans: Blazing Rapier", "=q1=#m4#: =ds=#p2# (280)"};
+		Prev = "STRATBaronessAnastari";
+		Next = "STRATBSPlansCorruption";
 	};
 
 	AtlasLoot_Data["STRATBSPlansCorruption"] = {
 		{ 1, 12830, "", "=q1=Plans: Corruption", "=ds=#p2# (290)", "", "100%"};
+		Prev = "STRATBlackGuardSwordsmith";
+		Next = "STRATNerubenkan";
 	};
 
 	AtlasLoot_Data["STRATNerubenkan"] = {
@@ -4631,6 +4187,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 13533, "", "=q2=Acid-etched Pauldrons", "=ds=#s3#, #a4#", "", "8.11%"};
 		{ 10, 13508, "", "=q2=Eye of Arachnida", "=ds=#m8#", "", "7.39%"};
 		{ 16, 16675, "", "=q3=Beaststalker's Boots", "=ds=#s12#, #a3# (D1, #c2#)", "", "13.62%"};
+		Prev = "STRATBSPlansCorruption";
+		Next = "STRATMalekithePallid";
 	};
 
 	AtlasLoot_Data["STRATMalekithePallid"] = {
@@ -4646,6 +4204,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 16, 16691, "", "=q3=Devout Sandals", "=ds=#s12#, #a1# (D1, #c5#)", "", "13.64%"};
 		{ 18, 12833, "", "=q3=Plans: Hammer of the Titans", "=ds=#p2# (300)", "", "5.86%"};
 		{ 19, 12796, "", "=q3=Hammer of the Titans", "=ds=#h2#, #w6#"};
+		Prev = "STRATNerubenkan";
+		Next = "STRATMagistrateBarthilas";
 	};
 
 	AtlasLoot_Data["STRATMagistrateBarthilas"] = {
@@ -4656,6 +4216,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 5, 23198, "", "=q3=Idol of Brutality", "=ds=#s16#, #w14#", "", "2.37%"};
 		{ 6, 18725, "", "=q3=Peacemaker", "=ds=#w7#", "", "14.22%"};
 		{ 8, 12382, "", "=q2=Key to the City", "=ds=#e9#", "", "100%"};
+		Prev = "STRATMalekithePallid";
+		Next = "STRATRamsteintheGorger";
 	};
 
 	AtlasLoot_Data["STRATRamsteintheGorger"] = {
@@ -4666,6 +4228,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 5, 13372, "", "=q3=Slavedriver's Cane", "=ds=#w9#", "", "8.63%"};
 		{ 6, 13375, "", "=q3=Crest of Retribution", "=ds=#w8#", "", "9.17%"};
 		{ 16, 16737, "", "=q3=Gauntlets of Valor", "=ds=#s9#, #a4# (D1, #c9#)", "", "9.58%"};
+		Prev = "STRATMagistrateBarthilas";
+		Next = "STRATBaronRivendare";
 	};
 
 	AtlasLoot_Data["STRATBaronRivendare"] = {
@@ -4696,6 +4260,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 13246, "", "=q3=Argent Avenger", "=q1=#m4#: =ds=#h1#, #w10#"};
 		{ 28, 13249, "", "=q3=Argent Crusader", "=q1=#m4#: =ds=#w9#"};
 		{ 29, 13243, "", "=q3=Argent Defender", "=q1=#m4#: =ds=#w8#"};
+		Prev = "STRATRamsteintheGorger";
+		Next = "STRATTrash";
 	};
 
 	AtlasLoot_Data["STRATTrash"] = {
@@ -4723,6 +4289,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 16723, "", "=q3=Lightforge Belt", "=ds=#s10#, #a4# (D1)", "", "1.83%"};
 		{ 25, 12811, "", "=q2=Righteous Orb", "=ds=#e8#", "", "5.09%"};
 		{ 26, 12735, "", "=q2=Frayed Abomination Stitching", "=ds=#m3#", "", "17.5%"};
+		Prev = "STRATBaronRivendare";
 	};
 
 		---------------------
@@ -4811,6 +4378,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 	AtlasLoot_Data["STSpawnOfHakkar"] = {
 		{ 1, 10802, "", "=q3=Wingveil Cloak", "=ds=#s4#", "", "25.6%"};
 		{ 2, 10801, "", "=q3=Slitherscale Boots", "=ds=#s12#, #a2#", "", "42.33%"};
+		Next = "STTrollMinibosses";
 	};
 
 	AtlasLoot_Data["STTrollMinibosses"] = {
@@ -4823,12 +4391,16 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 8, 20606, "", "=q1=Amber Voodoo Feather", "=ds=#m3# =q2=#st1#, #st6#"};
 		{ 9, 20607, "", "=q1=Blue Voodoo Feather", "=ds=#m3# =q2=#st2#, #st4#"};
 		{ 10, 20608, "", "=q1=Green Voodoo Feather", "=ds=#m3# =q2=#st3#, #st5#"};
+		Prev = "STSpawnOfHakkar";
+		Next = "STAtalalarion";
 	};
 
 	AtlasLoot_Data["STAtalalarion"] = {
 		{ 1, 10800, "", "=q3=Darkwater Bracers", "=ds=#s8#, #a2# =q2=#m16#", "", "31.73%"};
 		{ 2, 10798, "", "=q3=Atal'alarion's Tusk Ring", "=ds=#s10#, #a4#", "", "30.53%"};
 		{ 3, 10799, "", "=q3=Headspike", "=ds=#w7#", "", "17.98%"};
+		Prev = "STTrollMinibosses";
+		Next = "STDreamscythe";
 	};
 
 	AtlasLoot_Data["STDreamscythe"] = {
@@ -4840,6 +4412,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 10797, "", "=q3=Firebreather", "=ds=#h1#, #w10#", "", "4.57%"};
 		{ 7, 12463, "", "=q3=Drakefang Butcher", "=ds=#h2#, #w10#", "", "4.40%"};
 		{ 8, 12243, "", "=q3=Smoldering Claw", "=ds=#w7#", "", "4.50%"};
+		Prev = "STAtalalarion";
+		Next = "STWeaver";
 	};
 
 	AtlasLoot_Data["STWeaver"] = {
@@ -4851,6 +4425,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 10797, "", "=q3=Firebreather", "=ds=#h1#, #w10#", "", "4.08%"};
 		{ 7, 12463, "", "=q3=Drakefang Butcher", "=ds=#h2#, #w10#", "", "5.00%"};
 		{ 8, 12243, "", "=q3=Smoldering Claw", "=ds=#w7#", "", "4.42%"};
+		Prev = "STDreamscythe";
+		Next = "STAvatarofHakkar";
 	};
 
 	AtlasLoot_Data["STAvatarofHakkar"] = {
@@ -4862,6 +4438,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 7, 10838, "", "=q3=Might of Hakkar", "=ds=#h1#, #w6#", "", "16.37%"};
 		{ 8, 10844, "", "=q3=Spire of Hakkar", "=ds=#w9#", "", "16.02%"};
 		{ 10, 10663, "", "=q1=Essence of Hakkar", "=ds=#m3#", "", "100%"};
+		Prev = "STWeaver";
+		Next = "STJammalan";
 	};
 
 	AtlasLoot_Data["STJammalan"] = {
@@ -4869,12 +4447,16 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 10808, "", "=q3=Gloves of the Atal'ai Prophet", "=ds=#s9#, #a1#", "", "26.74%"};
 		{ 3, 10807, "", "=q3=Kilt of the Atal'ai Prophet", "=ds=#s11#, #a1#", "", "23.00%"};
 		{ 5, 6212, "", "=q1=Head of Jammal'an", "=ds=#m3#"};
+		Prev = "STAvatarofHakkar";
+		Next = "STOgom";
 	};
 
 	AtlasLoot_Data["STOgom"] = {
 		{ 1, 10805, "", "=q3=Eater of the Dead", "=ds=#h1#, #w1#", "", "28.27%"};
 		{ 2, 10804, "", "=q3=Fist of the Damned", "=ds=#h1#, #w6#", "", "30.03%"};
 		{ 3, 10803, "", "=q3=Blade of the Wretched", "=ds=#h1#, #w10#", "", "28.21%"};
+		Prev = "STJammalan";
+		Next = "STMorphaz";
 	};
 
 	AtlasLoot_Data["STMorphaz"] = {
@@ -4890,6 +4472,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 11, 20085, "", "=q1=Arcane Shard", "=ds=#m3#", "", "100%"};
 		{ 12, 20025, "", "=q1=Blood of Morphaz", "=ds=#m3#", "", "100%"};
 		{ 13, 20019, "", "=q1=Tooth of Morphaz", "=ds=#m3#", "", "100%"};
+		Prev = "STOgom";
+		Next = "STHazzas";
 	};
 
 	AtlasLoot_Data["STHazzas"] = {
@@ -4901,6 +4485,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 6, 10797, "", "=q3=Firebreather", "=ds=#h1#, #w10#", "", "4.50%"};
 		{ 7, 12463, "", "=q3=Drakefang Butcher", "=ds=#h2#, #w10#", "", "4.58%"};
 		{ 8, 12243, "", "=q3=Smoldering Claw", "=ds=#w7#", "", "4.56%"};
+		Prev = "STMorphaz";
+		Next = "STEranikus";
 	};
 
 	AtlasLoot_Data["STEranikus"] = {
@@ -4913,6 +4499,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 8, 10836, "", "=q3=Rod of Corrosion", "=ds=#w12#", "", "21.54%"};
 		{ 10, 10454, "", "=q2=Essence of Eranikus", "=ds=#m2#"};
 		{ 11, 10455, "", "=q2=Chained Essence of Eranikus", "=q1=#m4#: =ds=#s14#"};
+		Prev = "STHazzas";
+		Next = "STTrash";
 	};
 
 	AtlasLoot_Data["STTrash"] = {
@@ -4932,6 +4520,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 19, 10626, "", "=q3=Ragehammer", "=ds=#h2#, #w6#", "", "0.01%"};
 		{ 20, 10627, "", "=q3=Bludgeon of the Grinning Dog", "=ds=#w9#", "", "0.02%"};
 		{ 21, 10624, "", "=q3=Stinging Bow", "=ds=#w2#", "", "0.02%"};
+		Prev = "STEranikus";
 	};
 
 		---------------
@@ -4940,24 +4529,33 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 
 	AtlasLoot_Data["UldMagreganDeepshadow"] = {
 		{ 1, 4635, "", "=q1=Hammertoe's Amulet", "=ds=#m3#", "", "100%"};
+		Next = "UldTabletofRyuneh";
 	};
 
 	AtlasLoot_Data["UldTabletofRyuneh"] = {
 		{ 1, 4631, "", "=q1=Tablet of Ryun'eh", "=ds=#m3#"};
+		Prev = "UldMagreganDeepshadow";
+		Next = "UldKromStoutarmChest";
 	};
 
 	AtlasLoot_Data["UldKromStoutarmChest"] = {
 		{ 1, 8027, "", "=q1=Krom Stoutarm's Treasure", "=ds=#m3#"};
+		Prev = "UldTabletofRyuneh";
+		Next = "UldGarrettFamilyChest";
 	};
 
 	AtlasLoot_Data["UldGarrettFamilyChest"] = {
 		{ 1, 8026, "", "=q1=Garrett Family Treasure", "=ds=#m3#"};
+		Prev = "UldKromStoutarmChest";
+		Next = "UldShovelphlange";
 	};
 
 	AtlasLoot_Data["UldShovelphlange"] = {
 		{ 1, 9375, "", "=q3=Expert Goldminer's Helmet", "=ds=#s1#, #a2#", "", "9.30%"};
 		{ 2, 9378, "", "=q3=Shovelphlange's Mining Axe", "=ds=#h1#, #w1#", "", "13.50%"};
 		{ 4, 9382, "", "=q2=Tromping Miner's Boots", "=ds=#s12#, #a2#", "", "70.70%"};
+		Prev = "UldGarrettFamilyChest";
+		Next = "UldBaelog";
 	};
 
 	AtlasLoot_Data["UldBaelog"] = {
@@ -4977,6 +4575,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 17, 7740, "", "=q1=Gni'kiv Medallion", "=ds=#m3#"};
 		{ 19, 0, "INV_Box_01", "=q6=#x15#", ""};
 		{ 20, 7671, "", "=q1=Shattered Necklace Topaz", "=ds=#m3#"};
+		Prev = "UldShovelphlange";
+		Next = "UldRevelosh";
 	};
 
 	AtlasLoot_Data["UldRevelosh"] = {
@@ -4985,21 +4585,29 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 9388, "", "=q3=Revelosh's Armguards", "=ds=#s8#, #a3# =q2=#m16#", "", "19.84%"};
 		{ 4, 9387, "", "=q3=Revelosh's Boots", "=ds=#s12#, #a4# =q2=#m16#", "", "20.53%"};
 		{ 6, 7741, "", "=q1=The Shaft of Tsol", "=ds=#m3#"};
+		Prev = "UldBaelog";
+		Next = "UldIronaya";
 	};
 
 	AtlasLoot_Data["UldIronaya"] = {
 		{ 1, 9407, "", "=q3=Stoneweaver Leggings", "=ds=#s11#, #a1#", "", "31.02%"};
 		{ 2, 9409, "", "=q3=Ironaya's Bracers", "=ds=#s8#, #a3# =q2=#m16#", "", "32.71%"};
 		{ 3, 9408, "", "=q3=Ironshod Bludgeon", "=ds=#w9#", "", "17.37%"};
+		Prev = "UldRevelosh";
+		Next = "UldObsidianSentinel";
 	};
 
 	AtlasLoot_Data["UldObsidianSentinel"] = {
 		{ 1, 8053, "", "=q1=Obsidian Power Source", "=ds=#m3#", "", "100%"};
+		Prev = "UldIronaya";
+		Next = "UldAncientStoneKeeper";
 	};
 
 	AtlasLoot_Data["UldAncientStoneKeeper"] = {
 		{ 1, 9411, "", "=q3=Rockshard Pauldrons", "=ds=#s3#, #a3#", "", "43.41%"};
 		{ 2, 9410, "", "=q3=Cragfists", "=ds=#s9#, #a4# =q2=#m16#", "", "41.61%"};
+		Prev = "UldObsidianSentinel";
+		Next = "UldGalgannFirehammer";
 	};
 
 	AtlasLoot_Data["UldGalgannFirehammer"] = {
@@ -5007,14 +4615,20 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 11310, "", "=q3=Flameseer Mantle", "=ds=#s3#, #a1#", "", "17.35%"};
 		{ 3, 9419, "", "=q3=Galgann's Firehammer", "=ds=#h1#, #w6#", "", "18.10%"};
 		{ 4, 9412, "", "=q3=Galgann's Fireblaster", "=ds=#w5#", "", "17.10%"};
+		Prev = "UldAncientStoneKeeper";
+		Next = "UldTabletofWill";
 	};
 
 	AtlasLoot_Data["UldTabletofWill"] = {
 		{ 1, 5824, "", "=q1=Tablet of Will", "=ds=#m3#"};
+		Prev = "UldGalgannFirehammer";
+		Next = "UldShadowforgeCache";
 	};
 
 	AtlasLoot_Data["UldShadowforgeCache"] = {
 		{ 1, 7669, "", "=q1=Shattered Necklace Ruby", "=ds=#m3#"};
+		Prev = "UldTabletofWill";
+		Next = "UldGrimlok";
 	};
 
 	AtlasLoot_Data["UldGrimlok"] = {
@@ -5022,6 +4636,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 9414, "", "=q3=Oilskin Leggings", "=ds=#s11#, #a2#", "", "29.78%"};
 		{ 3, 9416, "", "=q3=Grimlok's Charge", "=ds=#w7#", "", "15.05%"};
 		{ 5, 7670, "", "=q1=Shattered Necklace Sapphire", "=ds=#m3#", "", "100%"};
+		Prev = "UldShadowforgeCache";
+		Next = "UldArchaedas";
 	};
 
 	AtlasLoot_Data["UldArchaedas"] = {
@@ -5029,6 +4645,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 9418, "", "=q3=Stoneslayer", "=ds=#h2#, #w10#", "", "10.48%"};
 		{ 3, 9413, "", "=q3=The Rockpounder", "=ds=#h2#, #w6#", "", "10.94%"};
 		{ 5, 7672, "", "=q1=Shattered Necklace Power Source", "=ds=#m3#", "", "100%"};
+		Prev = "UldGrimlok";
+		Next = "UldTrash";
 	};
 
 	AtlasLoot_Data["UldTrash"] = {
@@ -5057,6 +4675,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 26, 9381, "", "=q3=Earthen Rod", "=ds=#w12#", "", "0.01%"};
 		{ 27, 9426, "", "=q3=Monolithic Bow", "=ds=#w2#", "", "0.01%"};
 		{ 28, 9422, "", "=q3=Shadowforge Bushmaster", "=ds=#w5#", "", "0.01%"};
+		Prev = "UldArchaedas";
 	};
 
 		-----------------------
@@ -5127,19 +4746,26 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 3, 9639, "", "=q3=The Hand of Antu'sul", "=ds=#h1#, #w6#", "", "15.47%"};
 		{ 5, 9379, "", "=q3=Sang'thraze the Deflector", "=ds=#h1#, #w10#", "", "2.10%"};
 		{ 6, 9372, "", "=q4=Sul'thraze the Lasher", "=ds=#h2#, #w10#"};
+		Next = "ZFThekatheMartyr";
 	};
 
 	AtlasLoot_Data["ZFThekatheMartyr"] = {
 		{ 1, 10660, "", "=q1=First Mosh'aru Tablet", "=ds=#m3#", "", "100%"};
+		Prev = "ZFAntusul";
+		Next = "ZFWitchDoctorZumrah";
 	};
 
 	AtlasLoot_Data["ZFWitchDoctorZumrah"] = {
 		{ 1, 18083, "", "=q3=Jumanza Grips", "=ds=#s9#, #a1#", "", "24.97%"};
 		{ 2, 18082, "", "=q3=Zum'rah's Vexing Cane", "=ds=#w9#", "", "11.98%"};
+		Prev = "ZFThekatheMartyr";
+		Next = "ZFNekrumGutchewer";
 	};
 
 	AtlasLoot_Data["ZFNekrumGutchewer"] = {
 		{ 1, 9471, "", "=q1=Nekrum's Medallion", "=ds=#m3#", "", "100%"};
+		Prev = "ZFWitchDoctorZumrah";
+		Next = "ZFSezzziz";
 	};
 
 	AtlasLoot_Data["ZFSezzziz"] = {
@@ -5147,29 +4773,41 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 2, 9473, "", "=q3=Jinxed Hoodoo Skin", "=ds=#s5#, #a2#", "", "21.12%"};
 		{ 3, 9474, "", "=q3=Jinxed Hoodoo Kilt", "=ds=#s11#, #a2#", "", "20.95%"};
 		{ 4, 9475, "", "=q3=Diabolic Skiver", "=ds=#w7#", "", "20.06%"};
+		Prev = "ZFNekrumGutchewer";
+		Next = "ZFDustwraith";
 	};
 
 	AtlasLoot_Data["ZFDustwraith"] = {
 		{ 1, 12471, "", "=q3=Desertwalker Cane", "=ds=#s15#", "", "17.71%"};
+		Prev = "ZFSezzziz";
+		Next = "ZFSandfury";
 	};
 
 	AtlasLoot_Data["ZFSandfury"] = {
 		{ 1, 8444, "", "=q1=Executioner's Key", "=ds=#e9#"};
+		Prev = "ZFDustwraith";
+		Next = "ZFSergeantBly";
 	};
 
 	AtlasLoot_Data["ZFSergeantBly"] = {
 		{ 1, 8548, "", "=q1=Divino-matic Rod", "=ds=#m3#", "", "100%"};
+		Prev = "ZFSandfury";
+		Next = "ZFHydromancerVelratha";
 	};
 
 	AtlasLoot_Data["ZFHydromancerVelratha"] = {
 		{ 1, 9234, "", "=q1=Tiara of the Deep", "=ds=#m3#", "", "100%"};
 		{ 2, 10661, "", "=q1=Second Mosh'aru Tablet", "=ds=#m3#", "", "100%"};
+		Prev = "ZFSergeantBly";
+		Next = "ZFGahzrilla";
 	};
 
 	AtlasLoot_Data["ZFGahzrilla"] = {
 		{ 1, 9469, "", "=q3=Gahz'rilla Scale Armor", "=ds=#s5#, #a3#", "", "36.76%"};
 		{ 2, 9467, "", "=q3=Gahz'rilla Fang", "=ds=#h1#, #w4#", "", "36.83%"};
 		{ 4, 8707, "", "=q1=Gahz'rilla's Electrified Scale", "=ds=#m3#"};
+		Prev = "ZFHydromancerVelratha";
+		Next = "ZFChiefUkorzSandscalp";
 	};
 
 	AtlasLoot_Data["ZFChiefUkorzSandscalp"] = {
@@ -5179,10 +4817,14 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 9477, "", "=q3=The Chief's Enforcer", "=ds=#w9#", "", "22.33%"};
 		{ 6, 11086, "", "=q3=Jang'thraze the Protector", "=ds=#h3#, #w10#", "", "1.72%"};
 		{ 7, 9372, "", "=q4=Sul'thraze the Lasher", "=ds=#h2# #w10#"};
+		Prev = "ZFGahzrilla";
+		Next = "ZFZerillis";
 	};
 
 	AtlasLoot_Data["ZFZerillis"] = {
 		{ 1, 12470, "", "=q3=Sandstalker Ankleguards", "=ds=#s12#, #a2#", "", "15.55%"};
+		Prev = "ZFChiefUkorzSandscalp";
+		Next = "ZFTrash";
 	};
 
 	AtlasLoot_Data["ZFTrash"] = {
@@ -5200,6 +4842,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 20, 9482, "", "=q3=Witch Doctor's Cane", "=ds=#w9#", "", "0.01%"};
 		{ 21, 9483, "", "=q3=Flaming Incinerator", "=ds=#w12#", "", "0.01%"};
 		{ 22, 2040, "", "=q3=Troll Protector", "=ds=#w8#", "", "0.02%"};
+		Prev = "ZFZerillis";
 	};
 
 		-----------------
@@ -5425,6 +5068,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 19, 19948, "", "=q4=Zandalarian Hero Badge", "=q1=#m4#: =ds=#s14#"};
 		{ 21, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "34.3%"};
 		Prev = "ZGJindo";
+		Next = "ZGShared";
 	};
 
 	AtlasLoot_Data["ZGMuddyChurningWaters"] = {
@@ -5442,8 +5086,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 22715, "", "=q3=Gloves of the Tormented", "=ds=#s9#, #a3#"};
 		{ 10, 22714, "", "=q3=Sacrificial Gauntlets", "=ds=#s9#, #a4#"};
 		{ 11, 22713, "", "=q3=Zulian Scepter of Rites", "=ds=#h3#, #w6#"};
-		Prev = "MCLucifron";
-		Next = "MCGehennas";
+		Prev = "ZGHakkar";
+		Next = "ZGTrash1";
 	};
 
 	AtlasLoot_Data["ZGTrash1"] = {
@@ -5468,6 +5112,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 22, 19817, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c7#", "", "0.01%"};
 		{ 23, 19819, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c8#", "", "0.01%"};
 		{ 24, 19813, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c9#", "", "0.01%"};
+		Prev = "ZGShared";
 		Next = "ZGTrash2";
 	};
 
@@ -5491,6 +5136,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 23, 19703, "", "=q2=Witherbark Coin", "=ds=#e15#", "", "3.27%"};
 		{ 24, 19698, "", "=q2=Zulian Coin", "=ds=#e15#", "", "3.01%"};
 		Prev = "ZGTrash1";
+		Next = "ZGEnchants";
 	};
 
 	AtlasLoot_Data["ZGEnchants"] = {
@@ -5507,317 +5153,12 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 17, 20076, "", "=q3=Zandalar Signet of Mojo", "=ds=#s3# #e17#"};
 		{ 18, 20078, "", "=q3=Zandalar Signet of Serenity", "=ds=#s3# #e17#"};
 		{ 20, 22635, "", "=q3=Savage Guard", "=ds=#s1#/#s11# #e17#"};
+		Prev = "ZGTrash2";
 	};
 
-
-	------------------------
-	--- Zul'Gurub HEROIC ---
-	------------------------
-
-	AtlasLoot_Data["ZGJeklikHEROIC"] = {
-		{ 1, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "11.41%"};
-		{ 2, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "11.02%"};
-		{ 3, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "10.84%"};
-		{ 4, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "5.89%"};
-		{ 5, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "5.80%"};
-		{ 6, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "5.56%"};
-		{ 7, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.33%"};
-		{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.32%"};
-		{ 9, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.17%"};
-		{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.8%"};
-		{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-		{ 16, 219918, "", "=q4=Jeklik's Crusher", "=ds=#h2#, #w6#", "", "3.96%"};
-		{ 18, 219928, "", "=q3=Animist's Spaulders", "=ds=#s3#, #a2#", "", "3.39%"};
-		{ 19, 220262, "", "=q3=Seafury Boots", "=ds=#s12#, #a3#", "", "4.31%"};
-		{ 20, 220265, "", "=q3=Peacekeeper Boots", "=ds=#s12#, #a4#", "", "6.99%"};
-		{ 21, 219923, "", "=q3=Jeklik's Opaline Talisman", "=ds=#s2#", "", "12.22%"};
-		{ 22, 219920, "", "=q3=Primalist's Band", "=ds=#s13#", "", "11.89%"};
-		{ 23, 219915, "", "=q3=Zulian Defender", "=ds=#w8#", "", " 11.36%"};
-		Next = "ZGVenoxisHEROIC";
-	};
-
-	AtlasLoot_Data["ZGVenoxisHEROIC"] = {
-		{ 1, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "11.01%"};
-		{ 2, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "10.55%"};
-		{ 3, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "10.18%"};
-		{ 4, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "5.93%"};
-		{ 5, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "5.67%"};
-		{ 6, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "5.52%"};
-		{ 7, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.18%"};
-		{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.02%"};
-		{ 9, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.00%"};
-		{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "6.0%"};
-		{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-		{ 13, 22216, "", "=q1=Venoxis's Venom Sac", "=ds=#m3#", "", "100%"};
-		{ 16, 219904, "", "=q4=Runed Bloodstained Hauberk", "=ds=#s5#, #a3#", "", "3.70%"};
-		{ 17, 219903, "", "=q4=Fang of Venoxis", "=ds=#h3#, #w4#", "", "3.68%"};
-		{ 19, 219907, "", "=q3=Zulian Tigerhide Cloak", "=ds=#s4#", "", "12.09%"};
-		{ 20, 219906, "", "=q3=Blooddrenched Footpads", "=ds=#s12#, #a2#", "", "11.36%"};
-		{ 21, 219905, "", "=q3=Zanzil's Band", "=ds=#s13#", "", "6.99%"};
-		{ 22, 219900, "", "=q3=Zulian Stone Axe", "=ds=#h2#, #w1#", "", "11.89%"};
-		Prev = "ZGJeklikHEROIC";
-		Next = "ZGMarliHEROIC";
-	};
-
-	AtlasLoot_Data["ZGMarliHEROIC"] = {
-		{ 1, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "13.69%"};
-		{ 2, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "13.69%"};
-		{ 3, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "13.64%"};
-		{ 4, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "6.55%"};
-		{ 5, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "6.49%"};
-		{ 6, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "6.31%"};
-		{ 7, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.56%"};
-		{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.55%"};
-		{ 9, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.30%"};
-		{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "7.4%"};
-		{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-		{ 16, 220032, "", "=q4=Flowing Ritual Robes", "=ds=#s5#, #a1#", "", "4.46%"};
-		{ 17, 219927, "", "=q4=Mar'li's Touch", "=ds=#w12#", "", "4.35%"};
-		{ 19, 219919, "", "=q3=Bloodstained Greaves", "=ds=#s12#, #a3#", "", "11.89%"};
-		{ 20, 219871, "", "=q3=Talisman of Protection", "=ds=#s2#", "", "11.36%"};
-		{ 21, 219925, "", "=q3=Band of Jin", "=ds=#s13#", "", " 6.99%"};
-		{ 22, 219930, "", "=q3=Mar'li's Eye", "=ds=#s14#", "", "12.09%"};
-		Prev = "ZGVenoxisHEROIC";
-		Next = "ZGMandokirHEROIC";
-	};
-
-	AtlasLoot_Data["ZGMandokirHEROIC"] = {
-		{ 1, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "12.94%"};
-		{ 2, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "12.07%"};
-		{ 3, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "11.56%"};
-		{ 4, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "6.65%"};
-		{ 5, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "6.55%"};
-		{ 6, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "6.52%"};
-		{ 7, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "2.98%"};
-		{ 8, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "2.65%"};
-		{ 9, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "2.48%"};
-		{ 11, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#"};
-		{ 12, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "9.4%"};
-		{ 16, 219867, "", "=q4=Bloodlord's Defender", "=ds=#h1#, #w10#", "", "5.83%"};
-		{ 17, 219866, "", "=q4=Warblade of the Hakkari", "=ds=#h4#, #w10#", "", "3.96%"};
-		{ 18, 219874, "", "=q4=Halberd of Smiting", "=ds=#w7#", "", "6.35%"};
-		{ 19, 220038, "", "=q4=Mandokir's Sting", "=ds=#w2#", "", "5.96%"};
-		{ 20, 19872, "", "=q4=Swift Razzashi Raptor", "=ds=#e12#", "", "0.43%"};
-		{ 22, 219870, "", "=q3=Hakkari Loa Cloak", "=ds=#s4#", "", "12.54%"};
-		{ 23, 219895, "", "=q3=Bloodtinged Kilt", "=ds=#s11#, #a1#", "", "13.50%"};
-		{ 24, 219869, "", "=q3=Blooddrenched Grips", "=ds=#s9#, #a2#", "", "12.87%"};
-		{ 25, 219877, "", "=q3=Animist's Leggings", "=ds=#s11#, #a2#", "", "12.14%"};
-		{ 26, 219878, "", "=q3=Bloodsoaked Pauldrons", "=ds=#s9#, #a4#", "", "12.31%"};
-		{ 27, 219873, "", "=q3=Overlord's Crimson Band", "=ds=#s13#", "", "12.28%"};
-		{ 28, 219893, "", "=q3=Zanzil's Seal", "=ds=#s13#", "", "13.11%"};
-		{ 29, 219863, "", "=q3=Primalist's Seal", "=ds=#s13#", "", "12.32%"};
-		Prev = "ZGMarliHEROIC";
-		Next = "ZGEdgeofMadnessHEROIC";
-	};
-
-	AtlasLoot_Data["ZGEdgeofMadnessHEROIC"] = {
-		{ 1, 0, "INV_Box_01", "=q6="..BabbleBoss["Gri'lek"], ""};
-		{ 2, 219961, "", "=q3=Gri'lek's Grinder", "=ds=#h1#, #w6#", "", "43.90%"};
-		{ 3, 219962, "", "=q3=Gri'lek's Carver", "=ds=#h2#, #w1#", "", "41.99%"};
-		{ 4, 19939, "", "=q2=Gri'lek's Blood", "=ds=#m3#", "", "100%"};
-		{ 6, 0, "INV_Box_01", "=q6="..BabbleBoss["Hazza'rah"], ""};
-		{ 7, 219968, "", "=q3=Fiery Retributer", "=ds=#h1#, #w10#", "", "38.37%"};
-		{ 8, 219967, "", "=q3=Thoughtblighter", "=ds=#w12#", "", "45.49%"};
-		{ 9, 19942, "", "=q2=Hazza'rah's Dream Thread", "=ds=#m3#", "", "100%"};
-		{ 16, 0, "INV_Box_01", "=q6="..BabbleBoss["Renataki"], ""};
-		{ 17, 219964, "", "=q3=Renataki's Soul Conduit", "=ds=#h3#, #w10#", "", "40.06%"};
-		{ 18, 219963, "", "=q3=Pitchfork of Madness", "=ds=#w7#", "", "45.51%"};
-		{ 19, 19940, "", "=q2=Renataki's Tooth", "=ds=#m3#", "", "100%"};
-		{ 21, 0, "INV_Box_01", "=q6="..BabbleBoss["Wushoolay"], ""};
-		{ 22, 219965, "", "=q3=Wushoolay's Poker", "=ds=#h3#, #w4#", "", "45.21%"};
-		{ 23, 219993, "", "=q3=Hoodoo Hunting Bow", "=ds=#w2#", "", "40.96%"};
-		{ 24, 19941, "", "=q2=Wushoolay's Mane", "=ds=#m3#", "", "100%"};
-		Prev = "ZGMandokirHEROIC";
-		Next = "ZGGahzrankaHEROIC";
-	};
-
-	AtlasLoot_Data["ZGGahzrankaHEROIC"] = {
-		{ 1, 219945, "", "=q4=Foror's Eyepatch", "=ds=#s1#, #a2#", "", "8,82%"};
-		{ 2, 219944, "", "=q4=Nat Pagle's Fish Terminator", "=ds=#w9#", "", "2.39%"};
-		{ 4, 219947, "", "=q3=Nat Pagle's Broken Reel", "=ds=#s14#", "", "28.20%"};
-		{ 5, 219946, "", "=q3=Tigule's Harpoon", "=ds=#w7#", "", "29.22%"};
-		{ 7, 22739, "", "=q3=Tome of Polymorph: Turtle", "=ds=#e10#, =q1=#m1# =ds=#c3#"};
-		Prev = "ZGEdgeofMadnessHEROIC";
-		Next = "ZGThekalHEROIC";
-	};
-
-	AtlasLoot_Data["ZGThekalHEROIC"] = {
-		{ 1, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", " 14.95%"};
-		{ 2, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", " 13.74%"};
-		{ 3, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", " 12.95%"};
-		{ 4, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", " 6.60%"};
-		{ 5, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", " 6.56%"};
-		{ 6, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", " 6.45%"};
-		{ 8, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.3%"};
-		{ 9, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-		{ 16, 219897, "", "=q4=Betrayer's Boots", "=ds=#s12#, #a1#", "", "5.83%"};
-		{ 17, 219896, "", "=q4=Thekal's Grasp", "=ds=#h3#, #w13#", "", "4.23%"};
-		{ 18, 19902, "", "=q4=Swift Zulian Tiger", "=ds=#e12#", "", "0.70%"};
-		{ 20, 219898, "", "=q3=Seal of Jin", "=ds=#s13#", "", "13.65%"};
-		{ 21, 219899, "", "=q3=Ritualistic Legguards", "=ds=#s11#, #a1#", "", "13.41%"};
-		{ 22, 220260, "", "=q3=Seafury Leggings", "=ds=#s11#, #a3#", "", "4.30%"};
-		{ 23, 220266, "", "=q3=Peacekeeper Leggings", "=ds=#s11#, #a4#", "", "8.69%"};
-		{ 24, 219901, "", "=q3=Zulian Slicer", "=ds=#h1#, #w10#, =q1=#e18#", "", "13.36%"};
-		Prev = "ZGGahzrankaHEROIC";
-		Next = "ZGArlokkHEROIC";
-	};
-
-	AtlasLoot_Data["ZGArlokkHEROIC"] = {
-		{ 1, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "15.49%"};
-		{ 2, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "12.52%"};
-		{ 3, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "13.17%"};
-		{ 4, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "6.94%"};
-		{ 5, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "6.65%"};
-		{ 6, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "6.21%"};
-		{ 7, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.75%"};
-		{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.60%"};
-		{ 9, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.41%"};
-		{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "5.6%"};
-		{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-		{ 16, 219910, "", "=q4=Arlokk's Grasp", "=ds=#h4#, #w13#", "", "3.62%"};
-		{ 17, 219909, "", "=q4=Will of Arlokk", "=ds=#w9#", "", "5.14%"};
-		{ 19, 219913, "", "=q3=Bloodsoaked Greaves", "=ds=#s12#, #a4#", "", "13.29%"};
-		{ 20, 219912, "", "=q3=Overlord's Onyx Band", "=ds=#s13#", "", "13.95%"};
-		{ 21, 219922, "", "=q3=Arlokk's Hoodoo Stick", "=ds=#s15#", "", "13.66%"};
-		{ 22, 19914, "", "=q3=Panther Hide Sack", "=ds=#m14# #e1#", "", "14.03%"};
-		Prev = "ZGThekalHEROIC";
-		Next = "ZGJindoHEROIC";
-	};
-
-	AtlasLoot_Data["ZGJindoHEROIC"] = {
-		{ 1, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "13.56%"};
-		{ 2, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "13.48%"};
-		{ 3, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "12.09%"};
-		{ 4, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "7.30%"};
-		{ 5, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "6.37%"};
-		{ 6, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "6.10%"};
-		{ 7, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "2.85%"};
-		{ 8, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "2.70%"};
-		{ 9, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "2.36%"};
-		{ 11, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#"};
-		{ 12, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.4%"};
-		{ 16, 219885, "", "=q4=Jin'do's Evil Eye", "=ds=#s2#", "", "6.82%"};
-		{ 17, 219891, "", "=q4=Jin'do's Bag of Whammies", "=ds=#s15#", "", "7.70%"};
-		{ 18, 219890, "", "=q4=Jin'do's Hexxer", "=ds=#h3#, #w6#", "", "8.08%"};
-		{ 19, 219884, "", "=q4=Jin'do's Judgement", "=ds=#w9#", "", "8.36%"};
-		{ 21, 219888, "", "=q3=Overlord's Embrace", "=ds=#s4#", "", "12.72%"};
-		{ 22, 219886, "", "=q3=The Hexxer's Cover", "=ds=#s1#, #a1#", "", "12.11%"};
-		{ 23, 219929, "", "=q3=Bloodtinged Gloves", "=ds=#s9#, #a1#", "", "11.75%"};
-		{ 24, 219889, "", "=q3=Blooddrenched Leggings", "=ds=#s11#, #a2#", "", "11.97%"};
-		{ 25, 219892, "", "=q3=Animist's Boots", "=ds=#s12#, #a2#", "", "12.28%"};
-		{ 26, 219875, "", "=q3=Bloodstained Coif", "=ds=#s1#, #a3#", "", "13.73%"};
-		{ 27, 219887, "", "=q3=Bloodstained Legplates", "=ds=#s11#, #a3#", "", "11.11%"};
-		{ 28, 219894, "", "=q3=Bloodsoaked Gauntlets", "=ds=#s9#, #a4#", "", "12.93%"};
-		Prev = "ZGArlokkHEROIC";
-		Next = "ZGHakkarHEROIC";
-	};
-
-	AtlasLoot_Data["ZGHakkarHEROIC"] = {
-		{ 1, 219857, "", "=q4=Cloak of Consumption", "=ds=#s4#", "", "11.65%"};
-		{ 2, 220257, "", "=q4=Seafury Gauntlets", "=ds=#s9#, #a3#", "", "4.11%"};
-		{ 3, 220264, "", "=q4=Peacekeeper Gauntlets", "=ds=#s9#, #a4#", "", "7.37%"};
-		{ 4, 219855, "", "=q4=Bloodsoaked Legplates", "=ds=#s11#, #a4#", "", "10.52%"};
-		{ 5, 219876, "", "=q4=Soul Corrupter's Necklace", "=ds=#s2#", "", "10.11%"};
-		{ 6, 219856, "", "=q4=The Eye of Hakkar", "=ds=#s2#", "", "12.02%"};
-		{ 8, 219859, "", "=q4=Fang of the Faceless", "=ds=#h1#, #w4#", "", "7.33%"};
-		{ 9, 219864, "", "=q4=Bloodcaller", "=ds=#h3#, #w10#", "", "7.69%"};
-		{ 10, 219865, "", "=q4=Warblade of the Hakkari", "=ds=#h3#, #w10#", "", "3.67%"};
-		{ 11, 219854, "", "=q4=Zin'rokh, Destroyer of Worlds", "=ds=#h2#, #w10#", "", "6.78%"};
-		{ 12, 219852, "", "=q4=Ancient Hakkari Manslayer", "=ds=#h1#, #w1#", "", "6.62%"};
-		{ 13, 219862, "", "=q4=Aegis of the Blood God", "=ds=#w8#", "", "9.99%"};
-		{ 14, 219853, "", "=q4=Gurubashi Dwarf Destroyer", "=ds=#w5#", "", "6.12%"};
-		{ 15, 219861, "", "=q4=Touch of Chaos", "=ds=#w12#", "", "7.24%"};
-		{ 16, 19802, "", "=q4=Heart of Hakkar", "=ds=#m2#", "", "100%"};
-		{ 17, 19950, "", "=q4=Zandalarian Hero Charm", "=q1=#m4#: =ds=#s14#"};
-		{ 18, 19949, "", "=q4=Zandalarian Hero Medallion", "=q1=#m4#: =ds=#s14#"};
-		{ 19, 19948, "", "=q4=Zandalarian Hero Badge", "=q1=#m4#: =ds=#s14#"};
-		{ 21, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "34.3%"};
-		Prev = "ZGJindoHEROIC";
-	};
-
-	AtlasLoot_Data["ZGMuddyChurningWatersHEROIC"] = {
-		{ 1, 19975, "", "=q1=Zulian Mudskunk", "=ds=#e21#"};
-	};
-
-	AtlasLoot_Data["ZGSharedHEROIC"] = {
-		{ 1, 222721, "", "=q4=Band of Servitude", "=ds=#s13#"};
-		{ 2, 222722, "", "=q4=Seal of the Gurubashi Berserker", "=ds=#s13#"};
-		{ 4, 222711, "", "=q3=Cloak of the Hakkari Worshipers", "=ds=#s4#"};
-		{ 5, 222712, "", "=q3=Might of the Tribe", "=ds=#s4#"};
-		{ 6, 222720, "", "=q3=Zulian Headdress", "=ds=#s1#, #a1#"};
-		{ 7, 222716, "", "=q3=Belt of Untapped Power", "=ds=#s10#, #a1#"};
-		{ 8, 222718, "", "=q3=Blooddrenched Mask", "=ds=#s1#, #a2#"};
-		{ 9, 222715, "", "=q3=Gloves of the Tormented", "=ds=#s9#, #a3#"};
-		{ 10, 222714, "", "=q3=Sacrificial Gauntlets", "=ds=#s9#, #a4#"};
-		{ 11, 222713, "", "=q3=Zulian Scepter of Rites", "=ds=#h3#, #w6#"};
-	};
-
-	AtlasLoot_Data["ZGTrash1HEROIC"] = {
-		{ 1, 220259, "", "=q3=Shadow Panther Hide Gloves", "=ds=#s9#, #a2#"};
-		{ 2, 220261, "", "=q3=Shadow Panther Hide Belt", "=ds=#s10#, #a2#"};
-		{ 3, 220263, "", "=q3=Gurubashi Helm", "=ds=#s1#, #a4#"};
-		{ 4, 219908, "", "=q3=Sceptre of Smiting", "=ds=#h1#, #w6#"};
-		{ 5, 219921, "", "=q3=Zulian Hacker", "=ds=#h1#, #w1#"};
-		{ 6, 220258, "", "=q3=Zulian Ceremonial Staff", "=ds=#w9#"};
-		{ 7, 19727, "", "=q3=Blood Scythe", "=ds=#e19#", "", "0.02%"};
-		{ 8, 48126, "", "=q1=Razzashi Hatchling", "=ds=#e13#"};
-		{ 10, 19726, "", "=q2=Bloodvine", "=ds=#e8#", "", ""};
-		{ 11, 19774, "", "=q2=Souldarite", "=ds=#e8#", "", ""};
-		{ 12, 19767, "", "=q1=Primal Bat Leather", "=ds=#e8#", "", ""};
-		{ 13, 19768, "", "=q1=Primal Tiger Leather", "=ds=#e8#", "", ""};
-		{ 16, 19821, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c1#", "", "0.01%"};
-		{ 17, 19816, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c2#", "", "0.01%"};
-		{ 18, 19818, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c3#", "", "0.01%"};
-		{ 19, 19815, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c4#", "", "0.01%"};
-		{ 20, 19820, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c5#", "", "0.01%"};
-		{ 21, 19814, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c6#", "", "0.01%"};
-		{ 22, 19817, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c7#", "", "0.01%"};
-		{ 23, 19819, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c8#", "", "0.01%"};
-		{ 24, 19813, "", "=q2=Punctured Voodoo Doll", "=q1=#m1# =ds=#c9#", "", "0.01%"};
-		Next = "ZGTrash2HEROIC";
-	};
-
-	AtlasLoot_Data["ZGTrash2HEROIC"] = {
-		{ 1, 19708, "", "=q3=Blue Hakkari Bijou", "=ds=#e15#", "", "1.48%"};
-		{ 2, 19713, "", "=q3=Bronze Hakkari Bijou", "=ds=#e15#", "", "1.57%"};
-		{ 3, 19715, "", "=q3=Gold Hakkari Bijou", "=ds=#e15#", "", "1.63%"};
-		{ 4, 19711, "", "=q3=Green Hakkari Bijou", "=ds=#e15#", "", "1.67%"};
-		{ 5, 19710, "", "=q3=Orange Hakkari Bijou", "=ds=#e15#", "", "1.76%"};
-		{ 6, 19712, "", "=q3=Purple Hakkari Bijou", "=ds=#e15#", "", "1.67%"};
-		{ 7, 19707, "", "=q3=Red Hakkari Bijou", "=ds=#e15#", "", "1.63%"};
-		{ 8, 19714, "", "=q3=Silver Hakkari Bijou", "=ds=#e15#", "", "1.59%"};
-		{ 9, 19709, "", "=q3=Yellow Hakkari Bijou", "=ds=#e15#", "", "1.50%"};
-		{ 16, 19706, "", "=q2=Bloodscalp Coin", "=ds=#e15#", "", "3.01%"};
-		{ 17, 19701, "", "=q2=Gurubashi Coin", "=ds=#e15#", "", "3.12%"};
-		{ 18, 19700, "", "=q2=Hakkari Coin", "=ds=#e15#", "", "3.19%"};
-		{ 19, 19699, "", "=q2=Razzashi Coin", "=ds=#e15#", "", "3.36%"};
-		{ 20, 19704, "", "=q2=Sandfury Coin", "=ds=#e15#", "", "3.47%"};
-		{ 21, 19705, "", "=q2=Skullsplitter Coin", "=ds=#e15#", "", "3.32%"};
-		{ 22, 19702, "", "=q2=Vilebranch Coin", "=ds=#e15#", "", "3.27%"};
-		{ 23, 19703, "", "=q2=Witherbark Coin", "=ds=#e15#", "", "3.27%"};
-		{ 24, 19698, "", "=q2=Zulian Coin", "=ds=#e15#", "", "3.01%"};
-		Prev = "ZGTrash1HEROIC";
-	};
-
-	AtlasLoot_Data["ZGEnchantsHEROIC"] = {
-		{ 1, 19790, "", "=q3=Animist's Caress", "=q1=#m1# =ds=#c1#"};
-		{ 2, 19785, "", "=q3=Falcon's Call", "=q1=#m1# =ds=#c2#"};
-		{ 3, 19787, "", "=q3=Presence of Sight", "=q1=#m1# =ds=#c3#"};
-		{ 4, 19783, "", "=q3=Syncretist's Sigil", "=q1=#m1# =ds=#c4#"};
-		{ 5, 19789, "", "=q3=Prophetic Aura", "=q1=#m1# =ds=#c5#"};
-		{ 6, 19784, "", "=q3=Death's Embrace", "=q1=#m1# =ds=#c6#"};
-		{ 7, 19786, "", "=q3=Vodouisant's Vigilant Embrace", "=q1=#m1# =ds=#c7#"};
-		{ 8, 19788, "", "=q3=Hoodoo Hex", "=q1=#m1# =ds=#c8#"};
-		{ 9, 19782, "", "=q3=Presence of Might", "=q1=#m1# =ds=#c9#"};
-		{ 16, 20077, "", "=q3=Zandalar Signet of Might", "=ds=#s3# #e17#"};
-		{ 17, 20076, "", "=q3=Zandalar Signet of Mojo", "=ds=#s3# #e17#"};
-		{ 18, 20078, "", "=q3=Zandalar Signet of Serenity", "=ds=#s3# #e17#"};
-		{ 20, 22635, "", "=q3=Savage Guard", "=ds=#s1#/#s11# #e17#"};
-	};
-
-		-----------------
-		--- Naxxramas ---
-		-----------------
+	-----------------
+	--- Naxxramas ---
+	-----------------
 
 	AtlasLoot_Data["NAXPatchwerk"] = {
 		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
@@ -6070,7 +5411,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 9, 23047, "", "=q4=Eye of the Dead", "=ds=#s14#" ,"","18.18%" },
 		{ 10, 23046, "", "=q4=The Restrained Essence of Sapphiron", "=ds=#s14#","","18.18%"  },
 		{ 11, 23041, "", "=q4=Slayer's Crest", "=ds=#s14#","","18.18%"  },
-		{ 12, 0,"","","" },
+		{ 12, 19761,"","Fang of the Frost Wyrm","=ds=#h3#, #w13#" },
 		{ 13, 0,"","","" },
 		{ 14, 0,"","","" },
 		{ 15, 0,"","","" },
@@ -6079,10 +5420,10 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 18, 23549, "", "=q4=Fortitude of the Scourge", "=ds=#s3# #e17#","","50%" },
 		{ 19, 23548, "", "=q4=Might of the Scourge", "=ds=#s3# #e17#" ,"","50%"},
 		Prev = "NAXLoatheb";
-		Next = "NAXKelThuzard";
+		Next = "NAXKelThuzad";
 	};
 
-	AtlasLoot_Data["NAXKelThuzard"] = {
+	AtlasLoot_Data["NAXKelThuzad"] = {
 		{ 1, 22802, "", "=q4=Kingsfall", "=ds=#h1#, #w4#","","18.18%" },
 		{ 2, 23054, "", "=q4=Gressil, Dawn of Ruin", "=ds=#h1#, #w10#" ,"","18.18%"},
 		{ 3, 23577, "", "=q4=The Hungering Cold", "=ds=#h1#, #w10#" ,"","18.18%"}, 
@@ -6140,338 +5481,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 20, 0,"","","" },
 		{ 21, 22708, "", "=q1=Fate of Ramaladni", "=ds=#m3#" },
 		{ 22, 23055, "", "=q1=Word of Thawing", "=ds=#m20#" },
-		Prev = "NAXKelThuzard";
+		Prev = "NAXKelThuzad";
 	};
-
-
-	------------------------
-	--- Naxxramas HEROIC ---
-	------------------------
-
-	AtlasLoot_Data["NAXPatchwerkHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22368, "", "=q4=Desecrated Shoulderpads", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "33.33%" },
-		{ 5, 22361, "", "=q4=Desecrated Spaulders", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "33.33%" },
-		{ 6, 22354, "", "=q4=Desecrated Pauldrons", "=q1=#m1# =ds=#c6#, #c9#","", "33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 222960, "", "=q4=Cloak of Suturing", "=ds=#s4#","", "20%" },
-		{ 9, 222815, "", "=q4=Severance", "=ds=#h2#, #w1#","", "20%" },
-		{ 10, 222820, "", "=q4=Wand of Fates", "=ds=#w12#","", "20%" },
-		{ 11, 222818, "", "=q4=The Plague Bearer", "=ds=#w8#","", "20%" },
-		{ 12, 222961, "", "=q4=Band of Reanimation", "=ds=#s13#","", "20%" },
-		Next = "NAXGrobbulusHEROIC";
-	};
-
-	AtlasLoot_Data["NAXGrobbulusHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","","30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22368, "", "=q4=Desecrated Shoulderpads", "=q1=#m1# =ds=#c8#, #c3#, #c5#","","33.33%" },
-		{ 5, 22361, "", "=q4=Desecrated Spaulders", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","","33.33%" },
-		{ 6, 22354, "", "=q4=Desecrated Pauldrons", "=q1=#m1# =ds=#c6#, #c9#","","33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 222968, "", "=q4=Glacial Mantle", "=ds=#s3#, #a1#", "", "20%" },
-		{ 9, 222967, "", "=q4=Icy Scale Spaulders", "=ds=#s3#, #a3#", "", "20%" },
-		{ 10, 222803, "", "=q4=Midnight Haze", "=ds=#h3#, #w4#", "", "20%" },
-		{ 11, 222988, "", "=q4=The End of Dreams", "=ds=#h3#, #w6#","","20%" },
-		{ 12, 222810, "", "=q4=Toxin Injector", "=ds=#w5#", "","20%" },
-		Prev = "NAXPatchwerkHEROIC";
-		Next = "NAXGluthHEROIC";
-	};
-
-	AtlasLoot_Data["NAXGluthHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","","30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 222983, "", "=q4=Rime Covered Mantle", "=ds=#s3#, #a1#", "", "20%" },
-		{ 5, 222813, "", "=q4=Claymore of Unholy Might", "=ds=#h2#, #w10#", "","20%" },
-		{ 6, 223075, "", "=q4=Death's Bargain", "=ds=#w8#", "","20%" },
-		{ 7, 222994, "", "=q4=Digested Hand of Power", "=ds=#s15#","","20%"},
-		{ 8, 222981, "", "=q4=Gluth's Missing Collar", "=ds=#s2#","","20%" },
-		{ 9, 0,"","","" },
-		{ 10, 0,"","","" },
-		{ 11, 0,"","","" },
-		{ 12, 0,"","","" },
-		{ 13, 0,"","","" },
-		{ 14, 0,"","","" },
-		{ 15, 0,"","","" },
-		{ 16, 22368, "", "=q4=Desecrated Shoulderpads", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "8.33%" },
-		{ 17, 22361, "", "=q4=Desecrated Spaulders", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "8.33%"  },
-		{ 18, 22354, "", "=q4=Desecrated Pauldrons", "=q1=#m1# =ds=#c6#, #c9#","", "8.33%"  },
-		{ 19, 22369, "", "=q4=Desecrated Bindings", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "8.33%"  },
-		{ 20, 22362, "", "=q4=Desecrated Wristguards", "=q1=#m1# =ds=#c4#, #c7#, #c2#, #c1#","", "8.33%"  },
-		{ 21, 22355, "", "=q4=Desecrated Bracers", "=q1=#m1# =ds=#c9#, #c6#","", "8.33%"  },
-		{ 22, 22370, "", "=q4=Desecrated Belt", "=q1=#m1# =ds=#c5#, #c3#, #c8#","","8.33%" },
-		{ 23, 22363, "", "=q4=Desecrated Girdle", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "8.33%"  },
-		{ 24, 22356, "", "=q4=Desecrated Waistguard", "=q1=#m1# =ds=#c6#, #c9#","", "8.33%"  },
-		{ 25, 22372, "", "=q4=Desecrated Sandals", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "8.33%"  },
-		{ 26, 22365, "", "=q4=Desecrated Boots", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "8.33%"  },
-		{ 27, 22358, "", "=q4=Desecrated Sabatons", "=q1=#m1# =ds=#c6#, #c9#","", "8.33%"  },
-		Prev = "NAXGrobbulusHEROIC";
-		Next = "NAXThaddiusHEROIC";
-	};
-
-	AtlasLoot_Data["NAXThaddiusHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","","30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22367, "", "=q4=Desecrated Circlet", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "66.67%"},
-		{ 5, 22360, "", "=q4=Desecrated Headpiece", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#" ,"", "66.67%"},
-		{ 6, 22353, "", "=q4=Desecrated Helmet", "=q1=#m1# =ds=#c6#, #c9#","", "66.67%" },
-		{ 7, 0,"","","" },
-		{ 8, 223070, "", "=q4=Leggings of Polarity", "=ds=#s11#, #a1#" ,"", "20%"},
-		{ 9, 223000, "", "=q4=Plated Abomination Ribcage", "=ds=#s5#, #a4#","", "20%" },
-		{ 10, 222808, "", "=q4=The Castigator", "=ds=#h1#, #w6#" ,"", "20%"},
-		{ 11, 222801, "", "=q4=Spire of Twilight", "=ds=#w9#" ,"", "20%"},
-		{ 12, 223001, "", "=q4=Eye of Diminution", "=ds=#s14#" ,"", "20%"},
-		Prev = "NAXGluthHEROIC";
-		Next = "NAXAnubRekhanHEROIC";
-	};
-
-	AtlasLoot_Data["NAXAnubRekhanHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22369, "", "=q4=Desecrated Bindings", "=q1=#m1# =ds=#c8#, #c3#, #c5#", "","33.33%" },
-		{ 5, 22362, "", "=q4=Desecrated Wristguards", "=q1=#m1# =ds=#c4#, #c7#, #c2#, #c1#","", "33.33%" },
-		{ 6, 22355, "", "=q4=Desecrated Bracers", "=q1=#m1# =ds=#c9#, #c6#", "", "33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 222938, "", "=q4=Cryptfiend Silk Cloak", "=ds=#s4#", "","20%" },
-		{ 9, 222936, "", "=q4=Wristguards of Vengeance", "=ds=#s8#, #a4#","", "20%" },
-		{ 10, 222937, "", "=q4=Gem of Nerubis", "=ds=#s15#","", "20%" },
-		{ 11, 222939, "", "=q4=Band of Unanswered Prayers", "=ds=#s13#","", "20%" },
-		{ 12, 222935, "", "=q4=Touch of Frost", "=ds=#s2#", "", "20%" },
-		Prev = "NAXThaddiusHEROIC";
-		Next = "NAXGrandWidowFearlinaHEROIC";
-	};
-
-	AtlasLoot_Data["NAXGrandWidowFearlinaHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22369, "", "=q4=Desecrated Bindings", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "33.33%" },
-		{ 5, 22362, "", "=q4=Desecrated Wristguards", "=q1=#m1# =ds=#c4#, #c7#, #c2#, #c1#","", "33.33%" },
-		{ 6, 22355, "", "=q4=Desecrated Bracers", "=q1=#m1# =ds=#c9#, #c6#","", "33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 222941, "", "=q4=Polar Shoulder Pads", "=ds=#s3#, #a2#","", "20%" },
-		{ 9, 222940, "", "=q4=Icebane Pauldrons", "=ds=#s3#, #a4#","", "20%" },
-		{ 10, 222806, "", "=q4=Widow's Remorse", "=ds=#h1#, #w10#","", "20%" },
-		{ 11, 222942, "", "=q4=The Widow's Embrace", "=ds=#h3#, #w6#","", "20%" },
-		{ 12, 222943, "", "=q4=Malice Stone Pendant", "=ds=#s2#","", "20%" },
-		Prev = "NAXAnubRekhanHEROIC";
-		Next = "NAXMaexxnaHEROIC";
-	};
-
-	AtlasLoot_Data["NAXMaexxnaHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22371, "", "=q4=Desecrated Gloves", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "67.66%" },
-		{ 5, 22364, "", "=q4=Desecrated Handguards", "=q1=#m1# =ds=#c4#, #c7#, #c2#, #c1#","", "67.66%" },
-		{ 6, 22357, "", "=q4=Desecrated Gauntlets", "=q1=#m1# =ds=#c9#, #c6#","", "67.66%" },
-		{ 7, 0,"","","" },
-		{ 8, 223220, "", "=q4=Crystal Webbed Robe", "=ds=#s5#, #a1#","", "20%" },
-		{ 9, 222804, "", "=q4=Maexxna's Fang", "=ds=#h1#, #w4#","", "20%" },
-		{ 10, 222807, "", "=q4=Wraith Blade", "=ds=#h3#, #w10#","", "20%" },
-		{ 11, 222947, "", "=q4=Pendant of Forgotten Names", "=ds=#s2#","", "20%" },
-		{ 12, 222954, "", "=q4=Kiss of the Spider", "=ds=#s14#","", "20%" },
-		Prev = "NAXGrandWidowFearlinaHEROIC";
-		Next = "NAXInstructorRAuviousHEROIC";
-	};
-
-	AtlasLoot_Data["NAXInstructorRAuviousHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22372, "", "=q4=Desecrated Sandals", "=q1=#m1# =ds=#c8#, #c3#, #c5#", "", "33.33%" },
-		{ 5, 22365, "", "=q4=Desecrated Boots", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "33.33%" },
-		{ 6, 22358, "", "=q4=Desecrated Sabatons", "=q1=#m1# =ds=#c6#, #c9#","", "33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 223017, "", "=q4=Veil of Eclipse", "=ds=#s4#","", "16.67%" },
-		{ 9, 223219, "", "=q4=Girdle of the Mentor", "=ds=#s10#, #a4#","", "16.67%" },
-		{ 10, 223014, "", "=q4=Iblis, Blade of the Fallen Seraph", "=ds=#h1#, #w10#","", "16.67%" },
-		{ 11, 223009, "", "=q4=Wand of the Whispering Dead", "=ds=#w12#","", "16.67%" },
-		{ 12, 223004, "", "=q4=Idol of Longevity", "=ds=#s16#, #w14#","", "16.67%" },
-		{ 13, 223018, "", "=q4=Signet of the Fallen Defender", "=ds=#s13#","", "16.67%" },
-		Prev = "NAXMaexxnaHEROIC";
-		Next = "NAXGothicderHarvesterHEROIC";
-	};
-
-	AtlasLoot_Data["NAXGothicderHarvesterHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22372, "", "=q4=Desecrated Sandals", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "33.33%" },
-		{ 5, 22365, "", "=q4=Desecrated Boots", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "33.33%" },
-		{ 6, 22358, "", "=q4=Desecrated Sabatons", "=q1=#m1# =ds=#c6#, #c9#","", "33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 223032, "", "=q4=Glacial Headdress", "=ds=#s1#, #a1#","", "20%" },
-		{ 9, 223021, "", "=q4=The Soul Harvester's Bindings", "=ds=#s8#, #a1#","", "20%"  },
-		{ 10, 223020, "", "=q4=Polar Helmet", "=ds=#s1#, #a2#","", "20%"  },
-		{ 11, 223073, "", "=q4=Boots of Displacement", "=ds=#s12#, #a2#","", "20%"  },
-		{ 12, 223023, "", "=q4=Sadist's Collar", "=ds=#s2#","", "20%"  },
-		Prev = "NAXInstructorRAuviousHEROIC";
-		Next = "NAXTheFourHorsemenHEROIC";
-	};
-
-	AtlasLoot_Data["NAXTheFourHorsemenHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%"  },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22351, "", "=q4=Desecrated Robe", "=q1=#m1# =ds=#c8#, #c3#, #c5#","", "33.33%"  },
-		{ 5, 22350, "", "=q4=Desecrated Tunic", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "33.33%"  },
-		{ 6, 22349, "", "=q4=Desecrated Breastplate", "=q1=#m1# =ds=#c6#, #c9#","", "33.33%"  },
-		{ 7, 0,"","","" },
-		{ 8, 223071, "", "=q4=Leggings of Apocalypse", "=ds=#s11#, #a2#","", "16.67%"  },
-		{ 9, 222809, "", "=q4=Maul of the Redeemed Crusader", "=ds=#h2#, #w6#","", "16.67%"  },
-		{ 10, 222691, "", "=q4=Corrupted Ashbringer", "=ds=#h2#, #w10#","", "16.67%"  },
-		{ 11, 222811, "", "=q4=Soulstring", "=ds=#w2#","", "20%"  },
-		{ 12, 223025, "", "=q4=Seal of the Damned", "=ds=#s13#","", "16.67%"  },
-		{ 13, 223027, "", "=q4=Warmth of Forgiveness", "=ds=#s14#","", "16.67%"  },
-		Prev = "NAXGothicderHarvesterHEROIC";
-		Next = "NAXNothderPlaguebringerHEROIC";
-	};
-
-	AtlasLoot_Data["NAXNothderPlaguebringerHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22370, "", "=q4=Desecrated Belt", "=q1=#m1# =ds=#c5#, #c3#, #c8#","", "33.33%" },
-		{ 5, 22363, "", "=q4=Desecrated Girdle", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "33.33%" },
-		{ 6, 22356, "", "=q4=Desecrated Waistguard", "=q1=#m1# =ds=#c6#, #c9#","", "33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 223030, "", "=q4=Cloak of the Scourge", "=ds=#s4#","", "14.29%" },
-		{ 9, 222816, "", "=q4=Hatchet of Sundered Bone", "=ds=#h1#, #w1#","", "14.29%" },
-		{ 10, 223005, "", "=q4=Totem of Flowing Water", "=ds=#s16#, #w15#","", "14.29%" },
-		{ 11, 223006, "", "=q4=Libram of Light", "=ds=#s16#, #w16#","", "14.29%" },
-		{ 12, 223029, "", "=q4=Noth's Frigid Heart", "=ds=#s15#","", "14.29%" },
-		{ 13, 223031, "", "=q4=Band of the Inevitable", "=ds=#s13#","", "14.29%" },
-		{ 14, 223028, "", "=q4=Hailstone Band", "=ds=#s13#","", "14.29%" },
-		Prev = "NAXTheFourHorsemenHEROIC";
-		Next = "NAXHeiganderUncleanHEROIC";
-	};
-
-	AtlasLoot_Data["NAXHeiganderUncleanHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%"  },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22370, "", "=q4=Desecrated Belt", "=q1=#m1# =ds=#c5#, #c3#, #c8#","", "33.33%" },
-		{ 5, 22363, "", "=q4=Desecrated Girdle", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#","", "33.33%" },
-		{ 6, 22356, "", "=q4=Desecrated Waistguard", "=q1=#m1# =ds=#c6#, #c9#","", "33.33%" },
-		{ 7, 0,"","","" },
-		{ 8, 223035, "", "=q4=Preceptor's Hat", "=ds=#s1#, #a1#","", "20%" },
-		{ 9, 223033, "", "=q4=Icy Scale Coif", "=ds=#s1#, #a3#","", "20%" },
-		{ 10, 223019, "", "=q4=Icebane Helmet", "=ds=#s1#, #a4#","", "20%" },
-		{ 11, 223068, "", "=q4=Legplates of Carnage", "=ds=#s11#, #a4#","", "20%" },
-		{ 12, 223036, "", "=q4=Necklace of Necropsy", "=ds=#s2#","", "20%" },
-		Prev = "NAXNothderPlaguebringerHEROIC";
-		Next = "NAXLoathebHEROIC";
-	};
-
-	AtlasLoot_Data["NAXLoathebHEROIC"] = {
-		{ 1, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#","", "30%" },
-		{ 2, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
-		{ 3, 0,"","","" },
-		{ 4, 22366, "", "=q4=Desecrated Leggings", "=q1=#m1# =ds=#c5#, #c3#, #c8#","", "66.67%" },
-		{ 5, 22359, "", "=q4=Desecrated Legguards", "=q1=#m1# =ds=#c7#, #c1#, #c2#, #c4#" ,"", "66.67%"},
-		{ 6, 22352, "", "=q4=Desecrated Legplates", "=q1=#m1# =ds=#c6#, #c9#","", "66.67%" },
-		{ 7, 0,"","","" },
-		{ 8, 223039, "", "=q4=The Eye of Nerub", "=ds=#w7#","", "20%" },
-		{ 9, 222800, "", "=q4=Brimstone Staff", "=ds=#w9#","", "20%" },
-		{ 10, 223037, "", "=q4=Ring of Spiritual Fervor", "=ds=#s13#","", "20%" },
-		{ 11, 223038, "", "=q4=Band of Unnatural Forces", "=ds=#s13#" ,"", "20%"},
-		{ 12, 223042, "", "=q4=Loatheb's Reflection", "=ds=#s14#","", "20%" },
-		Prev = "NAXHeiganderUncleanHEROIC";
-		Next = "NAXSapphironHEROIC";
-	};
-
-	AtlasLoot_Data["NAXSapphironHEROIC"] = {
-		{ 1, 223050, "", "=q4=Cloak of the Necropolis", "=ds=#s4#","","18.18%"  },
-		{ 2, 223045, "", "=q4=Shroud of Dominion", "=ds=#s4#","","18.18%"  },
-		{ 3, 223072, "", "=q4=Fists of the Unrelenting", "=ds=#s9#, #a4#","","18.18%"  },
-		{ 4, 223043, "", "=q4=The Face of Death", "=ds=#w8#","","18.18%"  },
-		{ 5, 223242, "", "=q4=Claw of the Frost Wyrm", "=ds=#h4#, #w13#","","18.18%"  },
-		{ 6, 223049, "", "=q4=Sapphiron's Left Eye", "=ds=#s15#","","18.18%"  },
-		{ 7, 223048, "", "=q4=Sapphiron's Right Eye", "=ds=#s15#","","18.18%"  },
-		{ 8, 223040, "", "=q4=Glyph of Deflection", "=ds=#s14#","","18.18%"  },
-		{ 9, 223047, "", "=q4=Eye of the Dead", "=ds=#s14#" ,"","18.18%" },
-		{ 10, 223046, "", "=q4=The Restrained Essence of Sapphiron", "=ds=#s14#","","18.18%"  },
-		{ 11, 223041, "", "=q4=Slayer's Crest", "=ds=#s14#","","18.18%"  },
-		{ 12, 0,"","","" },
-		{ 13, 0,"","","" },
-		{ 14, 0,"","","" },
-		{ 15, 0,"","","" },
-		{ 16, 23545, "", "=q4=Power of the Scourge", "=ds=#s3# #e17#","","50%"  },
-		{ 17, 23547, "", "=q4=Resilience of the Scourge", "=ds=#s3# #e17#","","50%" },
-		{ 18, 23549, "", "=q4=Fortitude of the Scourge", "=ds=#s3# #e17#","","50%" },
-		{ 19, 23548, "", "=q4=Might of the Scourge", "=ds=#s3# #e17#" ,"","50%"},
-		Prev = "NAXLoathebHEROIC";
-		Next = "NAXKelThuzardHEROIC";
-	};
-
-	AtlasLoot_Data["NAXKelThuzardHEROIC"] = {
-		{ 1, 222802, "", "=q4=Kingsfall", "=ds=#h1#, #w4#","","18.18%" },
-		{ 2, 223054, "", "=q4=Gressil, Dawn of Ruin", "=ds=#h1#, #w10#" ,"","18.18%"},
-		{ 3, 223577, "", "=q4=The Hungering Cold", "=ds=#h1#, #w10#" ,"","18.18%"}, 
-		{ 4, 223056, "", "=q4=Hammer of the Twisting Nether", "=ds=#h1#, #w6#","","18.18%" },
-		{ 5, 222798, "", "=q4=Might of Menethil", "=ds=#h2#, #w6#","","18.18%" },
-		{ 6, 222799, "", "=q4=Soulseeker", "=ds=#w9#","","18.18%" },
-		{ 7, 222821, "", "=q4=Doomfinger", "=ds=#w12#" ,"","18.18%"},
-		{ 8, 222812, "", "=q4=Nerubian Slavemaker", "=ds=#w3#" ,"","18.18%"},
-		{ 9, 222819, "", "=q4=Shield of Condemnation", "=ds=#w8#" ,"","18.18%"},
-		{ 10, 223057, "", "=q4=Gem of Trapped Innocents", "=ds=#s2#" ,"","18.18%"},
-		{ 11, 223053, "", "=q4=Stormrage's Talisman of Seething", "=ds=#s2#","","18.18%" },
-		{ 12, 0,"","","" },
-		{ 13, 691119, "", "=q4=The Phylactery of Kel'Thuzad", "=ds=#m2#","", "100%" },
-		{ 14, 23207, "", "=q4=Mark of the Champion", "=q1=#m4# =ds=#s14#" },
-		{ 15, 23206, "", "=q4=Mark of the Champion", "=q1=#m4# =ds=#s14#" },
-		{ 16, 23064, "", "=q4=Ring of the Dreamwalker", "=ds=#s13# =q1=#m1# =ds=#c1#","","22.22%" },
-		{ 17, 223067, "", "=q4=Ring of the Cryptstalker", "=ds=#s13# =q1=#m1# =ds=#c2#" ,"","22.22%"},
-		{ 18, 223062, "", "=q4=Frostfire Ring", "=ds=#s13# =q1=#m1# =ds=#c3#" ,"","22.22%"},
-		{ 19, 223066, "", "=q4=Ring of Redemption", "=ds=#s13# =q1=#m1# =ds=#c4#" ,"","22.22%"},
-		{ 20, 223061, "", "=q4=Ring of Faith", "=ds=#s13# =q1=#m1# =ds=#c5#" ,"","22.22%"},
-		{ 21, 223060, "", "=q4=Bonescythe Ring", "=ds=#s13# =q1=#m1# =ds=#c6#" ,"","22.22%"},
-		{ 22, 223065, "", "=q4=Ring of the Earthshatterer", "=ds=#s13# =q1=#m1# =ds=#c7#" ,"","22.22%"},
-		{ 23, 223063, "", "=q4=Plagueheart Ring", "=ds=#s13# =q1=#m1# =ds=#c8#" ,"","22.22%"},
-		{ 24, 223059, "", "=q4=Ring of the Dreadnaught", "=ds=#s13# =q1=#m1# =ds=#c9#" ,"","22.22%"},
-		{ 25, 0,"","","" },
-		{ 26, 22733, "", "=q1=Staff Head of Atiesh", "=ds=#m3#" },
-		{ 27, 22632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#"},
-		{ 28, 22589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#"},
-		{ 29, 22631, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c5#"},
-		{ 30, 22630, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c8#"},
-		Prev = "NAXSapphironHEROIC";
-		Next = "NAXTrashHEROIC";
-	};
-
-	AtlasLoot_Data["NAXTrashHEROIC"] = {
-		{ 1, 223069, "", "=q4=Necro-Knight's Garb", "=ds=#s5#, #a1# =q1=#m1# =ds=#c5#, #c3#, #c8#" },
-		{ 2, 223226, "", "=q4=Ghoul Skin Tunic", "=ds=#s5#, #a2#" },
-		{ 3, 223663, "", "=q4=Girdle of Elemental Fury", "=ds=#s10#, #a3#" },
-		{ 4, 223664, "", "=q4=Pauldrons of Elemental Fury", "=ds=#s3#, #a3# =q1=#m1# =ds=#c7#" },
-		{ 5, 223665, "", "=q4=Leggings of Elemental Fury", "=ds=#s11#, #a3# =q1=#m1# =ds=#c7#" },
-		{ 6, 223666, "", "=q4=Belt of the Grand Crusader", "=ds=#s10#, #a4# =q1=#m1# =ds=#c4#" },
-		{ 7, 223667, "", "=q4=Spaulders of the Grand Crusader", "=ds=#s3#, #a4# =q1=#m1# =ds=#c4#" },
-		{ 8, 223668, "", "=q4=Leggings of the Grand Crusader", "=ds=#s11#, #a4# =q1=#m1# =ds=#c4#" },
-		{ 9, 223044, "", "=q4=Harbinger of Doom", "=ds=#h1#, #w4#" },
-		{ 10, 223221, "", "=q4=Misplaced Servo Arm", "=ds=#h1# #w6#" },
-		{ 11, 223238, "", "=q4=Stygian Buckler", "=ds=#w8#" },
-		{ 12, 223237, "", "=q4=Ring of the Eternal Flame", "=ds=#s13#" },
-		{ 13, 0,"","","" },
-		{ 14, 0,"","","" },
-		{ 15, 0,"","","" },
-		{ 16, 22376, "", "=q3=Wartorn Cloth Scrap", "=ds=#m3#" },
-		{ 17, 22373, "", "=q3=Wartorn Leather Scrap", "=ds=#m3#" },
-		{ 18, 22374, "", "=q3=Wartorn Chain Scrap", "=ds=#m3#" },
-		{ 19, 22375, "", "=q3=Wartorn Plate Scrap", "=ds=#m3#" },
-		{ 20, 0,"","","" },
-		{ 21, 22708, "", "=q1=Fate of Ramaladni", "=ds=#m3#" },
-		{ 22, 23055, "", "=q1=Word of Thawing", "=ds=#m20#" },
-		Prev = "NAXKelThuzard";
-	};
-
 
 		---------------------
 		--- Onyxia's Lair 60 ---
@@ -6500,41 +5511,6 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 20, 17067, "", "=q4=Ancient Cornerstone Grimoire", "=ds=#s15#","", "28.57%" },
 		{ 21, 17075, "", "=q4=Vis'kag the Bloodletter",		  "=ds=#h1#, #w10#","", "28.57%" },
 		{ 22, 17068, "", "=q4=Deathbringer","=ds=#h1#, #w1#","", "28.57%" },
-		{ 24, 18423, "", "=q4=Head of Onyxia","=ds=#m2#","", "100%" },
-		{ 25, 18404, "", "=q4=Onyxia Tooth Pendant", "=q1=#m4#: =ds=#s2#" },
-		{ 26, 18403, "", "=q4=Dragonslayer's Signet", "=q1=#m4#: =ds=#s13#" },
-		{ 27, 18406, "", "=q4=Onyxia Blood Talisman", "=q1=#m4#: =ds=#s14#" },
-		{ 29, 49636, "", "=q4=Reins of the Onyxian Drake", "=ds=#e12#", "" };
-	};
-
-	
-	-------------------------------
-	--- Onyxia's Lair 60 HEROIC ---
-	-------------------------------
-
-	AtlasLoot_Data["Onyxia60HEROIC"] = {
-		{ 1, 216914, "", "=q4=Netherwind Crown",	   "=q1=#m1# =ds=#c3# (T2)", "","22.22%" },
-		{ 2, 216921, "", "=q4=Halo of Transcendence",  "=q1=#m1# =ds=#c5# (T2)", "","22.22%" },
-		{ 3, 216929, "", "=q4=Nemesis Skullcap",	   "=q1=#m1# =ds=#c8# (T2)","", "22.22%" },
-		{ 4, 216900, "", "=q4=Stormrage Cover",		"=q1=#m1# =ds=#c1# (T2)","", "22.22%" },
-		{ 5, 216908, "", "=q4=Bloodfang Hood",		 "=q1=#m1# =ds=#c6# (T2)", "","22.22%" },
-		{ 6, 216939, "", "=q4=Dragonstalker's Helm",   "=q1=#m1# =ds=#c2# (T2)", "","22.22%" },
-		{ 7, 216947, "", "=q4=Helmet of Ten Storms",   "=q1=#m1# =ds=#c7# (T2)", "","22.22%" },
-		{ 8, 216963, "", "=q4=Helm of Wrath",		  "=q1=#m1# =ds=#c9# (T2)","", "22.22%" },
-		{ 9, 216955, "", "=q4=Judgement Crown",		"=q1=#m1# =ds=#c4# (T2)", "","22.22%" },
-		{ 10, 0,"","","" },
-		{ 11, 18705, "", "=q4=Mature Black Dragon Sinew", "=ds=#m3# =q1=#m1# =ds=#c2#", "","100%" },
-		{ 12, 18713, "", "=q4=Rhok'delar, Longbow of the Ancient Keepers", "=q1=#m4#: =ds=#w2#, =q1=#m1# =ds=#c2#" },
-		{ 13, 0,"","","" },
-		{ 14, 15410, "","=q3=Scale of Onyxia",	  "=ds=#e8#" },
-		{ 15, 17966, "", "=q2=Onyxia Hide Backpack", "=ds=#m14# #e1#","", "100%"},
-		{ 16, 217078, "", "=q4=Sapphiron Drape",			  "=ds=#s4#","", "28.57%" },
-		{ 17, 218205, "", "=q4=Eskhandar's Collar",				"=ds=#s2#","", "28.57%" },
-		{ 18, 218813, "", "=q4=Ring of Binding",		   "=ds=#s13#", "","28.57%" },
-		{ 19, 217064, "", "=q4=Shard of the Scale",  "=ds=#s14#","", "28.57%" },
-		{ 20, 217067, "", "=q4=Ancient Cornerstone Grimoire", "=ds=#s15#","", "28.57%" },
-		{ 21, 217075, "", "=q4=Vis'kag the Bloodletter",		  "=ds=#h1#, #w10#","", "28.57%" },
-		{ 22, 217068, "", "=q4=Deathbringer","=ds=#h1#, #w1#","", "28.57%" },
 		{ 24, 18423, "", "=q4=Head of Onyxia","=ds=#m2#","", "100%" },
 		{ 25, 18404, "", "=q4=Onyxia Tooth Pendant", "=q1=#m4#: =ds=#s2#" },
 		{ 26, 18403, "", "=q4=Dragonslayer's Signet", "=q1=#m4#: =ds=#s13#" },
@@ -6976,228 +5952,29 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		Next = "T3Warrior";
 		Back = "T1T2T3SET";
 	};
-
-
-	------------------------------------
-	--- Tier 1/2 Sets (T1/T2) HEROIC ---
-	------------------------------------
-
-	AtlasLoot_Data["T1T2DruidHEROIC"] = {
-		{ 1, 0, "Spell_Nature_Regeneration", "=q6=#t1s1#", "=ec1=#m30#"};
-		{ 2, 216834, "", "=q4=Cenarion Helm", "=ds="..BabbleBoss["Garr"], "", "11.51%"};
-		{ 3, 216836, "", "=q4=Cenarion Spaulders", "=ds="..BabbleBoss["Baron Geddon"], "", "19.52%"};
-		{ 4, 216833, "", "=q4=Cenarion Vestments", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "15.21%"};
-		{ 5, 216830, "", "=q4=Cenarion Bracers", "=ds="..AL["Trash Mobs"], "", "0.17%"};
-		{ 6, 216831, "", "=q4=Cenarion Gloves", "=ds="..BabbleBoss["Shazzrah"], "", "19.53%"};
-		{ 7, 216828, "", "=q4=Cenarion Belt", "=ds="..AL["Trash Mobs"], "", "0.16%"};
-		{ 8, 216835, "", "=q4=Cenarion Leggings", "=ds="..BabbleBoss["Magmadar"], "", "12.90%"};
-		{ 9, 216829, "", "=q4=Cenarion Boots", "=ds="..BabbleBoss["Lucifron"], "", "10.72%"};
-		{ 16, 0, "Spell_Nature_Regeneration", "=q6=#t2s1#", "=ec1=#m31#"};
-		{ 17, 216900, "", "=q4=Stormrage Cover", "=ds="..BabbleBoss["Nefarian"], "", "13.08%"};
-		{ 18, 216902, "", "=q4=Stormrage Pauldrons", "=ds="..BabbleBoss["Chromaggus"], "", "14.63%"};
-		{ 19, 216897, "", "=q4=Stormrage Chestguard", "=ds="..BabbleBoss["Nefarian"], "", "11.89%"};
-		{ 20, 216904, "", "=q4=Stormrage Bracers", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "17.38%"};
-		{ 21, 216899, "", "=q4=Stormrage Handguards", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "5.34%"};
-		{ 22, 216903, "", "=q4=Stormrage Belt", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "16.90%"};
-		{ 23, 216901, "", "=q4=Stormrage Legguards", "=ds="..BabbleBoss["Ragnaros"], "", "15.49%"};
-		{ 24, 216898, "", "=q4=Stormrage Boots", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "13.79%"};
-		Prev = "T0DruidHEROIC";
-		Next = "T3DruidHEROIC";
+	
+		AtlasLoot_Data["T1T2DPSWarrior"] = {
+		{ 1, 0, "Ability_Warrior_BattleShout", "=q6=#t1s10#", "=ec1=#m30#"};
+		{ 2, 10480, "", "=q4=Faceguard of Might", "=ds="..BabbleBoss["Garr"], ""};
+		{ 3, 10481, "", "=q4=Shoulderpads of Might", "=ds="..BabbleBoss["Sulfuron Harbinger"], ""};
+		{ 4, 10482, "", "=q4=Chesttplate of Might", "=ds="..BabbleBoss["Golemagg the Incinerator"], ""};
+		{ 5, 10483, "", "=q4=Wristguards of Might", "=ds="..AL["Trash Mobs"], ""};
+		{ 6, 10484, "", "=q4=Handguards of Might", "=ds="..BabbleBoss["Lucifron"], ""};
+		{ 7, 10485, "", "=q4=Girdle of Might", "=ds="..AL["Trash Mobs"], ""};
+		{ 8, 10486, "", "=q4=Legguards of Might", "=ds="..BabbleBoss["Magmadar"], ""};
+		{ 9, 10487, "", "=q4=Stompers of Might", "=ds="..BabbleBoss["Gehennas"], ""};
+		{ 16, 0, "Ability_Warrior_BattleShout", "=q6=#t2s10#", "=ec1=#m31#"};
+		{ 17, 10904, "", "=q4=Faceguard of Wrath", "=ds="..BabbleBoss["Nefarian"], "", "13.65%"};
+		{ 18, 10902, "", "=q4=Shoulderpads of Wrath", "=ds="..BabbleBoss["Chromaggus"], "", "16.83%"};
+		{ 19, 10907, "", "=q4=Chestplate of Wrath", "=ds="..BabbleBoss["Nefarian"], "", "15.06%"};
+		{ 20, 10900, "", "=q4=Wristguards of Wrath", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "20.29%"};
+		{ 21, 10905, "", "=q4=Grippers of Wrath", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "5.93%"};
+		{ 22, 10901, "", "=q4=Belt of Wrath", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "20.03%"};
+		{ 23, 10903, "", "=q4=Legguards of Wrath", "=ds="..BabbleBoss["Ragnaros"], "", "17.23%"};
+		{ 24, 10906, "", "=q4=Stompers of Wrath", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "16.84%"};
+		Next = "T3DPSWarrior";
 		Back = "T1T2T3SET";
 	};
-
-	AtlasLoot_Data["T1T2HunterHEROIC"] = {
-		{ 1, 0, "Ability_Hunter_RunningShot", "=q6=#t1s2#", "=ec1=#m30#"};
-		{ 2, 216846, "", "=q4=Giantstalker's Helmet", "=ds="..BabbleBoss["Garr"], "", "11.57%"};
-		{ 3, 216848, "", "=q4=Giantstalker's Epaulets", "=ds="..BabbleBoss["Sulfuron Harbinger"], "", "19.64%"};
-		{ 4, 216845, "", "=q4=Giantstalker's Breastplate", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "15.83%"};
-		{ 5, 216850, "", "=q4=Giantstalker's Bracers", "=ds="..AL["Trash Mobs"], "", "0.18%"};
-		{ 6, 216852, "", "=q4=Giantstalker's Gloves", "=ds="..BabbleBoss["Shazzrah"], "", "18.58%"};
-		{ 7, 216851, "", "=q4=Giantstalker's Belt", "=ds="..AL["Trash Mobs"], "", "0.17%"};
-		{ 8, 216847, "", "=q4=Giantstalker's Leggings", "=ds="..BabbleBoss["Magmadar"], "", "13.28%"};
-		{ 9, 216849, "", "=q4=Giantstalker's Boots", "=ds="..BabbleBoss["Gehennas"], "", "14.54%"};
-		{ 16, 0, "Ability_Hunter_RunningShot", "=q6=#t2s2#", "=ec1=#m31#"};
-		{ 17, 216939, "", "=q4=Dragonstalker's Helm", "=ds="..BabbleBoss["Nefarian"], "", "13.91%"};
-		{ 18, 216937, "", "=q4=Dragonstalker's Spaulders", "=ds="..BabbleBoss["Chromaggus"], "", "16.20%"};
-		{ 19, 216942, "", "=q4=Dragonstalker's Breastplate", "=ds="..BabbleBoss["Nefarian"], "", "13.30%"};
-		{ 20, 216935, "", "=q4=Dragonstalker's Bracers", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "19.13%"};
-		{ 21, 216940, "", "=q4=Dragonstalker's Gauntlets", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "6.13%"};
-		{ 22, 216936, "", "=q4=Dragonstalker's Belt", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "20.17%"};
-		{ 23, 216938, "", "=q4=Dragonstalker's Legguards", "=ds="..BabbleBoss["Ragnaros"], "", "16.02%"};
-		{ 24, 216941, "", "=q4=Dragonstalker's Greaves", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "17.78%"};
-		Prev = "T0HunterHEROIC";
-		Next = "T3HunterHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T1T2MageHEROIC"] = {
-		{ 1, 0, "Spell_Frost_IceStorm", "=q6=#t1s3#", "=ec1=#m30#"};
-		{ 2, 216795, "", "=q4=Arcanist Crown", "=ds="..BabbleBoss["Garr"], "", "11.31%"};
-		{ 3, 216797, "", "=q4=Arcanist Mantle", "=ds="..BabbleBoss["Baron Geddon"], "", "19.92%"};
-		{ 4, 216798, "", "=q4=Arcanist Robes", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "16.51%"};
-		{ 5, 216799, "", "=q4=Arcanist Bindings", "=ds="..AL["Trash Mobs"], "", "0.16%"};
-		{ 6, 216801, "", "=q4=Arcanist Gloves", "=ds="..BabbleBoss["Shazzrah"], "", "19.59%"};
-		{ 7, 216802, "", "=q4=Arcanist Belt", "=ds="..AL["Trash Mobs"], "", "0.16%"};
-		{ 8, 216796, "", "=q4=Arcanist Leggings", "=ds="..BabbleBoss["Magmadar"], "", "14.57%"};
-		{ 9, 216800, "", "=q4=Arcanist Boots", "=ds="..BabbleBoss["Lucifron"], "", "12.06%"};
-		{ 16, 0, "Spell_Frost_IceStorm", "=q6=#t2s3#", "=ec1=#m31#"};
-		{ 17, 216914, "", "=q4=Netherwind Crown", "=ds="..BabbleBoss["Nefarian"], "", "14.09%"};
-		{ 18, 216917, "", "=q4=Netherwind Mantle", "=ds="..BabbleBoss["Chromaggus"], "", "18.09%"};
-		{ 19, 216916, "", "=q4=Netherwind Robes", "=ds="..BabbleBoss["Nefarian"], "", "14.03%"};
-		{ 20, 216918, "", "=q4=Netherwind Bindings", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "20.41%"};
-		{ 21, 216913, "", "=q4=Netherwind Gloves", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "7.37%"};
-		{ 22, 216818, "", "=q4=Netherwind Belt", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "19.94%"};
-		{ 23, 216915, "", "=q4=Netherwind Pants", "=ds="..BabbleBoss["Ragnaros"], "", "17.37%"};
-		{ 24, 216912, "", "=q4=Netherwind Boots", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "17.17%"};
-		Prev = "T0MageHEROIC";
-		Next = "T3MageHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T1T2PaladinHEROIC"] = {
-		{ 1, 0, "Spell_Holy_SealOfMight", "=q6=#t1s4#", "=ec1=#m30#"};
-		{ 2, 216854, "", "=q4=Lawbringer Helm", "=ds="..BabbleBoss["Garr"], "", "7.23%"};
-		{ 3, 216856, "", "=q4=Lawbringer Spaulders", "=ds="..BabbleBoss["Baron Geddon"], "", "12.62%"};
-		{ 4, 216853, "", "=q4=Lawbringer Chestguard", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "9.53%"};
-		{ 5, 216857, "", "=q4=Lawbringer Bracers", "=ds="..AL["Trash Mobs"], "", "0.11%"};
-		{ 6, 216860, "", "=q4=Lawbringer Gauntlets", "=ds="..BabbleBoss["Gehennas"], "", "11.77%"};
-		{ 7, 216858, "", "=q4=Lawbringer Belt", "=ds="..AL["Trash Mobs"], "", "0.10%"};
-		{ 8, 216855, "", "=q4=Lawbringer Legplates", "=ds="..BabbleBoss["Magmadar"], "", "8.54%"};
-		{ 9, 216859, "", "=q4=Lawbringer Boots", "=ds="..BabbleBoss["Lucifron"], "", "7.20%"};
-		{ 16, 0, "Spell_Holy_SealOfMight", "=q6=#t2s4#", "=ec1=#m31#"};
-		{ 17, 216955, "", "=q4=Judgement Crown", "=ds="..BabbleBoss["Nefarian"], "", "8.64%"};
-		{ 18, 216953, "", "=q4=Judgement Spaulders", "=ds="..BabbleBoss["Chromaggus"], "", "10.97%"};
-		{ 19, 216958, "", "=q4=Judgement Breastplate", "=ds="..BabbleBoss["Nefarian"], "", "9.24%"};
-		{ 20, 216951, "", "=q4=Judgement Bindings", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "13.61%"};
-		{ 21, 216956, "", "=q4=Judgement Gauntlets", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "3.58%"};
-		{ 22, 216952, "", "=q4=Judgement Belt", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "12.23%"};
-		{ 23, 216954, "", "=q4=Judgement Legplates", "=ds="..BabbleBoss["Ragnaros"], "", "10.81%"};
-		{ 24, 216957, "", "=q4=Judgement Sabatons", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "11.28%"};
-		Prev = "T0PaladinHEROIC";
-		Next = "T3PaladinHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T1T2PriestHEROIC"] = {
-		{ 1, 0, "Spell_Holy_PowerWordShield", "=q6=#t1s5#", "=ec1=#m30#"};
-		{ 2, 216813, "", "=q4=Circlet of Prophecy", "=ds="..BabbleBoss["Garr"], "", "11.36%"};
-		{ 3, 216816, "", "=q4=Mantle of Prophecy", "=ds="..BabbleBoss["Sulfuron Harbinger"], "", "21.06%"};
-		{ 4, 216815, "", "=q4=Robes of Prophecy", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "15.65%"};
-		{ 5, 216819, "", "=q4=Vambraces of Prophecy", "=ds="..AL["Trash Mobs"], "", "0.16%"};
-		{ 6, 216812, "", "=q4=Gloves of Prophecy", "=ds="..BabbleBoss["Gehennas"], "", "18.65%"};
-		{ 7, 216817, "", "=q4=Girdle of Prophecy", "=ds="..AL["Trash Mobs"], "", "0.18%"};
-		{ 8, 216814, "", "=q4=Pants of Prophecy", "=ds="..BabbleBoss["Magmadar"], "", "14.33%"};
-		{ 9, 216811, "", "=q4=Boots of Prophecy", "=ds="..BabbleBoss["Shazzrah"], "", "14.90%"};
-		{ 16, 0, "Spell_Holy_PowerWordShield", "=q6=#t2s5#", "=ec1=#m31#"};
-		{ 17, 216921, "", "=q4=Halo of Transcendence", "=ds="..BabbleBoss["Nefarian"], "", "13.39%"};
-		{ 18, 216924, "", "=q4=Pauldrons of Transcendence", "=ds="..BabbleBoss["Chromaggus"], "", "17.83%"};
-		{ 19, 216923, "", "=q4=Robes of Transcendence", "=ds="..BabbleBoss["Nefarian"], "", "14.83%"};
-		{ 20, 216926, "", "=q4=Bindings of Transcendence", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "20.37%"};
-		{ 21, 216920, "", "=q4=Handguards of Transcendence", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "6.01%"};
-		{ 22, 216925, "", "=q4=Belt of Transcendence", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "18.76%"};
-		{ 23, 216922, "", "=q4=Leggings of Transcendence", "=ds="..BabbleBoss["Ragnaros"], "", "17.30%"};
-		{ 24, 216919, "", "=q4=Boots of Transcendence", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "14.61%"};
-		Prev = "T0PriestHEROIC";
-		Next = "T3PriestHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T1T2RogueHEROIC"] = {
-		{ 1, 0, "Ability_BackStab", "=q6=#t1s6#", "=ec1=#m30#"};
-		{ 2, 216821, "", "=q4=Nightslayer Cover", "=ds="..BabbleBoss["Garr"], "", "10.38%"};
-		{ 3, 216823, "", "=q4=Nightslayer Shoulder Pads", "=ds="..BabbleBoss["Sulfuron Harbinger"], "", "20.66%"};
-		{ 4, 216820, "", "=q4=Nightslayer Chestpiece", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "16.76%"};
-		{ 5, 216825, "", "=q4=Nightslayer Bracelets", "=ds="..AL["Trash Mobs"], "", "0.17%"};
-		{ 6, 216826, "", "=q4=Nightslayer Gloves", "=ds="..BabbleBoss["Gehennas"], "", "19.47%"};
-		{ 7, 216827, "", "=q4=Nightslayer Belt", "=ds="..AL["Trash Mobs"], "", "0.15%"};
-		{ 8, 216822, "", "=q4=Nightslayer Pants", "=ds="..BabbleBoss["Magmadar"], "", "13.83%"};
-		{ 9, 216824, "", "=q4=Nightslayer Boots", "=ds="..BabbleBoss["Shazzrah"], "", "15.58%"};
-		{ 16, 0, "Ability_BackStab", "=q6=#t2s6#", "=ec1=#m31#"};
-		{ 17, 216908, "", "=q4=Bloodfang Hood", "=ds="..BabbleBoss["Nefarian"], "", "13.21%"};
-		{ 18, 216832, "", "=q4=Bloodfang Spaulders", "=ds="..BabbleBoss["Chromaggus"], "", "17.03%"};
-		{ 19, 216905, "", "=q4=Bloodfang Chestpiece", "=ds="..BabbleBoss["Nefarian"], "", "14.21%"};
-		{ 20, 216911, "", "=q4=Bloodfang Bracers", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "20.69%"};
-		{ 21, 216907, "", "=q4=Bloodfang Gloves", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "6.84%"};
-		{ 22, 216910, "", "=q4=Bloodfang Belt", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "19.69%"};
-		{ 23, 216909, "", "=q4=Bloodfang Pants", "=ds="..BabbleBoss["Ragnaros"], "", "17.18%"};
-		{ 24, 216906, "", "=q4=Bloodfang Boots", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "15.66%"};
-		Prev = "T0RogueHEROIC";
-		Next = "T3RogueHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T1T2ShamanHEROIC"] = {
-		{ 1, 0, "Spell_FireResistanceTotem_01", "=q6=#t1s7#", "=ec1=#m30#"};
-		{ 2, 216842, "", "=q4=Earthfury Helmet", "=ds="..BabbleBoss["Garr"], "", "3.91%"};
-		{ 3, 216844, "", "=q4=Earthfury Epaulets", "=ds="..BabbleBoss["Baron Geddon"], "", "7.29%"};
-		{ 4, 216841, "", "=q4=Earthfury Vestments", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "6.08%"};
-		{ 5, 216840, "", "=q4=Earthfury Bracers", "=ds="..AL["Trash Mobs"], "", "0.06%"};
-		{ 6, 216839, "", "=q4=Earthfury Gauntlets", "=ds="..BabbleBoss["Gehennas"], "", "7.38%"};
-		{ 7, 216838, "", "=q4=Earthfury Belt", "=ds="..AL["Trash Mobs"], "", "0.07%"};
-		{ 8, 216843, "", "=q4=Earthfury Legguards", "=ds="..BabbleBoss["Magmadar"], "", "4.73%"};
-		{ 9, 216837, "", "=q4=Earthfury Boots", "=ds="..BabbleBoss["Lucifron"], "", "4.16%"};
-		{ 16, 0, "Spell_FireResistanceTotem_01", "=q6=#t2s7#", "=ec1=#m31#"};
-		{ 17, 216947, "", "=q4=Helmet of Ten Storms", "=ds="..BabbleBoss["Nefarian"], "", "4.86%"};
-		{ 18, 216945, "", "=q4=Epaulets of Ten Storms", "=ds="..BabbleBoss["Chromaggus"], "", "6.73%"};
-		{ 19, 216950, "", "=q4=Breastplate of Ten Storms", "=ds="..BabbleBoss["Nefarian"], "", "5.65%"};
-		{ 20, 216943, "", "=q4=Bracers of Ten Storms", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "7.54%"};
-		{ 21, 216948, "", "=q4=Gauntlets of Ten Storms", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "2.13%"};
-		{ 22, 216944, "", "=q4=Belt of Ten Storms", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "6.93%"};
-		{ 23, 216946, "", "=q4=Legplates of Ten Storms", "=ds="..BabbleBoss["Ragnaros"], "", "5.97%"};
-		{ 24, 216949, "", "=q4=Greaves of Ten Storms", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "5.57%"};
-		Prev = "T0ShamanHEROIC";
-		Next = "T3ShamanHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T1T2WarlockHEROIC"] = {
-		{ 1, 0, "Spell_Shadow_CurseOfTounges", "=q6=#t1s8#", "=ec1=#m30#"};
-		{ 2, 216808, "", "=q4=Felheart Horns", "=ds="..BabbleBoss["Garr"], "", "10.62%"};
-		{ 3, 216807, "", "=q4=Felheart Shoulder Pads", "=ds="..BabbleBoss["Baron Geddon"], "", "19.78%"};
-		{ 4, 216809, "", "=q4=Felheart Robes", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "15.66%"};
-		{ 5, 216804, "", "=q4=Felheart Bracers", "=ds="..AL["Trash Mobs"], "", "0.16%"};
-		{ 6, 216805, "", "=q4=Felheart Gloves", "=ds="..BabbleBoss["Lucifron"], "", "14.89%"};
-		{ 7, 216806, "", "=q4=Felheart Belt", "=ds="..AL["Trash Mobs"], "", "0.19%"};
-		{ 8, 216810, "", "=q4=Felheart Pants", "=ds="..BabbleBoss["Magmadar"], "", "13.75%"};
-		{ 9, 216803, "", "=q4=Felheart Slippers", "=ds="..BabbleBoss["Shazzrah"], "", "15.28%"};
-		{ 16, 0, "Spell_Shadow_CurseOfTounges", "=q6=#t2s8#", "=ec1=#m31#"};
-		{ 17, 216929, "", "=q4=Nemesis Skullcap", "=ds="..BabbleBoss["Nefarian"], "", "13.54%"};
-		{ 18, 216932, "", "=q4=Nemesis Spaulders", "=ds="..BabbleBoss["Chromaggus"], "", "16.26%"};
-		{ 19, 216931, "", "=q4=Nemesis Robes", "=ds="..BabbleBoss["Nefarian"], "", "12.46%"};
-		{ 20, 216934, "", "=q4=Nemesis Bracers", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "18.11%"};
-		{ 21, 216928, "", "=q4=Nemesis Gloves", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "5.28%"};
-		{ 22, 216933, "", "=q4=Nemesis Belt", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "18.42%"};
-		{ 23, 216930, "", "=q4=Nemesis Leggings", "=ds="..BabbleBoss["Ragnaros"], "", "16.87%"};
-		{ 24, 216927, "", "=q4=Nemesis Boots", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "15.32%"};
-		Prev = "T0WarlockHEROIC";
-		Next = "T3WarlockHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T1T2WarriorHEROIC"] = {
-		{ 1, 0, "INV_Shield_05", "=q6=#t1s9#", "=ec1=#m30#"};
-		{ 2, 216866, "", "=q4=Helm of Might", "=ds="..BabbleBoss["Garr"], "", "11.39%"};
-		{ 3, 216868, "", "=q4=Pauldrons of Might", "=ds="..BabbleBoss["Sulfuron Harbinger"], "", "21.14%"};
-		{ 4, 216865, "", "=q4=Breastplate of Might", "=ds="..BabbleBoss["Golemagg the Incinerator"], "", "15.28%"};
-		{ 5, 216861, "", "=q4=Bracers of Might", "=ds="..AL["Trash Mobs"], "", "0.16%"};
-		{ 6, 216863, "", "=q4=Gauntlets of Might", "=ds="..BabbleBoss["Lucifron"], "", "16.40%"};
-		{ 7, 216864, "", "=q4=Belt of Might", "=ds="..AL["Trash Mobs"], "", "0.16%"};
-		{ 8, 216867, "", "=q4=Legplates of Might", "=ds="..BabbleBoss["Magmadar"], "", "13.97%"};
-		{ 9, 216862, "", "=q4=Sabatons of Might", "=ds="..BabbleBoss["Gehennas"], "", "14.48%"};
-		{ 16, 0, "INV_Shield_05", "=q6=#t2s9#", "=ec1=#m31#"};
-		{ 17, 216963, "", "=q4=Helm of Wrath", "=ds="..BabbleBoss["Nefarian"], "", "13.65%"};
-		{ 18, 216961, "", "=q4=Pauldrons of Wrath", "=ds="..BabbleBoss["Chromaggus"], "", "16.83%"};
-		{ 19, 216966, "", "=q4=Breastplate of Wrath", "=ds="..BabbleBoss["Nefarian"], "", "15.06%"};
-		{ 20, 216959, "", "=q4=Bracelets of Wrath", "=ds="..BabbleBoss["Razorgore the Untamed"], "", "20.29%"};
-		{ 21, 216964, "", "=q4=Gauntlets of Wrath", "=ds="..BabbleBoss["Firemaw"]..", "..BabbleBoss["Ebonroc"]..", "..BabbleBoss["Flamegor"], "", "5.93%"};
-		{ 22, 216960, "", "=q4=Waistband of Wrath", "=ds="..BabbleBoss["Vaelastrasz the Corrupt"], "", "20.03%"};
-		{ 23, 216962, "", "=q4=Legplates of Wrath", "=ds="..BabbleBoss["Ragnaros"], "", "17.23%"};
-		{ 24, 216965, "", "=q4=Sabatons of Wrath", "=ds="..BabbleBoss["Broodlord Lashlayer"], "", "16.84%"};
-		Prev = "T0WarriorHEROIC";
-		Next = "T3WarriorHEROIC";
-		Back = "T1T2T3SET";
-	};
-
 
 		------------------------
 		--- Tier 3 Sets (T3) ---
@@ -7337,145 +6114,22 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		Prev = "T1T2Warrior";
 		Back = "T1T2T3SET";
 	};
-
-		-------------------------------
-		--- Tier 3 Sets (T3) HEROIC ---
-		-------------------------------
-
-	AtlasLoot_Data["T3DruidHEROIC"] = {
-		{ 1, 0, "Spell_Nature_Regeneration", "=q6=#t3s1#", "=ec1=#m35#"};
-		{ 2, 222490, "", "=q4=Dreamwalker Headpiece", "=ds="};
-		{ 3, 222491, "", "=q4=Dreamwalker Spaulders", "=ds="};
-		{ 4, 222488, "", "=q4=Dreamwalker Tunic", "=ds="};
-		{ 5, 222495, "", "=q4=Dreamwalker Wristguards", "=ds="};
-		{ 6, 222493, "", "=q4=Dreamwalker Handguards", "=ds="};
-		{ 7, 222494, "", "=q4=Dreamwalker Girdle", "=ds="};
-		{ 8, 222489, "", "=q4=Dreamwalker Legguards", "=ds="};
-		{ 9, 222492, "", "=q4=Dreamwalker Boots", "=ds="};
-		{ 10, 223064, "", "=q4=Ring of the Dreamwalker", "=ds="};
-		Prev = "T1T2DruidHEROIC";
+	
+	AtlasLoot_Data["T3DPSWarrior"] = {
+		{ 1, 0, "Ability_Warrior_BattleShout", "=q6=#t3s10#", "=ec1=#m35#"};
+		{ 2, 10490, "", "=q4=Dreadborne Helmet", "=ds="};
+		{ 3, 10491, "", "=q4=Dreadborne Pauldrons", "=ds="};
+		{ 4, 10488, "", "=q4=Dreadborne Breastplate", "=ds="};
+		{ 5, 10495, "", "=q4=Dreadborne Bracers", "=ds="};
+		{ 6, 10493, "", "=q4=Dreadborne Gauntlets", "=ds="};
+		{ 7, 10494, "", "=q4=Dreadborne Waistguard", "=ds="};
+		{ 8, 10489, "", "=q4=Dreadborne Legplates", "=ds="};
+		{ 9, 10492, "", "=q4=Dreadborne Sabatons", "=ds="};
+		{ 10, 10496, "", "=q4=Dreadborne Ring", "=ds="};
+		Prev = "T1T2DPSWarrior";
 		Back = "T1T2T3SET";
 	};
 
-	AtlasLoot_Data["T3HunterHEROIC"] = {
-		{ 1, 0, "Ability_Hunter_RunningShot", "=q6=#t3s2#", "=ec1=#m35#"};
-		{ 2, 222438, "", "=q4=Cryptstalker Headpiece", "=ds="};
-		{ 3, 222439, "", "=q4=Cryptstalker Spaulders", "=ds="};
-		{ 4, 222436, "", "=q4=Cryptstalker Tunic", "=ds="};
-		{ 5, 222443, "", "=q4=Cryptstalker Wristguards", "=ds="};
-		{ 6, 222441, "", "=q4=Cryptstalker Handguards", "=ds="};
-		{ 7, 222442, "", "=q4=Cryptstalker Girdle", "=ds="};
-		{ 8, 222437, "", "=q4=Cryptstalker Legguards", "=ds="};
-		{ 9, 222440, "", "=q4=Cryptstalker Boots", "=ds="};
-		{ 10, 223067, "", "=q4=Ring of the Cryptstalker", "=ds="};
-		Prev = "T1T2HunterHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T3MageHEROIC"] = {
-		{ 1, 0, "Spell_Frost_IceStorm", "=q6=#t3s3#", "=ec1=#m35#"};
-		{ 2, 222498, "", "=q4=Frostfire Circlet", "=ds="};
-		{ 3, 222499, "", "=q4=Frostfire Shoulderpads", "=ds="};
-		{ 4, 222496, "", "=q4=Frostfire Robe", "=ds="};
-		{ 5, 222503, "", "=q4=Frostfire Bindings", "=ds="};
-		{ 6, 222501, "", "=q4=Frostfire Gloves", "=ds="};
-		{ 7, 222502, "", "=q4=Frostfire Belt", "=ds="};
-		{ 8, 222497, "", "=q4=Frostfire Leggings", "=ds="};
-		{ 9, 222500, "", "=q4=Frostfire Sandals", "=ds="};
-		{ 10, 223062, "", "=q4=Frostfire Ring", "=ds="};
-		Prev = "T1T2MageHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T3PaladinHEROIC"] = {
-		{ 1, 0, "Spell_Holy_SealOfMight", "=q6=#t3s4#", "=ec1=#m35#"};
-		{ 2, 222428, "", "=q4=Redemption Headpiece", "=ds="};
-		{ 3, 222429, "", "=q4=Redemption Spaulders", "=ds="};
-		{ 4, 222425, "", "=q4=Redemption Tunic", "=ds="};
-		{ 5, 222424, "", "=q4=Redemption Wristguards", "=ds="};
-		{ 6, 222426, "", "=q4=Redemption Handguards", "=ds="};
-		{ 7, 222431, "", "=q4=Redemption Girdle", "=ds="};
-		{ 8, 222427, "", "=q4=Redemption Legguards", "=ds="};
-		{ 9, 222430, "", "=q4=Redemption Boots", "=ds="};
-		{ 10, 223066, "", "=q4=Ring of Redemption", "=ds="};
-		Prev = "T1T2PaladinHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T3PriestHEROIC"] = {
-		{ 1, 0, "Spell_Holy_PowerWordShield", "=q6=#t3s5#", "=ec1=#m35#"};
-		{ 2, 222514, "", "=q4=Circlet of Faith", "=ds="};
-		{ 3, 222515, "", "=q4=Shoulderpads of Faith", "=ds="};
-		{ 4, 222512, "", "=q4=Robe of Faith", "=ds="};
-		{ 5, 222519, "", "=q4=Bindings of Faith", "=ds="};
-		{ 6, 222517, "", "=q4=Gloves of Faith", "=ds="};
-		{ 7, 222518, "", "=q4=Belt of Faith", "=ds="};
-		{ 8, 222513, "", "=q4=Leggings of Faith", "=ds="};
-		{ 9, 222516, "", "=q4=Sandals of Faith", "=ds="};
-		{ 10, 223061, "", "=q4=Ring of Faith", "=ds="};
-		Prev = "T1T2PriestHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T3RogueHEROIC"] = {
-		{ 1, 0, "Ability_BackStab", "=q6=#t3s6#", "=ec1=#m35#"};
-		{ 2, 222478, "", "=q4=Bonescythe Helmet", "=ds="};
-		{ 3, 222479, "", "=q4=Bonescythe Pauldrons", "=ds="};
-		{ 4, 222476, "", "=q4=Bonescythe Breastplate", "=ds="};
-		{ 5, 222483, "", "=q4=Bonescythe Bracers", "=ds="};
-		{ 6, 222481, "", "=q4=Bonescythe Gauntlets", "=ds="};
-		{ 7, 222482, "", "=q4=Bonescythe Waistguard", "=ds="};
-		{ 8, 222477, "", "=q4=Bonescythe Legplates", "=ds="};
-		{ 9, 222480, "", "=q4=Bonescythe Sabatons", "=ds="};
-		{ 10, 223060, "", "=q4=Bonescythe Ring", "=ds="};
-		Prev = "T1T2RogueHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T3ShamanHEROIC"] = {
-		{ 1, 0, "Spell_FireResistanceTotem_01", "=q6=#t3s7#", "=ec1=#m35#"};
-		{ 2, 222466, "", "=q4=Earthshatter Headpiece", "=ds="};
-		{ 3, 222467, "", "=q4=Earthshatter Spaulders", "=ds="};
-		{ 4, 222464, "", "=q4=Earthshatter Tunic", "=ds="};
-		{ 5, 222471, "", "=q4=Earthshatter Wristguards", "=ds="};
-		{ 6, 222469, "", "=q4=Earthshatter Handguards", "=ds="};
-		{ 7, 222470, "", "=q4=Earthshatter Girdle", "=ds="};
-		{ 8, 222465, "", "=q4=Earthshatter Legguards", "=ds="};
-		{ 9, 222468, "", "=q4=Earthshatter Boots", "=ds="};
-		{ 10, 223065, "", "=q4=Ring of the Earthshatterer", "=ds="};
-		Prev = "T1T2ShamanHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T3WarlockHEROIC"] = {
-		{ 1, 0, "Spell_Shadow_CurseOfTounges", "=q6=#t3s8#", "=ec1=#m35#"};
-		{ 2, 222506, "", "=q4=Plagueheart Circlet", "=ds="};
-		{ 3, 222507, "", "=q4=Plagueheart Shoulderpads", "=ds="};
-		{ 4, 222504, "", "=q4=Plagueheart Robe", "=ds="};
-		{ 5, 222511, "", "=q4=Plagueheart Bindings", "=ds="};
-		{ 6, 222509, "", "=q4=Plagueheart Gloves", "=ds="};
-		{ 7, 222510, "", "=q4=Plagueheart Belt", "=ds="};
-		{ 8, 222505, "", "=q4=Plagueheart Leggings", "=ds="};
-		{ 9, 222508, "", "=q4=Plagueheart Sandals", "=ds="};
-		{ 10, 223063, "", "=q4=Plagueheart Ring", "=ds="};
-		Prev = "T1T2WarlockHEROIC";
-		Back = "T1T2T3SET";
-	};
-
-	AtlasLoot_Data["T3WarriorHEROIC"] = {
-		{ 1, 0, "INV_Shield_05", "=q6=#t3s9#", "=ec1=#m35#"};
-		{ 2, 222418, "", "=q4=Dreadnaught Helmet", "=ds="};
-		{ 3, 222419, "", "=q4=Dreadnaught Pauldrons", "=ds="};
-		{ 4, 222416, "", "=q4=Dreadnaught Breastplate", "=ds="};
-		{ 5, 222423, "", "=q4=Dreadnaught Bracers", "=ds="};
-		{ 6, 222421, "", "=q4=Dreadnaught Gauntlets", "=ds="};
-		{ 7, 222422, "", "=q4=Dreadnaught Waistguard", "=ds="};
-		{ 8, 222417, "", "=q4=Dreadnaught Legplates", "=ds="};
-		{ 9, 222420, "", "=q4=Dreadnaught Sabatons", "=ds="};
-		{ 10, 223059, "", "=q4=Ring of the Dreadnaught", "=ds="};
-		Prev = "T1T2WarriorHEROIC";
-		Back = "T1T2T3SET";
-	};
 		------------------------
 		--- Vanilla WoW Sets ---
 		------------------------
@@ -7624,7 +6278,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 19826, "", "=q4=Zandalar Freethinker's Belt", "=q4=#zgt2#, =ds=#r3#"};
 		{ 28, 19827, "", "=q4=Zandalar Freethinker's Armguards", "=q4=#zgt3#, =ds=#r2#"};
 		Next = "ZGSets2";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
 
 	AtlasLoot_Data["ZGSets2"] = {
@@ -7654,7 +6308,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 28, 19848, "", "=q4=Zandalar Demoniac's Wraps", "=q4=#zgt5#, =ds=#r2#"};
 		Next = "ZGSets3";
 		Prev = "ZGSets1";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
 
 	AtlasLoot_Data["ZGSets3"] = {
@@ -7665,84 +6319,8 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 5, 19823, "", "=q4=Zandalar Vindicator's Belt", "=q4=#zgt7#, =ds=#r3#"};
 		{ 6, 19824, "", "=q4=Zandalar Vindicator's Armguards", "=q4=#zgt8#, =ds=#r2#"};
 		Prev = "ZGSets2";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
-
-
-	----------------------
-	--- ZG HEROIC Sets ---
-	----------------------
-
-	AtlasLoot_Data["ZGSets1HEROIC"] = {
-		{ 1, 0, "Spell_Nature_Regeneration", "=q6=#zgs1#", "=ec1=#c1#"};
-		{ 2, 19955, "", "=q4=Wushoolay's Charm of Nature", ""};
-		{ 3, 19613, "", "=q4=Pristine Enchanted South Seas Kelp", "=ds=#r5#"};
-		{ 4, 219838, "", "=q4=Zandalar Haruspex's Tunic", "=q4=#zgt9#, =ds=#r4#"};
-		{ 5, 219839, "", "=q4=Zandalar Haruspex's Belt", "=q4=#zgt4#, =ds=#r3#"};
-		{ 6, 219840, "", "=q4=Zandalar Haruspex's Bracers", "=q4=#zgt5#, =ds=#r2#"};
-		{ 8, 0, "Ability_Hunter_RunningShot", "=q6=#zgs2#", "=ec1=#c2#"};
-		{ 9, 19953, "", "=q4=Renataki's Charm of Beasts", ""};
-		{ 10, 19621, "", "=q4=Maelstrom's Wrath", "=ds=#r5#"};
-		{ 11, 219831, "", "=q4=Zandalar Predator's Mantle", "=q4=#zgt6#, =ds=#r4#"};
-		{ 12, 219832, "", "=q4=Zandalar Predator's Belt", "=q4=#zgt2#, =ds=#r3#"};
-		{ 13, 219833, "", "=q4=Zandalar Predator's Bracers", "=q4=#zgt3#, =ds=#r2#"};
-		{ 16, 0, "Spell_Frost_IceStorm", "=q6=#zgs3#", "=ec1=#c3#"};
-		{ 17, 19959, "", "=q4=Hazza'rah's Charm of Magic", ""};
-		{ 18, 19601, "", "=q4=Jewel of Kajaro", "=ds=#r5#"};
-		{ 19, 220034, "", "=q4=Zandalar Illusionist's Robe", "=q4=#zgt1#, =ds=#r4#"};
-		{ 20, 219845, "", "=q4=Zandalar Illusionist's Mantle", "=q4=#zgt2#, =ds=#r3#"};
-		{ 21, 219846, "", "=q4=Zandalar Illusionist's Wraps", "=q4=#zgt3#, =ds=#r2#"};
-		{ 23, 0, "Spell_Holy_SealOfMight", "=q6=#zgs4#", "=ec1=#c4#"};
-		{ 24, 19952, "", "=q4=Gri'lek's Charm of Valor", ""};
-		{ 25, 19588, "", "=q4=Hero's Brand", "=ds=#r5#"};
-		{ 26, 219825, "", "=q4=Zandalar Freethinker's Breastplate", "=q4=#zgt9#, =ds=#r4#"};
-		{ 27, 219826, "", "=q4=Zandalar Freethinker's Belt", "=q4=#zgt2#, =ds=#r3#"};
-		{ 28, 219827, "", "=q4=Zandalar Freethinker's Armguards", "=q4=#zgt3#, =ds=#r2#"};
-		Next = "ZGSets2HEROIC";
-		Back = "SETSCLASSIC";
-	};
-
-	AtlasLoot_Data["ZGSets2HEROIC"] = {
-		{ 1, 0, "Spell_Holy_PowerWordShield", "=q6=#zgs5#", "=ec1=#c5#"};
-		{ 2, 19958, "", "=q4=Hazza'rah's Charm of Healing", ""};
-		{ 3, 19594, "", "=q4=The All-Seeing Eye of Zuldazar", "=ds=#r5#"};
-		{ 4, 219841, "", "=q4=Zandalar Confessor's Mantle", "=q4=#zgt6#, =ds=#r4#"};
-		{ 5, 219842, "", "=q4=Zandalar Confessor's Bindings", "=q4=#zgt4#, =ds=#r3#"};
-		{ 6, 219843, "", "=q4=Zandalar Confessor's Wraps", "=q4=#zgt5#, =ds=#r2#"};
-		{ 8, 0, "Ability_BackStab", "=q6=#zgs6#", "=ec1=#c6#"};
-		{ 9, 19954, "", "=q4=Renataki's Charm of Trickery", ""};
-		{ 10, 19617, "", "=q4=Zandalarian Shadow Mastery Talisman", "=ds=#r5#"};
-		{ 11, 219834, "", "=q4=Zandalar Madcap's Tunic", "=q4=#zgt6#, =ds=#r4#"};
-		{ 12, 219835, "", "=q4=Zandalar Madcap's Mantle", "=q4=#zgt7#, =ds=#r3#"};
-		{ 13, 219836, "", "=q4=Zandalar Madcap's Bracers", "=q4=#zgt8#, =ds=#r2#"};
-		{ 16, 0, "Spell_FireResistanceTotem_01", "=q6=#zgs7#", "=ec1=#c7#"};
-		{ 17, 19956, "", "=q4=Wushoolay's Charm of Spirits", ""};
-		{ 18, 19609, "", "=q4=Unmarred Vision of Voodress", "=ds=#r5#"};
-		{ 19, 219828, "", "=q4=Zandalar Augur's Hauberk", "=q4=#zgt9#, =ds=#r4#"};
-		{ 20, 219829, "", "=q4=Zandalar Augur's Belt", "=q4=#zgt7#, =ds=#r3#"};
-		{ 21, 219830, "", "=q4=Zandalar Augur's Bracers", "=q4=#zgt8#, =ds=#r2#"};
-		{ 23, 0, "Spell_Shadow_CurseOfTounges", "=q6=#zgs8#", "=ec1=#c8#"};
-		{ 24, 19957, "", "=q4=Hazza'rah's Charm of Destruction", ""};
-		{ 25, 19605, "", "=q4=Kezan's Unstoppable Taint", "=ds=#r5#"};
-		{ 26, 220033, "", "=q4=Zandalar Demoniac's Robe", "=q4=#zgt1#, =ds=#r4#"};
-		{ 27, 219849, "", "=q4=Zandalar Demoniac's Mantle", "=q4=#zgt4#, =ds=#r3#"};
-		{ 28, 219848, "", "=q4=Zandalar Demoniac's Wraps", "=q4=#zgt5#, =ds=#r2#"};
-		Next = "ZGSets3HEROIC";
-		Prev = "ZGSets1HEROIC";
-		Back = "SETSCLASSIC";
-	};
-
-	AtlasLoot_Data["ZGSets3HEROIC"] = {
-		{ 1, 0, "INV_Shield_05", "=q6=#zgs9#", "=ec1=#c9#"};
-		{ 2, 19951, "", "=q4=Gri'lek's Charm of Might", ""};
-		{ 3, 19577, "", "=q4=Rage of Mugamba", "=ds=#r5#"};
-		{ 4, 219822, "", "=q4=Zandalar Vindicator's Breastplate", "=q4=#zgt1#, =ds=#r4#"};
-		{ 5, 219823, "", "=q4=Zandalar Vindicator's Belt", "=q4=#zgt7#, =ds=#r3#"};
-		{ 6, 219824, "", "=q4=Zandalar Vindicator's Armguards", "=q4=#zgt8#, =ds=#r2#"};
-		Prev = "ZGSets2HEROIC";
-		Back = "SETSCLASSIC";
-	};
-
 
 		-----------------
 		--- AQ20 Sets ---
@@ -7774,7 +6352,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 28, 21406, "", "=q4=Cloak of Veiled Shadows", "=q3=#aq20t2#, =ds=#r4#"};
 		{ 29, 21405, "", "=q4=Band of Veiled Shadows", "=q3=#aq20t4#, =ds=#r3#"};
 		Next = "AQ20Sets2";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
 
 	AtlasLoot_Data["AQ20Sets2"] = {
@@ -7791,58 +6369,9 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 13, 21394, "", "=q4=Drape of Unyielding Strength", "=q3=#aq20t2#, =ds=#r4#"};
 		{ 14, 21393, "", "=q4=Signet of Unyielding Strength", "=q3=#aq20t3#=ds=, #r3#"};
 		Prev = "AQ20Sets1";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
 
-		------------------------
-		--- AQ20 Sets HEROIC ---
-		------------------------
-
-	AtlasLoot_Data["AQ20Sets1HEROIC"] = {
-		{ 1, 0, "Spell_Nature_Regeneration", "=q6=#aq20s1#", "=ec1=#c1#"};
-		{ 2, 221407, "", "=q4=Mace of Unending Life", "=q4=#aq20t1#, =ds=#r5#"};
-		{ 3, 221409, "", "=q4=Cloak of Unending Life", "=q3=#aq20t5#, =ds=#r4#"};
-		{ 4, 221408, "", "=q4=Band of Unending Life", "=q3=#aq20t3#, =ds=#r3#"};
-		{ 6, 0, "Ability_Hunter_RunningShot", "=q6=#aq20s2#", "=ec1=#c2#"};
-		{ 7, 221401, "", "=q4=Scythe of the Unseen Path", "=q4=#aq20t6#, =ds=#r5#"};
-		{ 8, 221403, "", "=q4=Cloak of the Unseen Path", "=q3=#aq20t5#, =ds=#r4#"};
-		{ 9, 221402, "", "=q4=Signet of the Unseen Path", "=q3=#aq20t4#, =ds=#r3#"};
-		{ 11, 0, "Spell_Frost_IceStorm", "=q6=#aq20s3#", "=ec1=#c3#"};
-		{ 12, 221413, "", "=q4=Blade of Vaulted Secrets", "=q4=#aq20t1#, =ds=#r5#"};
-		{ 13, 221415, "", "=q4=Drape of Vaulted Secrets", "=q3=#aq20t2#, =ds=#r4#"};
-		{ 14, 221414, "", "=q4=Band of Vaulted Secrets", "=q3=#aq20t3#, =ds=#r3#"};
-		{ 16, 0, "Spell_Holy_SealOfMight", "=q6=#aq20s4#", "=ec1=#c4#"};
-		{ 17, 221395, "", "=q4=Blade of Eternal Justice", "=q4=#aq20t6#, =ds=#r5#"};
-		{ 18, 221397, "", "=q4=Cape of Eternal Justice", "=q3=#aq20t5#, =ds=#r4#"};
-		{ 19, 221396, "", "=q4=Ring of Eternal Justice", "=q3=#aq20t3#, =ds=#r3#"};
-		{ 21, 0, "Spell_Holy_PowerWordShield", "=q6=#aq20s5#", "=ec1=#c5#"};
-		{ 22, 221410, "", "=q4=Gavel of Infinite Wisdom", "=q4=#aq20t1#, =ds=#r5#"};
-		{ 23, 221412, "", "=q4=Shroud of Infinite Wisdom", "=q3=#aq20t2#, =ds=#r4#"};
-		{ 24, 221411, "", "=q4=Ring of Infinite Wisdom", "=q3=#aq20t4#, =ds=#r3#"};
-		{ 26, 0, "Ability_BackStab", "=q6=#aq20s6#", "=ec1=#c6#"};
-		{ 27, 221404, "", "=q4=Dagger of Veiled Shadows", "=q4=#aq20t6#, =ds=#r5#"};
-		{ 28, 221406, "", "=q4=Cloak of Veiled Shadows", "=q3=#aq20t2#, =ds=#r4#"};
-		{ 29, 221405, "", "=q4=Band of Veiled Shadows", "=q3=#aq20t4#, =ds=#r3#"};
-		Next = "AQ20Sets2HEROIC";
-		Back = "SETSCLASSIC";
-	};
-
-	AtlasLoot_Data["AQ20Sets2HEROIC"] = {
-		{ 1, 0, "Spell_FireResistanceTotem_01", "=q6=#aq20s7#", "=ec1=#c7#"};
-		{ 2, 221398, "", "=q4=Hammer of the Gathering Storm", "=q4=#aq20t6#, =ds=#r5#"};
-		{ 3, 221400, "", "=q4=Cloak of the Gathering Storm", "=q3=#aq20t5#, =ds=#r4#"};
-		{ 4, 221399, "", "=q4=Ring of the Gathering Storm", "=q3=#aq20t3#, =ds=#r3#"};
-		{ 6, 0, "Spell_Shadow_CurseOfTounges", "=q6=#aq20s8#", "=ec1=#c8#"};
-		{ 7, 221416, "", "=q4=Kris of Unspoken Names", "=q4=#aq20t1#, =ds=#r5#"};
-		{ 8, 221418, "", "=q4=Shroud of Unspoken Names", "=q3=#aq20t5#, =ds=#r4#"};
-		{ 9, 221417, "", "=q4=Ring of Unspoken Names", "=q3=#aq20t4#, =ds=#r3#"};
-		{ 11, 0, "INV_Shield_05", "=q6=#aq20s9#", "=ec1=#c9#"};
-		{ 12, 221392, "", "=q4=Sickle of Unyielding Strength", "=q4=#aq20t6#, =ds=#r5#"};
-		{ 13, 221394, "", "=q4=Drape of Unyielding Strength", "=q3=#aq20t2#, =ds=#r4#"};
-		{ 14, 221393, "", "=q4=Signet of Unyielding Strength", "=q3=#aq20t3#=ds=, #r3#"};
-		Prev = "AQ20Sets1HEROIC";
-		Back = "SETSCLASSIC";
-	};
 		-----------------
 		--- AQ40 Sets ---
 		-----------------
@@ -7873,7 +6402,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 27, 21391, "", "=q4=Avenger's Pauldrons", "=q4=#aq40t1#, =ds=#r1#"};
 		{ 28, 21388, "", "=q4=Avenger's Greaves", "=q4=#aq40t1#, =ds=#r1#"};
 		Next = "AQ40Sets2";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
 
 	AtlasLoot_Data["AQ40Sets2"] = {
@@ -7903,7 +6432,7 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 28, 21338, "", "=q4=Doomcaller's Footwraps", "=q4=#aq40t1#, =ds=#r1#"};
 		Next = "AQ40Sets3";
 		Prev = "AQ40Sets1";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
 
 	AtlasLoot_Data["AQ40Sets3"] = {
@@ -7913,83 +6442,16 @@ AtlasLoot_Data["AQ20ClassBooksHEROIC"] = {
 		{ 4, 21332, "", "=q4=Conqueror's Legguards", "=q4=#aq40t3#, =ds=#r2#"};
 		{ 5, 21330, "", "=q4=Conqueror's Spaulders", "=q4=#aq40t5#, =ds=#r1#"};
 		{ 6, 21333, "", "=q4=Conqueror's Greaves", "=q4=#aq40t5#, =ds=#r1#"};
+		{ 16, 0, "Ability_Warrior_BattleShout", "=q6=#aq40s9#", "=ec1=#c9#"};
+		{ 17, 10912, "", "=q4=Conqueror's Chestplate", "=q4=#aq40t8#, =ds=#r3#"};
+		{ 18, 10910, "", "=q4=Conqueror's Headguard", "=q4=#aq40t2#, =ds=#r2#"};
+		{ 19, 10913, "", "=q4=Conqueror's Platelegs", "=q4=#aq40t3#, =ds=#r2#"};
+		{ 20, 10911, "", "=q4=Conqueror's Shoulderpads", "=q4=#aq40t5#, =ds=#r1#"};
+		{ 21, 10914, "", "=q4=Conqueror's War Stompers", "=q4=#aq40t5#, =ds=#r1#"};
 		Prev = "AQ40Sets2";
-		Back = "SETSCLASSIC";
+		Back = "SETMENU";
 	};
 
-		-----------------------
-		--- AQ40 Sets HEROIC---
-		-----------------------
-
-	AtlasLoot_Data["AQ40Sets1HEROIC"] = {
-		{ 1, 0, "Spell_Nature_Regeneration", "=q6=#aq40s1#", "=ec1=#c1#"};
-		{ 2, 221357, "", "=q4=Genesis Vest", "=q4=#aq40t4#, =ds=#r3#"};
-		{ 3, 221353, "", "=q4=Genesis Helm", "=q4=#aq40t6#, =ds=#r2#"};
-		{ 4, 221356, "", "=q4=Genesis Trousers", "=q4=#aq40t7#, =ds=#r2#"};
-		{ 5, 221354, "", "=q4=Genesis Shoulderpads", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 6, 221355, "", "=q4=Genesis Boots", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 8, 0, "Ability_Hunter_RunningShot", "=q6=#aq40s2#", "=ec1=#c2#"};
-		{ 9, 221370, "", "=q4=Striker's Hauberk", "=q4=#aq40t8#, =ds=#r3#"};
-		{ 10, 221366, "", "=q4=Striker's Diadem", "=q4=#aq40t6#, =ds=#r2#"};
-		{ 11, 221368, "", "=q4=Striker's Leggings", "=q4=#aq40t7#, =ds=#r2#"};
-		{ 12, 221367, "", "=q4=Striker's Pauldrons", "=q4=#aq40t5#, =ds=#r1#"};
-		{ 13, 221365, "", "=q4=Striker's Footguards", "=q4=#aq40t5#, =ds=#r1#"};
-		{ 16, 0, "Spell_Frost_IceStorm", "=q6=#aq40s3#", "=ec1=#c3#"};
-		{ 17, 221343, "", "=q4=Enigma Robes", "=q4=#aq40t4#, =ds=#r3#"};
-		{ 18, 221347, "", "=q4=Enigma Circlet", "=q4=#aq40t2#, =ds=#r2#"};
-		{ 19, 221346, "", "=q4=Enigma Leggings", "=q4=#aq40t3#, =ds=#r2#"};
-		{ 20, 221345, "", "=q4=Enigma Shoulderpads", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 21, 221344, "", "=q4=Enigma Boots", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 23, 0, "Spell_Holy_SealOfMight", "=q6=#aq40s4#", "=ec1=#c4#"};
-		{ 24, 221389, "", "=q4=Avenger's Breastplate", "=q4=#aq40t8#, =ds=#r3#"};
-		{ 25, 221387, "", "=q4=Avenger's Crown", "=q4=#aq40t6#, =ds=#r2#"};
-		{ 26, 221390, "", "=q4=Avenger's Legguards", "=q4=#aq40t7#, =ds=#r2#"};
-		{ 27, 221391, "", "=q4=Avenger's Pauldrons", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 28, 221388, "", "=q4=Avenger's Greaves", "=q4=#aq40t1#, =ds=#r1#"};
-		Next = "AQ40Sets2HEROIC";
-		Back = "SETSCLASSIC";
-	};
-
-	AtlasLoot_Data["AQ40Sets2HEROIC"] = {
-		{ 1, 0, "Spell_Holy_PowerWordShield", "=q6=#aq40s5#", "=ec1=#c5#"};
-		{ 2, 221351, "", "=q4=Vestments of the Oracle", "=q4=#aq40t4#, =ds=#r3#"};
-		{ 3, 221348, "", "=q4=Tiara of the Oracle", "=q4=#aq40t2#, =ds=#r2#"};
-		{ 4, 221352, "", "=q4=Trousers of the Oracle", "=q4=#aq40t3#, =ds=#r2#"};
-		{ 5, 221350, "", "=q4=Mantle of the Oracle", "=q4=#aq40t5#, =ds=#r1#"};
-		{ 6, 221349, "", "=q4=Footwraps of the Oracle", "=q4=#aq40t5#, =ds=#r1#"};
-		{ 8, 0, "Ability_BackStab", "=q6=#aq40s6#", "=ec1=#c6#"};
-		{ 9, 221364, "", "=q4=Deathdealer's Vest", "=q4=#aq40t8#, =ds=#r3#"};
-		{ 10, 221360, "", "=q4=Deathdealer's Helm", "=q4=#aq40t6#, =ds=#r2#"};
-		{ 11, 221362, "", "=q4=Deathdealer's Leggings", "=q4=#aq40t3#, =ds=#r2#"};
-		{ 12, 221361, "", "=q4=Deathdealer's Spaulders", "=q4=#aq40t5#, =ds=#r1#"};
-		{ 13, 221359, "", "=q4=Deathdealer's Boots", "=q4=#aq40t5#, =ds=#r1#"};
-		{ 16, 0, "Spell_FireResistanceTotem_01", "=q6=#aq40s7#", "=ec1=#c7#"};
-		{ 17, 221374, "", "=q4=Stormcaller's Hauberk", "=q4=#aq40t8#, =ds=#r3#"};
-		{ 18, 221372, "", "=q4=Stormcaller's Diadem", "=q4=#aq40t6#, =ds=#r2#"};
-		{ 19, 221375, "", "=q4=Stormcaller's Leggings", "=q4=#aq40t7#, =ds=#r2#"};
-		{ 20, 221376, "", "=q4=Stormcaller's Pauldrons", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 21, 221373, "", "=q4=Stormcaller's Footguards", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 23, 0, "Spell_Shadow_CurseOfTounges", "=q6=#aq40s8#", "=ec1=#c8#"};
-		{ 24, 221334, "", "=q4=Doomcaller's Robes", "=q4=#aq40t4#, =ds=#r3#"};
-		{ 25, 221337, "", "=q4=Doomcaller's Circlet", "=q4=#aq40t2#, =ds=#r2#"};
-		{ 26, 221336, "", "=q4=Doomcaller's Trousers", "=q4=#aq40t7#, =ds=#r2#"};
-		{ 27, 221335, "", "=q4=Doomcaller's Mantle", "=q4=#aq40t1#, =ds=#r1#"};
-		{ 28, 221338, "", "=q4=Doomcaller's Footwraps", "=q4=#aq40t1#, =ds=#r1#"};
-		Next = "AQ40Sets3HEROIC";
-		Prev = "AQ40Sets1HEROIC";
-		Back = "SETSCLASSIC";
-	};
-
-	AtlasLoot_Data["AQ40Sets3HEROIC"] = {
-		{ 1, 0, "INV_Shield_05", "=q6=#aq40s9#", "=ec1=#c9#"};
-		{ 2, 221331, "", "=q4=Conqueror's Breastplate", "=q4=#aq40t8#, =ds=#r3#"};
-		{ 3, 221329, "", "=q4=Conqueror's Crown", "=q4=#aq40t2#, =ds=#r2#"};
-		{ 4, 221332, "", "=q4=Conqueror's Legguards", "=q4=#aq40t3#, =ds=#r2#"};
-		{ 5, 221330, "", "=q4=Conqueror's Spaulders", "=q4=#aq40t5#, =ds=#r1#"};
-		{ 6, 221333, "", "=q4=Conqueror's Greaves", "=q4=#aq40t5#, =ds=#r1#"};
-		Prev = "AQ40Sets2HEROIC";
-		Back = "SETSCLASSIC";
-	};
 		-----------------------
 		--- BoE World Epics ---
 		-----------------------
@@ -9801,6 +8263,8 @@ AtlasLoot_Data["PVPWarrior2"] = {
 		{ 18, 20622, "", "=q4=Dragonheart Necklace", "=ds=#s2#", "", "12.35%"};
 		{ 19, 20624, "", "=q4=Ring of the Unliving", "=ds=#s13#", "", "13.23%"};
 		{ 20, 20599, "", "=q4=Polished Ironwood Crossbow", "=ds=#w3#", "", "12.63%"};
+		Prev = "WorldBossesClassic";
+		Next = "DLethon";
 	};
 
 	AtlasLoot_Data["DLethon"] = {
@@ -9821,6 +8285,8 @@ AtlasLoot_Data["PVPWarrior2"] = {
 		{ 19, 20627, "", "=q4=Dark Heart Pants", "=ds=#s11#, #a2#", "", "11.68%"};
 		{ 20, 20629, "", "=q4=Malignant Footguards", "=ds=#s12#, #a3#", "", "4.46%"};
 		{ 21, 20630, "", "=q4=Gauntlets of the Shining Light", "=ds=#s9#, #a4#", "", "8.19%"};
+		Prev = "DEmeriss";
+		Next = "DTaerar";
 	};
 
 	AtlasLoot_Data["DTaerar"] = {
@@ -9840,6 +8306,8 @@ AtlasLoot_Data["PVPWarrior2"] = {
 		{ 18, 20634, "", "=q4=Boots of Fright", "=ds=#s12#, #a2#", "", "10.15%"};
 		{ 19, 20632, "", "=q4=Mindtear Band", "=ds=#s13#", "", "13.69%"};
 		{ 20, 20577, "", "=q4=Nightmare Blade", "=ds=#h1#, #w10#", "", "12.07%"};
+		Prev = "DLethon";
+		Next = "DYsondre";
 	};
 
 	AtlasLoot_Data["DYsondre"] = {
@@ -9860,6 +8328,8 @@ AtlasLoot_Data["PVPWarrior2"] = {
 		{ 19, 20639, "", "=q4=Strangely Glyphed Legplates", "=ds=#s11#, #a4#", "", "8.87%"};
 		{ 20, 20636, "", "=q4=Hibernation Crystal", "=ds=#s14#", "", "12.75%"};
 		{ 21, 20578, "", "=q4=Emerald Dragonfang", "=ds=#h1#, #w4#", "", "9.95%"};
+		Prev = "DTaerar";
+		Next = "Kazzak60";
 	};
 
 		----------------
@@ -9879,7 +8349,8 @@ AtlasLoot_Data["PVPWarrior2"] = {
 		{ 10, 19130, "", "=q4=Cold Snap", "=ds=#w12#", "", "11.89%"};
 		{ 11, 18704, "", "=q4=Mature Blue Dragon Sinew", "=ds=#m3# =q1=(#c2#)", "", "51.56%"};
 		{ 12, 18714, "", "=q4=Ancient Sinew Wrapped Lamina", "=q1=#m4#: =ds=#m14# #w19#"};
-		
+		Prev = "Setis";
+		Next = "DEmeriss";
 	};
 
 	AtlasLoot_Data["Kazzak60"] = {
@@ -9893,6 +8364,8 @@ AtlasLoot_Data["PVPWarrior2"] = {
 		{ 8, 18544, "", "=q4=Doomhide Gauntlets", "=ds=#s9#, #a2#", "", "11.76%"};
 		{ 9, 19134, "", "=q4=Flayed Doomguard Belt", "=ds=#s10#, #a2#", "", "16.89%"};
 		{ 10, 19135, "", "=q4=Blacklight Bracer", "=ds=#s8#, #a1#", "", "11.89%"};
+		Prev = "DYsondre";
+		Next = "Setis";
 	
 	};
 
@@ -9907,5 +8380,7 @@ AtlasLoot_Data["PVPWarrior2"] = {
 		{ 8,122888, "", "=q4=Amulet of the Gate Warden", "=ds=#s2#", "", ""};
 		{ 9,122889, "", "=q4=Amulet of the Sand Prince", "=ds=#s2#", "", ""};
 		{ 10,122890, "", "=q4=Amulet of the Shifting Sands", "=ds=#s2#", "", ""};
+		Prev = "Kazzak60";
+		Next = "WorldBossesClassic";
 
 	};

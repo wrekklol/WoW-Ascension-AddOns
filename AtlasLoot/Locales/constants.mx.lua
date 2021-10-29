@@ -150,7 +150,7 @@ if AL then
 	AL[" deleted from the WishList."] = " borrado de la lista de deseos";
 
 	--Incomplete Table Registry error message
-	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at http://www.atlasloot.net"] = " no figura en el registro de botines, por favor informa sobre este mensaje en los foros de AtlasLoot http://www.atlasloot.net";
+	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at https://discord.gg/uYCE2X2FgA"] = " no figura en el registro de botines, por favor informa sobre este mensaje en los foros de AtlasLoot https://discord.gg/uYCE2X2FgA";
 
 	--LoD Module disabled or missing
 	AL[" is unavailable, the following load on demand module is required: "] = " no está disponible, se necesita el siguiente módulo: ";

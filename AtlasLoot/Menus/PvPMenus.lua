@@ -14,16 +14,15 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 11, "PvP80NonSet1", "INV_Jewelry_Necklace_36", "=ds="..AL["PvP Accessories"], "=q5="..AL["Level 80"]};
 		{ 12, "PvP80Misc", "INV_Scroll_06", "=ds="..AL["PvP Misc"], "=q5="..AL["Level 80"]};
 		{ 13, "LEVEL80PVPSETS", "INV_Boots_01", "=ds="..AL["PvP Armor Sets"], "=q5="..AL["Level 80"], "" };
-		{ 15, "WINTERGRASPMENU", "INV_Misc_Platnumdisks", "=ds="..BabbleZone["Wintergrasp"], ""};
 		{ 16, "PVPWeapons_A", "INV_Weapon_Bow_08", "=ds="..AL["PvP Weapons"], "=q5="..AL["Level 60"]};
 		{ 17, "PvP60Ench", "INV_Scroll_06", "=ds="..AL["PvP Enchants"], "=q5="..AL["Level 60"]};
-		{ 21, "Arena1Weapons1", "INV_Weapon_Crossbow_09", "=ds="..AL["Arena Season 1 Weapons"], "=q5="..AL["Level 70"]};
-		{ 22, "Arena2Weapons1", "INV_Weapon_Crossbow_10", "=ds="..AL["Arena Season 2 Weapons"], "=q5="..AL["Level 70"]};
-		{ 23, "Arena3Weapons1", "INV_Weapon_Crossbow_11", "=ds="..AL["Arena Season 3 Weapons"], "=q5="..AL["Level 70"]};
-		{ 24, "Arena4Weapons1", "INV_Weapon_Crossbow_12", "=ds="..AL["Arena Season 4 Weapons"], "=q5="..AL["Level 70"]};
+		{ 20, "Arena0Weapons1_A", "INV_Weapon_Crossbow_09", "=ds="..AL["Arena Season 0 Weapons"], "=q5="..AL["Level 70"]};
+		{ 21, "Arena1Weapons1", "INV_Weapon_Crossbow_10", "=ds="..AL["Arena Season 1 Weapons"], "=q5="..AL["Level 70"]};
+		{ 22, "Arena2Weapons1", "INV_Weapon_Crossbow_11", "=ds="..AL["Arena Season 2 Weapons"], "=q5="..AL["Level 70"]};
+		{ 23, "Arena3Weapons1", "INV_Weapon_Crossbow_12", "=ds="..AL["Arena Season 3 Weapons"], "=q5="..AL["Level 70"]};
+		{ 24, "Arena4Weapons1", "inv_weapon_crossbow_26", "=ds="..AL["Arena Season 4 Weapons"], "=q5="..AL["Level 70"]};
 		{ 26, "PVP80NONSETEPICS", "inv_bracer_51", "=ds="..AL["PvP Non-Set Epics"], "=q5="..AL["Level 80"]};
 		{ 27, "WrathfulGladiatorWeapons1", "INV_Sword_86", "=ds="..AL["Wrathful Gladiator\'s Weapons"], "=q5="..AL["Level 80"] };
-		{ 30, "VentureBay1", "INV_Misc_Coin_16", "=ds="..BabbleZone["Grizzly Hills"], "=q5="..AL["Venture Bay"]};
 		Back = "SETMENU";
 	};
 
@@ -41,6 +40,8 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 12, "Zangarmarsh", "Spell_Nature_ElementalPrecision_1", "=ds="..BabbleZone["Zangarmarsh"], "=q5="..AL["Twin Spire Ruins"]};
 		{ 26, "Terokkar", "INV_Jewelry_FrostwolfTrinket_04", "=ds="..BabbleZone["Terokkar Forest"], "=q5="..AL["Spirit Towers"]};
 		{ 27, "Nagrand1", "INV_Misc_Rune_09", "=ds="..BabbleZone["Nagrand"], "=q5="..AL["Halaa"]};
+		{ 14, "WINTERGRASPMENU", "INV_Misc_Platnumdisks", "=ds="..BabbleZone["Wintergrasp"], ""};
+		{ 29, "VentureBay1", "INV_Misc_Coin_16", "=ds="..BabbleZone["Grizzly Hills"], "=q5="..AL["Venture Bay"]};
 		Back = "PVPMENU";
 	};
 
@@ -80,10 +81,16 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 	};
 	
 	AtlasLoot_Data["PVP70RepSET"] = {
-		{ 2, "PVP70RepCloth", "INV_Boots_Cloth_12", "=ds="..BabbleInventory["Cloth"], ""};
-		{ 3, "PVP70RepMail", "INV_Boots_Plate_06", "=ds="..BabbleInventory["Mail"], ""};
-		{ 17, "PVP70RepLeather", "INV_Boots_08", "=ds="..BabbleInventory["Leather"], ""};
-		{ 18, "PVP70RepPlate", "INV_Boots_Plate_04", "=ds="..BabbleInventory["Plate"], ""};
+		{ 2, "PVP70RepCloth", "INV_Boots_Cloth_12", "=ds="..BabbleInventory["Cloth"], "=q5=".."Reputation"};
+		{ 3, "PVP70RepMail", "INV_Boots_Plate_06", "=ds="..BabbleInventory["Mail"], "=q5=".."Reputation"};
+		{ 17, "PVP70RepLeather", "INV_Boots_08", "=ds="..BabbleInventory["Leather"], "=q5=".."Reputation"};
+		{ 18, "PVP70RepPlate", "INV_Boots_Plate_04", "=ds="..BabbleInventory["Plate"], "=q5=".."Reputation"};
+		{ 5, "PVP70RareCloth_A", "INV_Boots_Cloth_12", "=ds="..BabbleInventory["Cloth"], "=q5=".."Pre-Arena"};
+		{ 6, "PVP70RareMail_A", "INV_Boots_Plate_06", "=ds="..BabbleInventory["Mail"], "=q5=".."Pre-Arena"};
+		{ 20, "PVP70RareLeather_A", "INV_Boots_08", "=ds="..BabbleInventory["Leather"], "=q5=".."Pre-Arena"};
+		{ 21, "PVP70RarePlate_A", "INV_Boots_Plate_04", "=ds="..BabbleInventory["Plate"], "=q5=".."Pre-Arena"};
+		
+		
 		Back = "PVPMENU";
 	};
 
@@ -124,7 +131,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 17, "LakeWintergrasp1", "inv_misc_rune_11", "=ds="..AL["Accessories"], ""};
 		{ 18, "LakeWintergrasp7", "inv_sword_19", "=ds="..AL["Heirloom"], ""};
 		{ 19, "LakeWintergrasp6", "inv_jewelcrafting_icediamond_02", "=ds="..AL["PVP Gems/Enchants/Jewelcrafting Designs"], ""};
-		Back = "PVPMENU";
+		Back = "PVPMENU2";
 	};
 	
 	

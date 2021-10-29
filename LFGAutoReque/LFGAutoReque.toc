@@ -1,0 +1,6 @@
+## Title: LFGAutoReque by Nihilianth
+## Version: 1.0
+## Author: nihilianth
+## Interface: 30300
+
+core.lua

@@ -1,0 +1,8 @@
+## Interface: 30300
+## Version: 1
+## Title: Instance Portals
+## Notes: Displays dungeon & raid portals on the world map
+
+ipPinDB.lua
+ipCore.lua
+InstancePortals.xml

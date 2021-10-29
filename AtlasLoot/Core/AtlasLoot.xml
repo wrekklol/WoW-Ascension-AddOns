@@ -11,6 +11,7 @@
 	<Script file="AtlasLoot.lua"/>
 	<Script file="WishList.lua"/>
     <Script file="Search.lua"/>
+	<Script file="ItemIDsDatabase.lua"/>
     
 	
     <GameTooltip name="AtlasLootTooltip" inherits="GameTooltipTemplate" parent="UIParent" hidden="true"/>
@@ -565,47 +566,6 @@
 			<Button name="AtlasLootMenuItem_30" inherits="AtlasLootMenuItem_Template" id="30">
 				<Anchors><Anchor point="TOPLEFT" relativeTo="AtlasLootItem_29" relativePoint="BOTTOMLEFT"/></Anchors>
 			</Button>
-            <Button name="AtlasLoot10Man25ManSwitch" inherits="OptionsButtonTemplate">
-				<Size>
-					<AbsDimension x="160" y="23"/>
-				</Size>
-				<Anchors>
-					<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="BOTTOM">
-						<Offset>
-							<AbsDimension x="-120" y="4"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-                    <OnShow>
-                        local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
-			        </OnShow>
-					<OnClick>
-						AtlasLoot_10Man25ManToggle();
-					</OnClick>
-				</Scripts>
-			</Button>
-            <CheckButton name="$parent_Heroic" inherits="OptionsCheckButtonTemplate" hidden="true">
-				<Anchors>
-					<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="BOTTOM">
-						<Offset>
-							<AbsDimension x="-185" y="24"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-                    <OnShow>
-		                this:SetFrameLevel( (this:GetParent()):GetFrameLevel() + 1 );
-	                </OnShow>
-					<OnLoad>
-                        local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
-						getglobal(this:GetName().."Text"):SetText(AL["Heroic Mode"]);
-					</OnLoad>
-					<OnClick>
-						AtlasLoot_HeroicModeToggle();						
-					</OnClick>
-				</Scripts>
-			</CheckButton>
             <Button name="$parent_BACK" inherits="AtlasLootClassButtonTemplate" hidden="true">
                 <Anchors>
                     <Anchor point="BOTTOM" relativeTo="$parent" relativePoint="BOTTOM">
@@ -1065,7 +1025,7 @@
 				<Anchors>
 					<Anchor point="TOP">
 						<Offset>
-							<AbsDimension x="30" y="-200"/>
+							<AbsDimension x="30" y="-190"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -1087,7 +1047,7 @@
 				<Anchors>
 					<Anchor point="TOP">
 						<Offset>
-							<AbsDimension x="30" y="-230"/>
+							<AbsDimension x="30" y="-220"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -1099,7 +1059,7 @@
 				<Anchors>
 					<Anchor point="TOP">
 						<Offset>
-							<AbsDimension x="0" y="-285" />
+							<AbsDimension x="0" y="-300" />
 						</Offset>
 					</Anchor>
 				</Anchors>

@@ -2,7 +2,7 @@
 Name        : AtlasLootFu
 Version     : 2.0
 Author      : Daviesh (oma_daviesh@hotmail.com)
-Website     : http://www.atlasloot.net
+Website     : https://discord.gg/uYCE2X2FgA
 Description : Adds AtlasLoot to FuBar.
 ]]
 

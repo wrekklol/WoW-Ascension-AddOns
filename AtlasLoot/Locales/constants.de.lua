@@ -1443,7 +1443,7 @@ if AL then
 	AL[".  Right click on any other item to refresh the loot page."] = ".  Rechtsklicken Sie ein anderes Item um die Seite zu aktualisieren.";
 
 	-- Incomplete Table Registry error message
-	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at http://www.atlasloot.net"] = " nicht im Loot-Tabellen Register gelistet, bitte melde diese Nachricht im AtlasLoot Forum unter http://www.atlasloot.net";
+	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at https://discord.gg/uYCE2X2FgA"] = " nicht im Loot-Tabellen Register gelistet, bitte melde diese Nachricht im AtlasLoot Forum unter https://discord.gg/uYCE2X2FgA";
 
 	-- LoD Module disabled or missing
 	AL[" is unavailable, the following load on demand module is required: "] = " ist nicht verfügbar, das folgende Modul wird benötigt: ";

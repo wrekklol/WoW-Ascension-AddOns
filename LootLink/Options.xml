@@ -1,0 +1,84 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Frame name="LootLinkOptions" parent="UIParent">
+		<Scripts>
+			<OnLoad function="LootLink_OptionsOnLoad"/>
+		</Scripts>
+		
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="LootLink_OptionsTitle" text="LootLink" inherits="GameFontNormalLarge">
+					<Size>
+						<AbsDimension x="100" y="30"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="LootLinkOptions"/>
+					</Anchors>
+				</FontString>
+				<FontString name="LootLinkVersion" inherits="GameFontNormal" text="Version 1.6">
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT" relativeTo="LootLinkOptions" relativePoint="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="-20" y="20"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>				 
+			</Layer>
+		</Layers>
+	<Frames>		
+		<CheckButton name="LootLinkAutocomplete" inherits="OptionsCheckButtonTemplate">
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="LootLink_OptionsTitle" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="10" y="-10"/>
+						</Offset>
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnLoad>
+					self.alwaysShowTooltip = true
+					self.tooltipText = "Toggles chat autocomplete support."
+					_G[self:GetName().."Text"]:SetText("Chat link autocomplete.")
+				</OnLoad>
+				<OnClick>
+					LootLink_AutoComplete_Toggle();
+				</OnClick>
+			</Scripts>
+		</CheckButton>
+		<CheckButton name="LootLinkLight" inherits="OptionsCheckButtonTemplate">
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="LootLinkAutocomplete" relativePoint="BOTTOMLEFT">
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnLoad>
+					self.alwaysShowTooltip = true
+					self.tooltipText = "Toggles light-text search.  This uses less memory, but disables full tooltips on uncached items."
+					_G[self:GetName().."Text"]:SetText("Light text mode.")
+				</OnLoad>
+				<OnClick>
+					LootLink_LightMode_Toggle();
+				</OnClick>
+			</Scripts>
+		</CheckButton>	
+		<Button name="LootLinkReset" inherits="UIPanelButtonTemplate" text="Reset Data">
+			<Size>
+				<AbsDimension x="120" y="22"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="LootLinkOptions"  relativePoint="BOTTOMLEFT">
+					<Offset>
+						<AbsDimension x="10" y="15"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnClick>
+					StaticPopup_Show("LOOTLINK_RESET_CONFIRM")
+				</OnClick>
+			</Scripts>
+		</Button>
+	</Frames>
+	</Frame>
+</Ui>

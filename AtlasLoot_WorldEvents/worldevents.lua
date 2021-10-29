@@ -542,22 +542,27 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 	};
 
 	AtlasLoot_Data["HeadlessHorseman"] = {
-		{ 2, 49126, "", "=q4=The Horseman's Horrific Helm", "=ds=#s1#, #a4#"};
-		{ 3, 49121, "", "=q4=Ring of Ghoulish Glee", "=ds=#s13#"};
-		{ 4, 49123, "", "=q4=The Horseman's Seal", "=ds=#s13#"};
-		{ 5, 49124, "", "=q4=Wicked Witch's Band", "=ds=#s13#"};
-		{ 6, 49128, "", "=q4=The Horseman's Baleful Blade", "=ds=#h3#, #w10#"};
-		{ 8, 34068, "", "=q1=Weighted Jack-o'-Lantern", "=ds=#m20#", "", "100%"};
-		{ 9, 33226, "", "=q1=Tricky Treat", "=ds=#m20#"};
-		{ 10, 37012, "", "=q4=The Horseman's Reins", "=ds=#e12#"};
-		{ 11, 37011, "", "=q3=Magic Broom", "=ds=#e12#"};
-		{ 12, 33292, "", "=q3=Hallowed Helm", "=ds=#s1#, #a1#"};
-		{ 13, 33154, "", "=q3=Sinister Squashling", "=ds=#e13#"};
-		{17, 33808, "", "=q4=The Horseman's Helm", "=ds=#s1#, #a4#", "" };
-		{18, 34075, "", "=q4=Ring of Ghoulish Delight", "=ds=#s13#", "" };
-		{19, 34073, "", "=q4=The Horseman's Signet Ring", "=ds=#s13#", "" };
-		{20, 34074, "", "=q4=Witching Band", "=ds=#s13#", "" };
-		{21, 38175, "", "=q4=The Horseman's Blade", "=ds=#h3#, #w10#" };
+		{2, 2033808, "", "=q4=The Horseman's Helm", "=ds=#s1#, #a4#", "" };
+		{3, 2034075, "", "=q4=Ring of Ghoulish Delight", "=ds=#s13#", "" };
+		{4, 2034073, "", "=q4=The Horseman's Signet Ring", "=ds=#s13#", "" };
+		{5, 2034074, "", "=q4=Witching Band", "=ds=#s13#", "" };
+		{6, 2038175, "", "=q4=The Horseman's Blade", "=ds=#h3#, #w10#" };
+		{8, 33808, "", "=q4=The Horseman's Helm", "=ds=#s1#, #a4#", "" };
+		{9, 34075, "", "=q4=Ring of Ghoulish Delight", "=ds=#s13#", "" };
+		{10, 34073, "", "=q4=The Horseman's Signet Ring", "=ds=#s13#", "" };
+		{11, 34074, "", "=q4=Witching Band", "=ds=#s13#", "" };
+		{12, 38175, "", "=q4=The Horseman's Blade", "=ds=#h3#, #w10#" };
+		{ 17, 49126, "", "=q4=The Horseman's Horrific Helm", "=ds=#s1#, #a4#"};
+		{ 18, 49121, "", "=q4=Ring of Ghoulish Glee", "=ds=#s13#"};
+		{ 19, 49123, "", "=q4=The Horseman's Seal", "=ds=#s13#"};
+		{ 20, 49124, "", "=q4=Wicked Witch's Band", "=ds=#s13#"};
+		{ 21, 49128, "", "=q4=The Horseman's Baleful Blade", "=ds=#h3#, #w10#"};
+		{ 23, 34068, "", "=q1=Weighted Jack-o'-Lantern", "=ds=#m20#", "", "100%"};
+		{ 24, 33226, "", "=q1=Tricky Treat", "=ds=#m20#"};
+		{ 25, 37012, "", "=q4=The Horseman's Reins", "=ds=#e12#"};
+		{ 26, 37011, "", "=q3=Magic Broom", "=ds=#e12#"};
+		{ 27, 33292, "", "=q3=Hallowed Helm", "=ds=#s1#, #a1#"};
+		{ 28, 33154, "", "=q3=Sinister Squashling", "=ds=#e13#"};
 		Prev = "Halloween2";
 		Back = "WORLDEVENTMENU";
 	};
@@ -821,7 +826,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 44788, "", "=q1=Pilgrim's Boots", "=q1=#m4#: =ds=#s12#"};
 		{ 22, 44844, "", "=q1=Turkey Caller", "=q1=#m4#: =ds="};
 		{ 23, 44812, "", "=q1=Turkey Shooter", "=q1=#m4#: =ds="};
-		Back = "PILGRIMSBOUNTYMENU";
+		Back = "WORLDEVENTMENU";
 	};
 
 	AtlasLoot_Data["PilgrimsBounty_H"] = {
@@ -845,7 +850,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 44788, "", "=q1=Pilgrim's Boots", "=q1=#m4#: =ds=#s12#"};
 		{ 22, 44844, "", "=q1=Turkey Caller", "=q1=#m4#: =ds="};
 		{ 23, 44812, "", "=q1=Turkey Shooter", "=q1=#m4#: =ds="};
-		Back = "PILGRIMSBOUNTYMENU";
+		Back = "WORLDEVENTMENU";
 	};
 
 	--------------------------

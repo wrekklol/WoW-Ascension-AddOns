@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: ButtonFacade: |cffff8000Nefs|r
+## Version: 1.0
+## Notes: Nefs skin for ButtonFacade.
+## Author: Nefs
+## Dependencies: ButtonFacade
+
+Skins.lua

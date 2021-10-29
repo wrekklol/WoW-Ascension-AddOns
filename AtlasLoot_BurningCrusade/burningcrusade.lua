@@ -122,6 +122,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 26, 27847, "", "=q3=Fanblade Pauldrons", "=ds=#s3#, #a4#", "", "6.52%"};
 		{ 27, 27846, "", "=q3=Claw of the Watcher", "=ds=#h3#, #w13#", "", "6.52%"};
 		Next = "AuchCryptsExarch";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchCryptsExarch"] = {
@@ -139,7 +140,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 16, 30587, "", "=q4=Champion's Fire Opal", "=ds=#e7#", "", "11.67%"};
 		{ 17, 30588, "", "=q4=Potent Fire Opal", "=ds=#e7#", "", "1.67%"};
 		{ 18, 30586, "", "=q4=Seer's Chrysoprase", "=ds=#e7#", "", "11.67%"};
-		{ 20, 27870, "", "=q3=Doomplate Legguards", "=ds=#s11#, #a4# (D3)", "", "3.33%"};
+		{ 20, 427870, "", "=q3=Doomplate Legguards", "=ds=#s11#, #a4# (D3)", "", "3.33%"};
 		{ 22, 0, "INV_Box_01", "=q6=#j1#", ""};
 		{ 23, 27411, "", "=q3=Slippers of Serenity", "=ds=#s12#, #a1#", "", "8.14%"};
 		{ 24, 27415, "", "=q3=Darkguard Face Mask", "=ds=#s1#, #a2#", "", "11.44%"};
@@ -149,6 +150,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 28, 27412, "", "=q3=Ironstaff of Regeneration", "=ds=#w9#", "", "11.95%"};
 		Prev = "AuchCryptsShirrak";
 		Next = "AuchCryptsAvatar";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchCryptsAvatar"] = {
@@ -159,6 +161,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 5, 27877, "", "=q3=Draenic Wildstaff", "=ds=#w9#", "", "4.87%"};
 		{ 7, 27797, "", "=q3=Wastewalker Shoulderpads", "=ds=#s3#, #a2# (D3)", "", "3.94%"};
 		Prev = "AuchCryptsExarch";
+		Difficulty = BCDungeon
 	};
 
 		------------------------------
@@ -220,10 +223,10 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 8, 22921, "", "=q2=Recipe: Major Frost Protection Potion", "=ds=#p1# (360)", "", "0.85%"};
 		{ 10, 28490, "", "=q1=Shaffar's Wrappings", "=ds=#m3#", "", "100%"};
 		Prev = "AuchManaTavarok";
-		Next = "AuchManaYor";
+		Next = "AuchManaNexusPrinceHeroic";
 	};
 
-	AtlasLoot_Data["AuchManaNexusPrinceHEROIC"] = {
+	AtlasLoot_Data["AuchManaNexusPrinceHeroic"] = { -- For Heroic Only
 		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 2, 29240, "", "=q4=Bands of Negation", "=ds=#s8#, #a1#", "", "3.03%"};
 		{ 3, 30535, "", "=q4=Forestwalker Kilt", "=ds=#s11#, #a2#", "", "27.27%"};
@@ -247,11 +250,11 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 25, 27840, "", "=q3=Scepter of Sha'tar", "=ds=#h2#, #w6#"};
 		{ 26, 27842, "", "=q3=Grand Scepter of the Nexus-Kings", "=ds=#w9#", "", "9.09%"};
 		{ 28, 22921, "", "=q2=Recipe: Major Frost Protection Potion", "=ds=#p1# (360)", "", "2.85%"};
-		Prev = "AuchManaTavarok";
-		Next = "AuchManaYor";
+		Prev = "AuchManaNexusPrince";
+		Next = "AuchManaYorHeroic";
 	};
 
-	AtlasLoot_Data["AuchManaYor"] = {
+	AtlasLoot_Data["AuchManaYorHeroic"] = { -- For Heroic Only
 		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 2, 31919, "", "=q4=Nexus-Prince's Ring of Balance", "=ds=#s13#"};
 		{ 3, 31920, "", "=q4=Shaffar's Band of Brutality", "=ds=#s13#"};
@@ -266,7 +269,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 16, 30584, "", "=q4=Enscribed Fire Opal", "=ds=#e7#", "", "0.08%"};
 		{ 17, 30585, "", "=q4=Glistening Fire Opal", "=ds=#e7#", "", "6.06%"};
 		{ 18, 30583, "", "=q4=Timeless Chrysoprase", "=ds=#e7#", "", "9.09%"};
-		Prev = "AuchManaNexusPrince";
+		Prev = "AuchManaNexusPrinceHeroic";
 	};
 
 		---------------------------------
@@ -289,6 +292,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 30552, "", "=q4=Blessed Tanzanite", "=ds=#e7#", "", "0.18%"};
 		{ 22, 25461, "", "=q1=Book of Forgotten Names", "=ds=#m3#", "", "100%"};
 		Next = "AuchSethekkTalonKing";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchSethekkRavenGod"] = {
@@ -303,6 +307,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 10, 32781, "", "=q3=Talon of Anzu", "=ds=#h1#, #w4#"};
 		{ 11, 32780, "", "=q3=The Boomstick", "=ds=#w5#"};
 		Prev = "AuchSethekkTalonKing";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchSethekkTalonKing"] = {
@@ -331,6 +336,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 27, 33834, "", "=q1=The Headfeathers of Ikiss", "=ds=#m3#", "", "100%"};
 		Prev = "AuchSethekkDarkweaver";
 		Next = "AuchSethekkRavenGod";
+		Difficulty = BCDungeon
 	};
 
 		------------------------------------
@@ -350,6 +356,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 30559, "", "=q4=Etched Fire Opal", "=ds=#e7#", "", "17.85%"};
 		{ 20, 30560, "", "=q4=Rune Covered Chrysoprase", "=ds=#e7#", "", "15.47%"};
 		Next = "AuchShadowBlackheart";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchShadowBlackheart"] = {
@@ -368,6 +375,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 30560, "", "=q4=Rune Covered Chrysoprase", "=ds=#e7#", "", "15.47%"};
 		Prev = "AuchShadowHellmaw";
 		Next = "AuchShadowGrandmaster";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchShadowGrandmaster"] = {
@@ -384,6 +392,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 30560, "", "=q4=Rune Covered Chrysoprase", "=ds=#e7#", "", "15.47%"};
 		Prev = "AuchShadowBlackheart";
 		Next = "AuchShadowMurmur";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchShadowMurmur"] = {
@@ -412,6 +421,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 27, 31722, "", "=q1=Murmur's Essence", "=ds=#m3#", "", "100%"};
 		{ 28, 33840, "", "=q1=Murmur's Whisper", "=ds=#m3#", "", "100%"};
 		Prev = "AuchShadowGrandmaster";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["AuchTrash"] = {
@@ -430,6 +440,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 23607, "", "=q3=Plans: Felsteel Helm", "=ds=#p2# (365), =q1=#n56#", "", "0.61%"};
 		{ 23, 0, "INV_Box_01", "=q6="..AL["First Fragment Guardian"], "=q5="..BabbleZone["Shadow Labyrinth"]};
 		{ 24, 24514, "", "=q1=First Key Fragment", "=ds=#m3#", "", "100%"};
+		Difficulty = BCDungeon
 	};
 
 	--------------------
@@ -453,6 +464,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 32248, "", "=q4=Halberd of Desolation", "=ds=#w7#", "", "16%"};
 		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Next = "BTSupremus";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTSupremus"] = {
@@ -472,6 +484,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 22, 32253, "", "=q4=Legionkiller", "=ds=#w3#", "", "16%"};
 		Prev = "BTNajentus";
 		Next = "BTAkama";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTAkama"] = {
@@ -492,6 +505,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "BTSupremus";
 		Next = "BTGorefiend";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTGorefiend"] = {
@@ -510,6 +524,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "BTAkama";
 		Next = "BTBloodboil";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTBloodboil"] = {
@@ -529,6 +544,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "BTGorefiend";
 		Next = "BTEssencofSouls";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTEssencofSouls"] = {
@@ -548,6 +564,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "BTBloodboil";
 		Next = "BTShahraz";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTShahraz"] = {
@@ -563,6 +580,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "BTEssencofSouls";
 		Next = "BTCouncil";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTCouncil"] = {
@@ -578,6 +596,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "BTShahraz";
 		Next = "BTIllidanStormrage";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTIllidanStormrage"] = {
@@ -600,6 +619,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 23, 32375, "", "=q4=Bulwark of Azzinoth", "=ds=#w8#", "", "14%"};
 		{ 24, 32336, "", "=q4=Black Bow of the Betrayer", "=ds=#w2#", "", "16%"};
 		Prev = "BTCouncil";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTTrash"] = {
@@ -626,6 +646,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 25, 32227, "", "=q4=Crimson Spinel", "=ds=#e7#", "", "8%"};
 		{ 27, 32428, "", "=q3=Heart of Darkness", "=ds=#e8#", "", "16%"};
 		{ 28, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "27%"};
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["BTPatterns"] = {
@@ -645,202 +666,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 17, 32755, "", "=q4=Pattern: Mantle of Nimble Thought", "=ds=#p8# (375)"};
 		{ 18, 32753, "", "=q4=Pattern: Swiftheal Mantle", "=ds=#p8# (375)"};
 		{ 19, 32752, "", "=q4=Pattern: Swiftheal Wraps", "=ds=#p8# (375)"};
-	};
-
-	--------------------------
-	--- Black Temple HEROIC---
-	--------------------------
-
-	AtlasLoot_Data["BTNajentusHEROIC"] = {
-		{ 1, 232239, "", "=q4=Slippers of the Seacaller", "=ds=#s12#, #a1#", "", "15%"};
-		{ 2, 232240, "", "=q4=Guise of the Tidal Lurker", "=ds=#s1#, #a2#", "", "16%"};
-		{ 3, 232377, "", "=q4=Mantle of Darkness", "=ds=#s3#, #a2#", "", "15%"};
-		{ 4, 232241, "", "=q4=Helm of Soothing Currents", "=ds=#s1#, #a3#", "", "10%"};
-		{ 5, 232234, "", "=q4=Fists of Mukoa", "=ds=#s9#, #a3#", "", "16%"};
-		{ 6, 232242, "", "=q4=Boots of Oceanic Fury", "=ds=#s12#, #a3#", "", "6%"};
-		{ 7, 232232, "", "=q4=Eternium Shell Bracers", "=ds=#s8#, #a4#", "", "16%"};
-		{ 8, 232243, "", "=q4=Pearl Inlaid Boots", "=ds=#s12#, #a4#", "", "10%"};
-		{ 9, 232245, "", "=q4=Tide-stomper's Greaves", "=ds=#s12#, #a4#", "", "7%"};
-		{ 16, 232238, "", "=q4=Ring of Calming Waves", "=ds=#s13#", "", "16%"};
-		{ 17, 232247, "", "=q4=Ring of Captured Storms", "=ds=#s13#", "", "16%"};
-		{ 18, 232237, "", "=q4=The Maelstrom's Fury", "=ds=#h3#, #w4#", "", "15%"};
-		{ 19, 232236, "", "=q4=Rising Tide", "=ds=#h1#, #w1#", "", "16%"};
-		{ 20, 232248, "", "=q4=Halberd of Desolation", "=ds=#w7#", "", "16%"};
-		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Next = "BTSupremusHEROIC";
-	};
-
-	AtlasLoot_Data["BTSupremusHEROIC"] = {
-		{ 1, 232256, "", "=q4=Waistwrap of Infinity", "=ds=#s10#, #a1#", "", "16%"};
-		{ 2, 232252, "", "=q4=Nether Shadow Tunic", "=ds=#s5#, #a2#", "", "14%"};
-		{ 3, 232259, "", "=q4=Bands of the Coming Storm", "=ds=#s8#, #a3#", "", "6%"};
-		{ 4, 232251, "", "=q4=Wraps of Precise Flight", "=ds=#s8#, #a3#", "", "15%"};
-		{ 5, 232258, "", "=q4=Naturalist's Preserving Cinch", "=ds=#s10#, #a3#", "", "9%"};
-		{ 6, 232250, "", "=q4=Pauldrons of Abyssal Fury", "=ds=#s3#, #a4#", "", "16%"};
-		{ 8, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 16, 232260, "", "=q4=Choker of Endless Nightmares", "=ds=#s2#", "", "17%"};
-		{ 17, 232261, "", "=q4=Band of the Abyssal Lord", "=ds=#s13#", "", "14%"};
-		{ 18, 232257, "", "=q4=Idol of the White Stag", "=ds=#s16#, #w14#", "", "15%"};
-		{ 19, 232254, "", "=q4=The Brutalizer", "=ds=#h1#, #w1#", "", "15%"};
-		{ 20, 232262, "", "=q4=Syphon of the Nathrezim", "=ds=#h1#, #w6#", "", "16%"};
-		{ 21, 232255, "", "=q4=Felstone Bulwark", "=ds=#w8#", "", "15%"};
-		{ 22, 232253, "", "=q4=Legionkiller", "=ds=#w3#", "", "16%"};
-		Prev = "BTNajentusHEROIC";
-		Next = "BTAkamaHEROIC";
-	};
-
-	AtlasLoot_Data["BTAkamaHEROIC"] = {
-		{ 1, 232273, "", "=q4=Amice of Brilliant Light", "=ds=#s3#, #a1#", "", "16%"};
-		{ 2, 232270, "", "=q4=Focused Mana Bindings", "=ds=#s8#, #a1#", "", "15%"};
-		{ 3, 232513, "", "=q4=Wristbands of Divine Influence", "=ds=#s8#, #a1#", "", "16%"};
-		{ 4, 232265, "", "=q4=Shadow-walker's Cord", "=ds=#s10#, #a2#", "", "16%"};
-		{ 5, 232271, "", "=q4=Kilt of Immortal Nature", "=ds=#s11#, #a2#", "", "14%"};
-		{ 6, 232264, "", "=q4=Shoulders of the Hidden Predator", "=ds=#s3#, #a3#", "", "16%"};
-		{ 7, 232275, "", "=q4=Spiritwalker Gauntlets", "=ds=#s9#, #a3#", "", "9%"};
-		{ 8, 232276, "", "=q4=Flashfire Girdle", "=ds=#s10#, #a3#", "", "5%"};
-		{ 9, 232279, "", "=q4=The Seeker's Wristguards", "=ds=#s8#, #a4#", "", "8%"};
-		{ 10, 232278, "", "=q4=Grips of Silent Justice", "=ds=#s9#, #a4#", "", "15%"};
-		{ 11, 232263, "", "=q4=Praetorian's Legguards", "=ds=#s11#, #a4#", "", "14%"};
-		{ 12, 232268, "", "=q4=Myrmidon's Treads", "=ds=#s12#, #a4#", "", "16%"};
-		{ 16, 232266, "", "=q4=Ring of Deceitful Intent", "=ds=#s13#", "", "16%"};
-		{ 17, 232361, "", "=q4=Blind-Seers Icon", "=ds=#s15#", "", "15%"};
-		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "BTSupremusHEROIC";
-		Next = "BTGorefiendHEROIC";
-	};
-
-	AtlasLoot_Data["BTGorefiendHEROIC"] = {
-		{ 1, 232323, "", "=q4=Shadowmoon Destroyer's Drape", "=ds=#s4#", "", "17%"};
-		{ 2, 232329, "", "=q4=Cowl of Benevolence", "=ds=#s1#, #a1#", "", "17%"};
-		{ 3, 232327, "", "=q4=Robe of the Shadow Council", "=ds=#s5#, #a1#", "", "15%"};
-		{ 4, 232324, "", "=q4=Insidious Bands", "=ds=#s8#, #a2#", "", "17%"};
-		{ 5, 232328, "", "=q4=Botanist's Gloves of Growth", "=ds=#s9#, #a2#", "", "17%"};
-		{ 6, 232510, "", "=q4=Softstep Boots of Tracking", "=ds=#s12#, #a3#", "", "15%"};
-		{ 7, 232280, "", "=q4=Gauntlets of Enforcement", "=ds=#s9#, #a4#", "", "15%"};
-		{ 8, 232512, "", "=q4=Girdle of Lordaeron's Fallen", "=ds=#s10#, #a4#", "", "19%"};
-		{ 16, 232330, "", "=q4=Totem of Ancestral Guidance", "=ds=#s16#, #w15#", "", "13%"};
-		{ 17, 232348, "", "=q4=Soul Cleaver", "=ds=#h2#, #w1#", "", "19%"};
-		{ 18, 232326, "", "=q4=Twisted Blades of Zarak", "=ds=#w11#", "", "11%"};
-		{ 19, 232325, "", "=q4=Rifle of the Stoic Guardian", "=ds=#w5#", "", "14%"};
-		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "BTAkamaHEROIC";
-		Next = "BTBloodboilHEROIC";
-	};
-
-	AtlasLoot_Data["BTBloodboilHEROIC"] = {
-		{ 1, 232337, "", "=q4=Shroud of Forgiveness", "=ds=#s4#", "", "16%"};
-		{ 2, 232338, "", "=q4=Blood-cursed Shoulderpads", "=ds=#s3#, #a1#", "", "15%"};
-		{ 3, 232340, "", "=q4=Garments of Temperance", "=ds=#s5#, #a1#", "", "15%"};
-		{ 4, 232339, "", "=q4=Belt of Primal Majesty", "=ds=#s10#, #a2#", "", "14%"};
-		{ 5, 232334, "", "=q4=Vest of Mounting Assault", "=ds=#s5#, #a3#", "", "15%"};
-		{ 6, 232342, "", "=q4=Girdle of Mighty Resolve", "=ds=#s10#, #a4#", "", "8%"};
-		{ 7, 232333, "", "=q4=Girdle of Stability", "=ds=#s10#, #a4#", "", "16%"};
-		{ 8, 232341, "", "=q4=Leggings of Divine Retribution", "=ds=#s11#, #a4#", "", "14%"};
-		{ 16, 232335, "", "=q4=Unstoppable Aggressor's Ring", "=ds=#s13#", "", "16%"};
-		{ 17, 232501, "", "=q4=Shadowmoon Insignia", "=ds=#s14#", "", "15%"};
-		{ 18, 232269, "", "=q4=Messenger of Fate", "=ds=#h1#, #w4#", "", "16%"};
-		{ 19, 232344, "", "=q4=Staff of Immaculate Recovery", "=ds=#w9#", "", "15%"};
-		{ 20, 232343, "", "=q4=Wand of Prismatic Focus", "=ds=#w12#", "", "14%"};
-		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "BTGorefiendHEROIC";
-		Next = "BTEssencofSoulsHEROIC";
-	};
-
-	AtlasLoot_Data["BTEssencofSoulsHEROIC"] = {
-		{ 1, 232353, "", "=q4=Gloves of Unfailing Faith", "=ds=#s9#, #a1#", "", "17%"};
-		{ 2, 232351, "", "=q4=Elunite Empowered Bracers", "=ds=#s8#, #a2#", "", "8%"};
-		{ 3, 232347, "", "=q4=Grips of Damnation", "=ds=#s9#, #a2#", "", "16%"};
-		{ 4, 232352, "", "=q4=Naturewarden's Treads", "=ds=#s12#, #a2#", "", "9%"};
-		{ 5, 232517, "", "=q4=The Wavemender's Mantle", "=ds=#s3#, #a3#", "", "17%"};
-		{ 6, 232346, "", "=q4=Boneweave Girdle", "=ds=#s10#, #a3#", "", "16%"};
-		{ 7, 232354, "", "=q4=Crown of Empowered Fate", "=ds=#s1#, #a4#", "", "16%"};
-		{ 8, 232345, "", "=q4=Dreadboots of the Legion", "=ds=#s12#, #a4#", "", "15%"};
-		{ 16, 232349, "", "=q4=Translucent Spellthread Necklace", "=ds=#s2#", "", "16%"};
-		{ 17, 232362, "", "=q4=Pendant of Titans", "=ds=#s2#", "", "15%"};
-		{ 18, 232350, "", "=q4=Touch of Inspiration", "=ds=#s15#", "", "16%"};
-		{ 19, 232332, "", "=q4=Torch of the Damned", "=ds=#h2#, #w6#", "", "17%"};
-		{ 20, 232363, "", "=q4=Naaru-Blessed Life Rod", "=ds=#w12#", "", "14%"};
-		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "BTBloodboilHEROIC";
-		Next = "BTShahrazHEROIC";
-	};
-
-	AtlasLoot_Data["BTShahrazHEROIC"] = {
-		{ 1, 232367, "", "=q4=Leggings of Devastation", "=ds=#s11#, #a1#", "", "16%"};
-		{ 2, 232366, "", "=q4=Shadowmaster's Boots", "=ds=#s12#, #a2#", "", "15%"};
-		{ 3, 232365, "", "=q4=Heartshatter Breastplate", "=ds=#s5#, #a4#", "", "15%"};
-		{ 4, 232370, "", "=q4=Nadina's Pendant of Purity", "=ds=#s2#", "", "15%"};
-		{ 5, 232368, "", "=q4=Tome of the Lightbringer", "=ds=#s16#, #w16#", "", "15%"};
-		{ 6, 232369, "", "=q4=Blade of Savagery", "=ds=#h1#, #w10#", "", "15%"};
-		{ 16, 231101, "", "=q4=Pauldrons of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "76%"};
-		{ 17, 231103, "", "=q4=Pauldrons of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "80%"};
-		{ 18, 231102, "", "=q4=Pauldrons of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "77%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "BTEssencofSoulsHEROIC";
-		Next = "BTCouncilHEROIC";
-	};
-
-	AtlasLoot_Data["BTCouncilHEROIC"] = {
-		{ 1, 232331, "", "=q4=Cloak of the Illidari Council", "=ds=#s4#", "", "16%"};
-		{ 2, 232519, "", "=q4=Belt of Divine Guidance", "=ds=#s10#, #a1#", "", "16%"};
-		{ 3, 232518, "", "=q4=Veil of Turning Leaves", "=ds=#s3#, #a2#", "", "12%"};
-		{ 4, 232376, "", "=q4=Forest Prowler's Helm", "=ds=#s1#, #a3#", "", "17%"};
-		{ 5, 232373, "", "=q4=Helm of the Illidari Shatterer", "=ds=#s1#, #a4#", "", "17%"};
-		{ 6, 232505, "", "=q4=Madness of the Betrayer", "=ds=#s14#", "", "16%"};
-		{ 16, 231098, "", "=q4=Leggings of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "34%"};
-		{ 17, 231100, "", "=q4=Leggings of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "33%"};
-		{ 18, 231099, "", "=q4=Leggings of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "34%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "BTShahrazHEROIC";
-		Next = "BTIllidanStormrageHEROIC";
-	};
-
-	AtlasLoot_Data["BTIllidanStormrageHEROIC"] = {
-		{ 1, 232524, "", "=q4=Shroud of the Highborne", "=ds=#s4#", "", "16%"};
-		{ 2, 232525, "", "=q4=Cowl of the Illidari High Lord", "=ds=#s1#, #a1#", "", "15%"};
-		{ 3, 232235, "", "=q4=Cursed Vision of Sargeras", "=ds=#s1#, #a2#", "", "16%"};
-		{ 4, 232521, "", "=q4=Faceplate of the Impenetrable", "=ds=#s1#, #a4#", "", "14%"};
-		{ 5, 232497, "", "=q4=Stormrage Signet Ring", "=ds=#s13#", "", "15%"};
-		{ 6, 232483, "", "=q4=The Skull of Gul'dan", "=ds=#s14#", "", "16%"};
-		{ 7, 232496, "", "=q4=Memento of Tyrande", "=ds=#s14#", "", "15%"};
-		{ 9, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 11, 232837, "", "=q5=Warglaive of Azzinoth", "=ds=#h3#, #w10#, =q1=#m1# =ds=#c9#, #c6#", "", "4%"};
-		{ 12, 232838, "", "=q5=Warglaive of Azzinoth", "=ds=#h4#, #w10#, =q1=#m1# =ds=#c9#, #c6#", "", "4%"};
-		{ 16, 231089, "", "=q4=Chestguard of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "78%"};
-		{ 17, 231091, "", "=q4=Chestguard of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "79%"};
-		{ 18, 231090, "", "=q4=Chestguard of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "78%"};
-		{ 20, 232471, "", "=q4=Shard of Azzinoth", "=ds=#h1#, #w4#", "", "16%"};
-		{ 21, 232500, "", "=q4=Crystal Spire of Karabor", "=ds=#h3#, #w6#", "", "15%"};
-		{ 22, 232374, "", "=q4=Zhar'doom, Greatstaff of the Devourer", "=ds=#w9#", "", "14%"};
-		{ 23, 232375, "", "=q4=Bulwark of Azzinoth", "=ds=#w8#", "", "14%"};
-		{ 24, 232336, "", "=q4=Black Bow of the Betrayer", "=ds=#w2#", "", "16%"};
-		Prev = "BTCouncilHEROIC";
-	};
-
-	AtlasLoot_Data["BTTrashHEROIC"] = {
-		{ 1, 232590, "", "=q4=Nethervoid Cloak", "=ds=#s4#", "", "1%"};
-		{ 2, 234012, "", "=q4=Shroud of the Final Stand", "=ds=#s4#", "", "1%"};
-		{ 3, 232609, "", "=q4=Boots of the Divine Light", "=ds=#s12#, #a1#", "", "1%"};
-		{ 4, 232593, "", "=q4=Treads of the Den Mother", "=ds=#s12#, #a2#", "", "1%"};
-		{ 5, 232592, "", "=q4=Chestguard of Relentless Storms", "=ds=#s5#, #a3#", "", "1%"};
-		{ 6, 232608, "", "=q4=Pillager's Gauntlets", "=ds=#s9#, #a4#", "", "1%"};
-		{ 7, 232606, "", "=q4=Girdle of the Lightbearer", "=ds=#s10#, #a4#", "", "1%"};
-		{ 8, 232591, "", "=q4=Choker of Serrated Blades", "=ds=#s2#", "", "1%"};
-		{ 9, 232589, "", "=q4=Hellfire-Encased Pendant", "=ds=#s2#", "", "1%"};
-		{ 10, 232526, "", "=q4=Band of Devastation", "=ds=#s13#", "", "1%"};
-		{ 11, 232528, "", "=q4=Blessed Band of Karabor", "=ds=#s13#", "", "1%"};
-		{ 12, 232527, "", "=q4=Ring of Ancient Knowledge", "=ds=#s13#", "", "2%"};
-		{ 16, 234009, "", "=q4=Hammer of Judgement", "=ds=#h3#, #w6#", "", "1%"};
-		{ 17, 232943, "", "=q4=Swiftsteel Bludgeon", "=ds=#h1#, #w6#", "", "2%"};
-		{ 18, 234011, "", "=q4=Illidari Runeshield", "=ds=#w8#", "", "1%"};
-		{ 20, 32228, "", "=q4=Empyrean Sapphire", "=ds=#e7#", "", "12%"};
-		{ 21, 32231, "", "=q4=Pyrestone", "=ds=#e7#", "", "8%"};
-		{ 22, 32229, "", "=q4=Lionseye", "=ds=#e7#", "", "6%"};
-		{ 23, 32249, "", "=q4=Seaspray Emerald", "=ds=#e7#", "", "9%"};
-		{ 24, 32230, "", "=q4=Shadowsong Amethyst", "=ds=#e7#", "", "6%"};
-		{ 25, 32227, "", "=q4=Crimson Spinel", "=ds=#e7#", "", "8%"};
-		{ 27, 32428, "", "=q3=Heart of Darkness", "=ds=#e8#", "", "16%"};
-		{ 28, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "27%"};
+		Difficulty = BCRaid
 	};
 
 		------------------------------------------------
@@ -866,6 +692,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 26, 28213, "", "=q3=Lordaeron Medical Guide", "=ds=#s15#", "", "8.57%"};
 		{ 27, 28210, "", "=q3=Bloodskull Destroyer", "=ds=#h1#, #w6#", "", "5.71%"};
 		Next = "CoTHillsbradSkarloc";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CoTHillsbradSkarloc"] = {
@@ -889,6 +716,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 27, 28216, "", "=q3=Dathrohan's Ceremonial Hammer", "=ds=#h3#, #w6#", "", "6.06%"};
 		Prev = "CoTHillsbradDrake";
 		Next = "CoTHillsbradHunter";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CoTHillsbradHunter"] = {
@@ -899,9 +727,11 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 6, 27432, "", "=q3=Broxigar's Ring of Valor", "=ds=#s13#", "", "16.35%"};
 		{ 7, 27431, "", "=q3=Time-Shifted Dagger", "=ds=#h3#, #w4#", "", "14.09%"};
 		Prev = "CoTHillsbradSkarloc";
+		Next = "CoTHillsbradHunterHeroic";
+		Difficulty = BCDungeon
 	};
 
-	AtlasLoot_Data["CoTHillsbradHunterHEROIC"] = {
+	AtlasLoot_Data["CoTHillsbradHunterHeroic"] = { -- only heroic
 		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 2, 29250, "", "=q4=Cord of Sanctification", "=ds=#s10#, #a1#"};
 		{ 3, 29246, "", "=q4=Nightfall Wristguards", "=ds=#s8#, #a2#"};
@@ -926,6 +756,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 24, 28225, "", "=q3=Doomplate Warhelm", "=ds=#s1#, #a4# (D3)", "", "0.14%"};
 		{ 26, 33847, "", "=q1=Epoch Hunter's Head", "=ds=#m3#", "", "100%"};
 		Prev = "CoTHillsbradSkarloc";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CoTTrash"] = {
@@ -941,6 +772,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 17, 25725, "", "=q1=Pattern: Riding Crop", "=ds=#p7# (350)"};
 		{ 19, 0, "INV_Box_01", "=q6="..AL["Aged Dalaran Wizard"], "=q5="..BabbleZone["Old Hillsbrad Foothills"]};
 		{ 20, 22539, "", "=q1=Formula: Enchant Shield - Intellect", "=ds=#p4# (325)"};
+		Difficulty = BCDungeon
 	};
 
 		-----------------------------------------
@@ -961,6 +793,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 30556, "", "=q4=Glinting Fire Opal", "=ds=#e7#"};
 		{ 20, 30555, "", "=q4=Glowing Tanzanite", "=ds=#e7#"};
 		Next = "CoTMorassTemporus";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CoTMorassTemporus"] = {
@@ -977,6 +810,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 30555, "", "=q4=Glowing Tanzanite", "=ds=#e7#"};
 		Prev = "CoTMorassDeja";
 		Next = "CoTMorassAeonus";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CoTMorassAeonus"] = {
@@ -1003,6 +837,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 25, 29356, "", "=q4=Quantum Blade", "=ds=#h2#, #w10#"};
 		{ 27, 33858, "", "=q1=Aeonus's Hourglass", "=ds=#m3#", "", "100%"};
 		Prev = "CoTMorassTemporus";
+		Difficulty = BCDungeon
 	};
 
 		-------------------------------------
@@ -1025,6 +860,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 21, 32459, "", "=q1=Time-Phased Phylactery", "=ds=#m3#", "", "8%"};
 		Next = "MountHyjalAnetheron";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["MountHyjalAnetheron"] = {
@@ -1043,6 +879,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "MountHyjalWinterchill";
 		Next = "MountHyjalKazrogal";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["MountHyjalKazrogal"] = {
@@ -1061,6 +898,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "MountHyjalAnetheron";
 		Next = "MountHyjalAzgalor";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["MountHyjalAzgalor"] = {
@@ -1076,6 +914,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "MountHyjalKazrogal";
 		Next = "MountHyjalArchimonde";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["MountHyjalArchimonde"] = {
@@ -1096,6 +935,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 18, 31096, "", "=q4=Helm of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "73%"};
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "MountHyjalAzgalor";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["MountHyjalTrash"] = {
@@ -1118,122 +958,9 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 32297, "", "=q4=Design: Sovereign Shadowsong Amethyst", "=ds=#p12# (375)", "", "4%"};
 		{ 22, 32289, "", "=q4=Design: Stormy Empyrean Sapphire", "=ds=#p12# (375)", "", "4%"};
 		{ 23, 32307, "", "=q4=Design: Veiled Pyrestone", "=ds=#p12# (375)", "", "3%"};
+		Difficulty = BCRaid
 	};
 
-		-------------------------------------------
-		--- Caverns of Time: Hyjal Summit HEROIC---
-		-------------------------------------------
-
-	AtlasLoot_Data["MountHyjalWinterchillHEROIC"] = {
-		{ 1, 230871, "", "=q4=Bracers of Martyrdom", "=ds=#s8#, #a1#", "", "17%"};
-		{ 2, 230870, "", "=q4=Cuffs of Devastation", "=ds=#s8#, #a1#", "", "16%"};
-		{ 3, 230863, "", "=q4=Deadly Cuffs", "=ds=#s8#, #a2#", "", "15%"};
-		{ 4, 230868, "", "=q4=Rejuvenating Bracers", "=ds=#s8#, #a2#", "", "16%"};
-		{ 5, 230864, "", "=q4=Bracers of the Pathfinder", "=ds=#s8#, #a3#", "", "15%"};
-		{ 6, 230869, "", "=q4=Howling Wind Bracers", "=ds=#s8#, #a3#", "", "12%"};
-		{ 7, 230873, "", "=q4=Stillwater Boots", "=ds=#s12#, #a3#", "", "14%"};
-		{ 8, 230866, "", "=q4=Blood-stained Pauldrons", "=ds=#s3#, #a4#", "", "15%"};
-		{ 9, 230862, "", "=q4=Blessed Adamantite Bracers", "=ds=#s8#, #a4#", "", "15%"};
-		{ 10, 230861, "", "=q4=Furious Shackles", "=ds=#s8#, #a4#", "", "15%"};
-		{ 16, 230865, "", "=q4=Tracker's Blade", "=ds=#h1#, #w4#", "", "15%"};
-		{ 17, 230872, "", "=q4=Chronicle of Dark Secrets", "=ds=#s15#", "", "16%"};
-		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 21, 32459, "", "=q1=Time-Phased Phylactery", "=ds=#m3#", "", "8%"};
-		Next = "MountHyjalAnetheronHEROIC";
-	};
-
-	AtlasLoot_Data["MountHyjalAnetheronHEROIC"] = {
-		{ 1, 230884, "", "=q4=Hatefury Mantle", "=ds=#s3#, #a1#", "", "16%"};
-		{ 2, 230888, "", "=q4=Anetheron's Noose", "=ds=#s10#, #a1#", "", "16%"};
-		{ 3, 230885, "", "=q4=Archbishop's Slippers", "=ds=#s12#, #a1#", "", "17%"};
-		{ 4, 230879, "", "=q4=Don Alejandro's Money Belt", "=ds=#s10#, #a2#", "", "16%"};
-		{ 5, 230886, "", "=q4=Enchanted Leather Sandals", "=ds=#s12#, #a2#", "", "15%"};
-		{ 6, 230887, "", "=q4=Golden Links of Restoration", "=ds=#s5#, #a3#", "", "16%"};
-		{ 7, 230880, "", "=q4=Quickstrider Moccasins", "=ds=#s12#, #a3#", "", "16%"};
-		{ 8, 230878, "", "=q4=Glimmering Steel Mantle", "=ds=#s3#, #a4#", "", "16%"};
-		{ 16, 230874, "", "=q4=The Unbreakable Will", "=ds=#h1#, #w10#", "", "16%"};
-		{ 17, 230881, "", "=q4=Blade of Infamy", "=ds=#h1#, #w10#", "", "15%"};
-		{ 18, 230883, "", "=q4=Pillar of Ferocity", "=ds=#w9#", "", "16%"};
-		{ 19, 230882, "", "=q4=Bastion of Light", "=ds=#w8#", "", "15%"};
-		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "MountHyjalWinterchillHEROIC";
-		Next = "MountHyjalKazrogalHEROIC";
-	};
-
-	AtlasLoot_Data["MountHyjalKazrogalHEROIC"] = {
-		{ 1, 230895, "", "=q4=Angelista's Sash", "=ds=#s10#, #a1#", "", "16%"};
-		{ 2, 230916, "", "=q4=Leggings of Channeled Elements", "=ds=#s11#, #a1#", "", "17%"};
-		{ 3, 230894, "", "=q4=Blue Suede Shoes", "=ds=#s12#, #a1#", "", "16%"};
-		{ 4, 230917, "", "=q4=Razorfury Mantle", "=ds=#s3#, #a2#", "", "17%"};
-		{ 5, 230914, "", "=q4=Belt of the Crescent Moon", "=ds=#s10#, #a2#", "", "9%"};
-		{ 6, 230891, "", "=q4=Black Featherlight Boots", "=ds=#s12#, #a2#", "", "14%"};
-		{ 7, 230892, "", "=q4=Beast-tamer's Shoulders", "=ds=#s3#, #a3#", "", "15%"};
-		{ 8, 230919, "", "=q4=Valestalker Girdle", "=ds=#s10#, #a3#", "", "15%"};
-		{ 9, 230893, "", "=q4=Sun-touched Chain Leggings", "=ds=#s11#, #a3#", "", "15%"};
-		{ 10, 230915, "", "=q4=Belt of Seething Fury", "=ds=#s10#, #a4#", "", "17%"};
-		{ 16, 230918, "", "=q4=Hammer of Atonement", "=ds=#h3#, #w6#", "", "17%"};
-		{ 17, 230889, "", "=q4=Kaz'rogal's Hardened Heart", "=ds=#w8#", "", "16%"};
-		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "MountHyjalAnetheronHEROIC";
-		Next = "MountHyjalAzgalorHEROIC";
-	};
-
-	AtlasLoot_Data["MountHyjalAzgalorHEROIC"] = {
-		{ 1, 230899, "", "=q4=Don Rodrigo's Poncho", "=ds=#s5#, #a2#", "", "15%"};
-		{ 2, 230898, "", "=q4=Shady Dealer's Pantaloons", "=ds=#s11#, #a2#", "", "16%"};
-		{ 3, 230900, "", "=q4=Bow-stitched Leggings", "=ds=#s11#, #a3#", "", "15%"};
-		{ 4, 230896, "", "=q4=Glory of the Defender", "=ds=#s5#, #a4#", "", "15%"};
-		{ 5, 230897, "", "=q4=Girdle of Hope", "=ds=#s10#, #a4#", "", "15%"};
-		{ 6, 230901, "", "=q4=Boundless Agony", "=ds=#h1#, #w4#", "", "16%"};
-		{ 16, 231092, "", "=q4=Gloves of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "74%"};
-		{ 17, 231094, "", "=q4=Gloves of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "73%"};
-		{ 18, 231093, "", "=q4=Gloves of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "73%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "MountHyjalKazrogalHEROIC";
-		Next = "MountHyjalArchimondeHEROIC";
-	};
-
-	AtlasLoot_Data["MountHyjalArchimondeHEROIC"] = {
-		{ 1, 230913, "", "=q4=Robes of Rhonin", "=ds=#s5#, #a1#", "", "15%"};
-		{ 2, 230912, "", "=q4=Leggings of Eternity", "=ds=#s11#, #a1#", "", "15%"};
-		{ 3, 230905, "", "=q4=Midnight Chestguard", "=ds=#s5#, #a2#", "", "14%"};
-		{ 4, 230907, "", "=q4=Mail of Fevered Pursuit", "=ds=#s5#, #a3#", "", "15%"};
-		{ 5, 230904, "", "=q4=Savior's Grasp", "=ds=#s5#, #a4#", "", "14%"};
-		{ 6, 230903, "", "=q4=Legguards of Endless Rage", "=ds=#s11#, #a4#", "", "15%"};
-		{ 7, 230911, "", "=q4=Scepter of Purification", "=ds=#s15#", "", "15%"};
-		{ 9, 230910, "", "=q4=Tempest of Chaos", "=ds=#h3#, #w10#", "", "14%"};
-		{ 10, 230902, "", "=q4=Cataclysm's Edge", "=ds=#h2#, #w10#", "", "15%"};
-		{ 11, 230908, "", "=q4=Apostle of Argus", "=ds=#w9#", "", "15%"};
-		{ 12, 230909, "", "=q4=Antonidas's Aegis of Rapt Concentration", "=ds=#w8#", "", "15%"};
-		{ 13, 230906, "", "=q4=Bristleblitz Striker", "=ds=#w2#", "", "16%"};
-		{ 16, 231097, "", "=q4=Helm of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "70%"};
-		{ 17, 231095, "", "=q4=Helm of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "72%"};
-		{ 18, 231096, "", "=q4=Helm of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "73%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "MountHyjalAzgalorHEROIC";
-	};
-
-	AtlasLoot_Data["MountHyjalTrashHEROIC"] = {
-		{ 1, 232590, "", "=q4=Nethervoid Cloak", "=ds=#s4#", "", "1%"};
-		{ 2, 234010, "", "=q4=Pepe's Shroud of Pacification", "=ds=#s4#", "", "1%"};
-		{ 3, 232609, "", "=q4=Boots of the Divine Light", "=ds=#s12#, #a1#", "", "1%"};
-		{ 4, 232592, "", "=q4=Chestguard of Relentless Storms", "=ds=#s5#, #a3#", "", "1%"};
-		{ 5, 232591, "", "=q4=Choker of Serrated Blades", "=ds=#s2#", "", "1%"};
-		{ 6, 232589, "", "=q4=Hellfire-Encased Pendant", "=ds=#s2#", "", "1%"};
-		{ 7, 234009, "", "=q4=Hammer of Judgement", "=ds=#h3#, #w6#", "", "1%"};
-		{ 8, 232946, "", "=q4=Claw of Molten Fury", "=ds=#h3#, #w13#", "", "0.46%"};
-		{ 9, 232945, "", "=q4=Fist of Molten Fury", "=ds=#h4#, #w13#", "", "0.42%"};
-		{ 11, 32428, "", "=q3=Heart of Darkness", "=ds=#e8#", "", "16%"};
-		{ 12, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "27%"};
-		{ 16, 32285, "", "=q4=Design: Flashing Crimson Spinel", "=ds=#p12# (375)", "", "4%"};
-		{ 17, 32296, "", "=q4=Design: Great Lionseye", "=ds=#p12# (375)", "", "3%"};
-		{ 18, 32303, "", "=q4=Design: Inscribed Pyrestone", "=ds=#p12# (375)", "", "3%"};
-		{ 19, 32295, "", "=q4=Design: Mystic Lionseye", "=ds=#p12# (375)", "", "4%"};
-		{ 20, 32298, "", "=q4=Design: Shifting Shadowsong Amethyst", "=ds=#p12# (375)", "", "4%"};
-		{ 21, 32297, "", "=q4=Design: Sovereign Shadowsong Amethyst", "=ds=#p12# (375)", "", "4%"};
-		{ 22, 32289, "", "=q4=Design: Stormy Empyrean Sapphire", "=ds=#p12# (375)", "", "4%"};
-		{ 23, 32307, "", "=q4=Design: Veiled Pyrestone", "=ds=#p12# (375)", "", "3%"};
-	};
 		------------------------------------------
 		--- Coilfang Reservoir: The Slave Pens ---
 		------------------------------------------
@@ -1259,6 +986,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 27, 27543, "", "=q3=Starlight Dagger", "=ds=#h3#, #w4#", "", "20.00%"};
 		{ 29, 29674, "", "=q2=Pattern: Nature Armor Kit", "=ds=#p7# (340)", "", "0.80%"};
 		Next = "CFRSlaveRokmar";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRSlaveRokmar"] = {
@@ -1281,6 +1009,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 27, 27551, "", "=q3=Skeletal Necklace of Battlerage", "=ds=#s2#", "", "16.25%"};
 		Prev = "CFRSlaveMennu";
 		Next = "CFRSlaveQuagmirran";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRSlaveQuagmirran"] = {
@@ -1312,6 +1041,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 29, 24363, "", "=q3=Unscarred Breastplate", "=ds=#s5#, #a4#", "", "9.54%"};
 		{ 30, 24364, "", "=q3=Azureplate Greaves", "=ds=#s11#, #a4#", "", "9.98%"};
 		Prev = "CFRSlaveRokmar";
+		Difficulty = BCDungeon
 	};
 
 		------------------------------------------
@@ -1332,6 +1062,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 30551, "", "=q4=Infused Fire Opal", "=ds=#e7#", "", "6.64%"};
 		{ 20, 30549, "", "=q4=Shifting Tanzanite", "=ds=#e7#", "", "1.56%"};
 		Next = "CFRSteamSteamrigger";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRSteamSteamrigger"] = {
@@ -1348,6 +1079,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 30549, "", "=q4=Shifting Tanzanite", "=ds=#e7#", "", "1.56%"};
 		Prev = "CFRSteamThespia";
 		Next = "CFRSteamWarlord";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRSteamWarlord"] = {
@@ -1376,6 +1108,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 26, 31721, "", "=q1=Kalithresh's Trident", "=ds=#m3#", "", "100%"};
 		{ 27, 33827, "", "=q1=The Warlord's Treatise", "=ds=#m3#", "", "100%"};
 		Prev = "CFRSteamSteamrigger";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRSteamTrash"] = {
@@ -1385,6 +1118,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 6, 24368, "", "=q1=Coilfang Armaments", "=ds=#m3#", "", "12.68%"};
 		{ 16, 0, "INV_Box_01", "=q6="..AL["Second Fragment Guardian"], "=q5="..BabbleZone["The Steamvault"]};
 		{ 17, 24487, "", "=q1=Second Key Fragment", "=ds=#m3#", "", "100%"};
+		Difficulty = BCDungeon
 	};
 
 		----------------------------------------
@@ -1410,6 +1144,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 26, 27744, "", "=q3=Idol of Ursoc", "=ds=#s16#, #w14#", "", "16.26%"};
 		{ 27, 27747, "", "=q3=Boggspine Knuckles", "=ds=#h4#, #w13#", "", "12.81%"};
 		Next = "CFRUnderGhazan";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRUnderGhazan"] = {
@@ -1432,6 +1167,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 27, 27757, "", "=q3=Greatstaff of the Leviathan", "=ds=#w9#", "", "16.00%"};
 		Prev = "CFRUnderHungarfen";
 		Next = "CFRUnderSwamplord";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRUnderSwamplord"] = {
@@ -1454,6 +1190,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 27, 27767, "", "=q3=Bogreaver", "=ds=#h1#, #w1#", "", "9.29%"};
 		Prev = "CFRUnderGhazan";
 		Next = "CFRUnderStalker";
+		Difficulty = BCDungeon
 	};
 
 	AtlasLoot_Data["CFRUnderStalker"] = {
@@ -1464,9 +1201,11 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 5, 24464, "", "=q3=The Stalker's Fangs", "=ds=#h1#, #w4#", "", "14.31%"};
 		{ 7, 24248, "", "=q1=Brain of the Black Stalker", "=ds=#m3#", "", "100%"};
 		Prev = "CFRUnderSwamplord";
+		Next = "CFRUnderStalkerHeroic";
+		Difficulty = BCDungeon
 	};
 
-	AtlasLoot_Data["CFRUnderStalkerHEROIC"] = {
+	AtlasLoot_Data["CFRUnderStalkerHeroic"] = { --only heroic
 		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 2, 29265, "", "=q4=Barkchip Boots", "=ds=#s12#, #a2#", "", "8.54%"};
 		{ 3, 30541, "", "=q4=Stormsong Kilt", "=ds=#s11#, #a3#", "", "6.50%"};
@@ -1489,7 +1228,8 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 24, 27772, "", "=q3=Stormshield of Renewal", "=ds=#w8#", "", "13.01%"};
 		{ 26, 24248, "", "=q1=Brain of the Black Stalker", "=ds=#m3#", "", "100%"};
 		{ 27, 33826, "", "=q1=Black Stalker Egg", "=ds=#m3#", "", "100%"};
-		Prev = "CFRUnderSwamplord";
+		Prev = "CFRUnderStalker";
+		Difficulty = BCDungeon
 	};
 
 		------------------------------------------------
@@ -1512,7 +1252,9 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 30049, "", "=q4=Fathomstone", "=ds=#s15#", "", "19%"};
 		{ 21, 30051, "", "=q4=Idol of the Crescent Goddess", "=ds=#s16#, #w14#", "", "11%"};
 		{ 23, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
+		{ 24, 816254, "", "=q2=Formula: Enchant Cloak - Crushing Wave", "=ds=#p4# (350)", "", "5%"};
 		Next = "CFRSerpentLurker";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["CFRSerpentLurker"] = {
@@ -1532,6 +1274,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 30058, "", "=q4=Mallet of the Tides", "=ds=#h1#, #w6#", "", "20%"};
 		Prev = "CFRSerpentHydross";
 		Next = "CFRSerpentLeotheras";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["CFRSerpentLeotheras"] = {
@@ -1547,6 +1290,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "CFRSerpentLurker";
 		Next = "CFRSerpentKarathress";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["CFRSerpentKarathress"] = {
@@ -1562,6 +1306,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "CFRSerpentLeotheras";
 		Next = "CFRSerpentMorogrim";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["CFRSerpentMorogrim"] = {
@@ -1581,6 +1326,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 30080, "", "=q4=Luminescent Rod of the Naaru", "=ds=#w12#", "", "15%"};
 		Prev = "CFRSerpentKarathress";
 		Next = "CFRSerpentVashj";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["CFRSerpentVashj"] = {
@@ -1601,7 +1347,9 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 18, 30244, "", "=q4=Helm of the Vanquished Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "63%"};
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 22, 29906, "", "=q1=Vashj's Vial Remnant", "=ds=#m3#", "", "35%"};
+		{ 23, 450000, "", "=q5=Intact Vial of Lady Vashj", "", "", "5%"};
 		Prev = "CFRSerpentMorogrim";
+		Difficulty = BCRaid
 	};
 
 	AtlasLoot_Data["CFRSerpentTrash"] = {
@@ -1629,146 +1377,9 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 23, 30302, "", "=q4=Pattern: Belt of Deep Shadow", "=ds=#p7# (375)", "", "1%"};
 		{ 25, 30183, "", "=q4=Nether Vortex", "=ds=#e8#", "", "75%"};
 		{ 27, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "27%"};
+		Difficulty = BCRaid
 	};
 
-		------------------------------------------------------
-		--- Coilfang Reservoir: Serpentshrine Cavern HEROIC---
-		------------------------------------------------------
-
-	AtlasLoot_Data["CFRSerpentHydrossHEROIC"] = {
-		{ 1, 230056, "", "=q4=Robe of Hateful Echoes", "=ds=#s5#, #a1#", "", "18%"};
-		{ 2, 232516, "", "=q4=Wraps of Purification", "=ds=#s8#, #a1#", "", "18%"};
-		{ 3, 230050, "", "=q4=Boots of the Shifting Nightmare", "=ds=#s12#, #a1#", "", "17%"};
-		{ 4, 230055, "", "=q4=Shoulderpads of the Stranger", "=ds=#s3#, #a2#", "", "16%"};
-		{ 5, 230047, "", "=q4=Blackfathom Warbands", "=ds=#s8#, #a3#", "", "19%"};
-		{ 6, 230054, "", "=q4=Ranger-General's Chestguard", "=ds=#s5#, #a3#", "", "18%"};
-		{ 7, 230048, "", "=q4=Brighthelm of Justice", "=ds=#s1#, #a4#", "", "21%"};
-		{ 8, 230053, "", "=q4=Pauldrons of the Wardancer", "=ds=#s3#, #a4#", "", "16%"};
-		{ 16, 230052, "", "=q4=Ring of Lethality", "=ds=#s13#", "", "20%"};
-		{ 17, 233055, "", "=q4=Band of Vile Aggression", "=ds=#s13#", "", "14%"};
-		{ 18, 230664, "", "=q4=Living Root of the Wildheart", "=ds=#s14#, =q1=#m1# =ds=#c1#", "", "18%"};
-		{ 19, 230629, "", "=q4=Scarab of Displacement", "=ds=#s14#", "", "21%"};
-		{ 20, 230049, "", "=q4=Fathomstone", "=ds=#s15#", "", "19%"};
-		{ 21, 230051, "", "=q4=Idol of the Crescent Goddess", "=ds=#s16#, #w14#", "", "11%"};
-		{ 23, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Next = "CFRSerpentLurkerHEROIC";
-	};
-
-	AtlasLoot_Data["CFRSerpentLurkerHEROIC"] = {
-		{ 1, 230064, "", "=q4=Cord of Screaming Terrors", "=ds=#s10#, #a1#", "", "17%"};
-		{ 2, 230067, "", "=q4=Velvet Boots of the Guardian", "=ds=#s12#, #a1#", "", "17%"};
-		{ 3, 230062, "", "=q4=Grove-Bands of Remulos", "=ds=#s8#, #a2#", "", "21%"};
-		{ 4, 230060, "", "=q4=Boots of Effortless Striking", "=ds=#s12#, #a2#", "", "21%"};
-		{ 5, 230066, "", "=q4=Tempest-Strider Boots", "=ds=#s12#, #a3#", "", "21%"};
-		{ 6, 230065, "", "=q4=Glowing Breastplate of Truth", "=ds=#s5#, #a4#", "", "20%"};
-		{ 7, 230057, "", "=q4=Bracers of Eradication", "=ds=#s8#, #a4#", "", "19%"};
-		{ 9, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 16, 230059, "", "=q4=Choker of Animalistic Fury", "=ds=#s2#", "", "21%"};
-		{ 17, 230061, "", "=q4=Ancestral Ring of Conquest", "=ds=#s13#", "", "20%"};
-		{ 18, 233054, "", "=q4=The Seal of Danzalar", "=ds=#s13#", "", "14%"};
-		{ 19, 230665, "", "=q4=Earring of Soulful Meditation", "=ds=#s14#, =q1=#m1# =ds=#c5#", "", "18%"};
-		{ 20, 230063, "", "=q4=Libram of Absolute Truth", "=ds=#s16#, #w16#", "", "17%"};
-		{ 21, 230058, "", "=q4=Mallet of the Tides", "=ds=#h1#, #w6#", "", "20%"};
-		Prev = "CFRSerpentHydrossHEROIC";
-		Next = "CFRSerpentLeotherasHEROIC";
-	};
-
-	AtlasLoot_Data["CFRSerpentLeotherasHEROIC"] = {
-		{ 1, 230092, "", "=q4=Orca-Hide Boots", "=ds=#s12#, #a2#", "", "13%"};
-		{ 2, 230097, "", "=q4=Coral-Barbed Shoulderpads", "=ds=#s3#, #a3#", "", "15%"};
-		{ 3, 230091, "", "=q4=True-Aim Stalker Bands", "=ds=#s8#, #a3#", "", "17%"};
-		{ 4, 230096, "", "=q4=Girdle of the Invulnerable", "=ds=#s10#, #a4#", "", "14%"};
-		{ 5, 230627, "", "=q4=Tsunami Talisman", "=ds=#s14#", "", "15%"};
-		{ 6, 230095, "", "=q4=Fang of the Leviathan", "=ds=#h3#, #w10#", "", "14%"};
-		{ 16, 230239, "", "=q4=Gloves of the Vanquished Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "63%"};
-		{ 17, 230240, "", "=q4=Gloves of the Vanquished Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "67%"};
-		{ 18, 230241, "", "=q4=Gloves of the Vanquished Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "65%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "CFRSerpentLurkerHEROIC";
-		Next = "CFRSerpentKarathressHEROIC";
-	};
-
-	AtlasLoot_Data["CFRSerpentKarathressHEROIC"] = {
-		{ 1, 230100, "", "=q4=Soul-Strider Boots", "=ds=#s12#, #a1#", "", "15%"};
-		{ 2, 230101, "", "=q4=Bloodsea Brigand's Vest", "=ds=#s5#, #a2#", "", "15%"};
-		{ 3, 230099, "", "=q4=Frayed Tether of the Drowned", "=ds=#s2#", "", "15%"};
-		{ 4, 230663, "", "=q4=Fathom-Brooch of the Tidewalker", "=ds=#s14#, =q1=#m1# =ds=#c7#", "", "15%"};
-		{ 5, 230626, "", "=q4=Sextant of Unstable Currents", "=ds=#s14#", "", "14%"};
-		{ 6, 230090, "", "=q4=World Breaker", "=ds=#h2#, #w6#", "", "15%"};
-		{ 16, 230245, "", "=q4=Leggings of the Vanquished Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "62%"};
-		{ 17, 230246, "", "=q4=Leggings of the Vanquished Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "61%"};
-		{ 18, 230247, "", "=q4=Leggings of the Vanquished Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "62%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "CFRSerpentLeotherasHEROIC";
-		Next = "CFRSerpentMorogrimHEROIC";
-	};
-
-	AtlasLoot_Data["CFRSerpentMorogrimHEROIC"] = {
-		{ 1, 230098, "", "=q4=Razor-Scale Battlecloak", "=ds=#s4#", "", "22%"};
-		{ 2, 230079, "", "=q4=Illidari Shoulderpads", "=ds=#s3#, #a1#", "", "15%"};
-		{ 3, 230075, "", "=q4=Gnarled Chestpiece of the Ancients", "=ds=#s5#, #a2#", "", "19%"};
-		{ 4, 230085, "", "=q4=Mantle of the Tireless Tracker", "=ds=#s3#, #a3#", "", "20%"};
-		{ 5, 230068, "", "=q4=Girdle of the Tidal Call", "=ds=#s10#, #a3#", "", "17%"};
-		{ 6, 230084, "", "=q4=Pauldrons of the Argent Sentinel", "=ds=#s3#, #a4#", "", "21%"};
-		{ 7, 230081, "", "=q4=Warboots of Obliteration", "=ds=#s12#, #a4#", "", "21%"};
-		{ 9, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 16, 230008, "", "=q4=Pendant of the Lost Ages", "=ds=#s2#", "", "18%"};
-		{ 17, 230083, "", "=q4=Ring of Sundered Souls", "=ds=#s13#", "", "21%"};
-		{ 18, 233058, "", "=q4=Band of the Vigilant", "=ds=#s13#", "", "19%"};
-		{ 19, 230720, "", "=q4=Serpent-Coil Braid", "=ds=#s14#, =q1=#m1# =ds=#c3#", "", "20%"};
-		{ 20, 230082, "", "=q4=Talon of Azshara", "=ds=#h1#, #w10#", "", "20%"};
-		{ 21, 230080, "", "=q4=Luminescent Rod of the Naaru", "=ds=#w12#", "", "15%"};
-		Prev = "CFRSerpentKarathressHEROIC";
-		Next = "CFRSerpentVashjHEROIC";
-	};
-
-	AtlasLoot_Data["CFRSerpentVashjHEROIC"] = {
-		{ 1, 230107, "", "=q4=Vestments of the Sea-Witch", "=ds=#s5#, #a1#", "", "13%"};
-		{ 2, 230111, "", "=q4=Runetotem's Mantle", "=ds=#s3#, #a2#", "", "14%"};
-		{ 3, 230106, "", "=q4=Belt of One-Hundred Deaths", "=ds=#s10#, #a2#", "", "12%"};
-		{ 4, 230104, "", "=q4=Cobra-Lash Boots", "=ds=#s12#, #a3#", "", "13%"};
-		{ 5, 230102, "", "=q4=Krakken-Heart Breastplate", "=ds=#s5#, #a4#", "", "15%"};
-		{ 6, 230112, "", "=q4=Glorious Gauntlets of Crestfall", "=ds=#s9#, #a4#", "", "14%"};
-		{ 7, 230109, "", "=q4=Ring of Endless Coils", "=ds=#s13#", "", "13%"};
-		{ 8, 230110, "", "=q4=Coral Band of the Revived", "=ds=#s13#", "", "16%"};
-		{ 9, 230621, "", "=q4=Prism of Inner Calm", "=ds=#s14#", "", "13%"};
-		{ 10, 230103, "", "=q4=Fang of Vashj", "=ds=#h1#, #w4#", "", "14%"};
-		{ 11, 230108, "", "=q4=Lightfathom Scepter", "=ds=#h3#, #w6#", "", "14%"};
-		{ 12, 230105, "", "=q4=Serpent Spine Longbow", "=ds=#w2#", "", "13%"};
-		{ 16, 230242, "", "=q4=Helm of the Vanquished Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "61%"};
-		{ 17, 230243, "", "=q4=Helm of the Vanquished Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "62%"};
-		{ 18, 230244, "", "=q4=Helm of the Vanquished Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "63%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 22, 29906, "", "=q1=Vashj's Vial Remnant", "=ds=#m3#", "", "35%"};
-		Prev = "CFRSerpentMorogrimHEROIC";
-	};
-
-	AtlasLoot_Data["CFRSerpentTrashHEROIC"] = {
-		{ 1, 230027, "", "=q4=Boots of Courage Unending", "=ds=#s12#, #a4#", "", "3%"};
-		{ 2, 230022, "", "=q4=Pendant of the Perilous", "=ds=#s2#", "", "3%"};
-		{ 3, 230620, "", "=q4=Spyglass of the Hidden Fleet", "=ds=#s14#", "", "4%"};
-		{ 4, 230023, "", "=q4=Totem of the Maelstrom", "=ds=#s16#, #w15#", "", "3%"};
-		{ 5, 230021, "", "=q4=Wildfury Greatstaff", "=ds=#w9#", "", "3%"};
-		{ 6, 230025, "", "=q4=Serpentshrine Shuriken", "=ds=#w11#", "", "3%"};
-		{ 8, 30324, "", "=q4=Plans: Red Havoc Boots", "=ds=#p2# (375)", "", "1%"};
-		{ 9, 30322, "", "=q4=Plans: Red Belt of Battle", "=ds=#p2# (375)", "", "2%"};
-		{ 10, 30323, "", "=q4=Plans: Boots of the Protector", "=ds=#p2# (375)", "", "2%"};
-		{ 11, 30321, "", "=q4=Plans: Belt of the Guardian", "=ds=#p2# (375)", "", "2%"};
-		{ 12, 30280, "", "=q4=Pattern: Belt of Blasting", "=ds=#p8# (375)", "", "1%"};
-		{ 13, 30282, "", "=q4=Pattern: Boots of Blasting", "=ds=#p8# (375)", "", "1%"};
-		{ 14, 30283, "", "=q4=Pattern: Boots of the Long Road", "=ds=#p8# (375)", "", "2%"};
-		{ 15, 30281, "", "=q4=Pattern: Belt of the Long Road", "=ds=#p8# (375)", "", "1%"};
-		{ 16, 30308, "", "=q4=Pattern: Hurricane Boots", "=ds=#p7# (375)", "", "1%"};
-		{ 17, 30304, "", "=q4=Pattern: Monsoon Belt", "=ds=#p7# (375)", "", "1%"};
-		{ 18, 30305, "", "=q4=Pattern: Boots of Natural Grace", "=ds=#p7# (375)", "", "2%"};
-		{ 19, 30307, "", "=q4=Pattern: Boots of the Crimson Hawk", "=ds=#p7# (375)", "", "1%"};
-		{ 20, 30306, "", "=q4=Pattern: Boots of Utter Darkness", "=ds=#p7# (375)", "", "2%"};
-		{ 21, 30301, "", "=q4=Pattern: Belt of Natural Power", "=ds=#p7# (375)", "", "1%"};
-		{ 22, 30303, "", "=q4=Pattern: Belt of the Black Eagle", "=ds=#p7# (375)", "", "1%"};
-		{ 23, 30302, "", "=q4=Pattern: Belt of Deep Shadow", "=ds=#p7# (375)", "", "1%"};
-		{ 25, 30183, "", "=q4=Nether Vortex", "=ds=#e8#", "", "75%"};
-		{ 27, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "27%"};
-	};
 		--------------------
 		--- Gruul's Lair ---
 		--------------------
@@ -1784,6 +1395,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 17, 29764, "", "=q4=Pauldrons of the Fallen Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "34.69%"};
 		{ 18, 29762, "", "=q4=Pauldrons of the Fallen Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "25.62%"};
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
+		{ 21, 816252, "", "=q2=Formula: Enchant Weapon - Undaunted Might", "=ds=#p4# (375)", "", "5%"};
 		Next = "GruulGruul";
 	};
 
@@ -1807,46 +1419,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 24, 28825, "", "=q4=Aldori Legacy Defender", "=ds=#w8#", "", "2.99%"};
 		{ 25, 28826, "", "=q4=Shuriken of Negation", "=ds=#w11#", "", "16.21%"};
 		Prev = "GruulsLairHighKingMaulgar";
-	};
-
-		--------------------------
-		--- Gruul's Lair HEROIC---
-		--------------------------
-
-	AtlasLoot_Data["GruulsLairHighKingMaulgarHEROIC"] = {
-		{ 1, 228797, "", "=q4=Brute Cloak of the Ogre-Magi", "#s4#", "", "8.39%"};
-		{ 2, 228799, "", "=q4=Belt of Divine Inspiration", "#s10#, #a1#", "", "9.98%"};
-		{ 3, 228796, "", "=q4=Malefic Mask of the Shadows", "=ds=#s1#, #a2#", "", "12.93%"};
-		{ 4, 228801, "", "=q4=Maulgar's Warhelm", "=ds=#s1#, #a3#", "", "21.32%"};
-		{ 5, 228795, "", "=q4=Bladespire Warbands", "=ds=#s8#, #a4#", "", "12.02%"};
-		{ 6, 228800, "", "=q4=Hammer of the Naaru", "=ds=#h2#, #w6#", "", "15.87%"};
-		{ 16, 229763, "", "=q4=Pauldrons of the Fallen Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "22.68%"};
-		{ 17, 229764, "", "=q4=Pauldrons of the Fallen Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "34.69%"};
-		{ 18, 229762, "", "=q4=Pauldrons of the Fallen Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "25.62%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Next = "GruulGruulHEROIC";
-	};
-
-	AtlasLoot_Data["GruulGruulHEROIC"] = {
-		{ 1, 228804, "", "=q4=Collar of Cho'gall", "=ds=#s1#, #a1#", "", "14.96%"};
-		{ 2, 228803, "", "=q4=Cowl of Nature's Breath", "=ds=#s1#, #a2#", "", "14.21%"};
-		{ 3, 228828, "", "=q4=Gronn-Stitched Girdle", "=ds=#s10#, #a2#", "", "11.22%"};
-		{ 4, 228827, "", "=q4=Gauntlets of the Dragonslayer", "=ds=#s9#, #a3#", "", "7.48%"};
-		{ 5, 228810, "", "=q4=Windshear Boots", "=ds=#s12#, #a3#", "", "10.22%"};
-		{ 6, 228824, "", "=q4=Gauntlets of Martial Perfection", "=ds=#s9#, #a4#", "", "12.22%"};
-		{ 7, 228822, "", "=q4=Teeth of Gruul", "=ds=#s2#", "", "11.47%"};
-		{ 8, 228823, "", "=q4=Eye of Gruul", "=ds=#s14#", "", "6.73%"};
-		{ 9, 228830, "", "=q4=Dragonspine Trophy", "=ds=#s14#", "", "11.72%"};
-		{ 11, 31750, "", "=q1=Earthen Signet", "=ds=#m3#", "", "100%"};
-		{ 16, 229766, "", "=q4=Leggings of the Fallen Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "23.69%"};
-		{ 17, 229767, "", "=q4=Leggings of the Fallen Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "17.46%"};
-		{ 18, 229765, "", "=q4=Leggings of the Fallen Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "30.17%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 22, 228802, "", "=q4=Bloodmaw Magus-Blade", "=ds=#h3#, #w10#", "", "9.23%"};
-		{ 23, 228794, "", "=q4=Axe of the Gronn Lords", "=ds=#h2#, #w1#", "", "6.73%"};
-		{ 24, 228825, "", "=q4=Aldori Legacy Defender", "=ds=#w8#", "", "2.99%"};
-		{ 25, 228826, "", "=q4=Shuriken of Negation", "=ds=#w11#", "", "16.21%"};
-		Prev = "GruulsLairHighKingMaulgarHEROIC";
 	};
 
 		-------------------------------------------
@@ -1922,9 +1494,10 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 0, "INV_Box_01", "=q6="..BabbleBoss["Nazan"], ""};
 		{ 20, 23901, "", "=q1=Nazan's Head", "=ds=#m3#", "", "100%"};
 		Prev = "HCRampOmor";
+		Next = "HCRampVazrudenHeroic"
 	};
 
-	AtlasLoot_Data["HCRampVazrudenHEROIC"] = {
+	AtlasLoot_Data["HCRampVazrudenHeroic"] = {
 		{ 1, 29264, "", "=q4=Tree-Mender's Belt", "=ds=#s10#, #a2#", "", "16.05%"};
 		{ 2, 32077, "", "=q4=Wrath Infused Gauntlets", "=ds=#s9#, #a3#"};
 		{ 3, 29238, "", "=q4=Lion's Heart Girdle", "=ds=#s10#, #a4#", "", "14.81%"};
@@ -1947,8 +1520,9 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 25, 23892, "", "=q1=Ominous Letter", "=ds=#m2#", "", "100%"};
 		{ 27, 0, "INV_Box_01", "=q6="..BabbleBoss["Nazan"], ""};
 		{ 28, 23901, "", "=q1=Nazan's Head", "=ds=#m3#", "", "100%"};
-		Prev = "HCRampOmor";
+		Prev = "HCRampVazruden";
 	};
+
 
 		-------------------------------------------
 		--- Hellfire Citadel: The Blood Furnace ---
@@ -2122,10 +1696,11 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 6, 28779, "", "=q4=Girdle of the Endless Pit", "=ds=#s10#, #a4#"};
 		{ 7, 28789, "", "=q4=Eye of Magtheridon", "=ds=#s14#"};
 		{ 8, 28781, "", "=q4=Karaborian Talisman", "=ds=#s15#"};
-		{ 10, 28774, "", "=q4=Glaive of the Pit", "=ds=#w7#"};
-		{ 11, 28782, "", "=q4=Crystalheart Pulse-Staff", "=ds=#w9#"};
-		{ 12, 29458, "", "=q4=Aegis of the Vindicator", "=ds=#w8#"};
-		{ 13, 28783, "", "=q4=Eredar Wand of Obliteration", "=ds=#w12#"};
+		{ 9, 28774, "", "=q4=Glaive of the Pit", "=ds=#w7#"};
+		{ 10, 28782, "", "=q4=Crystalheart Pulse-Staff", "=ds=#w9#"};
+		{ 11, 29458, "", "=q4=Aegis of the Vindicator", "=ds=#w8#"};
+		{ 12, 28783, "", "=q4=Eredar Wand of Obliteration", "=ds=#w12#"};
+		{ 14, 34845, "", "=q4=Pit Lord's Satchel", "=ds=#e1# #m15#"};
 		{ 15, 34846, "", "=q2=Black Sack of Gems", "=ds=#e1#"};
 		{ 16, 29754, "", "=q4=Chestguard of the Fallen Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#"};
 		{ 17, 29753, "", "=q4=Chestguard of the Fallen Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#"};
@@ -2136,37 +1711,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 24, 28790, "", "=q4=Naaru Lightwarden's Band", "=q1=#m4#: =ds=#s13#"};
 		{ 25, 28793, "", "=q4=Band of Crimson Fury", "=q1=#m4#: =ds=#s13#"};
 		{ 26, 28792, "", "=q4=A'dal's Signet of Defense", "=q1=#m4#: =ds=#s13#"};
-		{ 28, 34845, "", "=q4=Pit Lord's Satchel", "=ds=#e1# #m15#"};
-	};
-
-		---------------------------------------------------
-		--- Hellfire Citadel: Magtheridon's Lair HEROIC ---
-		---------------------------------------------------
-
-	AtlasLoot_Data["HCMagtheridonHEROIC"] = {
-		{ 1, 228777, "", "=q4=Cloak of the Pit Stalker", "=ds=#s4#"};
-		{ 2, 228780, "", "=q4=Soul-Eater's Handwraps", "=ds=#s9#, #a1#"};
-		{ 3, 228776, "", "=q4=Liar's Tongue Gloves", "=ds=#s9#, #a2#"};
-		{ 4, 228778, "", "=q4=Terror Pit Girdle", "=ds=#s10#, #a3#"};
-		{ 5, 228775, "", "=q4=Thundering Greathelm", "=ds=#s1#, #a4#"};
-		{ 6, 228779, "", "=q4=Girdle of the Endless Pit", "=ds=#s10#, #a4#"};
-		{ 7, 228789, "", "=q4=Eye of Magtheridon", "=ds=#s14#"};
-		{ 8, 228781, "", "=q4=Karaborian Talisman", "=ds=#s15#"};
-		{ 10, 228774, "", "=q4=Glaive of the Pit", "=ds=#w7#"};
-		{ 11, 228782, "", "=q4=Crystalheart Pulse-Staff", "=ds=#w9#"};
-		{ 12, 229458, "", "=q4=Aegis of the Vindicator", "=ds=#w8#"};
-		{ 13, 228783, "", "=q4=Eredar Wand of Obliteration", "=ds=#w12#"};
-		{ 15, 34846, "", "=q2=Black Sack of Gems", "=ds=#e1#"};
-		{ 16, 229754, "", "=q4=Chestguard of the Fallen Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#"};
-		{ 17, 229753, "", "=q4=Chestguard of the Fallen Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#"};
-		{ 18, 229755, "", "=q4=Chestguard of the Fallen Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 22, 232385, "", "=q4=Magtheridon's Head", "=ds=#m2#", "", "100%"};
-		{ 23, 228791, "", "=q4=Ring of the Recalcitrant", "=q1=#m4#: =ds=#s13#"};
-		{ 24, 228790, "", "=q4=Naaru Lightwarden's Band", "=q1=#m4#: =ds=#s13#"};
-		{ 25, 228793, "", "=q4=Band of Crimson Fury", "=q1=#m4#: =ds=#s13#"};
-		{ 26, 228792, "", "=q4=A'dal's Signet of Defense", "=q1=#m4#: =ds=#s13#"};
-		{ 28, 34845, "", "=q4=Pit Lord's Satchel", "=ds=#e1# #m15#"};
+		{ 28, 816252, "", "=q2=Formula: Enchant Weapon - Undaunted Might", "=ds=#p4# (375)", "", "5%"};
 	};
 
 		----------------
@@ -2251,6 +1796,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 17, 28523, "", "=q4=Totem of Healing Rains", "=ds=#s16#, #w15#", "", "14.58%"};
 		{ 18, 28522, "", "=q4=Shard of the Virtuous", "=ds=#h3#, #w6#", "", "10.69%"};
 		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
+		{ 21, 816253, "", "=q2=Formula: Enchant Weapon - Faith", "=ds=#p4# (375)", "", "5%"};
 		Prev = "KaraMoroes";
 		Next = "KaraOperaEvent";
 	};
@@ -2433,363 +1979,100 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 21, 22545, "", "=q2=Formula: Enchant Boots - Surefooted", "=ds=#p4# (370)", "", "0.66%"};
 	};
 
-
-		----------------------
-		--- Karazhan HEROIC---
-		----------------------
-
-	AtlasLoot_Data["KaraCharredBoneFragmentHEROIC"] = {
-		{ 1, 24152, "INV_Misc_Bone_10", "=q1=Charred Bone Fragment", "=ds=#m3#"};
-	};
-
-	AtlasLoot_Data["KaraNamedHEROIC"] = {
-		{ 1, 0, "Ability_Hunter_Pet_Spider", "=q6="..BabbleBoss["Hyakiss the Lurker"], "=q5="..AL["Spider"]};
-		{ 2, 230675, "", "=q4=Lurker's Cord", "=ds=#s10#, #a1# =q2=#m16#", "", "32.81%"};
-		{ 3, 230676, "", "=q4=Lurker's Grasp", "=ds=#s10#, #a2# =q2=#m16#", "", "9.38%"};
-		{ 4, 230677, "", "=q4=Lurker's Belt", "=ds=#s10#, #a3# =q2=#m16#", "", "23.44%"};
-		{ 5, 230678, "", "=q4=Lurker's Girdle", "=ds=#s10#, #a4# =q2=#m16#", "", "15.62%"};
-		{ 7, 0, "Ability_Hunter_Pet_Hyena", "=q6="..BabbleBoss["Rokad the Ravager"], "=q5="..AL["Darkhound"]};
-		{ 8, 230684, "", "=q4=Ravager's Cuffs", "=ds=#s8#, #a1# =q2=#m16#", "", "27.78%"};
-		{ 9, 230685, "", "=q4=Ravager's Wrist-Wraps", "=ds=#s8#, #a2# =q2=#m16#", "", "11.11%"};
-		{ 10, 230686, "", "=q4=Ravager's Bands", "=ds=#s8#, #a3# =q2=#m16#", "", "23.33%"};
-		{ 11, 230687, "", "=q4=Ravager's Bracers", "=ds=#s8#, #a4# =q2=#m16#", "", "8.89%"};
-		{ 16, 0, "Ability_Hunter_Pet_Bat", "=q6="..BabbleBoss["Shadikith the Glider"], "=q5="..AL["Bat"]};
-		{ 17, 230680, "", "=q4=Glider's Foot-Wraps", "=ds=#s12#, #a1# =q2=#m16#", "", "9.68%"};
-		{ 18, 230681, "", "=q4=Glider's Boots", "=ds=#s12#, #a2# =q2=#m16#", "", "22.58%"};
-		{ 19, 230682, "", "=q4=Glider's Sabatons", "=ds=#s12#, #a3# =q2=#m16#", "", "9.68%"};
-		{ 20, 230683, "", "=q4=Glider's Greaves", "=ds=#s12#, #a4# =q2=#m16#", "", "8.60%"};
-	};
-
-	AtlasLoot_Data["KaraAttumenHEROIC"] = {
-		{ 1, 228477, "", "=q4=Harbinger Bands", "=ds=#s8#, #a1#", "", "14.68%"};
-		{ 2, 228507, "", "=q4=Handwraps of Flowing Thought", "=ds=#s9#, #a1#", "", "12.44%"};
-		{ 3, 228508, "", "=q4=Gloves of Saintly Blessings", "=ds=#s9#, #a1#", "", "11.69%"};
-		{ 4, 228453, "", "=q4=Bracers of the White Stag", "=ds=#s8#, #a2#", "", "12.19%"};
-		{ 5, 228506, "", "=q4=Gloves of Dexterous Manipulation", "=ds=#s9#, #a2#", "", "14.68%"};
-		{ 6, 228503, "", "=q4=Whirlwind Bracers", "=ds=#s8#, #a3#", "", "9.20%"};
-		{ 7, 228454, "", "=q4=Stalker's War Bands", "=ds=#s8#, #a3#", "", "16.17%"};
-		{ 8, 228502, "", "=q4=Vambraces of Courage", "=ds=#s8#, #a4#", "", "10.70%"};
-		{ 9, 228505, "", "=q4=Gauntlets of Renewed Hope", "=ds=#s9#, #a4#", "", "10.95%"};
-		{ 16, 228509, "", "=q4=Worgen Claw Necklace", "=ds=#s2#", "", "17.16%"};
-		{ 17, 228510, "", "=q4=Spectral Band of Innervation", "=ds=#s13#", "", "10.70%"};
-		{ 18, 228504, "", "=q4=Steelhawk Crossbow", "=ds=#w3#", "", "12.44%"};
-		{ 19, 30480, "", "=q4=Fiery Warhorse's Reins", "=ds=#e12#", "", "0.25%"};
-		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 23, 23809, "", "=q3=Schematic: Stabilized Eternium Scope", "=ds=#p5# (375)", "", "1.00%"};
-		Next = "KaraMoroesHEROIC";
-	};
-
-	AtlasLoot_Data["KaraMoroesHEROIC"] = {
-		{ 1, 228529, "", "=q4=Royal Cloak of Arathi Kings", "=ds=#s4#", "", "15.91%"};
-		{ 2, 228570, "", "=q4=Shadow-Cloak of Dalaran", "=ds=#s4#", "", "12.18%"};
-		{ 3, 228565, "", "=q4=Nethershard Girdle", "=ds=#s10#, #a1#", "", "14.08%"};
-		{ 4, 228545, "", "=q4=Edgewalker Longboots", "=ds=#s12#, #a2#", "", "11.07%"};
-		{ 5, 228567, "", "=q4=Belt of Gale Force", "=ds=#s10#, #a3#", "", "12.05%"};
-		{ 6, 228566, "", "=q4=Crimson Girdle of the Indomitable", "=ds=#s10#, #a4#", "", "10.81%"};
-		{ 7, 228569, "", "=q4=Boots of Valiance", "=ds=#s12#, #a4#", "", "11.33%"};
-		{ 9, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 16, 228530, "", "=q4=Brooch of Unquenchable Fury", "=ds=#s2#", "", "12.25%"};
-		{ 17, 228528, "", "=q4=Moroes' Lucky Pocket Watch", "=ds=#s14#", "", "12.05%"};
-		{ 18, 228525, "", "=q4=Signet of Unshakable Faith", "=ds=#s15#", "", "14.54%"};
-		{ 19, 228568, "", "=q4=Idol of the Avian Heart", "=ds=#s16#, #w14#", "", "14.08%"};
-		{ 20, 228524, "", "=q4=Emerald Ripper", "=ds=#h1#, #w4#", "", "12.90%"};
-		{ 22, 22559, "", "=q3=Formula: Enchant Weapon - Mongoose", "=ds=#p4# (375)", "", "1.05%"};
-		Prev = "KaraAttumenHEROIC";
-		Next = "KaraMaidenHEROIC";
-	};
-
-	AtlasLoot_Data["KaraKeannaLogHEROIC"] = {
-		{ 1, 24492, "", "=q1=Keanna's Log", "=ds=#m3#"};
-	};
-
-	AtlasLoot_Data["KaraMaidenHEROIC"] = {
-		{ 1, 228511, "", "=q4=Bands of Indwelling", "=ds=#s8#, #a1#", "", "12.46%"};
-		{ 2, 228515, "", "=q4=Bands of Nefarious Deeds", "=ds=#s8#, #a1#", "", "13.87%"};
-		{ 3, 228517, "", "=q4=Boots of Foretelling", "=ds=#s12#, #a1#", "", "16.96%"};
-		{ 4, 228514, "", "=q4=Bracers of Maliciousness", "=ds=#s8#, #a2#", "", "15.90%"};
-		{ 5, 228521, "", "=q4=Mitts of the Treemender", "=ds=#s9#, #a2#", "", "13.16%"};
-		{ 6, 228520, "", "=q4=Gloves of Centering", "=ds=#s9#, #a3#", "", "13.16%"};
-		{ 7, 228519, "", "=q4=Gloves of Quickening", "=ds=#s9#, #a3#", "", "14.22%"};
-		{ 8, 228512, "", "=q4=Bracers of Justice", "=ds=#s8#, #a4#", "", "15%"};
-		{ 9, 228518, "", "=q4=Iron Gauntlets of the Maiden", "=ds=#s9#, #a4#", "", "12.63%"};
-		{ 16, 228516, "", "=q4=Barbed Choker of Discipline", "=ds=#s2#", "", "11.48%"};
-		{ 17, 228523, "", "=q4=Totem of Healing Rains", "=ds=#s16#, #w15#", "", "14.58%"};
-		{ 18, 228522, "", "=q4=Shard of the Virtuous", "=ds=#h3#, #w6#", "", "10.69%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "KaraMoroesHEROIC";
-		Next = "KaraOperaEventHEROIC";
-	};
-
-	AtlasLoot_Data["KaraOperaEventHEROIC"] = {
-		{ 1, 0, "INV_Box_01", "=q6="..AL["Shared Drops"], ""};
-		{ 2, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 3, 228594, "", "=q4=Trial-FireTrousers", "=ds=#s11#, #a1#", "", "15.96%"};
-		{ 4, 228591, "", "=q4=Earthsoul Leggings", "=ds=#s11#, #a2#", "", "12.45%"};
-		{ 5, 228589, "", "=q4=Beastmaw Pauldrons", "=ds=#s3#, #a3#", "", "12.54%"};
-		{ 6, 228593, "", "=q4=Eternium Greathelm", "=ds=#s1#, #a4#", "", "11.53%"};
-		{ 7, 228590, "", "=q4=Ribbon of Sacrifice", "=ds=#s14#", "", "18.41%"};
-		{ 8, 228592, "", "=q4=Libram of Souls Redeemed", "=ds=#s16#, #w16#", "", "8.38%"};
-		{ 10, 0, "INV_Box_01", "=q6="..BabbleBoss["The Crone"], "=q5="..AL["Wizard of Oz"]};
-		{ 11, 228586, "", "=q4=Wicked Witch's Hat", "=ds=#s1#, #a1#", "", "20.12%"};
-		{ 12, 228585, "", "=q4=Ruby Slippers", "=ds=#s12#, #a1#", "", "25.39%"};
-		{ 13, 228587, "", "=q4=Legacy", "=ds=#h2#, #w1#", "", "20.43%"};
-		{ 14, 228588, "", "=q4=Blue Diamond Witchwand", "=ds=#w12#", "", "17.96%"};
-		{ 16, 0, "INV_Box_01", "=q6="..BabbleBoss["Romulo & Julianne"], "=q5="..AL["Romulo & Julianne"]};
-		{ 17, 228578, "", "=q4=Masquerade Gown", "=ds=#s5#, #a1#", "", "22.73%"};
-		{ 18, 228579, "", "=q4=Romulo's Poison Vial", "=ds=#s14#", "", "29.54%"};
-		{ 19, 228572, "", "=q4=Blade of the Unrequited", "=ds=#h1#, #w4#", "", "13.52%"};
-		{ 20, 228573, "", "=q4=Despair", "=ds=#h2#, #w10#", "", "30.07%"};
-		{ 24, 0, "INV_Box_01", "=q6="..BabbleBoss["The Big Bad Wolf"], "=q5="..AL["Red Riding Hood"]};
-		{ 25, 228582, "", "=q4=Red Riding Hood's Cloak", "=ds=#s4#", "", "12.85%"};
-		{ 26, 228583, "", "=q4=Big Bad Wolf's Head", "=ds=#s1#, #a3#", "", "16.37%"};
-		{ 27, 228584, "", "=q4=Big Bad Wolf's Paw", "=ds=#h3#, #w13#", "", "16.12%"};
-		{ 28, 228581, "", "=q4=Wolfslayer Sniper Rifle", "=ds=#w5#", "", "22.42%"};
-		Prev = "KaraMaidenHEROIC";
-		Next = "KaraNightbaneHEROIC";
-	};
-
-	AtlasLoot_Data["KaraNightbaneHEROIC"] = {
-		{ 1, 228602, "", "=q4=Robe of the Elder Scribes", "=ds=#s5#, #a1#", "", "17.38%"};
-		{ 2, 228600, "", "=q4=Stonebough Jerkin", "=ds=#s5#, #a2#", "", "13.33%"};
-		{ 3, 228601, "", "=q4=Chestguard of the Conniver", "=ds=#s5#, #a2#", "", "10.24%"};
-		{ 4, 228599, "", "=q4=Scaled Breastplate of Carnage", "=ds=#s5#, #a3#", "", "11.67%"};
-		{ 5, 228610, "", "=q4=Ferocious Swift-Kickers", "=ds=#s12#, #a3#", "", "15.71%"};
-		{ 6, 228597, "", "=q4=Panzar'Thar Breastplate", "=ds=#s5#, #a4#", "", "10.00%"};
-		{ 7, 228608, "", "=q4=Ironstriders of Urgency", "=ds=#s12#, #a4#", "", "9.05%"};
-		{ 9, 31751, "", "=q1=Blazing Signet", "=ds=#m3#", "", "100%"};
-		{ 10, 24139, "", "=q1=Faint Arcane Essence", "=ds=#m3#", "", "100%"};
-		{ 16, 228609, "", "=q4=Emberspur Talisman", "=ds=#s2#", "", "13.33%"};
-		{ 17, 228603, "", "=q4=Talisman of Nightbane", "=ds=#s15#", "", "12.62%"};
-		{ 18, 228604, "", "=q4=Nightstaff of the Everliving", "=ds=#w9#", "", "16.67%"};
-		{ 19, 228611, "", "=q4=Dragonheart Flameshield", "=ds=#w8#", "", "13.57%"};
-		{ 20, 228606, "", "=q4=Shield of Impenetrable Darkness", "=ds=#w8#", "", "12.14%"};
-		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "KaraOperaEventHEROIC";
-		Next = "KaraCuratorHEROIC";
-	};
-
-	AtlasLoot_Data["KaraCuratorHEROIC"] = {
-		{ 1, 228612, "", "=q4=Pauldrons of the Solace-Giver", "=ds=#s3#, #a1#", "", "15.19%"};
-		{ 2, 228647, "", "=q4=Forest Wind Shoulderpads", "=ds=#s3#, #a2#", "", "10.56%"};
-		{ 3, 228631, "", "=q4=Dragon-Quake Shoulderguards", "=ds=#s3#, #a3#", "", "13.47%"};
-		{ 4, 228621, "", "=q4=Wrynn Dynasty Greaves", "=ds=#s11#, #a4#", "", "11.85%"};
-		{ 5, 228649, "", "=q4=Garona's Signet Ring", "=ds=#s13#", "", "12.07%"};
-		{ 6, 228633, "", "=q4=Staff of Infinite Mysteries", "=ds=#w9#", "", "12.28%"};
-		{ 8, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 16, 229757, "", "=q4=Gloves of the Fallen Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "29.42%"};
-		{ 17, 229758, "", "=q4=Gloves of the Fallen Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "23.60%"};
-		{ 18, 229756, "", "=q4=Gloves of the Fallen Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "21.66%"};
-		Prev = "KaraNightbaneHEROIC";
-		Next = "KaraIllhoofHEROIC";
-	};
-
-	AtlasLoot_Data["KaraIllhoofHEROIC"] = {
-		{ 1, 228660, "", "=q4=Gilded Thorium Cloak", "=ds=#s4#", "", "14.63%"};
-		{ 2, 228653, "", "=q4=Shadowvine Cloak of Infusion", "=ds=#s4#", "", "10.45%"};
-		{ 3, 228652, "", "=q4=Cincture of Will", "=ds=#s10#, #a1#", "", "10.75%"};
-		{ 4, 228654, "", "=q4=Malefic Girdle", "=ds=#s10#, #a1#", "", "11.04%"};
-		{ 5, 228655, "", "=q4=Cord of Nature's Sustenance", "=ds=#s10#, #a2#", "", "14.93%"};
-		{ 6, 228656, "", "=q4=Girdle of the Prowler", "=ds=#s10#, #a3#", "", "17.91%"};
-		{ 7, 228662, "", "=q4=Breastplate of the Lightbinder", "=ds=#s5#, #a4#", "", "17.31%"};
-		{ 9, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 16, 228661, "", "=q4=Mender's Heart-Ring", "=ds=#s13#", "", "11.64%"};
-		{ 17, 228785, "", "=q4=The Lightning Capacitor", "=ds=#s14#", "", "10.75%"};
-		{ 18, 228657, "", "=q4=Fool's Bane", "=ds=#h1#, #w6#", "", "14.63%"};
-		{ 19, 228658, "", "=q4=Terestian's Stranglestaff", "=ds=#w9#", "", "7.46%"};
-		{ 20, 228659, "", "=q4=Xavian Stiletto", "=ds=#w11#", "", "13.43%"};
-		{ 22, 22561, "", "=q3=Formula: Enchant Weapon - Soulfrost", "=ds=#p4# (375)", "", "0.30%"};
-		Prev = "KaraCuratorHEROIC";
-		Next = "KaraAranHEROIC";
-	};
-
-	AtlasLoot_Data["KaraAranHEROIC"] = {
-		{ 1, 228672, "", "=q4=Drape of the Dark Reavers", "=ds=#s4#", "", "11.70%"};
-		{ 2, 228726, "", "=q4=Mantle of the Mind Flayer", "=ds=#s3#, #a1#", "", "16.03%"};
-		{ 3, 228670, "", "=q4=Boots of the Infernal Coven", "=ds=#s12#, #a1#", "", "9.29%"};
-		{ 4, 228663, "", "=q4=Boots of the Incorrupt", "=ds=#s12#, #a1#", "", "12.72%"};
-		{ 5, 228669, "", "=q4=Rapscallion Boots", "=ds=#s12#, #a2#", "", "11.32%"};
-		{ 6, 228671, "", "=q4=Steelspine Faceguard", "=ds=#s1#, #a3#", "", "12.21%"};
-		{ 7, 228666, "", "=q4=Pauldrons of the Justice-Seeker", "=ds=#s3#, #a4#", "", "11.58%"};
-		{ 9, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 11, 23933, "", "=q1=Medivh's Journal", "=ds=#m3#", "", "100%"};
-		{ 16, 228674, "", "=q4=Saberclaw Talisman", "=ds=#s2#", "", "11.20%"};
-		{ 17, 228675, "", "=q4=Shermanar Great-Ring", "=ds=#s13#", "", "10.43%"};
-		{ 18, 228727, "", "=q4=Pendant of the Violet Eye", "=ds=#s14#", "", "15.39%"};
-		{ 19, 228728, "", "=q4=Aran's Soothing Sapphire", "=ds=#s15#", "", "12.72%"};
-		{ 20, 228673, "", "=q4=Tirisfal Wand of Ascendancy", "=ds=#w12#", "", "7.25%"};
-		{ 22, 22560, "", "=q3=Formula: Enchant Weapon - Sunfire", "=ds=#p4# (375)", "", "0.76%"};
-		Prev = "KaraIllhoofHEROIC";
-		Next = "KaraNetherspiteHEROIC";
-	};
-
-	AtlasLoot_Data["KaraNetherspiteHEROIC"] = {
-		{ 1, 228744, "", "=q4=Uni-Mind Headdress", "=ds=#s1#, #a1#", "", "12.91%"};
-		{ 2, 228742, "", "=q4=Pantaloons of Repentence", "=ds=#s11#, #a1#", "", "10.99%"};
-		{ 3, 228732, "", "=q4=Cowl of Defiance", "=ds=#s1#, #a2#", "", "17.31%"};
-		{ 4, 228741, "", "=q4=Skulker's Greaves", "=ds=#s11#, #a2#", "", "15.38%"};
-		{ 5, 228735, "", "=q4=Earthblood Chestguard", "=ds=#s5#, #a3#", "", "15.93%"};
-		{ 6, 228740, "", "=q4=Rip-Flayer Leggings", "=ds=#s11#, #a3#", "", "10.16%"};
-		{ 7, 228743, "", "=q4=Mantle of Abrahmis", "=ds=#s3#, #a4#", "", "9.34%"};
-		{ 8, 228733, "", "=q4=Girdle of Truth", "=ds=#s10#, #a4#", "", "10.44%"};
-		{ 16, 228731, "", "=q4=Shining Chain of the Afterworld", "=ds=#s2#", "", "15.11%"};
-		{ 17, 228730, "", "=q4=Mithril Band of the Unscarred", "=ds=#s13#", "", "10.99%"};
-		{ 18, 228734, "", "=q4=Jewel of Infinite Possibilities", "=ds=#s15#", "", "11.64%"};
-		{ 19, 228729, "", "=q4=Spiteblade", "=ds=#h1#, #w10#", "", "6.32%"};
-		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "KaraAranHEROIC";
-		Next = "KaraChessHEROIC";
-	};
-
-	AtlasLoot_Data["KaraChessHEROIC"] = {
-		{ 1, 228756, "", "=q4=Headdress of the High Potentate", "=ds=#s1#, #a1#", "", "17.98%"};
-		{ 2, 228755, "", "=q4=Bladed Shoulderpads of the Merciless", "=ds=#s3#, #a2#", "", "13.55%"};
-		{ 3, 228750, "", "=q4=Girdle of Treachery", "=ds=#s10#, #a2#", "", "15.02%"};
-		{ 4, 228752, "", "=q4=Forestlord Striders", "=ds=#s12#, #a2#", "", "14.04%"};
-		{ 5, 228751, "", "=q4=Heart-Flame Leggings", "=ds=#s11#, #a3#", "", "12.56%"};
-		{ 6, 228746, "", "=q4=Fiend Slayer Boots", "=ds=#s12#, #a3#", "", "16.26%"};
-		{ 7, 228748, "", "=q4=Legplates of the Innocent", "=ds=#s11#, #a4#", "", "13.79%"};
-		{ 8, 228747, "", "=q4=Battlescar Boots", "=ds=#s12#, #a4#", "", "13.79%"};
-		{ 16, 228745, "", "=q4=Mithril Chain of Heroism", "=ds=#s2#", "", "12.81%"};
-		{ 17, 228753, "", "=q4=Ring of Recurrence", "=ds=#s13#", "", "12.56%"};
-		{ 18, 228749, "", "=q4=King's Defender", "=ds=#h1#, #w10#", "", "12.07%"};
-		{ 19, 228754, "", "=q4=Triptych Shield of the Ancients", "=ds=#w8#", "", "13.30%"};
-		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "KaraNetherspiteHEROIC";
-		Next = "KaraPrinceHEROIC";
-	};
-
-	AtlasLoot_Data["KaraPrinceHEROIC"] = {
-		{ 1, 228765, "", "=q4=Stainless Cloak of the Pure Hearted", "=ds=#s4#", "", "10.37%"};
-		{ 2, 228766, "", "=q4=Ruby Drape of the Mysticant", "=ds=#s4#", "", "12.50%"};
-		{ 3, 228764, "", "=q4=Farstrider Wildercloak", "=ds=#s4#", "", "15.96%"};
-		{ 4, 228762, "", "=q4=Adornment of Stolen Souls", "=ds=#s2#", "", "9.57%"};
-		{ 5, 228763, "", "=q4=Jade Ring of the Everliving", "=ds=#s13#", "", "11.84%"};
-		{ 6, 228757, "", "=q4=Ring of a Thousand Marks", "=ds=#s13#", "", "12.90%"};
-		{ 8, 228770, "", "=q4=Nathrezim Mindblade", "=ds=#h3#, #w4#", "", "10.64%"};
-		{ 9, 228768, "", "=q4=Malchazeen", "=ds=#h1#, #w4#", "", "9.84%"};
-		{ 10, 228767, "", "=q4=The Decapitator", "=ds=#h1#, #w1#", "", "15.43%"};
-		{ 11, 228773, "", "=q4=Gorehowl", "=ds=#h2#, #w1#", "", "12.63%"};
-		{ 12, 228771, "", "=q4=Light's Justice", "=ds=#h3#, #w6#", "", "11.17%"};
-		{ 13, 228772, "", "=q4=Sunfury Bow of the Phoenix", "=ds=#w2#", "", "9.97%"};
-		{ 16, 229760, "", "=q4=Helm of the Fallen Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "23.01%"};
-		{ 17, 229761, "", "=q4=Helm of the Fallen Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "26.73%"};
-		{ 18, 229759, "", "=q4=Helm of the Fallen Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "20.48%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "KaraChessHEROIC";
-	};
-
-	AtlasLoot_Data["KaraTrashHEROIC"] = {
-		{ 1, 230642, "", "=q4=Drape of the Righteous", "=ds=#s4#", "", "0.22%"};
-		{ 2, 230668, "", "=q4=Grasp of the Dead", "=ds=#s9#, #a1#", "", "0.17%"};
-		{ 3, 230673, "", "=q4=Inferno Waist Cord", "=ds=#s10#, #a1#", "", "0.21%"};
-		{ 4, 230644, "", "=q4=Grips of the Deftness", "=ds=#s9#, #a2#", "", "0.23%"};
-		{ 5, 230674, "", "=q4=Zierhut's Lost Treads", "=ds=#s12#, #a2#", "", "0.17%"};
-		{ 6, 230643, "", "=q4=Belt of the Tracker", "=ds=#s10#, #a3#", "", "0.19%"};
-		{ 7, 230641, "", "=q4=Boots of Elusion", "=ds=#s12#, #a4#", "", "0.13%"};
-		{ 9, 23857, "", "=q1=Legacy of the Mountain King", "=ds="};
-		{ 10, 23864, "", "=q1=Torment of the Worgen", "=ds="};
-		{ 11, 23862, "", "=q1=Redemption of the Fallen", "=ds="};
-		{ 12, 23865, "", "=q1=Wrath of the Titans", "=ds="};
-		{ 14, 21882, "", "=q1=Soul Essence", "=ds=#e8#"};
-		{ 16, 230666, "", "=q4=Ritssyn's Lost Pendant", "=ds=#s2#", "", "0.18%"};
-		{ 17, 230667, "", "=q4=Ring of Unrelenting Storms", "=ds=#s13#", "", "0.17%"};
-		{ 19, 21903, "", "=q4=Pattern: Soulcloth Shoulders", "=ds=#p8# (375)", "", "0.74%"};
-		{ 20, 21904, "", "=q4=Pattern: Soulcloth Vest", "=ds=#p8# (375)", "", "1.07%"};
-		{ 21, 22545, "", "=q2=Formula: Enchant Boots - Surefooted", "=ds=#p4# (370)", "", "0.66%"};
-	};
 		----------------------------------------
 		--- Sunwell Isle: Magister's Terrace ---
 		----------------------------------------
 
 	AtlasLoot_Data["SMTFireheart"] = {
 		{ 1, 0, "INV_Box_01", "=q6=#j1#", ""};
-		{ 2, 34702, "", "=q3=Cloak of Swift Mending", "=ds=#s4#", "", "5%"};
-		{ 3, 34697, "", "=q3=Bindings of Raging Fire", "=ds=#s8#, #a1#", "", "5%"};
-		{ 4, 34701, "", "=q3=Leggings of the Betrayed", "=ds=#s11#, #a2#", "", "5%"};
-		{ 5, 34698, "", "=q3=Bracers of the Forest Stalker", "=ds=#s8#, #a3#", "", "5%"};
-		{ 6, 34700, "", "=q3=Gauntlets of Divine Blessings", "=ds=#s9#, #a4#", "", "5%"};
-		{ 7, 34699, "", "=q3=Sun-forged Cleaver", "=ds=#h1#, #w1#", "", "5%"};
+		{ 2, 434702, "", "=q3=Cloak of Swift Mending", "=ds=#s4#", "", "5%"};
+		{ 3, 434697, "", "=q3=Bindings of Raging Fire", "=ds=#s8#, #a1#", "", "5%"};
+		{ 4, 434701, "", "=q3=Leggings of the Betrayed", "=ds=#s11#, #a2#", "", "5%"};
+		{ 5, 434698, "", "=q3=Bracers of the Forest Stalker", "=ds=#s8#, #a3#", "", "5%"};
+		{ 6, 434700, "", "=q3=Gauntlets of Divine Blessings", "=ds=#s9#, #a4#", "", "5%"};
+		{ 7, 434699, "", "=q3=Sun-forged Cleaver", "=ds=#h1#, #w1#", "", "5%"};
 		{ 16, 0, "INV_Box_01", "=q6=#j3#", ""};
 		{ 17, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 18, 34602, "", "=q4=Eversong Cuffs", "=ds=#s8#, #a2#", "", "20%"};
-		{ 19, 34601, "", "=q4=Shoulderplates of Everlasting Pain", "=ds=#s3#, #a4#", "", "21%"};
-		{ 20, 34604, "", "=q4=Jaded Crystal Dagger", "=ds=#h3#, #w4#", "", "21%"};
-		{ 21, 34603, "", "=q4=Distracting Blades", "=ds=#w11#", "", "21%"};
-		{ 23, 35275, "", "=q3=Orb of the Sin'dorei", "=ds=#m20#", "", "2%"};
+		{ 18, 434602, "", "=q4=Eversong Cuffs", "=ds=#s8#, #a2#", "", "20%"};
+		{ 19, 434601, "", "=q4=Shoulderplates of Everlasting Pain", "=ds=#s3#, #a4#", "", "21%"};
+		{ 20, 434604, "", "=q4=Jaded Crystal Dagger", "=ds=#h3#, #w4#", "", "21%"};
+		{ 21, 434603, "", "=q4=Distracting Blades", "=ds=#w11#", "", "21%"};
+		{ 23, 435275, "", "=q3=Orb of the Sin'dorei", "=ds=#m20#", "", "2%"};
 		Next = "SMTVexallus";
 	};
 
 	AtlasLoot_Data["SMTVexallus"] = {
 		{ 1, 0, "INV_Box_01", "=q6=#j1#", ""};
-		{ 2, 34708, "", "=q3=Cloak of the Coming Night", "=ds=#s4#", "", "17%"};
-		{ 3, 34705, "", "=q3=Bracers of Divine Infusion", "=ds=#s8#, #a1#", "", "5%"};
-		{ 4, 34707, "", "=q3=Boots of Resuscitation", "=ds=#s12#, #a2#", "", "16%"};
-		{ 5, 34704, "", "=q3=Band of Arcane Alacrity", "=ds=#s13#", "", "18%"};
-		{ 6, 34706, "", "=q3=Band of Determination", "=ds=#s13#", "", "5%"};
-		{ 7, 34703, "", "=q3=Latro's Dancing Blade", "=ds=#h1#, #w10#", "", "16%"};
+		{ 2, 434708, "", "=q3=Cloak of the Coming Night", "=ds=#s4#", "", "17%"};
+		{ 3, 434705, "", "=q3=Bracers of Divine Infusion", "=ds=#s8#, #a1#", "", "5%"};
+		{ 4, 434707, "", "=q3=Boots of Resuscitation", "=ds=#s12#, #a2#", "", "16%"};
+		{ 5, 434704, "", "=q3=Band of Arcane Alacrity", "=ds=#s13#", "", "18%"};
+		{ 6, 434706, "", "=q3=Band of Determination", "=ds=#s13#", "", "5%"};
+		{ 7, 434703, "", "=q3=Latro's Dancing Blade", "=ds=#h1#, #w10#", "", "16%"};
 		{ 16, 0, "INV_Box_01", "=q6=#j3#", ""};
 		{ 17, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 18, 34607, "", "=q4=Fel-tinged Mantle", "=ds=#s3#, #a1#", "", "20%"};
-		{ 19, 34605, "", "=q4=Breastplate of Fierce Survival", "=ds=#s5#, #a4#", "", "19%"};
-		{ 20, 34606, "", "=q4=Edge of Oppression", "=ds=#h1#, #w4#", "", "20%"};
-		{ 21, 34608, "", "=q4=Rod of the Blazing Light", "=ds=#w9#", "", "19%"};
-		{ 23, 35275, "", "=q3=Orb of the Sin'dorei", "=ds=#m20#", "", "2%"};
+		{ 18, 434607, "", "=q4=Fel-tinged Mantle", "=ds=#s3#, #a1#", "", "20%"};
+		{ 19, 434605, "", "=q4=Breastplate of Fierce Survival", "=ds=#s5#, #a4#", "", "19%"};
+		{ 20, 434606, "", "=q4=Edge of Oppression", "=ds=#h1#, #w4#", "", "20%"};
+		{ 21, 434608, "", "=q4=Rod of the Blazing Light", "=ds=#w9#", "", "19%"};
+		{ 23, 435275, "", "=q3=Orb of the Sin'dorei", "=ds=#m20#", "", "2%"};
 		Prev = "SMTFireheart";
 		Next = "SMTDelrissa";
 	};
 
 	AtlasLoot_Data["SMTDelrissa"] = {
 		{ 1, 0, "INV_Box_01", "=q6=#j1#", ""};
-		{ 2, 34792, "", "=q3=Cloak of the Betrayed", "=ds=#s4#", "", "17%"};
-		{ 3, 34788, "", "=q3=Duskhallow Mantle", "=ds=#s3#, #a1#", "", "5%"};
-		{ 4, 34791, "", "=q3=Gauntlets of the Tranquil Waves", "=ds=#s9#, #a3#", "", "16%"};
-		{ 5, 34789, "", "=q3=Bracers of Slaughter", "=ds=#s8#, #a4#", "", "17%"};
-		{ 6, 34790, "", "=q3=Battle-mace of the High Priestess", "=ds=#h3#, #w6#", "", "16%"};
-		{ 7, 34783, "", "=q3=Nightstrike", "=ds=#w11#", "", "17%"};
+		{ 2, 434792, "", "=q3=Cloak of the Betrayed", "=ds=#s4#", "", "17%"};
+		{ 3, 434788, "", "=q3=Duskhallow Mantle", "=ds=#s3#, #a1#", "", "5%"};
+		{ 4, 434791, "", "=q3=Gauntlets of the Tranquil Waves", "=ds=#s9#, #a3#", "", "16%"};
+		{ 5, 434789, "", "=q3=Bracers of Slaughter", "=ds=#s8#, #a4#", "", "17%"};
+		{ 6, 434790, "", "=q3=Battle-mace of the High Priestess", "=ds=#h3#, #w6#", "", "16%"};
+		{ 7, 434783, "", "=q3=Nightstrike", "=ds=#w11#", "", "17%"};
 		{ 9, 35756, "", "=q3=Formula: Enchant Cloak - Steelweave", "=ds=#p4# (375)", "", "14%"};
 		{ 16, 0, "INV_Box_01", "=q6=#j3#", ""};
 		{ 17, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 18, 34473, "", "=q4=Commendation of Kael'thas", "=ds=#s14#", "", "19%"};
-		{ 19, 34472, "", "=q4=Shard of Contempt", "=ds=#s14#", "", "19%"};
-		{ 20, 34470, "", "=q4=Timbal's Focusing Crystal", "=ds=#s14#", "", "19%"};
-		{ 21, 34471, "", "=q4=Vial of the Sunwell", "=ds=#s14#", "", "19%"};
-		{ 23, 35275, "", "=q3=Orb of the Sin'dorei", "=ds=#m20#", "", "2%"};
+		{ 18, 434473, "", "=q4=Commendation of Kael'thas", "=ds=#s14#", "", "19%"};
+		{ 19, 434472, "", "=q4=Shard of Contempt", "=ds=#s14#", "", "19%"};
+		{ 20, 434470, "", "=q4=Timbal's Focusing Crystal", "=ds=#s14#", "", "19%"};
+		{ 21, 434471, "", "=q4=Vial of the Sunwell", "=ds=#s14#", "", "19%"};
+		{ 23, 435275, "", "=q3=Orb of the Sin'dorei", "=ds=#m20#", "", "2%"};
 		Prev = "SMTVexallus";
 		Next = "SMTKaelthas";
 	};
 
 	AtlasLoot_Data["SMTKaelthas"] = {
-		{ 1, 34810, "", "=q4=Cloak of Blade Turning", "=ds=#s4#", "", "5%"};
-		{ 2, 34808, "", "=q4=Gloves of Arcane Acuity", "=ds=#s9#, #a1#", "", "5%"};
-		{ 3, 34809, "", "=q4=Sunrage Treads", "=ds=#s12#, #a2#", "", "15%"};
-		{ 4, 34799, "", "=q4=Hauberk of the War Bringer", "=ds=#s5#, #a3#", "", "13%"};
-		{ 5, 34807, "", "=q4=Sunstrider Warboots", "=ds=#s12#, #a4#", "", "5%"};
-		{ 6, 34625, "", "=q4=Kharmaa's Ring of Fate", "=ds=#s13#", "", "5%"};
+		{ 1, 434810, "", "=q4=Cloak of Blade Turning", "=ds=#s4#", "", "5%"};
+		{ 2, 434808, "", "=q4=Gloves of Arcane Acuity", "=ds=#s9#, #a1#", "", "5%"};
+		{ 3, 434809, "", "=q4=Sunrage Treads", "=ds=#s12#, #a2#", "", "15%"};
+		{ 4, 434799, "", "=q4=Hauberk of the War Bringer", "=ds=#s5#, #a3#", "", "13%"};
+		{ 5, 434807, "", "=q4=Sunstrider Warboots", "=ds=#s12#, #a4#", "", "5%"};
+		{ 6, 434625, "", "=q4=Kharmaa's Ring of Fate", "=ds=#s13#", "", "5%"};
 		{ 8, 34157, "", "=q1=Head of Kael'thas", "=ds=#m3#", "", "56%"};
-		{ 16, 34793, "", "=q3=Cord of Reconstruction", "=ds=#s10#, #a1#", "", "5%"};
-		{ 17, 34796, "", "=q3=Robes of Summer Flame", "=ds=#s5#, #a2#", "", "5%"};
-		{ 18, 34795, "", "=q3=Helm of Sanctification", "=ds=#s1#, #a4#", "", "5%"};
-		{ 19, 34798, "", "=q3=Band of Celerity", "=ds=#s13#", "", "5%"};
-		{ 20, 34794, "", "=q3=Axe of Shattered Dreams", "=ds=#h2#, #w1#", "", "5%"};
-		{ 21, 34797, "", "=q3=Sun-infused Focus Staff", "=ds=#w9#", "", "14%"};
+		{ 16, 434793, "", "=q3=Cord of Reconstruction", "=ds=#s10#, #a1#", "", "5%"};
+		{ 17, 434796, "", "=q3=Robes of Summer Flame", "=ds=#s5#, #a2#", "", "5%"};
+		{ 18, 434795, "", "=q3=Helm of Sanctification", "=ds=#s1#, #a4#", "", "5%"};
+		{ 19, 434798, "", "=q3=Band of Celerity", "=ds=#s13#", "", "5%"};
+		{ 20, 434794, "", "=q3=Axe of Shattered Dreams", "=ds=#h2#, #w1#", "", "5%"};
+		{ 21, 434797, "", "=q3=Sun-infused Focus Staff", "=ds=#w9#", "", "14%"};
 		{ 22, 35504, "", "=q3=Phoenix Hatchling", "=ds=#e13#", "", "7%"};
 		Prev = "SMTDelrissa";
+		Next = "SMTKaelthasHEROIC";
 	};
 
 	AtlasLoot_Data["SMTKaelthasHEROIC"] = {
 		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 2, 34610, "", "=q4=Scarlet Sin'dorei Robes", "=ds=#s5#, #a1#", "", "19%"};
-		{ 3, 34613, "", "=q4=Shoulderpads of the Silvermoon Retainer", "=ds=#s3#, #a2#", "", "19%"};
-		{ 4, 34614, "", "=q4=Tunic of the Ranger Lord", "=ds=#s5#, #a3#", "", "18%"};
-		{ 5, 34615, "", "=q4=Netherforce Chestplate", "=ds=#s5#, #a4#", "", "19%"};
-		{ 6, 34612, "", "=q4=Greaves of the Penitent Knight", "=ds=#s12#, #a4#", "", "19%"};
+		{ 2, 434610, "", "=q4=Scarlet Sin'dorei Robes", "=ds=#s5#, #a1#", "", "19%"};
+		{ 3, 434613, "", "=q4=Shoulderpads of the Silvermoon Retainer", "=ds=#s3#, #a2#", "", "19%"};
+		{ 4, 434614, "", "=q4=Tunic of the Ranger Lord", "=ds=#s5#, #a3#", "", "18%"};
+		{ 5, 434615, "", "=q4=Netherforce Chestplate", "=ds=#s5#, #a4#", "", "19%"};
+		{ 6, 434612, "", "=q4=Greaves of the Penitent Knight", "=ds=#s12#, #a4#", "", "19%"};
 		{ 8, 34160, "", "=q1=The Signet Ring of Prince Kael'thas", "=ds=#m3#", "", "12%"};
-		{ 16, 34609, "", "=q4=Quickening Blade of the Prince", "=ds=#h1#, #w10#", "", "20%"};
-		{ 17, 34616, "", "=q4=Breeching Comet", "=ds=#h1#, #w1#", "", "19%"};
-		{ 18, 34611, "", "=q4=Cudgel of Consecration", "=ds=#h3#, #w6#", "", "19%"};
+		{ 16, 434609, "", "=q4=Quickening Blade of the Prince", "=ds=#h1#, #w10#", "", "20%"};
+		{ 17, 434616, "", "=q4=Breeching Comet", "=ds=#h1#, #w1#", "", "19%"};
+		{ 18, 434611, "", "=q4=Cudgel of Consecration", "=ds=#h3#, #w6#", "", "19%"};
 		{ 19, 35513, "", "=q4=Swift White Hawkstrider", "=ds=#e12#", "", "3%"};
 		{ 21, 35504, "", "=q3=Phoenix Hatchling", "=ds=#e13#", "", "7%"};
-		Prev = "SMTDelrissa";
+		Prev = "SMTKaelthas";
 	};
 
 	AtlasLoot_Data["SMTTrash"] = {
@@ -2878,7 +2161,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 25, 34199, "", "=q4=Archon's Gavel", "=ds=#h3#, #w6#", "", "17%"};
 		{ 26, 34203, "", "=q4=Grip of Mannoroth", "=ds=#h4#, #w13#", "", "20%"};
 		{ 27, 34198, "", "=q4=Stanchion of Primal Instinct", "=ds=#w9#", "", "19%"};
-		{ 28, 34196, "", "=q4=Golden Bow of Quel'Thalas", "=ds=#w3#", "", "18%"};
+		{ 28, 34196, "", "=q4=Golden Bow of Quel'Thalas", "=ds=#w2#", "", "18%"};
 		{ 30, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		Prev = "SPFelmyst";
 		Next = "SPMuru";
@@ -3006,184 +2289,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 28, 35196, "", "=q4=Schematic: Hard Khorium Goggles", "=ds=#p5# (375)"};
 		{ 29, 35197, "", "=q4=Schematic: Quad Deathblow X44 Goggles", "=ds=#p5# (375)"};
 	};
-		-------------------------------------------
-		--- Sunwell Isle: Sunwell Plateau HEROIC---
-		-------------------------------------------
 
-	AtlasLoot_Data["SPKalecgosHEROIC"] = {
-		{ 1, 234170, "", "=q4=Pantaloons of Calming Strife", "=ds=#s11#, #a1#"};
-		{ 2, 234386, "", "=q4=Pantaloons of Growing Strife", "=ds=#m29#"};
-		{ 3, 234169, "", "=q4=Breeches of Natural Aggression", "=ds=#s11#, #a2#"};
-		{ 4, 234384, "", "=q4=Breeches of Natural Splendor", "=ds=#m29#"};
-		{ 5, 234168, "", "=q4=Starstalker Legguards", "=ds=#s11#, #a3#", "", "1.#INF%"};
-		{ 6, 234167, "", "=q4=Legplates of the Holy Juggernaut", "=ds=#s11#, #a4#"};
-		{ 7, 234382, "", "=q4=Judicator's Legguards", "=ds=#m29#"};
-		{ 8, 234166, "", "=q4=Band of Lucent Beams", "=ds=#s13#", "", "1.#INF%"};
-		{ 9, 234165, "", "=q4=Fang of Kalecgos", "=ds=#h1#, #w4#"};
-		{ 10, 234164, "", "=q4=Dragonscale-Encrusted Longblade", "=ds=#h1#, #w10#"};
-		{ 16, 234848, "", "=q4=Bracers of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "10%"};
-		{ 17, 234851, "", "=q4=Bracers of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "11%"};
-		{ 18, 234852, "", "=q4=Bracers of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "12%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Next = "SPBrutallusHEROIC";
-	};
-
-	AtlasLoot_Data["SPBrutallusHEROIC"] = {
-		{ 1, 234181, "", "=q4=Leggings of Calamity", "=ds=#s11#, #a1#", "", "15%"};
-		{ 2, 234180, "", "=q4=Felfury Legplates", "=ds=#s11#, #a4#", "", "13%"};
-		{ 3, 234381, "", "=q4=Felstrength Legplates", "=ds=#m29#"};
-		{ 4, 234178, "", "=q4=Collar of the Pit Lord", "=ds=#s2#", "", "15%"};
-		{ 5, 234177, "", "=q4=Clutch of Demise", "=ds=#s2#", "", "15%"};
-		{ 6, 234179, "", "=q4=Heart of the Pit", "=ds=#s15#", "", "13%"};
-		{ 7, 234176, "", "=q4=Reign of Misery", "=ds=#h3#, #w6#", "", "17%"};
-		{ 16, 234853, "", "=q4=Belt of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "74%"};
-		{ 17, 234854, "", "=q4=Belt of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "70%"};
-		{ 18, 234855, "", "=q4=Belt of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "75%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "SPKalecgosHEROIC";
-		Next = "SPFelmystHEROIC";
-	};
-
-	AtlasLoot_Data["SPFelmystHEROIC"] = {
-		{ 1, 234352, "", "=q4=Borderland Fortress Grips", "=ds=#s9#, #a4#", "", "15%"};
-		{ 2, 234188, "", "=q4=Leggings of the Immortal Night", "=ds=#s11#, #a2#", "", "14%"};
-		{ 3, 234385, "", "=q4=Leggings of the Immortal Beast", "=ds=#m29#"};
-		{ 4, 234186, "", "=q4=Chain Links of the Tumultuous Storm", "=ds=#s11#, #a3#", "", "15%"};
-		{ 5, 234383, "", "=q4=Kilt of Spiritual Reconstruction", "=ds=#m29#"};
-		{ 6, 234184, "", "=q4=Brooch of the Highborne", "=ds=#s2#", "", "16%"};
-		{ 7, 234185, "", "=q4=Sword Breaker's Bulwark", "=ds=#w8#", "", "16%"};
-		{ 8, 234182, "", "=q4=Grand Magister's Staff of Torrents", "=ds=#w9#", "", "17%"};
-		{ 16, 234856, "", "=q4=Boots of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "79%"};
-		{ 17, 234857, "", "=q4=Boots of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "86%"};
-		{ 18, 234858, "", "=q4=Boots of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "77%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "SPBrutallusHEROIC";
-		Next = "SPEredarTwinsHEROIC";
-	};
-
-	AtlasLoot_Data["SPEredarTwinsHEROIC"] = {
-		{ 1, 234205, "", "=q4=Shroud of Redeemed Souls", "=ds=#s4#", "", "18%"};
-		{ 2, 234190, "", "=q4=Crimson Paragon's Cover", "=ds=#s4#", "", "16%"};
-		{ 3, 234210, "", "=q4=Amice of the Convoker", "=ds=#s3#, #a1#", "", "19%"};
-		{ 4, 234202, "", "=q4=Shawl of Wonderment", "=ds=#s3#, #a1#", "", "23%"};
-		{ 5, 234393, "", "=q4=Shoulderpads of Knowledge's Pursuit", "=ds=#m29#"};
-		{ 6, 234209, "", "=q4=Spaulders of Reclamation", "=ds=#s3#, #a2#", "", "20%"};
-		{ 7, 234391, "", "=q4=Spaulders of Devastation", "=ds=#m29#"};
-		{ 8, 234195, "", "=q4=Shoulderpads of Vehemence", "=ds=#s3#, #a2#", "", "17%"};
-		{ 9, 234392, "", "=q4=Demontooth Shoulderpads", "=ds=#m29#"};
-		{ 10, 234194, "", "=q4=Mantle of the Golden Forest", "=ds=#s3#, #a3#", "", "21%"};
-		{ 11, 234208, "", "=q4=Equilibrium Epaulets", "=ds=#s3#, #a3#", "", "19%"};
-		{ 12, 234390, "", "=q4=Erupting Epaulets", "=ds=#m29#"};
-		{ 13, 234192, "", "=q4=Pauldrons of Perseverance", "=ds=#s3#, #a4#", "", "19%"};
-		{ 14, 234388, "", "=q4=Pauldrons of Berserking", "=ds=#m29#"};
-		{ 16, 234193, "", "=q4=Spaulders of the Thalassian Savior", "=ds=#s3#, #a4#", "", "17%"};
-		{ 17, 234389, "", "=q4=Spaulders of the Thalassian Defender", "=ds=#m29#"};
-		{ 18, 235290, "", "=q4=Sin'dorei Pendant of Conquest", "=ds=#s2#", "", "33%"};
-		{ 19, 235291, "", "=q4=Sin'dorei Pendant of Salvation", "=ds=#s2#", "", "32%"};
-		{ 20, 235292, "", "=q4=Sin'dorei Pendant of Triumph", "=ds=#s2#", "", "32%"};
-		{ 21, 234204, "", "=q4=Amulet of Unfettered Magics", "=ds=#s2#", "", "20%"};
-		{ 22, 234189, "", "=q4=Band of Ruinous Delight", "=ds=#s13#", "", "18%"};
-		{ 23, 234206, "", "=q4=Book of Highborne Hymns", "=ds=#s15#", "", "22%"};
-		{ 24, 234197, "", "=q4=Shiv of Exsanguination", "=ds=#h1#, #w4#", "", "23%"};
-		{ 25, 234199, "", "=q4=Archon's Gavel", "=ds=#h3#, #w6#", "", "17%"};
-		{ 26, 234203, "", "=q4=Grip of Mannoroth", "=ds=#h4#, #w13#", "", "20%"};
-		{ 27, 234198, "", "=q4=Stanchion of Primal Instinct", "=ds=#w9#", "", "19%"};
-		{ 28, 234196, "", "=q4=Golden Bow of Quel'Thalas", "=ds=#w3#", "", "18%"};
-		{ 30, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "SPFelmystHEROIC";
-		Next = "SPMuruHEROIC";
-	};
-
-	AtlasLoot_Data["SPMuruHEROIC"] = {
-		{ 1, 234232, "", "=q4=Fel Conquerer Raiments", "=ds=#s5#, #a1#", "", "13%"};
-		{ 2, 234233, "", "=q4=Robes of Faltered Light", "=ds=#s5#, #a1#", "", "17%"};
-		{ 3, 234399, "", "=q4=Robes of Ghostly Hatred", "=ds=#m29#"};
-		{ 4, 234212, "", "=q4=Sunglow Vest", "=ds=#s5#, #a2#", "", "14%"};
-		{ 5, 234398, "", "=q4=Utopian Tunic of Elune", "=ds=#m29#"};
-		{ 6, 234211, "", "=q4=Harness of Carnal Instinct", "=ds=#s5#, #a2#", "", "15%"};
-		{ 7, 234397, "", "=q4=Bladed Chaos Tunic", "=ds=#m29#"};
-		{ 8, 234234, "", "=q4=Shadowed Gauntlets of Paroxysm", "=ds=#s9#, #a2#", "", "18%"};
-		{ 9, 234408, "", "=q4=Gloves of the Forest Drifter", "=ds=#m29#"};
-		{ 10, 234229, "", "=q4=Garments of Serene Shores", "=ds=#s5#, #a3#", "", "13%"};
-		{ 11, 234396, "", "=q4=Garments of Crashing Shores", "=ds=#m29#"};
-		{ 12, 234228, "", "=q4=Vicious Hawkstrider Hauberk", "=ds=#s5#, #a3#", "", "15%"};
-		{ 13, 234215, "", "=q4=Warharness of Reckless Fury", "=ds=#s5#, #a4#", "", "16%"};
-		{ 14, 234394, "", "=q4=Breastplate of Agony's Aversion", "=ds=#m29#"};
-		{ 15, 234240, "", "=q4=Gauntlets of the Soothed Soul", "=ds=#s9#, #a4#", "", "15%"};
-		{ 16, 234216, "", "=q4=Heroic Judicator's Chestguard", "=ds=#s5#, #a4#", "", "16%"};
-		{ 17, 234395, "", "=q4=Noble Judicator's Chestguard", "=ds=#m29#"};
-		{ 18, 234213, "", "=q4=Ring of Hardened Resolve", "=ds=#s13#", "", "15%"};
-		{ 19, 234230, "", "=q4=Ring of Omnipotence", "=ds=#s13#", "", "16%"};
-		{ 20, 235282, "", "=q4=Sin'dorei Band of Dominance", "=ds=#s13#", "", "31%"};
-		{ 21, 235283, "", "=q4=Sin'dorei Band of Salvation", "=ds=#s13#", "", "31%"};
-		{ 22, 235284, "", "=q4=Sin'dorei Band of Triumph", "=ds=#s13#", "", "34%"};
-		{ 23, 234427, "", "=q4=Blackened Naaru Sliver", "=ds=#s14#", "", "13%"};
-		{ 24, 234430, "", "=q4=Glimmering Naaru Sliver", "=ds=#s14#", "", "16%"};
-		{ 25, 234429, "", "=q4=Shifting Naaru Sliver", "=ds=#s14#", "", "15%"};
-		{ 26, 234428, "", "=q4=Steely Naaru Sliver", "=ds=#s14#", "", "15%"};
-		{ 27, 234214, "", "=q4=Muramasa", "=ds=#h1#, #w10#", "", "16%"};
-		{ 28, 234231, "", "=q4=Aegis of Angelic Fortune", "=ds=#w8#", "", "14%"};
-		{ 30, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "SPEredarTwinsHEROIC";
-		Next = "SPKiljaedenHEROIC";
-	};
-
-	AtlasLoot_Data["SPKiljaedenHEROIC"] = {
-		{ 1, 234241, "", "=q4=Cloak of Unforgivable Sin", "=ds=#s4#", "", "16%"};
-		{ 2, 234242, "", "=q4=Tattered Cape of Antonidas", "=ds=#s4#", "", "16%"};
-		{ 3, 234339, "", "=q4=Cowl of Light's Purity", "=ds=#s1#, #a1#", "", "18%"};
-		{ 4, 234405, "", "=q4=Helm of Arcane Purity", "=ds=#m29#"};
-		{ 5, 234340, "", "=q4=Dark Conjuror's Collar", "=ds=#s1#, #a1#", "", "20%"};
-		{ 6, 234342, "", "=q4=Handguards of the Dawn", "=ds=#s9#, #a1#", "", "19%"};
-		{ 7, 234406, "", "=q4=Gloves of Tyri's Power", "=ds=#m29#"};
-		{ 8, 234344, "", "=q4=Handguards of the Defiled Worlds", "=ds=#s9#, #a1#", "", "22%"};
-		{ 9, 234244, "", "=q4=Duplicitous Guise", "=ds=#s1#, #a2#", "", "17%"};
-		{ 10, 234404, "", "=q4=Mask of the Furry Hunter", "=ds=#m29#"};
-		{ 11, 234245, "", "=q4=Cover of Ursol the Wise", "=ds=#s1#, #a2#", "", "14%"};
-		{ 12, 234403, "", "=q4=Cover of Ursoc the Mighty", "=ds=#m29#"};
-		{ 13, 234333, "", "=q4=Coif of Alleria", "=ds=#s1#, #a3#", "", "14%"};
-		{ 14, 234332, "", "=q4=Cowl of Gul'dan", "=ds=#s1#, #a3#", "", "14%"};
-		{ 15, 234402, "", "=q4=Shroud of Chieftain Ner'zhul", "=ds=#m29#"};
-		{ 16, 234343, "", "=q4=Thalassian Ranger Gauntlets", "=ds=#s9#, #a3#", "", "18%"};
-		{ 17, 234243, "", "=q4=Helm of Burning Righteousness", "=ds=#s1#, #a4#", "", "21%"};
-		{ 18, 234401, "", "=q4=Helm of Uther's Resolve", "=ds=#m29#"};
-		{ 19, 234345, "", "=q4=Crown of Anasterian", "=ds=#s1#, #a4#", "", "16%"};
-		{ 20, 234400, "", "=q4=Crown of Dath'Remar", "=ds=#m29#"};
-		{ 21, 234341, "", "=q4=Borderland Paingrips", "=ds=#s9#, #a4#", "", "18%"};
-		{ 23, 234334, "", "=q5=Thori'dal, the Stars' Fury", "=ds=#w2#", "", "6%"};
-		{ 25, 234329, "", "=q4=Crux of the Apocalypse", "=ds=#h1#, #w4#", "", "16%"};
-		{ 26, 234247, "", "=q4=Apolyon, the Soul-Render", "=ds=#h2#, #w10#", "", "17%"};
-		{ 27, 234335, "", "=q4=Hammer of Sanctification", "=ds=#h3#, #w6#", "", "20%"};
-		{ 28, 234331, "", "=q4=Hand of the Deceiver", "=ds=#h3#, #w13#", "", "17%"};
-		{ 29, 234336, "", "=q4=Sunflare", "=ds=#h3#, #w4#", "", "18%"};
-		{ 30, 234337, "", "=q4=Golden Staff of the Sin'dorei", "=ds=#w9#", "", "14%"};
-		Prev = "SPMuruHEROIC";
-	};
-
-	AtlasLoot_Data["SPTrashHEROIC"] = {
-		{ 1, 234351, "", "=q4=Tranquil Majesty Wraps", "=ds=#s9#, #a2#", "", "1%"};
-		{ 2, 234407, "", "=q4=Tranquil Moonlight Wraps", "=ds=#m29#"};
-		{ 3, 234350, "", "=q4=Gauntlets of the Ancient Shadowmoon", "=ds=#s9#, #a3#", "", "2%"};
-		{ 4, 234409, "", "=q4=Gauntlets of the Ancient Frostwolf", "=ds=#m29#"};
-		{ 5, 235733, "", "=q4=Ring of Harmonic Beauty", "=ds=#s13#", "", "8%"};
-		{ 6, 234183, "", "=q4=Shivering Felspine", "=ds=#h2#, #w7#", "", "1%"};
-		{ 7, 234346, "", "=q4=Mounting Vengeance", "=ds=#h4#, #w13#", "", "2%"};
-		{ 8, 234349, "", "=q4=Blade of Life's Inevitability", "=ds=#w11#", "", "2%"};
-		{ 9, 234348, "", "=q4=Wand of Cleansing Light", "=ds=#w12#", "", "4%"};
-		{ 10, 234347, "", "=q4=Wand of the Demonsoul", "=ds=#w12#", "", "2%"};
-		{ 12, 35273, "", "=q3=Study of Advanced Smelting", "=ds=#p23# (375)", "", "3%"};
-		{ 14, 234664, "", "=q3=Sunmote", "=ds=#m20#", "", "66%"};
-		{ 16, 32228, "", "=q4=Empyrean Sapphire", "=ds=#e7#", "", "12%"};
-		{ 17, 32231, "", "=q4=Pyrestone", "=ds=#e7#", "", "8%"};
-		{ 18, 32229, "", "=q4=Lionseye", "=ds=#e7#", "", "6%"};
-		{ 19, 32249, "", "=q4=Seaspray Emerald", "=ds=#e7#", "", "9%"};
-		{ 20, 32230, "", "=q4=Shadowsong Amethyst", "=ds=#e7#", "", "6%"};
-		{ 21, 32227, "", "=q4=Crimson Spinel", "=ds=#e7#", "", "8%"};
-		{ 23, 35208, "", "=q4=Plans: Sunblessed Gauntlets", "=ds=#p2# (365)", "", "0.25%"};
-		{ 24, 35210, "", "=q4=Plans: Sunblessed Breastplate", "=ds=#p2# (365)", "", "0.25%"};
-		{ 25, 35209, "", "=q4=Plans: Hard Khorium Battlefists", "=ds=#p2# (365)", "", "6%"};
-		{ 26, 35211, "", "=q4=Plans: Hard Khorium Battleplate", "=ds=#p2# (365)", "", "0.38%"};
-	};
 		----------------------------------
 		--- Tempest Keep: The Arcatraz ---
 		----------------------------------
@@ -3360,9 +2466,10 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 28228, "", "=q3=Beast Lord Curiass", "=ds=#s5#, #a3# (D3)", "", "9.59%"};
 		{ 20, 28350, "", "=q3=Warhelm of the Bold", "=ds=#s1#, #a4# (D3)", "", "8.96%"};
 		Prev = "TKBotLaj";
+		Next = "TKBotSplinterHeroic";
 	};
 
-	AtlasLoot_Data["TKBotSplinterHEROIC"] = {
+	AtlasLoot_Data["TKBotSplinterHeroic"] = { -- only heroic
 		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 2, 29258, "", "=q4=Boots of Ethereal Manipulation", "=ds=#s11#, #a1#"};
 		{ 3, 29262, "", "=q4=Boots of the Endless Hunt", "=ds=#s12#, #a3#", "", "4.00%"};
@@ -3387,7 +2494,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 24, 28350, "", "=q3=Warhelm of the Bold", "=ds=#s1#, #a4# (D3)", "", "16.00%"};
 		{ 26, 31085, "", "=q1=Top Shard of the Arcatraz Key", "=ds=#m3#", "", "100%"};
 		{ 27, 33859, "", "=q1=Warp Splinter Clipping", "=ds=#m3#", "", "100%"};
-		Prev = "TKBotLaj";
+		Prev = "TKBotSplinter";
 	};
 
 		----------------------------------
@@ -3457,9 +2564,10 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 19, 28275, "", "=q3=Beast Lord Helm", "=ds=#s1#, #a3# (D3)", "", "12.37%"};
 		{ 20, 28285, "", "=q3=Helm of the Righteous", "=ds=#s1#, #a4# (D3)", "", "10.88%"};
 		Prev = "TKMechSepethrea";
+		Next = "TKMechCalcHeroic";
 	};
 
-	AtlasLoot_Data["TKMechCalcHEROIC"] = {
+	AtlasLoot_Data["TKMechCalcHeroic"] = { --only heroic
 		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
 		{ 2, 29251, "", "=q4=Boots of the Pious", "=ds=#s12#, #a1#", "", "7.88%"};
 		{ 3, 32076, "", "=q4=Handguards of the Steady", "=ds=#s9#, #a3#"};
@@ -3483,7 +2591,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 24, 28285, "", "=q3=Helm of the Righteous", "=ds=#s1#, #a4# (D3)", "", "10.34%"};
 		{ 26, 33860, "", "=q1=Pathaleon's Projector", "=ds=#m3#", "", "100%"};
 		{ 27, 31086, "", "=q1=Bottom Shard of the Arcatraz Key", "=ds=#m3#", "", "100%"};
-		Prev = "TKMechSepethrea";
+		Prev = "TKMechCalc";
 	};
 
 		-----------------------------
@@ -3567,6 +2675,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 25, 30007, "", "=q4=The Darkener's Grasp", "=q1=#m4#: =ds=#s2#"};
 		{ 26, 30015, "", "=q4=The Sun King's Talisman", "=q1=#m4#: =ds=#s2#"};
 		{ 28, 29905, "", "=q1=Kael's Vial Remnant", "=ds=#m3#", "", "37%"};
+		{ 29, 450001, "", "=q5=Intact Vial of Kael'thas Sunstrider", "", "", "5%"};
 		Prev = "TKEyeSolarian";
 	};
 
@@ -3608,127 +2717,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 8, 30319, "", "=q5=Nether Spike", "=ds=#w17#"};
 	};
 
-		-----------------------------------
-		--- Tempest Keep: The Eye HEROIC---
-		-----------------------------------
-
-	AtlasLoot_Data["TKEyeAlarHEROIC"] = {
-		{ 1, 229925, "", "=q4=Phoenix-Wing Cloak", "=ds=#s4#", "", "23%"};
-		{ 2, 229918, "", "=q4=Mindstorm Wristbands", "=ds=#s8#, #a1#", "", "22%"};
-		{ 3, 229947, "", "=q4=Gloves of the Searing Grip", "=ds=#s9#, #a2#", "", "23%"};
-		{ 4, 229921, "", "=q4=Fire Crest Breastplate", "=ds=#s5#, #a3#", "", "20%"};
-		{ 5, 229922, "", "=q4=Band of Al'Ar", "=ds=#s13#", "", "21%"};
-		{ 6, 229920, "", "=q4=Phoenix-Ring of Rebirth", "=ds=#s13#", "", "21%"};
-		{ 7, 230448, "", "=q4=Talon of Al'ar", "=ds=#s14#, =q1=#m1# =ds=#c2#", "", "22%"};
-		{ 8, 230447, "", "=q4=Tome of Fiery Redemption", "=ds=#s14#, =q1=#m1# =ds=#c4#", "", "21%"};
-		{ 9, 229923, "", "=q4=Talisman of the Sun King", "=ds=#s15#", "", "23%"};
-		{ 16, 232944, "", "=q4=Talon of the Phoenix", "=ds=#h3#, #w13#", "", "12%"};
-		{ 17, 229948, "", "=q4=Claw of the Phoenix", "=ds=#h4#, #w13#", "", "10%"};
-		{ 18, 229924, "", "=q4=Netherbane", "=ds=#h1#, #w1#", "", "21%"};
-		{ 19, 229949, "", "=q4=Arcanite Steam-Pistol", "=ds=#w5#", "", "22%"};
-		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Next = "TKEyeVoidReaverHEROIC";
-	};
-
-	AtlasLoot_Data["TKEyeVoidReaverHEROIC"] = {
-		{ 1, 229986, "", "=q4=Cowl of the Grand Engineer", "=ds=#s1#, #a1#", "", "13%"};
-		{ 2, 229984, "", "=q4=Girdle of Zaetar", "=ds=#s10#, #a2#", "", "13%"};
-		{ 3, 229985, "", "=q4=Void Reaver Greaves", "=ds=#s11#, #a3#", "", "14%"};
-		{ 4, 229983, "", "=q4=Fel-Steel Warhelm", "=ds=#s1#, #a4#", "", "12%"};
-		{ 5, 232515, "", "=q4=Wristgaurds of Determination", "=ds=#s8#, #a4#", "", "13%"};
-		{ 6, 230619, "", "=q4=Fel Reaver's Piston", "=ds=#s14#", "", "13%"};
-		{ 7, 230450, "", "=q4=Warp-Spring Coil", "=ds=#s14#, =q1=#m1# =ds=#c6#", "", "12%"};
-		{ 16, 230248, "", "=q4=Pauldrons of the Vanquished Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "61%"};
-		{ 17, 230249, "", "=q4=Pauldrons of the Vanquished Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "62%"};
-		{ 18, 230250, "", "=q4=Pauldrons of the Vanquished Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "61%"};
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "TKEyeAlarHEROIC";
-		Next = "TKEyeSolarianHEROIC";
-	};
-
-	AtlasLoot_Data["TKEyeSolarianHEROIC"] = {
-		{ 1, 229977, "", "=q4=Star-Soul Breeches", "=ds=#s11#, #a1#", "", "19%"};
-		{ 2, 229972, "", "=q4=Trousers of the Astromancer", "=ds=#s11#, #a1#", "", "19%"};
-		{ 3, 229966, "", "=q4=Vambraces of Ending", "=ds=#s8#, #a2#", "", "23%"};
-		{ 4, 229976, "", "=q4=Worldstorm Gauntlets", "=ds=#s9#, #a3#", "", "18%"};
-		{ 5, 229951, "", "=q4=Star-Strider Boots", "=ds=#s12#, #a3#", "", "23%"};
-		{ 6, 229965, "", "=q4=Girdle of the Righteous Path", "=ds=#s10#, #a4#", "", "21%"};
-		{ 7, 229950, "", "=q4=Greaves of the Bloodwarder", "=ds=#s11#, #a4#", "", "19%"};
-		{ 8, 232267, "", "=q4=Boots of the Resilient", "=ds=#s12#, #a4#", "", "17%"};
-		{ 16, 230446, "", "=q4=Solarian's Sapphire", "=ds=#s14#, =q1=#m1# =ds=#c9#", "", "21%"};
-		{ 17, 230449, "", "=q4=Void Star Talisman", "=ds=#s14#, =q1=#m1# =ds=#c8#", "", "22%"};
-		{ 18, 229962, "", "=q4=Heartrazor", "=ds=#h1#, #w4#", "", "23%"};
-		{ 19, 229981, "", "=q4=Etherium Life-Staff", "=ds=#w9#", "", "21%"};
-		{ 20, 229982, "", "=q4=Wand of the Forgotten Star", "=ds=#w12#", "", "18%"};
-		{ 22, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		Prev = "TKEyeVoidReaverHEROIC";
-		Next = "TKEyeKaelthasHEROIC";
-	};
-
-	AtlasLoot_Data["TKEyeKaelthasHEROIC"] = {
-		{ 1, 229992, "", "=q4=Royal Cloak of the Sunstriders", "=ds=#s4#", "", "14%"};
-		{ 2, 229989, "", "=q4=Sunshower Light Cloak", "=ds=#s4#", "", "12%"};
-		{ 3, 229994, "", "=q4=Thalassian Wildercloak", "=ds=#s4#", "", "14%"};
-		{ 4, 229990, "", "=q4=Crown of the Sun", "=ds=#s1#, #a1#", "", "14%"};
-		{ 5, 229987, "", "=q4=Gauntlets of the Sun-King", "=ds=#s9#, #a1#", "", "14%"};
-		{ 6, 229995, "", "=q4=Leggings of Murderous Intent", "=ds=#s11#, #a2#", "", "15%"};
-		{ 7, 229991, "", "=q4=Sunhawk Leggings", "=ds=#s11#, #a3#", "", "13%"};
-		{ 8, 229998, "", "=q4=Royal Gauntlets of Silvermoon", "=ds=#s9#, #a4#", "", "12%"};
-		{ 9, 229997, "", "=q4=Band of the Ranger-General", "=ds=#s13#", "", "14%"};
-		{ 10, 229993, "", "=q4=Twinblade of the Phoenix", "=ds=#h2#, #w10#", "", "12%"};
-		{ 11, 229996, "", "=q4=Rod of the Sun King", "=ds=#h1#, #w6#", "", "15%"};
-		{ 12, 229988, "", "=q4=The Nexus Key", "=ds=#w9#", "", "14%"};
-		{ 14, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 16, 230236, "", "=q4=Chestguard of the Vanquished Champion", "=q1=#m1# =ds=#c4#, #c6#, #c7#", "", "69%"};
-		{ 17, 230237, "", "=q4=Chestguard of the Vanquished Defender", "=q1=#m1# =ds=#c1#, #c5#, #c9#", "", "68%"};
-		{ 18, 230238, "", "=q4=Chestguard of the Vanquished Hero", "=q1=#m1# =ds=#c2#, #c3#, #c8#", "", "66%"};
-		{ 20, 32458, "", "=q4=Ashes of Al'ar", "=ds=#e12#", "", "2%"};
-		{ 22, 232405, "", "=q4=Verdant Sphere", "=ds=#m2#", "", "100%"};
-		{ 23, 230018, "", "=q4=Lord Sanguinar's Claim", "=q1=#m4#: =ds=#s2#"};
-		{ 24, 230017, "", "=q4=Telonicus's Pendant of Mayhem", "=q1=#m4#: =ds=#s2#"};
-		{ 25, 230007, "", "=q4=The Darkener's Grasp", "=q1=#m4#: =ds=#s2#"};
-		{ 26, 230015, "", "=q4=The Sun King's Talisman", "=q1=#m4#: =ds=#s2#"};
-		{ 28, 29905, "", "=q1=Kael's Vial Remnant", "=ds=#m3#", "", "37%"};
-		Prev = "TKEyeSolarianHEROIC";
-	};
-
-	AtlasLoot_Data["TKEyeTrashHEROIC"] = {
-		{ 1, 230024, "", "=q4=Mantle of the Elven Kings", "=ds=#s3#, #a1#", "", "3%"};
-		{ 2, 230020, "", "=q4=Fire-Cord of the Magus", "=ds=#s10#, #a1#", "", "2%"};
-		{ 3, 230029, "", "=q4=Bark-Gloves of Ancient Wisdom", "=ds=#s9#, #a2#", "", "2%"};
-		{ 4, 230026, "", "=q4=Bands of the Celestial Archer", "=ds=#s8#, #a3#", "", "2%"};
-		{ 5, 230030, "", "=q4=Girdle of Fallen Stars", "=ds=#s10#, #a3#", "", "2%"};
-		{ 6, 230028, "", "=q4=Seventh Ring of the Tirisfalen", "=ds=#s13#", "", "2%"};
-		{ 8, 30324, "", "=q4=Plans: Red Havoc Boots", "=ds=#p2# (375)", "", "1%"};
-		{ 9, 30322, "", "=q4=Plans: Red Belt of Battle", "=ds=#p2# (375)", "", "2%"};
-		{ 10, 30323, "", "=q4=Plans: Boots of the Protector", "=ds=#p2# (375)", "", "2%"};
-		{ 11, 30321, "", "=q4=Plans: Belt of the Guardian", "=ds=#p2# (375)", "", "2%"};
-		{ 12, 30280, "", "=q4=Pattern: Belt of Blasting", "=ds=#p8# (375)", "", "1%"};
-		{ 13, 30282, "", "=q4=Pattern: Boots of Blasting", "=ds=#p8# (375)", "", "1%"};
-		{ 14, 30283, "", "=q4=Pattern: Boots of the Long Road", "=ds=#p8# (375)", "", "2%"};
-		{ 15, 30281, "", "=q4=Pattern: Belt of the Long Road", "=ds=#p8# (375)", "", "1%"};
-		{ 16, 30308, "", "=q4=Pattern: Hurricane Boots", "=ds=#p7# (375)", "", "1%"};
-		{ 17, 30304, "", "=q4=Pattern: Monsoon Belt", "=ds=#p7# (375)", "", "1%"};
-		{ 18, 30305, "", "=q4=Pattern: Boots of Natural Grace", "=ds=#p7# (375)", "", "2%"};
-		{ 19, 30307, "", "=q4=Pattern: Boots of the Crimson Hawk", "=ds=#p7# (375)", "", "1%"};
-		{ 20, 30306, "", "=q4=Pattern: Boots of Utter Darkness", "=ds=#p7# (375)", "", "2%"};
-		{ 21, 30301, "", "=q4=Pattern: Belt of Natural Power", "=ds=#p7# (375)", "", "1%"};
-		{ 22, 30303, "", "=q4=Pattern: Belt of the Black Eagle", "=ds=#p7# (375)", "", "1%"};
-		{ 23, 30302, "", "=q4=Pattern: Belt of Deep Shadow", "=ds=#p7# (375)", "", "1%"};
-		{ 25, 30183, "", "=q4=Nether Vortex", "=ds=#e8#", "", "75%"};
-		{ 27, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "27%"};
-	};
-
-	AtlasLoot_Data["TKEyeLegendariesHEROIC"] = {
-		{ 1, 230312, "", "=q5=Infinity Blade", "=ds=#h1#, #w4#"};
-		{ 2, 230311, "", "=q5=Warp Slicer", "=ds=#h1#, #w10#"};
-		{ 3, 230317, "", "=q5=Cosmic Infuser", "=ds=#h3#, #w6#"};
-		{ 4, 230316, "", "=q5=Devastation", "=ds=#h2#, #w1#"};
-		{ 5, 230313, "", "=q5=Staff of Disintegration", "=ds=#w9#"};
-		{ 6, 230314, "", "=q5=Phaseshift Bulwark", "=ds=#w8#"};
-		{ 7, 230318, "", "=q5=Netherstrand Longbow", "=ds=#w2#, =q1=#m1# =ds=#c2#"};
-		{ 8, 230319, "", "=q5=Nether Spike", "=ds=#w17#"};
-	};
 		----------------
 		--- Zul'Aman ---
 		----------------
@@ -3860,130 +2848,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 5, 33932, "", "=q2=Amani Charm of the Witch Doctor", "=ds=#m26#", "", "24%"};
 		{ 6, 33931, "", "=q2=Amani Charm of Mighty Mojo", "=ds=#m26#", "", "25%"};
 		{ 7, 33933, "", "=q2=Amani Charm of the Raging Defender", "=ds=#m26#", "", "25%"};
-	};
-
-		----------------------
-		--- Zul'Aman HEROIC---
-		----------------------
-
-	AtlasLoot_Data["ZANalorakkHEROIC"] = {
-		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 2, 233203, "", "=q4=Robes of Heavenly Purpose", "=ds=#s5#, #a1#", "", "13%"};
-		{ 3, 233285, "", "=q4=Fury of the Ursine", "=ds=#s8#, #a1#", "", "13%"};
-		{ 4, 233211, "", "=q4=Bladeangel's Money Belt", "=ds=#s10#, #a2#", "", "14%"};
-		{ 5, 233206, "", "=q4=Pauldrons of Primal Fury", "=ds=#s3#, #a3#", "", "13%"};
-		{ 6, 233327, "", "=q4=Mask of Introspection", "=ds=#s1#, #a4#", "", "13%"};
-		{ 7, 233191, "", "=q4=Jungle Stompers", "=ds=#s12#, #a4#", "", "13%"};
-		{ 8, 233640, "", "=q4=Fury", "=ds=#h4#, #w13#", "", "14%"};
-		{ 10, 33307, "", "=q3=Formula: Enchant Weapon - Executioner", "=ds=#p4# (375)", "", "3%"};
-		Next = "ZAAkilZonHEROIC";
-	};
-
-	AtlasLoot_Data["ZAAkilZonHEROIC"] = {
-		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 2, 233286, "", "=q4=Mojo-mender's Mask", "=ds=#s1#, #a3#", "", "13%"};
-		{ 3, 233215, "", "=q4=Bloodstained Elven Battlevest", "=ds=#s5#, #a4#", "", "13%"};
-		{ 4, 233216, "", "=q4=Chestguard of Hidden Purpose", "=ds=#s5#, #a4#", "", "13%"};
-		{ 5, 233281, "", "=q4=Brooch of Nature's Mercy", "=ds=#s2#", "", "13%"};
-		{ 6, 233293, "", "=q4=Signet of Ancient Magics", "=ds=#s13#", "", "13%"};
-		{ 7, 233214, "", "=q4=Akil'zon's Talonblade", "=ds=#h1#, #w10#", "", "13%"};
-		{ 8, 233283, "", "=q4=Amani Punisher", "=ds=#h3#, #w6#", "", "14%"};
-		{ 10, 33307, "", "=q3=Formula: Enchant Weapon - Executioner", "=ds=#p4# (375)", "", "3%"};
-		Prev = "ZANalorakkHEROIC";
-		Next = "ZAJanAlaiHEROIC";
-	};
-
-	AtlasLoot_Data["ZAJanAlaiHEROIC"] = {
-		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 2, 233357, "", "=q4=Footpads of Madness", "=ds=#s12#, #a1#", "", "13%"};
-		{ 3, 233356, "", "=q4=Helm of Natural Regeneration", "=ds=#s1#, #a2#", "", "13%"};
-		{ 4, 233329, "", "=q4=Shadowtooth Trollskin Cuirass", "=ds=#s5#, #a2#", "", "13%"};
-		{ 5, 233328, "", "=q4=Arrow-fall Chestguard", "=ds=#s5#, #a3#", "", "13%"};
-		{ 6, 233354, "", "=q4=Wub's Cursed Hexblade", "=ds=#h3#, #w4#", "", "14%"};
-		{ 7, 233326, "", "=q4=Bulwark of the Amani Empire", "=ds=#w8#", "", "13%"};
-		{ 8, 233332, "", "=q4=Enamelled Disc of Mojo", "=ds=#w8#", "", "12%"};
-		{ 10, 33307, "", "=q3=Formula: Enchant Weapon - Executioner", "=ds=#p4# (375)", "", "3%"};
-		Prev = "ZAAkilZonHEROIC";
-		Next = "ZAHalazziHEROIC";
-	};
-
-	AtlasLoot_Data["ZAHalazziHEROIC"] = {
-		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 2, 233317, "", "=q4=Robe of Departed Spirits", "=ds=#s5#, #a1#", "", "13%"};
-		{ 3, 233300, "", "=q4=Shoulderpads of Dancing Blades", "=ds=#s3#, #a2#", "", "14%"};
-		{ 4, 233322, "", "=q4=Shimmer-pelt Vest", "=ds=#s5#, #a2#", "", "13%"};
-		{ 5, 233533, "", "=q4=Avalanche Leggings", "=ds=#s11#, #a3#", "", "13%"};
-		{ 6, 233299, "", "=q4=Spaulders of the Advocate", "=ds=#s3#, #a4#", "", "13%"};
-		{ 7, 233303, "", "=q4=Skullshatter Warboots", "=ds=#s12#, #a4#", "", "14%"};
-		{ 8, 233297, "", "=q4=The Savage's Choker", "=ds=#s2#", "", "13%"};
-		{ 10, 33307, "", "=q3=Formula: Enchant Weapon - Executioner", "=ds=#p4# (375)", "", "3%"};
-		Prev = "ZAJanAlaiHEROIC";
-		Next = "ZAMalacrassHEROIC";
-	};
-
-	AtlasLoot_Data["ZAMalacrassHEROIC"] = {
-		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 2, 233592, "", "=q4=Cloak of Ancient Rituals", "=ds=#s4#", "", "13%"};
-		{ 3, 233453, "", "=q4=Hood of Hexing", "=ds=#s1#, #a1#", "", "13%"};
-		{ 4, 233463, "", "=q4=Hood of the Third Eye", "=ds=#s1#, #a1#", "", "13%"};
-		{ 5, 233432, "", "=q4=Coif of the Jungle Stalker", "=ds=#s1#, #a3#", "", "15%"};
-		{ 6, 233464, "", "=q4=Hex Lord's Voodoo Pauldrons", "=ds=#s3#, #a3#", "", "13%"};
-		{ 7, 233421, "", "=q4=Battleworn Tuskguard", "=ds=#s1#, #a4#", "", "15%"};
-		{ 8, 233446, "", "=q4=Girdle of Stromgarde's Hope", "=ds=#s10#, #a4#", "", "15%"};
-		{ 10, 33307, "", "=q3=Formula: Enchant Weapon - Executioner", "=ds=#p4# (375)", "", "3%"};
-		{ 16, 233829, "", "=q4=Hex Shrunken Head", "=ds=#s14#", "", "12%"};
-		{ 17, 234029, "", "=q4=Tiny Voodoo Mask", "=ds=#s14#", "", "25%"};
-		{ 18, 233828, "", "=q4=Tome of Diabolic Remedy", "=ds=#s14#", "", "13%"};
-		{ 19, 233389, "", "=q4=Dagger of Bad Mojo", "=ds=#h1#, #w4#", "", "15%"};
-		{ 20, 233298, "", "=q4=Prowler's Strikeblade", "=ds=#h1#, #w4#", "", "14%"};
-		{ 21, 233388, "", "=q4=Heartless", "=ds=#h1#, #w10#", "", "15%"};
-		{ 22, 233465, "", "=q4=Staff of Primal Fury", "=ds=#w9#", "", "13%"};
-		Prev = "ZAHalazziHEROIC";
-		Next = "ZAZuljinHEROIC";
-	};
-
-	AtlasLoot_Data["ZAZuljinHEROIC"] = {
-		{ 1, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%"};
-		{ 2, 233471, "", "=q4=Two-toed Sandals", "=ds=#s12#, #a1#", "", "15%"};
-		{ 3, 233479, "", "=q4=Grimgin Faceguard", "=ds=#s1#, #a2#", "", "15%"};
-		{ 4, 233469, "", "=q4=Hauberk of the Empire's Champion", "=ds=#s5#, #a3#", "", "16%"};
-		{ 5, 233473, "", "=q4=Chestguard of the Warlord", "=ds=#s5#, #a4#", "", "15%"};
-		{ 6, 233466, "", "=q4=Loop of Cursed Bones", "=ds=#s2#", "", "14%"};
-		{ 7, 233830, "", "=q4=Ancient Aqir Artifact", "=ds=#s14#", "", "14%"};
-		{ 8, 233831, "", "=q4=Berserker's Call", "=ds=#s14#", "", "14%"};
-		{ 10, 33307, "", "=q3=Formula: Enchant Weapon - Executioner", "=ds=#p4# (375)", "", "3%"};
-		{ 16, 233467, "", "=q4=Blade of Twisted Visions", "=ds=#h3#, #w10#", "", "14%"};
-		{ 17, 233478, "", "=q4=Jin'rohk, The Great Apocalypse", "=ds=#h2#, #w10#", "", "14%"};
-		{ 18, 233476, "", "=q4=Cleaver of the Unforgiving", "=ds=#h1#, #w1#", "", "15%"};
-		{ 19, 233468, "", "=q4=Dark Blessing", "=ds=#h3#, #w6#", "", "15%"};
-		{ 20, 233474, "", "=q4=Ancient Amani Longbow", "=ds=#w2#", "", "14%"};
-		{ 22, 33102, "", "=q4=Blood of Zul'Jin", "=ds=#m2#", "", "87%"};
-		Prev = "ZAMalacrassHEROIC";
-	};
-
-	AtlasLoot_Data["ZATimedChestHEROIC"] = {
-		{ 1, 0, "INV_Box_01", "=q6=#x30#", ""};
-		{ 2, 233590, "", "=q4=Cloak of Fiends", "=ds=#s4#", "", "10%"};
-		{ 3, 233591, "", "=q4=Shadowcaster's Drape", "=ds=#s4#", "", "11%"};
-		{ 4, 233489, "", "=q4=Mantle of Ill Intent", "=ds=#s3#, #a1#", "", "11%"};
-		{ 5, 233480, "", "=q4=Cord of Braided Troll Hair", "=ds=#s10#, #a1#", "", "10%"};
-		{ 6, 233483, "", "=q4=Life-step Belt", "=ds=#s10#, #a2#", "", "12%"};
-		{ 7, 233971, "", "=q4=Elunite Imbued Leggings", "=ds=#s11#, #a2#", "", "10%"};
-		{ 8, 233805, "", "=q4=Shadowhunter's Treads", "=ds=#s12#, #a3#", "", "10%"};
-		{ 9, 233481, "", "=q4=Pauldrons of Stone Resolve", "=ds=#s3#, #a4#", "", "11%"};
-		{ 16, 0, "INV_Box_01", "=q6=#x31#", ""};
-		{ 17, 233495, "", "=q4=Rage", "=ds=#h3#, #w13#", "", "12%"};
-		{ 18, 233493, "", "=q4=Umbral Shiv", "=ds=#h1#, #w4#", "", "12%"};
-		{ 19, 233492, "", "=q4=Trollbane", "=ds=#h2#, #w1#", "", "11%"};
-		{ 20, 233490, "", "=q4=Staff of Dark Mending", "=ds=#w9#", "", "13%"};
-		{ 21, 233494, "", "=q4=Amani Divining Staff", "=ds=#w9#", "", "11%"};
-		{ 22, 233491, "", "=q4=Tuskbreaker", "=ds=#w5#", "", "12%"};
-		{ 24, 0, "INV_Box_01", "=q6=#x32#", ""};
-		{ 25, 233497, "", "=q4=Mana Attuned Band", "=ds=#s13#", "", "18%"};
-		{ 26, 233500, "", "=q4=Signet of Eternal Life", "=ds=#s13#", "", "20%"};
-		{ 27, 233496, "", "=q4=Signet of Primal Wrath", "=ds=#s13#", "", "23%"};
-		{ 28, 233499, "", "=q4=Signet of the Last Defender", "=ds=#s13#", "", "18%"};
-		{ 29, 233498, "", "=q4=Signet of the Quiet Forest", "=ds=#s13#", "", "21%"};
 	};
 
 	----------------
@@ -5082,6 +3946,243 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		Back = "PVP70RepSET";
 	};
 
+	AtlasLoot_Data["PVP70RareCloth_H"] = {
+		{ 1,0, "INV_BannerPVP_01", "=q6=#pvprep705_1#", "=ec1=#c5#"};
+		{ 2,28857, "", "=q3=High Warlord's Satin Hood"};
+		{ 3,28859, "", "=q3=High Warlord's Satin Mantle"};
+		{ 4,28860, "", "=q3=High Warlord's Satin Robe"};
+		{ 5,28856, "", "=q3=High Warlord's Satin Gloves"};
+		{ 6,28858, "", "=q3=High Warlord's Satin Leggings"};
+		{ 8,0, "INV_BannerPVP_01", "=q6=#pvprep705_2#", "=ec1=#c5#"};
+		{ 9,31626, "", "=q3=High Warlord's Mooncloth Cowl"};
+		{ 10,31628, "", "=q3=High Warlord's Mooncloth Shoulderpads"};
+		{ 11,31629, "", "=q3=High Warlord's Mooncloth Vestments"};
+		{ 12,31621, "", "=q3=High Warlord's Mooncloth Mitts"};
+		{ 13,31627, "", "=q3=High Warlord's Mooncloth Legguards"};
+		{ 16,0, "INV_BannerPVP_01", "=q6=#pvprep703#", "=ec1=#c3#"};
+		{ 17,28867, "", "=q3=High Warlord's Silk Cowl"};
+		{ 18,28866, "", "=q3=High Warlord's Silk Amice"};
+		{ 19,28869, "", "=q3=High Warlord's Silk Raiment"};
+		{ 20,28868, "", "=q3=High Warlord's Silk Handguards"};
+		{ 21,28870, "", "=q3=High Warlord's Silk Trousers"};
+		{ 23,0, "INV_BannerPVP_01", "=q6=#pvprep708#", "=ec1=#c8#"};
+		{ 24,28818, "", "=q3=High Warlord's Dreadweave Hood"};
+		{ 25,28820, "", "=q3=High Warlord's Dreadweave Mantle"};
+		{ 26,28821, "", "=q3=High Warlord's Dreadweave Robe"};
+		{ 27,28817, "", "=q3=High Warlord's Dreadweave Gloves"};
+		{ 28,28819, "", "=q3=High Warlord's Dreadweave Leggings"};
+		Next = "PVP70RareLeather_H";
+		Back = "PVP70RepSET";
+	};
+
+	AtlasLoot_Data["PVP70RareLeather_H"] = {
+		{ 1,0, "INV_BannerPVP_01", "=q6=#pvprep701_1#", "=ec1=#c1#"};
+		{ 2,28812, "", "=q3=High Warlord's Dragonhide Helm"};
+		{ 3,28814, "", "=q3=High Warlord's Dragonhide Spaulders"};
+		{ 4,28815, "", "=q3=High Warlord's Dragonhide Robe"};
+		{ 5,28811, "", "=q3=High Warlord's Dragonhide Gloves"};
+		{ 6,28813, "", "=q3=High Warlord's Dragonhide Legguards"};
+		{ 8,0, "INV_BannerPVP_01", "=q6=#pvprep701_2#", "=ec1=#c1#"};
+		{ 9,28872, "", "=q3=High Warlord's Wyrmhide Helm"};
+		{ 10,28874, "", "=q3=High Warlord's Wyrmhide Spaulders"};
+		{ 11,28875, "", "=q3=High Warlord's Wyrmhide Robe"};
+		{ 12,28871, "", "=q3=High Warlord's Wyrmhide Gloves"};
+		{ 13,28873, "", "=q3=High Warlord's Wyrmhide Legguards"};
+		{ 16,0, "INV_BannerPVP_01", "=q6=#pvprep701_3#", "=ec1=#c1#"};
+		{ 17,31585, "", "=q3=High Warlord's Kodohide Helm"};
+		{ 18,31587, "", "=q3=High Warlord's Kodohide Spaulders"};
+		{ 19,31588, "", "=q3=High Warlord's Kodohide Robe"};
+		{ 20,31584, "", "=q3=High Warlord's Kodohide Gloves"};
+		{ 21,31586, "", "=q3=High Warlord's Kodohide Legguards"};
+		{ 23,0, "INV_BannerPVP_01", "=q6=#pvprep706#", "=ec1=#c6#"};
+		{ 24,28837, "", "=q3=High Warlord's Leather Helm"};
+		{ 25,28839, "", "=q3=High Warlord's Leather Spaulders"};
+		{ 26,28840, "", "=q3=High Warlord's Leather Tunic"};
+		{ 27,28836, "", "=q3=High Warlord's Leather Gloves"};
+		{ 28,28838, "", "=q3=High Warlord's Leather Legguards"};
+		Prev = "PVP70RareCloth_H";
+		Next = "PVP70RareMail_H";
+		Back = "PVP70RepSET";
+	};
+
+	AtlasLoot_Data["PVP70RareMail_H"] = {
+		{ 1,0, "INV_BannerPVP_01", "=q6=#pvprep707_1#", "=ec1=#c7#"};
+		{ 2,28843, "", "=q3=High Warlord's Linked Helm"};
+		{ 3,28845, "", "=q3=High Warlord's Linked Spaulders"};
+		{ 4,28841, "", "=q3=High Warlord's Linked Armor"};
+		{ 5,28842, "", "=q3=High Warlord's Linked Gauntlets"};
+		{ 6,28844, "", "=q3=High Warlord's Linked Leggings"};
+		{ 8,0, "INV_BannerPVP_01", "=q6=#pvprep707_2#", "=ec1=#c7#"};
+		{ 9,28848, "", "=q3=High Warlord's Mail Helm"};
+		{ 10,28850, "", "=q3=High Warlord's Mail Spaulders"};
+		{ 11,28846, "", "=q3=High Warlord's Mail Armor"};
+		{ 12,28847, "", "=q3=High Warlord's Mail Gauntlets"};
+		{ 13,28849, "", "=q3=High Warlord's Mail Leggings"};
+		{ 16,0, "INV_BannerPVP_01", "=q6=#pvprep707_3#", "=ec1=#c7#"};
+		{ 17,31648, "", "=q3=High Warlord's Ringmail Headpiece"};
+		{ 18,31650, "", "=q3=High Warlord's Ringmail Shoulderpads"};
+		{ 19,31646, "", "=q3=High Warlord's Ringmail Chestguard"};
+		{ 20,31647, "", "=q3=High Warlord's Ringmail Gloves"};
+		{ 21,31649, "", "=q3=High Warlord's Ringmail Legguards"};
+		{ 23,0, "INV_BannerPVP_01", "=q6=#pvprep702#", "=ec1=#c2#"};
+		{ 24,28807, "", "=q3=High Warlord's Chain Helm"};
+		{ 25,28809, "", "=q3=High Warlord's Chain Spaulders"};
+		{ 26,28805, "", "=q3=High Warlord's Chain Armor"};
+		{ 27,28806, "", "=q3=High Warlord's Chain Gauntlets"};
+		{ 28,28808, "", "=q3=High Warlord's Chain Leggings"};
+		Prev = "PVP70RareLeather_H";
+		Next = "PVP70RarePlate_H";
+		Back = "PVP70RepSET";
+	};
+
+	AtlasLoot_Data["PVP70RarePlate_H"] = {
+		{ 1,0, "INV_BannerPVP_01", "=q6=#pvprep704_1#", "=ec1=#c4#"};
+		{ 2,28863, "", "=q3=High Warlord's Scaled Helm"};
+		{ 3,28865, "", "=q3=High Warlord's Scaled Shoulders"};
+		{ 4,28861, "", "=q3=High Warlord's Scaled Chestpiece"};
+		{ 5,28862, "", "=q3=High Warlord's Scaled Gauntlets"};
+		{ 6,28864, "", "=q3=High Warlord's Scaled Legguards"};
+		{ 8,0, "INV_BannerPVP_01", "=q6=#pvprep704_2#", "=ec1=#c4#"};
+		{ 9,31637, "", "=q3=High Warlord's Ornamented Headguard"};
+		{ 10,31639, "", "=q3=High Warlord's Ornamented Spaulders"};
+		{ 11,31635, "", "=q3=High Warlord's Ornamented Chestplate"};
+		{ 12,31636, "", "=q3=High Warlord's Ornamented Gloves"};
+		{ 13,31638, "", "=q3=High Warlord's Ornamented Leggings"};
+		{ 16,0, "INV_BannerPVP_01", "=q6=#pvprep709#", "=ec1=#c9#"};
+		{ 17,28853, "", "=q3=High Warlord's Plate Helm"};
+		{ 18,28855, "", "=q3=High Warlord's Plate Shoulders"};
+		{ 19,28851, "", "=q3=High Warlord's Plate Chestpiece"};
+		{ 20,28852, "", "=q3=High Warlord's Plate Gauntlets"};
+		{ 21,28854, "", "=q3=High Warlord's Plate Legguards"};
+		{ 23,0, "INV_BannerPVP_01", "=q6=#arenas4_1#", "=ec1=#c4#"};
+		{ 24,28833, "", "=q3=High Warlord's Lamellar Helm"};
+		{ 25,28835, "", "=q3=High Warlord's Lamellar Shoulders"};
+		{ 26,28831, "", "=q3=High Warlord's Lamellar Chestpiece"};
+		{ 27,28832, "", "=q3=High Warlord's Lamellar Gauntlets"};
+		{ 28,28834, "", "=q3=High Warlord's Lamellar Legguards"};
+		Prev = "PVP70RareMail_H";
+		Back = "PVP70RepSET";
+	};
+	
+	AtlasLoot_Data["PVP70RareCloth_A"] = {
+		{ 1,0, "INV_BannerPVP_02", "=q6=#pvprep705_1#", "=ec1=#c5#"};
+		{ 2,28705, "", "=q3=Grand Marshal's Satin Hood"};
+		{ 3,28707, "", "=q3=Grand Marshal's Satin Mantle"};
+		{ 4,28708, "", "=q3=Grand Marshal's Satin Robe"};
+		{ 5,28704, "", "=q3=Grand Marshal's Satin Gloves"};
+		{ 6,28706, "", "=q3=Grand Marshal's Satin Leggings"};
+		{ 8,0, "INV_BannerPVP_02", "=q6=#pvprep705_2#", "=ec1=#c5#"};
+		{ 9,31622, "", "=q3=Grand Marshal's Mooncloth Cowl"};
+		{ 10,31624, "", "=q3=Grand Marshal's Mooncloth Shoulderpads"};
+		{ 11,31625, "", "=q3=Grand Marshal's Mooncloth Vestments"};
+		{ 12,31620, "", "=q3=Grand Marshal's Mooncloth Mitts"};
+		{ 13,31623, "", "=q3=Grand Marshal's Mooncloth Legguards"};
+		{ 16,0, "INV_BannerPVP_02", "=q6=#pvprep703#", "=ec1=#c3#"};
+		{ 17,28715, "", "=q3=Grand Marshal's Silk Cowl"};
+		{ 18,28714, "", "=q3=Grand Marshal's Silk Amice"};
+		{ 19,28717, "", "=q3=Grand Marshal's Silk Raiment"};
+		{ 20,28716, "", "=q3=Grand Marshal's Silk Handguards"};
+		{ 21,28718, "", "=q3=Grand Marshal's Silk Trousers"};
+		{ 23,0, "INV_BannerPVP_02", "=q6=#pvprep708#", "=ec1=#c8#"};
+		{ 24,28625, "", "=q3=Grand Marshal's Dreadweave Hood"};
+		{ 25,28627, "", "=q3=Grand Marshal's Dreadweave Mantle"};
+		{ 26,28628, "", "=q3=Grand Marshal's Dreadweave Robe"};
+		{ 27,28624, "", "=q3=Grand Marshal's Dreadweave Gloves"};
+		{ 28,28626, "", "=q3=Grand Marshal's Dreadweave Leggings"};
+		Next = "PVP70RareLeather_A";
+		Back = "PVP70RepSET";
+	};
+
+	AtlasLoot_Data["PVP70RareLeather_A"] = {
+		{ 1,0, "INV_BannerPVP_02", "=q6=#pvprep701_1#", "=ec1=#c1#"};
+		{ 2,28619, "", "=q3=Grand Marshal's Dragonhide Helm"};
+		{ 3,28622, "", "=q3=Grand Marshal's Dragonhide Spaulders"};
+		{ 4,28623, "", "=q3=Grand Marshal's Dragonhide Robe"};
+		{ 5,28618, "", "=q3=Grand Marshal's Dragonhide Gloves"};
+		{ 6,28620, "", "=q3=Grand Marshal's Dragonhide Legguards"};
+		{ 8,0, "INV_BannerPVP_02", "=q6=#pvprep701_2#", "=ec1=#c1#"};
+		{ 9,31590, "", "=q3=Grand Marshal's Wyrmhide Helm"};
+		{ 10,31592, "", "=q3=Grand Marshal's Wyrmhide Spaulders"};
+		{ 11,31593, "", "=q3=Grand Marshal's Wyrmhide Robe"};
+		{ 12,31589, "", "=q3=Grand Marshal's Wyrmhide Gloves"};
+		{ 13,31591, "", "=q3=Grand Marshal's Wyrmhide Legguards"};
+		{ 16,0, "INV_BannerPVP_02", "=q6=#pvprep701_3#", "=ec1=#c1#"};
+		{ 17,28720, "", "=q3=Grand Marshal's Kodohide Helm"};
+		{ 18,28722, "", "=q3=Grand Marshal's Kodohide Spaulders"};
+		{ 19,28723, "", "=q3=Grand Marshal's Kodohide Robe"};
+		{ 20,28719, "", "=q3=Grand Marshal's Kodohide Gloves"};
+		{ 21,28721, "", "=q3=Grand Marshal's Kodohide Legguards"};
+		{ 23,0, "INV_BannerPVP_02", "=q6=#pvprep706#", "=ec1=#c6#"};
+		{ 24,28685, "", "=q3=Grand Marshal's Leather Helm"};
+		{ 25,28687, "", "=q3=Grand Marshal's Leather Spaulders"};
+		{ 26,28688, "", "=q3=Grand Marshal's Leather Tunic"};
+		{ 27,28684, "", "=q3=Grand Marshal's Leather Gloves"};
+		{ 28,28686, "", "=q3=Grand Marshal's Leather Legguards"};
+		Prev = "PVP70RareCloth_A";
+		Next = "PVP70RareMail_A";
+		Back = "PVP70RepSET";
+	};
+
+	AtlasLoot_Data["PVP70RareMail_A"] = {
+		{ 1,0, "INV_BannerPVP_02", "=q6=#pvprep707_1#", "=ec1=#c7#"};
+		{ 2,28691, "", "=q3=Grand Marshal's Linked Helm"};
+		{ 3,28693, "", "=q3=Grand Marshal's Linked Spaulders"};
+		{ 4,28689, "", "=q3=Grand Marshal's Linked Armor"};
+		{ 5,28690, "", "=q3=Grand Marshal's Linked Gauntlets"};
+		{ 6,28692, "", "=q3=Grand Marshal's Linked Leggings"};
+		{ 8,0, "INV_BannerPVP_02", "=q6=#pvprep707_2#", "=ec1=#c7#"};
+		{ 9,28696, "", "=q3=Grand Marshal's Mail Helm"};
+		{ 10,28698, "", "=q3=Grand Marshal's Mail Spaulders"};
+		{ 11,28694, "", "=q3=Grand Marshal's Mail Armor"};
+		{ 12,28695, "", "=q3=Grand Marshal's Mail Gauntlets"};
+		{ 13,28697, "", "=q3=Grand Marshal's Mail Leggings"};
+		{ 16,0, "INV_BannerPVP_02", "=q6=#pvprep707_3#", "=ec1=#c7#"};
+		{ 17,31642, "", "=q3=Grand Marshal's Ringmail Headpiece"};
+		{ 18,31644, "", "=q3=Grand Marshal's Ringmail Shoulderpads"};
+		{ 19,31640, "", "=q3=Grand Marshal's Ringmail Chestguard"};
+		{ 20,31641, "", "=q3=Grand Marshal's Ringmail Gloves"};
+		{ 21,31643, "", "=q3=Grand Marshal's Ringmail Legguards"};
+		{ 23,0, "INV_BannerPVP_02", "=q6=#pvprep702#", "=ec1=#c2#"};
+		{ 24,28615, "", "=q3=Grand Marshal's Chain Helm"};
+		{ 25,28617, "", "=q3=Grand Marshal's Chain Spaulders"};
+		{ 26,28613, "", "=q3=Grand Marshal's Chain Armor"};
+		{ 27,28614, "", "=q3=Grand Marshal's Chain Gauntlets"};
+		{ 28,28616, "", "=q3=Grand Marshal's Chain Leggings"};
+		Prev = "PVP70RareLeather_A";
+		Next = "PVP70RarePlate_A";
+		Back = "PVP70RepSET";
+	};
+
+	AtlasLoot_Data["PVP70RarePlate_A"] = {
+		{ 1,0, "INV_BannerPVP_02", "=q6=#pvprep704_1#", "=ec1=#c4#"};
+		{ 2,28711, "", "=q3=Grand Marshal's Scaled Helm"};
+		{ 3,28713, "", "=q3=Grand Marshal's Scaled Shoulders"};
+		{ 4,28709, "", "=q3=Grand Marshal's Scaled Chestpiece"};
+		{ 5,28710, "", "=q3=Grand Marshal's Scaled Gauntlets"};
+		{ 6,28712, "", "=q3=Grand Marshal's Scaled Legguards"};
+		{ 8,0, "INV_BannerPVP_02", "=q6=#pvprep704_2#", "=ec1=#c4#"};
+		{ 9,31632, "", "=q3=Grand Marshal's Ornamented Headguard"};
+		{ 10,31634, "", "=q3=Grand Marshal's Ornamented Spaulders"};
+		{ 11,31630, "", "=q3=Grand Marshal's Ornamented Chestplate"};
+		{ 12,31631, "", "=q3=Grand Marshal's Ornamented Gloves"};
+		{ 13,31633, "", "=q3=Grand Marshal's Ornamented Leggings"};
+		{ 16,0, "INV_BannerPVP_02", "=q6=#pvprep709#", "=ec1=#c9#"};
+		{ 17,28701, "", "=q3=Grand Marshal's Plate Helm"};
+		{ 18,28703, "", "=q3=Grand Marshal's Plate Shoulders"};
+		{ 19,28699, "", "=q3=Grand Marshal's Plate Chestpiece"};
+		{ 20,28700, "", "=q3=Grand Marshal's Plate Gauntlets"};
+		{ 21,28702, "", "=q3=Grand Marshal's Plate Legguards"};
+		{ 23,0, "INV_BannerPVP_02", "=q6=#arenas4_1#", "=ec1=#c4#"};
+		{ 24,28681, "", "=q3=Grand Marshal's Lamellar Helm"};
+		{ 25,28683, "", "=q3=Grand Marshal's Lamellar Shoulders"};
+		{ 26,28679, "", "=q3=Grand Marshal's Lamellar Chestpiece"};
+		{ 27,28680, "", "=q3=Grand Marshal's Lamellar Gauntlets"};
+		{ 28,28724, "", "=q3=Grand Marshal's Lamellar Legguards"};
+		Prev = "PVP70RareMail_A";
+		Back = "PVP70RepSET";
+	};
+
+
 		----------------------------------
 		--- PvP Level 70 - Accessories ---
 		----------------------------------
@@ -5718,12 +4819,57 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		Back = "ARENASET";
 	};
 
-
-
-
 		--------------------------------
 		--- Arena Seasons - Weapons ---
 		--------------------------------
+	AtlasLoot_Data["Arena0Weapons1_H"] = {	
+		{1, 28928, "", "=q3=High Warlord's Right Ripper"};
+		{2, 28922, "", "=q3=High Warlord's Left Ripper"};
+		{3, 28931, "", "=q3=High Warlord's Spellblade"};
+		{4, 28929, "", "=q3=High Warlord's Shanker"};
+		{5, 28930, "", "=q3=High Warlord's Shiv"};
+		{6, 28937, "", "=q3=High Warlord's Slicer"};
+		{7, 28926, "", "=q3=High Warlord's Quickblade"};
+		{8, 28293, "", "=q3=High Warlord's Claymore"};
+		{9, 28920, "", "=q3=High Warlord's Cleaver"};
+		{10, 28921, "", "=q3=High Warlord's Hacker"};
+		{11, 28918, "", "=q3=High Warlord's Decapitator"};
+		{12, 28925, "", "=q3=High Warlord's Pummeler"};
+		{13, 28924, "", "=q3=High Warlord's Bonecracker"};
+		{14, 28917, "", "=q3=High Warlord's Bonegrinder"};
+		{15, 28919, "", "=q3=High Warlord's Maul"};
+		{16, 28923, "", "=q3=High Warlord's Painsaw"};
+		{17, 28935, "", "=q3=High Warlord's War Staff"};
+		{18, 28939, "", "=q3=High Warlord's Barricade"};
+		{19, 28933, "", "=q3=High Warlord's Heavy Crossbow"};
+		{20, 28938, "", "=q3=High Warlord's Battletome"};
+		Back = "PVPMENU";
+	};	
+	
+		AtlasLoot_Data["Arena0Weapons1_A"] = {	
+		{1, 28953, "", "=q3=Grand Marshal's Right Ripper"};
+		{2, 28947, "", "=q3=Grand Marshal's Left Ripper"};
+		{3, 28957, "", "=q3=Grand Marshal's Spellblade"};
+		{4, 28954, "", "=q3=Grand Marshal's Shanker"};
+		{5, 28955, "", "=q3=Grand Marshal's Shiv"};
+		{6, 28956, "", "=q3=Grand Marshal's Slicer"};
+		{7, 28952, "", "=q3=Grand Marshal's Quickblade"};
+		{8, 28943, "", "=q3=Grand Marshal's Warblade"};
+		{9, 28944, "", "=q3=Grand Marshal's Cleaver"};
+		{10, 28946, "", "=q3=Grand Marshal's Hacker"};
+		{11, 28945, "", "=q3=Grand Marshal's Decapitator"};
+		{12, 28951, "", "=q3=Grand Marshal's Pummeler"};
+		{13, 28950, "", "=q3=Grand Marshal's Bonecracker"};
+		{14, 28942, "", "=q3=Grand Marshal's Bonegrinder"};
+		{15, 28948, "", "=q3=Grand Marshal's Maul"};
+		{16, 28949, "", "=q3=Grand Marshal's Painsaw"};
+		{17, 28959, "", "=q3=Grand Marshal's War Staff"};
+		{18, 28940, "", "=q3=Grand Marshal's Barricade"};
+		{19, 28960, "", "=q3=Grand Marshal's Heavy Crossbow"};
+		{20, 28941, "", "=q3=Grand Marshal's Battletome"};
+		Back = "PVPMENU";
+	};	
+		
 	AtlasLoot_Data["Arena1Weapons1"] = {
 		{1, 28313, "", "=q4=Gladiator's Right Ripper", "=ds=", "2625 #arena#", ""};
 		{2, 28314, "", "=q4=Gladiator's Left Ripper", "=ds=", "1125 #arena#", ""};
@@ -5765,10 +4911,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		Prev = "Arena1Weapons1";
 		Back = "PVPMENU";
 	};
-
-
-
-
 		
 	AtlasLoot_Data["Arena3Weapons1"] = {
 		{1, 33737, "", "=q4=Vengeful Gladiator's Right Ripper", "=ds=", "2100 #arena#", ""};
@@ -5827,8 +4969,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		Prev = "Arena3Weapons1";
 		Back = "PVPMENU";
 	};
-
-
 
 	AtlasLoot_Data["Arena2Weapons1"] = {
 		{1, 32028, "", "=q4=Merciless Gladiator's Right Ripper", "=ds=", "18000 #arena#", ""};
@@ -6042,9 +5182,9 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		Back = "DS3SET";
 	};
 
-		--------------
-		--- Tier 4 ---
-		--------------
+	--------------
+	--- Tier 4 ---
+	--------------
 
 	AtlasLoot_Data["T4DruidFeral"] = {	
 		{ 1, 0, "Ability_Druid_Maul", "=q6=#t4s1_1#", "=ec1=#m21# - Fallen Defender"};
@@ -6053,12 +5193,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29096, "", "=q4=Breastplate of Malorne", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29097, "", "=q4=Gauntlets of Malorne", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29099, "", "=q4=Greaves of Malorne", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Ability_Druid_Maul", "=q6=#t4s1_1#", "=ec1=#m21# - Fallen Defender"};
-		{ 17, 229098, "", "=q4=Stag-Helm of Malorne", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229100, "", "=q4=Mantle of Malorne", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229096, "", "=q4=Breastplate of Malorne", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229097, "", "=q4=Gauntlets of Malorne", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229099, "", "=q4=Greaves of Malorne", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5DruidFeral";
 	};	
@@ -6070,12 +5204,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29087, "", "=q4=Chestguard of Malorne", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29090, "", "=q4=Handguards of Malorne", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29088, "", "=q4=Legguards of Malorne", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Nature_Regeneration", "=q6=#t4s1_2#", "=ec1=#m21# - Fallen Defender"};
-		{ 17, 229086, "", "=q4=Crown of Malorne", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229089, "", "=q4=Shoulderguards of Malorne", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229087, "", "=q4=Chestguard of Malorne", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229090, "", "=q4=Handguards of Malorne", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229088, "", "=q4=Legguards of Malorne", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5DruidRestoration";
 	};	
@@ -6087,12 +5215,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29091, "", "=q4=Chestpiece of Malorne", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29092, "", "=q4=Gloves of Malorne", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29094, "", "=q4=Britches of Malorne", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Nature_InsectSwarm", "=q6=#t4s1_3#", "=ec1=#m21# - Fallen Defender"};
-		{ 17, 229093, "", "=q4=Antlers of Malorne", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229095, "", "=q4=Pauldrons of Malorne", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229091, "", "=q4=Chestpiece of Malorne", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229092, "", "=q4=Gloves of Malorne", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229094, "", "=q4=Britches of Malorne", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5DruidBalance";
 	};	
@@ -6104,12 +5226,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29082, "", "=q4=Demon Stalker Harness", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29085, "", "=q4=Demon Stalker Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29083, "", "=q4=Demon Stalker Greaves", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Ability_Hunter_RunningShot", "=q6=#t4s2#", "=ec1=#m21# - Fallen Hero"};
-		{ 17, 229081, "", "=q4=Demon Stalker Greathelm", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229084, "", "=q4=Demon Stalker Shoulderguards", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229082, "", "=q4=Demon Stalker Harness", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229085, "", "=q4=Demon Stalker Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229083, "", "=q4=Demon Stalker Greaves", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5Hunter";
 	};	
@@ -6121,12 +5237,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29077, "", "=q4=Vestments of the Aldor", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29080, "", "=q4=Gloves of the Aldor", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29078, "", "=q4=Legwraps of the Aldor", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Frost_IceStorm", "=q6=#t4s3#", "=ec1=#m21# - Fallen Hero"};
-		{ 17, 229076, "", "=q4=Collar of the Aldor", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229079, "", "=q4=Pauldrons of the Aldor", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229077, "", "=q4=Vestments of the Aldor", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229080, "", "=q4=Gloves of the Aldor", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229078, "", "=q4=Legwraps of the Aldor", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5Mage";
 	};	
@@ -6138,12 +5248,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29066, "", "=q4=Justicar Chestguard", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29067, "", "=q4=Justicar Handguards", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29069, "", "=q4=Justicar Legguards", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Holy_SealOfMight", "=q6=#t4s4_1#", "=ec1=#m21# - Fallen Champion"};
-		{ 17, 229068, "", "=q4=Justicar Faceguard", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229070, "", "=q4=Justicar Shoulderguards", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229066, "", "=q4=Justicar Chestguard", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229067, "", "=q4=Justicar Handguards", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229069, "", "=q4=Justicar Legguards", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5PaladinProtection";
 	};	
@@ -6155,12 +5259,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29071, "", "=q4=Justicar Breastplate", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29072, "", "=q4=Justicar Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29074, "", "=q4=Justicar Greaves", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Holy_AuraOfLight", "=q6=#t4s4_2#", "=ec1=#m21# - Fallen Champion"};
-		{ 17, 229073, "", "=q4=Justicar Crown", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229075, "", "=q4=Justicar Shoulderplates", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229071, "", "=q4=Justicar Breastplate", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229072, "", "=q4=Justicar Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229074, "", "=q4=Justicar Greaves", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5PaladinRetribution";
 	};	
@@ -6172,12 +5270,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29062, "", "=q4=Justicar Chestpiece", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29065, "", "=q4=Justicar Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29063, "", "=q4=Justicar Leggings", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Holy_HolyBolt", "=q6=#t4s4_3#", "=ec1=#m21# - Fallen Champion"};
-		{ 17, 229061, "", "=q4=Justicar Diadem", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229064, "", "=q4=Justicar Pauldrons", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229062, "", "=q4=Justicar Chestpiece", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229065, "", "=q4=Justicar Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229063, "", "=q4=Justicar Leggings", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5PaladinHoly";
 	};	
@@ -6189,12 +5281,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29050, "", "=q4=Robes of the Incarnate", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29055, "", "=q4=Handwraps of the Incarnate", "The Curator ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29053, "", "=q4=Trousers of the Incarnate", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Holy_PowerWordShield", "=q6=#t4s5_1#", "=ec1=#m21# - Fallen Defender"};
-		{ 17, 229049, "", "=q4=Light-Collar of the Incarnate", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229054, "", "=q4=Light-Mantle of the Incarnate", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229050, "", "=q4=Robes of the Incarnate", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229055, "", "=q4=Handwraps of the Incarnate", "The Curator ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229053, "", "=q4=Trousers of the Incarnate", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5PriestHoly";
 	};	
@@ -6206,12 +5292,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29056, "", "=q4=Shroud of the Incarnate", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29057, "", "=q4=Gloves of the Incarnate", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29059, "", "=q4=Leggings of the Incarnate", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Shadow_AntiShadow", "=q6=#t4s5_2#", "=ec1=#m21# - Fallen Defender"};
-		{ 17, 229058, "", "=q4=Soul-Collar of the Incarnate", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229060, "", "=q4=Soul-Mantle of the Incarnate", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229056, "", "=q4=Shroud of the Incarnate", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229057, "", "=q4=Gloves of the Incarnate", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229059, "", "=q4=Leggings of the Incarnate", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5PriestShadow";
 	};	
@@ -6223,12 +5303,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29045, "", "=q4=Netherblade Chestpiece", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29048, "", "=q4=Netherblade Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29046, "", "=q4=Netherblade Breeches", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Ability_BackStab", "=q6=#t4s6#", "=ec1=#m21# - Fallen Champion"};
-		{ 17, 229044, "", "=q4=Netherblade Facemask", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229047, "", "=q4=Netherblade Shoulderpads", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229045, "", "=q4=Netherblade Chestpiece", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229048, "", "=q4=Netherblade Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229046, "", "=q4=Netherblade Breeches", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5Rogue";
 	};	
@@ -6240,12 +5314,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29038, "", "=q4=Cyclone Breastplate", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29039, "", "=q4=Cyclone Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29042, "", "=q4=Cyclone War-Kilt", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_FireResistanceTotem_01", "=q6=#t4s7_1#", "=ec1=#m21# - Fallen Champion"};
-		{ 17, 229040, "", "=q4=Cyclone Helm", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229043, "", "=q4=Cyclone Shoulderplates", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229038, "", "=q4=Cyclone Breastplate", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229039, "", "=q4=Cyclone Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229042, "", "=q4=Cyclone War-Kilt", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5ShamanEnhancement";
 	};	
@@ -6257,12 +5325,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29029, "", "=q4=Cyclone Hauberk", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29032, "", "=q4=Cyclone Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29030, "", "=q4=Cyclone Kilt", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Nature_HealingWaveGreater", "=q6=#t4s7_2#", "=ec1=#m21# - Fallen Champion"};
-		{ 17, 229028, "", "=q4=Cyclone Headdress", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229031, "", "=q4=Cyclone Shoulderpads", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229029, "", "=q4=Cyclone Hauberk", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229032, "", "=q4=Cyclone Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229030, "", "=q4=Cyclone Kilt", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5ShamanRestoration";
 	};	
@@ -6274,12 +5336,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29033, "", "=q4=Cyclone Chestguard", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29034, "", "=q4=Cyclone Handguards", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29036, "", "=q4=Cyclone Legguards", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Nature_Lightning", "=q6=#t4s7_3#", "=ec1=#m21# - Fallen Champion"};
-		{ 17, 229035, "", "=q4=Cyclone Faceguard", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229037, "", "=q4=Cyclone Shoulderguards", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229033, "", "=q4=Cyclone Chestguard", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229034, "", "=q4=Cyclone Handguards", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229036, "", "=q4=Cyclone Legguards", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5ShamanElemental";
 	};	
@@ -6291,12 +5347,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 28964, "", "=q4=Voidheart Robe", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 28968, "", "=q4=Voidheart Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 28966, "", "=q4=Voidheart Leggings", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Spell_Shadow_CurseOfTounges", "=q6=#t4s8#", "=ec1=#m21# - Fallen Hero"};
-		{ 17, 228963, "", "=q4=Voidheart Crown", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 228967, "", "=q4=Voidheart Mantle", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 228964, "", "=q4=Voidheart Robe", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 228968, "", "=q4=Voidheart Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 228966, "", "=q4=Voidheart Leggings", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5Warlock";
 	};	
@@ -6314,18 +5364,6 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 11, 14985, "", "=q4=Warbringer Hauberk", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 12, 14989, "", "=q4=Warbringer Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 13, 14987, "", "=q4=Warbringer Leggings", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "INV_Shield_05", "=q6=#t4s9_1#", "=ec1=#m21# - Fallen Defender"};
-		{ 17, 229011, "", "=q4=Warbringer Greathelm", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229016, "", "=q4=Warbringer Shoulderguards", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229012, "", "=q4=Warbringer Chestguard", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229017, "", "=q4=Warbringer Handguards", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229015, "", "=q4=Warbringer Legguards", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 23, 0, "INV_Shield_05", "=q6=#t4s9_1#", "=ec1=#m21# - Fallen Defender"};
-		{ 24, 214984, "", "=q4=Warbringer Helmet", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 25, 214988, "", "=q4=Warbringer Pauldrons", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 26, 214985, "", "=q4=Warbringer Hauberk", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 27, 214989, "", "=q4=Warbringer Gloves", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 28, 214987, "", "=q4=Warbringer Leggings", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5WarriorProtection";
 	};	
@@ -6337,338 +5375,224 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 4, 29019, "", "=q4=Warbringer Breastplate", "=ds="..BabbleBoss["Magtheridon"]};
 		{ 5, 29020, "", "=q4=Warbringer Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
 		{ 6, 29022, "", "=q4=Warbringer Greaves", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
-		{ 16, 0, "Ability_Warrior_BattleShout", "=q6=#t4s9_2#", "=ec1=#m21# - Fallen Defender"};
-		{ 17, 229021, "", "=q4=Warbringer Battle-Helm", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 18, 229023, "", "=q4=Warbringer Shoulderplates", "=ds="..BabbleBoss["High King Maulgar"]};
-		{ 19, 229019, "", "=q4=Warbringer Breastplate", "=ds="..BabbleBoss["Magtheridon"]};
-		{ 20, 229020, "", "=q4=Warbringer Gauntlets", "=ds="..BabbleBoss["The Curator"].." ("..BabbleZone["Karazhan"]..")"};
-		{ 21, 229022, "", "=q4=Warbringer Greaves", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		Back = "T4SET";
 		Next = "T5WarriorFury";
 	};	
 
-		--------------
-		--- Tier 5 ---
-		--------------
+	--------------
+	--- Tier 5 ---
+	--------------
 
-AtlasLoot_Data["T5DruidFeral"] = {	
-	{ 1, 0, "Ability_Druid_Maul", "=q6=#t5s1_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 2, 30228, "", "=q4=Nordrassil Headdress", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30230, "", "=q4=Nordrassil Feral-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30222, "", "=q4=Nordrassil Chestplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30223, "", "=q4=Nordrassil Handgrips", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30229, "", "=q4=Nordrassil Feral-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Ability_Druid_Maul", "=q6=#t5s1_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 17, 230228, "", "=q4=Nordrassil Headdress", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230230, "", "=q4=Nordrassil Feral-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230222, "", "=q4=Nordrassil Chestplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230223, "", "=q4=Nordrassil Handgrips", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230229, "", "=q4=Nordrassil Feral-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4DruidFeral";
-	Next = "T6DruidFeral";
-};	
+	AtlasLoot_Data["T5DruidFeral"] = {	
+		{ 1, 0, "Ability_Druid_Maul", "=q6=#t5s1_1#", "=ec1=#m22# - Vanquished Defender"};
+		{ 2, 30228, "", "=q4=Nordrassil Headdress", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30230, "", "=q4=Nordrassil Feral-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30222, "", "=q4=Nordrassil Chestplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30223, "", "=q4=Nordrassil Handgrips", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30229, "", "=q4=Nordrassil Feral-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4DruidFeral";
+		Next = "T6DruidFeral";
+	};	
+		
+	AtlasLoot_Data["T5DruidRestoration"] = {	
+		{ 1, 0, "Spell_Nature_Regeneration", "=q6=#t5s1_2#", "=ec1=#m22# - Vanquished Defender"};
+		{ 2, 30219, "", "=q4=Nordrassil Headguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30221, "", "=q4=Nordrassil Life-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30216, "", "=q4=Nordrassil Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30217, "", "=q4=Nordrassil Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30220, "", "=q4=Nordrassil Life-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4DruidRestoration";
+		Next = "T6DruidRestoration";
+	};	
+		
+	AtlasLoot_Data["T5DruidBalance"] = {	
+		{ 1, 0, "Spell_Nature_InsectSwarm", "=q6=#t5s1_3#", "=ec1=#m22# - Vanquished Defender"};
+		{ 2, 30233, "", "=q4=Nordrassil Headpiece", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30235, "", "=q4=Nordrassil Wrath-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30231, "", "=q4=Nordrassil Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30232, "", "=q4=Nordrassil Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30234, "", "=q4=Nordrassil Wrath-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4DruidBalance";
+		Next = "T6DruidBalance";
+	};	
+		
+	AtlasLoot_Data["T5Hunter"] = {	
+		{ 1, 0, "Ability_Hunter_RunningShot", "=q6=#t5s2#", "=ec1=#m22# - Vanquished Hero"};
+		{ 2, 30141, "", "=q4=Rift Stalker Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30143, "", "=q4=Rift Stalker Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30139, "", "=q4=Rift Stalker Hauberk", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30140, "", "=q4=Rift Stalker Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30142, "", "=q4=Rift Stalker Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4Hunter";
+		Next = "T6Hunter";
+	};	
+		
+	AtlasLoot_Data["T5Mage"] = {	
+		{ 1, 0, "Spell_Frost_IceStorm", "=q6=#t5s3#", "=ec1=#m22# - Vanquished Hero"};
+		{ 2, 30206, "", "=q4=Cowl of Tirisfal", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30210, "", "=q4=Mantle of Tirisfal", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30196, "", "=q4=Robes of Tirisfal", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30205, "", "=q4=Gloves of Tirisfal", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30207, "", "=q4=Leggings of Tirisfal", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4Mage";
+		Next = "T6Mage";
+	};	
+		
+	AtlasLoot_Data["T5PaladinProtection"] = {	
+		{ 1, 0, "Spell_Holy_SealOfMight", "=q6=#t5s4_1#", "=ec1=#m22# - Vanquished Champion"};
+		{ 2, 30125, "", "=q4=Crystalforge Faceguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30127, "", "=q4=Crystalforge Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30123, "", "=q4=Crystalforge Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30124, "", "=q4=Crystalforge Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30126, "", "=q4=Crystalforge Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4PaladinProtection";
+		Next = "T6PaladinProtection";
+	};	
+		
+	AtlasLoot_Data["T5PaladinRetribution"] = {	
+		{ 1, 0, "Spell_Holy_AuraOfLight", "=q6=#t5s4_2#", "=ec1=#m22# - Vanquished Champion"};
+		{ 2, 30131, "", "=q4=Crystalforge War-Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30133, "", "=q4=Crystalforge Shoulderbraces", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30129, "", "=q4=Crystalforge Breastplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30130, "", "=q4=Crystalforge Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30132, "", "=q4=Crystalforge Greaves", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4PaladinRetribution";
+		Next = "T6PaladinRetribution";
+	};	
+		
+	AtlasLoot_Data["T5PaladinHoly"] = {	
+		{ 1, 0, "Spell_Holy_HolyBolt", "=q6=#t5s4_3#", "=ec1=#m22# - Vanquished Champion"};
+		{ 2, 30136, "", "=q4=Crystalforge Greathelm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30138, "", "=q4=Crystalforge Pauldrons", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30134, "", "=q4=Crystalforge Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30135, "", "=q4=Crystalforge Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30137, "", "=q4=Crystalforge Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4PaladinHoly";
+		Next = "T6PaladinHoly";
+	};	
+		
+	AtlasLoot_Data["T5PriestHoly"] = {	
+		{ 1, 0, "Spell_Holy_PowerWordShield", "=q6=#t5s5_1#", "=ec1=#m22# - Vanquished Defender"};
+		{ 2, 30152, "", "=q4=Cowl of the Avatar", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30154, "", "=q4=Mantle of the Avatar", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30150, "", "=q4=Vestments of the Avatar", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30151, "", "=q4=Gloves of the Avatar", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30153, "", "=q4=Breeches of the Avatar", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4PriestHoly";
+		Next = "T6PriestHoly";
+	};	
+		
+	AtlasLoot_Data["T5PriestShadow"] = {	
+		{ 1, 0, "Spell_Shadow_AntiShadow", "=q6=#t5s5_2#", "=ec1=#m22# - Vanquished Defender"};
+		{ 2, 30161, "", "=q4=Hood of the Avatar", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30163, "", "=q4=Wings of the Avatar", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30159, "", "=q4=Shroud of the Avatar", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30160, "", "=q4=Handguards of the Avatar", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30162, "", "=q4=Leggings of the Avatar", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4PriestShadow";
+		Next = "T6PriestShadow";
+	};	
+		
+	AtlasLoot_Data["T5Rogue"] = {	
+		{ 1, 0, "Ability_BackStab", "=q6=#t5s6#", "=ec1=#m22# - Vanquished Champion"};
+		{ 2, 30146, "", "=q4=Deathmantle Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30149, "", "=q4=Deathmantle Shoulderpads", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30144, "", "=q4=Deathmantle Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30145, "", "=q4=Deathmantle Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30148, "", "=q4=Deathmantle Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4Rogue";
+		Next = "T6Rogue";
+	};	
+		
+	AtlasLoot_Data["T5ShamanEnhancement"] = {	
+		{ 1, 0, "Spell_FireResistanceTotem_01", "=q6=#t5s7_1#", "=ec1=#m22# - Vanquished Champion"};
+		{ 2, 30190, "", "=q4=Cataclysm Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30194, "", "=q4=Cataclysm Shoulderplates", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30185, "", "=q4=Cataclysm Chestplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30189, "", "=q4=Cataclysm Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30192, "", "=q4=Cataclysm Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4ShamanEnhancement";
+		Next = "T6ShamanEnhancement";
+	};	
+		
+	AtlasLoot_Data["T5ShamanRestoration"] = {	
+		{ 1, 0, "Spell_Nature_HealingWaveGreater", "=q6=#t5s7_2#", "=ec1=#m22# - Vanquished Champion"};
+		{ 2, 30166, "", "=q4=Cataclysm Headguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30168, "", "=q4=Cataclysm Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30164, "", "=q4=Cataclysm Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30165, "", "=q4=Cataclysm Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30167, "", "=q4=Cataclysm Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4ShamanRestoration";
+		Next = "T6ShamanRestoration";
+	};	
+		
+	AtlasLoot_Data["T5ShamanElemental"] = {	
+		{ 1, 0, "Spell_Nature_Lightning", "=q6=#t5s7_3#", "=ec1=#m22# - Vanquished Champion"};
+		{ 2, 30171, "", "=q4=Cataclysm Headpiece", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30173, "", "=q4=Cataclysm Shoulderpads", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30169, "", "=q4=Cataclysm Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30170, "", "=q4=Cataclysm Handgrips", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30172, "", "=q4=Cataclysm Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4ShamanElemental";
+		Next = "T6ShamanElemental";
+	};	
+		
+	AtlasLoot_Data["T5Warlock"] = {	
+		{ 1, 0, "Spell_Shadow_CurseOfTounges", "=q6=#t5s8#", "=ec1=#m22# - Vanquished Hero"};
+		{ 2, 30212, "", "=q4=Hood of the Corruptor", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30215, "", "=q4=Mantle of the Corruptor", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30214, "", "=q4=Robe of the Corruptor", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30211, "", "=q4=Gloves of the Corruptor", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30213, "", "=q4=Leggings of the Corruptor", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4Warlock";
+		Next = "T6Warlock";
+	};	
+		
+	AtlasLoot_Data["T5WarriorProtection"] = {	
+		{ 1, 0, "INV_Shield_05", "=q6=#t5s9_1#", "=ec1=#m22# - Vanquished Defender"};
+		{ 2, 30115, "", "=q4=Destroyer Greathelm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30117, "", "=q4=Destroyer Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30113, "", "=q4=Destroyer Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30114, "", "=q4=Destroyer Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30116, "", "=q4=Destroyer Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 8, 0, "INV_Shield_05", "=q6=#t5s9_1#", "=ec1=#m22# - Vanquished Defender"};
+		{ 9, 14992, "", "=q4=Destroyer Helmet", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 10, 14994, "", "=q4=Destroyer Pauldrons", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 11, 14990, "", "=q4=Destroyer Hauberk", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 12, 14991, "", "=q4=Destroyer Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 13, 14993, "", "=q4=Destroyer Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4WarriorProtection";
+		Next = "T6WarriorProtection";
+	};	
+		
+	AtlasLoot_Data["T5WarriorFury"] = {	
+		{ 1, 0, "Ability_Warrior_BattleShout", "=q6=#t5s9_2#", "=ec1=#m22# - Vanquished Defender"};
+		{ 2, 30120, "", "=q4=Destroyer Battle-Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 3, 30122, "", "=q4=Destroyer Shoulderblades", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
+		{ 4, 30118, "", "=q4=Destroyer Breastplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
+		{ 5, 30119, "", "=q4=Destroyer Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		{ 6, 30121, "", "=q4=Destroyer Greaves", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
+		Back = "T5SET";
+		Prev = "T4WarriorFury";
+		Next = "T6WarriorFury";
+	};	
 	
-AtlasLoot_Data["T5DruidRestoration"] = {	
-	{ 1, 0, "Spell_Nature_Regeneration", "=q6=#t5s1_2#", "=ec1=#m22# - Vanquished Defender"};
-	{ 2, 30219, "", "=q4=Nordrassil Headguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30221, "", "=q4=Nordrassil Life-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30216, "", "=q4=Nordrassil Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30217, "", "=q4=Nordrassil Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30220, "", "=q4=Nordrassil Life-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Nature_Regeneration", "=q6=#t5s1_2#", "=ec1=#m22# - Vanquished Defender"};
-	{ 17, 230219, "", "=q4=Nordrassil Headguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230221, "", "=q4=Nordrassil Life-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230216, "", "=q4=Nordrassil Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230217, "", "=q4=Nordrassil Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230220, "", "=q4=Nordrassil Life-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4DruidRestoration";
-	Next = "T6DruidRestoration";
-};	
-	
-AtlasLoot_Data["T5DruidBalance"] = {	
-	{ 1, 0, "Spell_Nature_InsectSwarm", "=q6=#t5s1_3#", "=ec1=#m22# - Vanquished Defender"};
-	{ 2, 30233, "", "=q4=Nordrassil Headpiece", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30235, "", "=q4=Nordrassil Wrath-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30231, "", "=q4=Nordrassil Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30232, "", "=q4=Nordrassil Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30234, "", "=q4=Nordrassil Wrath-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Nature_InsectSwarm", "=q6=#t5s1_3#", "=ec1=#m22# - Vanquished Defender"};
-	{ 17, 230233, "", "=q4=Nordrassil Headpiece", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230235, "", "=q4=Nordrassil Wrath-Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230231, "", "=q4=Nordrassil Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230232, "", "=q4=Nordrassil Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230234, "", "=q4=Nordrassil Wrath-Kilt", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4DruidBalance";
-	Next = "T6DruidBalance";
-};	
-	
-AtlasLoot_Data["T5Hunter"] = {	
-	{ 1, 0, "Ability_Hunter_RunningShot", "=q6=#t5s2#", "=ec1=#m22# - Vanquished Hero"};
-	{ 2, 30141, "", "=q4=Rift Stalker Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30143, "", "=q4=Rift Stalker Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30139, "", "=q4=Rift Stalker Hauberk", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30140, "", "=q4=Rift Stalker Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30142, "", "=q4=Rift Stalker Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Ability_Hunter_RunningShot", "=q6=#t5s2#", "=ec1=#m22# - Vanquished Hero"};
-	{ 17, 230141, "", "=q4=Rift Stalker Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230143, "", "=q4=Rift Stalker Mantle", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230139, "", "=q4=Rift Stalker Hauberk", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230140, "", "=q4=Rift Stalker Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230142, "", "=q4=Rift Stalker Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4Hunter";
-	Next = "T6Hunter";
-};	
-	
-AtlasLoot_Data["T5Mage"] = {	
-	{ 1, 0, "Spell_Frost_IceStorm", "=q6=#t5s3#", "=ec1=#m22# - Vanquished Hero"};
-	{ 2, 30206, "", "=q4=Cowl of Tirisfal", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30210, "", "=q4=Mantle of Tirisfal", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30196, "", "=q4=Robes of Tirisfal", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30205, "", "=q4=Gloves of Tirisfal", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30207, "", "=q4=Leggings of Tirisfal", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Frost_IceStorm", "=q6=#t5s3#", "=ec1=#m22# - Vanquished Hero"};
-	{ 17, 230206, "", "=q4=Cowl of Tirisfal", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230210, "", "=q4=Mantle of Tirisfal", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230196, "", "=q4=Robes of Tirisfal", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230205, "", "=q4=Gloves of Tirisfal", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230207, "", "=q4=Leggings of Tirisfal", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4Mage";
-	Next = "T6Mage";
-};	
-	
-AtlasLoot_Data["T5PaladinProtection"] = {	
-	{ 1, 0, "Spell_Holy_SealOfMight", "=q6=#t5s4_1#", "=ec1=#m22# - Vanquished Champion"};
-	{ 2, 30125, "", "=q4=Crystalforge Faceguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30127, "", "=q4=Crystalforge Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30123, "", "=q4=Crystalforge Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30124, "", "=q4=Crystalforge Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30126, "", "=q4=Crystalforge Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Holy_SealOfMight", "=q6=#t5s4_1#", "=ec1=#m22# - Vanquished Champion"};
-	{ 17, 230125, "", "=q4=Crystalforge Faceguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230127, "", "=q4=Crystalforge Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230123, "", "=q4=Crystalforge Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230124, "", "=q4=Crystalforge Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230126, "", "=q4=Crystalforge Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4PaladinProtection";
-	Next = "T6PaladinProtection";
-};	
-	
-AtlasLoot_Data["T5PaladinRetribution"] = {	
-	{ 1, 0, "Spell_Holy_AuraOfLight", "=q6=#t5s4_2#", "=ec1=#m22# - Vanquished Champion"};
-	{ 2, 30131, "", "=q4=Crystalforge War-Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30133, "", "=q4=Crystalforge Shoulderbraces", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30129, "", "=q4=Crystalforge Breastplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30130, "", "=q4=Crystalforge Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30132, "", "=q4=Crystalforge Greaves", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Holy_AuraOfLight", "=q6=#t5s4_2#", "=ec1=#m22# - Vanquished Champion"};
-	{ 17, 230131, "", "=q4=Crystalforge War-Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230133, "", "=q4=Crystalforge Shoulderbraces", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230129, "", "=q4=Crystalforge Breastplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230130, "", "=q4=Crystalforge Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230132, "", "=q4=Crystalforge Greaves", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4PaladinRetribution";
-	Next = "T6PaladinRetribution";
-};	
-	
-AtlasLoot_Data["T5PaladinHoly"] = {	
-	{ 1, 0, "Spell_Holy_HolyBolt", "=q6=#t5s4_3#", "=ec1=#m22# - Vanquished Champion"};
-	{ 2, 30136, "", "=q4=Crystalforge Greathelm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30138, "", "=q4=Crystalforge Pauldrons", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30134, "", "=q4=Crystalforge Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30135, "", "=q4=Crystalforge Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30137, "", "=q4=Crystalforge Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Holy_HolyBolt", "=q6=#t5s4_3#", "=ec1=#m22# - Vanquished Champion"};
-	{ 17, 230136, "", "=q4=Crystalforge Greathelm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230138, "", "=q4=Crystalforge Pauldrons", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230134, "", "=q4=Crystalforge Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230135, "", "=q4=Crystalforge Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230137, "", "=q4=Crystalforge Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4PaladinHoly";
-	Next = "T6PaladinHoly";
-};	
-	
-AtlasLoot_Data["T5PriestHoly"] = {	
-	{ 1, 0, "Spell_Holy_PowerWordShield", "=q6=#t5s5_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 2, 30152, "", "=q4=Cowl of the Avatar", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30154, "", "=q4=Mantle of the Avatar", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30150, "", "=q4=Vestments of the Avatar", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30151, "", "=q4=Gloves of the Avatar", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30153, "", "=q4=Breeches of the Avatar", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Holy_PowerWordShield", "=q6=#t5s5_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 17, 230152, "", "=q4=Cowl of the Avatar", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230154, "", "=q4=Mantle of the Avatar", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230150, "", "=q4=Vestments of the Avatar", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230151, "", "=q4=Gloves of the Avatar", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230153, "", "=q4=Breeches of the Avatar", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4PriestHoly";
-	Next = "T6PriestHoly";
-};	
-	
-AtlasLoot_Data["T5PriestShadow"] = {	
-	{ 1, 0, "Spell_Shadow_AntiShadow", "=q6=#t5s5_2#", "=ec1=#m22# - Vanquished Defender"};
-	{ 2, 30161, "", "=q4=Hood of the Avatar", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30163, "", "=q4=Wings of the Avatar", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30159, "", "=q4=Shroud of the Avatar", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30160, "", "=q4=Handguards of the Avatar", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30162, "", "=q4=Leggings of the Avatar", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Shadow_AntiShadow", "=q6=#t5s5_2#", "=ec1=#m22# - Vanquished Defender"};
-	{ 17, 230161, "", "=q4=Hood of the Avatar", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230163, "", "=q4=Wings of the Avatar", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230159, "", "=q4=Shroud of the Avatar", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230160, "", "=q4=Handguards of the Avatar", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230162, "", "=q4=Leggings of the Avatar", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4PriestShadow";
-	Next = "T6PriestShadow";
-};	
-	
-AtlasLoot_Data["T5Rogue"] = {	
-	{ 1, 0, "Ability_BackStab", "=q6=#t5s6#", "=ec1=#m22# - Vanquished Champion"};
-	{ 2, 30146, "", "=q4=Deathmantle Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30149, "", "=q4=Deathmantle Shoulderpads", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30144, "", "=q4=Deathmantle Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30145, "", "=q4=Deathmantle Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30148, "", "=q4=Deathmantle Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Ability_BackStab", "=q6=#t5s6#", "=ec1=#m22# - Vanquished Champion"};
-	{ 17, 230146, "", "=q4=Deathmantle Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230149, "", "=q4=Deathmantle Shoulderpads", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230144, "", "=q4=Deathmantle Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230145, "", "=q4=Deathmantle Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230148, "", "=q4=Deathmantle Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4Rogue";
-	Next = "T6Rogue";
-};	
-	
-AtlasLoot_Data["T5ShamanEnhancement"] = {	
-	{ 1, 0, "Spell_FireResistanceTotem_01", "=q6=#t5s7_1#", "=ec1=#m22# - Vanquished Champion"};
-	{ 2, 30190, "", "=q4=Cataclysm Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30194, "", "=q4=Cataclysm Shoulderplates", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30185, "", "=q4=Cataclysm Chestplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30189, "", "=q4=Cataclysm Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30192, "", "=q4=Cataclysm Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_FireResistanceTotem_01", "=q6=#t5s7_1#", "=ec1=#m22# - Vanquished Champion"};
-	{ 17, 230190, "", "=q4=Cataclysm Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230194, "", "=q4=Cataclysm Shoulderplates", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230185, "", "=q4=Cataclysm Chestplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230189, "", "=q4=Cataclysm Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230192, "", "=q4=Cataclysm Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4ShamanEnhancement";
-	Next = "T6ShamanEnhancement";
-};	
-	
-AtlasLoot_Data["T5ShamanRestoration"] = {	
-	{ 1, 0, "Spell_Nature_HealingWaveGreater", "=q6=#t5s7_2#", "=ec1=#m22# - Vanquished Champion"};
-	{ 2, 30166, "", "=q4=Cataclysm Headguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30168, "", "=q4=Cataclysm Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30164, "", "=q4=Cataclysm Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30165, "", "=q4=Cataclysm Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30167, "", "=q4=Cataclysm Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Nature_HealingWaveGreater", "=q6=#t5s7_2#", "=ec1=#m22# - Vanquished Champion"};
-	{ 17, 230166, "", "=q4=Cataclysm Headguard", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230168, "", "=q4=Cataclysm Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230164, "", "=q4=Cataclysm Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230165, "", "=q4=Cataclysm Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230167, "", "=q4=Cataclysm Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4ShamanRestoration";
-	Next = "T6ShamanRestoration";
-};	
-	
-AtlasLoot_Data["T5ShamanElemental"] = {	
-	{ 1, 0, "Spell_Nature_Lightning", "=q6=#t5s7_3#", "=ec1=#m22# - Vanquished Champion"};
-	{ 2, 30171, "", "=q4=Cataclysm Headpiece", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30173, "", "=q4=Cataclysm Shoulderpads", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30169, "", "=q4=Cataclysm Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30170, "", "=q4=Cataclysm Handgrips", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30172, "", "=q4=Cataclysm Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Nature_Lightning", "=q6=#t5s7_3#", "=ec1=#m22# - Vanquished Champion"};
-	{ 17, 230171, "", "=q4=Cataclysm Headpiece", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230173, "", "=q4=Cataclysm Shoulderpads", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230169, "", "=q4=Cataclysm Chestpiece", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230170, "", "=q4=Cataclysm Handgrips", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230172, "", "=q4=Cataclysm Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4ShamanElemental";
-	Next = "T6ShamanElemental";
-};	
-	
-AtlasLoot_Data["T5Warlock"] = {	
-	{ 1, 0, "Spell_Shadow_CurseOfTounges", "=q6=#t5s8#", "=ec1=#m22# - Vanquished Hero"};
-	{ 2, 30212, "", "=q4=Hood of the Corruptor", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30215, "", "=q4=Mantle of the Corruptor", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30214, "", "=q4=Robe of the Corruptor", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30211, "", "=q4=Gloves of the Corruptor", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30213, "", "=q4=Leggings of the Corruptor", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Spell_Shadow_CurseOfTounges", "=q6=#t5s8#", "=ec1=#m22# - Vanquished Hero"};
-	{ 17, 230212, "", "=q4=Hood of the Corruptor", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230215, "", "=q4=Mantle of the Corruptor", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230214, "", "=q4=Robe of the Corruptor", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230211, "", "=q4=Gloves of the Corruptor", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230213, "", "=q4=Leggings of the Corruptor", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4Warlock";
-	Next = "T6Warlock";
-};	
-	
-AtlasLoot_Data["T5WarriorProtection"] = {	
-	{ 1, 0, "INV_Shield_05", "=q6=#t5s9_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 2, 30115, "", "=q4=Destroyer Greathelm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30117, "", "=q4=Destroyer Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30113, "", "=q4=Destroyer Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30114, "", "=q4=Destroyer Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30116, "", "=q4=Destroyer Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 8, 0, "INV_Shield_05", "=q6=#t5s9_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 9, 14992, "", "=q4=Destroyer Helmet", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 10, 14994, "", "=q4=Destroyer Pauldrons", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 11, 14990, "", "=q4=Destroyer Hauberk", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 12, 14991, "", "=q4=Destroyer Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 13, 14993, "", "=q4=Destroyer Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "INV_Shield_05", "=q6=#t5s9_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 17, 230115, "", "=q4=Destroyer Greathelm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230117, "", "=q4=Destroyer Shoulderguards", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230113, "", "=q4=Destroyer Chestguard", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230114, "", "=q4=Destroyer Handguards", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230116, "", "=q4=Destroyer Legguards", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 23, 0, "INV_Shield_05", "=q6=#t5s9_1#", "=ec1=#m22# - Vanquished Defender"};
-	{ 24, 214992, "", "=q4=Destroyer Helmet", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 25, 214994, "", "=q4=Destroyer Pauldrons", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 26, 214990, "", "=q4=Destroyer Hauberk", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 27, 214991, "", "=q4=Destroyer Gloves", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 28, 214993, "", "=q4=Destroyer Leggings", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4WarriorProtection";
-	Next = "T6WarriorProtection";
-};	
-	
-AtlasLoot_Data["T5WarriorFury"] = {	
-	{ 1, 0, "Ability_Warrior_BattleShout", "=q6=#t5s9_2#", "=ec1=#m22# - Vanquished Defender"};
-	{ 2, 30120, "", "=q4=Destroyer Battle-Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 3, 30122, "", "=q4=Destroyer Shoulderblades", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 4, 30118, "", "=q4=Destroyer Breastplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 5, 30119, "", "=q4=Destroyer Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 6, 30121, "", "=q4=Destroyer Greaves", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 16, 0, "Ability_Warrior_BattleShout", "=q6=#t5s9_2#", "=ec1=#m22# - Vanquished Defender"};
-	{ 17, 230120, "", "=q4=Destroyer Battle-Helm", "=ds="..BabbleBoss["Lady Vashj"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 18, 230122, "", "=q4=Destroyer Shoulderblades", "=ds="..BabbleBoss["Void Reaver"].." ("..BabbleZone["The Eye"]..")"};
-	{ 19, 230118, "", "=q4=Destroyer Breastplate", "=ds="..BabbleBoss["Kael'thas Sunstrider"].." ("..BabbleZone["The Eye"]..")"};
-	{ 20, 230119, "", "=q4=Destroyer Gauntlets", "=ds="..BabbleBoss["Leotheras the Blind"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	{ 21, 230121, "", "=q4=Destroyer Greaves", "=ds="..BabbleBoss["Fathom-Lord Karathress"].." ("..BabbleZone["Serpentshrine Cavern"]..")"};
-	Back = "T5SET";
-	Prev = "T4WarriorFury";
-	Next = "T6WarriorFury";
-};	
-
 		--------------
 		--- Tier 6 ---
 		--------------
@@ -7476,3 +6400,6 @@ AtlasLoot_Data["T6WarriorFury"] = {
 		{ 25, 30722, "", "=q4=Ethereum Nexus-Reaver", "=ds=#h2#, #w1#", "", "16.0%"};
 		{ 26, 30724, "", "=q4=Barrel-Blade Longrifle", "=ds=#w5#", "", "20.0%"};
 	};
+	
+	
+	

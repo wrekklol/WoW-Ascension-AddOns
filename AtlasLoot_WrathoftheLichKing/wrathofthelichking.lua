@@ -8675,7 +8675,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ 20, 40822, "", "=q3=Sigil of the Frozen Conscience", "=ds=#w21#", "30 #venturecoin#"};
 		{ 21, 40867, "", "=q3=Sigil of the Wild Buck", "=ds=#w21#", "30 #venturecoin#"};
 		{ 23, 37836, "", "=q1=Venture Coin", "=ds=#m17#"};
-		Back = "PVPMENU";
+		Back = "PVPMENU2";
 	};
 
 	--------------------------

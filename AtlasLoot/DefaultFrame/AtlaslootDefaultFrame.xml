@@ -89,7 +89,7 @@
 				<Anchors>
 					<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
 						<Offset>
-							<AbsDimension x="-130" y="-40"/>
+							<AbsDimension x="-160" y="-40"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -115,7 +115,7 @@
 				<Anchors>
 					<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
 						<Offset>
-							<AbsDimension x="130" y="-40"/>
+							<AbsDimension x="0" y="-40"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -130,6 +130,32 @@
 					<OnShow>
 						local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
 						this:SetText(AL["Select Sub-Table"]);
+						this:SetFrameLevel( (this:GetParent()):GetFrameLevel() + 1 );
+					</OnShow>
+				</Scripts>
+			</Button>
+			<Button name="$parent_SubMenu2" inherits="OptionsButtonTemplate">
+				<Size>
+					<AbsDimension x="130" y="20"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
+						<Offset>
+							<AbsDimension x="160" y="-40"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						if AtlasLoot_DewdropSubMenu2:IsOpen() then
+							AtlasLoot_DewdropSubMenu2:Close();
+						else
+							AtlasLoot_DewdropSubMenu2:Open(this);
+						end
+					</OnClick>
+					<OnShow>
+						local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
+						this:SetText(AL["Select Difficulty"]);
 						this:SetFrameLevel( (this:GetParent()):GetFrameLevel() + 1 );
 					</OnShow>
 				</Scripts>
@@ -491,6 +517,15 @@
 					</Anchors>
 				</FontString>
 				<FontString name="$parent_SelectedTable" inherits="GameFontNormal" text="Cannot read files">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="-50"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parent_SelectedTable2" inherits="GameFontNormal" text="Cannot read files">
 					<Anchors>
 						<Anchor point="TOP">
 							<Offset>

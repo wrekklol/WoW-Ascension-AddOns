@@ -1818,7 +1818,7 @@ AtlasLootNewBossButtons = {
 	"NAXHeiganderUnclean";
 	"NAXLoatheb";
 	"NAXSapphiron";
-	"NAXKelThuzard";
+	"NAXKelThuzad";
         "";
         "T1T2T3SET";
         };
@@ -3645,7 +3645,7 @@ AtlasLootBossButtons = {
 	"NAXHeiganderUnclean";
 	"NAXLoatheb";
 	"NAXSapphiron";
-	"NAXKelThuzard";
+	"NAXKelThuzad";
         "";
         "T1T2T3SET";
         };

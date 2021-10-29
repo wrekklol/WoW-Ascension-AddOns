@@ -1,15 +1,18 @@
-﻿-- Import SM for statusbar-textures, font-styles and border-types
-local SharedMedia = LibStub("LibSharedMedia-3.0");
+if not WeakAuras.IsCorrectVersion() then return end
+local AddonName, OptionsPrivate = ...
 
--- Import translation
 local L = WeakAuras.L;
 
 -- Calculate bounding box
 local function getRect(data)
   -- Temp variables
   local blx, bly, trx, try;
-  blx, bly = data.xOffset, data.yOffset;
-  
+  blx, bly = data.xOffset or 0, data.yOffset or 0;
+
+  if (data.width == nil or data.height == nil or data.regionType == "text") then
+    return blx, bly, blx, bly;
+  end
+
   -- Calc bounding box
   if(data.selfPoint:find("LEFT")) then
     trx = blx + data.width;
@@ -29,20 +32,68 @@ local function getRect(data)
     bly = bly - (data.height/2);
     try = bly + data.height;
   end
-  
+
   -- Return data
   return blx, bly, trx, try;
+end
+
+local function getHeight(data, region)
+  if data.regionType == "text" then
+    return region.height
+  else
+    return data.height
+  end
+end
+
+
+local function getWidth(data, region)
+  if data.regionType == "text" then
+    return region.width
+  else
+    return data.width
+  end
 end
 
 -- Create region options table
 local function createOptions(id, data)
   -- Region options
   local options = {
+    __title = L["Group Settings"],
+    __order = 1,
+    groupIcon = {
+      type = "input",
+      width = WeakAuras.doubleWidth - 0.15,
+      name = L["Group Icon"],
+      desc = L["Set Thumbnail Icon"],
+      order = 0.50,
+      get = function()
+        return data.groupIcon and tostring(data.groupIcon) or ""
+      end,
+      set = function(info, v)
+        data.groupIcon = v
+        WeakAuras.Add(data)
+        WeakAuras.UpdateThumbnail(data)
+      end
+    },
+    chooseIcon = {
+      type = "execute",
+      width = 0.15,
+      name = L["Choose"],
+      order = 0.51,
+      func = function()
+         OptionsPrivate.OpenIconPicker(data, { [data.id] = {"groupIcon"} }, true)
+       end,
+       imageWidth = 24,
+       imageHeight = 24,
+       control = "WeakAurasIcon",
+       image = "Interface\\AddOns\\WeakAuras\\Media\\Textures\\browse",
+    },
     align_h = {
       type = "select",
+      width = WeakAuras.normalWidth,
       name = L["Horizontal Align"],
       order = 10,
-      values = WeakAuras.align_types,
+      values = OptionsPrivate.Private.align_types,
       get = function()
         if(#data.controlledChildren < 1) then
           return nil;
@@ -69,12 +120,13 @@ local function createOptions(id, data)
       set = function(info, v)
         for index, childId in pairs(data.controlledChildren) do
           local childData = WeakAuras.GetData(childId);
-          if(childData) then
+          local childRegion = WeakAuras.GetRegion(childId)
+          if(childData and childRegion) then
             if(v == "CENTER") then
               if(childData.selfPoint:find("LEFT")) then
-                childData.xOffset = 0 - (childData.width / 2);
+                childData.xOffset = 0 - (getWidth(childData, childRegion) / 2);
               elseif(childData.selfPoint:find("RIGHT")) then
-                childData.xOffset = 0 + (childData.width / 2);
+                childData.xOffset = 0 + (getWidth(childData, childRegion) / 2);
               else
                 childData.xOffset = 0;
               end
@@ -82,32 +134,32 @@ local function createOptions(id, data)
               if(childData.selfPoint:find("LEFT")) then
                 childData.xOffset = 0;
               elseif(childData.selfPoint:find("RIGHT")) then
-                childData.xOffset = 0 + childData.width;
+                childData.xOffset = 0 + getWidth(childData, childRegion);
               else
-                childData.xOffset = 0 + (childData.width / 2);
+                childData.xOffset = 0 + (getWidth(childData, childRegion) / 2);
               end
             elseif(v == "RIGHT") then
               if(childData.selfPoint:find("LEFT")) then
-                childData.xOffset = 0 - childData.width;
+                childData.xOffset = 0 - getWidth(childData, childRegion);
               elseif(childData.selfPoint:find("RIGHT")) then
                 childData.xOffset = 0;
               else
-                childData.xOffset = 0 - (childData.width / 2);
+                childData.xOffset = 0 - (getWidth(childData, childRegion) / 2);
               end
             end
             WeakAuras.Add(childData);
           end
         end
         WeakAuras.Add(data);
-        WeakAuras.SetThumbnail(data);
-        WeakAuras.ResetMoverSizer();
+        OptionsPrivate.ResetMoverSizer();
       end
     },
     align_v = {
       type = "select",
+      width = WeakAuras.normalWidth,
       name = L["Vertical Align"],
       order = 15,
-      values = WeakAuras.rotated_align_types,
+      values = OptionsPrivate.Private.rotated_align_types,
       get = function()
         if(#data.controlledChildren < 1) then
           return nil;
@@ -134,12 +186,13 @@ local function createOptions(id, data)
       set = function(info, v)
         for index, childId in pairs(data.controlledChildren) do
           local childData = WeakAuras.GetData(childId);
-          if(childData) then
+          local childRegion = WeakAuras.GetRegion(childId)
+          if(childData and childRegion) then
             if(v == "CENTER") then
               if(childData.selfPoint:find("BOTTOM")) then
-                childData.yOffset = 0 - (childData.height / 2);
+                childData.yOffset = 0 - (getHeight(childData, childRegion) / 2);
               elseif(childData.selfPoint:find("TOP")) then
-                childData.yOffset = 0 + (childData.height / 2);
+                childData.yOffset = 0 + (getHeight(childData, childRegion) / 2);
               else
                 childData.yOffset = 0;
               end
@@ -147,29 +200,29 @@ local function createOptions(id, data)
               if(childData.selfPoint:find("BOTTOM")) then
                 childData.yOffset = 0;
               elseif(childData.selfPoint:find("TOP")) then
-                childData.yOffset = 0 + childData.height;
+                childData.yOffset = 0 + getHeight(childData, childRegion);
               else
-                childData.yOffset = 0 + (childData.height / 2);
+                childData.yOffset = 0 + (getHeight(childData, childRegion) / 2);
               end
             elseif(v == "LEFT") then
               if(childData.selfPoint:find("BOTTOM")) then
-                childData.yOffset = 0 - childData.height;
+                childData.yOffset = 0 - getHeight(childData, childRegion);
               elseif(childData.selfPoint:find("TOP")) then
                 childData.yOffset = 0;
               else
-                childData.yOffset = 0 - (childData.height / 2);
+                childData.yOffset = 0 - (getHeight(childData, childRegion) / 2);
               end
             end
             WeakAuras.Add(childData);
           end
         end
         WeakAuras.Add(data);
-        WeakAuras.SetThumbnail(data);
-        WeakAuras.ResetMoverSizer();
+        OptionsPrivate.ResetMoverSizer();
       end
     },
     distribute_h = {
       type = "range",
+      width = WeakAuras.normalWidth,
       name = L["Distribute Horizontally"],
       order = 20,
       softMin = -100,
@@ -221,37 +274,38 @@ local function createOptions(id, data)
         local xOffset = 0;
         for index, childId in pairs(data.controlledChildren) do
           local childData = WeakAuras.GetData(childId);
-          if(childData) then
+          local childRegion = WeakAuras.GetRegion(childId)
+          if(childData and childRegion) then
             if(v > 0) then
               if(childData.selfPoint:find("LEFT")) then
                 childData.xOffset = xOffset;
               elseif(childData.selfPoint:find("RIGHT")) then
-                childData.xOffset = xOffset + childData.width;
+                childData.xOffset = xOffset + getWidth(childData, childRegion);
               else
-                childData.xOffset = xOffset + (childData.width / 2);
+                childData.xOffset = xOffset + (getWidth(childData, childRegion) / 2);
               end
               xOffset = xOffset + v;
             elseif(v < 0) then
               if(childData.selfPoint:find("LEFT")) then
-                childData.xOffset = xOffset - childData.width;
+                childData.xOffset = xOffset - getWidth(childData, childRegion);
               elseif(childData.selfPoint:find("RIGHT")) then
                 childData.xOffset = xOffset;
               else
-                childData.xOffset = xOffset - (childData.width / 2);
+                childData.xOffset = xOffset - (getWidth(childData, childRegion) / 2);
               end
               xOffset = xOffset + v;
             end
             WeakAuras.Add(childData);
           end
         end
-        
+
         WeakAuras.Add(data);
-        WeakAuras.SetThumbnail(data);
-        WeakAuras.ResetMoverSizer();
+        OptionsPrivate.ResetMoverSizer();
       end
     },
     distribute_v = {
       type = "range",
+      width = WeakAuras.normalWidth,
       name = L["Distribute Vertically"],
       order = 25,
       softMin = -100,
@@ -303,37 +357,38 @@ local function createOptions(id, data)
         local yOffset = 0;
         for index, childId in pairs(data.controlledChildren) do
           local childData = WeakAuras.GetData(childId);
-          if(childData) then
+          local childRegion = WeakAuras.GetRegion(childId)
+          if(childData and childRegion) then
             if(v > 0) then
               if(childData.selfPoint:find("BOTTOM")) then
                 childData.yOffset = yOffset;
               elseif(childData.selfPoint:find("TOP")) then
-                childData.yOffset = yOffset + childData.height;
+                childData.yOffset = yOffset + getHeight(childData, childRegion);
               else
-                childData.yOffset = yOffset + (childData.height / 2);
+                childData.yOffset = yOffset + (getHeight(childData, childRegion) / 2);
               end
               yOffset = yOffset + v;
             elseif(v < 0) then
               if(childData.selfPoint:find("BOTTOM")) then
-                childData.yOffset = yOffset - childData.height;
+                childData.yOffset = yOffset - getHeight(childData, childRegion);
               elseif(childData.selfPoint:find("TOP")) then
                 childData.yOffset = yOffset;
               else
-                childData.yOffset = yOffset - (childData.height / 2);
+                childData.yOffset = yOffset - (getHeight(childData, childRegion) / 2);
               end
               yOffset = yOffset + v;
             end
             WeakAuras.Add(childData);
           end
         end
-        
+
         WeakAuras.Add(data);
-        WeakAuras.SetThumbnail(data);
-        WeakAuras.ResetMoverSizer();
+        OptionsPrivate.ResetMoverSizer();
       end
     },
     space_h = {
       type = "range",
+      width = WeakAuras.normalWidth,
       name = L["Space Horizontally"],
       order = 30,
       softMin = -100,
@@ -385,37 +440,38 @@ local function createOptions(id, data)
         local xOffset = 0;
         for index, childId in pairs(data.controlledChildren) do
           local childData = WeakAuras.GetData(childId);
-          if(childData) then
+          local childRegion = WeakAuras.GetRegion(childId)
+          if(childData and childRegion) then
             if(v > 0) then
               if(childData.selfPoint:find("LEFT")) then
                 childData.xOffset = xOffset;
               elseif(childData.selfPoint:find("RIGHT")) then
-                childData.xOffset = xOffset + childData.width;
+                childData.xOffset = xOffset + getWidth(childData, childRegion);
               else
-                childData.xOffset = xOffset + (childData.width / 2);
+                childData.xOffset = xOffset + (getWidth(childData, childRegion) / 2);
               end
-              xOffset = xOffset + v + childData.width;
+              xOffset = xOffset + v + getWidth(childData, childRegion);
             elseif(v < 0) then
               if(childData.selfPoint:find("LEFT")) then
-                childData.xOffset = xOffset - childData.width;
+                childData.xOffset = xOffset - getWidth(childData, childRegion);
               elseif(childData.selfPoint:find("RIGHT")) then
                 childData.xOffset = xOffset;
               else
-                childData.xOffset = xOffset - (childData.width / 2);
+                childData.xOffset = xOffset - (getWidth(childData, childRegion) / 2);
               end
-              xOffset = xOffset + v - childData.width;
+              xOffset = xOffset + v - getWidth(childData, childRegion);
             end
             WeakAuras.Add(childData);
           end
         end
-        
+
         WeakAuras.Add(data);
-        WeakAuras.SetThumbnail(data);
-        WeakAuras.ResetMoverSizer();
+        OptionsPrivate.ResetMoverSizer();
       end
     },
     space_v = {
       type = "range",
+      width = WeakAuras.normalWidth,
       name = L["Space Vertically"],
       order = 35,
       softMin = -100,
@@ -467,174 +523,148 @@ local function createOptions(id, data)
         local yOffset = 0;
         for index, childId in pairs(data.controlledChildren) do
           local childData = WeakAuras.GetData(childId);
-          if(childData) then
+          local childRegion = WeakAuras.GetRegion(childId)
+          if(childData and childRegion) then
             if(v > 0) then
               if(childData.selfPoint:find("BOTTOM")) then
                 childData.yOffset = yOffset;
               elseif(childData.selfPoint:find("TOP")) then
-                childData.yOffset = yOffset + childData.height;
+                childData.yOffset = yOffset + getHeight(childData, childRegion);
               else
-                childData.yOffset = yOffset + (childData.height / 2);
+                childData.yOffset = yOffset + (getHeight(childData, childRegion) / 2);
               end
-              yOffset = yOffset + v + childData.height;
+              yOffset = yOffset + v + getHeight(childData, childRegion);
             elseif(v < 0) then
               if(childData.selfPoint:find("BOTTOM")) then
-                childData.yOffset = yOffset - childData.height;
+                childData.yOffset = yOffset - getHeight(childData, childRegion);
               elseif(childData.selfPoint:find("TOP")) then
                 childData.yOffset = yOffset;
               else
-                childData.yOffset = yOffset - (childData.height / 2);
+                childData.yOffset = yOffset - (getHeight(childData, childRegion) / 2);
               end
-              yOffset = yOffset + v - childData.height;
+              yOffset = yOffset + v - getHeight(childData, childRegion);
             end
             WeakAuras.Add(childData);
           end
         end
-        
+
         WeakAuras.Add(data);
-        WeakAuras.SetThumbnail(data);
-        WeakAuras.ResetMoverSizer();
+        OptionsPrivate.ResetMoverSizer();
       end
     },
-  border_header = {
-    type = "header",
-    name = L["Border Settings"],
-    order = 46.0
-  },
-    spacer = {
+    scale = {
+      type = "range",
+      width = WeakAuras.normalWidth,
+      name = L["Group Scale"],
+      order = 45,
+      min = 0.05,
+      softMax = 2,
+      max = 10,
+      bigStep = 0.05,
+      get = function()
+        return data.scale or 1
+      end,
+      set = function(info, v)
+        data.scale = data.scale or 1
+        local change = 1 - (v/data.scale)
+        data.xOffset = data.xOffset/(1-change)
+        data.yOffset = data.yOffset/(1-change)
+        data.scale = v
+        WeakAuras.Add(data);
+        OptionsPrivate.ResetMoverSizer();
+      end
+    },
+    endHeader = {
       type = "header",
+      order = 100,
       name = "",
-      order = 50
-    }
+    },
   };
-  
-  -- Positioning options
-  options = WeakAuras.AddPositionOptions(options, id, data);
-  
-  -- Border options
-  options = WeakAuras.AddBorderOptions(options, id, data);
-  
-  -- Remove some poition options
-  options.width = nil;
-  options.height = nil;
-  options.selfPoint.disabled = true;
-  options.selfPoint.values = {["BOTTOMLEFT"] = "Anchor Point"};
-  
-  -- Return options
-  return options;
+
+  for k, v in pairs(OptionsPrivate.commonOptions.BorderOptions(id, data, nil, nil, 70)) do
+    options[k] = v
+  end
+
+  return {
+    group = options,
+    position = OptionsPrivate.commonOptions.PositionOptions(id, data, nil, true, true, true),
+  };
 end
 
--- Create preview thumbnail
-local function createThumbnail(parent, fullCreate)
-  -- Preview frame
-  local borderframe = CreateFrame("FRAME", nil, parent);
-  borderframe:SetWidth(32);
-  borderframe:SetHeight(32);
-  
-  -- Preview border
-  local border = borderframe:CreateTexture(nil, "OVERLAY");
-  border:SetAllPoints(borderframe);
+local function createThumbnail()
+  -- frame
+  local thumbnail = CreateFrame("FRAME", nil, UIParent);
+  thumbnail:SetWidth(32);
+  thumbnail:SetHeight(32);
+
+  -- border
+  local border = thumbnail:CreateTexture(nil, "OVERLAY");
+  border:SetAllPoints(thumbnail);
   border:SetTexture("Interface\\BUTTONS\\UI-Quickslot2.blp");
   border:SetTexCoord(0.2, 0.8, 0.2, 0.8);
-  
-  -- Main region
-  local region = CreateFrame("FRAME", nil, borderframe);
-  borderframe.region = region;
-  
-  -- Preview children
-  region.children = {};
-  
-  -- Return preview
-  return borderframe;
+
+  local icon = thumbnail:CreateTexture(nil, "OVERLAY")
+  icon:SetAllPoints(thumbnail)
+  thumbnail.icon = icon
+
+  return thumbnail
 end
 
--- Modify preview thumbnail
-local function modifyThumbnail(parent, borderframe, data, fullModify, size)
-  local region = borderframe.region;
-  size = size or 24;
-  
-  local leftest, rightest, lowest, highest = 0, 0, 0, 0;
-  for index, childId in ipairs(data.controlledChildren) do
-    local childData = WeakAuras.GetData(childId);
-    if(childData) then
-      local blx, bly, trx, try = getRect(childData);
-      leftest = math.min(leftest, blx);
-      rightest = math.max(rightest, trx);
-      lowest = math.min(lowest, bly);
-      highest = math.max(highest, try);
-    end
-  end
-  
-  local maxWidth, maxHeight = rightest - leftest, highest - lowest;
-  
-  local scale=1;
-  if maxHeight > 0 and (maxHeight > maxWidth) then
-    scale = size / maxHeight;
-  elseif maxWidth > 0 and (maxWidth >= maxHeight) then
-    scale = size / maxWidth;
-  end
-  
-  region:SetPoint("CENTER", borderframe, "CENTER");
-  region:SetWidth(maxWidth * scale);
-  region:SetHeight(maxHeight * scale);
-  
-  for index, childId in pairs(data.controlledChildren) do
-    local childData = WeakAuras.GetData(childId);
-    if(childData) then
-      if not(region.children[index]) then
-        region.children[index] = CreateFrame("FRAME", nil, region);
-        region.children[index].texture = region.children[index]:CreateTexture(nil, "ARTWORK");
-        region.children[index].texture:SetAllPoints(region.children[index]);
-      end
-      region.children[index]:Show();
-      local r, g, b;
-      if(childData.color) then
-        r, g, b = childData.color[1], childData.color[2], childData.color[3];
-      end
-      if(childData.barColor and not(r and g and b)) then
-        r, g, b = childData.barColor[1], childData.barColor[2], childData.barColor[3];
-      end
-      if(childData.foregroundColor and not(r and g and b)) then
-        r, g, b = childData.foregroundColor[1], childData.foregroundColor[2], childData.foregroundColor[3];
-      end
-      if not(r and g and b) then
-        r, g, b = 0.2, 0.8, 0.2;
-      end
-      region.children[index].texture:SetTexture(r, g, b, 0.5);
-      
-      local blx, bly, trx, try = getRect(childData);
-      
-      region.children[index]:ClearAllPoints();
-      region.children[index]:SetPoint("BOTTOMLEFT", region, "BOTTOMLEFT", (blx - leftest) * scale, (bly - lowest) * scale);
-      region.children[index]:SetWidth(childData.width * scale);
-      region.children[index]:SetHeight(childData.height * scale);
-    end
-  end
-  for i=#data.controlledChildren+1,#region.children do
-    region.children[i]:Hide();
-  end
-end
+local function createDefaultIcon(parent)
+  -- default Icon
+  local defaultIcon = CreateFrame("FRAME", nil, parent);
+  parent.defaultIcon = defaultIcon;
 
--- Create "new region" preview
-local function createIcon()
-  local thumbnail = createThumbnail(UIParent);
-  local t1 = thumbnail:CreateTexture(nil, "ARTWORK");
+  local t1 = defaultIcon:CreateTexture(nil, "ARTWORK");
   t1:SetWidth(24);
   t1:SetHeight(8);
   t1:SetTexture(0.8, 0, 0, 0.5);
-  t1:SetPoint("TOP", thumbnail, "TOP", 0, -6);
-  local t2 = thumbnail:CreateTexture(nil, "ARTWORK");
+  t1:SetPoint("TOP", parent, "TOP", 0, -6);
+  local t2 = defaultIcon:CreateTexture(nil, "ARTWORK");
   t2:SetWidth(20);
   t2:SetHeight(20);
   t2:SetTexture(0.2, 0.8, 0.2, 0.5);
   t2:SetPoint("TOP", t1, "BOTTOM", 0, 5);
-  local t3 = thumbnail:CreateTexture(nil, "ARTWORK");
+  local t3 = defaultIcon:CreateTexture(nil, "ARTWORK");
   t3:SetWidth(20);
   t3:SetHeight(12);
   t3:SetTexture(0.1, 0.25, 1, 0.5);
   t3:SetPoint("TOP", t2, "BOTTOM", -5, 8);
-  
-  return thumbnail;
+
+  return defaultIcon
+end
+
+-- Modify preview thumbnail
+local function modifyThumbnail(parent, frame, data)
+  function frame:SetIcon(path)
+    if data.groupIcon then
+      local success = frame.icon:SetTexture(data.groupIcon)
+      if success then
+        if frame.defaultIcon then
+          frame.defaultIcon:Hide()
+        end
+        frame.icon:Show()
+        return
+      end
+    end
+
+    if frame.icon then
+      frame.icon:Hide()
+    end
+    if not frame.defaultIcon then
+      frame.defaultIcon = createDefaultIcon(frame)
+    end
+    frame.defaultIcon:Show()
+  end
+
+  frame:SetIcon(nil)
+end
+
+-- Create "new region" preview
+local function createIcon()
+  local thumbnail = createThumbnail(UIParent)
+  thumbnail.defaultIcon = createDefaultIcon(thumbnail)
+  return thumbnail
 end
 
 -- Register new region type options with WeakAuras

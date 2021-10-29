@@ -1456,7 +1456,7 @@ if AL then
 	AL[".  Right click on any other item to refresh the loot page."] = "的資訊. 右鍵點選其他物品以更新這一個物品頁面";
 
 	--Incomplete Table Registry error message
-	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at http://www.atlasloot.net"] = "並未列於物品掉落註冊表，請至 AtlasLoot 論壇回報問題：http://www.atlasloot.net";
+	AL[" not listed in loot table registry, please report this message to the AtlasLoot forums at https://discord.gg/uYCE2X2FgA"] = "並未列於物品掉落註冊表，請至 AtlasLoot 論壇回報問題：https://discord.gg/uYCE2X2FgA";
 
 	--LoD Module disabled or missing
 	AL[" is unavailable, the following load on demand module is required: "] = "無法取得，需要以下的動態載入模組：";
