@@ -1,0 +1,10 @@
+## Interface: 50300
+## Title: Spell List v1.4.16992
+## Version: 1.4.16992
+## Author: SDPhantom
+## SavedVariables: SpellList_Options
+
+## Notes: Spell List
+
+SpellList.lua
+SpellList.xml

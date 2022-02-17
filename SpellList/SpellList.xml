@@ -1,0 +1,374 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\..\FrameXML\UI.xsd">
+	<Button name="SpellListButtonTemplate" virtual="true">
+		<Size x="298" y="10"/>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture file="Interface\Buttons\UI-Listbox-Highlight2" setAllPoints="true" hidden="true" parentKey="Background">
+					<Color r="1" g="1" b="1" a="1"/>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture file="Interface\Buttons\UI-Listbox-Highlight2" setAllPoints="true" hidden="true" parentKey="Select">
+					<Color r="1" g="0.5" b="0" a="1"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\Buttons\UI-Listbox-Highlight2" setAllPoints="true" hidden="true" parentKey="Highlight">
+					<Color r="1" g="0.82" b="0" a="0.75"/>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString inherits="GameFontNormalSmall" justifyH="LEFT" parentKey="IDText">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="0" y="1"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontNormalSmall" justifyH="RIGHT" parentKey="RankText">
+					<Anchors>
+						<Anchor point="TOPRIGHT">
+							<Offset x="0" y="1"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontNormalSmall" justifyH="LEFT" parentKey="SpellText">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="40" y="1"/>
+						</Anchor>
+						<Anchor point="RIGHT" relativeTo="$parentRankText" relativePoint="LEFT"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForClicks("LeftButtonUp","RightButtonUp");
+			</OnLoad>
+			<OnEnter>
+				if self.Dat then
+					self.Highlight:Show();
+					self:GetParent():ShowDetails(self.Dat.SpellID);
+				end
+			</OnEnter>
+			<OnLeave>
+				self.Highlight:Hide();
+				self:GetParent():ShowDetails(nil);--	Sending nil hides mouseover spell info
+			</OnLeave>
+			<OnClick>
+				local parent=self:GetParent();
+				if button=="RightButton" then
+					parent:SelectSpell(nil);
+					parent:ShowDetails(self.Dat.SpellID);
+				elseif IsModifiedClick("CHATLINK") then
+					--GetSpellLink() is returning nil at random, manually creating the link
+					--ChatEdit_InsertLink(GetSpellLink(self.SpellID));
+					ChatEdit_InsertLink(("|cff71d5ff|Hspell:%d|h[%s]|h|r"):format(self.Dat.SpellID,self.Dat.Name));
+				else
+					parent:SelectSpell(self.Dat.SpellID);
+					parent:ShowDetails(self.Dat.SpellID);
+				end
+			</OnClick>
+			<OnUpdate>
+				if self.Dat and self:GetParent():IsSelected(self.Dat.SpellID) then
+					self.Select:Show();
+				else
+					self.Select:Hide();
+				end
+			</OnUpdate>
+		</Scripts>
+	</Button>
+
+	<Frame name="SpellListFrame" toplevel="true" movable="true" parent="UIParent" enableMouse="true" hidden="true">
+		<Size x="682" y="447"/>
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset>
+					<AbsDimension x="0" y="-104"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture file="Interface\Spellbook\Spellbook-Icon">
+					<Size x="60" y="60"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="7" y="-6"/>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture file="Interface\QuestFrame\UI-QuestLogDualPane-Left">
+					<Size x="512" y="445"/>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+					</Anchors>
+					<TexCoords left="0.0" right="1.0" top="0.0" bottom="0.86914"/>
+				</Texture>		
+				<Texture file="Interface\QuestFrame\UI-QuestLogDualPane-RIGHT">
+					<Size x="170" y="445"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT"/>
+					</Anchors>
+					<TexCoords left="0.0" right="0.6640625" top="0.0" bottom="0.86914"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\AddOns\SpellList\SDP">
+					<Size x="300" y="300"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="22" y="-100"/>
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" a="0.25"/>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString inherits="GameFontNormal" parentKey="Title">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset x="0" y="-17"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontWhiteSmall" justifyH="LEFT" justifyV="TOP" parentKey="Status">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="76" y="-38"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontWhiteSmall" justifyH="LEFT" justifyV="TOP" parentKey="Range">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT">
+							<Offset x="24" y="20"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontNormalSmall" justifyH="LEFT" text="Spell ID">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="22" y="-62"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontNormalSmall" justifyH="LEFT" text="Name">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="74" y="-62"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontNormalSmall" justifyH="RIGHT" text="Rank">
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativePoint="TOPLEFT">
+							<Offset x="318" y="-62"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Slider parentKey="Scroll">
+				<Size x="16" y="304"/>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="326" y="-90"/>
+					</Anchor>
+				</Anchors>
+				<Frames>
+					<Button inherits="UIPanelScrollUpButtonTemplate">
+						<Anchors>
+							<Anchor point="BOTTOM" relativePoint="TOP"/>
+						</Anchors>
+						<Scripts>
+							<OnUpdate>
+								if self:GetButtonState()=="PUSHED" then
+									local top=self:GetParent():GetParent();
+									top:ScrollBy(-top.ScrollStep)
+								end
+							</OnUpdate>
+							<OnClick>
+								PlaySound("UIChatScrollButton");
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button inherits="UIPanelScrollDownButtonTemplate">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="BOTTOM"/>
+						</Anchors>
+						<Scripts>
+							<OnUpdate>
+								if self:GetButtonState()=="PUSHED" then
+									local top=self:GetParent():GetParent();
+									top:ScrollBy(top.ScrollStep)
+								end
+							</OnUpdate>
+							<OnClick>
+								PlaySound("UIChatScrollButton");
+							</OnClick>
+						</Scripts>
+					</Button>
+				</Frames>
+				<ThumbTexture inherits="UIPanelScrollBarButton" file="Interface\Buttons\UI-ScrollBar-Knob">
+					<Size x="16" y="24"/>
+					<TexCoords left="0.25" right="0.75" top="0.125" bottom="0.875"/>
+				</ThumbTexture>
+				<Scripts>
+					<OnValueChanged function="SpellListScrollFrame_OnValueChanged"/>
+				</Scripts>
+			</Slider>
+
+			<Button inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset x="2" y="-8"/>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button inherits="UIPanelButtonTemplate" text="EXIT">
+				<Size x="80" y="22"/>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT">
+						<Offset x="-7" y="14"/>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick function="HideParentPanel"/>
+				</Scripts>
+			</Button>
+			<Button inherits="UIPanelButtonTemplate" text="RESET">
+				<Size x="100" y="22"/>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT">
+						<Offset x="126" y="14"/>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						SpellList.CacheControl:FilterList("");
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button inherits="UIPanelButtonTemplate" text="FILTER">
+				<Size x="100" y="22"/>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT">
+						<Offset x="224" y="14"/>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						local parent=self:GetParent();
+						if parent.FilterText:IsShown() then
+							parent.FilterText:ClearFocus();--	Causes the box to hide anyway
+						else
+							parent.FilterText:Show();
+						end
+					</OnClick>
+				</Scripts>
+			</Button>
+			<EditBox frameStrata="DIALOG" toplevel="true" hidden="true" parentKey="FilterText">
+				<Size x="5" y="32"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+						<Offset x="22" y="12"/>
+					</Anchor>
+					<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT">
+						<Offset x="-14" y="12"/>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentLeft" file="Interface\ChatFrame\UI-ChatInputBorder-Left">
+							<Size x="256" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset x="-16" y="0"/>
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentRight" file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+							<Size x="16" y="32"/>
+							<Anchors>
+								<Anchor point="RIGHT">
+									<Offset x="16" y="0"/>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0.9375" right="1.0" top="0" bottom="1.0"/>
+						</Texture>
+						<Texture file="Interface\ChatFrame\UI-ChatInputBorder-Right">
+							<Size x="1" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentLeft" relativePoint="RIGHT"/>
+								<Anchor point="RIGHT" relativeTo="$parentRight" relativePoint="LEFT"/>
+							</Anchors>
+							<TexCoords left="0" right="0.9375" top="0" bottom="1.0"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+--						Direct calls to the object's metatable is faster
+						self:SetScript("OnEditFocusLost",self.Hide);
+						self:SetScript("OnEscapePressed",self.ClearFocus);
+					</OnLoad>
+					<OnEnterPressed function="SpellListFilterText_OnEnterPressed"/>
+				</Scripts>
+				<FontString inherits="ChatFontNormal" bytes="256"/>
+			</EditBox>
+
+			<Button inherits="PopupButtonTemplate" parentKey="AutoFilter">
+				<Size x="36" y="36"/>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset x="-10" y="-38"/>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture file="Interface\Buttons\UI-EmptySlot-Disabled">
+							<Size>
+								<AbsDimension x="45" y="45"/>
+							</Size>
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset x="0" y="-1"/>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0.140625" right="0.84375" top="0.140625" bottom="0.84375"/>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontHighlightSmallOutline" justifyH="LEFT" parentKey="Detail">
+							<Anchors>
+								<Anchor point="TOPRIGHT" relativePoint="TOPLEFT">
+									<Offset x="-8" y="0"/>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<NormalTexture setAllPoints="true" parentKey="Icon"/>
+				<HighlightTexture alphaMode="ADD" file="Interface\Buttons\ButtonHilight-Square"/>
+				<Scripts>
+					<OnLoad>
+						self.Detail:SetText("Auto Filter\n|cff888888(Empty)|r");
+					</OnLoad>
+					<OnClick function="SpellListAutoFilter_OnClick"/>
+					<OnReceiveDrag function="SpellListAutoFilter_OnClick"/>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad function="SpellListFrame_OnLoad"/>
+			<OnEvent function="SpellListFrame_OnEvent"/>
+			<OnShow function="SpellListFrame_OnShow"/>
+		</Scripts>
+	</Frame>
+</Ui>
