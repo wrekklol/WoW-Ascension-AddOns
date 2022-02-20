@@ -1,0 +1,26 @@
+﻿<Window x:Class="RuleGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RuleGenerator"
+        mc:Ignorable="d" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Background="Black">
+
+    <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
+        <TextBlock Canvas.Top="23" Foreground="White">Add rule</TextBlock>
+        <Button Content=" + " Canvas.Left="50" Canvas.Top="21" Click="Button_Click"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" Height="565" Width="983" Canvas.Top="46">
+            <StackPanel x:Name="RulesPanel" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        </ScrollViewer>
+        <DockPanel Width="983">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Save" Click="Save_Click"/>
+                    <MenuItem Header="_Load" Click="Load_Click"/>
+                    <Separator/>
+                    <MenuItem Header="_Exit" Click="Exit_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+    </Canvas>
+</Window>
