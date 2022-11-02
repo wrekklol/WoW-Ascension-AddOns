@@ -284,7 +284,7 @@ E.Options.args.bags = {
 					type = "range",
 					name = L["Button Size (Bag)"],
 					desc = L["The size of the individual buttons on the bag frame."],
-					min = 15, max = 45, step = 1,
+					min = 15, max = 60, step = 1,
 					set = function(info, value) E.db.bags[info[#info]] = value B:Layout() end
 				},
 				bankSize = {
@@ -292,7 +292,7 @@ E.Options.args.bags = {
 					type = "range",
 					name = L["Button Size (Bank)"],
 					desc = L["The size of the individual buttons on the bank frame."],
-					min = 15, max = 45, step = 1,
+					min = 15, max = 60, step = 1,
 					set = function(info, value) E.db.bags[info[#info]] = value B:Layout(true) end
 				},
 				spacer = {

@@ -91,18 +91,26 @@ function UF:Configure_Portrait(frame, dontHide)
 			if frame.ORIENTATION == "LEFT" then
 				portrait.backdrop:Point("TOPLEFT", frame, "TOPLEFT", frame.SPACING, frame.USE_MINI_CLASSBAR and -(frame.CLASSBAR_YOFFSET+frame.SPACING) or -frame.SPACING)
 
-				if frame.USE_MINI_POWERBAR or frame.USE_POWERBAR_OFFSET or not frame.USE_POWERBAR or frame.USE_INSET_POWERBAR or frame.POWERBAR_DETACHED then
-					portrait.backdrop:Point("BOTTOMRIGHT", frame.Health.backdrop, "BOTTOMLEFT", frame.BORDER - frame.SPACING*3, 0)
-				else
+				if frame.USE_RAGEBAR and not frame.USE_INSET_RAGEBAR and not frame.RAGEBAR_DETACHED and not frame.USE_MINI_RAGEBAR and not frame.USE_RAGEBAR_OFFSET then
+					portrait.backdrop:Point("BOTTOMRIGHT", frame.Rage.backdrop, "BOTTOMLEFT", frame.BORDER - frame.SPACING*3, 0)
+				elseif frame.USE_ENERGYBAR and not frame.USE_INSET_ENERGYBAR and not frame.ENERGYBAR_DETACHED and not frame.USE_MINI_ENERGYBAR and not frame.USE_ENERGYBAR_OFFSET then
+					portrait.backdrop:Point("BOTTOMRIGHT", frame.Energy.backdrop, "BOTTOMLEFT", frame.BORDER - frame.SPACING*3, 0)
+				elseif frame.USE_POWERBAR and not frame.USE_INSET_POWERBAR and not frame.POWERBAR_DETACHED and not frame.USE_MINI_POWERBAR and not frame.USE_POWERBAR_OFFSET then
 					portrait.backdrop:Point("BOTTOMRIGHT", frame.Power.backdrop, "BOTTOMLEFT", frame.BORDER - frame.SPACING*3, 0)
+				else
+					portrait.backdrop:Point("BOTTOMRIGHT", frame.Health.backdrop, "BOTTOMLEFT", frame.BORDER - frame.SPACING*3, 0)
 				end
 			elseif frame.ORIENTATION == "RIGHT" then
 				portrait.backdrop:Point("TOPRIGHT", frame, "TOPRIGHT", -frame.SPACING, frame.USE_MINI_CLASSBAR and -(frame.CLASSBAR_YOFFSET+frame.SPACING) or -frame.SPACING)
 
-				if frame.USE_MINI_POWERBAR or frame.USE_POWERBAR_OFFSET or not frame.USE_POWERBAR or frame.USE_INSET_POWERBAR or frame.POWERBAR_DETACHED then
-					portrait.backdrop:Point("BOTTOMLEFT", frame.Health.backdrop, "BOTTOMRIGHT", -frame.BORDER + frame.SPACING*3, 0)
-				else
+				if frame.USE_RAGEBAR and not frame.USE_INSET_RAGEBAR and not frame.RAGEBAR_DETACHED and not frame.USE_MINI_RAGEBAR and not frame.USE_RAGEBAR_OFFSET then
+					portrait.backdrop:Point("BOTTOMLEFT", frame.Rage.backdrop, "BOTTOMRIGHT", -frame.BORDER + frame.SPACING*3, 0)
+				elseif frame.USE_ENERGYBAR and not frame.USE_INSET_ENERGYBAR and not frame.ENERGYBAR_DETACHED and not frame.USE_MINI_ENERGYBAR and not frame.USE_ENERGYBAR_OFFSET then
+					portrait.backdrop:Point("BOTTOMLEFT", frame.Energy.backdrop, "BOTTOMRIGHT", -frame.BORDER + frame.SPACING*3, 0)
+				elseif frame.USE_POWERBAR and not frame.USE_INSET_POWERBAR and not frame.POWERBAR_DETACHED and not frame.USE_MINI_POWERBAR and not frame.USE_POWERBAR_OFFSET then
 					portrait.backdrop:Point("BOTTOMLEFT", frame.Power.backdrop, "BOTTOMRIGHT", -frame.BORDER + frame.SPACING*3, 0)
+				else
+					portrait.backdrop:Point("BOTTOMLEFT", frame.Health.backdrop, "BOTTOMRIGHT", -frame.BORDER + frame.SPACING*3, 0)
 				end
 			end
 

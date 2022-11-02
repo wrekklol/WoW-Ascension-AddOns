@@ -9,6 +9,7 @@ local UnitIsTapped = UnitIsTapped
 local UnitIsTappedByPlayer = UnitIsTappedByPlayer
 local UnitReaction = UnitReaction
 local UnitIsPlayer = UnitIsPlayer
+local UnitClass = UnitClass
 local UnitIsDeadOrGhost = UnitIsDeadOrGhost
 
 local _, ns = ...
@@ -111,26 +112,62 @@ function UF:Configure_HealthBar(frame)
 	health.HEIGHT = db.height
 
 	if frame.ORIENTATION == "LEFT" then
-		health:Point("TOPRIGHT", frame, "TOPRIGHT", -frame.BORDER - frame.SPACING - (frame.HAPPINESS_WIDTH or 0), -frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET)
+		health:Point("TOPRIGHT", frame, "TOPRIGHT",
+			-frame.BORDER - frame.SPACING - (frame.HAPPINESS_WIDTH or 0),
+			-frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET
+		)
 
-		if frame.USE_POWERBAR_OFFSET then
-			health:Point("TOPRIGHT", frame, "TOPRIGHT", -frame.BORDER - frame.SPACING - frame.POWERBAR_OFFSET - (frame.HAPPINESS_WIDTH or 0), -frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET)
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING, frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET)
+		if frame.USE_POWERBAR_OFFSET or frame.USE_ENERGYBAR_OFFSET or frame.USE_RAGEBAR_OFFSET then
+			local totalOffset = 0
+			if frame.USE_POWERBAR and frame.USE_POWERBAR_OFFSET then
+				totalOffset = totalOffset + frame.POWERBAR_OFFSET
+			end
+			if frame.USE_ENERGYBAR and frame.USE_ENERGYBAR_OFFSET then
+				totalOffset = totalOffset + frame.ENERGYBAR_OFFSET
+			end
+			if frame.USE_RAGEBAR and frame.USE_RAGEBAR_OFFSET then
+				totalOffset = totalOffset + frame.RAGEBAR_OFFSET
+			end
 
-			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
-			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET)
+			health:Point("TOPRIGHT", frame, "TOPRIGHT",
+				-frame.BORDER - frame.SPACING - totalOffset - (frame.HAPPINESS_WIDTH or 0),
+				-frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET
+			)
+			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT",
+				frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING,
+				frame.BORDER + frame.SPACING + totalOffset
+			)
+
+			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + totalOffset + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
+			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + totalOffset)
 		elseif frame.POWERBAR_DETACHED or not frame.USE_POWERBAR or frame.USE_INSET_POWERBAR then
 			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING, frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
 
 			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
 			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
-		elseif frame.USE_MINI_POWERBAR then
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING, frame.SPACING + (frame.POWERBAR_HEIGHT/2))
+		elseif frame.USE_MINI_POWERBAR or frame.USE_MINI_ENERGYBAR or frame.USE_MINI_RAGEBAR then
+			local totalHeight = 0
+			if frame.USE_POWERBAR and frame.USE_MINI_POWERBAR then
+				totalHeight = totalHeight + (frame.POWERBAR_HEIGHT - frame.BORDER)
+			end
+			if frame.USE_ENERGYBAR and frame.USE_MINI_ENERGYBAR then
+				totalHeight = totalHeight + (frame.ENERGYBAR_HEIGHT - frame.BORDER)
+			end
+			if frame.USE_RAGEBAR and frame.USE_MINI_RAGEBAR then
+				totalHeight = totalHeight + (frame.RAGEBAR_HEIGHT - frame.BORDER)
+			end
+			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT",
+				frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING,
+				frame.SPACING + (totalHeight / 2)
+			)
 
 			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
-			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.SPACING + frame.POWERBAR_HEIGHT / 2)
+			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.SPACING + totalHeight / 2)
 		else
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING, frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
+			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT",
+				frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING,
+				frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET
+			)
 
 			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
 			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
@@ -138,22 +175,52 @@ function UF:Configure_HealthBar(frame)
 	elseif frame.ORIENTATION == "RIGHT" then
 		health:Point("TOPLEFT", frame, "TOPLEFT", frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0), -frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET)
 
-		if frame.USE_POWERBAR_OFFSET then
-			health:Point("TOPLEFT", frame, "TOPLEFT", frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET + (frame.HAPPINESS_WIDTH or 0), -frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET)
-			health:Point("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -frame.PORTRAIT_WIDTH - frame.BORDER - frame.SPACING, frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET)
+		if frame.USE_POWERBAR_OFFSET or frame.USE_ENERGYBAR_OFFSET or frame.USE_RAGEBAR_OFFSET then
+			local totalOffset = 0
+			if frame.USE_POWERBAR and frame.USE_POWERBAR_OFFSET then
+				totalOffset = totalOffset + frame.POWERBAR_OFFSET
+			end
+			if frame.USE_ENERGYBAR and frame.USE_ENERGYBAR_OFFSET then
+				totalOffset = totalOffset + frame.ENERGYBAR_OFFSET
+			end
+			if frame.USE_RAGEBAR and frame.USE_RAGEBAR_OFFSET then
+				totalOffset = totalOffset + frame.RAGEBAR_OFFSET
+			end
 
-			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
-			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET)
+			health:Point("TOPLEFT", frame, "TOPLEFT",
+				frame.BORDER + frame.SPACING + totalOffset + (frame.HAPPINESS_WIDTH or 0),
+				-frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET
+			)
+			health:Point("BOTTOMRIGHT", frame, "BOTTOMRIGHT",
+				-frame.PORTRAIT_WIDTH - frame.BORDER - frame.SPACING,
+				frame.BORDER + frame.SPACING + totalOffset
+			)
+
+			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + totalOffset + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
+			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + totalOffset)
 		elseif frame.POWERBAR_DETACHED or not frame.USE_POWERBAR or frame.USE_INSET_POWERBAR then
 			health:Point("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -frame.PORTRAIT_WIDTH - frame.BORDER - frame.SPACING, frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
 
 			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
 			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
-		elseif frame.USE_MINI_POWERBAR then
-			health:Point("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -frame.PORTRAIT_WIDTH - frame.BORDER - frame.SPACING, frame.SPACING + (frame.POWERBAR_HEIGHT/2))
+		elseif frame.USE_MINI_POWERBAR or frame.USE_MINI_ENERGYBAR or frame.USE_MINI_RAGEBAR then
+			local totalHeight = 0
+			if frame.USE_POWERBAR and frame.USE_MINI_POWERBAR then
+				totalHeight = totalHeight + (frame.POWERBAR_HEIGHT - frame.BORDER)
+			end
+			if frame.USE_ENERGYBAR and frame.USE_MINI_ENERGYBAR then
+				totalHeight = totalHeight + (frame.ENERGYBAR_HEIGHT - frame.BORDER)
+			end
+			if frame.USE_RAGEBAR and frame.USE_MINI_RAGEBAR then
+				totalHeight = totalHeight + (frame.RAGEBAR_HEIGHT - frame.BORDER)
+			end
+			health:Point("BOTTOMRIGHT", frame, "BOTTOMRIGHT",
+				-frame.PORTRAIT_WIDTH - frame.BORDER - frame.SPACING,
+				frame.SPACING + (totalHeight / 2)
+			)
 
 			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING + frame.PORTRAIT_WIDTH)
-			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.SPACING + frame.POWERBAR_HEIGHT / 2)
+			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.SPACING + totalHeight / 2)
 		else
 			health:Point("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -frame.PORTRAIT_WIDTH - frame.BORDER - frame.SPACING, frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
 
@@ -163,22 +230,52 @@ function UF:Configure_HealthBar(frame)
 	elseif frame.ORIENTATION == "MIDDLE" then
 		health:Point("TOPRIGHT", frame, "TOPRIGHT", -frame.BORDER - frame.SPACING - (frame.HAPPINESS_WIDTH or 0), -frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET)
 
-		if frame.USE_POWERBAR_OFFSET then
-			health:Point("TOPRIGHT", frame, "TOPRIGHT", -frame.BORDER - frame.SPACING - frame.POWERBAR_OFFSET, -frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET)
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET, frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET)
+		if frame.USE_POWERBAR_OFFSET or frame.USE_ENERGYBAR_OFFSET or frame.USE_RAGEBAR_OFFSET then
+			local totalOffset = 0
+			if frame.USE_POWERBAR and frame.USE_POWERBAR_OFFSET then
+				totalOffset = totalOffset + frame.POWERBAR_OFFSET
+			end
+			if frame.USE_ENERGYBAR and frame.USE_ENERGYBAR_OFFSET then
+				totalOffset = totalOffset + frame.ENERGYBAR_OFFSET
+			end
+			if frame.USE_RAGEBAR and frame.USE_RAGEBAR_OFFSET then
+				totalOffset = totalOffset + frame.RAGEBAR_OFFSET
+			end
 
-			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET) - (frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET)
-			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + frame.POWERBAR_OFFSET)
+			health:Point("TOPRIGHT", frame, "TOPRIGHT",
+				-frame.BORDER - frame.SPACING - totalOffset,
+				-frame.BORDER - frame.SPACING - frame.CLASSBAR_YOFFSET
+			)
+			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT",
+				frame.BORDER + frame.SPACING + totalOffset,
+				frame.BORDER + frame.SPACING + totalOffset
+			)
+
+			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + totalOffset) - (frame.BORDER + frame.SPACING + totalOffset)
+			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + totalOffset)
 		elseif frame.POWERBAR_DETACHED or not frame.USE_POWERBAR or frame.USE_INSET_POWERBAR then
 			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.BORDER + frame.SPACING, frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
 
 			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING)
 			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
 		elseif frame.USE_MINI_POWERBAR then
-			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.BORDER + frame.SPACING, frame.SPACING + (frame.POWERBAR_HEIGHT/2))
+			local totalHeight = 0
+			if frame.USE_POWERBAR and frame.USE_MINI_POWERBAR then
+				totalHeight = totalHeight + (frame.POWERBAR_HEIGHT - frame.BORDER)
+			end
+			if frame.USE_ENERGYBAR and frame.USE_MINI_ENERGYBAR then
+				totalHeight = totalHeight + (frame.ENERGYBAR_HEIGHT - frame.BORDER)
+			end
+			if frame.USE_RAGEBAR and frame.USE_MINI_RAGEBAR then
+				totalHeight = totalHeight + (frame.RAGEBAR_HEIGHT - frame.BORDER)
+			end
+			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT",
+				frame.BORDER + frame.SPACING,
+				frame.SPACING + (totalHeight / 2)
+			)
 
 			health.WIDTH = health.WIDTH - (frame.BORDER + frame.SPACING + (frame.HAPPINESS_WIDTH or 0)) - (frame.BORDER + frame.SPACING)
-			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.SPACING + frame.POWERBAR_HEIGHT / 2)
+			health.HEIGHT = health.HEIGHT - (frame.BORDER + frame.SPACING + frame.CLASSBAR_YOFFSET) - (frame.SPACING + totalHeight / 2)
 		else
 			health:Point("BOTTOMLEFT", frame, "BOTTOMLEFT", frame.PORTRAIT_WIDTH + frame.BORDER + frame.SPACING, frame.BORDER + frame.SPACING + frame.BOTTOM_OFFSET)
 
@@ -220,8 +317,14 @@ function UF:GetHealthBottomOffset(frame)
 	if frame.USE_POWERBAR and not frame.POWERBAR_DETACHED and not frame.USE_INSET_POWERBAR then
 		bottomOffset = bottomOffset + frame.POWERBAR_HEIGHT - (frame.BORDER-frame.SPACING)
 	end
+	if frame.USE_ENERGYBAR and not frame.ENERGYBAR_DETACHED and not frame.USE_INSET_ENERGYBAR then
+		bottomOffset = bottomOffset + frame.ENERGYBAR_HEIGHT - (frame.BORDER-frame.SPACING)
+	end
+	if frame.USE_RAGEBAR and not frame.RAGEBAR_DETACHED and not frame.USE_INSET_RAGEBAR then
+		bottomOffset = bottomOffset + frame.RAGEBAR_HEIGHT - (frame.BORDER-frame.SPACING)
+	end
 	if frame.USE_INFO_PANEL then
-		bottomOffset = bottomOffset + frame.INFO_PANEL_HEIGHT - (frame.BORDER-frame.SPACING)
+		bottomOffset = bottomOffset + frame.INFO_PANEL_HEIGHT - (frame.BORDER - frame.SPACING)
 	end
 
 	return bottomOffset
@@ -233,14 +336,44 @@ function UF:PostUpdateHealthColor(unit, r, g, b)
 
 	local newr, newg, newb -- fallback for bg if custom settings arent used
 	if not b then r, g, b = colors.health.r, colors.health.g, colors.health.b end
-	if (((colors.healthclass and colors.colorhealthbyvalue) or (colors.colorhealthbyvalue and parent.isForced)) and not (UnitIsTapped(unit) and not UnitIsTappedByPlayer(unit))) then
+	if (((colors.healthclass and colors.colorhealthbyvalue) or (colors.colorhealthbyvalue and parent.isForced) or colors.colorhealthbyvalue_threshold) and not (UnitIsTapped(unit) and not UnitIsTappedByPlayer(unit))) then
 		local cur, max = self.cur or 1, self.max or 100
 		if parent.isForced then
 			cur = parent.forcedHealth or cur
 			max = (cur > max and cur * 2) or max
 		end
-
-		newr, newg, newb = ElvUF:ColorGradient(cur, max, 1, 0, 0, 1, 1, 0, r, g, b)
+		if colors.colorhealthbyvalue then
+			newr, newg, newb = ElvUF:ColorGradient(cur, max, 1, 0, 0, 1, 1, 0, r, g, b)
+		elseif colors.colorhealthbyvalue_threshold then 
+			local perc = cur / max
+			if perc > 0.75 then
+				if colors.colorhealthbyvalue_thresholdgradient then
+					newr, newg, newb = ElvUF:ColorGradient(perc, 1, r, g, b, colors.threshold_75.r, colors.threshold_75.g, colors.threshold_75.b, r, g, b)
+				else
+					newr, newg, newb = r, g, b
+				end
+			elseif perc > 0.5 then
+				if colors.colorhealthbyvalue_thresholdgradient then
+					newr, newg, newb = ElvUF:ColorGradient(((perc / .5) + 1), 2.5, r, g, b, colors.threshold_50.r, colors.threshold_50.g, colors.threshold_50.b, colors.threshold_75.r, colors.threshold_75.g, colors.threshold_75.b)
+				else
+					newr, newg, newb = colors.threshold_75.r, colors.threshold_75.g, colors.threshold_75.b
+				end
+			elseif perc > 0.35 then
+				if colors.colorhealthbyvalue_thresholdgradient then
+					newr, newg, newb = ElvUF:ColorGradient(((perc / .35) + 1), 2.43, r, g, b, colors.threshold_35.r, colors.threshold_35.g, colors.threshold_35.b, colors.threshold_50.r, colors.threshold_50.g, colors.threshold_50.b)
+				else
+					newr, newg, newb = colors.threshold_50.r, colors.threshold_50.g, colors.threshold_50.b
+				end
+			elseif perc > 0.2 then
+				if colors.colorhealthbyvalue_thresholdgradient then
+					newr, newg, newb = ElvUF:ColorGradient(((perc / .2) + 1), 2.75, r, g, b, colors.threshold_20.r, colors.threshold_20.g, colors.threshold_20.b, colors.threshold_35.r, colors.threshold_35.g, colors.threshold_35.b)
+				else
+					newr, newg, newb = colors.threshold_35.r, colors.threshold_35.g, colors.threshold_35.b
+				end
+			else
+				newr, newg, newb = colors.threshold_20.r, colors.threshold_20.g, colors.threshold_20.b
+			end
+		end
 		self:SetStatusBarColor(newr, newg, newb)
 	end
 
@@ -255,7 +388,8 @@ function UF:PostUpdateHealthColor(unit, r, g, b)
 			local reaction, color = (UnitReaction(unit, "player"))
 
 			if UnitIsPlayer(unit) then
-				color = E.media.herocolor
+				local _, Class = UnitClass(unit)
+				color = parent.colors.class[Class]
 			elseif reaction then
 				color = parent.colors.reaction[reaction]
 			end

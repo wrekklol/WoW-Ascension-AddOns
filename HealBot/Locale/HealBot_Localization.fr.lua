@@ -1,14 +1,14 @@
 -- French version (by Kubik of Vol'Jin) 2010-06-02 / V. 3.3.5.0
--- à = \195\160
--- â = \195\162
--- ç = \195\167
--- è = \195\168
--- é = \195\169
--- ê = \195\170
--- î = \195\174
--- ï = \195\175
--- ô = \195\180
--- û = \195\187
+-- ï¿½ = \195\160
+-- ï¿½ = \195\162
+-- ï¿½ = \195\167
+-- ï¿½ = \195\168
+-- ï¿½ = \195\169
+-- ï¿½ = \195\170
+-- ï¿½ = \195\174
+-- ï¿½ = \195\175
+-- ï¿½ = \195\180
+-- ï¿½ = \195\187
 -- espace avant ':' (?) = \194\160
 
 if (GetLocale() == "frFR") then
@@ -16,16 +16,11 @@ if (GetLocale() == "frFR") then
 -------------------
 -- Compatibility --
 -------------------
-HEALBOT_DRUID   = "Druide";
-HEALBOT_HUNTER  = "Chasseur";
-HEALBOT_MAGE    = "Mage";
-HEALBOT_PALADIN = "Paladin";
-HEALBOT_PRIEST  = "Pr\195\170tre";
-HEALBOT_ROGUE   = "Voleur";
-HEALBOT_SHAMAN  = "Chaman";
-HEALBOT_WARLOCK = "D\195\169moniste";
-HEALBOT_WARRIOR = "Guerrier";
-HEALBOT_DEATHKNIGHT = "Chevalier de la mort";
+local localizedClass, englishClass, classIndex = UnitClass("player");
+
+HEALBOT_HERO = localizedClass;
+HEALBOT_HERO_EN = englishClass;
+HEALBOT_HERO_INDEX = classIndex;
 
 HEALBOT_HEAVY_RUNECLOTH_BANDAGE  = GetItemInfo(14530) or "Bandage en \195\169toffe runique \195\169pais";
 HEALBOT_MAJOR_HEALING_POTION     = GetItemInfo(13446) or "Potion de Soins majeure";
@@ -72,7 +67,7 @@ HEALBOT_NOURISH             = GetSpellInfo(50464) or "Nourrir";
 
 
 
-HEALBOT_BLESSED_RESILIENCE    = GetSpellInfo(33142) or "Résilience bénie";
+HEALBOT_BLESSED_RESILIENCE    = GetSpellInfo(33142) or "Rï¿½silience bï¿½nie";
 HEALBOT_PAIN_SUPPRESSION	  = GetSpellInfo(33206) or "Suppression de la douleur";
 HEALBOT_POWER_INFUSION        = GetSpellInfo(10060) or "Infusion de puissance";
 HEALBOT_PRAYER_OF_FORTITUDE   = GetSpellInfo(21562) or "Pri\195\168re de robustesse";
@@ -90,7 +85,7 @@ HEALBOT_SPIRITAL_GUIDANCE     = GetSpellInfo(14901) or "Direction spirituelle";
 HEALBOT_EMPOWERED_HEALING     = GetSpellInfo(33158) or "Soins surpuissants";
 HEALBOT_DIVINE_PROVIDENCE     = GetSpellInfo(47562) or "Providence divine";
 HEALBOT_IMPROVED_RENEW        = GetSpellInfo(14908) or "R\195\169novation am\195\169lior\195\169e";
-HEALBOT_EMPOWERED_RENEW       = GetSpellInfo(63534) or "Rénovation surpuissante";
+HEALBOT_EMPOWERED_RENEW       = GetSpellInfo(63534) or "Rï¿½novation surpuissante";
 HEALBOT_FOCUSED_POWER         = GetSpellInfo(33186) or "Puissance focalis\195\169e";
 HEALBOT_GENESIS               = GetSpellInfo(57810) or "Gen\195\168se";
 HEALBOT_NURTURING_INSTINCT    = GetSpellInfo(33872) or "Instinct nourricier";
@@ -98,13 +93,13 @@ HEALBOT_IMPROVED_REJUVENATION = GetSpellInfo(17111) or "R\195\169cup\195\169rati
 HEALBOT_GIFT_OF_NATURE        = GetSpellInfo(17104) or "Don de la Nature";
 HEALBOT_EMPOWERED_TOUCH       = GetSpellInfo(33879) or "Toucher surpuissant";
 HEALBOT_EMPOWERED_REJUVENATION = GetSpellInfo(33886) or "R\195\169cup\195\169ration surpuissante";
-HEALBOT_MASTER_SHAPESHIFTER   = GetSpellInfo(48412) or "Maître changeforme";
+HEALBOT_MASTER_SHAPESHIFTER   = GetSpellInfo(48412) or "Maï¿½tre changeforme";
 HEALBOT_HEALING_LIGHT         = GetSpellInfo(20237) or "Lumi\195\168re gu\195\169risseuse";
-HEALBOT_DIVINITY              = GetSpellInfo(63646) or "Divinité";
-HEALBOT_TOUCHED_BY_THE_LIGHT  = GetSpellInfo(53590) or "Touché par la Lumière";
+HEALBOT_DIVINITY              = GetSpellInfo(63646) or "Divinitï¿½";
+HEALBOT_TOUCHED_BY_THE_LIGHT  = GetSpellInfo(53590) or "Touchï¿½ par la Lumiï¿½re";
 HEALBOT_PURIFICATION          = GetSpellInfo(16178) or "Purification";
 HEALBOT_IMPROVED_CHAIN_HEAL   = GetSpellInfo(30872) or "Salve de gu\195\169rison am\195\169lior\195\169e";
-HEALBOT_TIDAL_WAVES           = GetSpellInfo(51562) or "Raz-de-marée";
+HEALBOT_TIDAL_WAVES           = GetSpellInfo(51562) or "Raz-de-marï¿½e";
 HEALBOT_NATURES_BLESSING      = GetSpellInfo(30867) or "B\195\169n\195\169diction de la nature";
 
 
@@ -921,14 +916,8 @@ HEALBOT_WORD_OTHER                  = "Autre"
 HEALBOT_OPTIONS_CRASHPROT           = "Protection anti-Crash"
 HEALBOT_CP_MACRO_LEN                = "Le nom de la macro doit avoir 1 \195\160 14 caract\195\168res"
 HEALBOT_CP_MACRO_BASE               = "hbMacro"
-HEALBOT_CP_MACRO_INFO               = "La protection anti-crash permet \195\160 HealBot de r\195\169cup\195\169rer d\'une d\195\169connection\nPour l\'utiliser vous DEVEZ avoir 5 macros sp\195\169cifiques disponibles."
+HEALBOT_CP_MACRO_INFO               = "La Protection anti-Crash sert \195\160 r\195\169cup\195\169rer Healbot en cas de d\195\169connexion\nPour l\utiliser vous DEVEZ avoir 5 macros sp\195\169cifiques disponibles."
 HEALBOT_CP_MACRO_SAVE               = "Derni\195\168re sauvegarde: "
 HEALBOT_CP_STARTTIME                = "Dur\195\169e de la protection \195\160 la connexion"
-
-HEALBOT_WORD_RESERVED               = "R\195\169serv\195\169"
-HEALBOT_OPTIONS_COMBATPROT          = "Protection en combat "
-HEALBOT_COMBATPROT_INFO             = "Protection en combat permet \195\160 HealBot de prendre en compte les changements de groupes pendant un combat."
-HEALBOT_COMBATPROT_PARTYNO          = "barres r\195\169serv\195\169es pour le groupe"
-HEALBOT_COMBATPROT_RAIDNO           = "barres r\195\169serv\195\169es pour le raid"
 
 end

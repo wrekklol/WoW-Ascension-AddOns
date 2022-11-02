@@ -141,7 +141,7 @@ local mandatoryModules = {		-- mandatory modules are sent anyway (if the charact
 }
 
 local optionalModules = {		-- this defines the order in which modules should be listed
-	"DataStore_Achievements",
+	--"DataStore_Achievements",
 	"DataStore_Auctions",
 	"DataStore_Containers",
 	"DataStore_Crafts",
@@ -157,7 +157,7 @@ local optionalModules = {		-- this defines the order in which modules should be 
 }
 
 local moduleLabels = {		-- these are the labels
-	["DataStore_Achievements"] = ACHIEVEMENT_BUTTON,		-- "Achievements"
+	--["DataStore_Achievements"] = ACHIEVEMENT_BUTTON,		-- "Achievements"
 	["DataStore_Auctions"] = format("%s & %s", AUCTIONS, BIDS),
 --	["DataStore_Characters"] = ,
 	["DataStore_Containers"] = L["Containers"],

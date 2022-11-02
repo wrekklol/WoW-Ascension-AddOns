@@ -172,6 +172,26 @@ local function OnPlayerGuildUpdate()
 	Characters[GetKey()].guildName = currentGuildName
 end
 
+local function OnPersonalBankUpdate()
+	-- Adds player personalbank as a fake guild to be viewed in aloholic
+		currentGuildName = UnitName("player") .. "'s PersonalBank"
+		Guilds[GetKey(currentGuildName)].faction = UnitFactionGroup("player")
+		Characters[GetKey()].guildName = currentGuildName
+		currentGuildName = GetGuildInfo("player")
+		Characters[GetKey()].guildName = currentGuildName
+end
+
+local function OnRealmBankUpdate()
+	-- Adds player realmbank as a fake guild to be viewed in aloholic
+		currentGuildName = "Realm Bank"
+		Guilds[GetKey(currentGuildName)].faction = UnitFactionGroup("player")
+		Characters[GetKey()].guildName = currentGuildName
+		currentGuildName = GetGuildInfo("player")
+		Characters[GetKey()].guildName = currentGuildName
+end
+
+
+
 local function OnPlayerAlive()
 	Characters[GetKey()].faction = UnitFactionGroup("player")
 	OnPlayerGuildUpdate()
@@ -282,6 +302,8 @@ function addon:OnInitialize()
 	setmetatable(addon, lookupMethods)
 	
 	addon:SetupOptions()		-- See Options.lua
+	OnPersonalBankUpdate()
+	OnRealmBankUpdate()
 end
 
 function addon:OnEnable()

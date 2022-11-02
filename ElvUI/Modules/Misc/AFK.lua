@@ -250,7 +250,7 @@ local function Chat_OnEvent(self, event, arg1, arg2, arg3, arg4, arg5, arg6, arg
 		body = gsub(body, "%[BN_CONVERSATION:", "%[".."")
 	end
 
-	if CH.db.timeStampFormat ~= "NONE" then
+	if CH.db ~= nil and CH.db.timeStampFormat ~= "NONE" then
 		local timeStamp = BetterDate(CH.db.timeStampFormat, time())
 
 		if CH.db.useCustomTimeColor then

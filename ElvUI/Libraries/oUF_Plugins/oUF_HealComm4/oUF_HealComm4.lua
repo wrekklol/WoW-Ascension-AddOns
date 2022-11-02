@@ -49,17 +49,14 @@ local _, ns = ...
 local oUF = ns.oUF or oUF
 assert(oUF, "oUF_HealComm4 was unable to locate oUF install")
 
-local select = select
-local tremove = table.remove
+local healpredict = HealPredict
+assert(healpredict, "oUF_HealComm4 was unable to locate HealPredict")
 
-local GetTime = GetTime
-local UnitGUID = UnitGUID
 local UnitHealth = UnitHealth
 local UnitHealthMax = UnitHealthMax
+local UnitName = UnitName
 
-local HealComm = LibStub("LibHealComm-4.0")
-
-local enabledUF, enabled = {}
+local enabledUF, enabled = {}, nil
 
 local function Update(self)
 	local unit = self.unit
@@ -75,10 +72,8 @@ local function Update(self)
 		element:PreUpdate(unit)
 	end
 
-	local guid = UnitGUID(unit)
-	local timeFrame = self.HealCommTimeframe and GetTime() + self.HealCommTimeframe or nil
-	local myIncomingHeal = HealComm:GetHealAmount(guid, HealComm.ALL_HEALS, timeFrame, UnitGUID("player")) or 0
-	local allIncomingHeal = HealComm:GetHealAmount(guid, HealComm.ALL_HEALS, timeFrame) or 0
+	local myIncomingHeal = healpredict.UnitGetIncomingHeals(unit, UnitName("player")) or 0
+	local allIncomingHeal = healpredict.UnitGetIncomingHeals(unit) or 0
 	local health = UnitHealth(unit)
 	local maxHealth = UnitHealthMax(unit)
 	local maxOverflowHP = maxHealth * element.maxOverflow
@@ -134,43 +129,30 @@ local function ForceUpdate(element)
 	return Path(element.__owner, "ForceUpdate", element.__owner.unit)
 end
 
-local function MultiUpdate(...)
-	for i = 1, select("#", ...) do
-		for j = 1, #enabledUF do
-			local frame = enabledUF[j]
+local function UpdateAllUnits(...)
+	local all_units = {...}
+	local units = { }
 
-			if frame.unit and frame:IsVisible() and UnitGUID(frame.unit) == select(i, ...) then
-				Path(frame)
-			end
+	for _, unit in pairs(all_units) do
+		units[unit] = true
+	end
+
+	for j = 1, #enabledUF do
+		local frame = enabledUF[j]
+
+		if units[UnitName(frame.unit)] and frame:IsVisible() then
+			Path(frame)
 		end
 	end
 end
 
-local function HealComm_Heal_Update(event, casterGUID, spellID, healType, _, ...)
-	MultiUpdate(...)
-end
-
-local function HealComm_Modified(event, guid)
-	MultiUpdate(guid)
-end
-
 local function ToggleCallbacks(toggle)
 	if toggle and not enabled and #enabledUF > 0 then
-		HealComm.RegisterCallback("oUF_HealComm", "HealComm_HealStarted", HealComm_Heal_Update)
-		HealComm.RegisterCallback("oUF_HealComm", "HealComm_HealUpdated", HealComm_Heal_Update)
-		HealComm.RegisterCallback("oUF_HealComm", "HealComm_HealDelayed", HealComm_Heal_Update)
-		HealComm.RegisterCallback("oUF_HealComm", "HealComm_HealStopped", HealComm_Heal_Update)
-		HealComm.RegisterCallback("oUF_HealComm", "HealComm_ModifierChanged", HealComm_Modified)
-		HealComm.RegisterCallback("oUF_HealComm", "HealComm_GUIDDisappeared", HealComm_Modified)
+		healpredict.RegisterCallback("oUF_HealComm", UpdateAllUnits)
 
 		enabled = true
 	elseif not toggle and enabled and #enabledUF == 0 then
-		HealComm.UnregisterCallback("oUF_HealComm", "HealComm_HealStarted")
-		HealComm.UnregisterCallback("oUF_HealComm", "HealComm_HealUpdated")
-		HealComm.UnregisterCallback("oUF_HealComm", "HealComm_HealDelayed")
-		HealComm.UnregisterCallback("oUF_HealComm", "HealComm_HealStopped")
-		HealComm.UnregisterCallback("oUF_HealComm", "HealComm_ModifierChanged")
-		HealComm.UnregisterCallback("oUF_HealComm", "HealComm_GUIDDisappeared")
+		healpredict.UnregisterCallback("oUF_HealComm")
 
 		enabled = nil
 	end
@@ -222,7 +204,7 @@ local function Disable(self)
 
 		for i = 1, #enabledUF do
 			if enabledUF[i] == self then
-				tremove(enabledUF, i)
+				table.remove(enabledUF, i)
 				break
 			end
 		end

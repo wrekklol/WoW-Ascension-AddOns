@@ -140,6 +140,28 @@ for textFormat in pairs(E.GetFormattedTextStyles) do
 			return E:GetFormattedText(textFormat, UnitPower(unit, SPELL_POWER_MANA), UnitPowerMax(unit, SPELL_POWER_MANA))
 		end
 	end
+
+	ElvUF.Tags.Events[format("energy:%s", tagTextFormat)] = "UNIT_MAXENERGY UNIT_ENERGY_FREQUENT"
+	ElvUF.Tags.Methods[format("energy:%s", tagTextFormat)] = function(unit)
+		local min = UnitPower(unit, 3)
+
+		if min == 0 and tagTextFormat ~= "deficit" then
+			return ""
+		else
+			return E:GetFormattedText(textFormat, UnitPower(unit, 3), UnitPowerMax(unit, 3))
+		end
+	end
+
+	ElvUF.Tags.Events[format("rage:%s", tagTextFormat)] = "UNIT_MAXRAGE UNIT_RAGE_FREQUENT"
+	ElvUF.Tags.Methods[format("rage:%s", tagTextFormat)] = function(unit)
+		local min = UnitPower(unit, 1)
+
+		if min == 0 and tagTextFormat ~= "deficit" then
+			return ""
+		else
+			return E:GetFormattedText(textFormat, UnitPower(unit, 1), UnitPowerMax(unit, 1))
+		end
+	end
 end
 
 for textFormat, length in pairs({veryshort = 5, short = 10, medium = 15, long = 20}) do
@@ -582,6 +604,8 @@ E.TagInfo = {
 	--Colors
 	["namecolor"] = {category = "Colors", description = "Colors names by player class or NPC reaction"},
 	["powercolor"] = {category = "Colors", description = "Colors the power text based upon its type"},
+	["energycolor"] = {category = "Colors", description = "Colors the energy text based upon its type"},
+	["ragecolor"] = {category = "Colors", description = "Colors the rage text based upon its type"},
 	["difficultycolor"] = {category = "Colors", description = "Colors the following tags by difficulty, red for impossible, orange for hard, green for easy"},
 	["healthcolor"] = {category = "Colors", description = "Changes color of health text, depending on the unit's current health"},
 	["threatcolor"] = {category = "Colors", description = "Changes color of health, depending on the unit's threat situation"},
@@ -669,6 +693,22 @@ E.TagInfo = {
 	["perpp"] = {category = "Power", description = "Displays the unit's percentage power without decimals "},
 	["maxpp"] = {category = "Power", description = "Displays the max amount of power of the unit in whole numbers without decimals"},
 	["missingpp"] = {category = "Power", description = "Displays the missing power of the unit in whole numbers when not at full power"},
+	--Energy
+	["energy:current"] = {category = "Energy", description = "Displays the unit's current amount of energy"},
+	["energy:current-percent"] = {category = "Energy", description = "Displays the current energy and energy as a percentage, separated by a dash"},
+	["energy:current-max"] = {category = "Energy", description = "Displays the current energy and max energy, separated by a dash"},
+	["energy:current-max-percent"] = {category = "Energy", description = "Displays the current energy and max energy, separated by a dash (% when not full energy)"},
+	["energy:percent"] = {category = "Energy", description = "Displays the unit's energy as a percentage"},
+	["energy:max"] = {category = "Energy", description = "Displays the unit's maximum energy"},
+	["energy:deficit"] = {category = "Energy", description = "Displays the energy as a deficit (Total Energy - Current Energy = -Deficit)"},
+	--Rage
+	["rage:current"] = {category = "Rage", description = "Displays the unit's current amount of rage"},
+	["rage:current-percent"] = {category = "Rage", description = "Displays the current rage and rage as a percentage, separated by a dash"},
+	["rage:current-max"] = {category = "Rage", description = "Displays the current rage and max rage, separated by a dash"},
+	["rage:current-max-percent"] = {category = "Rage", description = "Displays the current rage and max rage, separated by a dash (% when not full rage)"},
+	["rage:percent"] = {category = "Rage", description = "Displays the unit's rage as a percentage"},
+	["rage:max"] = {category = "Rage", description = "Displays the unit's maximum rage"},
+	["rage:deficit"] = {category = "Rage", description = "Displays the rage as a deficit (Total Rage - Current Rage = -Deficit)"},
 	--Realm
 	["realm"] = {category = "Realm", description = "Displays the server name"},
 	["realm:translit"] = {category = "Realm", description = "Displays the server name with transliteration for cyrillic letters"},

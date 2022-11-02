@@ -13,6 +13,10 @@ local colors = {
 	health = {49 / 255, 207 / 255, 37 / 255},
 	disconnected = {.6, .6, .6},
 	tapped = {.6, .6, .6},
+	threshold_20 = {1, 0, 0},
+	threshold_35 = {1, 0, 0.8},
+	threshold_50 = {1, 0.5, 0},
+	threshold_75 = {1, 1, 0},
 	runes = {
 		{1, 0, 0}, -- blood
 		{0, 0.5, 0}, -- unholy

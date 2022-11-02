@@ -46,7 +46,8 @@ UF.badHeaderPoints = {
 
 UF.headerFunctions = {}
 UF.classMaxResourceBar = {
-	["DRUID"] = 1
+	["DRUID"] = 1,
+	["HERO"] = 1
 }
 
 UF.instanceMapIDs = {
@@ -60,7 +61,7 @@ UF.instanceMapIDs = {
 
 UF.headerGroupBy = {
 	["CLASS"] = function(header)
-		header:SetAttribute("groupingOrder", "DEATHKNIGHT,DRUID,HUNTER,MAGE,PALADIN,PRIEST,ROGUE,SHAMAN,WARLOCK,WARRIOR")
+		header:SetAttribute("groupingOrder", "HERO,DEATHKNIGHT,DRUID,HUNTER,MAGE,PALADIN,PRIEST,ROGUE,SHAMAN,WARLOCK,WARRIOR")
 		header:SetAttribute("sortMethod", "NAME")
 		header:SetAttribute("groupBy", "CLASS")
 	end,
@@ -297,6 +298,10 @@ function UF:GetAuraAnchorFrame(frame, attachTo, isConflict)
 		return frame.Health
 	elseif attachTo == "POWER" and frame.Power then
 		return frame.Power
+	elseif attachTo == "ENERGY" and frame.Energy then
+		return frame.Energy
+	elseif attachTo == "RAGE" and frame.Rage then
+		return frame.Rage
 	else
 		return frame
 	end
@@ -1351,7 +1356,7 @@ function UF:Initialize()
 
 	for k in pairs(UnitPopupMenus) do
 		for x, y in pairs(UnitPopupMenus[k]) do
-			if y == "SET_FOCUS" or y == "CLEAR_FOCUS" or y == "LOCK_FOCUS_FRAME" or y == "UNLOCK_FOCUS_FRAME" or y == "PET_DISMISS" then
+			if y == "SET_FOCUS" or y == "CLEAR_FOCUS" or y == "LOCK_FOCUS_FRAME" or y == "UNLOCK_FOCUS_FRAME" then
 				tremove(UnitPopupMenus[k], x)
 			end
 		end

@@ -32,7 +32,7 @@
   <Frame name="HealBot" parent="UIParent" frameStrata="LOW" toplevel="true" inherits="SecureFrameTemplate">
     <Scripts>
       <OnLoad>
-	    HealBot_OnLoad(self);
+	     HealBot_OnLoad(self);
       </OnLoad>
       <OnEvent>
         HealBot_OnEvent(self,event,...);

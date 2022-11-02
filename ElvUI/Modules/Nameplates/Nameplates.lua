@@ -852,7 +852,7 @@ function NP:SearchNameplateByName(sourceName)
 	if not sourceName then return end
 	local SearchFor = split("-", sourceName)
 	for frame in pairs(self.VisiblePlates) do
-		if frame and frame:IsShown() and frame.UnitName == SearchFor and frame.UnitClass == "DRUID" then
+		if frame and frame:IsShown() and frame.UnitName == SearchFor then
 			return frame
 		end
 	end

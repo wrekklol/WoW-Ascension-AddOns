@@ -300,7 +300,7 @@ function AtrSearch:AnalyzeResultsPage()
 
 	local numBatchAuctions, totalAuctions = GetNumAuctionItems("list");
 
-	if (self.current_page == 1 and totalAuctions > 2000) then -- give Blizz servers a break
+	if (self.current_page == 1 and totalAuctions > 5000) then -- give Blizz servers a break
 		Atr_Error_Display (ZT("Too many results\n\nPlease narrow your search"));
 		return true;  -- done
 	end
@@ -1037,7 +1037,6 @@ function Atr_FullScanStart()
 end
 
 -----------------------------------------
-
 function Atr_CalcNewDBprice (name, prices)
 		
 	if (prices[1] ~= BIGNUM) then
@@ -1202,6 +1201,7 @@ function Atr_FullScanAnalyze()
 	Atr_FullScanStatus:SetText (ZT("Cleaning up"));
 
 	Atr_FullScanStartButton:Enable();
+	Atr_EnchantsScanStartButton:Enable();
 	Atr_FullScanDone:Enable();
 	Atr_FullScanStatus:SetText ("");
 	

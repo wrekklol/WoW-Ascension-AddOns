@@ -100,6 +100,24 @@ local function createConfigEnv()
 	overrideFuncs["power:current-max-percent"] = ElvUF.Tags.Methods["power:current-max-percent"]
 	overrideFuncs["power:max"] = ElvUF.Tags.Methods["power:max"]
 	overrideFuncs["power:percent"] = ElvUF.Tags.Methods["power:percent"]
+
+	overrideFuncs["energycolor"] = ElvUF.Tags.Methods["energycolor"]
+	overrideFuncs["energy:current"] = ElvUF.Tags.Methods["energy:current"]
+	overrideFuncs["energy:deficit"] = ElvUF.Tags.Methods["energy:deficit"]
+	overrideFuncs["energy:current-percent"] = ElvUF.Tags.Methods["energy:current-percent"]
+	overrideFuncs["energy:current-max"] = ElvUF.Tags.Methods["energy:current-max"]
+	overrideFuncs["energy:current-max-percent"] = ElvUF.Tags.Methods["energy:current-max-percent"]
+	overrideFuncs["energy:max"] = ElvUF.Tags.Methods["energy:max"]
+	overrideFuncs["energy:percent"] = ElvUF.Tags.Methods["energy:percent"]
+
+	overrideFuncs["ragecolor"] = ElvUF.Tags.Methods["ragecolor"]
+	overrideFuncs["rage:current"] = ElvUF.Tags.Methods["rage:current"]
+	overrideFuncs["rage:deficit"] = ElvUF.Tags.Methods["rage:deficit"]
+	overrideFuncs["rage:current-percent"] = ElvUF.Tags.Methods["rage:current-percent"]
+	overrideFuncs["rage:current-max"] = ElvUF.Tags.Methods["rage:current-max"]
+	overrideFuncs["rage:current-max-percent"] = ElvUF.Tags.Methods["rage:current-max-percent"]
+	overrideFuncs["rage:max"] = ElvUF.Tags.Methods["rage:max"]
+	overrideFuncs["rage:percent"] = ElvUF.Tags.Methods["rage:percent"]
 end
 
 function UF:ForceShow(frame)

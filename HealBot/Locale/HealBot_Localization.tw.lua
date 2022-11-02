@@ -12,16 +12,11 @@ if (GetLocale() == "zhTW") then
 -- Compatibility --
 -------------------
 
-HEALBOT_DRUID   = "德魯伊";
-HEALBOT_HUNTER  = "獵人";
-HEALBOT_MAGE    = "法師";
-HEALBOT_PALADIN = "聖騎士";
-HEALBOT_PRIEST  = "牧師";
-HEALBOT_ROGUE   = "盜賊";
-HEALBOT_SHAMAN  = "薩滿";
-HEALBOT_WARLOCK = "術士";
-HEALBOT_WARRIOR = "戰士";
-HEALBOT_DEATHKNIGHT = "死亡騎士";
+local localizedClass, englishClass, classIndex = UnitClass("player");
+
+HEALBOT_HERO = localizedClass;
+HEALBOT_HERO_EN = englishClass;
+HEALBOT_HERO_INDEX = classIndex;
 
 HEALBOT_HEAVY_NETHERWEAVE_BANDAGE = GetItemInfo(21991) or "厚霜紋繃帶";
 HEALBOT_HEAVY_RUNECLOTH_BANDAGE   = GetItemInfo(14530) or "厚符文布繃帶";

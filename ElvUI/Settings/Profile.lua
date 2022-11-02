@@ -1220,6 +1220,8 @@ P.unitframe = {
 		forcehealthreaction = false,
 		powerclass = false,
 		colorhealthbyvalue = true,
+		colorhealthbyvalue_threshold = false,
+		colorhealthbyvalue_thresholdgradient = true,
 		customhealthbackdrop = false,
 		custompowerbackdrop = false,
 		customcastbarbackdrop = false,
@@ -1255,6 +1257,10 @@ P.unitframe = {
 		disconnected = {r = 0.84, g = 0.75, b = 0.65},
 		auraBarBuff = {r = 0.31, g = 0.31, b = 0.31},
 		auraBarDebuff = {r = 0.8, g = 0.1, b = 0.1},
+		threshold_20 = {r = 1, g = 0, b = 0},
+		threshold_35 = {r = 1, g = 0, b = 0.8},
+		threshold_50 = {r = 1, g = 0.5, b = 0},
+		threshold_75 = {r = 1, g = 1, b = 0},
 		power = {
 			MANA = {r = 0.31, g = 0.45, b = 0.63},
 			RAGE = {r = 0.78, g = 0.25, b = 0.25},
@@ -1361,6 +1367,48 @@ P.unitframe = {
 			power = {
 				enable = true,
 				text_format = "[powercolor][power:current]",
+				width = "fill",
+				height = 10,
+				offset = 0,
+				position = "RIGHT",
+				hideonnpc = false,
+				xOffset = -2,
+				yOffset = 0,
+				attachTextTo = "Health",
+				detachFromFrame = false,
+				detachedWidth = 250,
+				strataAndLevel = {
+					useCustomStrata = false,
+					frameStrata = "LOW",
+					useCustomLevel = false,
+					frameLevel = 1
+				},
+				parent = "FRAME"
+			},
+			energy = {
+				enable = true,
+				text_format = "[energycolor][energy:current]",
+				width = "fill",
+				height = 10,
+				offset = 0,
+				position = "RIGHT",
+				hideonnpc = false,
+				xOffset = -2,
+				yOffset = 0,
+				attachTextTo = "Health",
+				detachFromFrame = false,
+				detachedWidth = 250,
+				strataAndLevel = {
+					useCustomStrata = false,
+					frameStrata = "LOW",
+					useCustomLevel = false,
+					frameLevel = 1
+				},
+				parent = "FRAME"
+			},
+			rage = {
+				enable = true,
+				text_format = "[ragecolor][rage:current]",
 				width = "fill",
 				height = 10,
 				offset = 0,
@@ -4148,7 +4196,7 @@ P.actionbar = {
 		inheritGlobalFade = false,
 		showGrid = true,
 		paging = {
-			DRUID = "[bonusbar:1,nostealth] 7; [bonusbar:1,stealth] 8; [bonusbar:2] 8; [bonusbar:3] 9; [bonusbar:4] 10;",
+			HERO = "[bonusbar:1,nostealth] 7; [bonusbar:1,stealth] 8; [bonusbar:2] 8; [bonusbar:3] 9; [bonusbar:4] 10;",
 		},
 		visibility = ""
 	},

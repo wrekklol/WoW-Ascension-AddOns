@@ -393,6 +393,28 @@ local tagStrings = {
 
 		return Hex(t)
 	end]],
+
+	['energycolor'] = [[function(u)
+		local pType, pToken, altR, altG, altB = UnitPowerType(u)
+		local t = _COLORS.power["ENERGY"]
+
+		if not t then
+			return Hex(altR, altG, altB)
+		end
+
+		return Hex(t)
+	end]],
+
+	['ragecolor'] = [[function(u)
+		local pType, pToken, altR, altG, altB = UnitPowerType(u)
+		local t = _COLORS.power["RAGE"]
+
+		if not t then
+			return Hex(altR, altG, altB)
+		end
+
+		return Hex(t)
+	end]],
 }
 
 local tags = setmetatable(
@@ -471,6 +493,8 @@ local tagEvents = {
 	['maxmana']				= 'UNIT_MANA UNIT_MAXMANA',
 	['happiness']			= 'UNIT_HAPPINESS',
 	['powercolor']			= 'UNIT_DISPLAYPOWER',
+	['energycolor']			= 'UNIT_DISPLAYPOWER',
+	['ragecolor']			= 'UNIT_DISPLAYPOWER',
 }
 
 local unitlessEvents = {

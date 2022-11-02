@@ -21,7 +21,10 @@ V.general = {
 		hideCalendar = true,
 	},
 	classColorMentionsSpeech = true,
-	raidUtility = true
+	raidUtility = true,
+	reminder = {
+		classtype = "Caster"
+	}
 }
 
 V.bags = {

@@ -15,35 +15,48 @@ local hooksecurefunc = hooksecurefunc
 S:AddCallback("Skin_LFD", function()
 	if not E.private.skins.blizzard.enable or not E.private.skins.blizzard.lfd then return end
 
-	LFDQueueFrame:StripTextures(true)
-	LFDQueueFrame:CreateBackdrop("Transparent")
-	LFDQueueFrame.backdrop:Point("TOPLEFT", 11, -12)
-	LFDQueueFrame.backdrop:Point("BOTTOMRIGHT", -3, 4)
+	AscensionLFGFrame:StripTextures(true)
+	AscensionLFGFrame:CreateBackdrop("Transparent")
+	AscensionLFGFrameContent:StripTextures(true)
+	AscensionLFGFrameMenu:StripTextures(true)
+	AscensionLFGFrameInset:StripTextures(true)
+	AscensionLFGFrameInset:CreateBackdrop("Transparent")
+	AscensionLFGFrameInsetNineSlice:StripTextures(true)
+	AscensionLFGFrameNineSlice:StripTextures(true)
+	AscensionLFGFrameMenuNineSlice:StripTextures(true)
+
+	AscensionPVEFrameLFDFrame:StripTextures(true)
+	AscensionPVEFrameLFDFrame:CreateBackdrop("Transparent")
+	AscensionPVEFrameLFDFrameRandom:StripTextures(true)
+	AscensionPVEFrameLFDFrameRandomScrollFrame:StripTextures(true)
 
 	S:HookScript(LFDParentFrame, "OnShow", function(self)
 		S:SetUIPanelWindowInfo(self, "width", 341)
-		S:SetBackdropHitRect(self, LFDQueueFrame.backdrop)
+		S:SetBackdropHitRect(self, AscensionLFGFrame.backdrop)
 		S:Unhook(self, "OnShow")
 	end)
 
-	S:HandleCloseButton((LFDParentFrame:GetChildren()), LFDQueueFrame.backdrop)
+	S:HandleCloseButton(AscensionLFGFrameCloseButton)
 
 	LFDParentFramePortrait:Kill()
 
-	S:HandleCheckBox(LFDQueueFrameRoleButtonTank.checkButton)
-	LFDQueueFrameRoleButtonTank.checkButton:SetFrameLevel(LFDQueueFrameRoleButtonTank.checkButton:GetFrameLevel() + 2)
-	S:HandleCheckBox(LFDQueueFrameRoleButtonHealer.checkButton)
-	LFDQueueFrameRoleButtonHealer.checkButton:SetFrameLevel(LFDQueueFrameRoleButtonHealer.checkButton:GetFrameLevel() + 2)
-	S:HandleCheckBox(LFDQueueFrameRoleButtonDPS.checkButton)
-	LFDQueueFrameRoleButtonDPS.checkButton:SetFrameLevel(LFDQueueFrameRoleButtonDPS.checkButton:GetFrameLevel() + 2)
-	S:HandleCheckBox(LFDQueueFrameRoleButtonLeader.checkButton)
-	LFDQueueFrameRoleButtonLeader.checkButton:SetFrameLevel(LFDQueueFrameRoleButtonLeader.checkButton:GetFrameLevel() + 2)
+	-- Role Checkboxes
+	S:HandleCheckBox(AscensionPVEFrameLFDFrameRoleButtonTank.checkButton)
+	AscensionPVEFrameLFDFrameRoleButtonTank.checkButton:SetFrameLevel(AscensionPVEFrameLFDFrameRoleButtonTank.checkButton:GetFrameLevel() + 2)
+	S:HandleCheckBox(AscensionPVEFrameLFDFrameRoleButtonHealer.checkButton)
+	AscensionPVEFrameLFDFrameRoleButtonHealer.checkButton:SetFrameLevel(AscensionPVEFrameLFDFrameRoleButtonHealer.checkButton:GetFrameLevel() + 2)
+	S:HandleCheckBox(AscensionPVEFrameLFDFrameRoleButtonDPS.checkButton)
+	AscensionPVEFrameLFDFrameRoleButtonDPS.checkButton:SetFrameLevel(AscensionPVEFrameLFDFrameRoleButtonDPS.checkButton:GetFrameLevel() + 2)
+	S:HandleCheckBox(AscensionPVEFrameLFDFrameRoleButtonLeader.checkButton)
+	AscensionPVEFrameLFDFrameRoleButtonLeader.checkButton:SetFrameLevel(AscensionPVEFrameLFDFrameRoleButtonLeader.checkButton:GetFrameLevel() + 2)
 
-	S:HandleDropDownBox(LFDQueueFrameTypeDropDown)
-	LFDQueueFrameTypeDropDown:HookScript("OnShow", function(self) self:Width(200) end)
+	-- Dropdown
+	S:HandleDropDownBox(AscensionPVEFrameLFDFrameTypeDropDown)
+	AscensionPVEFrameLFDFrameTypeDropDown:HookScript("OnShow", function(self) self:Width(200) end)
 
+	-- Specific Dungeons
 	for i = 1, NUM_LFD_CHOICE_BUTTONS do
-		local button = _G["LFDQueueFrameSpecificListButton"..i]
+		local button = _G["AscensionPVEFrameLFDFrameSpecificListButton"..i]
 		button.enableButton:StripTextures()
 		button.enableButton:CreateBackdrop("Default")
 		button.enableButton.backdrop:SetInside(nil, 4, 4)
@@ -63,38 +76,106 @@ S:AddCallback("Skin_LFD", function()
 		end)
 	end
 
-	LFDQueueFrameSpecificListScrollFrame:StripTextures()
-	S:HandleScrollBar(LFDQueueFrameRandomScrollFrameScrollBar)
-	S:HandleScrollBar(LFDQueueFrameSpecificListScrollFrameScrollBar)
+	AscensionPVEFrameLFDFrameSpecificListScrollFrame:StripTextures()
+	S:HandleScrollBar(AscensionPVEFrameLFDFrameRandomScrollFrameScrollBar)
+	S:HandleScrollBar(AscensionPVEFrameLFDFrameSpecificListScrollFrameScrollBar)
 
-	S:HandleButton(LFDQueueFrameFindGroupButton)
-	S:HandleButton(LFDQueueFrameCancelButton)
+	--Side menu buttons
+	for i = 1, 3 do
+		local sidebutton = _G["AscensionLFGFrameButton"..i]
+	S:HandleButton(sidebutton)
+	end
 
-	S:HandleButton(LFDQueueFramePartyBackfillBackfillButton)
-	S:HandleButton(LFDQueueFramePartyBackfillNoBackfillButton)
+	--Tabs
+	for i = 1, 3 do
+		local tab = _G["AscensionLFGFrameTab"..i]
+		tab:Size(122, 32)
+		tab:GetRegions():SetPoint("CENTER", 0, 2)
+		S:HandleTab(tab)
+	end
+	
+	S:HandleButton(AscensionPVEFrameLFDFrameFindGroupButton)
+	--S:HandleButton(AscensionPVEFrameLFDFrameCancelButton)
 
-	S:HandleButton(LFDQueueFrameNoLFDWhileLFRLeaveQueueButton)
+	--S:HandleButton(AscensionPVEFrameLFDFramePartyBackfillBackfillButton)
+	--S:HandleButton(AscensionPVEFrameLFDFramePartyBackfillNoBackfillButton)
 
-	LFDQueueFrameRandomScrollFrameScrollBar:Point("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 5, -22)
-	LFDQueueFrameRandomScrollFrameScrollBar:Point("BOTTOMLEFT", LFDQueueFrameRandomScrollFrame, "BOTTOMRIGHT", 5, 19)
+	S:HandleButton(AscensionPVEFrameLFDFrameNoLFDWhileLFRLeaveQueueButton)
 
-	LFDQueueFrameSpecificListScrollFrameScrollBar:Point("TOPLEFT", LFDQueueFrameSpecificListScrollFrame, "TOPRIGHT", 5, -17)
-	LFDQueueFrameSpecificListScrollFrameScrollBar:Point("BOTTOMLEFT", LFDQueueFrameSpecificListScrollFrame, "BOTTOMRIGHT", 5, 17)
+	AscensionPVEFrameLFDFrameRandomScrollFrameScrollBar:Point("TOPLEFT", AscensionPVEFrameLFDFrameRandomScrollFrame, "TOPRIGHT", 5, -22)
+	AscensionPVEFrameLFDFrameRandomScrollFrameScrollBar:Point("BOTTOMLEFT", AscensionPVEFrameLFDFrameRandomScrollFrame, "BOTTOMRIGHT", 5, 19)
 
-	LFDQueueFrameFindGroupButton:Point("BOTTOMLEFT", 19, 12)
-	LFDQueueFrameCancelButton:Point("BOTTOMRIGHT", -11, 12)
+	AscensionPVEFrameLFDFrameSpecificListScrollFrameScrollBar:Point("TOPLEFT", AscensionPVEFrameLFDFrameSpecificListScrollFrame, "TOPRIGHT", 5, -17)
+	AscensionPVEFrameLFDFrameSpecificListScrollFrameScrollBar:Point("BOTTOMLEFT", AscensionPVEFrameLFDFrameSpecificListScrollFrame, "BOTTOMRIGHT", 5, 17)
 
-	LFDQueueFrameTypeDropDown:Point("TOPLEFT", 152, -119)
+	AscensionPVEFrameLFDFrameFindGroupButton:Point("BOTTOMLEFT", 19, 10)
+	--AscensionPVEFrameLFDFrameCancelButton:Point("BOTTOMRIGHT", -11, 12)
 
-	LFDQueueFrameSpecificListButton1:Point("TOPLEFT", 25, -154)
-	LFDQueueFrameRandomScrollFrame:Point("BOTTOMRIGHT", -34, 41)
+	--AscensionPVEFrameLFDFrameTypeDropDown:Point("TOPLEFT", 152, -119)
 
-	LFDQueueFrameCooldownFrame:Size(325, 259)
-	LFDQueueFrameCooldownFrame:Point("BOTTOMRIGHT", LFDQueueFrame, "BOTTOMRIGHT", -11, 37)
+	--AscensionPVEFrameLFDFrameSpecificListButton1:Point("TOPLEFT", 25, -154)
+	AscensionPVEFrameLFDFrameRandomScrollFrame:Point("BOTTOMRIGHT", -34, 41)
 
-	LFDQueueFrameCooldownFrame:HookScript("OnShow", function(self)
+	--AscensionPVEFrameLFDFrameCooldownFrame:Size(325, 259)
+	--AscensionPVEFrameLFDFrameCooldownFrame:Point("BOTTOMRIGHT", AscensionPVEFrameLFDFrame, "BOTTOMRIGHT", -11, 37)
+
+	--[[AscensionPVEFrameLFDFrameCooldownFrame:HookScript("OnShow", function(self)
 		self:SetFrameLevel(self:GetParent():GetFrameLevel() + 5)
 	end)
+	--]]
+
+	-- PvP Tab
+		-- Progress Bar
+			--Honor
+			S:HandleStatusBar(AscensionPVPFrameHonorBar)
+			--Arena
+			S:HandleStatusBar(AscensionPVPFrameArenaBar)
+
+		-- Quick Match
+		AscensionPVPFrame:StripTextures(true)
+		AscensionPVPFrame:CreateBackdrop("Transparent")
+		AscensionPVPFrameCasualFrame:StripTextures(true)
+		AscensionPVPFrameCasualFrame:CreateBackdrop("Transparent")
+		AscensionPVPFrameCasualFrameInset:StripTextures(true)
+		AscensionPVPFrameCasualFrameInset:CreateBackdrop("Transparent")
+		AscensionPVPFrameCasualFrameInsetNineSlice:StripTextures(true)
+			-- Buttons (Queues)
+			S:HandleButton(AscensionPVPFrameCasualFrameRandomBGButton)
+			S:HandleButton(AscensionPVPFrameCasualFrameCallToArmsButton1)
+			S:HandleButton(AscensionPVPFrameCasualFrameSkirmish1v1Button)
+			S:HandleButton(AscensionPVPFrameCasualFrameSkirmish2v2Button)
+			S:HandleButton(AscensionPVPFrameCasualFrameSkirmish3v3Button)
+		-- Honor Section
+		AscensionPVPFrameHonorInset:StripTextures(true)
+		AscensionPVPFrameHonorInset:CreateBackdrop("Transparent")
+		AscensionPVPFrameHonorInsetNineSlice:StripTextures(true)
+
+		-- Buttons
+		S:HandleButton(AscensionPVPFrameCasualFrameQueueButton)
+		S:HandleButton(AscensionPVPFrameCasualFrameSoloQueueButton)
+
+		--Rated Tab
+		AscensionPVPFrameRatedFrame:StripTextures(true)
+		AscensionPVPFrameRatedFrame:CreateBackdrop("Transparent")
+		AscensionPVPFrameRatedFrameInset:StripTextures(true)
+		AscensionPVPFrameRatedFrameInset:CreateBackdrop("Transparent")
+		AscensionPVPFrameRatedFrameInsetNineSlice:StripTextures(true)
+			-- Buttons (Rated)
+			S:HandleButton(AscensionPVPFrameRatedFrameArena1v1)
+			S:HandleButton(AscensionPVPFrameRatedFrameArena2v2)
+			S:HandleButton(AscensionPVPFrameRatedFrameArena3v3)
+			S:HandleButton(AscensionPVPFrameRatedFrameSoloQueueButton)
+			S:HandleButton(AscensionPVPFrameRatedFrameQueueButton)
+
+	-- PvP Ruleset
+	AscensionRulesetFrame:StripTextures(true)
+
+	--[[for i = 1, 3 do
+		local pvpruleset = _G["AscensionRulesetFrameRuleset"..i]
+		--pvpruleset:StripTextures(true)
+		S:HandleButton(pvpruleset.Select)
+	end
+	]]--
 
 	local function skinLFDRandomDungeonLoot(frame)
 		if frame.isSkinned then return end
@@ -131,14 +212,14 @@ S:AddCallback("Skin_LFD", function()
 		return link
 	end
 
-	hooksecurefunc("LFDQueueFrameRandom_UpdateFrame", function()
-		local dungeonID = LFDQueueFrame.type
+	--[[hooksecurefunc("AscensionPVEFrameLFDFrameRandom_UpdateFrame", function()
+		local dungeonID = AscensionPVEFrameLFDFrame.type
 		if not dungeonID then return end
 
 		local _, _, _, _, _, numRewards = GetLFGDungeonRewards(dungeonID)
 		for i = 1, numRewards do
-			local frame = _G["LFDQueueFrameRandomScrollFrameChildFrameItem"..i]
-			local name = _G["LFDQueueFrameRandomScrollFrameChildFrameItem"..i.."Name"]
+			local frame = _G["AscensionPVEFrameLFDFrameRandomScrollFrameChildFrameItem"..i]
+			local name = _G["AscensionPVEFrameLFDFrameRandomScrollFrameChildFrameItem"..i.."Name"]
 
 			skinLFDRandomDungeonLoot(frame)
 
@@ -156,6 +237,7 @@ S:AddCallback("Skin_LFD", function()
 			end
 		end
 	end)
+	--]]
 
 	-- LFDDungeonReadyStatus
 	LFDDungeonReadyStatus:SetTemplate("Transparent")
@@ -221,8 +303,10 @@ S:AddCallback("Skin_LFD", function()
 
 		button:Size(28)
 		button:SetTemplate("Default")
-		button.texture:SetInside()
-		button.texture:SetTexCoord(unpack(E.TexCoords))
+		if button.texture ~= nil then
+			button.texture:SetInside()
+			button.texture:SetTexCoord(unpack(E.TexCoords))
+		end
 		button:DisableDrawLayer("OVERLAY")
 
 		button.isSkinned = true
@@ -245,11 +329,12 @@ S:AddCallback("Skin_LFD", function()
 		else
 			button:SetBackdropBorderColor(unpack(E.media.bordercolor))
 		end
-
-		local texturePath = button.texture:GetTexture()
-		if texturePath then
-			SetPortraitToTexture(button.texture, "")
-			button.texture:SetTexture(texturePath)
+		if button.texture ~= nil then
+			local texturePath = button.texture:GetTexture()
+			if texturePath then
+				SetPortraitToTexture(button.texture, "")
+				button.texture:SetTexture(texturePath)
+			end
 		end
 	end)
 end)

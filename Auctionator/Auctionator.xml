@@ -459,6 +459,7 @@
 				<DisabledFont style="GameFontDisableSmall"/>
 			</Button>
 			
+			
 			<ScrollFrame name="Atr_Hlist_ScrollFrame" inherits="FauxScrollFrameTemplate" hidden="true">
 				<Size><AbsDimension x="170" y="335"/></Size>
 				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="-193" y="-75"/></Offset></Anchor></Anchors>
@@ -549,7 +550,7 @@
 							<Size><AbsDimension x="30" y="30"/>	</Size>
 							<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="185" y="30"/></Offset></Anchor></Anchors>
 							<Scripts>
-							<OnLoad>Atr_REsearch_Toggle()</OnLoad>
+							<OnLoad>Atr_RESearch:SetChecked(false)</OnLoad>
 							<OnClick>Atr_REsearch_Toggle()</OnClick>
 							</Scripts>
 						</CheckButton>

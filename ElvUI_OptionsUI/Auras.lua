@@ -365,6 +365,17 @@ E.Options.args.auras = {
 								["LEFT"] = L["Left"],
 								["RIGHT"] = L["Right"]
 							}
+						},
+						classtype = {
+							order = 4,
+							type = "select",
+							name = L["Class Type"],
+							get = function(info) return E.private.general.reminder[info[#info]] end,
+							set = function(info, value) E.private.general.reminder[info[#info]] = value RB:UpdateSettings() end,
+							values = {
+								["Caster"] = L["Caster"],
+								["Attack"] = L["Attack"]
+							}
 						}
 					}
 				},

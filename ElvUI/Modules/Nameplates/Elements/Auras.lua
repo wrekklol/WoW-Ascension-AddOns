@@ -261,7 +261,7 @@ function NP:UpdateElement_Auras(frame)
 	local guid = frame.guid
 
 	if not guid then
-		if frame.UnitClass == "DRUID" then
+		if frame.UnitClass == "HERO" then
 			local name = frame.UnitName
 			guid = self.GUIDByName[name]
 		elseif frame.RaidIcon:IsShown() then

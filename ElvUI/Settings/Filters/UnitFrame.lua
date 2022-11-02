@@ -515,7 +515,7 @@ end
 
 local OFFSET_X, OFFSET_Y = 12, 12 -- Highly recommend textured indicators.
 G.unitframe.buffwatch = {
-	DRUID = {
+	HERO = {
 		[6788] = ClassBuff(6788, "TOPLEFT", 0, 0, {1, 0, 0}, true),							-- Weakened Soul
 		[10060] = ClassBuff(10060, "RIGHT", 0, 0, {0.89, 0.09, 0.05}),						-- Power Infusion
 		[48066] = ClassBuff(48066, "BOTTOMRIGHT", 0, 0, {0.81, 0.85, 0.1}, true),			-- Power Word: Shield

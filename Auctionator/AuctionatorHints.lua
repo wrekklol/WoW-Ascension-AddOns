@@ -745,7 +745,7 @@ end
 
 -----------------------------------------
 
-local function ShowTipWithPricing (tip, link, num)
+local function ShowTipWithPricing (tip, link, num, bag, slot)
 
 	if (link == nil) then
 		return;
@@ -855,7 +855,7 @@ end
 hooksecurefunc (GameTooltip, "SetBagItem",
 	function(tip, bag, slot)
 		local _, num = GetContainerItemInfo(bag, slot);
-		ShowTipWithPricing (tip, GetContainerItemLink(bag, slot), num);
+		ShowTipWithPricing (tip, GetContainerItemLink(bag, slot), num, bag, slot);
 	end
 );
 

@@ -255,6 +255,9 @@ function E:LoadCommands()
 	-- arg1 can be "all" this will scan all registered modules!
 
 	self:RegisterChatCommand("bgstats", "BGStats")
+	self:RegisterChatCommand("hellokitty", "HelloKittyToggle")
+	self:RegisterChatCommand("hellokittyfix", "HelloKittyFix")
+	self:RegisterChatCommand("harlemshake", "HarlemShakeToggle")
 	self:RegisterChatCommand("luaerror", "LuaError")
 	self:RegisterChatCommand("egrid", "Grid")
 	self:RegisterChatCommand("moveui", "ToggleMoveMode")

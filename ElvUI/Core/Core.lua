@@ -54,7 +54,7 @@ E.noop = function() end
 E.title = format("|cff1784d1E|r|cffe5e3e3lvUI|r")
 E.myfaction, E.myLocalizedFaction = UnitFactionGroup("player")
 E.mylevel = UnitLevel("player")
-E.myLocalizedClass, E.myclass = UnitClass("player")  -- On Ascension, this is always (Hero, DRUID)
+E.myLocalizedClass, E.myclass = UnitClass("player")  -- On Ascension, this is always (Hero, HERO)
 E.myLocalizedRace, E.myrace = UnitRace("player")
 E.myname = UnitName("player")
 E.myrealm = GetRealmName()
@@ -711,7 +711,7 @@ do
 				end
 			elseif message and (message > ver) then
 				if not E.recievedOutOfDateMessage then
-					E:Print(L["ElvUI is out of date. You can download the newest version from https://github.com/ElvUI-WotLK/ElvUI"])
+					E:Print(L["ElvUI is out of date. You can download the newest version from https://github.com/BanditTech/ElvUI-Ascension"])
 
 					if message and ((message - ver) >= 0.01) and not InCombatLockdown() then
 						E:StaticPopup_Show("ELVUI_UPDATE_AVAILABLE")
@@ -1190,13 +1190,22 @@ function E:Initialize()
 		self:Install()
 	end
 
+	if self:HelloKittyFixCheck() then
+		self:HelloKittyFix()
+	end
+
+	if self.db.general.kittys then
+		self:CreateKittys()
+		self:Delay(5, self.Print, self, L["Type /hellokitty to revert to old settings."])
+	end
+
 	if self.db.general.loginmessage then
 		local msg = format(L["LOGIN_MSG"], self.media.hexvaluecolor, self.media.hexvaluecolor, self.version)
 		if Chat.Initialized then msg = select(2, Chat:FindURL("CHAT_MSG_DUMMY", msg)) end
 		print(msg)
 	end
 
-	if not GetCVar("scriptProfile") == "1" then
+	if GetCVar("scriptProfile") ~= "1" then
 		collectgarbage("collect")
 	end
 end

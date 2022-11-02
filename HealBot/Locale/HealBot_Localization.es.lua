@@ -3,14 +3,14 @@ if (GetLocale() == "esES") then
 
 ---------------------------------------------
 -- SPANISH
--- TRADUCIDO POR Kâs (Stress - EU-Exodar)
+-- TRADUCIDO POR Kï¿½s (Stress - EU-Exodar)
 -- 3.3.3.1
--- á = \195\161
--- é = \195\169    
--- í = \195\173
--- ó = \195\179
--- ú = \195\186
--- ñ = \195\177
+-- ï¿½ = \195\161
+-- ï¿½ = \195\169    
+-- ï¿½ = \195\173
+-- ï¿½ = \195\179
+-- ï¿½ = \195\186
+-- ï¿½ = \195\177
 -- (http://www.wowwiki.com/Localizing_an_addon)
 -------------
 
@@ -18,16 +18,11 @@ if (GetLocale() == "esES") then
 -- Compatibility --
 -------------------
 
-HEALBOT_DRUID   = "Druida";
-HEALBOT_HUNTER  = "Cazador";
-HEALBOT_MAGE    = "Mago";
-HEALBOT_PALADIN = "Palad\195\173n";
-HEALBOT_PRIEST  = "Sacerdote";
-HEALBOT_ROGUE   = "P\195\173caro";
-HEALBOT_SHAMAN  = "Cham\195\161n";
-HEALBOT_WARLOCK = "Brujo";
-HEALBOT_WARRIOR = "Guerrero";
-HEALBOT_DEATHKNIGHT = "Caballero de la Muerte";
+local localizedClass, englishClass, classIndex = UnitClass("player");
+
+HEALBOT_HERO = localizedClass;
+HEALBOT_HERO_EN = englishClass;
+HEALBOT_HERO_INDEX = classIndex;
 
 HEALBOT_HEAVY_NETHERWEAVE_BANDAGE = GetItemInfo(21991);
 HEALBOT_HEAVY_RUNECLOTH_BANDAGE = "Venda de pa\195\177o r\195\186nico gruesa";

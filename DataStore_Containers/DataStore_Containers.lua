@@ -79,6 +79,8 @@ local AddonDB_Defaults = {
 	}
 }
 
+
+
 local function GetDBVersion()
 	return addon.db.global.Version or 0
 end
@@ -141,8 +143,16 @@ end
 
 local function GetThisPersonalBank()
 	local guild = UnitName("player")
-	if guild then 
-		local key = format("%s.%s.%s's PersonalBank", THIS_ACCOUNT, GetRealmName(), guild)
+	if guild then
+		local key = format("%s.%s.%s's PersonalBank", THIS_ACCOUNT, GetRealmName(), guild);
+		return addon.db.global.Guilds[key];
+	end
+end
+
+local function GetThisRealmBank()
+	local guild = "Realm Bank";
+	if guild then
+		local key = format("%s.%s.%s", THIS_ACCOUNT, GetRealmName(), guild)
 		return addon.db.global.Guilds[key]
 	end
 end
@@ -373,6 +383,55 @@ local function ScanPersonalBank(bagID, containerType)
 	addon.ThisCharacter.lastUpdate = time()
 end
 
+local function ScanRealmBank(bagID, containerType)
+	local Container = ContainerTypes[containerType]
+	
+	local bag
+	if containerType == GUILDBANK then
+		local thisGuild = GetThisRealmBank()
+		if not thisGuild then return end
+		bag = thisGuild.Tabs[bagID]	-- bag is actually the current tab
+	end
+
+	wipe(bag.ids)				-- clean existing bag data
+	wipe(bag.counts)
+	wipe(bag.links)
+	
+	local link, count
+	local startTime, duration, isEnabled
+	
+	bag.size = Container:GetSize(bagID)
+	bag.freeslots, bag.bagtype = Container:GetFreeSlots(bagID)
+	
+	-- Scan from 1 to bagsize for normal bags or guild bank tabs, but from 40 to 67 for main bank slots
+	local baseIndex = (containerType == BANK) and 39 or 0
+	local index
+	
+	for slotID = baseIndex + 1, baseIndex + bag.size do
+		index = slotID - baseIndex
+		link = Container:GetLink(slotID, bagID)
+		if link then
+			bag.ids[index] = tonumber(link:match("item:(%d+)"))
+
+			if IsEnchanted(link) then
+				bag.links[index] = link
+			end
+		
+			count = Container:GetCount(slotID, bagID)
+			if count and count > 1  then
+				bag.counts[index] = count	-- only save the count if it's > 1 (to save some space since a count of 1 is extremely redundant)
+			end
+		end
+		
+		startTime, duration, isEnabled = Container:GetCooldown(slotID, bagID)
+		if startTime and startTime > 0 then
+			bag.cooldowns[index] = startTime .."|".. duration .. "|" .. 1
+		end
+	end
+	
+	addon.ThisCharacter.lastUpdate = time()
+end
+
 local function ScanBagSlotsInfo()
 	local char = addon.ThisCharacter
 
@@ -428,6 +487,25 @@ end
 local function ScanPersonalBankInfo()
 	-- only the current tab can be updated
 	local thisGuild = GetThisPersonalBank()
+	local tabID = GetCurrentGuildBankTab()
+	local t = thisGuild.Tabs[tabID]	-- t = current tab
+
+	t.name, t.icon = GetGuildBankTabInfo(tabID)
+	t.visitedBy = UnitName("player")
+	t.ClientTime = time()
+	if GetLocale() == "enUS" then				-- adjust this test if there's demand
+		t.ClientDate = date("%m/%d/%Y")
+	else
+		t.ClientDate = date("%d/%m/%Y")
+	end
+	t.ClientHour = tonumber(date("%H"))
+	t.ClientMinute = tonumber(date("%M"))
+	t.ServerHour, t.ServerMinute = GetGameTime()
+end
+
+local function ScanRealmBankInfo()
+	-- only the current tab can be updated
+	local thisGuild = GetThisRealmBank()
 	local tabID = GetCurrentGuildBankTab()
 	local t = thisGuild.Tabs[tabID]	-- t = current tab
 
@@ -526,43 +604,55 @@ end
 
 local function OnGuildBankBagSlotsChanged()
 	local thisGuild = GetThisGuild()
+	if GetGuildBankTabInfo(GetCurrentGuildBankTab()) then
 		if thisGuild then
 			thisGuild.money = GetGuildBankMoney()
 			thisGuild.faction = UnitFactionGroup("player")
 		end
-		
+
 		ScanContainer(GetCurrentGuildBankTab(), GUILDBANK)
 		ScanGuildBankInfo()
+	end
 end
 
-local function OnPersonalBankBagSlotsChanged()	
+local function OnPersonalBankBagSlotsChanged()
 	local thisGuild = GetThisPersonalBank()
+	if GetGuildBankTabInfo(GetCurrentGuildBankTab()) then
+		if thisGuild then
+			thisGuild.money = 0
+			thisGuild.faction = UnitFactionGroup("player")
+		end
+
+		ScanPersonalBank(GetCurrentGuildBankTab(), GUILDBANK)
+		ScanPersonalBankInfo()
+	end
+end
+
+local function OnRealmBankBagSlotsChanged()
+	local thisGuild = GetThisRealmBank()
+	if GetGuildBankTabInfo(GetCurrentGuildBankTab()) then
 		if thisGuild then
 			thisGuild.money = 0
 			thisGuild.faction = UnitFactionGroup("player")
 		end	
 		
-		ScanPersonalBank(GetCurrentGuildBankTab(), GUILDBANK)
-		ScanPersonalBankInfo()
-end
-
-local function GuildBankSelected(event, prefix,message,form,player)
-				
-	if message:find("cxsbGw") then
-		addon:RegisterEvent("GUILDBANKBAGSLOTS_CHANGED", OnGuildBankBagSlotsChanged) -- Runs when GUILDBANKBAGSLOTS_CHANGED is run and guildbank is open
-		OnGuildBankBagSlotsChanged() -- Update guildbank when its opened
-	elseif message:find("cxwbGw") then
-		addon:RegisterEvent("GUILDBANKBAGSLOTS_CHANGED", OnPersonalBankBagSlotsChanged) -- Runs when GUILDBANKBAGSLOTS_CHANGED is run and personalbank is open
-		OnPersonalBankBagSlotsChanged()	-- Update personalbank when its opened
+		ScanRealmBank(GetCurrentGuildBankTab(), GUILDBANK)
+		ScanRealmBankInfo()
 	end
-				
 end
 
 local function OnGuildBankFrameOpened()
 	addon:RegisterEvent("GUILDBANKFRAME_CLOSED", OnGuildBankFrameClosed)
-	addon:RegisterEvent("CHAT_MSG_ADDON", GuildBankSelected) -- Ascension Addon that tells you if guildbank or personalbank is open
-
-
+		if GuildBankFrame and GuildBankFrame.IsPersonalBank then
+			addon:RegisterEvent("GUILDBANKBAGSLOTS_CHANGED", OnPersonalBankBagSlotsChanged) -- Runs when GUILDBANKBAGSLOTS_CHANGED is run and personalbank is open
+			OnPersonalBankBagSlotsChanged()	-- Update personalbank when its opened
+		elseif GuildBankFrame and GuildBankFrame.IsRealmBank then
+			addon:RegisterEvent("GUILDBANKBAGSLOTS_CHANGED", OnRealmBankBagSlotsChanged) -- Runs when GUILDBANKBAGSLOTS_CHANGED is run and personalbank is open
+			OnRealmBankBagSlotsChanged() -- Update realmbank when its opened
+		else
+			addon:RegisterEvent("GUILDBANKBAGSLOTS_CHANGED", OnGuildBankBagSlotsChanged) -- Runs when GUILDBANKBAGSLOTS_CHANGED is run and guildbank is open
+			OnGuildBankBagSlotsChanged() -- Update guildbank when its opened
+		end
 end
 
 -- ** Mixins **
@@ -909,12 +999,9 @@ function addon:OnEnable()
 		ScanBag(bagID)
 	end
 	ScanKeyRing()
-	
 	addon:RegisterEvent("BAG_UPDATE", OnBagUpdate)
 	addon:RegisterEvent("BANKFRAME_OPENED", OnBankFrameOpened)
 	addon:RegisterEvent("GUILDBANKFRAME_OPENED", OnGuildBankFrameOpened)
-
-	
 end
 
 function addon:OnDisable()

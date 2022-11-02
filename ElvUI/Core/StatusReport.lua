@@ -189,8 +189,8 @@ end
 local function UpdateDynamicValues()
 	E.StatusFrame.Section2.Content.Line3.Text:SetFormattedText("Display Mode: |cff4beb2c%s|r", GetDisplayMode())
 	E.StatusFrame.Section2.Content.Line4.Text:SetFormattedText("Resolution: |cff4beb2c%s|r", GetResolution())
-	E.StatusFrame.Section3.Content.Line5.Text:SetFormattedText("Level: |cff4beb2c%s|r", E.mylevel)
-	E.StatusFrame.Section3.Content.Line6.Text:SetFormattedText("Zone: |cff4beb2c%s|r", GetRealZoneText())
+	E.StatusFrame.Section3.Content.Line3.Text:SetFormattedText("Level: |cff4beb2c%s|r", E.mylevel)
+	E.StatusFrame.Section3.Content.Line4.Text:SetFormattedText("Zone: |cff4beb2c%s|r", GetRealZoneText())
 end
 
 function E:ShowStatusReport()

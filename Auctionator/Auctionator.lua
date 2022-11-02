@@ -20,7 +20,7 @@ AUCTIONATOR_OPEN_ALL_BAGS	= 1;
 AUCTIONATOR_SHOW_ST_PRICE	= 0;
 AUCTIONATOR_SHOW_TIPS		= 1;
 AUCTIONATOR_DEF_DURATION	= "N";		-- none
-AUCTIONATOR_V_TIPS			= 0;
+AUCTIONATOR_V_TIPS			= 1;
 AUCTIONATOR_A_TIPS			= 1;
 AUCTIONATOR_D_TIPS			= 1;
 AUCTIONATOR_SHIFT_TIPS		= 1;
@@ -54,6 +54,7 @@ local auctionator_savedvars_defaults =
 
 
 -----------------------------------------
+
 local auctionator_orig_AuctionFrameTab_OnClick;
 local auctionator_orig_ContainerFrameItemButton_OnModifiedClick;
 local auctionator_orig_AuctionFrameAuctions_Update;
@@ -680,16 +681,16 @@ function Atr_ShowHide_StartingPrice()
 	end
 end
 
-
+local renameSaved = "";
 -----------------------------------------
 function Atr_REsearch_Toggle()
-   if (Atr_RESearch) then
-        Atr_RESearch = false;
-    else
-        Atr_RESearch = true;
-    end
+	if Atr_RESearch:GetChecked() then
+		renameSaved = "";
+	 end
 end 
-
+function Atr_SetreName(name)
+	ReName = name;
+end
 function Atr_GetSellItemInfo ()
 
 	local auctionItemName, auctionTexture, auctionCount = GetAuctionSellItemInfo();
@@ -700,28 +701,40 @@ function Atr_GetSellItemInfo ()
 	end
 
 	local auctionItemLink = nil;
-
+	local exact = true;
+	local bloodforged = false;
 	-- only way to get sell itemlink that I can figure
 	if (auctionItemName ~= "") then
 		AtrScanningTooltip:SetAuctionSellItem();
 		local name;
-		local exact = true
 		name, auctionItemLink = AtrScanningTooltip:GetItem();
-
-		if (Atr_RESearch == true) then
-		for i=1,AtrScanningTooltip:NumLines() do 
-			local text = getglobal("AtrScanningTooltipTextLeft" .. i)
-			text = text:GetText()
-			text = string.match(text, "(Equip: [^-]+)-")
-			if text and text ~= "" then 
-				-- RE: is used for checking bag count
-				text = text:gsub("Equip: ", "RE:")
-				-- trim
-				auctionItemName = text:gsub("^%s*(.-)%s*$", "%1")
-				exact = false
-			end
-			end
+		if (string.find(auctionItemName, "Bloodforged"))
+		then
+			auctionItemName = auctionItemName:gsub("Bloodforged ", "")
+			auctionItemName = auctionItemName:gsub(" of %a+$", "")
+			exact = false
+			bloodforged = true;
 		end
+
+			--Swap auction name to search for re on the item
+			if Atr_RESearch:GetChecked() and ReName ~= nil then
+				auctionItemName = "RE:" .. MYSTIC_ENCHANTS[ReName].spellName;
+				exact = false;
+				renameSaved = ReName;
+				ReName = nil;
+			elseif Atr_RESearch:GetChecked() and renameSaved ~= "" then
+				auctionItemName = "RE:" .. MYSTIC_ENCHANTS[renameSaved].spellName;
+				exact = false;
+				ReName = nil;
+			elseif (string.find(auctionItemName, "Mystic Scroll")) then
+				local text = string.sub(auctionItemName, 15)
+				if (text and text ~= "") then 
+					-- RE: is used for checking bag count
+					auctionItemName = "RE:" .. text --text:gsub("^%s*(.-)%s*$", "%1")
+					exact = false
+					renameSaved = "";
+				end	
+			end
 
 		if (auctionItemLink == nil) then
 			return "",0,nil;
@@ -731,7 +744,7 @@ function Atr_GetSellItemInfo ()
 
 	end
 
-	return auctionItemName, auctionCount, auctionItemLink, exact;
+	return auctionItemName, auctionCount, auctionItemLink, exact, bloodforged;
 
 end
 
@@ -1045,7 +1058,14 @@ local function Atr_LoadContainerItemToSellPane()
 	end
 
 	PickupContainerItem(bagID, slotID);
-
+	--Get MysticEnchant from alt left clicking item
+	if GetREInSlot(bagID, slotID) ~= nil then
+		renameSaved = "";
+		ReName = GetREInSlot(bagID, slotID);
+	else
+		renameSaved = "";
+		ReName = nil;
+	end
 	local infoType = GetCursorInfo()
 
 	if (infoType == "item") then
@@ -2289,7 +2309,7 @@ function Atr_OnNewAuctionUpdate()
 	
 	gAtr_ClickAuctionSell = false;
 
-	local auctionItemName, auctionCount, auctionLink, exact = Atr_GetSellItemInfo();
+	local auctionItemName, auctionCount, auctionLink, exact, bloodforged = Atr_GetSellItemInfo();
 
 	if (gPrevSellItemLink ~= auctionLink) then
 
@@ -2307,9 +2327,14 @@ function Atr_OnNewAuctionUpdate()
 		Atr_ResetDuration();
 		
 		if (gJustPosted_ItemName == nil) then
-			local cacheHit = gSellPane:DoSearch (string.gsub(auctionItemName, "RE:", ""), exact, 20);
+
+			if (string.find(auctionItemName, "RE:")) then
+				local cacheHit = gSellPane:DoSearch (string.gsub(auctionItemName, "RE:", ""), exact, 20);
+			else
+				local cacheHit = gSellPane:DoSearch (auctionItemName, exact, 20);
+			end
 			
-			gSellPane.totalItems	= Atr_GetNumItemInBags (auctionItemName);
+			gSellPane.totalItems	= Atr_GetNumItemInBags (auctionItemName, bloodforged);
 			gSellPane.fullStackSize = auctionLink and (select (8, GetItemInfo (auctionLink))) or 0;
 
 			local prefNumStacks, prefStackSize = Atr_GetSellStacking (auctionLink, auctionCount, gSellPane.totalItems);
@@ -3278,9 +3303,13 @@ end
 
 -----------------------------------------
 
-function Atr_GetNumItemInBags (theItemName)
-
+function Atr_GetNumItemInBags (theItemName, bloodforged)
+	bloodforged = bloodforged or false
 	if theItemName:sub(1, 3) == "RE:" then
+		return 1 
+	end
+
+	if bloodforged then
 		return 1 
 	end
 
@@ -3596,6 +3625,17 @@ end
 
 function Atr_Duration_OnShow(self)
 	UIDropDownMenu_Initialize (self, Atr_Duration_Initialize);
+		--Hook Container ID to get MysticEnchant from item
+		hooksecurefunc("ContainerFrameItemButton_OnClick",function(self,button)
+			local bagID,slotID=self:GetParent():GetID(),self:GetID();
+			if GetREInSlot(bagID, slotID) ~= nil then
+				renameSaved = "";
+				ReName = GetREInSlot(bagID, slotID);
+			else
+				renameSaved = "";
+				ReName = nil;
+			end
+		end);
 end
 
 -----------------------------------------

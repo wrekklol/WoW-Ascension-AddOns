@@ -249,7 +249,7 @@ local tabList = {
 	"Characters",
 	"Search",
 	"GuildBank",
-	"Achievements",
+	--"Achievements",
 }
 
 local function SafeLoadAddOn(name)

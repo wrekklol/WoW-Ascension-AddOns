@@ -27,7 +27,7 @@ local FCF_StopDragging = FCF_StopDragging
 local FCF_SetChatWindowFontSize = FCF_SetChatWindowFontSize
 local CLASS, CONTINUE, PREVIOUS = CLASS, CONTINUE, PREVIOUS
 local NUM_CHAT_WINDOWS = NUM_CHAT_WINDOWS
-local LOOT, GENERAL, TRADE = LOOT, GENERAL, TRADE
+local LOOT, GENERAL, TRADE, GUILD, WHISPER = LOOT, GENERAL, TRADE, GUILD, WHISPER
 local GUILD_EVENT_LOG = GUILD_EVENT_LOG
 
 local CURRENT_PAGE = 0
@@ -43,6 +43,15 @@ local function SetupChat(noDisplayMsg)
 	FCF_UnDockFrame(ChatFrame3)
 	FCF_SetLocked(ChatFrame3, 1)
 	ChatFrame3:Show()
+	
+	FCF_OpenNewWindow(GUILD)
+	FCF_OpenNewWindow(WHISPER)
+	FCF_DockFrame(ChatFrame4)
+	FCF_SetLocked(ChatFrame4, 1)
+	FCF_DockFrame(ChatFrame5)
+	FCF_SetLocked(ChatFrame5, 1)
+
+	FCF_SelectDockFrame(ChatFrame1)
 
 	for i = 1, NUM_CHAT_WINDOWS do
 		local frame = _G[format("ChatFrame%s", i)]
@@ -69,6 +78,10 @@ local function SetupChat(noDisplayMsg)
 			FCF_SetWindowName(frame, GUILD_EVENT_LOG)
 		elseif i == 3 then
 			FCF_SetWindowName(frame, LOOT.." / "..TRADE)
+		elseif i == 4 then
+			FCF_SetWindowName(frame, GUILD)
+		elseif i == 5 then
+			FCF_SetWindowName(frame, WHISPER)
 		end
 	end
 
@@ -84,9 +97,25 @@ local function SetupChat(noDisplayMsg)
 		ChatFrame_AddMessageGroup(ChatFrame3, v)
 	end
 
+	local chatGroup = {"GUILD", "OFFICER", "GUILD_ACHIEVEMENT"}
+	ChatFrame_RemoveAllMessageGroups(ChatFrame4)
+	for _, v in ipairs(chatGroup) do
+		ChatFrame_AddMessageGroup(ChatFrame4, v)
+	end
+
+	local chatGroup = {"WHISPER", "BN_WHISPER"}
+	ChatFrame_RemoveAllMessageGroups(ChatFrame5)
+	for _, v in ipairs(chatGroup) do
+		ChatFrame_AddMessageGroup(ChatFrame5, v)
+	end
+
 	ChatFrame_AddChannel(ChatFrame1, GENERAL)
 	ChatFrame_RemoveChannel(ChatFrame1, TRADE)
+	ChatFrame_RemoveChannel(ChatFrame1, "Ascension")
+	ChatFrame_RemoveChannel(ChatFrame1, "World")
 	ChatFrame_AddChannel(ChatFrame3, TRADE)
+	ChatFrame_AddChannel(ChatFrame3, "Ascension")
+	ChatFrame_AddChannel(ChatFrame3, "World")
 
 	chatGroup = {"SAY", "EMOTE", "YELL", "WHISPER", "PARTY", "PARTY_LEADER", "RAID", "RAID_LEADER", "RAID_WARNING", "BATTLEGROUND", "BATTLEGROUND_LEADER", "GUILD", "OFFICER", "ACHIEVEMENT", "GUILD_ACHIEVEMENT"}
 	for i = 1, MAX_WOW_CHAT_CHANNELS do
@@ -96,10 +125,29 @@ local function SetupChat(noDisplayMsg)
 		ToggleChatColorNamesByClassGroup(true, v)
 	end
 
-	-- Adjust Chat Colors
-	ChangeChatColor("CHANNEL1", 195/255, 230/255, 232/255) -- General
-	ChangeChatColor("CHANNEL2", 232/255, 158/255, 121/255) -- Trade
-	ChangeChatColor("CHANNEL3", 232/255, 228/255, 121/255) -- Local Defense
+	-- Create a list of replacement colors
+	local replacementColors = {
+	["General"] = {195/255, 230/255, 232/255},
+	["Trade"] = {232/255, 158/255, 121/255},
+	["LocalDefense"] = {232/255, 228/255, 121/255},
+	["GuildRecruitment"] = {64/255, 255/255, 64/255},
+	["LookingForGroup"] = {0/255, 206/255, 255/255},
+	["Ascension"] = {255/255, 248/255, 163/255},
+	["World"] = {255/255, 248/255, 163/255},
+	}
+
+	-- Itterate through the channel list, and set the colors for each specific channel
+	-- We need to do this because the channels change around so much
+	-- low level characters start off with channel 1 being Ascension
+	local chanList = { GetChannelList() }
+	for i=1, #chanList, 2 do
+		if replacementColors[chanList[i+1]] ~= nil then
+			ChangeChatColor("CHANNEL"..chanList[i], unpack(replacementColors[chanList[i+1]]))
+		end
+		if chanList[i+1] == "GuildRecruitment" then
+			ChatFrame_AddChannel(ChatFrame1, "GuildRecruitment")
+		end
+	end
 
 	if E.Chat then
 		E.Chat:PositionChat(true)

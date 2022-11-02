@@ -1,4 +1,4 @@
-HEALBOT_VERSION = "3.3.5.4.RC2";
+HEALBOT_VERSION = "3.3.5.3";
 HealBotSkinVersion = 17;
 
 -------------
@@ -9,16 +9,104 @@ HealBotSkinVersion = 17;
 -- Compatibility --
 -------------------
 
-HEALBOT_DRUID                           = "Druid";
-HEALBOT_HUNTER                          = "Hunter";
-HEALBOT_MAGE                            = "Mage";
-HEALBOT_PALADIN                         = "Paladin";
-HEALBOT_PRIEST                          = "Priest";
-HEALBOT_ROGUE                           = "Rogue";
-HEALBOT_SHAMAN                          = "Shaman";
-HEALBOT_WARLOCK                         = "Warlock";
-HEALBOT_WARRIOR                         = "Warrior";
-HEALBOT_DEATHKNIGHT                     = "Death Knight";
+--GetLocale() = enUS
+
+
+local localizedClass, englishClass, classIndex = UnitClass("player");
+
+HEALBOT_HERO = localizedClass;
+HEALBOT_HERO_EN = englishClass;
+HEALBOT_HERO_INDEX = classIndex;
+
+----------------CUSTOM ASCENTION From RUKSTONE---------------
+
+--965281  [Blooming Growth] 
+BloomingGrowth = GetSpellInfo(965281) or "Blooming Growth";
+--2127120  [Tidecaller's Gift] this make part on the same stack of Tidecaller
+TidecallersGift = GetSpellInfo(990119) or "Tidecaller's Gift";
+--954075 [Tidecaller's Boon]
+TidecallerBoon = GetSpellInfo(954075) or "Tidecaller's Boon";
+--ID 986035 [Growing Light]
+GrowingLight = GetSpellInfo(986035) or "Growing Light";
+--ID 986113 [Overflowing]
+Overflowing = GetSpellInfo(986113) or "Overflowing";
+--ID 86382  [Efflorescence]
+Efflorescence = GetSpellInfo(86382) or "Efflorescence";
+--ID 86397  [Alter Time] 
+Alter_Time = GetSpellInfo(86397) or "Alter Time";
+--ID 81514 [Fungal Disposition]
+Fungal_Disposition = GetSpellInfo(81514) or "Fungal Disposition";
+--ID 8170 Cleasing Totem
+Cleasing_Totem = GetSpellInfo(8170) or "Cleansing Totem";
+--ID 965938 [Seed of Life]
+Seed_of_Life_hot = GetSpellInfo(965938) or "Seed of Life";
+--ID 31821 [Aura Mastery]
+Aura_Mastery = GetSpellInfo(31821) or "Aura Mastery";
+--ID 20216 [Divine Favor]
+Divine_Favor = GetSpellInfo(20216) or "Divine Favor";
+--ID 31842  [Divine Illumination]
+Divine_Illumination = GetSpellInfo(31842) or "Divine Illumination";
+--ID 64205  [Divine Sacrifice]
+Divine_Sacrifice = GetSpellInfo(64205) or "Divine Sacrifice";
+--ID 6940  [Hand of Sacrifice]
+Hand_of_Sacrifice = GetSpellInfo(6940) or "Hand of Sacrifice";
+--ID 31884  [Avenging Wrath]
+Avenging_Wrath = GetSpellInfo(31884) or "Avenging Wrath";
+--ID 47788  [Guardian Spirit]
+Guardian_Spirit = GetSpellInfo(47788) or "Guardian Spirit";
+--ID 47585  [Dispersion]
+Dispersion = GetSpellInfo(47585) or "Dispersion";
+--ID 15286  [Vampiric Embrace]
+Vampiric_Embrace = GetSpellInfo(15286) or "Vampiric Embrace";
+--ID 15473  [Shadowform]
+Shadowform = GetSpellInfo(15473) or "Shadowform";
+--ID 5277  [Evasion]
+Evasion = GetSpellInfo(5277) or "Evasion";
+--ID 2983  [Sprint]
+Sprint = GetSpellInfo(2983) or "Sprint";
+--ID 13877  [Blade Flurry]
+Blade_Flurry = GetSpellInfo(13877) or "Blade Flurry";
+--ID 13750  [Adrenaline Rush]
+Adrenaline_Rush = GetSpellInfo(13750) or "Adrenaline Rush";
+--ID 1784  [Stealth]
+Stealth = GetSpellInfo(1784) or "Stealth";
+--ID 954514  [Skull Banner]
+Skull_Banner = GetSpellInfo(954514) or "Skull Banner";
+--ID 86358  [Heroic Leap]
+Heroic_Leap = GetSpellInfo(86358) or "Heroic Leap";
+--ID 86380  [Avatar]
+Avatar = GetSpellInfo(86380) or "Avatar";
+--ID 46924  [Bladestorm]
+Bladestorm = GetSpellInfo(46924) or "Bladestorm";
+--ID 23920  [Spell Reflection]
+Spell_Reflection = GetSpellInfo(23920) or "Spell Reflection";
+--ID 12975  [Last Stand]
+Last_Stand = GetSpellInfo(12975) or "Last Stand";
+--ID 50720  [Vigilance]
+Vigilance = GetSpellInfo(50720) or "Vigilance";
+--ID 48505  [Starfall]
+Starfall = GetSpellInfo(48505) or "Starfall";
+--ID 24858  [Moonkin Form]
+Moonkin_Form = GetSpellInfo(24858) or "Moonkin Form";
+--ID 22842  [Frenzied Regeneration]
+Frenzied_Regeneration = GetSpellInfo(22842) or "Frenzied Regeneration";
+--ID 19263  [Deterrence]
+Deterrence = GetSpellInfo(19263) or "Deterrence";
+--ID 86514  [Cauterizing Fire]
+Cauterizing_Fire = GetSpellInfo(86514) or "Cauterizing Fire";
+--ID 888593 Preservation
+Preservation = GetSpellInfo(888593) or "Preservation";
+--ID 8495 Mana Shield
+Mana_Shield = GetSpellInfo(8495) or "Mana Shield";
+--ID 831842 Guiding Heal
+Guiding_Heal = GetSpellInfo(831842) or "Guiding Heal";
+--ID 986001 Adorned
+Adorned = GetSpellInfo(986001) or "Adorned";
+--ID 978698 Tidal Swell
+Tidal_Swell = GetSpellInfo(978698) or "Tidal Swell";
+--ID 978692 Diciple of the Tides
+Diciple_of_the_Tides = GetSpellInfo(978692) or "Diciple of the Tides";
+-----------------------------------------------
 
 HEALBOT_SILK_BANDAGE                    = GetItemInfo(6450) or "Silk Bandage";
 HEALBOT_HEAVY_SILK_BANDAGE              = GetItemInfo(6451) or "Heavy Silk Bandage";
@@ -261,12 +349,14 @@ HEALBOT_PURIFY                          = GetSpellInfo(1152) or "Purify";
 HEALBOT_CLEANSE                         = GetSpellInfo(4987) or "Cleanse";
 HEALBOT_CURE_POISON                     = GetSpellInfo(8946) or "Cure Poison";
 HEALBOT_REMOVE_CURSE                    = GetSpellInfo(2782) or "Remove Curse";
+HEALBOT_DISPEL_CURSE                    = GetSpellInfo(475) or "Dispel Curse";
 HEALBOT_ABOLISH_POISON                  = GetSpellInfo(2893) or "Abolish Poison";
 HEALBOT_CURE_DISEASE                    = GetSpellInfo(528) or "Cure Disease";
 HEALBOT_ABOLISH_DISEASE                 = GetSpellInfo(552) or "Abolish Disease";
 HEALBOT_DISPEL_MAGIC                    = GetSpellInfo(527) or "Dispel Magic";
 HEALBOT_CLEANSE_SPIRIT                  = GetSpellInfo(51886) or "Cleanse Spirit";
 HEALBOT_CURE_TOXINS                     = GetSpellInfo(526) or "Cure Toxins"
+
 HEALBOT_DISEASE                         = "Disease";
 HEALBOT_MAGIC                           = "Magic";
 HEALBOT_CURSE                           = "Curse";
@@ -1038,6 +1128,6 @@ HEALBOT_CP_STARTTIME                    = "Protect duration on logon"
 
 HEALBOT_WORD_RESERVED                   = "Reserved"
 HEALBOT_OPTIONS_COMBATPROT              = "Combat Protection"
-HEALBOT_COMBATPROT_INFO                 = "Combat Protection allows HealBot to better manage\nchanges to the party/raid during combat."
+HEALBOT_COMBATPROT_INFO                 = "Combat Protection allows HealBot to recover from\nchanges to the party/raid during combat."
 HEALBOT_COMBATPROT_PARTYNO              = "bars Reserved for Party"
 HEALBOT_COMBATPROT_RAIDNO               = "bars Reserved for Raid"

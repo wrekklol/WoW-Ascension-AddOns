@@ -136,7 +136,8 @@ local ClassColors = {
 	["SHAMAN"] = "|cFF2459FF",
 	["PALADIN"] = "|cFFF58CBA", 
 	["PRIEST"] = "|cFFFFFFFF",
-	["DEATHKNIGHT"] = "|cFFC41F3B"
+	["DEATHKNIGHT"] = "|cFFC41F3B",
+	["HERO"] = "|cFFFF7D0A"
 }
 
 local function _GetColoredCharacterName(character)

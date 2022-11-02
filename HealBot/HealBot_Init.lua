@@ -33,16 +33,12 @@ end
 
 function HealBot_Init_SetSpec()
 HealBot_Spec = {
-    ["DRUI"] = { [1] = HEALBOT_BALANCE,       [2] = HEALBOT_FERAL,        [3] = HEALBOT_RESTORATION, },
-    ["MAGE"] = { [1] = HEALBOT_ARCANE,        [2] = HEALBOT_FIRE,         [3] = HEALBOT_FROST,       },
-    ["PRIE"] = { [1] = HEALBOT_DISCIPLINE,    [2] = HEALBOT_HOLY,         [3] = HEALBOT_SHADOW,      },
-    ["ROGU"] = { [1] = HEALBOT_ASSASSINATION, [2] = HEALBOT_COMBAT,       [3] = HEALBOT_SUBTLETY,    },
-    ["WARR"] = { [1] = HEALBOT_ARMS,          [2] = HEALBOT_FURY,         [3] = HEALBOT_PROTECTION,  },
-    ["HUNT"] = { [1] = HEALBOT_BEASTMASTERY,  [2] = HEALBOT_MARKSMANSHIP, [3] = HEALBOT_SURVIVAL,    },
-    ["PALA"] = { [1] = HEALBOT_HOLY,          [2] = HEALBOT_PROTECTION,   [3] = HEALBOT_RETRIBUTION, },
-    ["SHAM"] = { [1] = HEALBOT_ELEMENTAL,     [2] = HEALBOT_ENHANCEMENT,  [3] = HEALBOT_SHAMAN_RESTORATION, },
-    ["WARL"] = { [1] = HEALBOT_AFFLICTION,    [2] = HEALBOT_DEMONOLOGY,   [3] = HEALBOT_DESTRUCTION, },
-    ["DEAT"] = { [1] = HEALBOT_BLOOD,         [2] = HEALBOT_FROST,        [3] = HEALBOT_UNHOLY, },
+    ["DRUI"] = {
+
+        [1] = HEALBOT_BALANCE,
+        [2] = HEALBOT_FERAL,
+        [3] = HEALBOT_RESTORATION,
+    },
     }
 end
 
@@ -55,7 +51,9 @@ end
 
 function HealBot_InitGetSpellData(spell, id, class, spellname)
 
-    if ( not spell ) then return end
+    if ( not spell ) then 
+        return 
+    end
   
     HB_cast=nil
     HB_mana=nil
@@ -104,13 +102,52 @@ function HealBot_InitGetSpellData(spell, id, class, spellname)
     tmpTest = nil;
     if (tmpText:GetText()) then
         line = tmpText:GetText();
-        if strsub(class,1,4)=="PRIE" then
-            if spellname==HEALBOT_POWER_WORD_SHIELD then
+
+            if spellname==HEALBOT_REGROWTH then
+                tmpTest,tmpTest,HB_HealsMin,HB_HealsMax,HB_HealsExt = strfind(line, HB_SPELL_PATTERN_REGROWTH );
+                if ( tmpTest == nil ) then
+                    tmpTest,tmpTest,HB_HealsMin,HB_HealsMax,tmpTest,HB_HealsExt = strfind(line, HB_SPELL_PATTERN_REGROWTH1 );
+                end
+            elseif spellname==HEALBOT_POWER_WORD_SHIELD then
+                -- body
                 tmpTest,tmpTest,HB_HealsMin,HB_shield = strfind(line, HB_SPELL_PATTERN_SHIELD );    
                 HB_HealsExt=0;
                 HB_duration = 30;
                 HB_HealsMax=HB_HealsMin;
+            elseif spellname==HEALBOT_REJUVENATION then
+                tmpTest,tmpTest,HB_HealsExt,HB_duration = strfind(line, HB_SPELL_PATTERN_REJUVENATION );  
+                HB_HealsMin=0;
+                HB_HealsMax=0;
+                if ( HB_HealsExt == nil ) then
+                    tmpTest,tmpTest,HB_HealsExt,tmpTest,HB_duration = strfind(line, HB_SPELL_PATTERN_REJUVENATION1 );
+                end
+                if ( HB_HealsExt == nil ) then
+                    tmpTest,tmpTest,HB_duration,HB_HealsExt = strfind(line, HB_SPELL_PATTERN_REJUVENATION2 );
+                end
+            elseif spellname==HEALBOT_HEALING_TOUCH then
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HEALING_TOUCH );
+            elseif spellname==HEALBOT_HOLY_LIGHT then
+                -- body
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HOLY_LIGHT ); 
+            elseif  spellname==HEALBOT_FLASH_OF_LIGHT then
+                -- body
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_FLASH_OF_LIGHT );
+            elseif spellname==HEALBOT_HEALING_WAVE then
+                -- body
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HEALING_WAVE );
+            elseif spellname==HEALBOT_LESSER_HEALING_WAVE then
+                -- body
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_LESSER_HEALING_WAVE ); 
+            elseif spellname==HEALBOT_LESSER_HEAL then
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line,HB_SPELL_PATTERN_LESSER_HEAL); 
+            elseif spellname==HEALBOT_GREATER_HEAL then
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_GREATER_HEAL ); 
+            elseif spellname==HEALBOT_FLASH_HEAL then
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_FLASH_HEAL ); 
+            elseif spellname==HEALBOT_HEAL then
+                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HEAL );
             elseif spellname==HEALBOT_RENEW then
+
                 tmpTest,tmpTest,HB_HealsExt,tmpTest,HB_duration = strfind(line, HB_SPELL_PATTERN_RENEW1 );  
                 HB_HealsMin=0;
                 HB_HealsMax=0;
@@ -123,48 +160,11 @@ function HealBot_InitGetSpellData(spell, id, class, spellname)
                 if ( HB_HealsExt == nil ) then
                     tmpTest,tmpTest,HB_duration,HB_HealsExt = strfind(line, HB_SPELL_PATTERN_RENEW3 );
                 end
-            elseif spellname==HEALBOT_LESSER_HEAL then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line,HB_SPELL_PATTERN_LESSER_HEAL); 
-            elseif spellname==HEALBOT_GREATER_HEAL then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_GREATER_HEAL ); 
-            elseif spellname==HEALBOT_FLASH_HEAL then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_FLASH_HEAL ); 
-            elseif spellname==HEALBOT_HEAL then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HEAL ); 
+
             end
-        elseif strsub(class,1,4)=="DRUI" then
-            if spellname==HEALBOT_REGROWTH then
-                tmpTest,tmpTest,HB_HealsMin,HB_HealsMax,HB_HealsExt = strfind(line, HB_SPELL_PATTERN_REGROWTH );
-                if ( tmpTest == nil ) then
-                    tmpTest,tmpTest,HB_HealsMin,HB_HealsMax,tmpTest,HB_HealsExt = strfind(line, HB_SPELL_PATTERN_REGROWTH1 );
-                end
-            elseif spellname==HEALBOT_REJUVENATION then
-                tmpTest,tmpTest,HB_HealsExt,HB_duration = strfind(line, HB_SPELL_PATTERN_REJUVENATION );  
-                HB_HealsMin=0;
-                HB_HealsMax=0;
-                if ( HB_HealsExt == nil ) then
-                    tmpTest,tmpTest,HB_HealsExt,tmpTest,HB_duration = strfind(line, HB_SPELL_PATTERN_REJUVENATION1 );
-                end
-                if ( HB_HealsExt == nil ) then
-                    tmpTest,tmpTest,HB_duration,HB_HealsExt = strfind(line, HB_SPELL_PATTERN_REJUVENATION2 );
-                end
-            elseif spellname==HEALBOT_HEALING_TOUCH then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HEALING_TOUCH ); 
-            end
-        elseif strsub(class,1,4)=="PALA" then
-            if spellname==HEALBOT_HOLY_LIGHT then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HOLY_LIGHT ); 
-            elseif spellname==HEALBOT_FLASH_OF_LIGHT then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_FLASH_OF_LIGHT ); 
-            end
-        elseif strsub(class,1,4)=="SHAM" then
-            if spellname==HEALBOT_HEALING_WAVE then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_HEALING_WAVE ); 
-            elseif spellname==HEALBOT_LESSER_HEALING_WAVE then
-                tmpTest,HB_HealsMin,HB_HealsMax = HealBot_Generic_Patten(line, HB_SPELL_PATTERN_LESSER_HEALING_WAVE ); 
-            end
+  
+            
         end
-    end  
 
 
     if HB_cast then
@@ -305,8 +305,6 @@ end
 
 function HealBot_Init_Spells_Defaults(class)
 
---  if strsub(class,1,4)==HealBot_Class_En[HEALBOT_PALADIN] then
--- PALADIN
     HealBot_Spells = {
         [HEALBOT_HOLY_LIGHT] = {},
         [HEALBOT_HOLY_LIGHT .. HEALBOT_RANK_1] = {
@@ -355,13 +353,6 @@ function HealBot_Init_Spells_Defaults(class)
             CastTime = 1.5, Cast = 1.5, Duration = 15, Mana = 350, HealsMin =  682, HealsMax =  764, Level = 74 },
         [HEALBOT_FLASH_OF_LIGHT .. HEALBOT_RANK_9] = {
             CastTime = 1.5, Cast = 1.5, Duration = 15, Mana = 420, HealsMin =  785, HealsMax =  879, Level = 79 },
-    
---    };
---  end
-
---  if strsub(class,1,4)==HealBot_Class_En[HEALBOT_DRUID] then
--- DRUID
---    HealBot_Spells = {
 
         [HEALBOT_REJUVENATION] = {},
         [HEALBOT_REJUVENATION .. HEALBOT_RANK_1 ] = { 
@@ -490,13 +481,6 @@ function HealBot_Init_Spells_Defaults(class)
             CastTime = 0, Cast = 0, Duration = 8, Mana = 1500, HealsMin = 0, HealsMax = 0, HealsExt = 2598, Level = 75, Buff = HEALBOT_TRANQUILITY },
         [HEALBOT_TRANQUILITY .. HEALBOT_RANK_7] = {
             CastTime = 0, Cast = 0, Duration = 8, Mana = 2000, HealsMin = 0, HealsMax = 0, HealsExt = 3035, Level = 80, Buff = HEALBOT_TRANQUILITY },    
-    
---    };
---  end
-
---  if strsub(class,1,4)==HealBot_Class_En[HEALBOT_PRIEST] then
--- PRIEST
---    HealBot_Spells = {
 
         [HEALBOT_LESSER_HEAL] = {},
         [HEALBOT_LESSER_HEAL .. HEALBOT_RANK_1] = {
@@ -679,13 +663,6 @@ function HealBot_Init_Spells_Defaults(class)
             CastTime = 0, Cast = 0, Shield = 30, Mana = 960, HealsMin = 2230, HealsMax = 2230, Level = 80,
             Buff= HEALBOT_POWER_WORD_SHIELD, Duration = 30}, 
 
---    };
---  end
-
---  if strsub(class,1,4)==HealBot_Class_En[HEALBOT_SHAMAN] then
--- SHAMAN
---    HealBot_Spells = {
-
         [HEALBOT_HEALING_WAVE] = {},
         [HEALBOT_HEALING_WAVE .. HEALBOT_RANK_1] = {
              CastTime = 1.5, Cast = 1.5, Mana =  25, HealsMin =   34, HealsMax =   44, Level =  1 }, 
@@ -794,12 +771,6 @@ function HealBot_Init_Spells_Defaults(class)
         [HEALBOT_RIPTIDE .. HEALBOT_RANK_4] = {
             CastTime = 0, Cast = 0, Duration = 15, Mana = 1500, HealsMin = 1015, HealsMax = 1099, HealsExt =  795, Level = 80 },
             
---    };
---  end
-
---  if strsub(class,1,4)==HealBot_Class_En[HEALBOT_HUNTER] then
---  Hunter
---    HealBot_Spells = {
         [HEALBOT_MENDPET] = {},
         [HEALBOT_MENDPET .. HEALBOT_RANK_1] = {
             CastTime = 0, Cast = 0, Duration = 15, Mana =  40, HealsMin = 0, HealsMax = 0, HealsExt =   125, Level =  12, Buff = HEALBOT_MENDPET }, 
@@ -822,19 +793,24 @@ function HealBot_Init_Spells_Defaults(class)
         [HEALBOT_MENDPET .. HEALBOT_RANK_10] = {
             CastTime = 0, Cast = 0, Duration = 15, Mana =  750, HealsMin = 0, HealsMax = 0, HealsExt =   5250, Level =  80, Buff = HEALBOT_MENDPET }, 
     };
---  end
 
 end
-
 
 function HealBot_Init_SmartCast()
-    if strsub(HealBot_PlayerClassEN,1,4)=="PRIE" then
-        SmartCast_Res=HEALBOT_RESURRECTION;
-    elseif strsub(HealBot_PlayerClassEN,1,4)=="DRUI" then
-        SmartCast_Res=HEALBOT_REVIVE;
-    elseif strsub(HealBot_PlayerClassEN,1,4)=="PALA" then
-        SmartCast_Res=HEALBOT_REDEMPTION;
-    elseif strsub(HealBot_PlayerClassEN,1,4)=="SHAM" then
-        SmartCast_Res=HEALBOT_ANCESTRALSPIRIT;
+
+    
+    SmartCast_Res = HEALBOT_REVIVE;
+    if IsSpellKnown(7328) then
+        SmartCast_Res = HEALBOT_REDEMPTION;
+        elseif IsSpellKnown(2006) then
+            SmartCast_Res = HEALBOT_RESURRECTION;
+            -- body
+        elseif IsSpellKnown(2008) then
+            -- body
+            SmartCast_Res = HEALBOT_ANCESTRALSPIRIT;
     end
+    return SmartCast_Res;
+    
 end
+
+

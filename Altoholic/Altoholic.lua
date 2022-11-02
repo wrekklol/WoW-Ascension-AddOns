@@ -83,6 +83,8 @@ local function InitLocalization()
 	AltoholicFrameTotals:SetText(L["Totals"])
 	AltoholicFrameSearchLabel:SetText(L["Search Containers"])
 	AltoholicFrame_ResetButton:SetText(L["Reset"])
+
+	AltoholicFrameTab5:Hide();
 	
 	-- nil strings to save memory, since they are not used later on.
 	L["Summary"] = nil
@@ -725,12 +727,12 @@ function Altoholic:DrawCharacterTooltip(self, charName)
 	
 	AltoTooltip:AddLine("Average iLevel: " .. GREEN .. format("%.1f", DS:GetAverageItemLevel(character)),1,1,1);	
 
-	if IsAddOnLoaded("DataStore_Achievements") then
+--[[ 	if IsAddOnLoaded("DataStore_Achievements") then
 		if DS:GetNumCompletedAchievements(character) > 0 then
 			AltoTooltip:AddLine(ACHIEVEMENTS_COMPLETED ..": " .. GREEN .. DS:GetNumCompletedAchievements(character) .. "/"..DS:GetNumAchievements(character))
 			AltoTooltip:AddLine(ACHIEVEMENT_TITLE ..": " .. GREEN .. DS:GetNumAchievementPoints(character))
 		end
-	end
+	end ]]
 	
 	AltoTooltip:Show();
 end

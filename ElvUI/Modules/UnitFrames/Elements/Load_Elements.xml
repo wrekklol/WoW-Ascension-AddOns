@@ -18,6 +18,8 @@
 	<Script file="Name.lua"/>
 	<Script file="Portrait.lua"/>
 	<Script file="Power.lua"/>
+	<Script file="PowerRage.lua"/>
+	<Script file="PowerEnergy.lua"/>
 	<Script file="PvPIcon.lua"/>
 	<Script file="PvPIndicator.lua"/>
 	<Script file="RaidDebuffs.lua"/>

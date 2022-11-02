@@ -44,13 +44,13 @@ E.PopupDialogs.ELVUI_UPDATED_WHILE_RUNNING = {
 }
 
 E.PopupDialogs.ELVUI_UPDATE_AVAILABLE = {
-	text = L["ElvUI is five or more revisions out of date. You can download the newest version from https://github.com/ElvUI-WotLK/ElvUI"],
+	text = L["ElvUI is five or more revisions out of date. You can download the newest version from https://github.com/BanditTech/ElvUI-Ascension"],
 	hasEditBox = 1,
 	OnShow = function(self)
 		self.editBox:SetAutoFocus(false)
 		self.editBox.width = self.editBox:GetWidth()
 		self.editBox:Width(220)
-		self.editBox:SetText("https://github.com/ElvUI-WotLK/ElvUI")
+		self.editBox:SetText("https://github.com/BanditTech/ElvUI-Ascension")
 		self.editBox:HighlightText()
 		ChatEdit_FocusActiveWindow()
 	end,
@@ -70,8 +70,8 @@ E.PopupDialogs.ELVUI_UPDATE_AVAILABLE = {
 		self:GetParent():Hide()
 	end,
 	EditBoxOnTextChanged = function(self)
-		if self:GetText() ~= "https://github.com/ElvUI-WotLK/ElvUI" then
-			self:SetText("https://github.com/ElvUI-WotLK/ElvUI")
+		if self:GetText() ~= "https://github.com/BanditTech/ElvUI-Ascension" then
+			self:SetText("https://github.com/BanditTech/ElvUI-Ascension")
 		end
 		self:HighlightText()
 		self:ClearFocus()
@@ -329,6 +329,48 @@ E.PopupDialogs.RESETUI_CHECK = {
 	button2 = CANCEL,
 	OnAccept = function()
 		E:ResetAllUI()
+	end,
+	whileDead = 1
+}
+
+E.PopupDialogs.HARLEM_SHAKE = {
+	text = L["ElvUI needs to perform database optimizations please be patient."],
+	button1 = OKAY,
+	OnAccept = function()
+		if E.isMassiveShaking then
+			E:StopHarlemShake()
+		else
+			E:BeginHarlemShake()
+			return true
+		end
+	end,
+	whileDead = 1
+}
+
+E.PopupDialogs.HELLO_KITTY = {
+	text = L["ElvUI needs to perform database optimizations please be patient."],
+	button1 = OKAY,
+	OnAccept = function()
+		E:SetupHelloKitty()
+	end,
+	whileDead = 1
+}
+
+E.PopupDialogs.HELLO_KITTY_END = {
+	text = L["Do you enjoy the new ElvUI?"],
+	button1 = L["Yes, Keep Changes!"],
+	button2 = L["No, Revert Changes!"],
+	OnAccept = function()
+		E:Print(L["Type /hellokitty to revert to old settings."])
+		StopMusic()
+		SetCVar("Sound_EnableAllSound", E.oldEnableAllSound)
+		SetCVar("Sound_EnableMusic", E.oldEnableMusic)
+	end,
+	OnCancel = function()
+		E:RestoreHelloKitty()
+		StopMusic()
+		SetCVar("Sound_EnableAllSound", E.oldEnableAllSound)
+		SetCVar("Sound_EnableMusic", E.oldEnableMusic)
 	end,
 	whileDead = 1
 }

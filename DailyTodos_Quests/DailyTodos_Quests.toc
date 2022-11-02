@@ -1,0 +1,8 @@
+## Title: Daily To-Do's Quest Database
+## Notes: Inventory of available Daily Quests
+## Interface: 30500
+## Version: 1.9a
+## Author: Caedus.  Rewrite by Xan
+## LoadOnDemand: 1
+## Dependencies: DailyTodos
+Quests.lua
