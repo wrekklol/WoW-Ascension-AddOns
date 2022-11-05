@@ -1,19 +1,18 @@
 ﻿## Interface: 30300
-## X-Compatible-With: 40000
 ## Title: SilverDragon
 ## Notes: Remember where rares were
 ## Title-zhTW: SilverDragon
 ## Notes-zhTW: 協助記錄稀有怪位置,以及MouseOver時提示你.
 ## Notes-zhCN: 记录稀有怪物位置。
-## Version: v2.3.4-9-gfaa9d93
+## Version: v2.3.4-6-g0c8a67f
 ## Author: Kemayo
 ## eMail: kemayo at gmail dot com
 ## X-Category: Interface Enhancements
 ## X-Donate: PayPal:kemayo AT gmail DOT com
-## OptionalDependencies: Ace3, LibBabble-CreatureType-3.0, LibBabble-Zone-3.0, HandyNotes, Cartographer, Cartographer_Notes, LibSink-2.0, tekDebug
+## OptionalDependencies: Ace3, LibBabble-CreatureType-3.0, LibBabble-Zone-3.0, HandyNotes, Cartographer, Cartographer_Notes, LibSink-2.0
 ## SavedVariables: SilverDragon2DB
 ## LoadOnDemand: 0
-## X-Curse-Packaged-Version: v2.3.4-9-gfaa9d93
+## X-Curse-Packaged-Version: v2.3.4-6-g0c8a67f
 ## X-Curse-Project-Name: SilverDragon
 ## X-Curse-Project-ID: silver-dragon
 ## X-Curse-Repository-ID: wow/silver-dragon/mainline

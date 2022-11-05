@@ -235,7 +235,7 @@ ausgabe_options.args.output.order = 200
 local defaults = {
     profile =  {
 		zeit = 3,
-		playsound = false,
+		playsound = true,
 		mapnote = true,
 		showDead = true,
 		macro = true,
@@ -244,11 +244,11 @@ local defaults = {
 		nplate = true,
 		mmap = true,
 		npccache = true,
-		mover = false,
+		mover = true,
 		stameable = true,
 		town = true,
 		scan = 0.5,
-		wsound = "",
+		wsound = "Miau",
 		sinkOptions = {}
     },
 }

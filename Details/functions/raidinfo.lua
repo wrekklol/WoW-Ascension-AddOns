@@ -4,7 +4,7 @@ local LBZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 -- BK
 
 do --> data for Zul'Aman
-	local INSTANCE_MAPID = 867
+	local INSTANCE_MAPID = 782
 	local HDIMAGESPATH = "Details\\images\\raid"
 	local HDFILEPREFIX = "ZulAman"
 	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LOADSCREENZULAMAN", {0, 1, 285/1024, 875/1024}
@@ -75,7 +75,7 @@ do --> data for Zul'Aman
 end
 
 do --> data for Serpentshrine Cavern
-	local INSTANCE_MAPID = 863
+	local INSTANCE_MAPID = 781
 	local HDIMAGESPATH = "Details\\images\\raid"
 	local HDFILEPREFIX = "SerpentshrineCavern"
 	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LOADSCREENCOILFANG", {0, 1, 285/1024, 875/1024}
@@ -146,7 +146,7 @@ do --> data for Serpentshrine Cavern
 end
 
 do --> data for Magtheridon's Lair
-	local INSTANCE_MAPID = 866
+	local INSTANCE_MAPID = 780
 	local HDIMAGESPATH = "Details\\images\\raid"
 	local HDFILEPREFIX = "MagtheridonLair"
 	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LOADSCREENHELLFIRECITADELRAID", {0, 1, 285/1024, 875/1024}
@@ -197,7 +197,7 @@ do --> data for Magtheridon's Lair
 end
 
 do --> data for Gruul's Lair
-	local INSTANCE_MAPID = 865
+	local INSTANCE_MAPID = 777
 	local HDIMAGESPATH = "Details\\images\\raid"
 	local HDFILEPREFIX = "GruulLair"
 	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LOADSCREENGRUULSLAIR", {0, 1, 285/1024, 875/1024}
@@ -252,7 +252,7 @@ do --> data for Gruul's Lair
 end
 
 do --> data for Karazhan
-	local INSTANCE_MAPID = 868
+	local INSTANCE_MAPID = 800
 	local HDIMAGESPATH = "Details\\images\\raid"
 	local HDFILEPREFIX = "Karazhan"
 	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LoadScreenKarazhan", {0, 1, 285/1024, 875/1024}
@@ -274,12 +274,12 @@ do --> data for Karazhan
 
 	-- TODO: Opera
 	local ENCOUNTER_ID_CL = {
-		16152, 15687, 16457, 17535, 34437, 15688, 16524, 15689, 17225, 15690,
+		16152, 15687, 16457, 17535, 15691, 15688, 16524, 15689, 17225, 15690,
 		[16152] = 1, --Attumen the Huntsman
 		[15687] = 2, --Moroes
 		[16457] = 3, --Maiden of Virtue
 		[17535] = 4, --Opera Event
-		[34437] = 5, --The Curator
+		[15691] = 5, --The Curator
 		[15688] = 6, --Terestian Illhoof
 		[16524] = 7, --Shade of Aran
 		[15689] = 8, --Netherspite
@@ -338,7 +338,7 @@ do --> data for Karazhan
 			[17521] = 4, --The Big Bad Wolf
 			[17533] = 4, --Romulo
 			[17534] = 4, --Julianne
-			[34437] = 5, --The Curator
+			[15691] = 5, --The Curator
 			[15688] = 6, --Terestian Illhoof
 			[16524] = 7, --Shade of Aran
 			[15689] = 8, --Netherspite
@@ -349,7 +349,7 @@ do --> data for Karazhan
 end
 
 do --> data for The Eye
-	local INSTANCE_MAPID = 862
+	local INSTANCE_MAPID = 783
 	local HDIMAGESPATH = "Details\\images\\raid"
 	local HDFILEPREFIX = "TheEye"
 	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LOADSCREENTEMPESTKEEP", {0, 1, 285/1024, 875/1024}
@@ -365,7 +365,7 @@ do --> data for The Eye
 
 	-- TODO: Opera
 	local ENCOUNTER_ID_CL = {
-		19514, 19516, 18805, 19622,
+		19514, 19516, 18805, 19622, 20062, 219622,220062,
 		[19514] = 1, --Al'ar
 		[19516] = 2, --Void Reaver
 		[18805] = 3, --High Astromancer Solarian
@@ -415,7 +415,7 @@ end
 -- WotLK
 
 do --> data for Onyxia's Lair
-	local INSTANCE_MAPID = 14
+	local INSTANCE_MAPID = 719
 	local HDIMAGESPATH = "Details\\images\\raid"
 	local HDFILEPREFIX = "OnyxiaLair"
 	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LoadScreenRaid", {0, 1, 285/1024, 875/1024}

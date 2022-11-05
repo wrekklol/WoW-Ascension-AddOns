@@ -1,9 +1,0 @@
-David Lynch:
-	- Fix alt-tab mixup for target-frame
-	- Basically works in Cata. Need to investigate the cache-scanner.
-	- Rerun dataminer
-	- Run dataminer
-	- wowhead format changed
-	- inline for data management
-	- Rearrange config
-	- Option to skip scanning on taxi

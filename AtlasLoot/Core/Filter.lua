@@ -5,7 +5,7 @@ Loot browser associating loot with instance bosses
 Can be integrated with Atlas (http://www.atlasmod.com)
 
 Functions:
-AtlasLoot_HideNoUsableItems()
+AtlasLoot:HideNoUsableItems()
 AtlasLoot_FilterEnableButton()
 <local> CreateCheckButton(parrent, text, num)
 AtlasLoote_CreateFilterOptions()
@@ -92,48 +92,45 @@ local ClassHides = {
 
 -- **********************************************************************
 -- ItemFilter:
---	AtlasLoot_HideNoUsableItems()
+--	AtlasLoot:HideNoUsableItems()
 --	AtlasLoot_FilterEnableButton()
 -- **********************************************************************
 
-AtlasLoot_Data["FilterList"] = {
-};
+AtlasLoot_Data["FilterList"] = { [1] = {}; };
 
 function AtlasLoot_Testabc()
 		print(BabbleInventory["Two-Hand"])
-end	
-	
-	
-function AtlasLoot_HideNoUsableItems()
-	local dataID = AtlasLootItemsFrame.refreshOri[1] 
-	local dataSource = AtlasLootItemsFrame.refreshOri[2] 
-	local boss = AtlasLootItemsFrame.refreshOri[3] 
-	local pFrame = AtlasLootItemsFrame.refreshOri[4] 	
-	local tablebase = AtlasLoot_Data[dataID]
-	if not tablebase or dataID == "WishList" or dataID == "SearchResult" or dataSource == "AtlasLootCrafting" then return end
+end
+
+function AtlasLoot:HideNoUsableItems()
+	local dataID, dataSource, tablenum = AtlasLootItemsFrame.refreshFilter[1], _G[AtlasLootItemsFrame.refreshFilter[2]], AtlasLootItemsFrame.refreshFilter[3];
+
+ 	local tablebase = dataSource[dataID][tablenum]
+	if not tablebase or dataID == "WishList" or dataID == "SearchResult" then return end
 	local itemCount = 0
 	local countAll = 1
 	local count = 0
 	local leatherworking = GetSpellInfo(2108)
 
-	AtlasLoot_Data["FilterList"] = {}
+	AtlasLoot_Data["FilterList"] = { Type = dataSource[dataID].Type; Name = dataSource[dataID].Name; Back = dataSource[dataID].Back; Map = dataSource[dataID].Map; [tablenum] = {Name = dataSource[dataID][tablenum].Name}; };
+
 	for i=1,30 do
-		local info = getglobal("AtlasLootItem_"..i.."_Extra"):GetText()
-		if getglobal("AtlasLootItem_"..i):IsShown() then
+		local info = _G["AtlasLootItem_"..i.."_Extra"]:GetText()
+		if _G["AtlasLootItem_"..i]:IsShown() then
 			local xgo = true
 			local countOld = count
 			itemCount = itemCount + 1
 			countAll = countAll + count
 			count = 0
-			local xitemID = getglobal("AtlasLootItem_"..i).itemID
-			local xspellitemID = getglobal("AtlasLootItem_"..i).spellitemID
+			local xitemID = _G["AtlasLootItem_"..i].itemID
+			local xspellitemID = _G["AtlasLootItem_"..i].spellitemID
 			local xitemTexture = tablebase[itemCount][3]
 			local xitemExtraText = AtlasLoot_FixText(tablebase[itemCount][5])
 			local xitemExtraTextSave = xitemExtraText
 			-- remove the "-"
 			xitemExtraText = gsub(xitemExtraText, "-", "") 
-			local xitemNameText = getglobal("AtlasLootItem_"..i.."_Name"):GetText()
-			
+			local xitemNameText = _G["AtlasLootItem_"..i.."_Name"]:GetText()
+
 			if xitemExtraText and xitemExtraText ~= "" then
 				for k = 1,#FilterSort do
 					k = FilterSort[k]
@@ -165,39 +162,39 @@ function AtlasLoot_HideNoUsableItems()
 					end
 				end
 			end
-			
+
 			-- Sort the items
 			if xgo == true then
 				if i==16 and countOld > 0 then
-					AtlasLoot_Data["FilterList"][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
+					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
 					countAll = 16
 				elseif i==16 and xitemExtraText and strfind(xitemExtraText, AL["Token"]) then
-					AtlasLoot_Data["FilterList"][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
+					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
 					countAll = 16
 				elseif countAll < 16 and xitemNameText and strfind(xitemNameText, AL["Hard Mode"]) then
-					AtlasLoot_Data["FilterList"][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
+					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
 					countAll = 16
 				elseif i==16 and xitemTexture == "INV_Box_01" then
-					AtlasLoot_Data["FilterList"][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
+					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
 					countAll = 16
 				else
-					AtlasLoot_Data["FilterList"][countAll] = { countAll, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}					
+					AtlasLoot_Data["FilterList"][tablenum][countAll] = { countAll, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}					
 				end
-				
+
 				if tablebase[itemCount][6] and countAll==16 then
-					AtlasLoot_Data["FilterList"][16][6] = tablebase[itemCount][6]
+					AtlasLoot_Data["FilterList"][tablenum][16][6] = tablebase[itemCount][6]
 				elseif tablebase[itemCount][6] and countAll~=16 then
-					AtlasLoot_Data["FilterList"][countAll][6] = tablebase[itemCount][6]
+					AtlasLoot_Data["FilterList"][tablenum][countAll][6] = tablebase[itemCount][6]
 				end
 				if tablebase[itemCount][7] and countAll==16 then
-					AtlasLoot_Data["FilterList"][16][7] = tablebase[itemCount][7]
+					AtlasLoot_Data["FilterList"][tablenum][16][7] = tablebase[itemCount][7]
 				elseif tablebase[itemCount][7] and countAll~=16 then
-					AtlasLoot_Data["FilterList"][countAll][7] = tablebase[itemCount][7]
+					AtlasLoot_Data["FilterList"][tablenum][countAll][7] = tablebase[itemCount][7]
 				end
 				if tablebase[itemCount][8] and countAll==16 then
-					AtlasLoot_Data["FilterList"][16][8] = tablebase[itemCount][8]
+					AtlasLoot_Data["FilterList"][tablenum][16][8] = tablebase[itemCount][8]
 				elseif tablebase[itemCount][8] and countAll~=16 then
-					AtlasLoot_Data["FilterList"][countAll][8] = tablebase[itemCount][8]
+					AtlasLoot_Data["FilterList"][tablenum][countAll][8] = tablebase[itemCount][8]
 				end
 
 				countAll = countAll + 1
@@ -205,37 +202,25 @@ function AtlasLoot_HideNoUsableItems()
 			end
 		else
 			count = count + 1
-		end		
+		end
 	end
 
-	-- Set the Next, Prev and Back button.
-	if tablebase.Next then
-		AtlasLoot_Data["FilterList"].Next = tablebase.Next
-	end
-	if tablebase.Prev then
-		AtlasLoot_Data["FilterList"].Prev = tablebase.Prev
-	end
-	if tablebase.Back then
-		AtlasLoot_Data["FilterList"].Back = tablebase.Back
-	end
-	
-	AtlasLoot_TableNames["FilterList"] = {AtlasLoot_TableNames[dataID][1],AtlasLoot_TableNames[dataID][2]};
-	AtlasLoot_ShowItemsFrame("FilterList", "AtlasLootFilter", "", AtlasLootItemsFrame.refresh[4])
+	AtlasLoot:ShowItemsFrame("FilterList", "AtlasLoot_Data", AtlasLootItemsFrame.refresh[3])
 end
 
 function AtlasLoot_FilterEnableButton()
 	if ATLASLOOT_FILTER_ENABLE == true then
-		ATLASLOOT_FILTER_ENABLE = false
-		AtlasLoot_ShowItemsFrame(AtlasLootItemsFrame.refreshOri[1], AtlasLootItemsFrame.refreshOri[2], AtlasLootItemsFrame.refreshOri[3], AtlasLootItemsFrame.refreshOri[4])
+		ATLASLOOT_FILTER_ENABLE = false;
+		AtlasLoot:ShowItemsFrame(AtlasLootItemsFrame.refreshFilter[1], AtlasLootItemsFrame.refreshFilter[2], AtlasLootItemsFrame.refreshFilter[3]);
 	else
 		ATLASLOOT_FILTER_ENABLE = true
-		AtlasLoot_HideNoUsableItems()
+		AtlasLoot:HideNoUsableItems();
 	end
 end
 
 -- **********************************************************************
 -- Options:
---	AtlasLoot_HideNoUsableItems()
+--	AtlasLoot:HideNoUsableItems()
 --	<local> CreateCheckButton(parrent, text, num)
 --	AtlasLoote_CreateFilterOptions()
 -- **********************************************************************
@@ -251,7 +236,7 @@ local function CreateCheckButton(parrent, text, num)
 		Check:SetWidth(25)
 		Check:SetHeight(25)
 		Check:SetScript("OnShow", function()
-			getglobal(this:GetName().."Text"):SetText(BabbleInventory[text]);
+			_G[this:GetName().."Text"]:SetText(BabbleInventory[text]);
 			if AtlasLootFilterDB[num][text] then
 				this:SetChecked(1);
 			else

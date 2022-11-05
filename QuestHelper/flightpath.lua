@@ -247,53 +247,6 @@ local moonglade_fp = nil
 
 function QuestHelper:addLinkInfo(data, flight_times)
   if data then
-    if select(2, UnitClass("player")) ~= "DRUID" then
-      -- As only druids can use the flight point in moonglade, we need to figure out
-      -- where it is so we can ignore it.
-      
-      if not moonglade_fp then
-        
-        local fi_table = QuestHelper_FlightInstructors_Local[self.faction]
-        
-        if fi_table then for area, npc in pairs(fi_table) do
-          local npc_obj = self:GetObjective("monster", npc)
-          npc_obj:PrepareRouting(true, {failable = true})
-          local pos = npc_obj:Position()
-          if pos and QuestHelper_IndexLookup[pos[1].c][pos[1].z] == 20 and string.find(area, ",") then -- I'm kind of guessing here
-            moonglade_fp = area
-            npc_obj:DoneRouting()
-            break
-          end
-          npc_obj:DoneRouting()
-        end end
-        
-        if not moonglade_fp then
-          fi_table = QuestHelper_StaticData[QuestHelper_Locale]
-          fi_table = fi_table and fi_table.flight_instructors and fi_table.flight_instructors[self.faction]
-          
-          if fi_table then for area, npc in pairs(fi_table) do
-            local npc_obj = self:GetObjective("monster", npc)
-            npc_obj:PrepareRouting(true, {failable = true})
-            local pos = npc_obj:Position()
-            if pos and QuestHelper_IndexLookup[pos[1].c][pos[1].z] == 20 and string.find(area, ",") then
-              moonglade_fp = area
-              npc_obj:DoneRouting()
-              break
-            end
-            npc_obj:DoneRouting()
-          end end
-        end
-        
-        if not moonglade_fp then
-          -- This will always be unknown for the session, even if you call buildFlightTimes again
-          -- but if it's unknown then you won't be able to
-          -- get the waypoint this session since you're not a druid
-          -- so its all good.
-          moonglade_fp = "unknown"
-        end
-      end
-    end
-    
     for origin, list in pairs(data) do
       local tbl = flight_times[origin]
       if not tbl then

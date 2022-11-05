@@ -34,7 +34,8 @@ local classlookup = {
   ["PROPHET"] = "PR",
   ["REAPER"] = "RE",
   ["WILDWALKER"] = "WIL",
-  ["SPIRITMAGE"] = "SPI"
+  ["SPIRITMAGE"] = "SPI",
+  ["HERO"] = "D" -- same as druid
 
 };
 

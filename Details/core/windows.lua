@@ -2371,7 +2371,12 @@ local _utf8sub = string.utf8sub
 
 			for index, class_name in ipairs (CLASS_SORT_ORDER) do
 
-				local icon = gump:CreateImage (upper_panel, [[Interface\Glues\CHARACTERCREATE\UI-CHARACTERCREATE-CLASSES]], 32, 32, nil, CLASS_ICON_TCOORDS [class_name], "icon_" .. class_name)
+				local icon
+				if bit.contains(Enum.ClassMask.COA, Enum.ClassMask[class_name]) then
+					icon = gump:CreateImage (upper_panel, [[Interface\Glues\CHARACTERCREATE\UI-CHARACTERCREATE-CLASSES]], 32, 32, nil, CLASS_ICON_TCOORDS [class_name], "icon_" .. class_name)
+				else
+					icon = gump:CreateImage (upper_panel, [[Interface\Glues\CHARACTERCREATE\-UI-CHARACTERCREATE-CLASSES]], 32, 32, nil, CLASS_ICON_TCOORDS [class_name], "icon_" .. class_name)
+				end
 
 				if (index%2 ~= 0) then
 					icon:SetPoint (10, y)

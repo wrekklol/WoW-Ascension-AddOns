@@ -661,6 +661,23 @@ local BossIDs = {
 	[21274] = true, -- Staff of Disintegration
 	[21272] = true, -- Warp Slicer
 	
+	-- Ascended 10m Tempest Kep: The Eye
+	[219514] = true, -- Al'ar
+	[219516] = true, -- Void Reaver
+	[218805] = true, -- High Astromancer Solarian
+	[219622] = true, -- Kael'thas Sunstrider
+	[220064] = true, -- Thaladred the Darkener
+	[220060] = true, -- Lord Sanguinar
+	[220062] = true, -- Grand Astromancer Capernian
+	[220063] = true, -- Master Engineer Telonicus
+	[221270] = true, -- Cosmic Infuser
+	[221269] = true, -- Devastation
+	[221271] = true, -- Infinity Blades
+	[221268] = true, -- Netherstrand Longbow
+	[221273] = true, -- Phaseshift Bulwark
+	[221274] = true, -- Staff of Disintegration
+	[221272] = true, -- Warp Slicer
+	
 	-- Caverns of Time: Battle for Mount Hyjal
 	[17767] = true, -- Rage Winterchill
 	[17808] = true, -- Anetheron

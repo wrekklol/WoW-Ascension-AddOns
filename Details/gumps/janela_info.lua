@@ -1491,18 +1491,21 @@ local elvui_skin = function()
 	--class icon
 	window.SetClassIcon = function (player, class)
 
-		if (player.spec) then
+		if (player.spec and player.spec > 0) then
 			window.classe_icone:SetTexture ([[Interface\AddOns\Details\images\spec_icons_normal_alpha]])
 			window.classe_icone:SetTexCoord (_unpack (_detalhes.class_specs_coords [player.spec]))
 			--esta_barra.icone_classe:SetVertexColor (1, 1, 1)
 		else
 			local coords = CLASS_ICON_TCOORDS [class]
 			if (coords) then
-				info.classe_icone:SetTexture ([[Interface\Glues\CHARACTERCREATE\UI-CHARACTERCREATE-CLASSES]])
+				if bit.contains(Enum.ClassMask.COA, Enum.ClassMask[class]) then
+					info.classe_icone:SetTexture ([[Interface\Glues\CHARACTERCREATE\UI-CHARACTERCREATE-CLASSES]])
+				else
+					info.classe_icone:SetTexture ([[Interface\Glues\CHARACTERCREATE\-UI-CHARACTERCREATE-CLASSES]])
+				end
 				local l, r, t, b = unpack (coords)
 				info.classe_icone:SetTexCoord (l+0.01953125, r-0.01953125, t+0.01953125, b-0.01953125)
 			else
-
 				local c = _detalhes.class_coords ["MONSTER"]
 				info.classe_icone:SetTexture ("Interface\\AddOns\\Details\\images\\classes")
 				info.classe_icone:SetTexCoord (c[1], c[2], c[3], c[4])

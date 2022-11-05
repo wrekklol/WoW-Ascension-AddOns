@@ -717,12 +717,12 @@ function Atr_GetSellItemInfo ()
 		end
 
 			--Swap auction name to search for re on the item
-			if Atr_RESearch:GetChecked() and ReName ~= nil then
+			if Atr_RESearch:GetChecked() and ReName ~= nil and MYSTIC_ENCHANTS[ReName] then
 				auctionItemName = "RE:" .. MYSTIC_ENCHANTS[ReName].spellName;
 				exact = false;
 				renameSaved = ReName;
 				ReName = nil;
-			elseif Atr_RESearch:GetChecked() and renameSaved ~= "" then
+			elseif Atr_RESearch:GetChecked() and renameSaved ~= "" and MYSTIC_ENCHANTS[renameSaved] then
 				auctionItemName = "RE:" .. MYSTIC_ENCHANTS[renameSaved].spellName;
 				exact = false;
 				ReName = nil;
@@ -730,7 +730,7 @@ function Atr_GetSellItemInfo ()
 				local text = string.sub(auctionItemName, 15)
 				if (text and text ~= "") then 
 					-- RE: is used for checking bag count
-					auctionItemName = "RE:" .. text --text:gsub("^%s*(.-)%s*$", "%1")
+					auctionItemName = "RE:" .. text
 					exact = false
 					renameSaved = "";
 				end	
@@ -1058,14 +1058,10 @@ local function Atr_LoadContainerItemToSellPane()
 	end
 
 	PickupContainerItem(bagID, slotID);
+	renameSaved = "";
 	--Get MysticEnchant from alt left clicking item
-	if GetREInSlot(bagID, slotID) ~= nil then
-		renameSaved = "";
-		ReName = GetREInSlot(bagID, slotID);
-	else
-		renameSaved = "";
-		ReName = nil;
-	end
+	ReName = GetContainerItemMysticEnchant(bagID, slotID)
+
 	local infoType = GetCursorInfo()
 
 	if (infoType == "item") then
@@ -1200,6 +1196,9 @@ end
 -----------------------------------------
 
 function Atr_LogMsg (itemlink, itemcount, price, numstacks)
+	if not itemlink then -- this should be investigated.
+		itemlink = "Unknown Item Link"
+	end
 
 	local logmsg = string.format (ZT("Auction created for %s"), itemlink);
 	
@@ -3628,13 +3627,8 @@ function Atr_Duration_OnShow(self)
 		--Hook Container ID to get MysticEnchant from item
 		hooksecurefunc("ContainerFrameItemButton_OnClick",function(self,button)
 			local bagID,slotID=self:GetParent():GetID(),self:GetID();
-			if GetREInSlot(bagID, slotID) ~= nil then
-				renameSaved = "";
-				ReName = GetREInSlot(bagID, slotID);
-			else
-				renameSaved = "";
-				ReName = nil;
-			end
+			renameSaved = "";
+			ReName = GetContainerItemMysticEnchant(bagID, slotID)
 		end);
 end
 

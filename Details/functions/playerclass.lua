@@ -239,7 +239,7 @@ do
 			local misc_actor = _detalhes.tabela_vigente(4, Actor.nome)
 			if misc_actor and misc_actor.spell_cast then
 				for spellid, _ in _pairs(misc_actor.spell_cast) do
-					local spec = SpecSpellList[spellid]
+					local spec = SpecSpellList[spellid] -- Finds the spec to display based on the spell used. Need to add specific spells for Ascension TODO
 					if spec then
 						_detalhes.cached_specs[Actor.serial] = spec
 

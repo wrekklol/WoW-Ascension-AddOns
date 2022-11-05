@@ -1,29 +1,39 @@
 local oldGetInstanceDifficulty = GetInstanceDifficulty
-function GetInstanceDifficulty()
-	local diff = oldGetInstanceDifficulty()
-	if diff == 1 then
-		local _, _, difficulty, _, maxPlayers = GetInstanceInfo()
-		if difficulty == 1 and maxPlayers == 25 then
-			diff = 2
+if not _GetInstanceDifficulty then
+	function GetInstanceDifficulty()
+		local diff = oldGetInstanceDifficulty()
+		if diff == 1 then
+			local _, _, difficulty, _, maxPlayers = GetInstanceInfo()
+			if difficulty == 1 and maxPlayers == 25 then
+				diff = 2
+			end
 		end
+		return diff
 	end
-	return diff
 end
 
-function IsInGroup()
-	return GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0
+if not IsInGroup then
+	function IsInGroup()
+		return GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0
+	end
 end
 
-function IsInRaid()
-	return GetNumRaidMembers() > 0
+if not IsInRaid then
+	function IsInRaid()
+		return GetNumRaidMembers() > 0
+	end
 end
 
-function GetNumSubgroupMembers()
-	return GetNumPartyMembers()
+if not GetNumSubgroupMembers then
+	function GetNumSubgroupMembers()
+		return GetNumPartyMembers()
+	end
 end
 
-function GetNumGroupMembers()
-	return IsInRaid() and GetNumRaidMembers() or GetNumPartyMembers()
+if not GetNumGroupMembers then
+	function GetNumGroupMembers()
+		return IsInRaid() and GetNumRaidMembers() or GetNumPartyMembers()
+	end
 end
 
 --[[
@@ -134,21 +144,6 @@ if not C_Timer or C_Timer._version ~= 2 then
 	end
 end
 
-
-
-
-
-RAID_CLASS_COLORS.HUNTER.colorStr = "ffabd473"
-RAID_CLASS_COLORS.WARLOCK.colorStr = "ff8788ee"
-RAID_CLASS_COLORS.PRIEST.colorStr = "ffffffff"
-RAID_CLASS_COLORS.PALADIN.colorStr = "fff58cba"
-RAID_CLASS_COLORS.MAGE.colorStr = "ff3fc7eb"
-RAID_CLASS_COLORS.ROGUE.colorStr = "fffff569"
-RAID_CLASS_COLORS.DRUID.colorStr = "ffff7d0a"
-RAID_CLASS_COLORS.SHAMAN.colorStr = "ff0070de"
-RAID_CLASS_COLORS.WARRIOR.colorStr = "ffc79c6e"
-RAID_CLASS_COLORS.DEATHKNIGHT.colorStr = "ffc41f3b"
-
 -- START_TIMER event
 local timerTypes = {
 	["30-120"] = {1, 30, 120},
@@ -230,10 +225,12 @@ local chatMessage = {
 	["One minute until the Arena battle begins!"] = timerTypes["60-60"]
 }
 
-function GetStartTimeData(msg)
-	local data = chatMessage[msg]
-	if data then
-		return data[1], data[2], data[3]
+if not GetStartTimeData then
+	function GetStartTimeData(msg)
+		local data = chatMessage[msg]
+		if data then
+			return data[1], data[2], data[3]
+		end
+		return nil, nil, nil
 	end
-	return nil, nil, nil
 end

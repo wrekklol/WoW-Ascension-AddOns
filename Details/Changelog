@@ -1,0 +1,54 @@
+Version 0.95 - 27.06.2021
+
+Changes:
+- Added In the Zone absorb
+- Added a discord link to SzylerAddons for easier updates
+- Fixed Healthstones/Healthpotions for TBC
+- Fixed Pre-pot announcement for TBC
+
+--------------------------------------------------------------------------------------------------------------
+
+Version 0.94 - 17.05.2021
+
+Changes:
+- Implemented Bunny67 backport fixes (Fixes the Auras tab while in raid)
+- Added all classes' defensive cooldowns to "Raid Tools Announce Cooldowns" for Ascension
+- Fixed Lacerate and Conflagrate dot split
+- Moved Fury of the Titan to Fury Warrior
+- Added Titanic Mutilate
+
+--------------------------------------------------------------------------------------------------------------
+
+Version 0.93 - 21.04.2021
+
+Changes:
+- Added Shadow Lance (Fingers of Death) to Affliction Warlock
+- Added Manacharged Strike (Mana Fiend) to Arcane Mage
+- Added Eviscerate (Disembowel) and Blood and Guts to Assassination Rogue
+- Added Demolishing Strike (Demolisher) to Arms Warrior
+- Added Searing Pain (Perilous Pain) to Destruction Warlock
+
+--------------------------------------------------------------------------------------------------------------
+
+Version 0.92 - 22.03.2021
+
+Changes:
+- Added Resto Shaman
+- Added Melee Hunter
+- Added Predator's Wrath
+- Added Twilight Paragon 
+- Added Shadow Bolt and Pure Shadow
+- Added tracking for Dominant Word: Shield
+
+- Moved Shadow DoT to Affliction
+- Removed Wrath from Balance (Predator's Wrath/Locust Shot/Balance)
+
+- Added support for Dot tracking of combo spells like Pyroblast/Immolate etc.
+
+--------------------------------------------------------------------------------------------------------------
+
+Version 0.91 - 16.03.2021
+
+Changes:
+- Added all Vanilla/TBC spell IDs for classes
+- Added a lot of Ascension Specific spells

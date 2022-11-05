@@ -160,40 +160,42 @@ end
 
 XLootGroup.rollbuttons = { 'bneed', 'bgreed', 'bdis', 'bpass' } -- patch 3.3 'bdis' added
 function XLootGroup:AddGroupLoot(item, time)
-	local stack = AA.stacks.roll
-	local row = AA:AddRow(stack)
-	row.rollID = item
-	row.rollTime = time
-	row.timeout = time
-	row.link = GetLootRollItemLink(item)
-	row.status:SetMinMaxValues(0, time)
 	local texture, name, count, quality, bop, cneed, cgreed, cdis = GetLootRollItemInfo(item) -- patch 3.3 'canNeed,canGreed,canDis' params added
-	XLoot:SetBindText(XLoot:GetBindOn(row.link), row.fsbind)
-	row.bind = bind
-	local length = self.db.profile.nametrunc
-	if string.len(name) > length then
-		name = string.sub(name, 1, length)..".."
-	end
-	row.name = ("%s%s%s|r"):format(select(4, GetItemQualityColor(quality)), count>1 and count.."x " or "", name)
-	SetItemButtonTexture(row.button, texture)
-	row.fsloot:SetText(row.name)
-	row:SetScript("OnUpdate", self:RollUpdateClosure(item, time, row, stack, id))
-	for k, v in pairs(XLootGroup.rollbuttons) do
-		local b = row[v]
-		UIFrameFadeRemoveFrame(b)
-		b.fadeInfo = nil
-		b:Show()
-		if v=='bpass' or (v=='bneed' and cneed) or (v=='bgreed' and cgreed) or (v=='bdis' and cdis) then
-			b:Enable()
-			SetDesaturation(b:GetNormalTexture(), false);
-		else
-			b:Disable()
-			SetDesaturation(b:GetNormalTexture(), true);
+	if quality >= 3 then
+		local stack = AA.stacks.roll
+		local row = AA:AddRow(stack)
+		row.rollID = item
+		row.rollTime = time
+		row.timeout = time
+		row.link = GetLootRollItemLink(item)
+		row.status:SetMinMaxValues(0, time)
+		XLoot:SetBindText(XLoot:GetBindOn(row.link), row.fsbind)
+		row.bind = bind
+		local length = self.db.profile.nametrunc
+		if string.len(name) > length then
+			name = string.sub(name, 1, length)..".."
 		end
-		b:SetAlpha(1)
+		row.name = ("%s%s%s|r"):format(select(4, GetItemQualityColor(quality)), count>1 and count.."x " or "", name)
+		SetItemButtonTexture(row.button, texture)
+		row.fsloot:SetText(row.name)
+		row:SetScript("OnUpdate", self:RollUpdateClosure(item, time, row, stack, id))
+		for k, v in pairs(XLootGroup.rollbuttons) do
+			local b = row[v]
+			UIFrameFadeRemoveFrame(b)
+			b.fadeInfo = nil
+			b:Show()
+			if v=='bpass' or (v=='bneed' and cneed) or (v=='bgreed' and cgreed) or (v=='bdis' and cdis) then
+				b:Enable()
+				SetDesaturation(b:GetNormalTexture(), false);
+			else
+				b:Disable()
+				SetDesaturation(b:GetNormalTexture(), true);
+			end
+			b:SetAlpha(1)
+		end
+		XLoot:QualityColorRow(row, quality)
+		XLoot:SizeRow(stack, row)
 	end
-	XLoot:QualityColorRow(row, quality)
-	XLoot:SizeRow(stack, row)
 end
 
 function XLootGroup:RollUpdateClosure(item, time, row, stack, id)

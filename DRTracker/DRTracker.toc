@@ -1,0 +1,24 @@
+## Interface: 30200
+## Title: DR Tracker
+## Notes: Diminishing returns tracker
+## Author: Shadowed
+## SavedVariables: DRTrackerDB
+
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+libs\AceAddon-3.0\AceAddon-3.0.xml
+libs\AceEvent-3.0\AceEvent-3.0.xml
+libs\AceDB-3.0\AceDB-3.0.xml
+libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+libs\AceGUI-3.0\AceGUI-3.0.xml
+libs\LibSharedMedia-3.0\lib.xml
+libs\AceConfig-3.0\AceConfig-3.0.xml
+libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
+libs\GTB-1.0\GTB-1.0.xml
+libs\DRData-1.0\DRData-1.0.xml
+
+localization.enUS.lua
+localization.zhCN.lua
+
+DRTracker.lua
+config.lua

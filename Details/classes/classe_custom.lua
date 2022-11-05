@@ -1351,24 +1351,24 @@ function _detalhes:AddDefaultCustomDisplays()
 		local GameCooltip = GameCooltip
 		local R, G, B, A = 0, 0, 0, 0.75
 
-		local hs = actor:GetSpell(6262)
+		local hs = actor:GetSpell(27235)
 		if(hs) then
-			GameCooltip:AddLine(select(1, GetSpellInfo(6262)),  _detalhes:ToK(hs.total))
-			GameCooltip:AddIcon(select(3, GetSpellInfo(6262)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
+			GameCooltip:AddLine(select(1, GetSpellInfo(27235)),  _detalhes:ToK(hs.total))
+			GameCooltip:AddIcon(select(10, GetItemInfo(22103)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
 			GameCooltip:AddStatusBar(100, 1, R, G, B, A)
 		end
-
+		
 		local pot = actor:GetSpell(DETAILS_HEALTH_POTION_ID)
 		if(pot) then
 			GameCooltip:AddLine(select(1, GetSpellInfo(DETAILS_HEALTH_POTION_ID)),  _detalhes:ToK(pot.total))
-			GameCooltip:AddIcon(select(3, GetSpellInfo(DETAILS_HEALTH_POTION_ID)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
+			GameCooltip:AddIcon(select(10, GetItemInfo(22829)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
 			GameCooltip:AddStatusBar(100, 1, R, G, B, A)
 		end
 
 		local pot = actor:GetSpell(DETAILS_REJU_POTION_ID)
 		if(pot) then
 			GameCooltip:AddLine(select(1, GetSpellInfo(DETAILS_REJU_POTION_ID)),  _detalhes:ToK(pot.total))
-			GameCooltip:AddIcon(select(3, GetSpellInfo(DETAILS_REJU_POTION_ID)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
+			GameCooltip:AddIcon(select(10, GetItemInfo(22850)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
 			GameCooltip:AddStatusBar(100, 1, R, G, B, A)
 		end
 

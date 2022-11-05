@@ -151,7 +151,7 @@ function PowaAuras:InspectUnit(unit)
 		elseif(points3 > points2) then
 			role = "RoleHealer";
 		else
-			-- "Natürliche Reaktion" geskillt => Wahrsch. Tank?
+			-- "Natï¿½rliche Reaktion" geskillt => Wahrsch. Tank?
 			local _, _, _, _, rank = GetTalentInfo(2, 16, isInspect, false, activeTree);
 			if (rank > 0) then
 				role = "RoleTank";
@@ -171,7 +171,7 @@ function PowaAuras:InspectUnit(unit)
 		end
 
 	elseif (unitInfo.Class=="SHAMAN") then
-	  -- 1 = Elementar, 2 = Verstärker, 3 = Wiederherstellung
+	  -- 1 = Elementar, 2 = Verstï¿½rker, 3 = Wiederherstellung
 		if (points1 > points2 and points1 > points3) then
 			role = "RoleRangeDps";
 		elseif (points2 > points3) then
@@ -275,6 +275,6 @@ function PowaAuras:DetermineRole(unit)
 
 	end
 
-	return nil;
+	return "RoleMeleDps", "Guess";
 end
 

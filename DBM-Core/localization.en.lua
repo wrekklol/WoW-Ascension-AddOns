@@ -1,5 +1,5 @@
 
-DBM_CORE_NEED_SUPPORT				= "Are you good with programming or languages? If yes, the DBM team needs your help to keep DBM the best boss mod for WoW. Join the team by visiting https://discord.gg/4ZHfgskSvM or sending a message to Szyler or Junior on Discord or on Area52."
+DBM_CORE_NEED_SUPPORT				= "Are you good with programming or languages? If yes, the DBM team needs your help to keep DBM the best boss mod for WoW. Join the team by visiting https://discord.gg/4ZHfgskSvM or sending a message to Szyler on Discord or on Area52."
 
 DBM_CORE_LOAD_MOD_ERROR				= "Error while loading boss mods for %s: %s"
 DBM_CORE_LOAD_MOD_SUCCESS			= "Loaded '%s' boss mods. For more options, type /dbm in your chat."
@@ -134,6 +134,7 @@ DBM_CORE_AUTO_ANNOUNCE_TEXTS = {
 	soon = "%s soon",
 	prewarn = "%s in %s",
 	phase = "Phase %d",
+	interrupt = "Interrupt %d",
 }
 
 local prewarnOption = "Show pre-warning for |cff71d5ff|Hspell:%d|h%s|h|r"
@@ -143,7 +144,8 @@ DBM_CORE_AUTO_ANNOUNCE_OPTIONS = {
 	cast = "Show warning when |cff71d5ff|Hspell:%d|h%s|h|r is being cast",
 	soon = prewarnOption,
 	prewarn = prewarnOption,
-	phase = "Announce Phase %d"
+	phase = "Announce Phase %d",
+	interrupt = "Show warning for when to interrupt %d"
 }
 
 
@@ -174,6 +176,26 @@ DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 	stack = "%s (%%d)"
 }
 
+DBM_CORE_AUTO_YELL_OPTION = {
+	shortyell		= "Yell when you are affected by $spell:%d",
+	yell			= "Yell with name when you are affected \n by $spell:%d",
+	count			= "Yell with count when you are affected\n  by $spell:%d",
+	fade			= "Yell with countdown and spell name \n when $spell:%d is fading",
+	shortfade		= "Yell with countdown when $spell:%d \n is fading",
+	iconfade		= "Yell with countdown and icon when \n $spell:%d is fading",
+	position		= "Yell with position when you are affected \n by $spell:%d",
+	combo			= "Yell when you are affected by $spell:%d \n and other spells at same time"
+}
+DBM_CORE_AUTO_YELL_ANNOUNCE_TEXT = {
+	shortyell		= "%s",
+	yell			= "%s on " .. UnitName("player"),
+	count			= "%s on " .. UnitName("player") .. " (%%d)",
+	fade			= "%s fading in %%d",
+	shortfade		= "%%d",
+	iconfade		= "{rt%%2$d} %%1$d {rt%%2$d}",
+	position 		= "%s %%s on {rt%%d}"..UnitName("player").."{rt%%d}",
+	combo			= "%s and %%s"--Spell name (from option, plus spellname given in arg)
+}
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT		= "Set icons on $spell:%d targets"
 DBM_CORE_AUTO_SOUND_OPTION_TEXT		= "Play sound on $spell:%d"

@@ -1,0 +1,69 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Frame name="slFrame">
+		<Scripts>
+			<OnEvent>
+				slEvent(event, ...);
+			</OnEvent>
+			<OnLoad>
+				slInit();
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<!-- Config frame -->
+	<Frame name="slConfigFrame" frameStrata="DIALOG">
+		<Frames>
+			<CheckButton name="$parentEnabled" inherits="OptionsCheckButtonTemplate" checked="true">
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="$parentLabel" inherits="GameFontNormal" text="Enabled">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="5" y="-5" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="10" y="-10" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="$parentDisenchantOverGreed" inherits="OptionsCheckButtonTemplate" checked="true">
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="$parentLabel" inherits="GameFontNormal" text="Disenchant Over Greed">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="5" y="-5" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentEnabled" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-10" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				slConfigFrame_OnLoad(self);
+            </OnLoad>
+            <OnShow>
+            	slConfigFrame_OnShow();
+            </OnShow>
+		</Scripts>
+	</Frame>
+</Ui>

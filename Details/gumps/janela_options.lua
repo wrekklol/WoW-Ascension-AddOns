@@ -6161,6 +6161,18 @@ function window:CreateFrame4()
 			{value = [[Interface\AddOns\Details\images\classes_small_alpha_bw]], label = Loc ["STRING_OPTIONS_BAR_ICONFILE6"], onclick = OnSelectIconFile, icon = icontexture, texcoord = iconcoords, iconsize = iconsize},
 			{value = [[Interface\AddOns\Details\images\classes]], label = Loc ["STRING_OPTIONS_BAR_ICONFILE5"], onclick = OnSelectIconFile, icon = icontexture, texcoord = iconcoords, iconsize = iconsize},
 		}
+
+		if C_Realm:IsConquestOfAzeroth() then
+			if C_Realm:IsDevelopment() then
+				tinsert(list, {value = [[Interface\GLUES\CHARACTERCREATE\UI-CHARACTERCREATE-CLASSES-ROUND]], label = "Conquest of Azeroth", onclick = OnSelectIconFile, icon = icontexture, texcoord = iconcoords, iconsize = iconsize}) 
+			else
+				list = {
+					{value = [[]], label = Loc ["STRING_OPTIONS_BAR_ICONFILE1"], onclick = OnSelectIconFile, icon = icontexture, texcoord = iconcoords, iconsize = iconsize, iconcolor = {1, 1, 1, .3}},
+					{value = [[Interface\GLUES\CHARACTERCREATE\UI-CHARACTERCREATE-CLASSES-ROUND]], label = "Conquest of Azeroth", onclick = OnSelectIconFile, icon = icontexture, texcoord = iconcoords, iconsize = iconsize}
+				}
+			end
+		end
+
 		local BuiltIconList = function()
 			return list
 		end
@@ -9230,6 +9242,94 @@ function window:CreateFrame9()
 					{value = [[Interface\TALENTFRAME\bg-druid-balance]], label = "Balance", onclick = onSelectSecTexture, icon = [[Interface\ICONS\spell_nature_starfall]], texcoord = nil}
 				},
 
+				["HERO"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Hero", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+
+				["NECROMANCER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Necromancer", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+
+				["PYROMANCER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Pyromancer", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+
+				["CULTIST"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Cultist", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+
+				["STARCALLER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Starcaller", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["SUNCLERIC"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Sun Cleric", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["TINKER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Tinker", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["SPIRITMAGE"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Runemaster", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["WILDWALKER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Primalist", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["REAPER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Reaper", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["PROPHET"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Venomancer", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["CHRONOMANCER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Chronomancer", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["SONOFARUGAL"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Son of Arugal", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["GUARDIAN"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Guardian", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["STORMBRINGER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Stormbringer", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["DEMONHUNTER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Demon Hunter", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["BARBARIAN"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Barbarian", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["WITCHDOCTOR"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Witch Doctor", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["WITCHHUNTER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Witch Hunter", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["FLESHWARDEN"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Knight of Xoroth", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["MONK"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Monk", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+				
+				["RANGER"] = {
+					{value = [[Interface\TALENTFRAME\bg-druid-bear]], label = "Ranger", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_racial_bearform]], texcoord = nil},
+				},
+
 				["HUNTER"] = {
 					{value = [[Interface\TALENTFRAME\bg-hunter-beastmaster]], label = "Beast Mastery", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_hunter_bestialdiscipline]], texcoord = nil},
 					{value = [[Interface\TALENTFRAME\bg-hunter-marksman]], label = "Marksmanship", onclick = onSelectSecTexture, icon = [[Interface\ICONS\ability_hunter_focusedaim]], texcoord = nil},
@@ -9306,6 +9406,29 @@ function window:CreateFrame9()
 				{value = "SHAMAN", label = "Shaman", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["SHAMAN"]},
 				{value = "WARLOCK", label = "Warlock", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["WARLOCK"]},
 				{value = "WARRIOR", label = "Warrior", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["WARRIOR"]},
+				{value = "HERO", label = "Hero", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["HERO"]},
+
+				{value = "NECROMANCER", label = "Necromancer", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["NECROMANCER"]},
+				{value = "PYROMANCER", label = "Pyromancer", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["PYROMANCER"]},
+				{value = "CULTIST", label = "Cultist", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["CULTIST"]},
+				{value = "STARCALLER", label = "Starcaller", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["STARCALLER"]},
+				{value = "SUNCLERIC", label = "Sun Cleric", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["SUNCLERIC"]},
+				{value = "TINKER", label = "Tinker", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["TINKER"]},
+				{value = "SPIRITMAGE", label = "Runemaster", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["SPIRITMAGE"]},
+				{value = "WILDWALKER", label = "Primalist", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["WILDWALKER"]},
+				{value = "REAPER", label = "Reaper", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["REAPER"]},
+				{value = "PROPHET", label = "Venomancer", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["PROPHET"]},
+				{value = "CHRONOMANCER", label = "Chronomancer", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["CHRONOMANCER"]},
+				{value = "SONOFARUGAL", label = "Son of Arugal", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["SONOFARUGAL"]},
+				{value = "GUARDIAN", label = "Guardian", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["GUARDIAN"]},
+				{value = "STORMBRINGER", label = "Stormbringer", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["STORMBRINGER"]},
+				{value = "DEMONHUNTER", label = "Demon Hunter", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["DEMONHUNTER"]},
+				{value = "BARBARIAN", label = "Barbarian", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["BARBARIAN"]},
+				{value = "WITCHDOCTOR", label = "Witch Doctor", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["WITCHDOCTOR"]},
+				{value = "WITCHHUNTER", label = "Witch Hunter", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["WITCHHUNTER"]},
+				{value = "FLESHWARDEN", label = "Knight of Xoroth", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["FLESHWARDEN"]},
+				{value = "MONK", label = "Monk", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["MONK"]},
+				{value = "RANGER", label = "Ranger", onclick = onSelectMainTexture, icon = _detalhes.class_icons_small, texcoord = _detalhes.class_coords ["RANGER"]},
 			}
 			local buildBackgroundMenu = function() return backgroundTable end
 
@@ -10452,7 +10575,7 @@ function window:CreateFrame11()
 			if (not DetailsAnnounceSelectCooldownIgnored) then
 				DetailsAnnounceSelectCooldownIgnored = CreateFrame ("frame", "DetailsAnnounceSelectCooldownIgnored", UIParent)
 				local f = DetailsAnnounceSelectCooldownIgnored
-				f:SetSize (250, 400)
+				f:SetSize (250, 800)
 				f:SetPoint ("center", UIParent, "center", 0, 0)
 
 				f:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], tile = true, tileSize = 128, insets = {left=3, right=3, top=3, bottom=3},

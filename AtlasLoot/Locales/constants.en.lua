@@ -9,7 +9,6 @@ The AL["text"] = true; shortcut can ONLY be used for English (the root translati
 
 --Table holding all loot tables is initialised here as it loads early
 AtlasLoot_Data = {};
-AtlasLoot_TableNames = {};
 
 --Create the library instance
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
@@ -18,6 +17,8 @@ local AL = AceLocale:NewLocale("AtlasLoot", "enUS", true);
 
 --Register translations
 if AL then
+
+	AL["Druid"] = true;
 
 	-- Text strings for UI objects
 	AL["AtlasLoot"] = true;
@@ -32,6 +33,10 @@ if AL then
 	AL["This is a loot browser only.  To view maps as well, install either Atlas or Alphamap."] = true;
 	AL["Toggle AL Panel"] = true;
 	AL["Back"] = true;
+	AL["Add"] = true;
+	AL["Delete"] = true;
+	AL["Edit"] = true;
+	AL["Share"] = true;
 	AL["Level 60"] = true;
 	AL["Level 70"] = true;
 	AL["Level 80"] = true;
@@ -43,8 +48,12 @@ if AL then
 	AL["Show Heroic/Ascended Loot"] = true;
 	AL["Bloodforged"] = true;
 	AL["Factions - Original WoW"] = true;
+	AL["Factions - Classic"] = true;
 	AL["Factions - Burning Crusade"] = true;
 	AL["Factions - Wrath of the Lich King"] = true;
+	AL["Classic"] = true;
+	AL["Burning Crusade"] = true;
+	AL["Wrath of the Lich King"] = true;
 	AL["Choose Table ..."] = true;
 	AL["Unknown"] = true;
 	AL["Add to QuickLooks:"] = true;
@@ -92,7 +101,6 @@ if AL then
 	AL["|cff9d9d9dShow Basic Minimap Button|r"] = true;
 	AL["Set Minimap Button Position"] = true;
 	AL["Suppress Item Query Text"] = true;
-	AL["Auto Query items on page load"] = true;
 	AL["Notify on LoD Module Load"] = true;
 	AL["Load Loot Modules at Startup"] = true;
 	AL["Loot Browser Scale: "] = true;
@@ -125,7 +133,16 @@ if AL then
 	AL["Mythic Tier 7"] = true;
 	AL["Mythic Tier 8"] = true;
 	AL["Mythic Tier 9"] = true;
-	AL["Mythic Tier 10"] = true;										
+	AL["Mythic Tier 10"] = true;
+	AL["Tier 1 Set Token (Click)"] = true;
+	AL["Tier 2 Set Token (Click)"] = true;
+	AL["Tier 2.5 Set Token (Click)"] = true;
+	AL["Tier 3 Set Token (Click)"] = true;
+	AL["Tier 4 Set Token (Click)"] = true;
+	AL["Tier 5 Set Token (Click)"] = true;
+	AL["Tier 6 Set Token (Click)"] = true;
+	AL["Tier 7 Set Token (Click)"] = true;
+	AL["Tier 8 Set Token (Click)"] = true;
 
 	-- Slash commands
 	AL["reset"] = true;
@@ -141,6 +158,7 @@ if AL then
 	AL["PvP Rewards"] = true;
 	AL["QuickLook"] = true;
 	AL["World Events"] = true;
+	AL["Auto Load Instance Loot Pages"] = true;
 
 	-- AtlasLoot Panel - Search
 	AL["Clear"] = true;
@@ -148,6 +166,7 @@ if AL then
 	AL["Search"] = true;
 
 	-- AtlasLoot Browser Menus
+	AL["Dungeons and Raids"] = true;
 	AL["Classic Instances"] = true;
 	AL["BC Instances"] = true;
 	AL["Sets/Collections"] = true;
@@ -192,8 +211,8 @@ if AL then
 	AL["Ruins of Ahn'Qiraj Sets"] = true;
 	AL["Temple of Ahn'Qiraj Sets"] = true;
 	AL["Tabards"] = true;
-	AL["Tier 1/2 Sets"] = true;
-	AL["Tier 1/2/3 Sets"] = true;
+	AL["Tier 1 Sets"] = true;
+	AL["Tier 2 Sets"] = true;
 	AL["Tier 3 Sets"] = true;
 	AL["Tier 4 Sets"] = true;
 	AL["Tier 5 Sets"] = true;
@@ -280,6 +299,11 @@ if AL then
 	AL["Always use default Wishlist"] = true;
 	AL["Add Wishlist"] = true;
 	AL["Edit Wishlist"] = true;
+	AL["Sort Wishlist"] = true;
+	AL["Auto Sort WishLists"] = true;
+	AL["Copy Wishlist To Own"] = true;
+	AL["Make Wishlist Default"] = true;
+	AL["Delete Wishlist"] = true;
 	AL["Show More Icons"] = true;
 	AL["Wishlist name:"] = true;
 	AL["Delete"] = true;
@@ -294,12 +318,14 @@ if AL then
 	AL["Send"] = true;
 	AL["Cancel"] = true;
 	AL["Delete Wishlist %s?"] = true;
+	AL["Delete Wishlist"] = true;
 	AL["%s sends you a Wishlist. Accept?"] = true;
 	AL[" tried to send you a Wishlist. Rejected because you are in combat."] = true;
 	AL[" rejects your Wishlist."] = true;
 	AL["You can't send Wishlists to yourself"] = true;
 	AL["Please set a default Wishlist."] = true;
 	AL["Set as default Wishlist"] = true;
+	AL["Please Create a Wishlist First."] = true;
 
 	-- Misc Inventory related words
 	AL["Enchant"] = true;
@@ -363,6 +389,20 @@ if AL then
 	AL["Cloth Armor"] = true;
 	AL["Shirts"] = true;
 	AL["Bags"] = true;
+
+	-- JewelCrafting
+	AL["Red Gems"] = true;
+	AL["Yellow Gems"] = true;
+	AL["Blue Gems"] = true;
+	AL["Orange Gems"] = true;
+	AL["Purple Gems"] = true;
+	AL["Green Gems"] = true;
+	AL["Meta Gems"] = true;
+	AL["Prismatic Gems"] = true;
+	AL["Dragons Eye"] = true;
+	AL["Trinkets"] = true;
+	AL["Rings"] = true;
+	AL["Necks"] = true;
 
 	-- Labels for loot descriptions
 	AL["Classes:"] = true;
@@ -430,6 +470,15 @@ if AL then
 	AL["Nature Resistance Gear"] = true;
 	AL["Frost Resistance Gear"] = true;
 	AL["Shadow Resistance Gear"] = true;
+	AL["Sets - Original WoW"] = true;
+	AL["Sets - Burning Crusade"] = true;
+	AL["Sets - Wrath of the Lich King"] = true;
+	AL["PVP - Original WoW"] = true;
+	AL["PVP - Burning Crusade"] = true;
+	AL["PVP - Wrath of the Lich King"] = true;
+	AL["Collections - Original WoW"] = true;
+	AL["Collections - Burning Crusade"] = true;
+	AL["Collections - Wrath of the Lich King"] = true;
 
 	-- Labels for loot table sections
 	AL["Additional Heroic Loot"] = true;
@@ -627,13 +676,21 @@ if AL then
 	AL["Paint Bomb"] = true;
 
 	-- Battleground Brackets
-	AL["BG/Open PvP Rewards"] = true;
+	AL["BG PvP Rewards"] = true;
 	AL["Misc. Rewards"] = true;
 	AL["Level 20-39 Rewards"] = true;
 	AL["Level 20-29 Rewards"] = true;
 	AL["Level 30-39 Rewards"] = true;
 	AL["Level 40-49 Rewards"] = true;
 	AL["Level 60 Rewards"] = true;
+
+	-- Sets/PVP/Rep Menus
+	AL["Classic Collections"] = true;
+	AL["Burning Crusade Collections"] = true;
+	AL["Wrath of the Lich King Collections"] = true;
+	AL["Classic PvP Rewards"] = true;
+	AL["Burning Crusade PvP Rewards"] = true;
+	AL["Wrath of the Lich King PvP Rewards"] = true;
 
 	-- Brood of Nozdormu Paths
 	AL["Path of the Conqueror"] = true;
@@ -1108,6 +1165,7 @@ if AL then
 	AL["The Defiler's Determination"] = true;
 	AL["The Defiler's Fortitude"] = true;
 	AL["The Defiler's Resolution"] = true;
+	AL["The Defiler's Resolve"] = true;
 
 	-- PvP Level 60 Rare Sets - Alliance
 	AL["Lieutenant Commander's Refuge"] = true;
@@ -1208,6 +1266,12 @@ if AL then
 	AL["Gladiator's Felshroud"] = true;
 	AL["Gladiator's Battlegear"] = true;
 	AL["Gladiator's Desecration"] = true;
+
+	-- Arena Seasons
+	AL["Arena Season 1"] = true;
+	AL["Arena Season 2"] = true;
+	AL["Arena Season 3"] = true;
+	AL["Arena Season 4"] = true;
 
 	-- Level 80 PvP Weapons
 	AL["Savage Gladiator\'s Weapons"] = true; --unused
@@ -1547,12 +1611,6 @@ if AL then
 	AL["Welcome to Atlasloot Enhanced.  Please take a moment to set your preferences for tooltips and links in the chat window.\n\n  This options screen can be reached again at any later time by typing '/atlasloot'."] = true;
 	AL["Setup"] = true;
 
-	-- Old Atlas Detected
-	AL["It has been detected that your version of Atlas does not match the version that Atlasloot is tuned for ("] = true;
-	AL[").  Depending on changes, there may be the occasional error, so please visit http://www.atlasmod.com as soon as possible to update."] = true;
-	AL["OK"] = true;
-	AL["Incompatible Atlas Detected"] = true;
-
 	-- Unsafe item tooltip
 	AL["Unsafe Item"] = true;
 	AL["Item Unavailable"] = true;
@@ -1560,4 +1618,1548 @@ if AL then
 	AL["This item is not available on your server or your battlegroup yet."] = true;
 	AL["This item is unsafe.  To view this item without the risk of disconnection, you need to have first seen it in the game world. This is a restriction enforced by Blizzard since Patch 1.10."] = true;
 	AL["You can right-click to attempt to query the server.  You may be disconnected."] = true;
+
+	-- AtlasMap Info
+	AL["Brewfest"] = true;
+	AL["Hallow's End"] = true;
+	AL["Love is in the Air"] = true;
+	AL["Lunar Festival"] = true;
+	AL["Midsummer Festival"] = true;
+	--Misc strings
+	AL["Adult"] = true;
+	AL["AKA"] = true;
+	AL["Alliance"] = true;
+	AL["Arcane Container"] = true;
+	AL["Argent Dawn"] = true;
+	AL["Argent Crusade"] = true;
+	AL["Arms Warrior"] = true;
+	AL["Attunement Required"] = true;
+	AL["Back"] = true;
+	AL["Basement"] = true;
+	AL["Bat"] = true;
+	AL["Blacksmithing Plans"] = true;
+	AL["Boss"] = true;
+	AL["Brazier of Invocation"] = true;
+	AL["Chase Begins"] = true;
+	AL["Chase Ends"] = true;
+	AL["Child"] = true;
+	AL["Connection"] = true;
+	AL["DS2"] = true;
+	AL["Elevator"] = true;
+	AL["End"] = true;
+	AL["Engineer"] = true;
+	AL["Entrance"] = true;
+	AL["Event"] = true;
+	AL["Exalted"] = true;
+	AL["Exit"] = true;
+	AL["Fourth Stop"] = true;
+	AL["Front"] = true;
+	AL["Ghost"] = true;
+	AL["Heroic"] = true;
+	AL["Holy Paladin"] = true;
+	AL["Holy Priest"] = true;
+	AL["Horde"] = true;
+	AL["Hunter"] = true;
+	AL["Imp"] = true;
+	AL["Inside"] = true;
+	AL["Key"] = true;
+	AL["Lower"] = true;
+	AL["Mage"] = true;
+	AL["Meeting Stone"] = true;
+	AL["Monk"] = true;
+	AL["Moonwell"] = true;
+	AL["Optional"] = true;
+	AL["Orange"] = true;
+	AL["Outside"] = true;
+	AL["Paladin"] = true;
+	AL["Panther"] = true;
+	AL["Portal"] = true;
+	AL["Priest"] = true;
+	AL["Protection Warrior"] = true;
+	AL["Purple"] = true;
+	AL["Random"] = true;
+	AL["Raptor"] = true;
+	AL["Rare"] = true;
+	AL["Reputation"] = true;
+	AL["Repair"] = true;
+	AL["Retribution Paladin"] = true;
+	AL["Rewards"] = true;
+	AL["Rogue"] = true;
+	AL["Second Stop"] = true;
+	AL["Shadow Priest"] = true;
+	AL["Shaman"] = true;
+	AL["Side"] = true;
+	AL["Snake"] = true;
+	AL["Spawn Point"] = true;
+	AL["Spider"] = true;
+	AL["Start"] = true;
+	AL["Summon"] = true;
+	AL["Teleporter"] = true;
+	AL["Third Stop"] = true;
+	AL["Tiger"] = true;
+	AL["Top"] = true;
+	AL["Undead"] = true;
+	AL["Underwater"] = true;
+	AL["Unknown"] = true;
+	AL["Upper"] = true;
+	AL["Varies"] = true;
+	AL["Wanders"] = true;
+	AL["Warlock"] = true;
+	AL["Warrior"] = true;
+	AL["Wave 5"] = true;
+	AL["Wave 6"] = true;
+	AL["Wave 10"] = true;
+	AL["Wave 12"] = true;
+	AL["Wave 18"] = true;
+
+	--Classic Acronyms
+	AL["AQ"] = true;
+	AL["AQ20"] = true;
+	AL["AQ40"] = true;
+	AL["Armory"] = true;
+	AL["BFD"] = true;
+	AL["BRD"] = true;
+	AL["BRM"] = true;
+	AL["BWL"] = true;
+	AL["Cath"] = true;
+	AL["DM"] = true;
+	AL["Gnome"] = true;
+	AL["GY"] = true;
+	AL["LBRS"] = true;
+	AL["Lib"] = true;
+	AL["Mara"] = true;
+	AL["MC"] = true;
+	AL["RFC"] = true;
+	AL["RFD"] = true;
+	AL["RFK"] = true;
+	AL["Scholo"] = true;
+	AL["SFK"] = true;
+	AL["SM"] = true;
+	AL["ST"] = true;
+	AL["Strat"] = true;
+	AL["Stocks"] = true;
+	AL["UBRS"] = true;
+	AL["Ulda"] = true;
+	AL["VC"] = true;
+	AL["WC"] = true;
+	AL["ZF"] = true;
+	AL["ZG"] = true;
+	AL["Ony60"] = true;
+	--BC Acronyms
+	AL["AC"] = true;
+	AL["Arca"] = true;
+	AL["Auch"] = true;
+	AL["BF"] = true;
+	AL["BT"] = true;
+	AL["Bota"] = true;
+	AL["CoT"] = true;
+	AL["CoT1"] = true;
+	AL["CoT2"] = true;
+	AL["CoT3"] = true;
+	AL["CR"] = true;
+	AL["Eye"] = true;
+	AL["GL"] = true;
+	AL["HC"] = true;
+	AL["Kara"] = true;
+	AL["MaT"] = true;
+	AL["Mag"] = true;
+	AL["Mech"] = true;
+	AL["MT"] = true;
+	AL["Ramp"] = true;
+	AL["SC"] = true;
+	AL["Seth"] = true;
+	AL["SH"] = true;
+	AL["SL"] = true;
+	AL["SP"] = true;
+	AL["SuP"] = true;
+	AL["SV"] = true;
+	AL["TK"] = true;
+	AL["UB"] = true;
+	AL["ZA"] = true;
+
+	--WotLK Acronyms
+	AL["AK, Kahet"] = true;
+	AL["AN, Nerub"] = true;
+	AL["Champ"] = true;
+	AL["CoT-Strat"] = true;
+	AL["Crus"] = true;
+	AL["DTK"] = true;
+	AL["FoS"] = true;
+	AL["FH1"] = true;
+	AL["Gun"] = true;
+	AL["HoL"] = true;
+	AL["HoR"] = true; 
+	AL["FH3"] = true;
+	AL["HoS"] = true;
+	AL["IC"] = true;
+	AL["Nax"] = true;
+	AL["Nex, Nexus"] = true;
+	AL["Ocu"] = true;
+	AL["Ony"] = true;
+	AL["OS"] = true;
+	AL["PoS"] = true; 
+	AL["FH2"] = true;
+	AL["RS"] = true;
+	AL["TEoE"] = true;
+	AL["UK, Keep"] = true;
+	AL["Uldu"] = true;
+	AL["UP, Pinn"] = true;
+	AL["VH"] = true;
+	AL["VoA"] = true;
+
+	--Zones not included in LibBabble-Zone
+	AL["Crusaders' Coliseum"] = true;
+
+--************************************************
+-- Instance Entrance Maps
+--************************************************
+
+	--Auchindoun (Entrance)
+	AL["Ha'Lei"] = true;
+	AL["Greatfather Aldrimus"] = true;
+	AL["Clarissa"] = true;
+	AL["Ramdor the Mad"] = true;
+	AL["Horvon the Armorer <Armorsmith>"] = true;
+	AL["Nexus-Prince Haramad"] = true;
+	AL["Artificer Morphalius"] = true;
+	AL["Mamdy the \"Ologist\""] = true;
+	AL["\"Slim\" <Shady Dealer>"] = true;
+	AL["\"Captain\" Kaftiz"] = true;
+	AL["Isfar"] =true;
+	AL["Field Commander Mahfuun"] = true;
+	AL["Spy Grik'tha"] = true;
+	AL["Provisioner Tsaalt"] = true;
+	AL["Dealer Tariq <Shady Dealer>"] = true;
+
+	--Blackfathom Deeps (Entrance)
+	--Nothing to translate!
+
+	--Blackrock Mountain (Entrance)
+	AL["Bodley"] = true;
+	AL["Overmaster Pyron"] = true;
+	AL["Lothos Riftwaker"] = true;
+	AL["Franclorn Forgewright"] = true;
+	AL["Orb of Command"] = true;
+	AL["Scarshield Quartermaster <Scarshield Legion>"] = true;
+
+	--Coilfang Reservoir (Entrance)
+	AL["Watcher Jhang"] = true;
+	AL["Mortog Steamhead"] = true;
+
+	--Caverns of Time (Entrance)
+	AL["Steward of Time <Keepers of Time>"] = true;
+	AL["Alexston Chrome <Tavern of Time>"] = true;
+	AL["Yarley <Armorer>"] = true;
+	AL["Bortega <Reagents & Poison Supplies>"] = true;
+	AL["Galgrom <Provisioner>"] = true;
+	AL["Alurmi <Keepers of Time Quartermaster>"] = true;
+	AL["Zaladormu"] = true;
+	AL["Soridormi <The Scale of Sands>"] = true;
+	AL["Arazmodu <The Scale of Sands>"] = true;
+	AL["Andormu <Keepers of Time>"] = true;
+	AL["Nozari <Keepers of Time>"] = true;
+
+	--Dire Maul (Entrance)
+	AL["Dire Pool"] = true;
+	AL["Dire Maul Arena"] = true;
+	AL["Mushgog"] = true;
+	AL["Skarr the Unbreakable"] = true;
+	AL["The Razza"] = true;
+	AL["Elder Mistwalker"] = true;
+
+	--Gnomeregan (Entrance)
+	AL["Transpolyporter"] = true;
+	AL["Sprok <Away Team>"] = true;
+	AL["Matrix Punchograph 3005-A"] = true;
+	AL["Namdo Bizzfizzle <Engineering Supplies>"] = true;
+	AL["Techbot"] = true;
+
+	-- Hellfire Citadel (Entrance)
+	AL["Steps and path to the Blood Furnace"] = true;
+	AL["Path to the Hellfire Ramparts and Shattered Halls"] = true;
+	AL["Meeting Stone of Magtheridon's Lair"] = true;
+	AL["Meeting Stone of Hellfire Citadel"] = true;
+
+	--Karazhan (Entrance)
+	AL["Archmage Leryda"] = true;
+	AL["Apprentice Darius"] = true;
+	AL["Archmage Alturus"] = true;
+	AL["Stairs to Underground Pond"] = true;
+	AL["Stairs to Underground Well"] = true;
+	AL["Charred Bone Fragment"] = true;
+
+	--Maraudon (Entrance)
+	AL["The Nameless Prophet"] = true;
+	AL["Kolk <The First Kahn>"] = true;
+	AL["Gelk <The Second Kahn>"] = true;
+	AL["Magra <The Third Kahn>"] = true;
+	AL["Cavindra"] = true;
+
+	--The Deadmines (Entrance)
+	AL["Marisa du'Paige"] = true;
+	AL["Brainwashed Noble"] = true;
+	AL["Foreman Thistlenettle"] = true;
+
+	--Sunken Temple (Entrance)
+	AL["Jade"] = true;
+	AL["Kazkaz the Unholy"] = true;
+	AL["Zekkis"] = true;
+	AL["Veyzhak the Cannibal"] = true;
+
+	--Uldaman (Entrance)
+	AL["Hammertoe Grez"] = true;
+	AL["Magregan Deepshadow"] = true;
+	AL["Tablet of Ryun'Eh"] = true;
+	AL["Krom Stoutarm's Chest"] = true;
+	AL["Garrett Family Chest"] = true;
+	AL["Digmaster Shovelphlange"] = true;
+
+	--Wailing Caverns (Entrance)
+	AL["Mad Magglish"] = true;
+	AL["Trigore the Lasher"] = true;
+	AL["Boahn <Druid of the Fang>"] = true;
+	AL["Above the Entrance:"] = true;
+	AL["Ebru <Disciple of Naralex>"] = true;
+	AL["Nalpak <Disciple of Naralex>"] = true;
+	AL["Kalldan Felmoon <Specialist Leatherworking Supplies>"] = true;
+	AL["Waldor <Leatherworking Trainer>"] = true;
+
+--**AL**********************************************
+-- KALalimdor Instances (Classic)
+--**AL**********************************************
+
+	--Blackfathom Deeps
+	AL["Ghamoo-ra"] = true;
+	AL["Lorgalis Manuscript"] = true;
+	AL["Lady Sarevess"] = true;
+	AL["Argent Guard Thaelrid <The Argent Dawn>"] = true;
+	AL["Gelihast"] = true;
+	AL["Shrine of Gelihast"] = true;
+	AL["Lorgus Jett"] = true;
+	AL["Fathom Stone"] = true;
+	AL["Baron Aquanis"] = true;
+	AL["Twilight Lord Kelris"] = true;
+	AL["Old Serra'kis"] = true;
+	AL["Aku'mai"] = true;
+	AL["Morridune"] = true;
+	AL["Altar of the Deeps"] = true;
+
+	--Dire Maul (East)
+	AL["Pusillin"] = true;
+	AL["Zevrim Thornhoof"] = true;
+	AL["Hydrospawn"] = true;
+	AL["Lethtendris"] = true;
+	AL["Pimgib"] = true;
+	AL["Old Ironbark"] = true;
+	AL["Alzzin the Wildshaper"] = true;
+	AL["Isalien"] = true;
+
+	--Dire Maul (North)
+	AL["Crescent Key"] = true;
+	--"Library" omitted from here and DM West because of SM: "Library" duplicate
+	AL["Guard Mol'dar"] = true;
+	AL["Stomper Kreeg <The Drunk>"] = true;
+	AL["Guard Fengus"] = true;
+	AL["Knot Thimblejack"] = true;
+	AL["Guard Slip'kik"] = true;
+	AL["Captain Kromcrush"] = true;
+	AL["King Gordok"] = true;
+	AL["Cho'Rush the Observer"] = true;
+
+	--Dire Maul (West)
+	AL["J'eevee's Jar"] = true;
+	AL["Pylons"] = true;
+	AL["Shen'dralar Ancient"] = true;
+	AL["Tendris Warpwood"] = true;
+	AL["Ancient Equine Spirit"] = true;
+	AL["Illyanna Ravenoak"] = true;
+	AL["Ferra"] = true;
+	AL["Magister Kalendris"] = true;
+	AL["Tsu'zee"] = true;
+	AL["Immol'thar"] = true;
+	AL["Lord Hel'nurath"] = true;
+	AL["Prince Tortheldrin"] = true;
+	AL["Falrin Treeshaper"] = true;
+	AL["Lorekeeper Lydros"] = true;
+	AL["Lorekeeper Javon"] = true;
+	AL["Lorekeeper Kildrath"] = true;
+	AL["Lorekeeper Mykos"] = true;
+	AL["Shen'dralar Provisioner"] = true;
+	AL["Skeletal Remains of Kariel Winthalus"] = true;
+
+	--Maraudon	
+	AL["Scepter of Celebras"] = true;
+	AL["Veng <The Fifth Khan>"] = true;
+	AL["Noxxion"] = true;
+	AL["Razorlash"] = true;
+	AL["Maraudos <The Fourth Khan>"] = true;
+	AL["Lord Vyletongue"] = true;
+	AL["Meshlok the Harvester"] = true;
+	AL["Celebras the Cursed"] = true;
+	AL["Landslide"] = true;
+	AL["Tinkerer Gizlock"] = true;
+	AL["Rotgrip"] = true;
+	AL["Princess Theradras"] = true;
+	AL["Elder Splitrock"] = true;
+
+	--Ragefire Chasm
+	AL["Maur Grimtotem"] = true;
+	AL["Oggleflint <Ragefire Chieftain>"] = true;
+	AL["Taragaman the Hungerer"] = true;
+	AL["Jergosh the Invoker"] = true;
+	AL["Zelemar the Wrathful"] = true;
+	AL["Bazzalan"] = true;
+
+	--Razorfen Downs
+	AL["Tuten'kash"] = true;
+	AL["Henry Stern"] = true;
+	AL["Belnistrasz"] = true;
+	AL["Sah'rhee"] = true;
+	AL["Mordresh Fire Eye"] = true;
+	AL["Glutton"] = true;
+	AL["Ragglesnout"] = true;
+	AL["Amnennar the Coldbringer"] = true;
+	AL["Plaguemaw the Rotting"] = true;
+
+	--Razorfen Kraul
+	AL["Roogug"] = true;
+	AL["Aggem Thorncurse <Death's Head Prophet>"] = true;
+	AL["Death Speaker Jargba <Death's Head Captain>"] = true;
+	AL["Overlord Ramtusk"] = true;
+	AL["Razorfen Spearhide"] = true;
+	AL["Agathelos the Raging"] = true;
+	AL["Blind Hunter"] = true;
+	AL["Charlga Razorflank <The Crone>"] = true;
+	AL["Willix the Importer"] = true;
+	AL["Heralath Fallowbrook"] = true;
+	AL["Earthcaller Halmgar"] = true;
+
+	--Ruins of Ahn'Qiraj
+	AL["Cenarion Circle"] = true;
+	AL["Kurinnaxx"] = true;
+	AL["Lieutenant General Andorov"] = true;
+	AL["Four Kaldorei Elites"] = true;
+	AL["General Rajaxx"] = true;
+	AL["Captain Qeez"] = true;
+	AL["Captain Tuubid"] = true;
+	AL["Captain Drenn"] = true;
+	AL["Captain Xurrem"] = true;
+	AL["Major Yeggeth"] = true;
+	AL["Major Pakkon"] = true;
+	AL["Colonel Zerran"] = true;
+	AL["Moam"] = true;
+	AL["Buru the Gorger"] = true;
+	AL["Ayamiss the Hunter"] = true;
+	AL["Ossirian the Unscarred"] = true;
+	AL["Safe Room"] = true;
+
+	--Temple of Ahn'Qiraj
+	AL["Brood of Nozdormu"] = true;
+	AL["The Prophet Skeram"] = true;
+	AL["The Bug Family"] = true;
+	AL["Vem"] = true;
+	AL["Lord Kri"] = true;
+	AL["Princess Yauj"] = true;
+	AL["Battleguard Sartura"] = true;
+	AL["Fankriss the Unyielding"] = true;
+	AL["Viscidus"] = true;
+	AL["Princess Huhuran"] = true;
+	AL["Twin Emperors"] = true;
+	AL["Emperor Vek'lor"] = true;
+	AL["Emperor Vek'nilash"] = true;
+	AL["Ouro"] = true;
+	AL["Eye of C'Thun"] = true;
+	AL["C'Thun"] = true;
+	AL["Andorgos <Brood of Malygos>"] = true;
+	AL["Vethsera <Brood of Ysera>"] = true;
+	AL["Kandrostrasz <Brood of Alexstrasza>"] = true;
+	AL["Arygos"] = true;
+	AL["Caelestrasz"] = true;
+	AL["Merithra of the Dream"] = true;
+
+	--Wailing Caverns
+	AL["Disciple of Naralex"] = true;
+	AL["Lord Cobrahn <Fanglord>"] = true;
+	AL["Lady Anacondra <Fanglord>"] = true;
+	AL["Kresh"] = true;
+	AL["Lord Pythas <Fanglord>"] = true;
+	AL["Skum"] = true;
+	AL["Lord Serpentis <Fanglord>"] = true;
+	AL["Verdan the Everliving"] = true;
+	AL["Mutanus the Devourer"] = true;
+	AL["Naralex"] = true;
+	AL["Deviate Faerie Dragon"] = true;
+
+	--Zul'Farrak
+	AL["Antu'sul <Overseer of Sul>"] = true;
+	AL["Theka the Martyr"] = true;
+	AL["Witch Doctor Zum'rah"] = true;
+	AL["Zul'Farrak Dead Hero"] = true;
+	AL["Nekrum Gutchewer"] = true;
+	AL["Shadowpriest Sezz'ziz"] = true;
+	AL["Dustwraith"] = true;
+	AL["Sergeant Bly"] = true;
+	AL["Weegli Blastfuse"] = true;
+	AL["Murta Grimgut"] = true;
+	AL["Raven"] = true;
+	AL["Oro Eyegouge"] = true;
+	AL["Sandfury Executioner"] = true;
+	AL["Hydromancer Velratha"] = true;
+	AL["Gahz'rilla"] = true;
+	AL["Elder Wildmane"] = true;
+	AL["Chief Ukorz Sandscalp"] = true;
+	AL["Ruuzlu"] = true;
+	AL["Zerillis"] = true;
+	AL["Sandarr Dunereaver"] = true;
+
+--****************************
+-- Eastern Kingdoms Instances (Classic)
+--****************************
+
+	--Blackrock Depths
+	AL["Shadowforge Key"] = true;
+	AL["Prison Cell Key"] = true;
+	AL["Jail Break!"] = true;
+	AL["Banner of Provocation"] = true;
+	AL["Lord Roccor"] = true;
+	AL["Kharan Mighthammer"] = true;
+	AL["Commander Gor'shak <Kargath Expeditionary Force>"] = true;
+	AL["Marshal Windsor"] = true;
+	AL["High Interrogator Gerstahn <Twilight's Hammer Interrogator>"] = true;
+	AL["Ring of Law"] = true;
+	AL["Anub'shiah"] = true;
+	AL["Eviscerator"] = true;
+	AL["Gorosh the Dervish"] = true;
+	AL["Grizzle"] = true;
+	AL["Hedrum the Creeper"] = true;
+	AL["Ok'thor the Breaker"] = true;
+	AL["Theldren"] = true;
+	AL["Lefty"] = true;
+	AL["Malgen Longspear"] = true;
+	AL["Gnashjaw <Malgen Longspear's Pet>"] = true;
+	AL["Rotfang"] = true;
+	AL["Va'jashni"] = true;
+	AL["Houndmaster Grebmar"] = true;
+	AL["Elder Morndeep"] = true;
+	AL["High Justice Grimstone"] = true;
+	AL["Monument of Franclorn Forgewright"] = true;
+	AL["Pyromancer Loregrain"] = true;
+	AL["The Vault"] = true;
+	AL["Warder Stilgiss"] = true;
+	AL["Verek"] = true;
+	AL["Watchman Doomgrip"] = true;
+	AL["Fineous Darkvire <Chief Architect>"] = true;
+	AL["The Black Anvil"] = true;
+	AL["Lord Incendius"] = true;
+	AL["Bael'Gar"] = true;
+	AL["Shadowforge Lock"] = true;
+	AL["General Angerforge"] = true;
+	AL["Golem Lord Argelmach"] = true;
+	AL["Field Repair Bot 74A"] = true;
+	AL["The Grim Guzzler"] = true;
+	AL["Hurley Blackbreath"] = true;
+	AL["Lokhtos Darkbargainer <The Thorium Brotherhood>"] = true;
+	AL["Mistress Nagmara"] = true;
+	AL["Phalanx"] = true;
+	AL["Plugger Spazzring"] = true;
+	AL["Private Rocknot"] = true;
+	AL["Ribbly Screwspigot"] = true;
+	AL["Coren Direbrew"] = true;
+	AL["Griz Gutshank <Arena Vendor>"] = true;
+	AL["Ambassador Flamelash"] = true;
+	AL["Panzor the Invincible"] = true;
+	AL["Summoner's Tomb"] = true;
+	AL["The Lyceum"] = true;
+	AL["Magmus"] = true;
+	AL["Emperor Dagran Thaurissan"] = true;
+	AL["Princess Moira Bronzebeard <Princess of Ironforge>"] = true;
+	AL["High Priestess of Thaurissan"] = true;
+	AL["The Black Forge"] = true;
+	AL["Core Fragment"] = true;
+	AL["Overmaster Pyron"] = true;
+
+	--Blackrock Spire (Lower)
+	AL["Vaelan"] = true;
+	AL["Warosh <The Cursed>"] = true;
+	AL["Elder Stonefort"] = true;
+	AL["Roughshod Pike"] = true;
+	AL["Spirestone Butcher"] = true;
+	AL["Highlord Omokk"] = true;
+	AL["Spirestone Battle Lord"] = true;
+	AL["Spirestone Lord Magus"] = true;
+	AL["Shadow Hunter Vosh'gajin"] = true;
+	AL["Fifth Mosh'aru Tablet"] = true;
+	AL["Bijou"] = true;
+	AL["War Master Voone"] = true;
+	AL["Mor Grayhoof"] = true;
+	AL["Sixth Mosh'aru Tablet"] = true;
+	AL["Bijou's Belongings"] = true;
+	AL["Human Remains"] = true;
+	AL["Unfired Plate Gauntlets"] = true;
+	AL["Bannok Grimaxe <Firebrand Legion Champion>"] = true;
+	AL["Mother Smolderweb"] = true;
+	AL["Crystal Fang"] = true;
+	AL["Urok's Tribute Pile"] = true;
+	AL["Urok Doomhowl"] = true;
+	AL["Quartermaster Zigris <Bloodaxe Legion>"] = true;
+	AL["Halycon"] = true;
+	AL["Gizrul the Slavener"] = true;
+	AL["Ghok Bashguud <Bloodaxe Champion>"] = true;
+	AL["Overlord Wyrmthalak"] = true;
+	AL["Burning Felguard"] = true;
+
+	--Blackrock Spire (Upper)
+	AL["Pyroguard Emberseer"] = true;
+	AL["Solakar Flamewreath"] = true;
+	AL["Father Flame"] = true;
+	AL["Darkstone Tablet"] = true;
+	AL["Doomrigger's Coffer"] = true;
+	AL["Jed Runewatcher <Blackhand Legion>"] = true;
+	AL["Goraluk Anvilcrack <Blackhand Legion Armorsmith>"] = true;
+	AL["Warchief Rend Blackhand"] = true;
+	AL["Gyth <Rend Blackhand's Mount>"] = true;
+	AL["Awbee"] = true;
+	AL["The Beast"] = true;
+	AL["Lord Valthalak"] = true;
+	AL["Finkle Einhorn"] = true;
+	AL["General Drakkisath"] = true;
+	AL["Drakkisath's Brand"] = true;
+
+	--Blackwing Lair
+	AL["Razorgore the Untamed"] = true;
+	AL["Vaelastrasz the Corrupt"] = true;
+	AL["Broodlord Lashlayer"] = true;
+	AL["Firemaw"] = true;
+	AL["Draconic for Dummies (Chapter VII)"] = true;
+	AL["Master Elemental Shaper Krixix"] = true;
+	AL["Ebonroc"] = true;
+	AL["Flamegor"] = true;
+	AL["Chromaggus"] = true;
+	AL["Nefarian"] = true;
+
+	--Gnomeregan
+	AL["Workshop Key"] = true;
+	AL["Blastmaster Emi Shortfuse"] = true;
+	AL["Grubbis"] = true;
+	AL["Chomper"] = true;
+	AL["Clean Room"] = true;
+	AL["Tink Sprocketwhistle <Engineering Supplies>"] = true;
+	AL["The Sparklematic 5200"] = true;
+	AL["Mail Box"] = true;
+	AL["Kernobee"] = true;
+	AL["Alarm-a-bomb 2600"] = true;
+	AL["Matrix Punchograph 3005-B"] = true;
+	AL["Viscous Fallout"] = true;
+	AL["Electrocutioner 6000"] = true;
+	AL["Matrix Punchograph 3005-C"] = true;
+	AL["Crowd Pummeler 9-60"] = true;
+	AL["Matrix Punchograph 3005-D"] = true;
+	AL["Dark Iron Ambassador"] = true;
+	AL["Mekgineer Thermaplugg"] = true;
+
+	--Molten Core
+	AL["Hydraxian Waterlords"] = true;
+	AL["Lucifron"] = true;
+	AL["Magmadar"] = true;
+	AL["Gehennas"] = true;
+	AL["Garr"] = true;
+	AL["Shazzrah"] = true;
+	AL["Baron Geddon"] = true;
+	AL["Golemagg the Incinerator"] = true;
+	AL["Sulfuron Harbinger"] = true;
+	AL["Majordomo Executus"] = true;
+	AL["Ragnaros"] = true;
+
+	--Scholomance
+	AL["Skeleton Key"] = true;
+	AL["Viewing Room Key"] = true;
+	AL["Viewing Room"] = true;
+	AL["Blood of Innocents"] = true;
+	AL["Divination Scryer"] = true;
+	AL["Blood Steward of Kirtonos"] = true;
+	AL["The Deed to Southshore"] = true;
+	AL["Kirtonos the Herald"] = true;
+	AL["Jandice Barov"] = true;
+	AL["The Deed to Tarren Mill"] = true;
+	AL["Rattlegore"] = true;
+	AL["Death Knight Darkreaver"] = true;
+	AL["Marduk Blackpool"] = true;
+	AL["Vectus"] = true;
+	AL["Ras Frostwhisper"] = true;
+	AL["The Deed to Brill"] = true;
+	AL["Kormok"] = true;
+	AL["Instructor Malicia"] = true;
+	AL["Doctor Theolen Krastinov <The Butcher>"] = true;
+	AL["Lorekeeper Polkelt"] = true;
+	AL["The Ravenian"] = true;
+	AL["Lord Alexei Barov"] = true;
+	AL["The Deed to Caer Darrow"] = true;
+	AL["Lady Illucia Barov"] = true;
+	AL["Darkmaster Gandling"] = true;
+	AL["Torch Lever"] = true;
+	AL["Secret Chest"] = true;
+	AL["Alchemy Lab"] = true;
+
+	--Shadowfang Keep
+	AL["Deathsworn Captain"] = true;
+	AL["Rethilgore <The Cell Keeper>"] = true;
+	AL["Sorcerer Ashcrombe"] = true;
+	AL["Deathstalker Adamant"] = true;
+	AL["Landen Stilwell"] = true;
+	AL["Investigator Fezzen Brasstacks"] = true;
+	AL["Deathstalker Vincent"] = true;
+	AL["Apothecary Trio"] = true;
+	AL["Apothecary Hummel <Crown Chemical Co.>"] = true;
+	AL["Apothecary Baxter <Crown Chemical Co.>"] = true;
+	AL["Apothecary Frye <Crown Chemical Co.>"] = true;
+	AL["Fel Steed"] = true;
+	AL["Jordan's Hammer"] = true;
+	AL["Crate of Ingots"] = true;
+	AL["Razorclaw the Butcher"] = true;
+	AL["Baron Silverlaine"] = true;
+	AL["Commander Springvale"] = true;
+	AL["Odo the Blindwatcher"] = true;
+	AL["Fenrus the Devourer"] = true;
+	AL["Arugal's Voidwalker"] = true;
+	AL["The Book of Ur"] = true;
+	AL["Wolf Master Nandos"] = true;
+	AL["Archmage Arugal"] = true;
+
+	--SM: Armory
+	AL["The Scarlet Key"] = true;
+	AL["Herod <The Scarlet Champion>"] = true;
+
+	--SM: Cathedral
+	AL["High Inquisitor Fairbanks"] = true;
+	AL["Scarlet Commander Mograine"] = true;
+	AL["High Inquisitor Whitemane"] = true;
+
+	--SM: Graveyard
+	AL["Interrogator Vishas"] = true;
+	AL["Vorrel Sengutz"] = true;
+	AL["Pumpkin Shrine"] = true;
+	AL["Headless Horseman"] = true;
+	AL["Bloodmage Thalnos"] = true;
+	AL["Ironspine"] = true;
+	AL["Azshir the Sleepless"] = true;
+	AL["Fallen Champion"] = true;
+
+	--SM: Library
+	AL["Houndmaster Loksey"] = true;
+	AL["Arcanist Doan"] = true;
+
+	--Stratholme
+	AL["The Scarlet Key"] = true;
+	AL["Key to the City"] = true;
+	AL["Various Postbox Keys"] = true;
+	AL["Living Side"] = true;
+	AL["Undead Side"] = true;
+	AL["Skul"] = true;
+	AL["Stratholme Courier"] = true;
+	AL["Fras Siabi"] = true;
+	AL["Atiesh <Hand of Sargeras>"] = true;
+	AL["Hearthsinger Forresten"] = true;
+	AL["The Unforgiven"] = true;
+	AL["Elder Farwhisper"] = true;
+	AL["Timmy the Cruel"] = true;
+	AL["Malor the Zealous"] = true;
+	AL["Malor's Strongbox"] = true;
+	AL["Crimson Hammersmith"] = true;
+	AL["Cannon Master Willey"] = true;
+	AL["Archivist Galford"] = true;
+	AL["Grand Crusader Dathrohan"] = true;
+	AL["Balnazzar"] = true;
+	AL["Sothos"] = true;
+	AL["Jarien"] = true;
+	AL["Magistrate Barthilas"] = true;
+	AL["Aurius"] = true;
+	AL["Stonespine"] = true;
+	AL["Baroness Anastari"] = true;
+	AL["Black Guard Swordsmith"] = true;
+	AL["Nerub'enkan"] = true;
+	AL["Maleki the Pallid"] = true;
+	AL["Ramstein the Gorger"] = true;
+	AL["Baron Rivendare"] = true;
+	AL["Ysida Harmon"] = true;
+	AL["Crusaders' Square Postbox"] = true;
+	AL["Market Row Postbox"] = true;
+	AL["Festival Lane Postbox"] = true;
+	AL["Elders' Square Postbox"] = true;
+	AL["King's Square Postbox"] = true;
+	AL["Fras Siabi's Postbox"] = true;
+	AL["3rd Box Opened"] = true;
+	AL["Postmaster Malown"] = true;
+
+	--The Deadmines
+	AL["Rhahk'Zor <The Foreman>"] = true;
+	AL["Miner Johnson"] = true;
+	AL["Sneed <Lumbermaster>"] = true;
+	AL["Sneed's Shredder <Lumbermaster>"] = true;
+	AL["Gilnid <The Smelter>"] = true;
+	AL["Defias Gunpowder"] = true;
+	AL["Captain Greenskin"] = true;
+	AL["Edwin VanCleef <Defias Kingpin>"] = true;
+	AL["Mr. Smite <The Ship's First Mate>"] = true;
+	AL["Cookie <The Ship's Cook>"] = true;
+	--The Stockade
+	AL["Targorr the Dread"] = true;
+	AL["Kam Deepfury"] = true;
+	AL["Hamhock"] = true;
+	AL["Bazil Thredd"] = true;
+	AL["Dextren Ward"] = true;
+	AL["Bruegal Ironknuckle"] = true;
+
+	--The Sunken Temple
+	AL["The Temple of Atal'Hakkar"] = true;
+	AL["Yeh'kinya's Scroll"] = true;
+	AL["Atal'ai Defenders"] = true;
+	AL["Gasher"] = true;
+	AL["Loro"] = true;
+	AL["Hukku"] = true;
+	AL["Zolo"] = true;
+	AL["Mijan"] = true;
+	AL["Zul'Lor"] = true;
+	AL["Altar of Hakkar"] = true;
+	AL["Atal'alarion <Guardian of the Idol>"] = true;
+	AL["Dreamscythe"] = true;
+	AL["Weaver"] = true;
+	AL["Avatar of Hakkar"] = true;
+	AL["Jammal'an the Prophet"] = true;
+	AL["Ogom the Wretched"] = true;
+	AL["Morphaz"] = true;
+	AL["Hazzas"] = true;
+	AL["Shade of Eranikus"] = true;
+	AL["Essence Font"] = true;
+	AL["Spawn of Hakkar"] = true;
+	AL["Elder Starsong"] = true;
+	AL["Statue Activation Order"] = true;
+
+	--Uldaman
+	AL["Staff of Prehistoria"] = true;
+	AL["Baelog"] = true;
+	AL["Eric \"The Swift\""] = true;
+	AL["Olaf"] = true;
+	AL["Baelog's Chest"] = true;
+	AL["Conspicuous Urn"] = true;
+	AL["Remains of a Paladin"] = true;
+	AL["Revelosh"] = true;
+	AL["Ironaya"] = true;
+	AL["Obsidian Sentinel"] = true;
+	AL["Annora <Enchanting Trainer>"] = true;
+	AL["Ancient Stone Keeper"] = true;
+	AL["Galgann Firehammer"] = true;
+	AL["Tablet of Will"] = true;
+	AL["Shadowforge Cache"] = true;
+	AL["Grimlok <Stonevault Chieftain>"] = true;
+	AL["Archaedas <Ancient Stone Watcher>"] = true;
+	AL["The Discs of Norgannon"] = true;
+	AL["Ancient Treasure"] = true;
+
+	--Zul'Gurub
+	AL["Zandalar Tribe"] = true;
+	AL["Mudskunk Lure"] = true;
+	AL["Gurubashi Mojo Madness"] = true;
+	AL["High Priestess Jeklik"] = true;
+	AL["High Priest Venoxis"] = true;
+	AL["Zanza the Restless"] = true;
+	AL["High Priestess Mar'li"] = true;
+	AL["Bloodlord Mandokir"] = true;
+	AL["Ohgan"] = true;
+	AL["Edge of Madness"] = true;
+	AL["Gri'lek"] = true;
+	AL["Hazza'rah"] = true;
+	AL["Renataki"] = true;
+	AL["Wushoolay"] = true;
+	AL["Gahz'ranka"] = true;
+	AL["High Priest Thekal"] = true;
+	AL["Zealot Zath"] = true;
+	AL["Zealot Lor'Khan"] = true;
+	AL["High Priestess Arlokk"] = true;
+	AL["Jin'do the Hexxer"] = true;
+	AL["Hakkar"] = true;
+	AL["Muddy Churning Waters"] = true;
+
+--**AL*****************
+-- BALurning Crusade Instances
+--**AL*****************
+
+	--Auch: Auchenai Crypts
+	AL["Lower City"] = true;
+	AL["Shirrak the Dead Watcher"] = true;
+	AL["Exarch Maladaar"] = true;
+	AL["Avatar of the Martyred"] = true;
+	AL["D'ore"] = true;
+
+	--Auch: Mana-Tombs
+	AL["The Consortium"] = true;
+	AL["Auchenai Key"] = true;
+	AL["The Eye of Haramad"] = true;
+	AL["Pandemonius"] = true;
+	AL["Shadow Lord Xiraxis"] = true;
+	AL["Ambassador Pax'ivi"] = true;
+	AL["Tavarok"] = true;
+	AL["Cryo-Engineer Sha'heen"] = true;
+	AL["Ethereal Transporter Control Panel"] = true;
+	AL["Nexus-Prince Shaffar"] = true;
+	AL["Yor <Void Hound of Shaffar>"] = true;
+
+	--Auch: Sethekk Halls
+	AL["Essence-Infused Moonstone"] = true;
+	AL["Darkweaver Syth"] = true;
+	AL["Lakka"] = true;
+	AL["The Saga of Terokk"] = true;
+	AL["Anzu"] = true;
+	AL["Talon King Ikiss"] = true;
+
+	--Auch: Shadow Labyrinth
+	AL["Shadow Labyrinth Key"] = true;
+	AL["Spy To'gun"] = true;
+	AL["Ambassador Hellmaw"] = true;
+	AL["Blackheart the Inciter"] = true;
+	AL["Grandmaster Vorpil"] = true;
+	AL["The Codex of Blood"] = true;
+	AL["Murmur"] = true;
+	AL["First Fragment Guardian"] = true;
+
+	--Black Temple (Start)
+	AL["Ashtongue Deathsworn"] = true;
+	AL["Towards Reliquary of Souls"] = true;
+	AL["Towards Teron Gorefiend"] = true;
+	AL["Towards Illidan Stormrage"] = true;
+	AL["Spirit of Olum"] = true;
+	AL["High Warlord Naj'entus"] = true;
+	AL["Supremus"] = true;
+	AL["Shade of Akama"] = true;
+	AL["Spirit of Udalo"] = true;
+	AL["Aluyen <Reagents>"] = true;
+	AL["Okuno <Ashtongue Deathsworn Quartermaster>"] = true;
+	AL["Seer Kanai"] = true;
+
+	--Black Temple (Basement)
+	AL["Gurtogg Bloodboil"] = true;
+	AL["Reliquary of Souls"] = true;
+	AL["Essence of Suffering"] = true;
+	AL["Essence of Desire"] = true;
+	AL["Essence of Anger"] = true;
+	AL["Teron Gorefiend"] = true;
+
+	--Black Temple (Top)
+	AL["Mother Shahraz"] = true;
+	AL["The Illidari Council"] = true;
+	AL["Lady Malande"] = true;
+	AL["Gathios the Shatterer"] = true;
+	AL["High Nethermancer Zerevor"] = true;
+	AL["Veras Darkshadow"] = true;
+	AL["Illidan Stormrage <The Betrayer>"] = true;
+
+	--CFR: Serpentshrine Cavern
+	AL["Hydross the Unstable <Duke of Currents>"] = true;
+	AL["The Lurker Below"] = true;
+	AL["Leotheras the Blind"] = true;
+	AL["Fathom-Lord Karathress"] = true;
+	AL["Seer Olum"] = true;
+	AL["Morogrim Tidewalker"] = true;
+	AL["Lady Vashj <Coilfang Matron>"] = true;
+
+	--CFR: The Slave Pens
+	AL["Cenarion Expedition"] = true;
+	AL["Reservoir Key"] = true;
+	AL["Mennu the Betrayer"] = true;
+	AL["Weeder Greenthumb"] = true;
+	AL["Skar'this the Heretic"] = true;
+	AL["Rokmar the Crackler"] = true;
+	AL["Naturalist Bite"] = true;
+	AL["Quagmirran"] = true;
+	AL["Ahune <The Frost Lord>"] = true;
+
+	--CFR: The Steamvault
+	AL["Hydromancer Thespia"] = true;
+	AL["Main Chambers Access Panel"] = true;
+	AL["Second Fragment Guardian"] = true;
+	AL["Mekgineer Steamrigger"] = true;
+	AL["Warlord Kalithresh"] = true;
+
+	--CFR: The Underbog
+	AL["Hungarfen"] = true;
+	AL["The Underspore"] = true;
+	AL["Ghaz'an"] = true;
+	AL["Earthbinder Rayge"] = true;
+	AL["Swamplord Musel'ek"] = true;
+	AL["Claw <Swamplord Musel'ek's Pet>"] = true;
+	AL["The Black Stalker"] = true;
+
+	--CoT: The Black Morass
+	AL["Opening of the Dark Portal"] = true;
+	AL["Keepers of Time"] = true;
+	AL["Key of Time"] = true;
+	AL["Sa'at <Keepers of Time>"] = true;
+	AL["Chrono Lord Deja"] = true;
+	AL["Temporus"] = true;
+	AL["Aeonus"] = true;
+	AL["The Dark Portal"] = true;
+	AL["Medivh"] = true;
+
+	--CoT: Hyjal Summit
+	AL["Battle for Mount Hyjal"] = true;
+	AL["The Scale of the Sands"] = true;
+	AL["Alliance Base"] = true;
+	AL["Lady Jaina Proudmoore"] = true;
+	AL["Horde Encampment"] = true;
+	AL["Thrall <Warchief>"] = true;
+	AL["Night Elf Village"] = true;
+	AL["Tyrande Whisperwind <High Priestess of Elune>"] = true;
+	AL["Rage Winterchill"] = true;
+	AL["Anetheron"] = true;
+	AL["Kaz'rogal"] = true;
+	AL["Azgalor"] = true;
+	AL["Archimonde"] = true;
+	AL["Indormi <Keeper of Ancient Gem Lore>"] = true;
+	AL["Tydormu <Keeper of Lost Artifacts>"] = true;
+
+	--CoT: Old Hillsbrad Foothills
+	AL["Escape from Durnholde Keep"] = true;
+	AL["Erozion"] = true;
+	AL["Brazen"] = true;
+	AL["Landing Spot"] = true;
+	AL["Lieutenant Drake"] = true;
+	AL["Thrall"] = true;
+	AL["Captain Skarloc"] = true;
+	AL["Epoch Hunter"] = true;
+	AL["Taretha"] = true;
+	AL["Jonathan Revah"] = true;
+	AL["Jerry Carter"] = true;
+	AL["Traveling"] = true;
+	AL["Thomas Yance <Travelling Salesman>"] = true;
+	AL["Aged Dalaran Wizard"] = true;
+	AL["Kel'Thuzad <The Kirin Tor>"] = true;
+	AL["Helcular"] = true;
+	AL["Farmer Kent"] = true;
+	AL["Sally Whitemane"] = true;
+	AL["Renault Mograine"] = true;
+	AL["Little Jimmy Vishas"] = true;
+	AL["Herod the Bully"] = true;
+	AL["Nat Pagle"] = true;
+	AL["Hal McAllister"] = true;
+	AL["Zixil <Aspiring Merchant>"] = true;
+	AL["Overwatch Mark 0 <Protector>"] = true;
+	AL["Southshore Inn"] = true;
+	AL["Captain Edward Hanes"] = true;
+	AL["Captain Sanders"] = true;
+	AL["Commander Mograine"] = true;
+	AL["Isillien"] = true;
+	AL["Abbendis"] = true;
+	AL["Fairbanks"] = true;
+	AL["Tirion Fordring"] = true;
+	AL["Arcanist Doan"] = true;
+	AL["Taelan"] = true;
+	AL["Barkeep Kelly <Bartender>"] = true;
+	AL["Frances Lin <Barmaid>"] = true;
+	AL["Chef Jessen <Speciality Meat & Slop>"] = true;
+	AL["Stalvan Mistmantle"] = true;
+	AL["Phin Odelic <The Kirin Tor>"] = true;
+	AL["Magistrate Henry Maleb"] = true;
+	AL["Raleigh the True"] = true;
+	AL["Nathanos Marris"] = true;
+	AL["Bilger the Straight-laced"] = true;
+	AL["Innkeeper Monica"] = true;
+	AL["Julie Honeywell"] = true;
+	AL["Jay Lemieux"] = true;
+	AL["Young Blanchy"] = true;
+	AL["Don Carlos"] = true;
+	AL["Guerrero"] = true;
+
+	--Gruul's Lair
+	AL["High King Maulgar <Lord of the Ogres>"] = true;
+	AL["Kiggler the Crazed"] = true;
+	AL["Blindeye the Seer"] = true;
+	AL["Olm the Summoner"] = true;
+	AL["Krosh Firehand"] = true;
+	AL["Gruul the Dragonkiller"] = true;
+
+	--HFC: The Blood Furnace
+	AL["Thrallmar"] = true;
+	AL["Honor Hold"] = true;
+	AL["Flamewrought Key"] = true;
+	AL["The Maker"] = true;
+	AL["Broggok"] = true;
+	AL["Keli'dan the Breaker"] = true;
+
+	--HFC: Hellfire Ramparts
+	AL["Watchkeeper Gargolmar"] = true;
+	AL["Omor the Unscarred"] = true;
+	AL["Vazruden"] = true;
+	AL["Nazan <Vazruden's Mount>"] = true;
+	AL["Reinforced Fel Iron Chest"] = true;
+
+	--HFC: Magtheridon's Lair
+	AL["Magtheridon"] = true;
+
+	--HFC: The Shattered Halls
+	AL["Shattered Halls Key"] = true;
+	AL["Randy Whizzlesprocket"] = true;
+	AL["Drisella"] = true;
+	AL["Grand Warlock Nethekurse"] = true;
+	AL["Blood Guard Porung"] = true;
+	AL["Warbringer O'mrogg"] = true;
+	AL["Warchief Kargath Bladefist"] = true;
+	AL["Shattered Hand Executioner"] = true;
+	AL["Private Jacint"] = true;
+	AL["Rifleman Brownbeard"] = true;
+	AL["Captain Alina"] = true;
+	AL["Scout Orgarr"] = true;
+	AL["Korag Proudmane"] = true;
+	AL["Captain Boneshatter"] = true;
+
+	--Karazhan Start
+	AL["The Violet Eye"] = true;
+	AL["The Master's Key"] = true;
+	AL["Staircase to the Ballroom"] = true;
+	AL["Stairs to Upper Stable"] = true;
+	AL["Ramp to the Guest Chambers"] = true;
+	AL["Stairs to Opera House Orchestra Level"] = true;
+	AL["Ramp from Mezzanine to Balcony"] = true;
+	AL["Connection to Master's Terrace"] = true;
+	AL["Path to the Broken Stairs"] = true;
+	AL["Hastings <The Caretaker>"] = true;
+	AL["Servant Quarters"] = true;
+	AL["Hyakiss the Lurker"] = true;
+	AL["Rokad the Ravager"] = true;
+	AL["Shadikith the Glider"] = true;
+	AL["Berthold <The Doorman>"] = true;
+	AL["Calliard <The Nightman>"] = true;
+	AL["Attumen the Huntsman"] = true;
+	AL["Midnight"] = true;
+	AL["Koren <The Blacksmith>"] = true;
+	AL["Moroes <Tower Steward>"] = true;
+	AL["Baroness Dorothea Millstipe"] = true;
+	AL["Lady Catriona Von'Indi"] = true;
+	AL["Lady Keira Berrybuck"] = true;
+	AL["Baron Rafe Dreuger"] = true;
+	AL["Lord Robin Daris"] = true;
+	AL["Lord Crispin Ference"] = true;
+	AL["Bennett <The Sergeant at Arms>"] = true;
+	AL["Ebonlocke <The Noble>"] = true;
+	AL["Keanna's Log"] = true;
+	AL["Maiden of Virtue"] = true;
+	AL["Sebastian <The Organist>"] = true;
+	AL["Barnes <The Stage Manager>"] = true;
+	AL["The Opera Event"] = true;
+	AL["Red Riding Hood"] = true;
+	AL["The Big Bad Wolf"] = true;
+	AL["Wizard of Oz"] = true;
+	AL["Dorothee"] = true;
+	AL["Tito"] = true;
+	AL["Strawman"] = true;
+	AL["Tinhead"] = true;
+	AL["Roar"] = true;
+	AL["The Crone"] = true;
+	AL["Romulo and Julianne"] = true;
+	AL["Romulo"] = true;
+	AL["Julianne"] = true;
+	AL["The Master's Terrace"] = true;
+	AL["Nightbane"] = true;
+
+	--Karazhan End
+	AL["Broken Stairs"] = true;
+	AL["Ramp to Guardian's Library"] = true;
+	AL["Suspicious Bookshelf"] = true;
+	AL["Ramp up to the Celestial Watch"] = true;
+	AL["Ramp down to the Gamesman's Hall"] = true;
+	AL["Chess Event"] = true;
+	AL["Ramp to Medivh's Chamber"] = true;
+	AL["Spiral Stairs to Netherspace"] = true;
+	AL["The Curator"] = true;
+	AL["Wravien <The Mage>"] = true;
+	AL["Gradav <The Warlock>"] = true;
+	AL["Kamsis <The Conjurer>"] = true;
+	AL["Terestian Illhoof"] = true;
+	AL["Kil'rek"] = true;
+	AL["Shade of Aran"] = true;
+	AL["Netherspite"] = true;
+	AL["Ythyar"] = true;
+	AL["Echo of Medivh"] = true;
+	AL["Dust Covered Chest"] = true;
+	AL["Prince Malchezaar"] = true;
+
+	--Magisters Terrace
+	AL["Shattered Sun Offensive"] = true;
+	AL["Selin Fireheart"] = true;
+	AL["Fel Crystals"] = true;
+	AL["Tyrith"] = true;
+	AL["Vexallus"] = true;
+	AL["Scrying Orb"] = true;
+	AL["Kalecgos"] = true;
+	AL["Priestess Delrissa"] = true;
+	AL["Apoko"] = true;
+	AL["Eramas Brightblaze"] = true;
+	AL["Ellrys Duskhallow"] = true;
+	AL["Fizzle"] = true;
+	AL["Garaxxas"] = true;
+	AL["Sliver <Garaxxas' Pet>"] = true;
+	AL["Kagani Nightstrike"] = true;
+	AL["Warlord Salaris"] = true;
+	AL["Yazzai"] = true;
+	AL["Zelfan"] = true;
+	AL["Kael'thas Sunstrider <Lord of the Blood Elves>"] = true;
+
+	--Sunwell Plateau
+	AL["Sathrovarr the Corruptor"] = true;
+	AL["Madrigosa"] = true;
+	AL["Brutallus"] = true;
+	AL["Felmyst"] = true;
+	AL["Eredar Twins"] = true;
+	AL["Grand Warlock Alythess"] = true;
+	AL["Lady Sacrolash"] = true;
+	AL["M'uru"] = true;
+	AL["Entropius"] = true;
+	AL["Kil'jaeden <The Deceiver>"] = true;
+
+	--TK: The Arcatraz
+	AL["Key to the Arcatraz"] = true;
+	AL["Zereketh the Unbound"] = true;
+	AL["Third Fragment Guardian"] = true;
+	AL["Dalliah the Doomsayer"] = true;
+	AL["Wrath-Scryer Soccothrates"] = true;
+	AL["Udalo"] = true;
+	AL["Harbinger Skyriss"] = true;
+	AL["Warden Mellichar"] = true;
+	AL["Millhouse Manastorm"] = true;
+
+	--TK: The Botanica
+	AL["The Sha'tar"] = true;
+	AL["Warpforged Key"] = true;
+	AL["Commander Sarannis"] = true;
+	AL["High Botanist Freywinn"] = true;
+	AL["Thorngrin the Tender"] = true;
+	AL["Laj"] = true;
+	AL["Warp Splinter"] = true;
+
+	--TK: The Mechanar
+	AL["Gatewatcher Gyro-Kill"] = true;
+	AL["Gatewatcher Iron-Hand"] = true;
+	AL["Cache of the Legion"] = true;
+	AL["Mechano-Lord Capacitus"] = true;
+	AL["Overcharged Manacell"] = true;
+	AL["Nethermancer Sepethrea"] = true;
+	AL["Pathaleon the Calculator"] = true;
+
+	--TK: The Eye
+	AL["Al'ar <Phoenix God>"] = true;
+	AL["Void Reaver"] = true;
+	AL["High Astromancer Solarian"] = true;
+	AL["Thaladred the Darkener <Advisor to Kael'thas>"] = true;
+	AL["Master Engineer Telonicus <Advisor to Kael'thas>"] = true;
+	AL["Grand Astromancer Capernian <Advisor to Kael'thas>"] = true;
+	AL["Lord Sanguinar <The Blood Hammer>"] = true;
+
+	--Zul'Aman
+	AL["Harrison Jones"] = true;
+	AL["Nalorakk <Bear Avatar>"] = true;
+	AL["Tanzar"] = true;
+	AL["The Map of Zul'Aman"] = true;
+	AL["Akil'Zon <Eagle Avatar>"] = true;
+	AL["Harkor"] = true;
+	AL["Jan'Alai <Dragonhawk Avatar>"] = true;
+	AL["Kraz"] = true;
+	AL["Halazzi <Lynx Avatar>"] = true;
+	AL["Ashli"] = true;
+	AL["Zungam"] = true;
+	AL["Hex Lord Malacrass"] = true;
+	AL["Thurg"] = true;
+	AL["Gazakroth"] = true;
+	AL["Lord Raadan"] = true;
+	AL["Darkheart"] = true;
+	AL["Alyson Antille"] = true;
+	AL["Slither"] = true;
+	AL["Fenstalker"] = true;
+	AL["Koragg"] = true;
+	AL["Zul'jin"] = true;
+	AL["Forest Frogs"] = true;
+	AL["Kyren <Reagents>"] = true;
+	AL["Gunter <Food Vendor>"] = true;
+	AL["Adarrah"] = true;
+	AL["Brennan"] = true;
+	AL["Darwen"] = true;
+	AL["Deez"] = true;
+	AL["Galathryn"] = true;
+	AL["Mitzi"] = true;
+	AL["Mannuth"] = true;
+
+--*****************
+-- WotLK Instances
+--*****************
+
+	--Azjol-Nerub: Ahn'kahet: The Old Kingdom
+	AL["Elder Nadox"] = true;
+	AL["Prince Taldaram"] = true;
+	AL["Jedoga Shadowseeker"] = true;
+	AL["Herald Volazj"] = true;
+	AL["Amanitar"] = true;
+	AL["Ahn'kahet Brazier"] = true;
+
+	--Azjol-Nerub: Azjol-Nerub
+	AL["Krik'thir the Gatewatcher"] = true;
+	AL["Watcher Gashra"] = true;
+	AL["Watcher Narjil"] = true;
+	AL["Watcher Silthik"] = true;
+	AL["Hadronox"] = true;
+	AL["Elder Nurgen"] = true;
+	AL["Anub'arak"] = true;
+
+	--Caverns of Time: The Culling of Stratholme
+	AL["The Culling of Stratholme"] = true;
+	AL["Meathook"] = true;
+	AL["Salramm the Fleshcrafter"] = true;
+	AL["Chrono-Lord Epoch"] = true;
+	AL["Mal'Ganis"] = true;
+	AL["Chromie"] = true;
+	AL["Infinite Corruptor"] = true;
+	AL["Guardian of Time"] = true;
+	AL["Scourge Invasion Points"] = true;
+
+	--Drak'Tharon Keep
+	AL["Trollgore"] = true;
+	AL["Novos the Summoner"] = true;
+	AL["Elder Kilias"] = true;
+	AL["King Dred"] = true;
+	AL["The Prophet Tharon'ja"] = true;
+	AL["Kurzel"] = true;
+	AL["Drakuru's Brazier"] = true;
+
+	--The Frozen Halls: Halls of Reflection
+	--3 beginning NPCs omitted, see The Forge of Souls
+	AL["Falric"] = true;
+	AL["Marwyn"] = true;
+	AL["Wrath of the Lich King"] = true;
+	AL["The Captain's Chest"] = true;
+
+	--The Frozen Halls: Pit of Saron
+	--6 beginning NPCs omitted, see The Forge of Souls
+	AL["Forgemaster Garfrost"] = true;
+	AL["Martin Victus"] = true;
+	AL["Gorkun Ironskull"] = true;
+	AL["Krick and Ick"] = true;
+	AL["Scourgelord Tyrannus"] = true;
+	AL["Rimefang"] = true;
+
+	--The Frozen Halls: The Forge of Souls
+	--Lady Jaina Proudmoore omitted, in Hyjal Summit
+	AL["Archmage Koreln <Kirin Tor>"] = true;
+	AL["Archmage Elandra <Kirin Tor>"] = true;
+	AL["Lady Sylvanas Windrunner <Banshee Queen>"] = true;
+	AL["Dark Ranger Loralen"] = true;
+	AL["Dark Ranger Kalira"] = true;
+	AL["Bronjahm <Godfather of Souls>"] = true;
+	AL["Devourer of Souls"] = true;
+
+	--Gundrak
+	AL["Slad'ran <High Prophet of Sseratus>"] = true;
+	AL["Drakkari Colossus"] = true;
+	AL["Elder Ohanzee"] = true;
+	AL["Moorabi <High Prophet of Mam'toth>"] = true;
+	AL["Gal'darah <High Prophet of Akali>"] = true;
+	AL["Eck the Ferocious"] = true;
+
+	--Icecrown Citadel
+	AL["The Ashen Verdict"] = true;
+	AL["Lord Marrowgar"] = true;
+	AL["Lady Deathwhisper"] = true;
+	AL["Gunship Battle"] = true;
+	AL["Deathbringer Saurfang"] = true;
+	AL["Festergut"] = true;
+	AL["Rotface"] = true;
+	AL["Professor Putricide"] = true;
+	AL["Blood Prince Council"] = true;
+	AL["Prince Keleseth"] = true;
+	AL["Prince Taldaram"] = true;
+	AL["Prince Valanar"] = true;
+	AL["Blood-Queen Lana'thel"] = true;
+	AL["Valithria Dreamwalker"] = true;
+	AL["Sindragosa <Queen of the Frostbrood>"] = true;
+	AL["The Lich King"] = true;
+	AL["To next map"] = true;
+	AL["From previous map"] = true;
+	AL["Upper Spire"] = true;
+	AL["Sindragosa's Lair"] = true;
+
+	--Naxxramas
+	AL["Mr. Bigglesworth"] = true;
+	AL["Patchwerk"] = true;
+	AL["Grobbulus"] = true;
+	AL["Gluth"] = true;
+	AL["Thaddius"] = true;
+	AL["Anub'Rekhan"] = true;
+	AL["Grand Widow Faerlina"] = true;
+	AL["Maexxna"] = true;
+	AL["Instructor Razuvious"] = true;
+	AL["Gothik the Harvester"] = true;
+	AL["The Four Horsemen"] = true;
+	AL["Thane Korth'azz"] = true;
+	AL["Lady Blaumeux"] = true;
+	--Baron Rivendare omitted, listed under Stratholme
+	AL["Sir Zeliek"] = true;
+	AL["Four Horsemen Chest"] = true;
+	AL["Noth the Plaguebringer"] = true;
+	AL["Heigan the Unclean"] = true;
+	AL["Loatheb"] = true;
+	AL["Frostwyrm Lair"] = true;
+	AL["Sapphiron"] = true;
+	AL["Kel'Thuzad"] = true;
+
+	--The Obsidian Sanctum
+	AL["Black Dragonflight Chamber"] = true;
+	AL["Sartharion <The Onyx Guardian>"] = true;
+	AL["Tenebron"] = true;
+	AL["Shadron"] = true;
+	AL["Vesperon"] = true;
+
+	--Onyxia's Lair
+	AL["Onyxian Warders"] = true;
+	AL["Whelp Eggs"] = true;
+	AL["Onyxia"] = true;
+
+	--The Ruby Sanctum
+	AL["Red Dragonflight Chamber"] = true;
+	AL["Baltharus the Warborn"] = true;
+	AL["Saviana Ragefire"] = true;
+	AL["General Zarithrian"] = true;
+	AL["Halion <The Twilight Destroyer>"] = true;
+
+	--The Nexus: The Eye of Eternity
+	AL["Malygos"] = true;
+	AL["Key to the Focusing Iris"] = true;
+
+	--The Nexus: The Nexus
+	AL["Berinand's Research"] = true;
+	AL["Commander Stoutbeard"] = true;
+	AL["Commander Kolurg"] = true;
+	AL["Grand Magus Telestra"] = true;
+	AL["Anomalus"] = true;
+	AL["Elder Igasho"] = true;
+	AL["Ormorok the Tree-Shaper"] = true;
+	AL["Keristrasza"] = true;
+
+	--The Nexus: The Oculus
+	AL["Drakos the Interrogator"] = true;
+	AL["Mage-Lord Urom"] = true;
+	AL["Ley-Guardian Eregos"] = true;
+	AL["Varos Cloudstrider <Azure-Lord of the Blue Dragonflight>"] = true;
+	AL["Centrifuge Construct"] = true;
+	AL["Cache of Eregos"] = true;
+
+	--Trial of the Champion
+	AL["Grand Champions"] = true;
+	AL["Champions of the Alliance"] = true;
+	AL["Marshal Jacob Alerius"] = true;
+	AL["Ambrose Boltspark"] = true;
+	AL["Colosos"] = true;
+	AL["Jaelyne Evensong"] = true;
+	AL["Lana Stouthammer"] = true;
+	AL["Champions of the Horde"] = true;
+	AL["Mokra the Skullcrusher"] = true;
+	AL["Eressea Dawnsinger"] = true;
+	AL["Runok Wildmane"] = true;
+	AL["Zul'tore"] = true;
+	AL["Deathstalker Visceri"] = "Deathstalker Visceri";
+	AL["Eadric the Pure <Grand Champion of the Argent Crusade>"] = true;
+	AL["Argent Confessor Paletress"] = true;
+	AL["The Black Knight"] = true;
+
+	--Trial of the Crusader
+	AL["Cavern Entrance"] = true;
+	AL["Northrend Beasts"] = true;
+	AL["Gormok the Impaler"] = true;
+	AL["Acidmaw"] = true;
+	AL["Dreadscale"] = true;
+	AL["Icehowl"] = true;
+	AL["Lord Jaraxxus"] = true;
+	AL["Faction Champions"] = true;
+	AL["Twin Val'kyr"] = true;
+	AL["Fjola Lightbane"] = true;
+	AL["Eydis Darkbane"] = true;
+	AL["Anub'arak"] = true;
+	AL["Heroic: Trial of the Grand Crusader"] = true;
+	-- Ulduar General
+	AL["Celestial Planetarium Key"] = true;
+	AL["The Siege"] = true;
+	AL["The Keepers"] = true;
+
+	-- Ulduar A
+	AL["Flame Leviathan"] = true;
+	AL["Ignis the Furnace Master"] = true;
+	AL["Razorscale"] = true;
+	AL["XT-002 Deconstructor"] = true;
+	AL["Tower of Life"] = true;
+	AL["Tower of Flame"] = true;
+	AL["Tower of Frost"] = true;
+	AL["Tower of Storms"] = true;
+
+	-- Ulduar B
+	AL["Assembly of Iron"] = true;
+	AL["Steelbreaker"] = true;
+	AL["Runemaster Molgeim"] = true;
+	AL["Stormcaller Brundir"] = true;
+	AL["Kologarn"] = true;
+	AL["Algalon the Observer"] = true;
+	AL["Prospector Doren"] = true;
+	AL["Archivum Console"] = true;
+
+	-- Ulduar C
+	AL["Auriaya"] = true;
+	AL["Freya"] = true;
+	AL["Thorim"] = true;
+	AL["Hodir"] = true;
+
+	-- Ulduar D
+	AL["Mimiron"] = true;
+
+	-- Ulduar E
+	AL["General Vezax"] = true;
+	AL["Yogg-Saron"] = true;
+
+	--Ulduar: Halls of Lightning
+	AL["General Bjarngrim"] = true;
+	AL["Volkhan"] = true;
+	AL["Ionar"] = true;
+	AL["Loken"] = true;
+
+	--Ulduar: Halls of Stone
+	AL["Elder Yurauk"] = true;
+	AL["Krystallus"] = true;
+	AL["Maiden of Grief"] = true;
+	AL["Brann Bronzebeard"] = true;
+	AL["Tribunal Chest"] = true;
+	AL["Sjonnir the Ironshaper"] = true;
+
+	--Utgarde Keep: Utgarde Keep
+	AL["Dark Ranger Marrah"] = true;
+	AL["Prince Keleseth <The San'layn>"] = true;
+	AL["Elder Jarten"] = true;
+	AL["Dalronn the Controller"] = true;
+	AL["Skarvald the Constructor"] = true;
+	AL["Ingvar the Plunderer"] = true;
+
+	--Utgarde Keep: Utgarde Pinnacle
+	AL["Brigg Smallshanks"] = true;
+	AL["Svala Sorrowgrave"] = true;
+	AL["Gortok Palehoof"] = true;
+	AL["Skadi the Ruthless"] = true;
+	AL["Elder Chogan'gada"] = true;
+	AL["King Ymiron"] = true;
+
+	--Vault of Archavon
+	AL["Archavon the Stone Watcher"] = true;
+	AL["Emalon the Storm Watcher"] = true;
+	AL["Koralon the Flame Watcher"] = true;
+	AL["Toravon the Ice Watcher"] = true;
+
+	--The Violet Hold
+	AL["Erekem"] = true;
+	AL["Zuramat the Obliterator"] = true;
+	AL["Xevozz"] = true;
+	AL["Ichoron"] = true;
+	AL["Moragg"] = true;
+	AL["Lavanthor"] = true;
+	AL["Cyanigosa"] = true;
+	AL["The Violet Hold Key"] = true;
 end

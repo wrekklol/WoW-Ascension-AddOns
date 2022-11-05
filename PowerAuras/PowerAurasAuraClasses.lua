@@ -2007,7 +2007,7 @@ function cPowaCombo:AddEffectAndEvents()
 end						  
 
 function cPowaCombo:CheckIfShouldShow(giveReason)
-	if (not(PowaAuras.playerclass == "ROGUE" or (PowaAuras.playerclass=="DRUID" and GetShapeshiftForm()==3))) then
+	if not PowaAuras.playerclass == "ROGUE" and not (PowaAuras.playerclass == "DRUID" and GetShapeshiftForm()==3) and not PowaAuras.playerclass == "HERO" then
 		if (not giveReason) then return nil; end
 		return nil, PowaAuras.Text.nomReasonNoUseCombo;
 	end
@@ -2844,13 +2844,15 @@ function cPowaPet:Init()
 		end
 	elseif (PowaAuras.playerclass == "MAGE") then
 		self.CanHaveTimerOnInverse=true;
+	elseif PowaAuras.playerclass == "HERO" then
+		self.CanHaveTimerOnInverse=true;
 	end
 end
 
 function cPowaPet:AddEffectAndEvents()
 	table.insert(PowaAuras.AurasByType.Pet, self.id);
 	PowaAuras.Events.UNIT_PET = true;
-	if (self.playerclass=="DEATHKNIGHT" and not self.MasterOfGhouls) then -- temporary Ghoul is a totem!
+	if ((self.playerclass=="DEATHKNIGHT" or self.playerclass == "HERO") and not self.MasterOfGhouls) then -- temporary Ghoul is a totem!
 		if (self.DebugEvents) then
 			self:ShowText("Ghoul (temp version)");
 		end

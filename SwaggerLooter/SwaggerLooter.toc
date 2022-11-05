@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: Swagger Looter by Wrekk
+## Notes: Auto greed/disenchant green items.
+## SavedVariables: slSettings
+
+SwaggerLooter.lua
+SwaggerLooter.xml

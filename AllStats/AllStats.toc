@@ -7,5 +7,6 @@
 ## Email: ganoran@gmail.com
 ## License: GPLv3
 ## SavedVariables:
+## Dependencies: AscensionUI
 
 AllStats.xml

@@ -42,10 +42,10 @@
 --  Globals/Default Options  --
 -------------------------------
 DBM = {
-	Revision = ("$Revision: 5009 $"):sub(12, -3),
-	Version = "5.09",
-	DisplayVersion = "5.09", -- the string that is shown as version
-	ReleaseRevision = 5009 -- the revision of the latest stable version that is available (for /dbm ver2)
+	Revision = ("$Revision: 5015 $"):sub(12, -3),
+	Version = "5.15",
+	DisplayVersion = "5.15", -- the string that is shown as version
+	ReleaseRevision = 5013 -- the revision of the latest stable version that is available (for /dbm ver2)
 }
 
 DBM_SavedOptions = {}
@@ -677,6 +677,14 @@ do
 		insert(v)
 	end
 
+	function scheduleCountdown(time, numAnnounces, func, mod, self, ...)
+		time = time or 5
+		numAnnounces = numAnnounces or 3
+		for i = 1, numAnnounces do
+			schedule(time - i, func, mod, self, i, ...)
+		end
+	end
+
 	function unschedule(f, mod, ...)
 		return removeAllMatching(f, mod, ...)
 	end
@@ -787,7 +795,7 @@ SlashCmdList["DEADLYBOSSMODS"] = function(msg)
 			if DBM:GetRaidRank() >= 1 then
 				sendSync("DBMv4-Pizza-Cancel")
 			end
-			SendChatMessage(DBM_CORE_ANNOUNCE_PULL_CANCEL..pullMessage, channel)
+			SendChatMessage(DBM_CORE_ANNOUNCE_PULL_CANCEL, channel)
 		end
 		if timer == 0 then  end
 	elseif cmd:sub(1, 5) == "arrow" then
@@ -2289,36 +2297,38 @@ end
 do
 	local testMod
 	local testWarning1, testWarning2, testWarning3
-	local testTimer
+	-- local testTimer
 	local testSpecialWarning
+	local timerTestBar, timerPewPewPew,	timerEvilSpell,	timerBoom
 	function DBM:DemoMode()
 		if not testMod then
 			testMod = DBM:NewMod("TestMod", "DBM-PvP")	-- temp fix, as it requires a modId
 			testWarning1 = testMod:NewAnnounce("%s", 1, "Interface\\Icons\\Spell_Nature_WispSplode")
 			testWarning2 = testMod:NewAnnounce("%s", 2, "Interface\\Icons\\Spell_Shadow_ShadesOfDarkness")
 			testWarning3 = testMod:NewAnnounce("%s", 3, "Interface\\Icons\\Spell_Fire_SelfDestruct")
-			testTimer = testMod:NewTimer(20, "%s")			
+			-- testTimer = testMod:NewTimer(20, "%s", "%%s")	
+			timerTestBar	= testMod:NewTimer(10, "Test Bar", "Interface\\Icons\\Spell_Nature_WispSplode")
+			timerPewPewPew	= testMod:NewTimer(20, "Pew Pew Pew...", "Interface\\Icons\\Spell_Nature_Starfall")
+			timerEvilSpell	= testMod:NewTimer(43, "Evil Spell", "Interface\\Icons\\Spell_Shadow_ShadesOfDarkness")
+			timerBoom		= testMod:NewTimer(60, "Boom!", "Interface\\Icons\\Spell_Fire_SelfDestruct")		
 			testSpecialWarning = testMod:NewSpecialWarning("%s")
 		end
-		testTimer:Start(20, "Pew Pew Pew...")
-		testTimer:UpdateIcon("Interface\\Icons\\Spell_Nature_Starfall", "Pew Pew Pew...")
-		testTimer:Start(10, "Test Bar")
-		testTimer:UpdateIcon("Interface\\Icons\\Spell_Nature_WispSplode", "Test Bar")
-		testTimer:Start(43, "Evil Spell")
-		testTimer:UpdateIcon("Interface\\Icons\\Spell_Shadow_ShadesOfDarkness", "Evil Spell")
-		testTimer:Start(60, "Boom!")
-		testTimer:UpdateIcon("Interface\\Icons\\Spell_Fire_SelfDestruct", "Boom!")
+		timerTestBar:Start()
+		timerPewPewPew:Start()
+		timerEvilSpell:Start()
+		timerBoom:Start()
+
 		testWarning1:Cancel()
 		testWarning2:Cancel()
 		testWarning3:Cancel()
 		testSpecialWarning:Cancel()
 		testWarning1:Show("Test-mode started...")
-		testWarning1:Schedule(62, "Test-mode finished!")
-		testWarning3:Schedule(50, "Boom in 10 sec!")
+		testWarning1:Schedule(10, "Test bar expired!")
 		testWarning3:Schedule(20, "Pew Pew Laser Owl!")
 		testWarning2:Schedule(38, "Evil Spell in 5 sec!")
 		testWarning2:Schedule(43, "Evil Spell!")
-		testWarning1:Schedule(10, "Test bar expired!")
+		testWarning3:Schedule(50, "Boom in 10 sec!")
+		testWarning1:Schedule(62, "Test-mode finished!")
 		testSpecialWarning:Schedule(60, "Boom!")
 	end
 end
@@ -2651,6 +2661,22 @@ function bossModPrototype:IsHealer()
 			or (select(2, UnitClass("player")) == "PRIEST" and select(3, GetTalentTabInfo(3)) < 51)
 end
 
+-- An anti spam function to throttle spammy events (e.g. SPELL_AURA_APPLIED on all group members)
+-- @param time the time to wait between two events (optional, default 2.5 seconds)
+-- @param id the id to distinguish different events (optional, only necessary if your mod keeps track of two different spam events at the same time)
+function DBM:AntiSpam(time, id)
+    if GetTime() - (id and (self["lastAntiSpam" .. tostring(id)] or 0) or self.lastAntiSpam or 0) > (time or 2.5) then
+        if id then
+            self["lastAntiSpam" .. tostring(id)] = GetTime()
+        else
+            self.lastAntiSpam = GetTime()
+        end
+        return true
+    else
+        return false
+    end
+end
+
 
 -------------------------
 --  Boss Health Frame  --
@@ -2810,6 +2836,10 @@ do
 	function bossModPrototype:NewPhaseAnnounce(phase, color, icon, ...)
 		return newAnnounce(self, "phase", phase, color or 1, icon or "Interface\\Icons\\Spell_Nature_WispSplode", ...)
 	end
+	
+	function bossModPrototype:NewInterruptAnnounce(spellId, color, ...)
+		return newAnnounce(self, "interrupt", spellId, color or 3, ...)
+	end
 end
 
 --------------------
@@ -2849,6 +2879,117 @@ do
 	function soundPrototype:Cancel(...)
 		return unschedule(self.Play, self.mod, self, ...)
 	end	
+end
+
+--------------------
+--  Yell Object  --
+--------------------
+do
+	local yellPrototype = {}
+	local mt = { __index = yellPrototype }
+	local function newYell(self, yellType, spellId, yellText, optionDefault, optionName, chatType)
+		if not spellId and not yellText then
+			error("NewYell: you must provide either spellId or yellText", 2)
+			return
+		end
+		-- if type(spellId) == "string" and spellId:match("OptionVersion") then
+		-- 	print("newYell for: "..yellText.." is using OptionVersion hack. This is depricated")
+		-- 	return
+		-- end
+		-- local optionVersion
+		-- if type(optionName) == "number" then
+		-- 	optionVersion = optionName
+		-- 	optionName = nil
+		-- end
+		local displayText
+		if not yellText then
+			-- if type(spellId) == "string" and spellId:match("ej%d+") then
+			-- 	displayText = DBM_CORE_AUTO_YELL_ANNOUNCE_TEXT[yellType]:format(EJ_GetSectionInfo(string.sub(spellId, 3)) or DBM_CORE_UNKNOWN)
+			-- else
+			displayText = DBM_CORE_AUTO_YELL_ANNOUNCE_TEXT[yellType]:format(GetSpellInfo(spellId) or DBM_CORE_UNKNOWN)
+			-- end
+		else
+			displayText = DBM_CORE_AUTO_YELL_ANNOUNCE_TEXT[yellType]:format(GetSpellInfo(spellId), yellText)
+		end
+		--Passed spellid as yellText.
+		--Auto localize spelltext using yellText instead
+		-- if yellText  then --and type(yellText) == "number"
+		-- end
+		local obj = setmetatable(
+			{
+				text = displayText or yellText,
+				mod = self,
+				chatType = chatType,
+				yellType = yellType
+			},
+			mt
+		)
+		if optionName then
+			obj.option = optionName
+			self:AddBoolOption(obj.option, optionDefault, "misc")
+		elseif not (optionName == false) then
+			obj.option = "Yell"..(spellId or yellText)..(yellType ~= "yell" and yellType or "")..(optionVersion or "")
+			self:AddBoolOption(obj.option, optionDefault, "misc")
+			self.localization.options[obj.option] = DBM_CORE_AUTO_YELL_OPTION[yellType]:format(spellId)
+		end
+		return obj
+	end
+
+	function yellPrototype:Yell(...)
+		if self.yellType and self.yellType == "position" then return end
+		if not self.option or self.mod.Options[self.option] then
+			if self.yellType == "combo" then
+				SendChatMessage(pformat(self.text, ...), self.chatType or "YELL")
+			else
+				SendChatMessage(pformat(self.text, ...), self.chatType or "SAY")
+			end
+		end
+	end
+	yellPrototype.Show = yellPrototype.Yell
+
+	function yellPrototype:Schedule(t, ...)
+		return schedule(t, self.Yell, self.mod, self, ...)
+	end
+
+	function yellPrototype:Countdown(time, numAnnounces, ...)
+		scheduleCountdown(time, numAnnounces, self.Yell, self.mod, self, ...)
+	end
+
+	function yellPrototype:Cancel(...)
+		return unschedule(self.Yell, self.mod, self, ...)
+	end
+
+	function bossModPrototype:NewYell(...)
+		return newYell(self, "yell", ...)
+	end
+	
+	function bossModPrototype:NewShortYell(...)
+		return newYell(self, "shortyell", ...)
+	end
+
+	function bossModPrototype:NewCountYell(...)
+		return newYell(self, "count", ...)
+	end
+
+	function bossModPrototype:NewFadesYell(...)
+		return newYell(self, "fade", ...)
+	end
+	
+	function bossModPrototype:NewShortFadesYell(...)
+		return newYell(self, "shortfade", ...)
+	end
+	
+	function bossModPrototype:NewIconFadesYell(...)
+		return newYell(self, "iconfade", ...)
+	end
+	
+	function bossModPrototype:NewPosYell(...)
+		return newYell(self, "position", ...)
+	end
+	
+	function bossModPrototype:NewComboYell(...)
+		return newYell(self, "combo", ...)
+	end
 end
 
 ------------------------------

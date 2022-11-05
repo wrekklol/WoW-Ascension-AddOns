@@ -1037,6 +1037,7 @@ function Atr_FullScanStart()
 end
 
 -----------------------------------------
+
 function Atr_CalcNewDBprice (name, prices)
 		
 	if (prices[1] ~= BIGNUM) then
@@ -1201,7 +1202,6 @@ function Atr_FullScanAnalyze()
 	Atr_FullScanStatus:SetText (ZT("Cleaning up"));
 
 	Atr_FullScanStartButton:Enable();
-	Atr_EnchantsScanStartButton:Enable();
 	Atr_FullScanDone:Enable();
 	Atr_FullScanStatus:SetText ("");
 	

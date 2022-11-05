@@ -33,7 +33,7 @@ ALPHA_BLEND_AMOUNT = 0.8400251
 
 DF.AuthorInfo = {
 	Name = "Terciob",
-	Discord = "https://discord.gg/UXSc7nt",
+	Discord = "https://discord.gg/UYWW969Trg",
 }
 
 function DF.IsClassicWow()
@@ -3391,6 +3391,28 @@ DF.ClassFileNameToIndex = {
 	["SHAMAN"] = 7,
 	["DRUID"] = 10,
 	["PALADIN"] = 2,
+	["HERO"] = 11,
+	["NECROMANCER"] = 12,
+	["PYROMANCER"] = 13,
+	["CULTIST"] = 14,
+	["STARCALLER"] = 15,
+	["SUNCLERIC"] = 16,
+	["TINKER"] = 17,
+	["SPIRITMAGE"] = 18,
+	["WILDWALKER"] = 19,
+	["REAPER"] = 20,
+	["PROPHET"] = 21,
+	["CHRONOMANCER"] = 22,
+	["SONOFARUGAL"] = 23,
+	["GUARDIAN"] = 24,
+	["STORMBRINGER"] = 25,
+	["DEMONHUNTER"] = 26,
+	["BARBARIAN"] = 27,
+	["WITCHDOCTOR"] = 28,
+	["WITCHHUNTER"] = 29,
+	["FLESHWARDEN"] = 30,
+	["MONK"] = 31,
+	["RANGER"] = 32,
 }
 DF.ClassCache = {}
 
@@ -3401,10 +3423,17 @@ function DF:GetClassList()
 	end
 
 	for className, classIndex in pairs (DF.ClassFileNameToIndex) do
+		local texture
+		if bit.contains(Enum.ClassMask.COA, Enum.ClassMask[className]) then
+			texture = [[Interface\GLUES\CHARACTERCREATE\UI-CharacterCreate-Classes]]
+		else
+			texture = [[Interface\GLUES\CHARACTERCREATE\-UI-CharacterCreate-Classes]]
+		end
+
 		local t = {
 			ID = classIndex,
 			Name = className,
-			Texture = [[Interface\GLUES\CHARACTERCREATE\UI-CharacterCreate-Classes]],
+			Texture = texture,
 			TexCoord = CLASS_ICON_TCOORDS [className],
 			FileString = className,
 		}

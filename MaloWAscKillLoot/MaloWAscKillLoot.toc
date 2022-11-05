@@ -1,9 +1,0 @@
-## Interface: 30300
-## Title: MaloWAscKillLoot
-## DefaultState: enabled
-## Notes: Shares with your party / raid members who is also running the addon what gear and money dropped from player kills.
-## Version 1
-## Author: MaloW
-## Dependencies: MaloWUtils
-
-MaloWAscKillLoot.lua

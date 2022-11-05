@@ -104,13 +104,6 @@ function ABS:FindMacro(id, name, data)
 	if( macroCache[id] == data ) then
 		return id
 	end
-		
-	-- No such luck, check text
-	for id, currentMacro in pairs(macroCache) do
-		if( currentMacro == data ) then
-			return id
-		end
-	end
 	
 	-- Still no luck, let us try name
 	if( macroNameCache[name] ) then

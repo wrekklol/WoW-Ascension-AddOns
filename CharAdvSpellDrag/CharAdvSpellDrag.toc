@@ -1,6 +1,0 @@
-## Title: CharAdvSpellDrag by Nihilianth
-## Version: 0.2
-## Author: nihilianth
-## Interface: 30300
-
-core.lua

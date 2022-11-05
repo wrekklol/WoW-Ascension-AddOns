@@ -5,9 +5,9 @@
       <AbsDimension x="115" y="500"/>
     </Size>
 		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="PaperDollFrame" relativePoint="TOPRIGHT">
+			<Anchor point="TOPLEFT" relativeTo="AscensionCharacterFrame" relativePoint="TOPRIGHT">
 				<Offset>
-					<AbsDimension x="175" y= "-33"/>
+					<AbsDimension x="-4" y= "-12"/>
 				</Offset>
 			</Anchor>
 		</Anchors>

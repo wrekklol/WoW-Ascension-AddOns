@@ -1,0 +1,7 @@
+David Lynch:
+	- Rerun dataminer
+	- Run dataminer
+	- wowhead format changed
+	- inline for data management
+	- Rearrange config
+	- Option to skip scanning on taxi

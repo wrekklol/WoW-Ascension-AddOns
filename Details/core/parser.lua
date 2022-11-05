@@ -461,6 +461,43 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 		end
 	end
 
+	local Dotspells = {
+		{11366,12505,12522,12523,12524,12525,12526,18809,27132,33938,42890,42891},--, --Pyroblast
+		{133,143,145,3140,8400,8401,8402,10148,10149,10150,10151,25306,27070,38692,42832,42833}, --Fireball
+		{16805,17962}, --Conflagrate (with fake rank1)
+		{14914,15262,15263,15264,15265,15266,15267,15261,25384,48134,48135},--Holy Fire
+		{8050,8052,8053,10447,10448,29228,25457,49232,49233},--Flame Shock 
+		{348,707,1094,2941,11665,11667,11668,25309,27215,47810,47811},--Immolate 
+		{8921,8924,8925,8926,8927,8928,8929,9833,9834,9835,26987,26988,48462,48463},--Moonfire 
+		{977832,977834,977835,977836,977837,977838,977839,977840,977841,977842,977843,977844,977845,977846},--Sunfire
+		{48567,33745,48568}--Lacerate (with rank 2 [level 73 spell] as the dot)
+	}
+
+	local firstRank
+	function hasTable(tbl, value)
+		for k, v in ipairs(tbl) do -- iterate table (for sequential tables only)
+			if (hasValue(v, value)) then 
+				firstRank = v[1]
+				return true -- Found in this or nested table
+			end
+		end
+		return false -- Not found
+	end
+	
+	function hasValue(tbl, value)
+		for k, v in ipairs(tbl) do -- iterate table (for sequential tables only)
+			if v == value then 
+				return true -- Found in this or nested table
+			end
+		end
+		return false -- Not found
+	end
+	  
+	-- Damge over time fix
+	if hasTable(Dotspells, spellid) == true and token == "SPELL_PERIODIC_DAMAGE" then
+		spellid = firstRank
+	end
+
 	--> if the parser are allowed to replace spellIDs
 	if is_using_spellId_override then
 		spellid = override_spellId[spellid] or spellid

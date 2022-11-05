@@ -621,7 +621,7 @@ function _detalhes:SaveProfile (saveas)
 end
 
 local default_profile = {
-	--> spec coords
+	--> spec coords -- Coords for specs set here. Spec deciding in spells.lua lead here. Percent of whole image = StartPixel / 512, XStart, XEnd, YStart, YEnd.
 --	/run Details.class_specs_coords = nil
 		class_specs_coords = {
 			[250] = {0, 64/512, 0, 64/512}, --> blood dk
@@ -771,7 +771,7 @@ local default_profile = {
 				0.25, -- [3]
 				0.5, -- [4]
 			},
-			},
+		},
 
 		class_colors = {
 			["HUNTER"] = {
@@ -1118,7 +1118,15 @@ local default_profile = {
 		},
 
 }
+for class, color in pairs(RAID_CLASS_COLORS) do 
+	if not default_profile.class_coords[class] then
+		default_profile.class_coords[class] = { unpack(CLASS_ICON_TCOORDS[class])}
+	end
 
+	if not default_profile.class_colors[class] then
+		default_profile.class_colors[class] = { color:GetRGB() }
+	end
+end
 _detalhes.default_profile = default_profile
 
 

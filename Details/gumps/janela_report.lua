@@ -43,7 +43,7 @@ local _UIParent = UIParent --> wow api locals
 			elseif (GetNumSubgroupMembers() > 0) then
 				_detalhes.report_where = "PARTY"
 			else
-				_detalhes.report_where = "SAY"
+				_detalhes.report_where = "SAY"--"CHANNEL|Gosy"
 			end
 
 			instance:monta_relatorio()

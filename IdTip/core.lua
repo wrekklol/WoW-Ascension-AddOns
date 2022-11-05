@@ -2,17 +2,17 @@ local hooksecurefunc, select, UnitBuff, UnitDebuff, UnitAura, UnitGUID, GetGlyph
       hooksecurefunc, select, UnitBuff, UnitDebuff, UnitAura, UnitGUID, GetGlyphSocketInfo, tonumber, strfind
 
 local types = {
-    spell       = "SpellID:",
-    item        = "ItemID:",
-    unit        = "NPC ID:",
-    quest       = "QuestID:",
-    talent      = "TalentID:",
-    achievement = "AchievementID:",
-	criteria = "CriteriaID:",
-    ability     = "AbilityID:",
+	spell		= "SpellID:",
+	item		= "ItemID:",
+	unit		= "NPC ID:",
+	quest		= "QuestID:",
+	talent		= "TalentID:",
+	achievement	= "AchievementID:",
+	criteria	= "CriteriaID:",
+	ability		= "AbilityID:",
 }
 
-local function addLine(tooltip, id, type)
+local function addLine(tooltip, id, type, source)
     local found = false
 
     -- Check if we already added to this tooltip. Happens on the talent frame
@@ -24,7 +24,11 @@ local function addLine(tooltip, id, type)
     end
 
     if not found then
+      if source then
+        tooltip:AddDoubleLine(type.." |cffffffff" .. id, source)
+      else
         tooltip:AddDoubleLine(type, "|cffffffff" .. id)
+      end
         tooltip:Show()
     end
 end
@@ -51,18 +55,45 @@ hooksecurefunc(GameTooltip, "SetHyperlink", onSetHyperlink)
 
 -- Spells
 hooksecurefunc(GameTooltip, "SetUnitBuff", function(self, ...)
-    local id = select(11, UnitBuff(...))
-    if id then addLine(self, id, types.spell) end
+    local caster, _, _, id = select(8, UnitAura(...))
+    if caster then
+		  local name = UnitName(caster)
+      if id then 
+        addLine(self, id, types.spell, name)
+      end
+		else
+      if id then 
+        addLine(self, id, types.spell)
+      end
+		end
 end)
 
 hooksecurefunc(GameTooltip, "SetUnitDebuff", function(self,...)
-    local id = select(11, UnitDebuff(...))
-    if id then addLine(self, id, types.spell) end
+  local caster, _, _, id = select(8, UnitAura(...))
+  if caster then
+    local name = UnitName(caster)
+    if id then 
+      addLine(self, id, types.spell, name)
+    end
+  else
+    if id then 
+      addLine(self, id, types.spell)
+    end
+  end
 end)
 
 hooksecurefunc(GameTooltip, "SetUnitAura", function(self,...)
-    local id = select(11, UnitAura(...))
-    if id then addLine(self, id, types.spell) end
+  local caster, _, _, id = select(8, UnitAura(...))
+  if caster then
+    local name = UnitName(caster)
+    if id then 
+      addLine(self, id, types.spell, name)
+    end
+  else
+    if id then 
+      addLine(self, id, types.spell)
+    end
+  end
 end)
 
 hooksecurefunc("SetItemRef", function(link, ...)
@@ -79,8 +110,8 @@ end)
 GameTooltip:HookScript("OnTooltipSetUnit", function(self)
   local unit = select(2, self:GetUnit())
   if unit then
-    local id = tonumber((UnitGUID(unit)):sub(-10, -7), 16)
-    if id > 0 then addLine(GameTooltip, id, types.unit) end
+    local id = GetCreatureIDFromUnit(unit)
+    if id and id > 0 then addLine(GameTooltip, id, types.unit) end
   end
 end)
 
@@ -156,6 +187,7 @@ end)
 -- Quests
 hooksecurefunc("SelectQuestLogEntry", function(self)
 local index = GetQuestLogSelection()
+	if QuestLogFrame:IsVisible() then
 	if not index then return end
 	local link = GetQuestLink(index)
 	if not link then return end
@@ -166,7 +198,8 @@ local index = GetQuestLogSelection()
 		GameTooltip:SetPoint("TOPLEFT", QuestLogScrollFrame, "TOPRIGHT", 0, 0)
 		addLine(GameTooltip, id, types.quest)
 		GameTooltip:Show()
-    f:HookScript("OnLeave", function()
-      GameTooltip:Hide()
-    end)
+		f:HookScript("OnLeave", function()
+			GameTooltip:Hide()
+		end)
+    end
 end)

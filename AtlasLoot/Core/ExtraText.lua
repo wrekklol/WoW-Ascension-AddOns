@@ -87,7 +87,7 @@ AtlasLoot_ExtraText = {
     BlackwingLair = {
         "";
         GREY..INDENT..AL["Trash Mobs"];
-        GREY..INDENT..AL["Tier 1/2 Sets"];
+        GREY..INDENT..AL["Tier 2 Sets"];
     };
     CFRTheSteamvault = {
         "";
@@ -196,7 +196,7 @@ AtlasLoot_ExtraText = {
     };
     MoltenCore = {
         "";
-        GREY..INDENT..AL["Tier 1/2 Sets"];
+        GREY..INDENT..AL["Tier 1 Sets"];
         GREY..INDENT..AL["Random Boss Loot"];
         GREY..INDENT..AL["Trash Mobs"];
     };

@@ -42,6 +42,7 @@ do
 		_detalhes.debug_chr = false
 		_detalhes.opened_windows = 0
 		_detalhes.last_combat_time = 0
+		_detalhes._ascension = true
 
 	--> containers
 		--> armazenas as fun��es do parser - All parse functions
@@ -109,7 +110,7 @@ do
 				[15687] = 2, -- Moroes
 				[16457] = 3, -- Maiden of Virtue
 				[1234567890] = 4,
-				[34437] = 5, -- The Curator
+				[15691] = 5, -- The Curator
 				[15688] = 6, -- Terestian Illhoof
 				[16524] = 7, -- Shade of Aran
 				[15689] = 8, -- Netherspite
@@ -484,19 +485,21 @@ do
 
 	--> constants
 		--[[global]] DETAILS_HEALTH_POTION_LIST = {
-			[250870] = true, --Coastal Healing Potion
-			[250872] = true, --Coastal Rejuvenation Potion
-			[6262] = true, --Warlock's Healthstone
+			[22836] = true, -- [Major Dreamless Sleep Potion]
+			[28495] = true, -- [Super Healing Potion]
+			[28517] = true, -- [Super Rejuvenation Potion]
+			[22729] = true, -- [Major Rejuvenation Potion]
+			[27235] = true, -- [Master Healthstone]
 		}
-		--[[global]] DETAILS_HEALTH_POTION_ID = 250870
-		--[[global]] DETAILS_REJU_POTION_ID = 250872
-		--[[global]] DETAILS_MANA_POTION_ID = 250871
+		--[[global]] DETAILS_HEALTH_POTION_ID = 28495 -- 22829 itemid
+		--[[global]] DETAILS_REJU_POTION_ID = 28517--22850
+		--[[global]] DETAILS_MANA_POTION_ID = 28499--22832
 		--[[global]] DETAILS_FOCUS_POTION_ID = 252753
 
-		--[[global]] DETAILS_INT_POTION_ID = 279151
-		--[[global]] DETAILS_AGI_POTION_ID = 279152
-		--[[global]] DETAILS_STR_POTION_ID = 279153
-		--[[global]] DETAILS_STAMINA_POTION_ID = 279154
+		--[[global]] DETAILS_INT_POTION_ID = 28508--22839 -- [Destruction Potion]
+		--[[global]] DETAILS_AGI_POTION_ID = 28507--22838 -- [Haste Potion]
+		--[[global]] DETAILS_STR_POTION_ID = 28494--22828 -- [Insane Strength Potion]
+		--[[global]] DETAILS_STAMINA_POTION_ID = 28515--22849 -- [Ironshield Potion]
 
 		_detalhes._detalhes_props = {
 			DATA_TYPE_START = 1,	--> Something on start
@@ -545,6 +548,28 @@ do
 			["WARLOCK"] = true,
 			["DRUID"] = true,
 			["DEATHKNIGHT"] = true,
+			["HERO"] = true,
+			["NECROMANCER"] = true,
+			["PYROMANCER"] = true,
+			["CULTIST"] = true,
+			["STARCALLER"] = true,
+			["SUNCLERIC"] = true,
+			["TINKER"] = true,
+			["SPIRITMAGE"] = true,
+			["WILDWALKER"] = true,
+			["REAPER"] = true,
+			["PROPHET"] = true,
+			["CHRONOMANCER"] = true,
+			["SONOFARUGAL"] = true,
+			["GUARDIAN"] = true,
+			["STORMBRINGER"] = true,
+			["DEMONHUNTER"] = true,
+			["BARBARIAN"] = true,
+			["WITCHDOCTOR"] = true,
+			["WITCHHUNTER"] = true,
+			["FLESHWARDEN"] = true,
+			["MONK"] = true,
+			["RANGER"] = true,
 		}
 		_detalhes.classstring_to_classid = {
 			["WARRIOR"] = 1,
@@ -557,6 +582,28 @@ do
 			["MAGE"] = 8,
 			["WARLOCK"] = 9,
 			["DRUID"] = 10,
+			["HERO"]= 11,
+			["NECROMANCER"] = 12,
+			["PYROMANCER"] = 13,
+			["CULTIST"] = 14,
+			["STARCALLER"] = 15,
+			["SUNCLERIC"] = 16,
+			["TINKER"] = 17,
+			["SPIRITMAGE"] = 18,
+			["WILDWALKER"] = 19,
+			["REAPER"] = 20,
+			["PROPHET"] = 21,
+			["CHRONOMANCER"] = 22,
+			["SONOFARUGAL"] = 23,
+			["GUARDIAN"] = 24,
+			["STORMBRINGER"] = 25,
+			["DEMONHUNTER"] = 26,
+			["BARBARIAN"] = 27,
+			["WITCHDOCTOR"] = 28,
+			["WITCHHUNTER"] = 29,
+			["FLESHWARDEN"] = 30,
+			["MONK"] = 31,
+			["RANGER"] = 32,
 		}
 		_detalhes.classid_to_classstring = {
 			[1] = "WARRIOR",
@@ -569,6 +616,28 @@ do
 			[8] = "MAGE",
 			[9] = "WARLOCK",
 			[10] = "DRUID",
+			[11] = "HERO",
+			[12] = "NECROMANCER",
+			[13] = "PYROMANCER",
+			[14] = "CULTIST",
+			[15] = "STARCALLER",
+			[16] = "SUNCLERIC",
+			[17] = "TINKER",
+			[18] = "SPIRITMAGE",
+			[19] = "WILDWALKER",
+			[20] = "REAPER",
+			[21] = "PROPHET",
+			[22] = "CHRONOMANCER",
+			[23] = "SONOFARUGAL",
+			[24] = "GUARDIAN",
+			[25] = "STORMBRINGER",
+			[26] = "DEMONHUNTER",
+			[27] = "BARBARIAN",
+			[28] = "WITCHDOCTOR",
+			[29] = "WITCHHUNTER",
+			[30] = "FLESHWARDEN",
+			[31] = "MONK",
+			[32] = "RANGER",
 		}
 
 		_detalhes.segmentos = {

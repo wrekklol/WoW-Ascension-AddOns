@@ -1,7 +1,0 @@
-﻿## Interface: 30300
-## Title: AutoRepair
-## Notes: Автоматически чинит ваши вещи, когда вы торгуете с кузнецом.
-## Author: Markyxl (лок. Allwow.ru)
-## Dependencies:
-AutoRepair.lua
-AutoRepair.xml

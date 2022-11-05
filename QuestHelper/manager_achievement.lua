@@ -44,7 +44,7 @@ local AchievementDB
 --X 112 is learning cooking recipes
 --X 113 is honorable kills
 local achievement_type_blacklist = {}
-for _, v in pairs({1, 7, 8, 9, 10, 11, 14, 28, 29, 30, 31, 32, 34, 35, 36, 37, 41, 42, 46, 47, 49, 52, 53, 56, 62, 67, 73, 75, 112, 113}) do
+for _, v in pairs({1, 7, 8, 9, 10, 11, 14, 28, 29, 30, 31, 32, 34, 35, 36, 37, 41, 42, 46, 47, 49, 52, 53, 56, 62, 67, 73, 75, 112, 113, 41355}) do
   achievement_type_blacklist[v] = true
 end
 
@@ -94,31 +94,31 @@ local function registerAchievement(id)
   local critcount = GetAchievementNumCriteria(id)
   if critcount == 0 then record = true end
   
-  -- for i = 1, critcount do
-  --   local crit_name, crit_type, crit_complete, crit_quantity, crit_reqquantity, _, _, crit_asset, _, crit_id = GetAchievementCriteriaInfo(id, i)
+  for i = 1, critcount do
+    local crit_name, crit_type, crit_complete, crit_quantity, crit_reqquantity, _, _, crit_asset, _, crit_id = GetAchievementCriteriaInfo(id, i)
     
-  --   if qhdinfo and not achievement_type_blacklist[crit_type] then
-  --     if not qhdinfodump[crit_type] then qhdinfodump[crit_type] = {} end
-  --     qhdinfodump[crit_type][title .. " --- " .. crit_name] = true
-  --   end
+    if qhdinfo and not achievement_type_blacklist[crit_type] then
+      if not qhdinfodump[crit_type] then qhdinfodump[crit_type] = {} end
+      qhdinfodump[crit_type][title .. " --- " .. crit_name] = true
+    end
     
-  --   --[[
-  --   table.insert(dbi.criterialist, crit_id)
-  --   ass ert (not db.criteria[crit_id])
-  --   crittypes[crit_type] = (crittypes[crit_type] or 0) + 1]]
+    --[[
+    table.insert(dbi.criterialist, crit_id)
+    ass ert (not db.criteria[crit_id])
+    crittypes[crit_type] = (crittypes[crit_type] or 0) + 1]]
     
-  --   if not achievement_type_blacklist[crit_type] then record = true end
+    if not achievement_type_blacklist[crit_type] then record = true end
     
-  --   --[[
-  --   db.criteria[crit_id] = {
-  --     name = crit_name,
-  --     type = crit_type,
-  --     complete = crit_complete,
-  --     progress = crit_quantity,
-  --     progress_total = crit_reqquantity,
-  --     asset = crit_asset,
-  --   }]]
-  -- end
+    --[[
+    db.criteria[crit_id] = {
+      name = crit_name,
+      type = crit_type,
+      complete = crit_complete,
+      progress = crit_quantity,
+      progress_total = crit_reqquantity,
+      asset = crit_asset,
+    }]]
+  end
   
   if record then achievement_list[id] = true end
 end
@@ -146,8 +146,10 @@ local GetAchievementCriteriaInfo = GetAchievementCriteriaInfo
 
 local function retrieveAchievement(id, db)
   QH_Timeslice_Yield()
-
-  local _, _, _, complete = GetAchievementInfo(id)
+  QuestHelper: Assert(id, "id nil")
+  --QuestHelper: TextOut(string.format("retrieveAchievement (%d)", id))
+  
+  local _, title, _, complete = GetAchievementInfo(id)
   --QuestHelper:TextOut(string.format("Registering %d (%s)", id, title))
   
   db.achievements[id] = QuestHelper:CreateTable("collect_achievement achievement")
@@ -158,15 +160,19 @@ local function retrieveAchievement(id, db)
   local critcount = GetAchievementNumCriteria(id)
   QuestHelper: Assert(critcount, "critcount nil " .. tostring(id))
   
-  --QuestHelper:TextOut(string.format("%d criteria", crit))
+  --QuestHelper:TextOut(string.format("%d criteria", critcount))
   for i = 1, critcount do
     QuestHelper: Assert(not db.criteria[crit_id])
     local _, _, crit_complete, crit_quantity, crit_reqquantity, _, _, _, _, crit_id = GetAchievementCriteriaInfo(id, i)
-
-    -- db.criteria[crit_id] = QuestHelper:CreateTable("collect_achievement criteria")
-    -- db.criteria[crit_id].complete = crit_complete
-    -- db.criteria[crit_id].progress = crit_quantity
-    -- db.criteria[crit_id].parent = id
+	if crit_id then 
+		db.criteria[crit_id] = QuestHelper:CreateTable("collect_achievement criteria")
+		db.criteria[crit_id].complete = crit_complete
+		db.criteria[crit_id].progress = crit_quantity
+		db.criteria[crit_id].parent = id
+		--Activate the next 2 lines to find which objectives do not have data attached
+--	else
+--		QuestHelper:TextOut(string.format("%d objective nil for %s", i, title))
+	end
   end
 end
 

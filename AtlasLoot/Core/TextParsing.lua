@@ -132,7 +132,7 @@ function AtlasLoot_FixText(text)
     text = gsub(text, "#e22#", AL["Combat Pet"]);
     text = gsub(text, "#e23#", AL["Fireworks"]);
     text = gsub(text, "#e24#", AL["Fishing Lure"]);
-
+    
     -- Labels for Loot Descriptions
     text = gsub(text, "#m1#", AL["Classes:"]);
     text = gsub(text, "#m2#", AL["This Item Begins a Quest"]);
@@ -699,6 +699,16 @@ function AtlasLoot_FixText(text)
     text = gsub(text, "#aq40s8#", AL["Doomcaller's Attire"]);
     text = gsub(text, "#aq40s9#", AL["Conqueror's Battlegear"]);
 
+    -- Tier Tokens
+    text = gsub(text, "#tt1#", AL["Tier 1 Set Token (Click)"]);
+    text = gsub(text, "#tt2#", AL["Tier 2 Set Token (Click)"]);
+    text = gsub(text, "#tt2.5#", AL["Tier 2.5 Set Token (Click)"]);
+    text = gsub(text, "#tt3#", AL["Tier 3 Set Token (Click)"]);
+    text = gsub(text, "#tt4#", AL["Tier 4 Set Token (Click)"]);
+    text = gsub(text, "#tt5#", AL["Tier 5 Set Token (Click)"]);
+    text = gsub(text, "#tt6#", AL["Tier 6 Set Token (Click)"]);
+    text = gsub(text, "#tt7#", AL["Tier 7 Set Token (Click)"]);
+
     -- Dungeon 1 Sets
     text = gsub(text, "#t0s1#", AL["Wildheart Raiment"]);
     text = gsub(text, "#t0s2#", AL["Beaststalker Armor"]);
@@ -1052,6 +1062,13 @@ function AtlasLoot_FixText(text)
     text = gsub(text, "#arenas8_2#", AL["Gladiator's Felshroud"]);
     text = gsub(text, "#arenas9#", AL["Gladiator's Battlegear"]);
     text = gsub(text, "#arenas10#", AL["Gladiator's Desecration"]);
+
+    -- PVP Seasons
+
+    text = gsub(text, "#arenas1L#", AL["Arena Season 1"]);
+    text = gsub(text, "#arenas2L#", AL["Arena Season 2"]);
+    text = gsub(text, "#arenas3L#", AL["Arena Season 3"]);
+    text = gsub(text, "#arenas4L#", AL["Arena Season 4"]);
 
     -- Crafting
     text = gsub(text, "#sr#", AL["Skill Required:"]);
