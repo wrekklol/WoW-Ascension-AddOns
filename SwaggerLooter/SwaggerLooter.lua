@@ -12,11 +12,6 @@ function slEvent(event, ...)
 		local id, timer = ...;
 		local _, _, _, quality, _, _, canGreed, canDE = GetLootRollItemInfo(id);
 		if quality < 3 then
-			print(slSettings.bDisenchantOverGreed);
-			print(slSettings.bDisenchantOverGreed);
-			print(slSettings.bDisenchantOverGreed);
-			print(slSettings.bDisenchantOverGreed);
-			print(slSettings.bDisenchantOverGreed);
 			if canDE and slSettings.bDisenchantOverGreed then
 				RollOnLoot(id, 3)
 			elseif canGreed then
