@@ -1,15 +1,13 @@
 <Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="Party.lua" />
-	<Frame name="PartyFrame" parent="UIParent" toplevel="true">
-		<Size x="449" y="200" />
+	<Frame name="PartyFrame" parent="UIParent" toplevel="true" frameStrata="HIGH" frameLevel="9999999">
+		<Size x="450" y="200" />
 		<Anchors>
-			<Anchor point="RIGHT">
-				<Offset x="-10" />
-			</Anchor>
+			<Anchor x="2" point="RIGHT" />
 		</Anchors>
 		<Backdrop bgFile="Interface\AddOns\PortalHelpers\Textures\Square_White.tga">
 			<Color />
-			<BorderColor a="0" />
+			<BorderColor />
 		</Backdrop>
 		<Layers>
 			<Layer level="OVERLAY">
@@ -47,6 +45,12 @@
 					<Size x="20" y="20" />
 					<Anchors>
 						<Anchor x="-5" y="98" point="BOTTOMRIGHT" relativeTo="PartyFrame" />
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFontNormal" text="1 2 3 4 5 6 7 8 9 0 -">
+					<Size x="440" y="20" />
+					<Anchors>
+						<Anchor y="-5" point="TOP" relativeTo="PartyFrame" />
 					</Anchors>
 				</FontString>
 			</Layer>

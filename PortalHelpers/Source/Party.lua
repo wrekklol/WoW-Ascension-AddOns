@@ -1,33 +1,57 @@
 local PartyMembers = { }
 
+
+
 function Party:OnEnable()
-	PartyMembers.player = { HealthText = PlayerHealthText, ID = 0 }
-	PartyMembers.party1 = { HealthText = Party1HealthText, ID = 1 }
-	PartyMembers.party2 = { HealthText = Party2HealthText, ID = 2 }
-	PartyMembers.party3 = { HealthText = Party3HealthText, ID = 3 }
-	PartyMembers.party4 = { HealthText = Party4HealthText, ID = 4 }
+	PartyMembers.player = 
+	{
+		Index = 0,
+		HealthText = PlayerHealthText
+	}
+	PartyMembers.party1 = 
+	{
+		Index = 1,
+		HealthText = Party1HealthText
+	}
+	PartyMembers.party2 = 
+	{
+		Index = 2,
+		HealthText = Party2HealthText
+	}
+	PartyMembers.party3 = 
+	{
+		Index = 3,
+		HealthText = Party3HealthText
+	}
+	PartyMembers.party4 = 
+	{
+		Index = 4,
+		HealthText = Party4HealthText
+	}
 
 	Party:RegisterEvent("UNIT_HEALTH", function(InEvent, InUnit) Party:OnHealthChange(InUnit) end)
 	Party:RegisterEvent("PARTY_MEMBERS_CHANGED", function(InEvent) Party:OnPartyChange() end)
-	
+
 	PartyFrame:Show()
-	
-	--print(tostring(SpellMacroCreator == nil))
-	--SpellMacroCreator:CreateBigHealMacro()
 
 	Party:InitHealBindings()
+	Party:OnPartyChange()
 end
 
 
 
 function Party:OnHealthChange(InUnit)
+	if PartyMembers[InUnit] == nil or PartyMembers[InUnit].HealthText == nil then
+		do return end
+	end
+	
 	local HealthPercent = Party:GetHealthPercent(InUnit)
 	local HealthText = PartyMembers[InUnit].HealthText
 
-	if Party:CanHealUnit(InUnit) then
+	if Party:CanHealUnit(InUnit) and HealthPercent < 100 then
 		HealthText:SetText(math.floor(HealthPercent))
 	else
-		HealthText:SetText("---")
+		HealthText:SetText("-")
 	end
 end
 
@@ -47,21 +71,35 @@ function Party:CanHealUnit(InUnit, InSpellName)
 	local bIsCorpse = (UnitIsCorpse(InUnit) == 1)
 	local bIsDeadOrGhost = (UnitIsDeadOrGhost(InUnit) == 1)
 	local bIsFriend = (UnitIsFriend("player", InUnit) == 1)
-	local bIsInRange = ((UnitInParty(InUnit) == nil or UnitInRange(InUnit) == 1) and InSpellName == nil or IsSpellInRange(InSpellName, InUnit) == 1)
+	local bIsInRange = ((UnitInParty(InUnit) == nil or UnitInRange(InUnit) == 1) and (InSpellName == nil or IsSpellInRange(InSpellName, InUnit) == 1))
 	local bIsConnected = (UnitIsConnected(InUnit) == 1)
 	local bIsVisible = (UnitIsVisible(InUnit) == 1)
 
-	print("UnitIsCharmed: " .. tostring(bIsCharmed))
-	print("UnitIsCorpse: " .. tostring(bIsCorpse))
-	print("UnitIsDeadOrGhost: " .. tostring(bIsDeadOrGhost))
-	print("UnitIsFriend: " .. tostring(bIsFriend))
-	print("UnitInRange: " .. tostring(bIsInRange))
-	print("UnitIsConnected: " .. tostring(bIsConnected))
-	print("UnitIsVisible: " .. tostring(bIsVisible))
+	if bIsCharmed == true then
+		print("UnitIsCharmed: " .. tostring(bIsCharmed))
+	end
+	if bIsCorpse == true then
+		print("UnitIsCorpse: " .. tostring(bIsCorpse))
+	end
+	if bIsDeadOrGhost == true then
+		print("UnitIsDeadOrGhost: " .. tostring(bIsDeadOrGhost))
+	end
+	if bIsFriend == false then
+		print("UnitIsFriend: " .. tostring(bIsFriend))
+	end
+	if bIsInRange == false then
+		print("UnitInRange: " .. tostring(bIsInRange))
+	end
+	if bIsConnected == false then
+		print("UnitIsConnected: " .. tostring(bIsConnected))
+	end
+	if bIsVisible == false then
+		print("UnitIsVisible: " .. tostring(bIsVisible))
+	end
 
 	local bCanHeal = (bIsCharmed == false and 
-		bIsCorpse ~= true and 
-		bIsDeadOrGhost ~= true and 
+		bIsCorpse == false and 
+		bIsDeadOrGhost == false and 
 		bIsFriend == true and 
 		bIsInRange == true and 
 		bIsConnected == true and 
@@ -77,11 +115,13 @@ end
 function Party:OnPartyChange()
 	TankIndicator:Hide()
 
-	for i, id in pairs(PartyMembers) do
-		if UnitInParty(id) ~= nil then
-			Party:OnHealthChange(id)
-			if Party:UnitIsTank(id) then
-				SetTank(id)
+	for k in pairs(PartyMembers) do
+		print(k)
+		Party:OnHealthChange(k)
+		if UnitInParty(k) ~= nil then
+			--Party:OnHealthChange(k)
+			if Party:UnitIsTank(k) then
+				Party:SetTank(k)
 			end
 		end
 	end
@@ -89,7 +129,7 @@ end
 
 function Party:SetTank(InUnit)
 	TankIndicator:Show()
-	TankIndicator:SetText("T" .. PartyMembers[InUnit].ID)
+	TankIndicator:SetText("T" .. PartyMembers[InUnit].Index)
 end
 
 function Party:UnitIsTank(InUnit)
@@ -108,15 +148,6 @@ function Party:InitHealBindings()
 	local ShortBuffsPrefix = "CTRL-"
 	-- End Prefix
 
-	--for i = 1, 9 do
-	--	SetBinding(BigHealsPrefix .. i)
-	--	SetBinding(SmallHealsPrefix .. i)
-	--	SetBinding(InstantHealsPrefix .. i)
-	--	SetBinding(AoEHealsPrefix .. i)
-	--	SetBinding(HoTHealsPrefix .. i)
-	--	SetBinding(ShortBuffsPrefix .. i)
-	--end
-
 	-- Start Binding
 	-- Big Heals
 	SetBindingSpell(BigHealsPrefix .. "1", "Greater Heal") -- Priest
@@ -134,13 +165,7 @@ function Party:InitHealBindings()
 
 	-- Instant Heals
 	SetBindingSpell(InstantHealsPrefix .. "1", "Holy Nova") -- Priest
-
-
-	--SetBindingSpell(InstantHealsPrefix .. "2", "Swiftmend") -- Druid
-	SetBindingSpell(InstantHealsPrefix .. "2", "Rejuvenation") -- Druid
-
-
-
+	SetBindingSpell(InstantHealsPrefix .. "2", "Swiftmend") -- Druid
 	SetBindingSpell(InstantHealsPrefix .. "3", "Holy Shock") -- Paladin
 	SetBindingSpell(InstantHealsPrefix .. "4", "Lay on Hands") -- Paladin
 	SetBindingSpell(InstantHealsPrefix .. "5", "Prayer of Mending") -- Priest
@@ -169,4 +194,15 @@ function Party:InitHealBindings()
 	-- End Binding
 
 	print(ok)
+end
+
+function Party:ClearHealBindings()
+	--for i = 1, 9 do
+	--	SetBinding(BigHealsPrefix .. i)
+	--	SetBinding(SmallHealsPrefix .. i)
+	--	SetBinding(InstantHealsPrefix .. i)
+	--	SetBinding(AoEHealsPrefix .. i)
+	--	SetBinding(HoTHealsPrefix .. i)
+	--	SetBinding(ShortBuffsPrefix .. i)
+	--end
 end
