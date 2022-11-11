@@ -665,7 +665,7 @@ local function DoSearch(searchText)
                             end
                         else
                             local difficultyCap = min(AtlasLoot_Difficulty:getMaxDifficulty(data.Type), ItemindexID);
-                            itemId = AtlasLoot:FindId(itemId, difficultyCap) or 2;
+                            itemId = AtlasLoot:FindId(itemId, difficultyCap, data.Type) or 2;
 
                             local item = Item:CreateFromID(itemId);
 

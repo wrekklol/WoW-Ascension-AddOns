@@ -35,11 +35,13 @@ Called whenever the loot browser is shown and sets up buttons and loot tables
 function AtlasLootDefaultFrame_OnShow()
     --Definition of where I want the loot table to be shown
     --Remove the selection of a loot table in Atlas
-    AtlasLootItemsFrame.activeBoss = nil;  
+    AtlasLootItemsFrame.activeBoss = nil;
     --Set the item table to the loot table
     --Show the last displayed loot table
-    local lastboss = AtlasLoot.db.profile.LastBoss;
-    if AtlasLoot.db.profile.AutoCurrentInstance and AtlasLoot:ShowInstance() then elseif lastboss and lastboss[4] then
+    local lastboss = AtlasLoot.db.profile.LastBoss[AtlasLoot_Expac];
+    if AtlasLoot.db.profile.AutoCurrentInstance and AtlasLoot:ShowInstance() then
+        return;
+    elseif lastboss and lastboss[4] then
         ATLASLOOT_CURRENTTABLE = lastboss[5];
         ATLASLOOT_LASTMODULE = lastboss[4];
         AtlasLoot:IsLootTableAvailable(lastboss[4]);
@@ -89,6 +91,7 @@ Called when a button in AtlasLoot_Dewdrop is clicked
 ]]
 function AtlasLoot:DewDropClick(tablename, text, tablenum)
     ATLASLOOT_FILTER_ENABLE = false;
+    ATLASLOOT_BACKENABLED = false;
     AtlasLootFilterCheck:SetChecked(false);
     tablename = tablename .. AtlasLoot_Expac;
     ATLASLOOT_CURRENTTABLE = tablename;
@@ -114,6 +117,7 @@ text - Heading for the loot table
 Called when a button in AtlasLoot_DewdropSubMenu is clicked
 ]]
 function AtlasLoot:DewDropSubMenuClick(tablename)
+    ATLASLOOT_BACKENABLED = false;
     --Show the select loot table
     local tablenum = AtlasLoot_Data[tablename].Loadfirst or 1;
     --Show the table that has been selected
@@ -123,11 +127,12 @@ end
 
 --[[
 AtlasLoot:DewdropExpansionMenuClick(expansion, name):
-tablename - Name of the loot table in the database
-text - Heading for the loot table
-Called when a button in AtlasLoot_DewdropSubMenu is clicked
+expansion - expansion to load
+name - label for the expansion
+Called when a button in DewdropExpansionMenuClick is clicked
 ]]
 function AtlasLoot:DewdropExpansionMenuClick(expansion, name)
+    ATLASLOOT_BACKENABLED = false;
 	AtlasLootDefaultFrame_ExpansionMenu:SetText(name);
     AtlasLoot_DewdropExpansionMenu:Close(1);
     AtlasLoot_Expac = expansion;

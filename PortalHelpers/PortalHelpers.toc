@@ -1,0 +1,12 @@
+## Interface: 30300
+## Title: PortalHelpers
+## Version: 1.0
+## Author: Wrekk
+## DefaultState: disabled
+
+embeds.xml
+
+PortalHelpers.lua
+SpellMacroCreator.lua
+
+Party.xml

@@ -1,0 +1,15 @@
+## Interface: 30300
+## X-Curse-Packaged-Version: v1.0-beta-2
+## X-Curse-Project-Name: AdiBags_Outfitter
+## X-Curse-Project-ID: adibags_outfitter
+## X-Curse-Repository-ID: wow/adibags_outfitter/mainline
+
+## Title: AdiBags - Outfitter support
+## Notes: Adds Outfitter set filters to AdiBags.
+## Author: Adirelle
+## Version: v1.0-beta-2
+## X-Date: 2010-07-07T11:02:51Z
+
+## Dependencies: AdiBags, Outfitter
+
+AdiBags_Outfitter.lua

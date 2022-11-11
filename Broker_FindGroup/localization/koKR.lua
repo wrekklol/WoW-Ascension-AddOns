@@ -1,0 +1,25 @@
+﻿local AceLocale = LibStub:GetLibrary("AceLocale-3.0")
+local L = AceLocale:NewLocale("Broker_FindGroup", "koKR")
+if not L then return end
+
+L["Assembling group..."] = "파티 구성 중..."
+L["Click to open the dungeon finder."] = "클릭 던전 찾기 열기"
+L["D"] = "딜"
+L["DPS"] = "공격 담당"
+L["Find Group"] = "그룹 찾기"
+L["H"] = "힐"
+L["Healer"] = "치유 담당"
+L["Hide Minimap Button"] = "미니맵 버튼 숨김"
+L["In Party"] = "파티 중"
+L["My estimated wait time:"] = "내 예상 대기 시간"
+L["Queued for: "] = "유형:"
+L["Right click for options."] = "우클릭: 옵션"
+L["Short Text"] = "짧은 문자"
+L["Show Instance Name"] = "던전 이름 보기"
+L["Show Wait Time"] = "대기 시간 보기"
+L["T"] = "탱"
+L["Tank"] = "방어 담당"
+L["Teleport In/Out"] = "던전 안/밖으로 이동"
+L["Time"] = "시간"
+L["Waiting for:"] = "대기 시간:"
+L["Wait time as:"] = "역할 별 대기 시간:"

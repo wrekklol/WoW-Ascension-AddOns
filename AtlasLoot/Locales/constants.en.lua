@@ -284,6 +284,9 @@ if AL then
 	AL["Ranged weapons:"] = true;
 	AL["Relics:"] = true;
 	AL["Other:"] = true;
+	AL["How to set of change a page filter:"] = true;
+	AL["If you Right Click on the filter check box you will get a drop downmenu with a list of filters. Click the filter you want to use or click add filter set to add new custom filters."] = true;
+
 
 	-- Wishlist
 	AL["Close"] = true;
@@ -300,6 +303,7 @@ if AL then
 	AL["Add Wishlist"] = true;
 	AL["Edit Wishlist"] = true;
 	AL["Sort Wishlist"] = true;
+	AL["Add Filter Set"] = true;
 	AL["Auto Sort WishLists"] = true;
 	AL["Copy Wishlist To Own"] = true;
 	AL["Make Wishlist Default"] = true;
@@ -326,6 +330,8 @@ if AL then
 	AL["Please set a default Wishlist."] = true;
 	AL["Set as default Wishlist"] = true;
 	AL["Please Create a Wishlist First."] = true;
+	AL["Add/Edit Filter"] = true;
+	AL["Delete Filter"] = true;
 
 	-- Misc Inventory related words
 	AL["Enchant"] = true;
@@ -384,6 +390,19 @@ if AL then
 	AL["Item Enhancements"] = true;
 	AL["Quivers and Ammo Pouches"] = true;
 	AL["Drums, Bags and Misc."] = true;
+
+	--Stats etc
+	AL["Accessories"] = true;
+	AL["Weapons"] = true;
+	AL["Armor Type"] = true;
+	AL["Relics"] = true;
+	AL["Weapons One-Handers"] = true;
+	AL["Weapons Two-Handers"] = true;
+	AL["Ranged Weapons"] = true;
+	AL["Primary Stats"] = true;
+	AL["Secondary Stats"] = true;
+	AL["Defensive Stats"] = true;
+	AL["Resistances"] = true;
 
 	-- Tailoring
 	AL["Cloth Armor"] = true;

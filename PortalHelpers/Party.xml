@@ -1,0 +1,101 @@
+<Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Party.lua" />
+	<Frame name="PartyFrame" parent="UIParent" toplevel="true">
+		<Size x="200" y="200" />
+		<Anchors>
+			<Anchor point="BOTTOMRIGHT">
+				<Offset x="-100" y="100" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\PortalHelpers\Textures\Square_White.tga">
+			<Color />
+			<BorderColor a="0" />
+		</Backdrop>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="Party1HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor x="-105" y="78" point="BOTTOMRIGHT" relativeTo="PartyFrame" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party2HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="BOTTOMRIGHT" relativeTo="Party1HealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party3HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="BOTTOMRIGHT" relativeTo="Party2HealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party4HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="BOTTOMRIGHT" relativeTo="Party3HealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party5HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="BOTTOMRIGHT" relativeTo="Party4HealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="TankIndicator" inherits="GameFontNormal" hidden="true" text="X">
+					<Size x="20" y="20" />
+					<Anchors>
+						<Anchor x="-141" y="78" point="BOTTOMRIGHT" relativeTo="PartyFrame" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<StatusBar name="Party1Health" toplevel="true" minValue="0" maxValue="100" defaultValue="50">
+				<Size x="100" y="15" />
+				<Anchors>
+					<Anchor x="-1" y="81" point="BOTTOMRIGHT" relativeTo="PartyFrame" />
+				</Anchors>
+				<Backdrop bgFile="Interface\AddOns\PortalHelpers\Textures\Square_White.tga">
+					<Color />
+				</Backdrop>
+				<BarTexture file="Interface\AddOns\PortalHelpers\Textures\Square_White.tga" />
+				<BarColor g="1" />
+			</StatusBar>
+			<StatusBar name="Party2Health" toplevel="true" minValue="0" maxValue="100" defaultValue="50">
+				<Size x="100" y="15" />
+				<Anchors>
+					<Anchor y="-20" point="BOTTOMRIGHT" relativeTo="Party1Health" />
+				</Anchors>
+				<Backdrop bgFile="Interface\AddOns\PortalHelpers\Textures\Square_White.tga">
+					<Color />
+				</Backdrop>
+				<BarTexture file="Interface\AddOns\PortalHelpers\Textures\Square_White.tga" />
+				<BarColor g="1" />
+			</StatusBar>
+			<StatusBar name="Party3Health" toplevel="true" minValue="0" maxValue="100" defaultValue="50">
+				<Size x="100" y="15" />
+				<Anchors>
+					<Anchor y="-20" point="BOTTOMRIGHT" relativeTo="Party2Health" />
+				</Anchors>
+				<Backdrop bgFile="Interface\AddOns\PortalHelpers\Textures\Square_White.tga">
+					<Color />
+				</Backdrop>
+				<BarTexture file="Interface\AddOns\PortalHelpers\Textures\Square_White.tga" />
+				<BarColor g="1" />
+			</StatusBar>
+			<StatusBar name="Party4Health" toplevel="true" minValue="0" maxValue="100" defaultValue="50">
+				<Size x="100" y="15" />
+				<Anchors>
+					<Anchor y="-20" point="BOTTOMRIGHT" relativeTo="Party3Health" />
+				</Anchors>
+				<Backdrop bgFile="Interface\AddOns\PortalHelpers\Textures\Square_White.tga">
+					<Color />
+				</Backdrop>
+				<BarTexture file="Interface\AddOns\PortalHelpers\Textures\Square_White.tga" />
+				<BarColor g="1" />
+			</StatusBar>
+		</Frames>
+	</Frame>
+</Ui>

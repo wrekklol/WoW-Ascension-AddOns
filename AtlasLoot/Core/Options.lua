@@ -181,6 +181,8 @@ function AtlasLoot_DisplayHelp()
             WHITE..AL["While on the wishlist screen, just Alt+Left Click on an item to delete it."].."\n\n"..
             ORANGE..AL["What else does the wishlist do?"].."\n"..
             WHITE..AL["If you Left Click any item on the wishlist, you can jump to the loot page the item comes from.  Also, on a loot page any item already in your wishlist is marked with a yellow star."].."\n\n"..
+            ORANGE..AL["How to set of change a page filter:"].."\n"..
+            WHITE..AL["If you Right Click on the filter check box you will get a drop downmenu with a list of filters. Click the filter you want to use or click add filter set to add new custom filters."].."\n\n"..
             ORANGE..AL["HELP!! I have broken the mod somehow!"].."\n"..
             WHITE..AL["Use the reset buttons available in the options menu, or type '/al reset' in your chat window."].."\n\n"..
             GREY..AL["For further help, see our website and forums: "]..GREEN.."https://discord.gg/uYCE2X2FgA"
@@ -235,8 +237,6 @@ function AtlasLoot_OptionsOnShow()
 	UIDropDownMenu_SetWidth(AtlasLoot_SelectLootBrowserStyle, 150);
 end
 
-
-
 function AtlasLoot_SelectLootBrowserStyle_OnClick()
     local thisID = this:GetID();
 	UIDropDownMenu_SetSelectedID(AtlasLoot_SelectLootBrowserStyle, thisID);
@@ -248,32 +248,6 @@ function AtlasLoot_SelectLootBrowserStyle_OnClick()
     end
     AtlasLoot_OptionsOnShow();
 end
-
-local Authors = {
-	["Calî"] = "Arthas",
-	["Lâg"] = "Arthas",
-	--["Daviesh"] = "Thaurissan",
-	["Hegarol"] = "Dun Morogh",
-	
-}
-
-function AtlasLoot_UnitTarget()
-	local name = GameTooltip:GetUnit()
-	if UnitName("mouseover") == name then
-		local _, realm = UnitName("mouseover")
-		if not realm then
-			realm = GetRealmName()
-		end;
-		if name and Authors[name] then
-			if Authors[name] == realm then
-				GameTooltip:AddLine("AtlasLoot Author |TInterface\\AddOns\\AtlasLoot\\Images\\gold:0|t", 0, 1, 0 )
-			end
-		end
-	end
-end
-GameTooltip:HookScript("OnTooltipSetUnit", AtlasLoot_UnitTarget)
-
-
 
 local helpframe = CreateFrame("Frame", "AtlasLootHelpFrame")
         helpframe:SetSize(425,450);
@@ -403,7 +377,7 @@ local fooshow = CreateFrame("Button", "AtlasLootOptionsFrame_FuBarShow", AtlasLo
             end
         end);
 
-        local foohide = CreateFrame("Button", "AtlasLootOptionsFrame_FuBarShow", AtlasLootOptionsFrame, "OptionsButtonTemplate");
+local foohide = CreateFrame("Button", "AtlasLootOptionsFrame_FuBarHide", AtlasLootOptionsFrame, "OptionsButtonTemplate");
         foohide:SetSize(150,25);
         foohide:SetText(AL["Hide FuBar Plugin"]);
         foohide:SetPoint("TOP", "AtlasLootOptionsFrame", "TOP", 85, -390);

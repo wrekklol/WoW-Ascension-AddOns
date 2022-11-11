@@ -31,8 +31,9 @@ AtlasLoot_Difficulty = {
     };
 
     ["ClassicRaid"] = {
-            {"Normal Flex", 2},
-            {"Heroic Flex", 3},
+            {"Normal", 2},
+            {"Heroic", 3},
+            {"Mythic", 5},
             {"Ascended", 4},
             {"Bloodforged", 1},
     };
@@ -52,8 +53,9 @@ AtlasLoot_Difficulty = {
     };
 
     ["BCRaid"] = {
-        {"Normal Flex", 2},
-        {"Heroic Flex", 3},
+        {"Normal", 2},
+        {"Heroic", 3},
+        {"Mythic", 5},
         {"Ascended", 4},
         {"Bloodforged", 1},
      };
@@ -69,9 +71,10 @@ AtlasLoot_Difficulty = {
      };
 
     ["WrathRaid"] = {
-        {"Normal Flex", 2},
-        {"Heroic Flex", 3},
-        {"Ascended", 4},
+        {"Normal", 2},
+        {"Heroic", 3},
+        {"Mythic", 4},
+        {"Ascended", 5},
         {"Bloodforged", 1},
      };
 
@@ -79,6 +82,10 @@ AtlasLoot_Difficulty = {
         {"Crafting Patterns", "Pattern" },
         {"Item Normal", 2 },
         {"Bloodforged", 1 },
+    };
+    ["CraftingNoBF"] = {
+        {"Crafting Patterns", "Pattern" },
+        {"Item Normal", 2 },
     };
 
     ["Search"] = {
@@ -122,7 +129,7 @@ function AtlasLoot_Difficulty:getMaxDifficulty(difficultyKey)
     elseif (difficultyKey == "ClassicDungeonExt" or difficultyKey == "BCDungeon" or difficultyKey == "WrathDungeon") then
         return 44;
     elseif (difficultyKey == "ClassicRaid" or difficultyKey == "BCRaid" or difficultyKey == "WrathRaid") then
-        return 4;
+        return 5;
     else
         return 0;
     end

@@ -5,7 +5,7 @@ Loot browser associating loot with instance bosses
 Can be integrated with Atlas (http://www.atlasmod.com)
 
 Functions:
-AtlasLoot:HideNoUsableItems()
+AtlasLoot:HideFilteredItems()
 AtlasLoot_FilterEnableButton()
 <local> CreateCheckButton(parrent, text, num)
 AtlasLoote_CreateFilterOptions()
@@ -16,359 +16,402 @@ local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
 
 local OptionsLoadet = false
 
-AtlasLootFilterDB = {};
+AtlasLoot_FilterMenu = AceLibrary("Dewdrop-2.0");
+AtlasLoot_SetFiltersMenu = AceLibrary("Dewdrop-2.0");
 
-local FilterTableNames = {
-	["Armor"] = AL["Armor:"],
-	["WeaponsMeele"] = AL["Melee weapons:"],
-	["WeaponsMeeleTwoHand"] = BabbleInventory["Two-Hand"]..":",--.." "..AL["Melee weapons:"],
-	["WeaponsRanged"] = AL["Ranged weapons:"],
-	["Relics"] = AL["Relics:"],
-	["Other"] = AL["Other:"],
-}
-
-local FilterSort = {"Armor","WeaponsMeele","WeaponsMeeleTwoHand","WeaponsRanged","Relics","Other"}
 local FilterTable = {
-	["Armor"] = {
-		"Cloth",		--1
-		"Leather",		--2
-		"Mail",			--3
-		"Plate",		--4
-		},
-		
-	["WeaponsMeele"] = {
-		"Held in Off-Hand",	--1
-		"Dagger",			--2
-		"Mace",				--3
-		"Staff",			--4		
-		"Axe",				--5
-		"Polearm",			--6
-		"Shield",			--7
-		"Sword",			--8
-		"Fist Weapon",		--9
-		},
-		
-	["WeaponsMeeleTwoHand"] = {
-		"Mace",				--1
-		"Axe",				--2
-		"Sword",			--3	
-		},
-		
-	["WeaponsRanged"] = {
-		"Wand",			--1
-		"Bow",			--2
-		"Crossbow",		--3
-		"Gun",			--4
-		"Thrown",		--5
-		},
-		
-	["Relics"] = {
-		"Idol",			--1
-		"Totem",		--2
-		"Libram",		--3
-		"Sigils",		--4
-		},
-		
-	["Other"] = {
-		"Ring",			--1
-		"Trinket",		--2
-		"Neck",			--3
-		"Back",			--4
-		}
-}
-
-local ClassHides = {
-	["DRUID"] = {["Armor"] = {true,true,false,false},["WeaponsMeele"] = {true,true,true,true,false,true,false,false,false},["WeaponsMeeleTwoHand"] = {true,false,false},["WeaponsRanged"] = {false,false,false,false,false},["Relics"] = {true,false,false,false},["Other"] = {true,true,true,true}},
-	["MAGE"] = {["Armor"] = {true,false,false,false},["WeaponsMeele"] = {true,true,false,true,false,false,false,true,false},["WeaponsMeeleTwoHand"] = {false,false,false},["WeaponsRanged"] = {true,false,false,false,false},["Relics"] = {false,false,false,false},["Other"] = {true,true,true,true}},
-	["PALADIN"] = {["Armor"] = {true,true,true,true},["WeaponsMeele"] = {true,false,true,false,true,true,true,true,false},["WeaponsMeeleTwoHand"] = {true,false,true},["WeaponsRanged"] = {false,false,false,false,false},["Relics"] = {false,false,true,false},["Other"] = {true,true,true,true}},
-	["PRIEST"] = {["Armor"] = {true,false,false,false},["WeaponsMeele"] = {true,true,true,true,false,false,false,false,false},["WeaponsMeeleTwoHand"] = {false,false,false},["WeaponsRanged"] = {true,false,false,false,false},["Relics"] = {false,false,false,false},["Other"] = {true,true,true,true}},
-	["ROGUE"] = {["Armor"] = {true,true,false,false},["WeaponsMeele"] = {true,true,true,false,true,false,false,true,true},["WeaponsMeeleTwoHand"] = {false,false,false},["WeaponsRanged"] = {false,true,true,true,true},["Relics"] = {false,false,false,false},["Other"] = {true,true,true,true}},
-	["HUNTER"] = {["Armor"] = {false,true,true,false},["WeaponsMeele"] = {false,true,false,true,true,true,false,true,true},["WeaponsMeeleTwoHand"] = {false,true,true},["WeaponsRanged"] = {false,true,true,true,false},["Relics"] = {false,false,false,false},["Other"] = {true,true,true,true}},
-	["SHAMAN"] = {["Armor"] = {true,true,true,false},["WeaponsMeele"] = {true,true,true,true,true,false,true,false,true},["WeaponsMeeleTwoHand"] = {true,true,false},["WeaponsRanged"] = {false,false,false,false,false},["Relics"] = {false,true,false,false},["Other"] = {true,true,true,true}},
-	["WARLOCK"] = {["Armor"] = {true,false,false,false},["WeaponsMeele"] = {true,true,false,true,false,false,false,true,false},["WeaponsMeeleTwoHand"] = {false,false,false},["WeaponsRanged"] = {true,false,false,false,false},["Relics"] = {false,false,false,false},["Other"] = {true,true,true,true}},
-	["WARRIOR"] = {["Armor"] = {true,true,true,true},["WeaponsMeele"] = {true,true,true,true,true,true,true,true,true},["WeaponsMeeleTwoHand"] = {true,true,true},["WeaponsRanged"] = {false,true,true,true,true},["Relics"] = {false,false,false,false},["Other"] = {true,true,true,true}},
-	["DEATHKNIGHT"] = {["Armor"] = {true,true,true,true},["WeaponsMeele"] = {true,false,true,false,true,true,false,true,false},["WeaponsMeeleTwoHand"] = {true,false,true},["WeaponsRanged"] = {false,false,false,false,false},["Relics"] = {false,false,false,true},["Other"] = {true,true,true,true}}
+	{
+		Name = AL["Armor Type"],
+		Type = "ArmorType",
+        {"Cloth", "Cloth"},
+        {"Leather", "Leather"},
+        {"Mail", "Mail"},
+        {"Plate", "Plate"},
+    },
+    {
+		Name = AL["Weapons"],
+		Type = "InvType",
+		{"One-Hand", "INVTYPE_WEAPON"},
+		{"Two-Hand", "INVTYPE_2HWEAPON"},
+        {"Main Hand", "INVTYPE_WEAPONMAINHAND"},
+		{"Off Hand", "INVTYPE_WEAPONOFFHAND"},
+		{"Caster Off Hand", "INVTYPE_HOLDABLE"},
+        {"Ranged", "INVTYPE_RANGED"},
+		{"Thrown", "INVTYPE_THROWN"},
+		{"Relic", "INVTYPE_RELIC"},
+		{"Shield", "INVTYPE_SHIELD"}
+	},
+	{
+		Name = AL["Accessories"],
+		Type = "InvType",
+		{"Necklace", "INVTYPE_NECK"},
+		{"Back", "INVTYPE_CLOAK"},
+		{"Ring", "INVTYPE_FINGER"},
+        {"Trinket", "INVTYPE_TRINKET"}
+	},
+	{
+		Name = AL["Secondary Stats"],
+		Type = "Stat",
+		{"Crit", "ITEM_MOD_CRIT_RATING_SHORT"},
+		{"Hit", "ITEM_MOD_HIT_RATING_SHORT"},
+		{"Haste", "ITEM_MOD_HASTE_RATING_SHORT"},
+		{"Expertise", "ITEM_MOD_EXPERTISE_RATING_SHORT"},
+		{"Armor Pen", "ITEM_MOD_ARMOR_PENETRATION_RATING_SHORT"},
+		{"Spell Pen", "ITEM_MOD_SPELL_PENETRATION_SHORT"}
+	},
+	{
+		Name = AL["Primary Stats"],
+		Type = "PrimaryStat",
+		{"Strength", "ITEM_MOD_STRENGTH_SHORT"},
+		{"Agility", "ITEM_MOD_AGILITY_SHORT"},
+		{"Intellect", "ITEM_MOD_INTELLECT_SHORT"},
+		{"Spirit", "ITEM_MOD_SPIRIT_SHORT"},
+		{"Attack Power", "ITEM_MOD_ATTACK_POWER_SHORT"},
+		{"Spell Power", "ITEM_MOD_SPELL_POWER_SHORT"}
+	},
+	{
+		Name = AL["Defensive Stats"],
+		Type = "Stat",
+		{"Defense", "ITEM_MOD_DEFENSE_SKILL_RATING_SHORT"},
+		{"Dodge", "ITEM_MOD_DODGE_RATING_SHORT"},
+		{"Parry", "ITEM_MOD_PARRY_RATING_SHORT"},
+		{"Block", "ITEM_MOD_BLOCK_RATING_SHORT"},
+		{"Block Value", "ITEM_MOD_BLOCK_VALUE_SHORT"},
+		{"Resilience", "ITEM_MOD_RESILIENCE_RATING"}
+	},
 }
 
 -- **********************************************************************
 -- ItemFilter:
---	AtlasLoot:HideNoUsableItems()
+--	AtlasLoot:HideFilteredItems()
 --	AtlasLoot_FilterEnableButton()
 -- **********************************************************************
+AtlasLootFilter = {};
+AtlasLootFilter["FilterList"] = {};
 
-AtlasLoot_Data["FilterList"] = { [1] = {}; };
-
-function AtlasLoot_Testabc()
-		print(BabbleInventory["Two-Hand"])
-end
-
-function AtlasLoot:HideNoUsableItems()
+function AtlasLoot:HideFilteredItems()
 	local dataID, dataSource, tablenum = AtlasLootItemsFrame.refreshFilter[1], _G[AtlasLootItemsFrame.refreshFilter[2]], AtlasLootItemsFrame.refreshFilter[3];
-
  	local tablebase = dataSource[dataID][tablenum]
-	if not tablebase or dataID == "WishList" or dataID == "SearchResult" then return end
-	local itemCount = 0
-	local countAll = 1
-	local count = 0
-	local leatherworking = GetSpellInfo(2108)
+	if not tablebase or dataID == "WishList" or dataID == "SearchResult" or AtlasLootCharDB.SelectedFilter == nil then return end
+	AtlasLootFilter["FilterList"] = {};
+	AtlasLootFilter["FilterList"].Type = dataSource[dataID].Type;
+	AtlasLootFilter["FilterList"].Name = dataSource[dataID].Name;
+	AtlasLootFilter["FilterList"].Back = dataSource[dataID].Back;
+	AtlasLootFilter["FilterList"].Map = dataSource[dataID].Map;
+	AtlasLootFilter["FilterList"][1] = {Name = dataSource[dataID][tablenum].Name};
 
-	AtlasLoot_Data["FilterList"] = { Type = dataSource[dataID].Type; Name = dataSource[dataID].Name; Back = dataSource[dataID].Back; Map = dataSource[dataID].Map; [tablenum] = {Name = dataSource[dataID][tablenum].Name}; };
-
-	for i=1,30 do
-		local info = _G["AtlasLootItem_"..i.."_Extra"]:GetText()
-		if _G["AtlasLootItem_"..i]:IsShown() then
-			local xgo = true
-			local countOld = count
-			itemCount = itemCount + 1
-			countAll = countAll + count
-			count = 0
-			local xitemID = _G["AtlasLootItem_"..i].itemID
-			local xspellitemID = _G["AtlasLootItem_"..i].spellitemID
-			local xitemTexture = tablebase[itemCount][3]
-			local xitemExtraText = AtlasLoot_FixText(tablebase[itemCount][5])
-			local xitemExtraTextSave = xitemExtraText
-			-- remove the "-"
-			xitemExtraText = gsub(xitemExtraText, "-", "") 
-			local xitemNameText = _G["AtlasLootItem_"..i.."_Name"]:GetText()
-
-			if xitemExtraText and xitemExtraText ~= "" then
-				for k = 1,#FilterSort do
-					k = FilterSort[k]
-					if type(FilterTable[k]) == "table" then
-						for i,j in pairs(FilterTable[k]) do
-							local Slotname = ""
-							-- Bugfix with Sigils
-							if j == "Sigils" then
-								Slotname = AL["Sigil"]
-							else
-								Slotname = BabbleInventory[j]
-							end
-
-							if (k ~= "WeaponsMeeleTwoHand" and not strfind(xitemExtraText, BabbleInventory["Two-Hand"]) and strfind(xitemExtraText, Slotname) and AtlasLootFilterDB[k][j] == false) then
-								xgo = false
-								-- German fix
-								if j == "Shield" and not strfind(xitemExtraText, BabbleInventory["Held in Off-Hand"]) and not strfind(xitemExtraText, BabbleInventory["Off Hand"]) then
-									xgo = false
-								elseif j == "Shield" and strfind(xitemExtraText, BabbleInventory["Held in Off-Hand"]) and AtlasLootFilterDB["WeaponsMeele"]["Held in Off-Hand"] == true then
-									xgo = true
-								end
-							elseif k == "WeaponsMeeleTwoHand" and strfind(xitemExtraText, BabbleInventory["Two-Hand"]) and strfind(xitemExtraText, Slotname) and AtlasLootFilterDB[k][j] == false then
-								xgo = false
-							-- Fix bug with Leatherworking Patterns
-							elseif strfind(xitemExtraText, leatherworking) then
-								xgo = true
-							end
-						end
+	local function getStats(itemID,sType)
+		for i,v in pairs(AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter]) do
+			if type(v) == "table" then
+				if v[1] and v[3] == sType then
+					local ItemStats = {};
+					GetItemStats(select(2,GetItemInfo(itemID)), ItemStats);
+					if ItemStats[v[2]] then
+						return true;
 					end
 				end
 			end
-
-			-- Sort the items
-			if xgo == true then
-				if i==16 and countOld > 0 then
-					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
-					countAll = 16
-				elseif i==16 and xitemExtraText and strfind(xitemExtraText, AL["Token"]) then
-					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
-					countAll = 16
-				elseif countAll < 16 and xitemNameText and strfind(xitemNameText, AL["Hard Mode"]) then
-					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
-					countAll = 16
-				elseif i==16 and xitemTexture == "INV_Box_01" then
-					AtlasLoot_Data["FilterList"][tablenum][16] = { 16, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}	
-					countAll = 16
-				else
-					AtlasLoot_Data["FilterList"][tablenum][countAll] = { countAll, xitemID, xitemTexture, xitemNameText, xitemExtraTextSave}					
-				end
-
-				if tablebase[itemCount][6] and countAll==16 then
-					AtlasLoot_Data["FilterList"][tablenum][16][6] = tablebase[itemCount][6]
-				elseif tablebase[itemCount][6] and countAll~=16 then
-					AtlasLoot_Data["FilterList"][tablenum][countAll][6] = tablebase[itemCount][6]
-				end
-				if tablebase[itemCount][7] and countAll==16 then
-					AtlasLoot_Data["FilterList"][tablenum][16][7] = tablebase[itemCount][7]
-				elseif tablebase[itemCount][7] and countAll~=16 then
-					AtlasLoot_Data["FilterList"][tablenum][countAll][7] = tablebase[itemCount][7]
-				end
-				if tablebase[itemCount][8] and countAll==16 then
-					AtlasLoot_Data["FilterList"][tablenum][16][8] = tablebase[itemCount][8]
-				elseif tablebase[itemCount][8] and countAll~=16 then
-					AtlasLoot_Data["FilterList"][tablenum][countAll][8] = tablebase[itemCount][8]
-				end
-
-				countAll = countAll + 1
-				count = 0
-			end
-		else
-			count = count + 1
 		end
 	end
 
-	AtlasLoot:ShowItemsFrame("FilterList", "AtlasLoot_Data", AtlasLootItemsFrame.refresh[3])
+	local function checkNofilter(itemID, filter)
+		if getStats(itemID,filter) then return true end;
+		for i,v in pairs(AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter]) do
+			for n,t in ipairs(FilterTable) do
+				if t.Type == filter and v[1] then
+					return true;
+				end
+			end
+		end
+	end
+
+	local count = 0
+	local function getFilterType(itemID)
+		local filterSelect3, filterSelect2,_ , filterSelect1 = select(6,GetItemInfo(itemID));
+		local filter1 = AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter][filterSelect1];
+		local filter2 = AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter][filterSelect2];
+
+		if 	(filter1 and filter1[1] and filter1[3] == "InvType" and getStats(itemID,"PrimaryStat") and checkNofilter(itemID, "Stat")) or
+			(filter2 and filter2[1] and filter2[3] == "ArmorType" and getStats(itemID,"PrimaryStat") and checkNofilter(itemID, "Stat"))
+		then
+			return true;
+		else
+			for _,v in pairs(FilterTable) do
+				for _,t in ipairs(v) do
+					if t[2] == filterSelect1 or t[2] == filterSelect2 or t[2] == filterSelect3 then
+						return false;
+					end
+				end
+			end
+			return true;
+		end
+	end
+	for i,v in ipairs(tablebase) do
+		if getFilterType(v[2]) or v[2] == 0 then
+			if v[1] == 16 then
+				count = 0;
+			end
+			table.insert(AtlasLootFilter["FilterList"][1],{v[1] - count,v[2],v[3],v[4],v[5],v[6],v[7],v[8]});
+		elseif v[1] == 16 then
+			count = 1
+		else
+			count = count + 1;
+		end
+	end
+
+	AtlasLoot:ShowItemsFrame("FilterList", "AtlasLootFilter", 1)
 end
 
-function AtlasLoot_FilterEnableButton()
-	if ATLASLOOT_FILTER_ENABLE == true then
-		ATLASLOOT_FILTER_ENABLE = false;
-		AtlasLoot:ShowItemsFrame(AtlasLootItemsFrame.refreshFilter[1], AtlasLootItemsFrame.refreshFilter[2], AtlasLootItemsFrame.refreshFilter[3]);
+function AtlasLoot_FilterEnableButton(self, btnclick)
+	if btnclick == "RightButton" then
+		if AtlasLoot_FilterMenu:IsOpen() then
+			AtlasLoot_FilterMenu:Close();
+		else
+			AtlasLoot_FilterMenu:Unregister(AtlasLootFilterCheck);
+			AtlasLoot:FilterMenuRegister();
+			AtlasLoot_FilterMenu:Open(self);
+		end
+		if AtlasLootFilterCheck:GetChecked() then
+			AtlasLootFilterCheck:SetChecked(false);
+		else
+			AtlasLootFilterCheck:SetChecked(true);
+		end
 	else
-		ATLASLOOT_FILTER_ENABLE = true
-		AtlasLoot:HideNoUsableItems();
+		if ATLASLOOT_FILTER_ENABLE then
+			ATLASLOOT_FILTER_ENABLE = false;
+			AtlasLoot:ShowItemsFrame(AtlasLootItemsFrame.refreshFilter[1], AtlasLootItemsFrame.refreshFilter[2], AtlasLootItemsFrame.refreshFilter[3]);
+		else
+			ATLASLOOT_FILTER_ENABLE = true
+			AtlasLoot:HideFilteredItems();
+		end
 	end
+end
+
+--[[
+AtlasLoot:FilterMenuRegister:
+Constructs the Filter menu.
+]]
+function AtlasLoot:FilterMenuRegister()
+	AtlasLoot_FilterMenu:Register(AtlasLootFilterCheck,
+		'point', function(parent)
+			return "TOP", "BOTTOM"
+		end,
+		'children', function(level, value)
+				for i,v in ipairs(AtlasLootFilterDB["FilterLists"]) do
+					local setFilter = false;
+					if AtlasLootCharDB.SelectedFilter == i then setFilter = true end
+					AtlasLoot_FilterMenu:AddLine(
+						"text", v.Name,
+						"func", function()
+							AtlasLootCharDB.SelectedFilter = i;
+							AtlasLoot_FilterMenu:Close();
+						end,
+						"checked", setFilter
+					);
+				end
+				AtlasLoot_FilterMenu:AddLine(
+					"text", AL["Add Filter Set"],
+					"func", function() AtlasLoot:OpenFilterCreate() end,
+					"notCheckable", true
+				);
+				--Close button
+				AtlasLoot_FilterMenu:AddLine(
+					'text', AL["Close Menu"],
+					'textR', 0,
+					'textG', 1,
+					'textB', 1,
+					'func', function() AtlasLoot_FilterMenu:Close() end,
+					'notCheckable', true
+				);
+			end,
+			'dontHook', true
+		)
+end
+
+--Sets all the filter check boxs for current filter
+local function setFilterChecks()
+	local filterList = AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter];
+	local count = 1;
+	for i,v in ipairs(FilterTable) do
+		count = count + 1;
+		for n,t in ipairs(v) do
+			if filterList[t[2]] and filterList[t[2]][1] then
+				_G["AtlasLootFilterButton_"..count]:SetChecked(true);
+			else
+				_G["AtlasLootFilterButton_"..count]:SetChecked(false);
+			end
+			count = count + 1;
+		end
+	end
+end
+
+local function setFilter(arg1,type)
+	if AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter][arg1] and AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter][arg1][1] then
+		AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter][arg1] = {false,arg1,type};
+	else
+		AtlasLootFilterDB["FilterLists"][AtlasLootCharDB.SelectedFilter][arg1] = {true,arg1,type};
+	end
+end
+
+function AtlasLoot:HideFilterCreateButtons()
+	if not ATLASLOOT_BUILD_FILTER_LIST then return end
+	for i=1, 41 do
+		_G["AtlasLootFilterButton_"..i]:Hide();
+	end
+	AtlasLootFilterSelect:Hide();
+	AtlasLootFilterCreate:Hide();
+	AtlasLootFilterDelete:Hide();
 end
 
 -- **********************************************************************
 -- Options:
---	AtlasLoot:HideNoUsableItems()
---	<local> CreateCheckButton(parrent, text, num)
---	AtlasLoote_CreateFilterOptions()
+--	AtlasLoot:HideFilteredItems()
 -- **********************************************************************
-local ypos = -40
-local xpos = 0
-local linecount = 1
-local lastframewidht,lastframeheight = 0,0
-
-local function CreateCheckButton(parrent, text, num)
-	local framewidht = InterfaceOptionsFramePanelContainer:GetWidth()
-	local Check = CreateFrame("CheckButton", "AtlasLootOptionsCheck"..text..num, parrent, "OptionsCheckButtonTemplate")
-		Check:SetPoint("LEFT", parrent, "TOPLEFT", xpos, ypos)
-		Check:SetWidth(25)
-		Check:SetHeight(25)
-		Check:SetScript("OnShow", function()
-			_G[this:GetName().."Text"]:SetText(BabbleInventory[text]);
-			if AtlasLootFilterDB[num][text] then
-				this:SetChecked(1);
+ATLASLOOT_BUILD_FILTER_LIST = false;
+-- Place to add new or edit existing filter lists
+function AtlasLoot:OpenFilterCreate()
+	if not ATLASLOOT_BUILD_FILTER_LIST then
+		ATLASLOOT_BUILD_FILTER_LIST = true;
+		local count = 1;
+		for i,v in ipairs(FilterTable) do
+			local filterCatLable = AtlasLootItemsFrame:CreateFontString("AtlasLootFilterButton_"..count,"OVERLAY","GameFontNormal");
+			filterCatLable:SetText(v.Name);
+			filterCatLable:Show();
+			if count == 1 then
+				filterCatLable:SetPoint("TOP", "AtlasLootItemsFrame", "TOP",-150,-90);
+			elseif count == 16 then
+				filterCatLable:SetPoint("TOP", "AtlasLootItemsFrame", "TOP",0,-90);
+			elseif count == 28 then
+				filterCatLable:SetPoint("TOP", "AtlasLootItemsFrame", "TOP",150,-90);
 			else
-				this:SetChecked(nil);
+				filterCatLable:SetPoint("LEFT", "AtlasLootFilterButton_"..(count - 1), "LEFT",0,-25);
 			end
-		end)
-		Check:SetScript("OnClick", function()
-			if AtlasLootFilterDB[num][text] then
-				AtlasLootFilterDB[num][text] = false;
-			else
-				AtlasLootFilterDB[num][text] = true;
-			end
-		end)
-			
-	if xpos == framewidht/2 then
-		xpos = 0
-		ypos = ypos - 20
-		linecount = 1
-	elseif xpos == 0 then
-		xpos = framewidht/2
-		linecount = 2
+			count = count + 1;
+			for n,t in ipairs(v) do
+				local button = CreateFrame("CheckButton", "AtlasLootFilterButton_"..count, AtlasLootItemsFrame, "OptionsCheckButtonTemplate");
+					_G["AtlasLootFilterButton_"..count.."Text"]:SetText(t[1]);
+					button:SetScript("OnClick", function() setFilter(t[2],v.Type) end)
+					if n == 1 then
+						button:SetPoint("LEFT", "AtlasLootFilterButton_"..(count - 1), "LEFT",0,-25);
+					else
+						button:SetPoint("LEFT", "AtlasLootFilterButton_"..(count - 1), "LEFT",0,-20);
+					end
+					count = count + 1;
+				end
+		end
+
+		local filterSelectButton = CreateFrame("Button", "AtlasLootFilterSelect", AtlasLootItemsFrame, "UIDropDownMenuTemplate");
+			filterSelectButton:SetSize(190,24);
+			filterSelectButton:SetPoint("Top", "AtlasLootItemsFrame", "TOP",-110,-35);
+
+		local createFilterButton = CreateFrame("Button", "AtlasLootFilterCreate", AtlasLootItemsFrame, "OptionsButtonTemplate");
+			createFilterButton:SetSize(130,20);
+			createFilterButton:SetPoint("LEFT", "AtlasLootItemsFrame_BACK", "LEFT",-150,0);
+			createFilterButton:SetText(AL["Add/Edit Filter"]);
+			createFilterButton:SetScript("OnClick", function(self) StaticPopup_Show("ATLASLOOT_ADD_FILTER_LIST") end);
+
+		local deleteFilterButton = CreateFrame("Button", "AtlasLootFilterDelete", AtlasLootItemsFrame, "OptionsButtonTemplate");
+			deleteFilterButton:SetSize(130,20);
+			deleteFilterButton:SetPoint("RIGHT", "AtlasLootItemsFrame_BACK", "RIGHT",150,0);
+			deleteFilterButton:SetText(AL["Delete Filter"]);
+			deleteFilterButton:SetScript("OnClick", function(self) StaticPopup_Show("ATLASLOOT_DELETE_FILTERLIST") end);
+	end
+	UIDropDownMenu_Initialize(AtlasLootFilterSelect, AtlasLoot.FilterSelectorMenuInitialize);
+	UIDropDownMenu_SetSelectedID(AtlasLootFilterSelect, AtlasLootCharDB.SelectedFilter);
+
+	setFilterChecks();
+
+	for i=1,41 do
+		_G["AtlasLootFilterButton_"..i]:Show();
+	end
+	AtlasLootFilterSelect:Show();
+	AtlasLootFilterCreate:Show();
+	AtlasLootFilterDelete:Show();
+
+	--Ditch the Quicklook selector
+	AtlasLootQuickLooksButton:Hide();
+	-- Hide the Filter Check-Box
+	AtlasLootFilterCheck:Hide();
+	--Hide navigation buttons by default, only show what we need
+	_G["AtlasLootItemsFrame_BACK"]:Show();
+	_G["AtlasLootItemsFrame_NEXT"]:Hide();
+	_G["AtlasLootItemsFrame_PREV"]:Hide();
+	--Hide UI objects so that only needed ones are shown
+	for i = 1, 30, 1 do
+		_G["AtlasLootItem_"..i.."_Unsafe"]:Hide();
+		_G["AtlasLootItem_"..i]:Hide();
+		_G["AtlasLootItem_"..i].itemID = 0;
+		_G["AtlasLootItem_"..i].spellitemID = 0;
+	end
+	--Set Page Title
+	AtlasLoot_BossName:SetText("Create Filter Set");
+	AtlasLoot_FilterMenu:Close();
+end
+
+local function FilterSelectOnClick()
+	AtlasLootCharDB.SelectedFilter = this:GetID();
+	UIDropDownMenu_SetSelectedID(AtlasLootFilterSelect, AtlasLootCharDB.SelectedFilter);
+	setFilterChecks();
+end
+
+function AtlasLoot:FilterSelectorMenuInitialize()
+	for i,v in ipairs(AtlasLootFilterDB["FilterLists"]) do
+		local info = {
+			text = v.Name;
+			func = FilterSelectOnClick;
+		};
+		UIDropDownMenu_AddButton(info);
 	end
 end
 
-local function CreateCat(parrent, text)
-	if not AtlasLootFilterDB[text] then AtlasLootFilterDB[text] = {} end
-	if linecount == 2 then
-		ypos = ypos - 10
-	else
-		ypos = ypos + 10
-	end
-	local Text = parrent:CreateFontString("AtlasLoot"..text,"OVERLAY","GameFontNormal")
-		Text:SetPoint("TOPLEFT", parrent, "TOPLEFT", xpos, ypos)
-		Text:SetText(FilterTableNames[text]);
-		Text:SetHeight(20)
-		Text:SetTextColor(1.0, 1.0, 1.0, 1.0);
-		
-	ypos = ypos - 30
-		
-	for i,j in pairs(FilterTable[text]) do
-		if AtlasLootFilterDB[text][j] ~= true and AtlasLootFilterDB[text][j] ~= false then AtlasLootFilterDB[text][j] = true end
-		CreateCheckButton(parrent, j, text)
-	end
-	
-	xpos = 0
-	ypos = ypos - 10
-end
+--[[
+StaticPopupDialogs["ATLASLOOT_ADD_FILTER_LIST"]
+This is shown, if you want too add a add/edit a filter list
+]]
+StaticPopupDialogs["ATLASLOOT_ADD_FILTER_LIST"] = {
+	text = "Filter Name",
+	button1 = "Add Filter",
+	button3 = "Edit Filter",
+	button2 = AL["Cancel"],
+	OnShow = function(self)
+		self.editBox:SetText(UIDropDownMenu_GetText(AtlasLootFilterSelect))
+		self:SetFrameStrata("TOOLTIP");
+	end,
+	OnAccept = function(self)
+		local text = self.editBox:GetText();
+		table.insert(AtlasLootFilterDB["FilterLists"],AtlasLoot:CloneTable(AtlasLootFilterDB["FilterLists"][UIDropDownMenu_GetSelectedID(AtlasLootFilterSelect)]));
+		AtlasLootFilterDB["FilterLists"][#AtlasLootFilterDB["FilterLists"]].Name = text;
+		UIDropDownMenu_SetSelectedID(AtlasLootFilterSelect,#AtlasLootFilterDB["FilterLists"]);
+		UIDropDownMenu_SetText(AtlasLootFilterSelect,text);
+	end,
+	OnButton3 = function(self)
+		local text = self.editBox:GetText();
+		AtlasLootFilterDB["FilterLists"][UIDropDownMenu_GetSelectedID(AtlasLootFilterSelect)].Name = self.editBox:GetText();
+		UIDropDownMenu_SetText(AtlasLootFilterSelect,text);
+	end,
+	hasEditBox = 1,
+	timeout = 0,
+	whileDead = 1,
+	hideOnEscape = 1
+};
 
-function AtlasLoot_CreateFilterOptions()
-	if OptionsLoadet then return end
-	local FilterOptionsFrame = CreateFrame("FRAME", nil)
-		FilterOptionsFrame.name = AL["Filter"];
-		FilterOptionsFrame.parent = AL["AtlasLoot"];
-		
-	local framewidht = InterfaceOptionsFramePanelContainer:GetWidth()
-	local panel3 = CreateFrame("ScrollFrame", "AtlasLootFilterOptionsScrollFrame", FilterOptionsFrame, "UIPanelScrollFrameTemplate")
-	local scc = CreateFrame("Frame", "AtlasLootFilterOptionsScrollInhalt", panel3)
-		panel3:SetScrollChild(scc)
-		panel3:SetPoint("TOPLEFT", FilterOptionsFrame, "TOPLEFT", 10, -10)
-		scc:SetPoint("TOPLEFT", panel3, "TOPLEFT", 0, 0)
-		panel3:SetWidth(framewidht-45)  
-		panel3:SetHeight(410) 
-		scc:SetWidth(framewidht-45)  
-		scc:SetHeight(410)  
-		panel3:SetHorizontalScroll(-50)
-		panel3:SetVerticalScroll(50)
-		panel3:SetBackdrop({bgFile="Interface\\DialogFrame\\UI-DialogBox-Background", edgeFile="", tile = false, tileSize = 0, edgeSize = 0, insets = { left = 0, right = 0, top = 0, bottom = 0 }})
-		panel3:SetScript("OnVerticalScroll", function()  end)
-		panel3:EnableMouse(true)
-		panel3:SetVerticalScroll(0)
-		panel3:SetHorizontalScroll(0)
-		panel3:SetScript("OnUpdate", function()
-			local xframewidht = InterfaceOptionsFramePanelContainer:GetWidth()
-			local xframeheight = InterfaceOptionsFramePanelContainer:GetHeight()
-			if xframewidht ~= lastframewidht or xframeheight ~= lastframeheight then
-				panel3:SetWidth(xframewidht-45)  
-				scc:SetWidth(xframewidht-45)  
-				panel3:SetHeight(xframeheight-20) 
-				scc:SetHeight(xframeheight-20) 
-			end
-		end)
-		
-    local FilterDisableButton = CreateFrame("BUTTON", nil, scc, "UIPanelButtonTemplate")
-        FilterDisableButton:SetHeight(20)
-		FilterDisableButton:SetWidth(150)  
-		FilterDisableButton:SetPoint("TOPLEFT", scc, "TOPLEFT",0,-5)
-		FilterDisableButton:SetText(AL["Select All Loot"])
-		FilterDisableButton:SetWidth(FilterDisableButton:GetTextWidth()+20)
-        FilterDisableButton:SetScript("OnClick", function()
-            for k,v in pairs(FilterTable) do
-				if type(v) == "table" then
-					for i,j in pairs(FilterTable[k]) do
-						AtlasLootFilterDB[k][j] = true
-					end
-				end
-			end					
-			scc:Hide()
-			scc:Show()
-		end)
-    
-    local locClass,playerClass = UnitClass("player");
-	local ClassFilterLoadButton = CreateFrame("BUTTON", nil, scc, "UIPanelButtonTemplate")
-		ClassFilterLoadButton:SetHeight(20)
-		ClassFilterLoadButton:SetWidth(150)  
-		ClassFilterLoadButton:SetPoint("TOPRIGHT", scc, "TOPRIGHT",0,-5)
-		ClassFilterLoadButton:SetText(AL["Apply Filter:"].." "..locClass)
-		ClassFilterLoadButton:SetWidth(ClassFilterLoadButton:GetTextWidth()+20)
-		ClassFilterLoadButton:SetScript("OnClick", function()
-			for k,v in pairs(FilterTable) do
-				if type(v) == "table" then
-					for i,j in pairs(FilterTable[k]) do
-						if ClassHides[playerClass][k][i] == false then
-							AtlasLootFilterDB[k][j] = false
-						else
-							AtlasLootFilterDB[k][j] = true
-						end
-					end
-				end
-			end					
-			scc:Hide()
-			scc:Show()
-		end)
-        
-    
-	
-	CreateCat(scc, "Armor")
-	CreateCat(scc, "WeaponsMeele")
-	CreateCat(scc, "WeaponsMeeleTwoHand")
-	CreateCat(scc, "WeaponsRanged")
-	CreateCat(scc, "Relics")
-	CreateCat(scc, "Other")
-			
-	InterfaceOptions_AddCategory(FilterOptionsFrame)
-	OptionsLoadet = true
-end
+--[[
+StaticPopupDialogs["ATLASLOOT_DELETE_FILTERLIST"]
+This is shown, if you want too delete a filter list
+]]
+StaticPopupDialogs["ATLASLOOT_DELETE_FILTERLIST"] = {
+	text = AL["Delete Filter"],
+	button1 = AL["Delete"],
+	button2 = AL["Cancel"],
+	OnShow = function()
+		this:SetFrameStrata("TOOLTIP");
+	end,
+	OnAccept = function()
+		table.remove(AtlasLootFilterDB["FilterLists"],UIDropDownMenu_GetSelectedID(AtlasLootFilterSelect));
+		UIDropDownMenu_SetSelectedID(AtlasLootFilterSelect,1);
+		UIDropDownMenu_SetText(AtlasLootFilterSelect,UIDropDownMenu_GetText(AtlasLootFilterSelect));
+	end,
+	timeout = 0,
+	whileDead = 1,
+	hideOnEscape = 1
+};

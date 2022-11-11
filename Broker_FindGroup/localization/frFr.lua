@@ -1,0 +1,25 @@
+﻿local AceLocale = LibStub:GetLibrary("AceLocale-3.0")
+local L = AceLocale:NewLocale("Broker_FindGroup", "frFR")
+if not L then return end
+
+L["Assembling group..."] = "Constitution du groupe..."
+L["Click to open the dungeon finder."] = "Cliquez pour ouvrir l'outil Donjons."
+L["D"] = "D"
+L["DPS"] = "DPS"
+L["Find Group"] = "Trouver un groupe"
+L["H"] = "H"
+L["Healer"] = "Soigneur"
+L["Hide Minimap Button"] = "Cache l'icône sur la Minicarte"
+L["In Party"] = "En groupe"
+L["My estimated wait time:"] = "Mon temps d'attente estimé :"
+L["Queued for: "] = "En file pour : "
+L["Right click for options."] = "Clic droit pour les options."
+L["Short Text"] = "Texte court"
+L["Show Instance Name"] = "Afficher le nom de l'instance"
+L["Show Wait Time"] = "Afficher le temps d'attente"
+L["T"] = "T"
+L["Tank"] = "Tank"
+L["Teleport In/Out"] = "Se téléporter à l'intérieur/à l'extérieur"
+L["Time"] = "Temps"
+L["Waiting for:"] = "En attente depuis :"
+L["Wait time as:"] = "Temps d'attente en tant que :"

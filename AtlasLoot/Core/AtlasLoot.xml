@@ -2,13 +2,14 @@
 
 	<!--Ascension Files-->
 	<Script file="AtlasDifficulty.lua"/>
-	<Script file="ItemIDsDatabase.lua"/>
+<!-- 	<Script file="ItemIDsDatabase.lua"/>
 	<Script file="ItemIDsDatabase2.lua"/>
-	<Script file="ItemIDsDatabase3.lua"/>
-	<Script file="ItemIDsDatabaseFixes.lua"/>
+	<Script file="ItemIDsDatabase3.lua"/> -->
+	
 
 	<!--Default Files-->
 	<Script file="AtlasLoot.lua"/>
+	<Script file="ItemIDsDatabaseFixes.lua"/>
 	<Script file="Filter.lua"/>
     <Script file="ExtraText.lua"/>
     <Script file="TextParsing.lua"/>

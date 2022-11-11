@@ -1,0 +1,24 @@
+## Interface: 30300
+## Title: Broker: |cff00ff00FindGroup|r 
+## Version: r25
+## Notes:
+## Author: yess
+## X-eMail: yess@fantasymail.de
+## SavedVariables: Broker_FindGroupDB
+## X-Curse-Packaged-Version: r25
+## X-Curse-Project-Name: Broker_FindGroup
+## X-Curse-Project-ID: broker_findgroup
+## X-Curse-Repository-ID: wow/broker_findgroup/mainline
+
+#@no-lib-strip@
+libs\LibStub\LibStub.lua
+libs\AceLocale-3.0\AceLocale-3.0.xml
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+#@end-no-lib-strip@
+
+localization\enUS.lua
+localization\deDE.lua
+localization\zhTW.lua
+
+LibDataBroker-1.1.lua
+Broker_FindGroup.lua

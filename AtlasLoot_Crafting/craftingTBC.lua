@@ -98,7 +98,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 		---------------
 		AtlasLoot_Data["AlchemyTBC"] = {
 			Name = ALCHEMY;
-			Type = "Crafting";
+			Type = "CraftingNoBF";
 				{
 			Name = AL["Battle Elixirs"];
 		{ 1, "s28558", "22835", "=q1=Elixir of Major Shadow Power", "=ds="..BabbleFaction["Revered"]..": "..BabbleFaction["Lower City"]};
@@ -242,7 +242,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 			{ 9, "s29616", "23514", "=q3=Flamebane Gloves", "=ds=#sr# 360"};
 			{ 10, "s29605", "23508", "=q3=Adamantite Plate Gloves", "=ds=#sr# 335"};
 			{ 11, "s29552", "23491", "=q2=Fel Iron Chain Gloves", "=ds=#sr# 310"};
-			{ 12, "s29545", "23482", "=q2=Fel Iron Plate Gloves", "=ds=#sr# 300"};
+			{ 12, "s29545", "23482", "=q2=Fel Iron Plate Gloves", "Dungeon Bosses/Raid Trash"};
 		};
 		{
 			Name = BabbleInventory["Armor"].." - Head";
@@ -255,7 +255,6 @@ local SPELLFIRE = GetSpellInfo(26797);
 			{ 7, "s29643", "23521", "=q3=Ragesteel Helm", "=ds=#sr# 365"};
 			{ 8, "s29615", "23516", "=q3=Flamebane Helm", "=ds=#sr# 355"};
 			{ 9, "s29551", "23493", "=q2=Fel Iron Chain Coif", "=ds=#sr# 300"};
-
 		};
 		{
 			Name = BabbleInventory["Armor"].." - Legs";
@@ -272,7 +271,6 @@ local SPELLFIRE = GetSpellInfo(26797);
 			{ 1, "s41135", "32573", "=q4=Dawnsteel Shoulders", "=ds=#sr# 375"};
 			{ 2, "s42662", "33173", "=q3=Ragesteel Shoulders", "=ds=#sr# 365"};
 			{ 3, "s41133", "32570", "=q4=Swiftsteel Shoulders", "=ds=#sr# 375"};
-
 		};
 		{
 			Name = BabbleInventory["Armor"].." - Waist";
@@ -442,6 +440,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 
 		AtlasLoot_Data["CookingTBC"] = {
 			Name = COOKING;
+			Type = "CraftingNoBF";
 		{
 			Name = COOKING;
 			{ 1, "s42302", "33052", "=q1=Fisherman's Feast", "=ds="..AL["Trainer"]};
@@ -513,6 +512,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 
 		AtlasLoot_Data["EnchantingTBC"] = {
 			Name = ENCHANTING;
+			Type = "CraftingNoBF";
 					{
 			Name = AL["Enchant Boots"];
 			{ 1, "s27954", "Spell_Holy_GreaterHeal", "=ds=Enchant Boots - Surefooted", "=ds=#sr# 370"};
@@ -593,21 +593,22 @@ local SPELLFIRE = GetSpellInfo(26797);
 		};
 		{
 			Name = AL["Enchant Weapon"];
-			{ 1, "s42974", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Executioner", "=ds=#sr# 375"};
-			{ 2, "s820034", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Undaunted Might", "=ds=#sr# 375"};
-			{ 3, "s359012", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Faith", "=ds=#sr# 375"};
-			{ 4, "s27984", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Mongoose", "=ds=#sr# 375"};
-			{ 5, "s27982", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Soulfrost", "=ds=#sr# 375"};
-			{ 6, "s27981", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Sunfire", "=ds=#sr# 375"};
-			{ 7, "s28004", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Battlemaster", "=ds=#sr# 360"};
-			{ 8, "s28003", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Spellsurge", "=ds=#sr# 360"};
-			{ 9, "s46578", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Deathfrost", "=ds=#sr# 350"};
-			{ 10, "s34010", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Healing", "=ds=#sr# 350"};
-			{ 11, "s27975", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Spellpower", "=ds=#sr# 350"};
-			{ 12, "s27972", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Potency", "=ds=#sr# 350"};
-			{ 13, "s42620", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Greater Agility", "=ds=#sr# 350"};
-			{ 14, "s27968", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Intellect", "=ds=#sr# 340"};
-			{ 15, "s27967", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Striking", "=ds=#sr# 340"};
+			{ 1, "s351535", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Witchdoctor", "=ds=#sr# 375"};
+			{ 2, "s42974", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Executioner", "=ds=#sr# 375"};
+			{ 3, "s820034", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Undaunted Might", "=ds=#sr# 375"};
+			{ 4, "s359012", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Faith", "=ds=#sr# 375"};
+			{ 5, "s27984", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Mongoose", "=ds=#sr# 375"};
+			{ 6, "s27982", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Soulfrost", "=ds=#sr# 375"};
+			{ 7, "s27981", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Sunfire", "=ds=#sr# 375"};
+			{ 8, "s28004", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Battlemaster", "=ds=#sr# 360"};
+			{ 9, "s28003", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Spellsurge", "=ds=#sr# 360"};
+			{ 10, "s46578", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Deathfrost", "=ds=#sr# 350"};
+			{ 11, "s34010", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Healing", "=ds=#sr# 350"};
+			{ 12, "s27975", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Spellpower", "=ds=#sr# 350"};
+			{ 13, "s27972", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Potency", "=ds=#sr# 350"};
+			{ 14, "s42620", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Greater Agility", "=ds=#sr# 350"};
+			{ 15, "s27968", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Intellect", "=ds=#sr# 340"};
+			{ 16, "s27967", "Spell_Holy_GreaterHeal", "=ds=Enchant Weapon - Major Striking", "=ds=#sr# 340"};
 		};
 		{
 			Name = "Enchant Staff";
@@ -778,7 +779,7 @@ local SPELLFIRE = GetSpellInfo(26797);
 
 		AtlasLoot_Data["JewelcraftingTBC"] = {
 			Name = 	JEWELCRAFTING;
-			Type = "Crafting";
+			Type = "CraftingNoBF";
 		{
 			Name = AL["Red Gems"];
 			{ 1, "s39705", "32193", "=q4=Bold Crimson Spinel", "=ds=#sr# 375"};
@@ -1505,810 +1506,6 @@ local SPELLFIRE = GetSpellInfo(26797);
 		};
 	};
 
-		-----------------------
-		--- Profession Sets ---
-		-----------------------
-
-			-------------------------------
-			--- Blacksmithing Mail Sets ---
-			-------------------------------
-
-		AtlasLoot_Data["BlacksmithingMailBloodsoulEmbrace"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbm1#", ""};
-			{ 2, 19691, "", "=q3=Bloodsoul Shoulders", "=ds=#s3#, #a3#"};
-			{ 3, 19690, "", "=q3=Bloodsoul Breastplate", "=ds=#s5#, #a3#"};
-			{ 4, 19692, "", "=q3=Bloodsoul Gauntlets", "=ds=#s9#, #a3#"};
-			Next = "BlacksmithingMailFelIronChain";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingMailFelIronChain"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbm2#", ""};
-			{ 2, 23493, "", "=q2=Fel Iron Chain Coif", "=ds=#s1#, #a3#"};
-			{ 3, 23490, "", "=q2=Fel Iron Chain Tunic", "=ds=#s5#, #a3#"};
-			{ 4, 23494, "", "=q2=Fel Iron Chain Bracers", "=ds=#s8#, #a3#"};
-			{ 5, 23491, "", "=q2=Fel Iron Chain Gloves", "=ds=#s9#, #a3#"};
-			Prev = "BlacksmithingMailBloodsoulEmbrace";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-			--------------------------------
-			--- Blacksmithing Plate Sets ---
-			--------------------------------
-
-		AtlasLoot_Data["BlacksmithingPlateImperialPlate"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp1#", ""};
-			{ 2, 12427, "", "=q2=Imperial Plate Helm", "=ds=#s1#, #a4#"};
-			{ 3, 12428, "", "=q2=Imperial Plate Shoulders", "=ds=#s3#, #a4#"};
-			{ 4, 12422, "", "=q2=Imperial Plate Chest", "=ds=#s5#, #a4#"};
-			{ 5, 12425, "", "=q2=Imperial Plate Bracers", "=ds=#s8#, #a4#"};
-			{ 6, 12424, "", "=q2=Imperial Plate Belt", "=ds=#s10#, #a4#"};
-			{ 7, 12429, "", "=q2=Imperial Plate Leggings", "=ds=#s11#, #a4#"};
-			{ 8, 12426, "", "=q2=Imperial Plate Boots", "=ds=#s12#, #a4#"};
-			Next = "BlacksmithingPlateTheDarksoul";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateTheDarksoul"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp2#", ""};
-			{ 2, 19695, "", "=q3=Darksoul Shoulders", "=ds=#s3#, #a4#"};
-			{ 3, 19693, "", "=q3=Darksoul Breastplate", "=ds=#s5#, #a4#"};
-			{ 4, 19694, "", "=q3=Darksoul Leggings", "=ds=#s11#, #a4#"};
-			Prev = "BlacksmithingPlateImperialPlate";
-			Next = "BlacksmithingPlateFelIronPlate";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateFelIronPlate"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp3#", ""};
-			{ 2, 23489, "", "=q2=Fel Iron Breastplate", "=ds=#s5#, #a4#"};
-			{ 3, 23482, "", "=q2=Fel Iron Plate Gloves", "=ds=#s9#, #a4#"};
-			{ 4, 23484, "", "=q2=Fel Iron Plate Belt", "=ds=#s10#, #a4#"};
-			{ 5, 23488, "", "=q2=Fel Iron Plate Pants", "=ds=#s11#, #a4#"};
-			{ 6, 23487, "", "=q2=Fel Iron Plate Boots", "=ds=#s12#, #a4#"};
-			Prev = "BlacksmithingPlateTheDarksoul";
-			Next = "BlacksmithingPlateAdamantiteB";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateAdamantiteB"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp4#", ""};
-			{ 2, 23507, "", "=q3=Adamantite Breastplate", "=ds=#s5#, #a4#"};
-			{ 3, 23506, "", "=q3=Adamantite Plate Bracers", "=ds=#s8#, #a4#"};
-			{ 4, 23508, "", "=q3=Adamantite Plate Gloves", "=ds=#s9#, #a4#"};
-			Prev = "BlacksmithingPlateFelIronPlate";
-			Next = "BlacksmithingPlateFlameG";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateFlameG"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp5#", "=q1=#j11#"};
-			{ 2, 23516, "", "=q3=Flamebane Helm", "=ds=#s1#, #a4#"};
-			{ 3, 23513, "", "=q3=Flamebane Breastplate", "=ds=#s5#, #a4#"};
-			{ 4, 23515, "", "=q3=Flamebane Bracers", "=ds=#s8#, #a4#"};
-			{ 5, 23514, "", "=q3=Flamebane Gloves", "=ds=#s9#, #a4#"};
-			Prev = "BlacksmithingPlateAdamantiteB";
-			Next = "BlacksmithingPlateEnchantedAdaman";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateEnchantedAdaman"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp6#", "=q1=#j12#"};
-			{ 2, 23509, "", "=q3=Enchanted Adamantite Breastplate", "=ds=#s5#, #a4#"};
-			{ 3, 23510, "", "=q3=Enchanted Adamantite Belt", "=ds=#s10#, #a4#"};
-			{ 4, 23512, "", "=q3=Enchanted Adamantite Leggings", "=ds=#s11#, #a4#"};
-			{ 5, 23511, "", "=q3=Enchanted Adamantite Boots", "=ds=#s12#, #a4#"};
-			Prev = "BlacksmithingPlateFlameG";
-			Next = "BlacksmithingPlateKhoriumWard";
-			Back = "CRAFTSET1";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateKhoriumWard"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp7#", ""};
-			{ 2, 23524, "", "=q3=Khorium Belt", "=ds=#s10#, #a4#"};
-			{ 3, 23523, "", "=q3=Khorium Pants", "=ds=#s11#, #a4#"};
-			{ 4, 23525, "", "=q3=Khorium Boots", "=ds=#s12#, #a4#"};
-			Prev = "BlacksmithingPlateEnchantedAdaman";
-			Next = "BlacksmithingPlateFaithFelsteel";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateFaithFelsteel"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp8#", ""};
-			{ 2, 23519, "", "=q3=Felsteel Helm", "=ds=#s1#, #a4#"};
-			{ 3, 23517, "", "=q3=Felsteel Gloves", "=ds=#s9#, #a4#"};
-			{ 4, 23518, "", "=q3=Felsteel Leggings", "=ds=#s11#, #a4#"};
-			Prev = "BlacksmithingPlateKhoriumWard";
-			Next = "BlacksmithingPlateBurningRage";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateBurningRage"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp9#", ""};
-			{ 2, 23521, "", "=q3=Ragesteel Helm", "=ds=#s1#, #a4#"};
-			{ 3, 33173, "", "=q3=Ragesteel Shoulders", "=ds=#s3#, #a4#"};
-			{ 4, 23522, "", "=q3=Ragesteel Breastplate", "=ds=#s5#, #a4#"};
-			{ 5, 23520, "", "=q3=Ragesteel Gloves", "=ds=#s9#, #a4#"};
-			Prev = "BlacksmithingPlateFaithFelsteel";
-			Next = "BlacksmithingPlateOrnateSaroniteBattlegear";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateOrnateSaroniteBattlegear"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp10#", ""};
-			{ 2, 42728, "", "=q3=Ornate Saronite Skullshield", "=ds=#s1#, #a4#"};
-			{ 3, 42727, "", "=q3=Ornate Saronite Pauldrons", "=ds=#s3#, #a4#"};
-			{ 4, 42725, "", "=q3=Ornate Saronite Hauberk", "=ds=#s5#, #a4#"};
-			{ 5, 42723, "", "=q3=Ornate Saronite Bracers", "=ds=#s8#, #a4#"};
-			{ 6, 42724, "", "=q3=Ornate Saronite Gauntlets", "=ds=#s9#, #a4#"};
-			{ 7, 42729, "", "=q3=Ornate Saronite Waistguard", "=ds=#s10#, #a4#"};
-			{ 8, 42726, "", "=q3=Ornate Saronite Legplates", "=ds=#s11#, #a4#"};
-			{ 9, 42730, "", "=q3=Ornate Saronite Walkers", "=ds=#s12#, #a4#"};
-			Prev = "BlacksmithingPlateBurningRage";
-			Next = "BlacksmithingPlateSavageSaroniteBattlegear";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["BlacksmithingPlateSavageSaroniteBattlegear"] = {
-			{ 1, 0, "INV_Hammer_20", "=q6=#craftbp11#", ""};
-			{ 2, 41350, "", "=q3=Savage Saronite Skullshield", "=ds=#s1#, #a4#"};
-			{ 3, 41351, "", "=q3=Savage Saronite Pauldrons", "=ds=#s3#, #a4#"};
-			{ 4, 41353, "", "=q3=Savage Saronite Hauberk", "=ds=#s5#, #a4#"};
-			{ 5, 41354, "", "=q3=Savage Saronite Bracers", "=ds=#s8#, #a4#"};
-			{ 6, 41349, "", "=q3=Savage Saronite Gauntlets", "=ds=#s9#, #a4#"};
-			{ 7, 41352, "", "=q3=Savage Saronite Waistguard", "=ds=#s10#, #a4#"};
-			{ 8, 41347, "", "=q3=Savage Saronite Legplates", "=ds=#s11#, #a4#"};
-			{ 9, 41348, "", "=q3=Savage Saronite Walkers", "=ds=#s12#, #a4#"};
-			Prev = "BlacksmithingPlateOrnateSaroniteBattlegear";
-			Back = "CRAFTSET1";
-			Type = "Crafting";
-		};
-
-			-----------------------------------
-			--- Leatherworking Leather Sets ---
-			-----------------------------------
-
-		AtlasLoot_Data["LeatherworkingLeatherVolcanicArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl1#", "=q1=#j11#"};
-			{ 2, 15055, "", "=q2=Volcanic Shoulders", "=ds=#s3#, #a2#"};
-			{ 3, 15053, "", "=q2=Volcanic Breastplate", "=ds=#s5#, #a2#"};
-			{ 4, 15054, "", "=q2=Volcanic Leggings", "=ds=#s11#, #a2#"};
-			Next = "LeatherworkingLeatherIronfeatherArmor";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherIronfeatherArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl2#", ""};
-			{ 2, 15067, "", "=q3=Ironfeather Shoulders", "=ds=#s3#, #a2#"};
-			{ 3, 15066, "", "=q3=Ironfeather Breastplate", "=ds=#s5#, #a2#"};
-			Prev = "LeatherworkingLeatherVolcanicArmor";
-			Next = "LeatherworkingLeatherStormshroudArmor";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherStormshroudArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl3#", ""};
-			{ 2, 15058, "", "=q3=Stormshroud Shoulders", "=ds=#s3#, #a2#"};
-			{ 3, 15056, "", "=q3=Stormshroud Armor", "=ds=#s5#, #a2#"};
-			{ 4, 21278, "", "=q3=Stormshroud Gloves", "=ds=#s9#, #a2#"};
-			{ 5, 15057, "", "=q3=Stormshroud Pants", "=ds=#s11#, #a2#"};
-			Prev = "LeatherworkingLeatherIronfeatherArmor";
-			Next = "LeatherworkingLeatherDevilsaurArmor";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherDevilsaurArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl4#", ""};
-			{ 2, 15063, "", "=q3=Devilsaur Gauntlets", "=ds=#s9#, #a2#"};
-			{ 3, 15062, "", "=q3=Devilsaur Leggings", "=ds=#s11#, #a2#"};
-			Prev = "LeatherworkingLeatherStormshroudArmor";
-			Next = "LeatherworkingLeatherBloodTigerH";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherBloodTigerH"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl5#", ""};
-			{ 2, 19689, "", "=q3=Blood Tiger Shoulders", "=ds=#s3#, #a2#"};
-			{ 3, 19688, "", "=q3=Blood Tiger Breastplate", "=ds=#s5#, #a2#"};
-			Prev = "LeatherworkingLeatherDevilsaurArmor";
-			Next = "LeatherworkingLeatherPrimalBatskin";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherPrimalBatskin"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl6#", ""};
-			{ 2, 19685, "", "=q3=Primal Batskin Jerkin", "=ds=#s5#, #a2#"};
-			{ 3, 19687, "", "=q3=Primal Batskin Bracers", "=ds=#s8#, #a2#"};
-			{ 4, 19686, "", "=q3=Primal Batskin Gloves", "=ds=#s9#, #a2#"};
-			Prev = "LeatherworkingLeatherBloodTigerH";
-			Next = "LeatherworkingLeatherWildDraenishA";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherWildDraenishA"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl7#", ""};
-			{ 2, 25676, "", "=q2=Wild Draenish Vest", "=ds=#s5#, #a2#"};
-			{ 3, 25674, "", "=q2=Wild Draenish Gloves", "=ds=#s9#, #a2#"};
-			{ 4, 25675, "", "=q2=Wild Draenish Leggings", "=ds=#s11#, #a2#"};
-			{ 5, 25673, "", "=q2=Wild Draenish Boots", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherPrimalBatskin";
-			Next = "LeatherworkingLeatherThickDraenicA";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherThickDraenicA"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl8#", ""};
-			{ 2, 25671, "", "=q2=Thick Draenic Vest", "=ds=#s5#, #a2#"};
-			{ 3, 25669, "", "=q2=Thick Draenic Gloves", "=ds=#s9#, #a2#"};
-			{ 4, 25670, "", "=q2=Thick Draenic Pants", "=ds=#s11#, #a2#"};
-			{ 5, 25668, "", "=q2=Thick Draenic Boots", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherWildDraenishA";
-			Next = "LeatherworkingLeatherFelSkin";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherFelSkin"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl9#", ""};
-			{ 2, 25685, "", "=q3=Fel Leather Gloves", "=ds=#s9#, #a2#"};
-			{ 3, 25687, "", "=q3=Fel Leather Leggings", "=ds=#s11#, #a2#"};
-			{ 4, 25686, "", "=q3=Fel Leather Boots", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherThickDraenicA";
-			Next = "LeatherworkingLeatherSClefthoof";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherSClefthoof"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl10#", ""};
-			{ 2, 25689, "", "=q3=Heavy Clefthoof Vest", "=ds=#s5#, #a2#"};
-			{ 3, 25690, "", "=q3=Heavy Clefthoof Leggings", "=ds=#s11#, #a2#"};
-			{ 4, 25691, "", "=q3=Heavy Clefthoof Boots", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherFelSkin";
-			Next = "LeatherworkingLeatherPrimalIntent";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherPrimalIntent"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwe1#", "=q1=#p11#"};
-			{ 2, 29525, "", "=q4=Primalstrike Vest", "=ds=#s5#, #a2#"};
-			{ 3, 29527, "", "=q4=Primalstrike Bracers", "=ds=#s8#, #a2#"};
-			{ 4, 29526, "", "=q4=Primalstrike Belt", "=ds=#s10#, #a2#"};
-			Prev = "LeatherworkingLeatherSClefthoof";
-			Next = "LeatherworkingLeatherWindhawkArmor";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherWindhawkArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwt1#", "=q1=#p10#"};
-			{ 2, 29522, "", "=q4=Windhawk Hauberk", "=ds=#s5#, #a2#"};
-			{ 3, 29523, "", "=q4=Windhawk Bracers", "=ds=#s8#, #a2#"};
-			{ 4, 29524, "", "=q4=Windhawk Belt", "=ds=#s10#, #a2#"};
-			Prev = "LeatherworkingLeatherPrimalIntent";
-			Next = "LeatherworkingLeatherBoreanEmbrace";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherBoreanEmbrace"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl11#", ""};
-			{ 2, 38437, "", "=q2=Arctic Helm", "=ds=#s1#, #a2#"};
-			{ 3, 38402, "", "=q2=Arctic Shoulderpads", "=ds=#s3#, #a2#"};
-			{ 4, 38400, "", "=q2=Arctic Chestpiece", "=ds=#s5#, #a2#"};
-			{ 5, 38433, "", "=q2=Arctic Wristguards", "=ds=#s8#, #a2#"};
-			{ 6, 38403, "", "=q2=Arctic Gloves", "=ds=#s9#, #a2#"};
-			{ 7, 38405, "", "=q2=Arctic Belt", "=ds=#s10#, #a2#"};
-			{ 8, 38401, "", "=q2=Arctic Leggings", "=ds=#s11#, #a2#"};
-			{ 9, 38404, "", "=q2=Arctic Boots", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherWindhawkArmor";
-			Next = "LeatherworkingLeatherIceborneEmbrace";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherIceborneEmbrace"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl12#", ""};
-			{ 2, 38438, "", "=q2=Iceborne Helm", "=ds=#s1#, #a2#"};
-			{ 3, 38411, "", "=q2=Iceborne Shoulderpads", "=ds=#s3#, #a2#"};
-			{ 4, 38408, "", "=q2=Iceborne Chestguard", "=ds=#s5#, #a2#"};
-			{ 5, 38434, "", "=q2=Iceborne Wristguards", "=ds=#s8#, #a2#"};
-			{ 6, 38409, "", "=q2=Iceborne Gloves", "=ds=#s9#, #a2#"};
-			{ 7, 38406, "", "=q2=Iceborne Belt", "=ds=#s10#, #a2#"};
-			{ 8, 38410, "", "=q2=Iceborne Leggings", "=ds=#s11#, #a2#"};
-			{ 9, 38407, "", "=q2=Iceborne Boots", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherBoreanEmbrace";
-			Next = "LeatherworkingLeatherEvisceratorBattlegear";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherEvisceratorBattlegear"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl13#", ""};
-			{ 2, 43260, "", "=q3=Eviscerator's Facemask", "=ds=#s1#, #a2#"};
-			{ 3, 43433, "", "=q3=Eviscerator's Shoulderpads", "=ds=#s3#, #a2#"};
-			{ 4, 43434, "", "=q3=Eviscerator's Chestguard", "=ds=#s5#, #a2#"};
-			{ 5, 43435, "", "=q3=Eviscerator's Bindings", "=ds=#s8#, #a2#"};
-			{ 6, 43436, "", "=q3=Eviscerator's Gauntlets", "=ds=#s9#, #a2#"};
-			{ 7, 43437, "", "=q3=Eviscerator's Waistguard", "=ds=#s10#, #a2#"};
-			{ 8, 43438, "", "=q3=Eviscerator's Legguards", "=ds=#s11#, #a2#"};
-			{ 9, 43439, "", "=q3=Eviscerator's Treads", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherIceborneEmbrace";
-			Next = "LeatherworkingLeatherOvercasterBattlegear";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingLeatherOvercasterBattlegear"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwl14#", ""};
-			{ 2, 43261, "", "=q3=Overcast Headguard", "=ds=#s1#, #a2#"};
-			{ 3, 43262, "", "=q3=Overcast Spaulders", "=ds=#s3#, #a2#"};
-			{ 4, 43263, "", "=q3=Overcast Chestguard", "=ds=#s5#, #a2#"};
-			{ 5, 43264, "", "=q3=Overcast Bracers", "=ds=#s8#, #a2#"};
-			{ 6, 43265, "", "=q3=Overcast Handwraps", "=ds=#s9#, #a2#"};
-			{ 7, 43266, "", "=q3=Overcast Belt", "=ds=#s10#, #a2#"};
-			{ 8, 43271, "", "=q3=Overcast Leggings", "=ds=#s11#, #a2#"};
-			{ 9, 43273, "", "=q3=Overcast Boots", "=ds=#s12#, #a2#"};
-			Prev = "LeatherworkingLeatherEvisceratorBattlegear";
-			Back = "CRAFTSET2";
-			Type = "Crafting";
-		};
-
-			--------------------------------
-			--- Leatherworking Mail Sets ---
-			--------------------------------
-
-		AtlasLoot_Data["LeatherworkingMailGreenDragonM"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm1#", "=q1=#j13#"};
-			{ 2, 15045, "", "=q3=Green Dragonscale Breastplate", "=ds=#s5#, #a3#"};
-			{ 3, 20296, "", "=q3=Green Dragonscale Gauntlets", "=ds=#s9#, #a3#"};
-			{ 4, 15046, "", "=q3=Green Dragonscale Leggings", "=ds=#s11#, #a3#"};
-			Next = "LeatherworkingMailBlueDragonM";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailBlueDragonM"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm2#", "=q1=#j12#"};
-			{ 2, 15049, "", "=q3=Blue Dragonscale Shoulders", "=ds=#s3#, #a3#"};
-			{ 3, 15048, "", "=q3=Blue Dragonscale Breastplate", "=ds=#s5#, #a3#"};
-			{ 4, 20295, "", "=q3=Blue Dragonscale Leggings", "=ds=#s11#, #a3#"};
-			Prev = "LeatherworkingMailGreenDragonM";
-			Next = "LeatherworkingMailBlackDragonM";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailBlackDragonM"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm3#", "=q1=#j11#"};
-			{ 2, 15051, "", "=q3=Black Dragonscale Shoulders", "=ds=#s3#, #a3#"};
-			{ 3, 15050, "", "=q3=Black Dragonscale Breastplate", "=ds=#s5#, #a3#"};
-			{ 4, 15052, "", "=q3=Black Dragonscale Leggings", "=ds=#s11#, #a3#"};
-			{ 5, 16984, "", "=q4=Black Dragonscale Boots", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailBlueDragonM";
-			Next = "LeatherworkingMailScaledDraenicA";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailScaledDraenicA"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm4#", ""};
-			{ 2, 25660, "", "=q2=Scaled Draenic Vest", "=ds=#s5#, #a3#"};
-			{ 3, 25661, "", "=q2=Scaled Draenic Gloves", "=ds=#s9#, #a3#"};
-			{ 4, 25662, "", "=q2=Scaled Draenic Pants", "=ds=#s11#, #a3#"};
-			{ 5, 25659, "", "=q2=Scaled Draenic Boots", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailBlackDragonM";
-			Next = "LeatherworkingMailFelscaleArmor";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailFelscaleArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm5#", ""};
-			{ 2, 25657, "", "=q2=Felscale Breastplate", "=ds=#s5#, #a3#"};
-			{ 3, 25654, "", "=q2=Felscale Gloves", "=ds=#s9#, #a3#"};
-			{ 4, 25656, "", "=q2=Felscale Pants", "=ds=#s11#, #a3#"};
-			{ 5, 25655, "", "=q2=Felscale Boots", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailScaledDraenicA";
-			Next = "LeatherworkingMailFelstalkerArmor";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailFelstalkerArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm6#", ""};
-			{ 2, 25696, "", "=q3=Felstalker Breastplate", "=ds=#s5#, #a3#"};
-			{ 3, 25697, "", "=q3=Felstalker Bracers", "=ds=#s8#, #a3#"};
-			{ 4, 25695, "", "=q3=Felstalker Belt", "=ds=#s10#, #a3#"};
-			Prev = "LeatherworkingMailFelscaleArmor";
-			Next = "LeatherworkingMailNetherFury";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailNetherFury"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm7#", ""};
-			{ 2, 25694, "", "=q3=Netherfury Belt", "=ds=#s10#, #a3#"};
-			{ 3, 25692, "", "=q3=Netherfury Leggings", "=ds=#s11#, #a3#"};
-			{ 4, 25693, "", "=q3=Netherfury Boots", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailFelstalkerArmor";
-			Next = "LeatherworkingMailNetherscaleArmor";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailNetherscaleArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwd1#", "=q1=#p9#"};
-			{ 2, 29515, "", "=q4=Ebon Netherscale Breastplate", "=ds=#s5#, #a3#"};
-			{ 3, 29517, "", "=q4=Ebon Netherscale Bracers", "=ds=#s8#, #a3#"};
-			{ 4, 29516, "", "=q4=Ebon Netherscale Belt", "=ds=#s10#, #a3#"};
-			Prev = "LeatherworkingMailNetherFury";
-			Next = "LeatherworkingMailNetherstrikeArmor";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailNetherstrikeArmor"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwd2#", "=q1=#p9#"};
-			{ 2, 29519, "", "=q4=Netherstrike Breastplate", "=ds=#s5#, #a3#"};
-			{ 3, 29521, "", "=q4=Netherstrike Bracers", "=ds=#s8#, #a3#"};
-			{ 4, 29520, "", "=q4=Netherstrike Belt", "=ds=#s10#, #a3#"};
-			Prev = "LeatherworkingMailNetherscaleArmor";
-			Next = "LeatherworkingMailFrostscaleBinding";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailFrostscaleBinding"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm8#", ""};
-			{ 2, 38440, "", "=q2=Frostscale Helm", "=ds=#s1#, #a3#"};
-			{ 3, 38424, "", "=q2=Frostscale Shoulders", "=ds=#s3#, #a3#"};
-			{ 4, 38414, "", "=q2=Frostscale Chestguard", "=ds=#s5#, #a3#"};
-			{ 5, 38436, "", "=q2=Frostscale Bracers", "=ds=#s8#, #a3#"};
-			{ 6, 38415, "", "=q2=Frostscale Gloves", "=ds=#s9#, #a3#"};
-			{ 7, 38412, "", "=q2=Frostscale Belt", "=ds=#s10#, #a3#"};
-			{ 8, 38416, "", "=q2=Frostscale Leggings", "=ds=#s11#, #a3#"};
-			{ 9, 38413, "", "=q2=Frostscale Boots", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailNetherstrikeArmor";
-			Next = "LeatherworkingMailNerubianHive";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailNerubianHive"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm9#", ""};
-			{ 2, 38439, "", "=q2=Nerubian Helm", "=ds=#s1#, #a3#"};
-			{ 3, 38417, "", "=q2=Nerubian Shoulders", "=ds=#s3#, #a3#"};
-			{ 4, 38420, "", "=q2=Nerubian Chestguard", "=ds=#s5#, #a3#"};
-			{ 5, 38435, "", "=q2=Nerubian Bracers", "=ds=#s8#, #a3#"};
-			{ 6, 38421, "", "=q2=Nerubian Gloves", "=ds=#s9#, #a3#"};
-			{ 7, 38418, "", "=q2=Nerubian Belt", "=ds=#s10#, #a3#"};
-			{ 8, 38422, "", "=q2=Nerubian Legguards", "=ds=#s11#, #a3#"};
-			{ 9, 38419, "", "=q2=Nerubian Boots", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailFrostscaleBinding";
-			Next = "LeatherworkingMailStormhideBattlegear";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailStormhideBattlegear"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm10#", ""};
-			{ 2, 43455, "", "=q3=Stormhide Crown", "=ds=#s1#, #a3#"};
-			{ 3, 43457, "", "=q3=Stormhide Shoulders", "=ds=#s3#, #a3#"};
-			{ 4, 43453, "", "=q3=Stormhide Hauberk", "=ds=#s5#, #a3#"};
-			{ 5, 43452, "", "=q3=Stormhide Wristguards", "=ds=#s8#, #a3#"};
-			{ 6, 43454, "", "=q3=Stormhide Grips", "=ds=#s9#, #a3#"};
-			{ 7, 43450, "", "=q3=Stormhide Belt", "=ds=#s10#, #a3#"};
-			{ 8, 43456, "", "=q3=Stormhide Legguards", "=ds=#s11#, #a3#"};
-			{ 9, 43451, "", "=q3=Stormhide Stompers", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailNerubianHive";
-			Next = "LeatherworkingMailSwiftarrowBattlefear";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["LeatherworkingMailSwiftarrowBattlefear"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#craftlwm11#", ""};
-			{ 2, 43447, "", "=q3=Swiftarrow Helm", "=ds=#s1#, #a3#"};
-			{ 3, 43449, "", "=q3=Swiftarrow Shoulderguards", "=ds=#s3#, #a3#"};
-			{ 4, 43445, "", "=q3=Swiftarrow Hauberk", "=ds=#s5#, #a3#"};
-			{ 5, 43444, "", "=q3=Swiftarrow Bracers", "=ds=#s8#, #a3#"};
-			{ 6, 43446, "", "=q3=Swiftarrow Gauntlets", "=ds=#s9#, #a3#"};
-			{ 7, 43442, "", "=q3=Swiftarrow Belt", "=ds=#s10#, #a3#"};
-			{ 8, 43448, "", "=q3=Swiftarrow Leggings", "=ds=#s11#, #a3#"};
-			{ 9, 43443, "", "=q3=Swiftarrow Boots", "=ds=#s12#, #a3#"};
-			Prev = "LeatherworkingMailStormhideBattlegear";
-			Back = "CRAFTSET3";
-			Type = "Crafting";
-		};
-
-			----------------------
-			--- Tailoring Sets ---
-			----------------------
-
-		AtlasLoot_Data["TailoringBloodvineG"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt1#", ""};
-			{ 2, 19682, "", "=q3=Bloodvine Vest", "=ds=#s5#, #a1#"};
-			{ 3, 19683, "", "=q3=Bloodvine Leggings", "=ds=#s11#, #a1#"};
-			{ 4, 19684, "", "=q3=Bloodvine Boots", "=ds=#s12#, #a1#"};
-			Next = "TailoringNeatherVest";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringNeatherVest"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt2#", ""};
-			{ 2, 21855, "", "=q2=Netherweave Tunic", "=ds=#s5#, #a1#"};
-			{ 3, 21854, "", "=q2=Netherweave Robe", "=ds=#s5#, #a1#"};
-			{ 4, 21849, "", "=q2=Netherweave Bracers", "=ds=#s8#, #a1#"};
-			{ 5, 21851, "", "=q2=Netherweave Gloves", "=ds=#s9#, #a1##"};
-			{ 6, 21850, "", "=q2=Netherweave Belt", "=ds=#s10#, #a1#"};
-			{ 7, 21852, "", "=q2=Netherweave Pants", "=ds=#s11#, #a1#"};
-			{ 8, 21853, "", "=q2=Netherweave Boots", "=ds=#s12#, #a1#"};
-			Prev = "TailoringBloodvineG";
-			Next = "TailoringImbuedNeather";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringImbuedNeather"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt3#", ""};
-			{ 2, 21862, "", "=q3=Imbued Netherweave Tunic", "=ds=#s5#, #a1#"};
-			{ 3, 21861, "", "=q3=Imbued Netherweave Robe", "=ds=#s5#, #a1#"};
-			{ 4, 21859, "", "=q3=Imbued Netherweave Pants", "=ds=#s11#, #a1#"};
-			{ 5, 21860, "", "=q3=Imbued Netherweave Boots", "=ds=#s12#, #a1#"};
-			Prev = "TailoringNeatherVest";
-			Next = "TailoringArcanoVest";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringArcanoVest"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt4#", "=q1=#j12#"};
-			{ 2, 21868, "", "=q3=Arcanoweave Robe", "=ds=#s5#, #a1#"};
-			{ 3, 21866, "", "=q3=Arcanoweave Bracers", "=ds=#s8#, #a1#"};
-			{ 4, 21867, "", "=q3=Arcanoweave Boots", "=ds=#s12#, #a1#"};
-			Prev = "TailoringImbuedNeather";
-			Next = "TailoringTheUnyielding";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringTheUnyielding"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt5#", ""};
-			{ 2, 24249, "", "=q3=Unyielding Bracers", "=ds=#s8#, #a1#"};
-			{ 3, 24255, "", "=q4=Unyielding Girdle", "=ds=#s10#, #a1#"};
-			Prev = "TailoringArcanoVest";
-			Next = "TailoringWhitemendWis";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringWhitemendWis"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt6#", ""};
-			{ 2, 24264, "", "=q4=Whitemend Hood", "=ds=#s1#, #a1#"};
-			{ 3, 24261, "", "=q4=Whitemend Pants", "=ds=#s11#, #a1#"};
-			Prev = "TailoringTheUnyielding";
-			Next = "TailoringSpellstrikeInfu";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringSpellstrikeInfu"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt7#", ""};
-			{ 2, 24266, "", "=q4=Spellstrike Hood", "=ds=#s1#, #a1#"};
-			{ 3, 24262, "", "=q4=Spellstrike Pants", "=ds=#s11#, #a1#"};
-			Prev = "TailoringWhitemendWis";
-			Next = "TailoringBattlecastG";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringBattlecastG"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt8#", ""};
-			{ 2, 24267, "", "=q4=Battlecast Hood", "=ds=#s1#, #a1#"};
-			{ 3, 24263, "", "=q4=Battlecast Pants", "=ds=#s11#, #a1#"};
-			Prev = "TailoringSpellstrikeInfu";
-			Next = "TailoringSoulclothEm";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringSoulclothEm"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt9#", "=q1=#j12#"};
-			{ 2, 21864, "", "=q4=Soulcloth Shoulders", "=ds=#s3#, #a1#"};
-			{ 3, 21865, "", "=q4=Soulcloth Vest", "=ds=#s5#, #a1#"};
-			{ 4, 21863, "", "=q4=Soulcloth Gloves", "=ds=#s9#, #a1#"};
-			Prev = "TailoringBattlecastG";
-			Next = "TailoringPrimalMoon";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringPrimalMoon"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#crafttm1#", "=q1=#p19#"};
-			{ 2, 21874, "", "=q4=Primal Mooncloth Shoulders", "=ds=#s3#, #a1#"};
-			{ 3, 21875, "", "=q4=Primal Mooncloth Robe", "=ds=#s5#, #a1#"};
-			{ 4, 21873, "", "=q4=Primal Mooncloth Belt", "=ds=#s10#, #a1#"};
-			Prev = "TailoringSoulclothEm";
-			Next = "TailoringShadowEmbrace";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringShadowEmbrace"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#crafttsh1#", "=q1=#p20#"};
-			{ 2, 21869, "", "=q4=Frozen Shadoweave Shoulders", "=ds=#s3#, #a1#"};
-			{ 3, 21871, "", "=q4=Frozen Shadoweave Vest", "=ds=#s5#, #a1#"};
-			{ 4, 21870, "", "=q4=Frozen Shadoweave Boots", "=ds=#s12#, #a1#"};
-			Prev = "TailoringPrimalMoon";
-			Next = "TailoringSpellfireWRATH";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringSpellfireWRATH"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#crafttsf1#", "=q1=#p21#"};
-			{ 2, 21848, "", "=q4=Spellfire Robe", "=ds=#s5#, #a1#"};
-			{ 3, 21847, "", "=q4=Spellfire Gloves", "=ds=#s9#, #a1#"};
-			{ 4, 21846, "", "=q4=Spellfire Belt", "=ds=#s10#, #a1#"};
-			Prev = "TailoringShadowEmbrace";
-			Next = "TailoringFrostwovenPower";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringFrostwovenPower"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt10#", ""};
-			{ 2, 41521, "", "=q2=Frostwoven Cowl", "=ds=#s1#, #a1#"};
-			{ 3, 41513, "", "=q2=Frostwoven Shoulders", "=ds=#s3#, #a1#"};
-			{ 4, 41515, "", "=q2=Frostwoven Robe", "=ds=#s5#, #a1#"};
-			{ 5, 41512, "", "=q2=Frostwoven Wristwraps", "=ds=#s8#, #a1#"};
-			{ 6, 44211, "", "=q2=Frostwoven Gloves", "=ds=#s9#, #a1#"};
-			{ 7, 41522, "", "=q2=Frostwoven Belt", "=ds=#s10#, #a1#"};
-			{ 8, 41519, "", "=q2=Frostwoven Leggings", "=ds=#s11#, #a1#"};
-			{ 9, 41520, "", "=q2=Frostwoven Boots", "=ds=#s12#, #a1#"};
-			Prev = "TailoringSpellfireWRATH";
-			Next = "TailoringDuskweaver";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringDuskweaver"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt11#", ""};
-			{ 2, 41546, "", "=q2=Duskweave Cowl", "=ds=#s1#, #a1#"};
-			{ 3, 41550, "", "=q2=Duskweave Shoulders", "=ds=#s3#, #a1#"};
-			{ 4, 41549, "", "=q2=Duskweave Robe", "=ds=#s5#, #a1#"};
-			{ 5, 41551, "", "=q2=Duskweave Wristwraps", "=ds=#s8#, #a1#"};
-			{ 6, 41545, "", "=q2=Duskweave Gloves", "=ds=#s9#, #a1#"};
-			{ 7, 41543, "", "=q2=Duskweave Belt", "=ds=#s10#, #a1#"};
-			{ 8, 41548, "", "=q2=Duskweave Leggings", "=ds=#s11#, #a1#"};
-			{ 9, 41544, "", "=q2=Duskweave Boots", "=ds=#s12#, #a1#"};
-			Prev = "TailoringFrostwovenPower";
-			Next = "TailoringFrostsavageBattlegear";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["TailoringFrostsavageBattlegear"] = {
-			{ 1, 0, "INV_Fabric_Linen_02", "=q6=#craftt12#", ""};
-			{ 2, 43971, "", "=q3=Frostsavage Cowl", "=ds=#s1#, #a1#"};
-			{ 3, 43973, "", "=q3=Frostsavage Shoulders", "=ds=#s3#, #a1#"};
-			{ 4, 43972, "", "=q3=Frostsavage Robe", "=ds=#s5#, #a1#"};
-			{ 5, 43974, "", "=q3=Frostsavage Bracers", "=ds=#s8#, #a1#"};
-			{ 6, 41516, "", "=q3=Frostsavage Gloves", "=ds=#s9#, #a1#"};
-			{ 7, 43969, "", "=q3=Frostsavage Belt", "=ds=#s10#, #a1#"};
-			{ 8, 43975, "", "=q3=Frostsavage Leggings", "=ds=#s11#, #a1#"};
-			{ 9, 43970, "", "=q3=Frostsavage Boots", "=ds=#s12#, #a1#"};
-			Prev = "TailoringDuskweaver";
-			Back = "CRAFTSET4";
-			Type = "Crafting";
-		};
-
-		-------------
-		--- Other ---
-		-------------
-
-			----------------------------
-			--- Crafted Epic Weapons ---
-			----------------------------
-
-		AtlasLoot_Data["CraftedWeapons1"] = {
-			{ 1, 49888, "", "=q4=Shadow's Edge", "=ds=#h2#, #w1#"};
-			{ 3, 0, "INV_Box_01", "=q6=#p2#", "=q1=#j54#"};
-			{ 4, 45085, "", "=q4=Titansteel Spellblade", "=ds=#h3#, #w4#"};
-			{ 5, 42435, "", "=q4=Titansteel Shanker", "=ds=#h1#, #w4#"};
-			{ 6, 41383, "", "=q4=Titansteel Bonecrusher", "=ds=#h3#, #w6#"};
-			{ 7, 41384, "", "=q4=Titansteel Guardian", "=ds=#h3#, #w6#"};
-			{ 8, 41257, "", "=q4=Titansteel Destroyer", "=ds=#h2#, #w6#"};
-			{ 9, 42508, "", "=q4=Titansteel Shield Wall", "=ds=#w8#"};
-			{ 11, 0, "INV_Box_01", "=q6=#p5#", "=q1=#j54#"};
-			{ 12, 41168, "", "=q4=Armor Plated Combat Shotgun", "=ds=#w5#"};
-			{ 13, 44504, "", "=q4=Nesingwary 4000", "=ds=#w5#"};
-			{ 16, 0, "INV_Box_01", "=q6=#p2#", "=q1=#j10#"};
-			{ 17, 23554, "", "=q4=Eternium Runed Blade", "=ds=#h3#, #w4#"};
-			{ 18, 23555, "", "=q4=Dirge", "=ds=#h1#, #w4#"};
-			{ 19, 23540, "", "=q4=Felsteel Longblade", "=ds=#h1#, #w10#"};
-			{ 20, 23541, "", "=q4=Khorium Champion", "=ds=#h2#, #w10#"};
-			{ 21, 23542, "", "=q4=Fel Edged Battleaxe", "=ds=#h1#, #w1#"};
-			{ 22, 23543, "", "=q4=Felsteel Reaper", "=ds=#h2#, #w1#"};
-			{ 23, 23556, "", "=q4=Hand of Eternity", "=ds=#h3#, #w6#"};
-			{ 24, 23544, "", "=q4=Runic Hammer", "=ds=#h1#, #w6#"};
-			{ 25, 23546, "", "=q4=Fel Hardened Maul", "=ds=#h2#, #w6#"};
-			{ 26, 32854, "", "=q4=Hammer of Righteous Might", "=ds=#h2#, #w6#"};
-			{ 28, 0, "INV_Box_01", "=q6=#p5#", "=q1=#j10#"};
-			{ 29, 32756, "", "=q4=Gyro-balanced Khorium Destroyer", "=ds=#w5#"};
-			Next = "CraftedWeapons2";
-			Back = "CRAFTINGMENU";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["CraftedWeapons2"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#p2#", "=q1=#j9#"};
-			{ 2, 19166, "", "=q4=Black Amnesty", "=ds=#h1#, #w4#"};
-			{ 3, 22383, "", "=q4=Sageblade", "=ds=#h3#, #w10#"};
-			{ 4, 19168, "", "=q4=Blackguard", "=ds=#h1#, #w10#"};
-			{ 5, 19169, "", "=q4=Nightfall", "=ds=#h2#, #w1#"};
-			{ 6, 19170, "", "=q4=Ebon Hand", "=ds=#h1#, #w6#"};
-			{ 7, 22384, "", "=q4=Persuader", "=ds=#h1#, #w6#"};
-			{ 8, 17193, "", "=q4=Sulfuron Hammer", "=ds=#h2#, #w6#"};
-			{ 9, 19167, "", "=q4=Blackfury", "=ds=#w7#"};
-			{ 10, 22198, "", "=q4=Jagged Obsidian Shield", "=ds=#w8#"};
-			{ 12, 0, "INV_Box_01", "=q6=#p5#", "=q1=#j9#"};
-			{ 13, 18282, "", "=q4=Core Marksman Rifle", "=ds=#w5#"};
-			{ 14, 18168, "", "=q4=Force Reactive Disk", "=ds=#w8#"};
-			Prev = "CraftedWeapons1";
-			Next = "CraftedWeapons3";
-			Back = "CRAFTINGMENU";
-			Type = "Crafting";
-		};
-
-		AtlasLoot_Data["CraftedWeapons3"] = {
-			{ 1, 0, "INV_Box_01", "=q6=#p15#", ""};
-			{ 2, 28425, "", "=q4=Fireguard", "=ds=#h1#, #w10#"};
-			{ 3, 28426, "", "=q4=Blazeguard", "=ds=#h1#, #w10#"};
-			{ 4, 28427, "", "=q4=Blazefury", "=ds=#h1#, #w10#"};
-			{ 5, 28428, "", "=q4=Lionheart Blade", "=ds=#h2#, #w10#"};
-			{ 6, 28429, "", "=q4=Lionheart Champion", "=ds=#h2#, #w10#"};
-			{ 7, 28430, "", "=q4=Lionheart Executioner", "=ds=#h2#, #w10#"};
-			{ 9, 0, "INV_Box_01", "=q6=#p14#", ""};
-			{ 10, 28431, "", "=q4=The Planar Edge", "=ds=#h3#, #w1#"};
-			{ 11, 28432, "", "=q4=Black Planar Edge", "=ds=#h3#, #w1#"};
-			{ 12, 28433, "", "=q4=Wicked Edge of the Planes", "=ds=#h3#, #w1#"};
-			{ 13, 28434, "", "=q4=Lunar Crescent", "=ds=#h2#, #w1#"};
-			{ 14, 28435, "", "=q4=Mooncleaver", "=ds=#h2#, #w1#"};
-			{ 15, 28436, "", "=q4=Bloodmoon", "=ds=#h2#, #w1#"};
-			{ 16, 0, "INV_Box_01", "=q6=#p22#", ""};
-			{ 17, 28437, "", "=q4=Drakefist Hammer", "=ds=#h3#, #w6#"};
-			{ 18, 28438, "", "=q4=Dragonmaw", "=ds=#h3#, #w6#"};
-			{ 19, 28439, "", "=q4=Dragonstrike", "=ds=#h3#, #w6#"};
-			{ 20, 28440, "", "=q4=Thunder", "=ds=#h2#, #w6#"};
-			{ 21, 28441, "", "=q4=Deep Thunder", "=ds=#h2#, #w6#"};
-			{ 22, 28442, "", "=q4=Stormherald", "=ds=#h2#, #w6#"};
-			Prev = "CraftedWeapons2";
-			Back = "CRAFTINGMENU";
-			Type = "Crafting";
-		};
-
 		--------------------------------
 		--- Daily Profession Rewards ---
 		--------------------------------
@@ -2585,280 +1782,288 @@ local SPELLFIRE = GetSpellInfo(26797);
 
 	AtlasLoot_Data["AlchemyHighRiskTBC"] = {
 			Name = ALCHEMY.." High Risk";
+			Type = "CraftingNoBF";
 					{
 			Name = "Rare";
-			{ 1, "s979362", "1203258",  "=q3=Impure Flask of Manifesting Power", 	"=ds=#sr# 300"};
-			{ 2, "s979364", "1203260",  "=q3=Impure Flask of the Warsong", 			"=ds=#sr# 300"};
-			{ 3, "s979366", "1203262",  "=q3=Impure Flask of the Kirin Tor", 		"=ds=#sr# 300"};
-			{ 4, "s979368", "1203264", "=q3=Impure Flask of Butchery", 				"=ds=#sr# 300"};
-			{ 5, "s979370", "1203266", "=q3=Impure Flask of the Unyielding", 		"=ds=#sr# 300"};
-			{ 6, "s979372", "1203268", "=q3=Impure Flask of Unrelenting Power", 		"=ds=#sr# 300"};
-			{ 7, "s979374", "1203270", "=q3=Impure Flask of Savage Assault", 		"=ds=#sr# 300"};
-			{ 8, "s979376", "1203272", "=q3=Impure Flask of Shattering Thunder", 	"=ds=#sr# 300"};
-			{ 9, "s979378", "1203274", "=q3=Impure Flask of the Executioner", 		"=ds=#sr# 300"};
-			{ 10, "s979380", "1203276", "=q3=Impure Flask of Deep Meditation", 		"=ds=#sr# 300"};
-			{ 11, "s979382", "1203278", "=q3=Impure Flask of Adept Striking", 		"=ds=#sr# 300"};
+			{ 1, "s979362", "1203258",  "=q3=Impure Flask of Manifesting Power", 	"Dungeon Bosses/Raid Trash"};
+			{ 2, "s979364", "1203260",  "=q3=Impure Flask of the Warsong", 			"Dungeon Bosses/Raid Trash"};
+			{ 3, "s979366", "1203262",  "=q3=Impure Flask of the Kirin Tor", 		"Dungeon Bosses/Raid Trash"};
+			{ 4, "s979368", "1203264", "=q3=Impure Flask of Butchery", 				"Dungeon Bosses/Raid Trash"};
+			{ 5, "s979370", "1203266", "=q3=Impure Flask of the Unyielding", 		"Dungeon Bosses/Raid Trash"};
+			{ 6, "s979372", "1203268", "=q3=Impure Flask of Unrelenting Power", 		"Dungeon Bosses/Raid Trash"};
+			{ 7, "s979374", "1203270", "=q3=Impure Flask of Savage Assault", 		"Dungeon Bosses/Raid Trash"};
+			{ 8, "s979376", "1203272", "=q3=Impure Flask of Shattering Thunder", 	"Dungeon Bosses/Raid Trash"};
+			{ 9, "s979378", "1203274", "=q3=Impure Flask of the Executioner", 		"Dungeon Bosses/Raid Trash"};
+			{ 10, "s979380", "1203276", "=q3=Impure Flask of Deep Meditation", 		"Dungeon Bosses/Raid Trash"};
+			{ 11, "s979382", "1203278", "=q3=Impure Flask of Adept Striking", 		"Dungeon Bosses/Raid Trash"};
 		};
 		{
 			Name = "Epic";
-			{ 1, "s979363", "1203259",  "=q4=Pure Flask of Manifesting Power", 	"=ds=#sr# 300"};
-			{ 2, "s979365", "1203261",  "=q4=Pure Flask of the Warsong", "=ds=#sr# 300"};
-			{ 3, "s979367", "1203263",  "=q4=Pure Flask of the Kirin Tor", "=ds=#sr# 300"};
-			{ 4, "s979369", "1203265", "=q4=Pure Flask of Butchery", "=ds=#sr# 300"};
-			{ 5, "s979371", "1203267", "=q4=Pure Flask of the Unyielding", "=ds=#sr# 300"};
-			{ 6, "s979373", "1203269", "=q4=Pure Flask of Unrelenting Power", "=ds=#sr# 300"};
-			{ 7, "s979375", "1203271", "=q4=Pure Flask of Savage Assault", "=ds=#sr# 300"};
-			{ 8, "s979377", "1203273", "=q4=Pure Flask of Shattering Thunder", "=ds=#sr# 300"};
-			{ 9, "s979379", "1203275", "=q4=Pure Flask of the Executioner", "=ds=#sr# 300"};
-			{ 10, "s979381", "1203277", "=q4=Pure Flask of Deep Meditation", "=ds=#sr# 300"};
-			{ 11, "s979383", "1203279", "=q4=Pure Flask of Adept Striking", "=ds=#sr# 300"};
+			{ 1, "s979363", "1203259",  "=q4=Pure Flask of Manifesting Power", 	"Dungeon Bosses/Raid Trash"};
+			{ 2, "s979365", "1203261",  "=q4=Pure Flask of the Warsong", "Dungeon Bosses/Raid Trash"};
+			{ 3, "s979367", "1203263",  "=q4=Pure Flask of the Kirin Tor", "Dungeon Bosses/Raid Trash"};
+			{ 4, "s979369", "1203265", "=q4=Pure Flask of Butchery", "Dungeon Bosses/Raid Trash"};
+			{ 5, "s979371", "1203267", "=q4=Pure Flask of the Unyielding", "Dungeon Bosses/Raid Trash"};
+			{ 6, "s979373", "1203269", "=q4=Pure Flask of Unrelenting Power", "Dungeon Bosses/Raid Trash"};
+			{ 7, "s979375", "1203271", "=q4=Pure Flask of Savage Assault", "Dungeon Bosses/Raid Trash"};
+			{ 8, "s979377", "1203273", "=q4=Pure Flask of Shattering Thunder", "Dungeon Bosses/Raid Trash"};
+			{ 9, "s979379", "1203275", "=q4=Pure Flask of the Executioner", "Dungeon Bosses/Raid Trash"};
+			{ 10, "s979381", "1203277", "=q4=Pure Flask of Deep Meditation", "Dungeon Bosses/Raid Trash"};
+			{ 11, "s979383", "1203279", "=q4=Pure Flask of Adept Striking", "Dungeon Bosses/Raid Trash"};
 		};
 	};
 
 		AtlasLoot_Data["SmithingHighRiskTBC"] = {
 			Name = BLACKSMITHING.." High Risk";
+			Type = "CraftingNoBF";
 		{
 			Name = "Rare";
-			{ 1, "s979534", "1204033", "=q3=Hulking Belt Buckle", "=ds=#sr# 300"};
-			{ 2, "s979536", "1204035", "=q3=Blade Master's Belt Buckle", "=ds=#sr# 300"};
-			{ 3, "s979538", "1204037", "=q3=Agile Belt Buckle", "=ds=#sr# 300"};
-			{ 4, "s979540", "1204039", "=q3=Eluding Belt Buckle", "=ds=#sr# 300"};
-			{ 5, "s979542", "1204041", "=q3=Scholar's Belt Buckle", 	"=ds=#sr# 300"};
-			{ 6, "s979544", "1204043", "=q3=Priestly Belt Buckle", "=ds=#sr# 300"};
-			{ 7, "s979546", "1204045", "=q3=Champion\'s Belt Buckle", "=ds=#sr# 300"};
-			{ 8, "s979548", "1204047", "=q3=Guarded Belt Buckle", "=ds=#sr# 300"};
+			{ 1, "s979534", "1204033", "=q3=Hulking Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 2, "s979536", "1204035", "=q3=Blade Master's Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 3, "s979538", "1204037", "=q3=Agile Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 4, "s979540", "1204039", "=q3=Eluding Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 5, "s979542", "1204041", "=q3=Scholar's Belt Buckle", 	"Dungeon Bosses/Raid Trash"};
+			{ 6, "s979544", "1204043", "=q3=Priestly Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 7, "s979546", "1204045", "=q3=Champion\'s Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 8, "s979548", "1204047", "=q3=Guarded Belt Buckle", "Dungeon Bosses/Raid Trash"};
 		};
 		{
 			Name = "Epic";
-			{ 1, "s979535", "1204034", "=q4=Mastercraft Hulking Belt Buckle", "=ds=#sr# 300"};
-			{ 2, "s979537", "1204036", "=q4=Mastercraft Blade Master's Belt Buckle", "=ds=#sr# 300"};
-			{ 3, "s979539", "1204038", "=q4=Mastercraft Agile Belt Buckle", "=ds=#sr# 300"};
-			{ 4, "s979541", "1204040", "=q4=Mastercraft Eluding Belt Buckle", "=ds=#sr# 300"};
-			{ 5, "s979543", "1204042", "=q4=Mastercraft Scholar's Belt Buckle", 	"=ds=#sr# 300"};
-			{ 6, "s979545", "1204044", "=q4=Mastercraft Priestly Belt Buckle", "=ds=#sr# 300"};
-			{ 7, "s979547", "1204046", "=q4=Mastercraft Champion\'s Belt Buckle", "=ds=#sr# 300"};
-			{ 8, "s979549", "1204048", "=q4=Mastercraft Guarded Belt Buckle", "=ds=#sr# 300"};
+			{ 1, "s979535", "1204034", "=q4=Mastercraft Hulking Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 2, "s979537", "1204036", "=q4=Mastercraft Blade Master's Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 3, "s979539", "1204038", "=q4=Mastercraft Agile Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 4, "s979541", "1204040", "=q4=Mastercraft Eluding Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 5, "s979543", "1204042", "=q4=Mastercraft Scholar's Belt Buckle", 	"Dungeon Bosses/Raid Trash"};
+			{ 6, "s979545", "1204044", "=q4=Mastercraft Priestly Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 7, "s979547", "1204046", "=q4=Mastercraft Champion\'s Belt Buckle", "Dungeon Bosses/Raid Trash"};
+			{ 8, "s979549", "1204048", "=q4=Mastercraft Guarded Belt Buckle", "Dungeon Bosses/Raid Trash"};
 		};
 	};
 
 	AtlasLoot_Data["LeatherworkingHighRiskTBC"] = {
 			Name = LEATHERWORKING.." High Risk";
+			Type = "CraftingNoBF";
 					{
 			Name = "Rare";
-			{ 1, "s979522", "1204021", "=q3=Cobra Strike Gambeson", "=ds=#sr# 300"};
-			{ 2, "s979524", "1204023", "=q3=Fel Strike Gambeson", "=ds=#sr# 300"};
-			{ 3, "s979526", "1204025", "=q3=Wind Gambeson", "=ds=#sr# 300"};
-			{ 4, "s979528", "1204027", "=q3=True Strike Gambeson", "=ds=#sr# 300"};
-			{ 5, "s979530", "1204029", "=q3=Clefthoof Gambeson", "=ds=#sr# 300"};
-			{ 6, "s979532", "1204031", "=q3=Subtle Gambeson", "=ds=#sr# 300"};
+			{ 1, "s979522", "1204021", "=q3=Cobra Strike Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 2, "s979524", "1204023", "=q3=Fel Strike Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 3, "s979526", "1204025", "=q3=Wind Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 4, "s979528", "1204027", "=q3=True Strike Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 5, "s979530", "1204029", "=q3=Clefthoof Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 6, "s979532", "1204031", "=q3=Subtle Gambeson", "Dungeon Bosses/Raid Trash"};
 		};
 		{
 			Name = "Epic";
-			{ 1, "s979523", "1204022", "=q4=Mastercraft Cobra Strike Gambeson", "=ds=#sr# 300"};
-			{ 2, "s979525", "1204024", "=q4=Mastercraft Fel Strike Gambeson", "=ds=#sr# 300"};
-			{ 3, "s979527", "1204026", "=q4=Mastercraft Wind Gambeson", "=ds=#sr# 300"};
-			{ 4, "s979529", "1204028", "=q4=Mastercraft True Strike Gambeson", "=ds=#sr# 300"};	
-			{ 5, "s979531", "1204030", "=q4=Mastercraft Clefthoof Gambeson", "=ds=#sr# 300"};
-			{ 6, "s979533", "1204032", "=q4=Mastercraft Subtle Gambeson", "=ds=#sr# 300"};
+			{ 1, "s979523", "1204022", "=q4=Mastercraft Cobra Strike Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 2, "s979525", "1204024", "=q4=Mastercraft Fel Strike Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 3, "s979527", "1204026", "=q4=Mastercraft Wind Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 4, "s979529", "1204028", "=q4=Mastercraft True Strike Gambeson", "Dungeon Bosses/Raid Trash"};	
+			{ 5, "s979531", "1204030", "=q4=Mastercraft Clefthoof Gambeson", "Dungeon Bosses/Raid Trash"};
+			{ 6, "s979533", "1204032", "=q4=Mastercraft Subtle Gambeson", "Dungeon Bosses/Raid Trash"};
 		};
 	};
 
 	AtlasLoot_Data["EngineeringHighRiskTBC"] = {
 		Name = ENGINEERING.." High Risk";
+		Type = "CraftingNoBF";
 			{
 		Name = "Rare";
-		{ 1, "s979550", "1204049", "=q3=Gnomish Magnification Polish", "=ds=#sr# 300"};
-		{ 2, "s979552", "1204051", "=q3=Gnomish Sharpening Polish", "=ds=#sr# 300"};
-		{ 3, "s979554", "1204053", "=q3=Gnomish Prismatic Polish", "=ds=#sr# 300"};
-		{ 4, "s979556", "1204055", "=q3=Felfire Scope", "=ds=#sr# 300"};
-		{ 5, "s979558", "1204057", "=q3=Sighted Scope", "=ds=#sr# 300"};
-		{ 6, "s979560", "1204059", "=q3=Quickshot Scope", "=ds=#sr# 300"};
+		{ 1, "s979550", "1204049", "=q3=Gnomish Magnification Polish", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979552", "1204051", "=q3=Gnomish Sharpening Polish", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979554", "1204053", "=q3=Gnomish Prismatic Polish", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979556", "1204055", "=q3=Felfire Scope", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979558", "1204057", "=q3=Sighted Scope", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979560", "1204059", "=q3=Quickshot Scope", "Dungeon Bosses/Raid Trash"};
 	};
 	{
 		Name = "Epic";
-		{ 1, "s968044", "1204050", "=q4=Fine Gnomish Magnification Polish", "=ds=#sr# 300"};
-		{ 2, "s968047", "1204052", "=q4=Fine Gnomish Sharpening Polish", "=ds=#sr# 300"};
-		{ 3, "s968050", "1204054", "=q4=Fine Gnomish Prismatic Polish", "=ds=#sr# 300"};
-		{ 4, "s968053", "1204056", "=q4=Focused Felfire Scope", "=ds=#sr# 300"};
-		{ 5, "s968056", "1204058", "=q4=Focused Sighted Scope", "=ds=#sr# 300"};
-		{ 6, "s968059", "1204060", "=q4=Focused Quickshot Scope", "=ds=#sr# 300"};
+		{ 1, "s968044", "1204050", "=q4=Fine Gnomish Magnification Polish", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s968047", "1204052", "=q4=Fine Gnomish Sharpening Polish", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s968050", "1204054", "=q4=Fine Gnomish Prismatic Polish", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s968053", "1204056", "=q4=Focused Felfire Scope", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s968056", "1204058", "=q4=Focused Sighted Scope", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s968059", "1204060", "=q4=Focused Quickshot Scope", "Dungeon Bosses/Raid Trash"};
 	};
 };
 
 	AtlasLoot_Data["EnchantingHighRiskTBC"] = {
 		Name = ENCHANTING.." High Risk";
+		Type = "CraftingNoBF";
 			{
 		Name = "Rare";
-		{ 1, "s1968677", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Void Assault", "=ds=#sr# 300"};
-		{ 2, "s1968680", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Dread Assault", "=ds=#sr# 300"};
-		{ 3, "s1968683", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Evoker", "=ds=#sr# 300"};
-		{ 4, "s1968686", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Assault", "=ds=#sr# 300"};
-		{ 5, "s1968689", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Channeler", "=ds=#sr# 300"};
-		{ 6, "s1968692", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Dread Omen Strikes", "=ds=#sr# 300"};
-		{ 7, "s1968695", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Void Flows", "=ds=#sr# 300"};
-		{ 8, "s1968698", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Void Blasting", "=ds=#sr# 300"};
-		{ 9, "s1968701", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Dread Precision", "=ds=#sr# 300"};
-		{ 10, "s1968770", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Crusader", "=ds=#sr# 300"};
+		{ 1, "s1968677", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Void Assault", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s1968680", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Dread Assault", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s1968683", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Evoker", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s1968686", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Assault", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s1968689", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Channeler", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s1968692", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Dread Omen Strikes", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s1968695", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Void Flows", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s1968698", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Void Blasting", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s1968701", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Dread Precision", "Dungeon Bosses/Raid Trash"};
+		{ 10, "s1968770", "Spell_Holy_GreaterHeal", "=q3=Enchant Weapon - Twisted Crusader", "Dungeon Bosses/Raid Trash"};
 	};
 	{
 		Name = "Epic";
-		{ 1, "s1968678", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Void Assault", "=ds=#sr# 300"};
-		{ 2, "s1968681", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Dread Assault", "=ds=#sr# 300"};
-		{ 3, "s1968684", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Evoker", "=ds=#sr# 300"};
-		{ 4, "s1968687", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Assault", "=ds=#sr# 300"};
-		{ 5, "s1968690", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Channeler", "=ds=#sr# 300"};
-		{ 6, "s1968693", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Dread Omen Strikes", "=ds=#sr# 300"};
-		{ 7, "s1968696", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Void Flows", "=ds=#sr# 300"};
-		{ 8, "s1968699", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Void Blasting", "=ds=#sr# 300"};
-		{ 9, "s1968702", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Dread Precision", "=ds=#sr# 300"};
-		{ 10, "s1968771", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Crusader", "=ds=#sr# 300"};
+		{ 1, "s1968678", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Void Assault", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s1968681", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Dread Assault", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s1968684", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Evoker", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s1968687", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Assault", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s1968690", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Channeler", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s1968693", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Dread Omen Strikes", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s1968696", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Void Flows", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s1968699", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Void Blasting", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s1968702", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Dread Precision", "Dungeon Bosses/Raid Trash"};
+		{ 10, "s1968771", "Spell_Holy_GreaterHeal", "=q4=Enchant Weapon - Overpowering Twisted Crusader", "Dungeon Bosses/Raid Trash"};
 	};
 };
 
 	AtlasLoot_Data["TailoringHighRiskTBC"] = {
 		Name = TAILORING.." High Risk";
+		Type = "CraftingNoBF";
 			{
 		Name = "Rare";
-		{ 1, "s979562", "1204061", "=q3=Armored Cloak Lining", "=ds=#sr# 300"};
-		{ 2, "s979564", "1204063", "=q3=Chaneller\'s Cloak Lining", "=ds=#sr# 300"};
-		{ 3, "s979566", "1204065", "=q3=Energizing Cloak Lining", "=ds=#sr# 300"};
-		{ 4, "s979568", "1204067", "=q3=Rager\'s Cloak Lining", "=ds=#sr# 300"};
-		{ 5, "s979570", "1204069", "=q3=Steadfast Cloak Lining", "=ds=#sr# 300"};
-		{ 6, "s979572", "1204071", "=q3=Shifting Cloak Lining", "=ds=#sr# 300"};
+		{ 1, "s979562", "1204061", "=q3=Armored Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979564", "1204063", "=q3=Chaneller\'s Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979566", "1204065", "=q3=Energizing Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979568", "1204067", "=q3=Rager\'s Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979570", "1204069", "=q3=Steadfast Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979572", "1204071", "=q3=Shifting Cloak Lining", "Dungeon Bosses/Raid Trash"};
 	};
 	{
 		Name = "Epic";
-		{ 1, "s979563", "1204062", "=q4=Fitted Armored Cloak Lining", "=ds=#sr# 300"};
-		{ 2, "s979565", "1204064", "=q4=Fitted Chaneller\'s Cloak Lining", "=ds=#sr# 300"};
-		{ 3, "s979567", "1204066", "=q4=Fitted Energizing Cloak Lining", "=ds=#sr# 300"};
-		{ 4, "s979569", "1204068", "=q4=Fitted Rager\'s Cloak Lining", "=ds=#sr# 300"};
-		{ 5, "s979571", "1204070", "=q4=Fitted Steadfast Cloak Lining", "=ds=#sr# 300"};
-		{ 6, "s979573", "1204072", "=q4=Fitted Shifting Cloak Lining", "=ds=#sr# 300"};
+		{ 1, "s979563", "1204062", "=q4=Fitted Armored Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979565", "1204064", "=q4=Fitted Chaneller\'s Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979567", "1204066", "=q4=Fitted Energizing Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979569", "1204068", "=q4=Fitted Rager\'s Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979571", "1204070", "=q4=Fitted Steadfast Cloak Lining", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979573", "1204072", "=q4=Fitted Shifting Cloak Lining", "Dungeon Bosses/Raid Trash"};
 	};
 };
 
 	AtlasLoot_Data["JewelcraftingHighRiskTBC"] = {
 		Name = JEWELCRAFTING.." High Risk";
+		Type = "CraftingNoBF";
 			{
 		Name = "Rare";
-		{ 1, "s979639", "1204165", "=q3=Deep Gold Twisted Pendant", "=ds=#sr# 300"};
-		{ 2, "s979641", "1204167", "=q3=Bloodshadow Twisted Pendant", "=ds=#sr# 300"};
-		{ 3, "s979643", "1204169", "=q3=Azureflame Twisted Pendant", "=ds=#sr# 300"};
-		{ 4, "s979645", "1204171", "=q3=Shadowgold Dread Pendant", "=ds=#sr# 300"};
-		{ 5, "s979647", "1204173", "=q3=Deep Azure Dread Pendant", 	"=ds=#sr# 300"};
-		{ 6, "s979649", "1204175", "=q3=Bloodflame Dread Pendant", "=ds=#sr# 300"};
-		{ 7, "s979651", "1204177", "=q3=Living Night Void Pendant", "=ds=#sr# 300"};
-		{ 8, "s979653", "1204179", "=q3=Dawnstar Void Pendant", "=ds=#sr# 300"};
-		{ 9, "s979655", "1204181", "=q3=Noble Talasite Void Pendant", "=ds=#sr# 300"};
+		{ 1, "s979639", "1204165", "=q3=Deep Gold Twisted Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979641", "1204167", "=q3=Bloodshadow Twisted Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979643", "1204169", "=q3=Azureflame Twisted Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979645", "1204171", "=q3=Shadowgold Dread Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979647", "1204173", "=q3=Deep Azure Dread Pendant", 	"Dungeon Bosses/Raid Trash"};
+		{ 6, "s979649", "1204175", "=q3=Bloodflame Dread Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s979651", "1204177", "=q3=Living Night Void Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s979653", "1204179", "=q3=Dawnstar Void Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s979655", "1204181", "=q3=Noble Talasite Void Pendant", "Dungeon Bosses/Raid Trash"};
 	};
 	{
 		Name = "Epic";
-		{ 1, "s979640", "1204166", "=q4=Engraved Deep Gold Twisted Pendant", "=ds=#sr# 300"};
-		{ 2, "s979642", "1204168", "=q4=Engraved Bloodshadow Twisted Pendant", "=ds=#sr# 300"};
-		{ 3, "s979644", "1204170", "=q4=Engraved Azureflame Twisted Pendant", "=ds=#sr# 300"};
-		{ 4, "s979646", "1204172", "=q4=Engraved Shadowgold Dread Pendant", "=ds=#sr# 300"};
-		{ 5, "s979648", "1204174", "=q4=Engraved Deep Azure Dread Pendant", "=ds=#sr# 300"};
-		{ 6, "s979650", "1204176", "=q4=Engraved Bloodflame Dread Pendant", "=ds=#sr# 300"};
-		{ 7, "s979652", "1204178", "=q4=Engraved Living Night Void Pendant", "=ds=#sr# 300"};
-		{ 8, "s979654", "1204180", "=q4=Engraved Dawnstar Void Pendant", "=ds=#sr# 300"};
-		{ 9, "s979656", "1204182", "=q4=Engraved Noble Talasite Void Pendant", "=ds=#sr# 300"};
+		{ 1, "s979640", "1204166", "=q4=Engraved Deep Gold Twisted Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979642", "1204168", "=q4=Engraved Bloodshadow Twisted Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979644", "1204170", "=q4=Engraved Azureflame Twisted Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979646", "1204172", "=q4=Engraved Shadowgold Dread Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979648", "1204174", "=q4=Engraved Deep Azure Dread Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979650", "1204176", "=q4=Engraved Bloodflame Dread Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s979652", "1204178", "=q4=Engraved Living Night Void Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s979654", "1204180", "=q4=Engraved Dawnstar Void Pendant", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s979656", "1204182", "=q4=Engraved Noble Talasite Void Pendant", "Dungeon Bosses/Raid Trash"};
 	};
 };
 
 	AtlasLoot_Data["CookingHighRiskTBC"] = {
 		Name = COOKING.." High Risk";
+		Type = "CraftingNoBF";
 			{
 		Name = "Rare";
-		{ 1, "s979384",	"1203280", "=q3=Infused Living Soup", "=ds=#sr# 300"};
-		{ 2, "s979386",	"1203282", "=q3=Infused Charred Steak", "=ds=#sr# 300"};
-		{ 3, "s979388",	"1203284", "=q3=Infused Steamed Wontons", "=ds=#sr# 300"};
-		{ 4, "s979390",	"1203286", "=q3=Infused Air Fried Chops", "=ds=#sr# 300"};
-		{ 5, "s979392",	"1203288", "=q3=Infused Rock\'s Stew (Airsick lowlander flavor text)", "=ds=#sr# 300"};
-		{ 6, "s979394",	"1203290", "=q3=Infused Clear-Cut Chops", "=ds=#sr# 300"};
-		{ 7, "s979396",	"1203292", "=q3=Infused Clear-Cut Wontons", "=ds=#sr# 300"};
-		{ 8, "s979398",	"1203294", "=q3=Infused Clear-Cut Steak", "=ds=#sr# 300"};
-		{ 9, "s979463",	"1203358", "=q3=Infused Bold Simmered Stew", "=ds=#sr# 300"};
-		{ 10, "s979465", "1203360", "=q3=Infused Bold Duck Stew", "=ds=#sr# 300"};
-		{ 11, "s979447", "1203338", "=q3=Infused Subtle Chops", "=ds=#sr# 300"};
-		{ 12, "s979445", "1203340", "=q3=Infused Subtle Steak", "=ds=#sr# 300"};
-		{ 13, "s979447", "1203342", "=q3=Infused Subtle Wontons", "=ds=#sr# 300"};
-		{ 14, "s979449", "1203344", "=q3=Infused Subtle Soup", "=ds=#sr# 300"};
-		{ 15, "s979451", "1203346", "=q3=Infused Bold Stew", "=ds=#sr# 300"};
-		{ 16, "s979400", "1203296", "=q3=Infused Piercing Chops", "=ds=#sr# 300"};
-		{ 17, "s979402", "1203298", "=q3=Infused Piercing Steak", "=ds=#sr# 300"};
-		{ 18, "s979404", "1203300", "=q3=Infused Seared Wontons", "=ds=#sr# 300"};
-		{ 19, "s979406", "1203302", "=q3=Infused Seared Chops", "=ds=#sr# 300"};
-		{ 20, "s979421", "1203316", "=q3=Infused Duck Stew", "=ds=#sr# 300"};
-		{ 21, "s979423", "1203318", "=q3=Infused Chunky Stew", "=ds=#sr# 300"};
-		{ 22, "s979425", "1203320", "=q3=Infused Simmered Stew", "=ds=#sr# 300"};
-		{ 23, "s979427", "1203322", "=q3=Infused Wizard Wontons", "=ds=#sr# 300"};
-		{ 24, "s979429", "1203324", "=q3=Infused Wizard Soup", "=ds=#sr# 300"};
-		{ 25, "s979431", "1203326", "=q3=Infused Heightened Wontons", "=ds=#sr# 300"};
-		{ 26, "s979441", "1203336", "=q3=Infused Vibrant Chops", "=ds=#sr# 300"};
-		{ 27, "s979408", "1203304", "=q3=Infused Savory Stew", "=ds=#sr# 300"};
-		{ 28, "s979410", "1203306", "=q3=Infused Savory Chops", "=ds=#sr# 300"};
+		{ 1, "s979384",	"1203280", "=q3=Infused Living Soup", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979386",	"1203282", "=q3=Infused Charred Steak", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979388",	"1203284", "=q3=Infused Steamed Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979390",	"1203286", "=q3=Infused Air Fried Chops", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979392",	"1203288", "=q3=Infused Rock\'s Stew (Airsick lowlander flavor text)", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979394",	"1203290", "=q3=Infused Clear-Cut Chops", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s979396",	"1203292", "=q3=Infused Clear-Cut Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s979398",	"1203294", "=q3=Infused Clear-Cut Steak", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s979463",	"1203358", "=q3=Infused Bold Simmered Stew", "Dungeon Bosses/Raid Trash"};
+		{ 10, "s979465", "1203360", "=q3=Infused Bold Duck Stew", "Dungeon Bosses/Raid Trash"};
+		{ 11, "s979447", "1203338", "=q3=Infused Subtle Chops", "Dungeon Bosses/Raid Trash"};
+		{ 12, "s979445", "1203340", "=q3=Infused Subtle Steak", "Dungeon Bosses/Raid Trash"};
+		{ 13, "s979447", "1203342", "=q3=Infused Subtle Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 14, "s979449", "1203344", "=q3=Infused Subtle Soup", "Dungeon Bosses/Raid Trash"};
+		{ 15, "s979451", "1203346", "=q3=Infused Bold Stew", "Dungeon Bosses/Raid Trash"};
+		{ 16, "s979400", "1203296", "=q3=Infused Piercing Chops", "Dungeon Bosses/Raid Trash"};
+		{ 17, "s979402", "1203298", "=q3=Infused Piercing Steak", "Dungeon Bosses/Raid Trash"};
+		{ 18, "s979404", "1203300", "=q3=Infused Seared Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 19, "s979406", "1203302", "=q3=Infused Seared Chops", "Dungeon Bosses/Raid Trash"};
+		{ 20, "s979421", "1203316", "=q3=Infused Duck Stew", "Dungeon Bosses/Raid Trash"};
+		{ 21, "s979423", "1203318", "=q3=Infused Chunky Stew", "Dungeon Bosses/Raid Trash"};
+		{ 22, "s979425", "1203320", "=q3=Infused Simmered Stew", "Dungeon Bosses/Raid Trash"};
+		{ 23, "s979427", "1203322", "=q3=Infused Wizard Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 24, "s979429", "1203324", "=q3=Infused Wizard Soup", "Dungeon Bosses/Raid Trash"};
+		{ 25, "s979431", "1203326", "=q3=Infused Heightened Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 26, "s979441", "1203336", "=q3=Infused Vibrant Chops", "Dungeon Bosses/Raid Trash"};
+		{ 27, "s979408", "1203304", "=q3=Infused Savory Stew", "Dungeon Bosses/Raid Trash"};
+		{ 28, "s979410", "1203306", "=q3=Infused Savory Chops", "Dungeon Bosses/Raid Trash"};
 	};
 	{
 		Name = "Rare";
-		{ 1, "s979413",	"1203308", "=q3=Infused Savory Steak", "=ds=#sr# 300"};
-		{ 2, "s979415",	"1203310", "=q3=Infused Savory Wontons", "=ds=#sr# 300"};
-		{ 3, "s979417",	"1203312", "=q3=Infused Red-Hot Stew", "=ds=#sr# 300"};
-		{ 4, "s979419",	"1203314", "=q3=Infused Blazing Stew", "=ds=#sr# 300"};
-		{ 5, "s979433",	"1203328", "=q3=Infused Hearty Living Soup", "=ds=#sr# 300"};
-		{ 6, "s979435",	"1203330", "=q3=Infused Hearty Air Fried Chops", "=ds=#sr# 300"};
-		{ 7, "s979437",	"1203332", "=q3=Infused Hearty Charred Steak", "=ds=#sr# 300"};
-		{ 8, "s979439",	"1203334", "=q3=Infused Hearty Steamed Wontons", "=ds=#sr# 300"};
-		{ 9, "s979453",	"1203348", "=q3=Infused Mana Charged Roast", "=ds=#sr# 300"};
-		{ 10, "s979455", "1203350", "=q3=Infused Sizzling Roast", "=ds=#sr# 300"};
-		{ 11, "s979457", "1203352", "=q3=Infused Wild Roast", "=ds=#sr# 300"};
-		{ 12, "s979459", "1203354", "=q3=Infused Winter Roast", "=ds=#sr# 300"};
-		{ 13, "s979461", "1203356", "=q3=Infused Blackened Roast", "=ds=#sr# 300"};
+		{ 1, "s979413",	"1203308", "=q3=Infused Savory Steak", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979415",	"1203310", "=q3=Infused Savory Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979417",	"1203312", "=q3=Infused Red-Hot Stew", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979419",	"1203314", "=q3=Infused Blazing Stew", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979433",	"1203328", "=q3=Infused Hearty Living Soup", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979435",	"1203330", "=q3=Infused Hearty Air Fried Chops", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s979437",	"1203332", "=q3=Infused Hearty Charred Steak", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s979439",	"1203334", "=q3=Infused Hearty Steamed Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s979453",	"1203348", "=q3=Infused Mana Charged Roast", "Dungeon Bosses/Raid Trash"};
+		{ 10, "s979455", "1203350", "=q3=Infused Sizzling Roast", "Dungeon Bosses/Raid Trash"};
+		{ 11, "s979457", "1203352", "=q3=Infused Wild Roast", "Dungeon Bosses/Raid Trash"};
+		{ 12, "s979459", "1203354", "=q3=Infused Winter Roast", "Dungeon Bosses/Raid Trash"};
+		{ 13, "s979461", "1203356", "=q3=Infused Blackened Roast", "Dungeon Bosses/Raid Trash"};
 	};
 	{
 		Name = "Epic";
-		{ 1, "s979385",	"1203281", "=q4=Charged Living Soup", "=ds=#sr# 300"};
-		{ 2, "s979387",	"1203283", "=q4=Charged Charred Steak", "=ds=#sr# 300"};
-		{ 3, "s979389",	"1203285", "=q4=Charged Steamed Wontons", "=ds=#sr# 300"};
-		{ 4, "s979391",	"1203287", "=q4=Charged Air Fried Chops", "=ds=#sr# 300"};
-		{ 5, "s979393",	"1203289", "=q4=Charged Rock\'s Stew (Airsick lowlander flavor text)", "=ds=#sr# 300"};
-		{ 6, "s979395",	"1203291", "=q4=Charged Clear-Cut Chops", "=ds=#sr# 300"};
-		{ 7, "s979397",	"1203293", "=q4=Charged Clear-Cut Wontons", "=ds=#sr# 300"};
-		{ 8, "s979399",	"1203295", "=q4=Charged Clear-Cut Steak", "=ds=#sr# 300"};
-		{ 9, "s979464",	"1203359", "=q4=Charged Bold Simmered Stew", "=ds=#sr# 300"};
-		{ 10, "s979466", "1203361", "=q4=Charged Bold Duck Stew", "=ds=#sr# 300"};
-		{ 11, "s979444", "1203339", "=q4=Charged Subtle Chops", "=ds=#sr# 300"};
-		{ 12, "s979446", "1203341", "=q4=Charged Subtle Steak", "=ds=#sr# 300"};
-		{ 13, "s979448", "1203343", "=q4=Charged Subtle Wontons", "=ds=#sr# 300"};
-		{ 14, "s979450", "1203345", "=q4=Charged Subtle Soup", "=ds=#sr# 300"};
-		{ 15, "s979452", "1203347", "=q4=Charged Bold Stew", "=ds=#sr# 300"};
-		{ 16, "s979401", "1203297", "=q4=Charged Piercing Chops", "=ds=#sr# 300"};
-		{ 17, "s979403", "1203299", "=q4=Charged Piercing Steak", "=ds=#sr# 300"};
-		{ 18, "s979405", "1203301", "=q4=Charged Seared Wontons", "=ds=#sr# 300"};
-		{ 19, "s979407", "1203303", "=q4=Charged Seared Chops", "=ds=#sr# 300"};
-		{ 20, "s979422", "1203317", "=q4=Charged Duck Stew", "=ds=#sr# 300"};
-		{ 21, "s979424", "1203319", "=q4=Charged Chunky Stew", "=ds=#sr# 300"};
-		{ 22, "s979426", "1203321", "=q4=Charged Simmered Stew", "=ds=#sr# 300"};
-		{ 23, "s979428", "1203323", "=q4=Charged Wizard Wontons", "=ds=#sr# 300"};
-		{ 24, "s979430", "1203325", "=q4=Charged Wizard Soup", "=ds=#sr# 300"};
-		{ 25, "s979432", "1203327", "=q4=Charged Heightened Wontons", "=ds=#sr# 300"};
-		{ 26, "s979442", "1203337", "=q4=Charged Vibrant Chops", "=ds=#sr# 300"};
-		{ 27, "s979409", "1203305", "=q4=Charged Savory Stew", "=ds=#sr# 300"};
-		{ 28, "s979412", "1203307", "=q4=Charged Savory Chops", "=ds=#sr# 300"};
+		{ 1, "s979385",	"1203281", "=q4=Charged Living Soup", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979387",	"1203283", "=q4=Charged Charred Steak", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979389",	"1203285", "=q4=Charged Steamed Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979391",	"1203287", "=q4=Charged Air Fried Chops", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979393",	"1203289", "=q4=Charged Rock\'s Stew (Airsick lowlander flavor text)", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979395",	"1203291", "=q4=Charged Clear-Cut Chops", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s979397",	"1203293", "=q4=Charged Clear-Cut Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s979399",	"1203295", "=q4=Charged Clear-Cut Steak", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s979464",	"1203359", "=q4=Charged Bold Simmered Stew", "Dungeon Bosses/Raid Trash"};
+		{ 10, "s979466", "1203361", "=q4=Charged Bold Duck Stew", "Dungeon Bosses/Raid Trash"};
+		{ 11, "s979444", "1203339", "=q4=Charged Subtle Chops", "Dungeon Bosses/Raid Trash"};
+		{ 12, "s979446", "1203341", "=q4=Charged Subtle Steak", "Dungeon Bosses/Raid Trash"};
+		{ 13, "s979448", "1203343", "=q4=Charged Subtle Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 14, "s979450", "1203345", "=q4=Charged Subtle Soup", "Dungeon Bosses/Raid Trash"};
+		{ 15, "s979452", "1203347", "=q4=Charged Bold Stew", "Dungeon Bosses/Raid Trash"};
+		{ 16, "s979401", "1203297", "=q4=Charged Piercing Chops", "Dungeon Bosses/Raid Trash"};
+		{ 17, "s979403", "1203299", "=q4=Charged Piercing Steak", "Dungeon Bosses/Raid Trash"};
+		{ 18, "s979405", "1203301", "=q4=Charged Seared Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 19, "s979407", "1203303", "=q4=Charged Seared Chops", "Dungeon Bosses/Raid Trash"};
+		{ 20, "s979422", "1203317", "=q4=Charged Duck Stew", "Dungeon Bosses/Raid Trash"};
+		{ 21, "s979424", "1203319", "=q4=Charged Chunky Stew", "Dungeon Bosses/Raid Trash"};
+		{ 22, "s979426", "1203321", "=q4=Charged Simmered Stew", "Dungeon Bosses/Raid Trash"};
+		{ 23, "s979428", "1203323", "=q4=Charged Wizard Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 24, "s979430", "1203325", "=q4=Charged Wizard Soup", "Dungeon Bosses/Raid Trash"};
+		{ 25, "s979432", "1203327", "=q4=Charged Heightened Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 26, "s979442", "1203337", "=q4=Charged Vibrant Chops", "Dungeon Bosses/Raid Trash"};
+		{ 27, "s979409", "1203305", "=q4=Charged Savory Stew", "Dungeon Bosses/Raid Trash"};
+		{ 28, "s979412", "1203307", "=q4=Charged Savory Chops", "Dungeon Bosses/Raid Trash"};
 	};
 	{
 		Name = "Epic";
-		{ 1, "s979414",	"1203309", "=q4=Charged Savory Steak", "=ds=#sr# 300"};
-		{ 2, "s979416",	"1203311", "=q4=Charged Savory Wontons", "=ds=#sr# 300"};
-		{ 3, "s979418",	"1203313", "=q4=Charged Red-Hot Stew", "=ds=#sr# 300"};
-		{ 4, "s979420",	"1203315", "=q4=Charged Blazing Stew", "=ds=#sr# 300"};
-		{ 5, "s979434",	"1203329", "=q4=Charged Hearty Living Soup", "=ds=#sr# 300"};
-		{ 6, "s979436",	"1203331", "=q4=Charged Hearty Air Fried Chops", "=ds=#sr# 300"};
-		{ 7, "s979438",	"1203333", "=q4=Charged Hearty Charred Steak", "=ds=#sr# 300"};
-		{ 8, "s979440",	"1203335", "=q4=Charged Hearty Steamed Wontons", "=ds=#sr# 300"};
-		{ 9, "s979454",	"1203349", "=q4=Charged Mana Charged Roast", "=ds=#sr# 300"};
-		{ 10, "s979456", "1203351", "=q4=Charged Sizzling Roast", "=ds=#sr# 300"};
-		{ 11, "s979458", "1203353", "=q4=Charged Wild Roast", "=ds=#sr# 300"};
-		{ 12, "s979460", "1203355", "=q4=Charged Winter Roast", "=ds=#sr# 300"};
-		{ 13, "s979462", "1203357", "=q4=Charged Blackened Roast", "=ds=#sr# 300"};
+		{ 1, "s979414",	"1203309", "=q4=Charged Savory Steak", "Dungeon Bosses/Raid Trash"};
+		{ 2, "s979416",	"1203311", "=q4=Charged Savory Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 3, "s979418",	"1203313", "=q4=Charged Red-Hot Stew", "Dungeon Bosses/Raid Trash"};
+		{ 4, "s979420",	"1203315", "=q4=Charged Blazing Stew", "Dungeon Bosses/Raid Trash"};
+		{ 5, "s979434",	"1203329", "=q4=Charged Hearty Living Soup", "Dungeon Bosses/Raid Trash"};
+		{ 6, "s979436",	"1203331", "=q4=Charged Hearty Air Fried Chops", "Dungeon Bosses/Raid Trash"};
+		{ 7, "s979438",	"1203333", "=q4=Charged Hearty Charred Steak", "Dungeon Bosses/Raid Trash"};
+		{ 8, "s979440",	"1203335", "=q4=Charged Hearty Steamed Wontons", "Dungeon Bosses/Raid Trash"};
+		{ 9, "s979454",	"1203349", "=q4=Charged Mana Charged Roast", "Dungeon Bosses/Raid Trash"};
+		{ 10, "s979456", "1203351", "=q4=Charged Sizzling Roast", "Dungeon Bosses/Raid Trash"};
+		{ 11, "s979458", "1203353", "=q4=Charged Wild Roast", "Dungeon Bosses/Raid Trash"};
+		{ 12, "s979460", "1203355", "=q4=Charged Winter Roast", "Dungeon Bosses/Raid Trash"};
+		{ 13, "s979462", "1203357", "=q4=Charged Blackened Roast", "Dungeon Bosses/Raid Trash"};
 	};
 };

@@ -1,0 +1,27 @@
+------------------------------------------------------------------------
+r25 | yess | 2010-04-18 11:38:01 +0000 (Sun, 18 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Broker_FindGroup.lua
+
+fixed chat message
+------------------------------------------------------------------------
+r24 | yess | 2010-04-17 01:05:34 +0000 (Sat, 17 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Broker_FindGroup.lua
+   M /trunk/localization/enUS.lua
+
+added option to disable time report
+------------------------------------------------------------------------
+r23 | yess | 2010-04-16 18:59:21 +0000 (Fri, 16 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/Broker_FindGroup.toc
+
+toc update
+------------------------------------------------------------------------
+r22 | yess | 2010-04-16 18:57:44 +0000 (Fri, 16 Apr 2010) | 1 line
+Changed paths:
+   M /trunk/Broker_FindGroup.lua
+
+added dungeon time counter
+------------------------------------------------------------------------

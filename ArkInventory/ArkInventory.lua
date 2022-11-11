@@ -8019,6 +8019,10 @@ end
 
 function ArkInventory.LocationOptionGetReal( loc_id, opt )
 
+	if type( opt ) ~= "table" then
+		return nil
+	end
+
 	assert( loc_id ~= nil, "location id is nil" )
 	assert( type( opt ) == "table", "opt is not a table" )
 

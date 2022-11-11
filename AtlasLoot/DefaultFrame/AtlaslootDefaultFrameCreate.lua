@@ -52,7 +52,7 @@ local lootbground = CreateFrame("Frame", "AtlasLootDefaultFrame_LootBackground",
     lootbground:SetBackdropColor(0,0,0.5,0.5);
     lootbground:EnableMouse();
     lootbground:SetScript("OnMouseDown",function(self, button)
-        if _G[AtlasLootItemsFrame.refresh[2]][AtlasLootItemsFrame.refresh[1]].Back and button == "RightButton" then
+        if _G["AtlasLootItemsFrame_BACK"]:IsVisible() and button == "RightButton" then
             AtlasLoot:BackButton_OnClick();
         elseif AtlasLootDefaultFrame_AdvancedSearchPanel:IsVisible() and button == "RightButton" then
             AtlasLoot_AdvancedSearchClose();
@@ -88,7 +88,7 @@ local itemframe = CreateFrame("Frame", "AtlasLootItemsFrame", AtlasLootDefaultFr
             end
         end);
 
-local function createLootItemButtons(num)
+for num = 1, 30 do
     local button = CreateFrame("Button","AtlasLootItem_"..num, AtlasLootItemsFrame);
         button:SetID(num);
         button:SetSize(236,28);
@@ -122,10 +122,6 @@ local function createLootItemButtons(num)
             button:SetPoint("TOPLEFT", "AtlasLootItem_"..(num - 1), "BOTTOMLEFT");
         end
 end
-
-    for i = 1, 30 do
-        createLootItemButtons(i);
-    end
 
         -- LootInfo
 local lootinfo = CreateFrame("Frame", "AtlasLootInfo")
@@ -238,7 +234,8 @@ local filterbtn = CreateFrame("CheckButton","AtlasLootFilterCheck",AtlasLootItem
         filterbtn.Label = filterbtn:CreateFontString("AtlasLootFilterCheckText","OVERLAY","GameFontNormal");
         filterbtn.Label:SetText(AL["Filter"]);
         filterbtn.Label:SetPoint("RIGHT", AtlasLootFilterCheck, 30, 2);
-        filterbtn:SetScript("OnClick", function() AtlasLoot_FilterEnableButton() end);
+        filterbtn:RegisterForClicks("LeftButtonDown","RightButtonDown");
+        filterbtn:SetScript("OnClick", function(self, btnclick) AtlasLoot_FilterEnableButton(self, btnclick) end);
 
         -- Quick Looks Button
 local looksbtn = CreateFrame("Button", "AtlasLootQuickLooksButton", AtlasLootItemsFrame);
@@ -561,9 +558,9 @@ end)
 scrollFrame.scrollBar = scrollSlider
 
 local rows = setmetatable({}, { __index = function(t, i)
-	local row = CreateFrame("CheckButton", "$parentRow"..i, scrollFrame)
+	local row = CreateFrame("CheckButton", "$parentRow"..i, Atlasloot_Difficulty_ScrollFrame)
 	row:SetSize(230, ROW_HEIGHT);
-    row:SetFrameStrata("Dialog");
+    --row:SetFrameStrata("Dialog");
 	row:SetNormalFontObject(GameFontHighlightLeft);
     row:SetCheckedTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD");
     row:SetScript("OnClick", function()
@@ -655,9 +652,9 @@ local scrollSlider2 = CreateFrame("ScrollFrame","AtlasLootDefaultFrameSubTableSc
     subtableFrame.scrollBar = scrollSlider2
 
 local rows2 = setmetatable({}, { __index = function(t, i)
-    local row = CreateFrame("CheckButton", "$parentRow"..i, subtableFrame)
+    local row = CreateFrame("CheckButton", "$parentRow"..i, Atlasloot_SubTableFrame)
     row:SetSize(230, ROW_HEIGHT);
-    row:SetFrameStrata("Dialog");
+    --row:SetFrameStrata("Dialog");
     row:SetNormalFontObject(GameFontHighlightLeft);
     row:SetCheckedTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD");
     row.Text = row:CreateFontString("$parentRow"..i.."Text","OVERLAY","GameFontNormal");

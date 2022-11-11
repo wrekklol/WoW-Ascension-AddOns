@@ -410,8 +410,8 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 6, 21625, "", "=q4=Scarab Brooch", "=ds=#s14#", "", "21.46%"};
 			{ 7, 22399, "", "=q4=Idol of Health", "=ds=#s16#, #w14#", "", "7.32%"};
 			{ 8, 21622, "", "=q4=Sharpened Silithid Femur", "=ds=#h3#, #w10#", "", "15.12%"};
-			{ 10, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=LT=T2.5SHOULDER"};
-			{ 11, 20928, "", "=q4=Bindings of the Lost Nomad","=ds=#tt2.5#", "", "100%", "=LT=T2.5FEET"};
+			{ 10, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=TT=T2.5SHOULDER"};
+			{ 11, 20928, "", "=q4=Bindings of the Lost Nomad","=ds=#tt2.5#", "", "100%", "=TT=T2.5FEET"};
 			{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "3.19%"};
 			{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
 			{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
@@ -430,8 +430,8 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 4, 21618, "", "=q4=Hive Defiler Wristguards", "=ds=#s8#, #a4#", "", "10.34%"};
 			{ 6, 21620, "", "=q4=Ring of the Martyr", "=ds=#s13#", "", "12.97%"};
 			{ 7, 21616, "", "=q4=Huhuran's Stinger", "=ds=#w2#", "", "5.71%"};
-			{ 9, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=LT=T2.5SHOULDER"};
-			{ 10, 20928, "", "=q4=Bindings of the Lost Nomad","=ds=#tt2.5#", "", "100%", "=LT=T2.5FEET"};
+			{ 9, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=TT=T2.5SHOULDER"};
+			{ 10, 20928, "", "=q4=Bindings of the Lost Nomad","=ds=#tt2.5#", "", "100%", "=TT=T2.5FEET"};
 			{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "4.31%"};
 			{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4#, =ds=#w9#"};
 			{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4#, =ds=#w9#"};
@@ -456,7 +456,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 11, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#"};
 			{ 12, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#"};
 			{ 13, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#"};
-			{ 15, 20930, "", "=q4=Diadem of the Desert Prince", "=ds=#tt2.5#", "", "100%", "=LT=T2.5HEAD"};
+			{ 15, 20930, "", "=q4=Diadem of the Desert Prince", "=ds=#tt2.5#", "", "100%", "=TT=T2.5HEAD"};
 			{ 16, 21604, "", "=q4=Bracelets of Royal Redemption", "=ds=#s8#, #a1#", "", "12.51%"};
 			{ 17, 21605, "", "=q4=Gloves of the Hidden Temple", "=ds=#s9#, #a2#", "", "15.45%"};
 			{ 18, 21609, "", "=q4=Regenerating Belt of Vek'nilash", "=ds=#s10#, #a2#", "", "13.35%"};
@@ -478,7 +478,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 4, 23570, "", "=q4=Jom Gabbar", "=ds=#s14#", "", "2.80%"};
 			{ 5, 23557, "", "=q4=Larvae of the Great Worm", "=ds=#w5#", "", "3.95%"};
 			{ 6, 21610, "", "=q4=Wormscale Blocker", "=ds=#w8#", "", "16.54%"};
-			{ 8, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", "=LT=T2.5LEGS"};
+			{ 8, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", "=TT=T2.5LEGS"};
 			{ 16, 21237, "", "=q4=Imperial Qiraji Regalia", "=ds=#m3#", "", "5.20%"};
 			{ 17, 21273, "", "=q4=Blessed Qiraji Acolyte Staff", "=q1=#m4# =ds=#w9#"};
 			{ 18, 21275, "", "=q4=Blessed Qiraji Augur Staff", "=q1=#m4# =ds=#w9#"};
@@ -504,7 +504,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 12, 21126, "", "=q4=Death's Sting", "=ds=#h1#, #w4#", "", "6.84%"};
 			{ 13, 21134, "", "=q4=Dark Edge of Insanity", "=ds=#h2#, #w1#", "", "5.93%"};
 			{ 14, 21839, "", "=q4=Scepter of the False Prophet", "=ds=#h3#, #w6#", "", "4.75%"};
-			{ 16, 20933, "", "=q4=Husk of the Old God", "=ds=#tt2.5#", "", "100%", "=LT=T2.5CHEST"};
+			{ 16, 20933, "", "=q4=Husk of the Old God", "=ds=#tt2.5#", "", "100%", "=TT=T2.5CHEST"};
 			{ 18, 21221, "", "=q4=Eye of C'Thun", "=ds=#m2#", "", "100%"};
 			{ 19, 21710, "", "=q4=Cloak of the Fallen God", "=q1=#m4#: =ds=#s4#"};
 			{ 20, 21712, "", "=q4=Amulet of the Fallen God", "=q1=#m4#: =ds=#s2#"};
@@ -1284,7 +1284,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 9, 19147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "2.23%"};
 			{ 10, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.23%"};
 			{ 11, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "1.60%"};
-			{ 16, 2522362, "", "=q4=Molten Wristgaurds",  "=ds=#tt1#", "", "100%", "=LT=T1WRIST"};
+			{ 16, 2522362, "", "=q4=Molten Wristgaurds",  "=ds=#tt1#", "", "100%", "=TT=T1WRIST"};
 			{ 18, 17329, "", "=q1=Hand of Lucifron", "=ds=#m3#"};
 		};
 		{
@@ -1304,7 +1304,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 13, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "5.68%"};
 			{ 14, 17073, "", "=q4=Earthshaker", "=ds=#h2#, #w6#", "", "16.75%"};
 			{ 15, 17069, "", "=q4=Striker's Mark", "=ds=#w2#", "", "16.37%"};
-			{ 16, 2522359, "", "=q4=Molten Leggaurds", "=ds=#tt1#", "", "100%", "=LT=T1LEGS"};		
+			{ 16, 2522359, "", "=q4=Molten Leggaurds", "=ds=#tt1#", "", "100%", "=TT=T1LEGS"};		
 		};
 		{
 			Name = BabbleBoss["Gehennas"];
@@ -1318,7 +1318,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 8, 19147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "3.78%"};
 			{ 9, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "3.79%"};
 			{ 10, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "3.34%"};
-			{ 16, 2522364, "", "=q4=Molten Girdle", "=ds=#tt1#", "", "100%", "=LT=T1HAND"};
+			{ 16, 2522364, "", "=q4=Molten Girdle", "=ds=#tt1#", "", "100%", "=TT=T1HAND"};
 			{ 18, 17331, "", "=q1=Hand of Gehennas", "=ds=#m3#"};
 		};
 		{
@@ -1338,7 +1338,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 13, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "4.09%"};
 			{ 14, 17105, "", "=q4=Aurastone Hammer", "=ds=#h3#, #w6#", "", "12.67%"};
 			{ 15, 17066, "", "=q4=Drillborer Disk", "=ds=#w8#", "", "11.85%"};
-			{ 16, 2522360, "", "=q4=Molten Headpiece", "=ds=#tt1#", "", "100%", "=LT=T1HEAD"};
+			{ 16, 2522360, "", "=q4=Molten Headpiece", "=ds=#tt1#", "", "100%", "=TT=T1HEAD"};
 			{ 18, 18564, "", "=q5=Bindings of the Windseeker", "=ds=#m3#, =q1=#m9#", "", "3.74%"};
 			{ 19, 19019, "", "=q5=Thunderfury, Blessed Blade of the Windseeker", "=q1=#m4#: =ds=#h1#, #w10#"};
 			{ 21, 17782, "", "=q5=Talisman of Binding Shard", "=ds=#s2#", "", ""};        
@@ -1356,7 +1356,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 8, 19147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "1.99%"};
 			{ 9, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.27%"};
 			{ 10, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "3.32%"};
-			{ 16, 2522363, "", "=q4=Molten Handgaurds", "=ds=#tt1#", "", "100%", "=LT=T1WAIST"};
+			{ 16, 2522363, "", "=q4=Molten Handgaurds", "=ds=#tt1#", "", "100%", "=TT=T1WAIST"};
 			{ 18, 17332, "", "=q1=Hand of Shazzrah", "=ds=#m3#"};
 		};
 		{
@@ -1373,7 +1373,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 10, 18820, "", "=q4=Talisman of Ephemeral Power", "=ds=#s14#", "", "2.68%"};
 			{ 11, 19142, "", "=q4=Fire Runed Grimoire", "=ds=#s15#", "", "2.59%"};
 			{ 12, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "2.70%"};
-			{ 16, 2522361, "", "=q4=Molten Spaulders", "=ds=#tt1#", "", "100%", "=LT=T1SHOULDER"};
+			{ 16, 2522361, "", "=q4=Molten Spaulders", "=ds=#tt1#", "", "100%", "=TT=T1SHOULDER"};
 			{ 18, 18563, "", "=q5=Bindings of the Windseeker", " =ds=#m3#, =q1=#m10#", "", "3.78%"};
 			{ 19, 19019, "", "=q5=Thunderfury, Blessed Blade of the Windseeker", "=q1=#m4#: =ds=#h1#, #w10#"};
 		};
@@ -1393,7 +1393,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 12, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "2.89%"};
 			{ 13, 18842, "", "=q4=Staff of Dominance", "=ds=#w9#", "", "18.95%"};
 			{ 14, 17072, "", "=q4=Blastershot Launcher", "=ds=#w5#", "", "17.83%"};
-			{ 16, 2522350, "", "=q4=Molten Tunic", "=ds=#tt1#", "", "100%", "=LT=T1CHEST"};
+			{ 16, 2522350, "", "=q4=Molten Tunic", "=ds=#tt1#", "", "100%", "=TT=T1CHEST"};
 			{ 18, 17203, "", "=q4=Sulfuron Ingot", "=ds=#m3#", "", "11.98%"};
 			{ 19, 17182, "", "=q5=Sulfuras, Hand of Ragnaros", "=q1=#m4#: =ds=#h2#, #w6#"};
 		};
@@ -1410,7 +1410,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 9, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.53%"};
 			{ 10, 17074, "", "=q4=Shadowstrike", "=ds=#w7#", "", "23.50%"};
 			{ 11, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "2.26%"};
-			{ 16, 2522365, "", "=q4=Molten Boots", "=ds=#tt1#", "", "100%", "=LT=T1FEET"};
+			{ 16, 2522365, "", "=q4=Molten Boots", "=ds=#tt1#", "", "100%", "=TT=T1FEET"};
 			{ 18, 17330, "", "=q1=Hand of Sulfuron", "=ds=#m3#"};
 		};
 		{
@@ -1449,7 +1449,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 12, 17104, "", "=q4=Spinal Reaper", "=ds=#h2#, #w1#", "", " 4.63%"};
 			{ 13, 17106, "", "=q4=Malistar's Defender", "=ds=#w8#", "", "13.88%"};
 			{ 15, 21110, "", "=q1=Draconic for Dummies", "=ds=#m3#", "", "100%"};
-			{ 16, 2522459, "", "=q4=Chromatic Leggaurds", "=ds=#tt2#", "", "100%", "=LT=T2LEGS"};
+			{ 16, 2522459, "", "=q4=Chromatic Leggaurds", "=ds=#tt2#", "", "100%", "=TT=T2LEGS"};
 			{ 18, 17204, "", "=q5=Eye of Sulfuras", "=ds=#m3#", "", "3.42%"};
 			{ 19, 17182, "", "=q5=Sulfuras, Hand of Ragnaros", "=q1=#m4#: =ds=#h2#, #w6#"};
 			{ 21, 19017, "", "=q1=Essence of the Firelord", "=ds=#m3#", "", "0.46%"};
@@ -1506,7 +1506,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 9, 19397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%"};
 			{ 10, 19357, "", "=q4=Herald of Woe", "=ds=#h2#, #w6#", "", "16.67%"};
 			{ 11, 19405, "", "=q4=Malfurion's Blessed Bulwark", "=ds=#s5#, #a2#", "", "16.67%"};
-			{ 16, 2522462, "", "=q4=Chromatic Wristgaurds", "=ds=#tt2#", "", "100%", "=LT=T2WRIST"};
+			{ 16, 2522462, "", "=q4=Chromatic Wristgaurds", "=ds=#tt2#", "", "100%", "=TT=T2WRIST"};
 		};
 		{
 			Name = BabbleBoss["Vaelastrasz the Corrupt"];
@@ -1519,7 +1519,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 7, 19430, "", "=q4=Shroud of Pure Thought", "=ds=#s4#", "", "16.67%"};
 			{ 8, 19403, "", "=q4=Band of Forced Concentration", "=ds=#s13#", "", "16.67%"};
 			{ 9, 19367, "", "=q4=Dragon's Touch", "=ds=#w12#", "", "16.67%"};
-			{ 16, 2522463, "", "=q4=Chromatic Girdle", "=ds=#tt2#", "", "100%", "=LT=T2WAIST"};
+			{ 16, 2522463, "", "=q4=Chromatic Girdle", "=ds=#tt2#", "", "100%", "=TT=T2WAIST"};
 		};
 		{
 			Name = BabbleBoss["Broodlord Lashlayer"];
@@ -1534,7 +1534,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 9, 19365, "", "=q4=Claw of the Black Drake", "=ds=#h3#, #w13#", "", "12.5%"};
 			{ 10, 14000, "", "=q4=Ring of Trinity Force", "=ds=#h3#, #w13#", "", "12.5%"};
 			{ 11, 19432, "", "=q4=Circle of Applied Force", "=ds=#s13#", "", "16.67%"};
-			{ 16, 2522465, "", "=q4=Chromatic Boots", "=ds=#tt2#", "", "100%", "=LT=T2FEET"};
+			{ 16, 2522465, "", "=q4=Chromatic Boots", "=ds=#tt2#", "", "100%", "=TT=T2FEET"};
 			{ 18, 20383, "", "=q1=Head of the Broodlord Lashlayer", "=ds=#m3#", "", "100%"};
 		};
 		{
@@ -1553,7 +1553,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 12, 19402, "", "=q4=Legguards of the Fallen Crusader", "=ds=#s11#, #a4#", "", "12.5%"};
 			{ 13, 19397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%"};
 			{ 14, 19395, "", "=q4=Rejuvenating Gem", "=ds=#s14#", "", "6.67%"};
-			{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=LT=T2HAND"};
+			{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=TT=T2HAND"};
 		};
 		{
 			Name = BabbleBoss["Ebonroc"];
@@ -1569,7 +1569,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 10, 19353, "", "=q4=Drake Talon Cleaver", "=ds=#h2#, #w1#", "", "6.67%"};
 			{ 11, 19355, "", "=q4=Shadow Wing Focus Staff", "=ds=#w9#", "", "6.67%"};
 			{ 12, 19368, "", "=q4=Dragonbreath Hand Cannon", "=ds=#w5#", "", "16.67%"};
-			{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=LT=T2HAND"};
+			{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=TT=T2HAND"};
 		};
 		{
 			Name = BabbleBoss["Flamegor"];
@@ -1585,7 +1585,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 10, 19357, "", "=q4=Herald of Woe", "=ds=#h2#, #w6#", "", "16.67%"};
 			{ 11, 19355, "", "=q4=Shadow Wing Focus Staff", "=ds=#w9#", "", "6.67%"};
 			{ 12, 19367, "", "=q4=Dragon's Touch", "=ds=#w12#", "", "16.67%"};
-			{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=LT=T2HAND"};
+			{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=TT=T2HAND"};
 		};
 		{
 			Name = BabbleBoss["Chromaggus"];
@@ -1602,7 +1602,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 12, 19352, "", "=q4=Chromatically Tempered Sword", "=ds=#h1#, #w10#", "", "10%"};
 			{ 13, 19349, "", "=q4=Elementium Reinforced Bulwark", "=ds=#w8#", "", "10%"};
 			{ 14, 19361, "", "=q4=Ashjre'thul, Crossbow of Smiting", "=ds=#w3#", "", "10%"};
-			{ 16, 2522461, "", "=q4=Chromatic Spaulders", "=ds=#tt2#", "", "100%", "=LT=T2SHOULDER"};
+			{ 16, 2522461, "", "=q4=Chromatic Spaulders", "=ds=#tt2#", "", "100%", "=TT=T2SHOULDER"};
 		};
 		{
 			Name = BabbleBoss["Nefarian"];
@@ -1619,7 +1619,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 11, 19360, "", "=q4=Lok'amir il Romathis", "=ds=#h3#, #w6#", "", "16.67%"};
 			{ 12, 19356, "", "=q4=Staff of the Shadow Flame", "=ds=#w9#", "", "16.67%%"};
 			{ 13, 14001, "", "=q4=Archimtiros' Ring of Armageddon", "=ds=#s13#", "", "16.67%%"};
-			{ 16, 2522450, "", "=q4=Chromatic Tunic", "=ds=#tt2#", "", "100%", "=LT=T2CHEST"};
+			{ 16, 2522450, "", "=q4=Chromatic Tunic", "=ds=#tt2#", "", "100%", "=TT=T2CHEST"};
 			{ 18, 19003, "", "=q4=Head of Nefarian", "=ds=#m2#", "", "100%"};
 			{ 19, 19383, "", "=q4=Master Dragonslayer's Medallion", "=q1=#m4#: =ds=#s2#"};
 			{ 20, 19384, "", "=q4=Master Dragonslayer's Ring", "=q1=#m4#: =ds=#s13#"};
@@ -3627,92 +3627,60 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			Map = "ZulGurub";
 		{
 			Name = BabbleBoss["High Priestess Jeklik"];
-			{ 1, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "11.41%"};
-			{ 2, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "11.02%"};
-			{ 3, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "10.84%"};
-			{ 4, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "5.89%"};
-			{ 5, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "5.80%"};
-			{ 6, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "5.56%"};
-			{ 7, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.33%"};
-			{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.32%"};
-			{ 9, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.17%"};
-			{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.8%"};
-			{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-			{ 16, 19918, "", "=q4=Jeklik's Crusher", "=ds=#h2#, #w6#", "", "3.96%"};
-			{ 18, 19928, "", "=q3=Animist's Spaulders", "=ds=#s3#, #a2#", "", "3.39%"};
-			{ 19, 20262, "", "=q3=Seafury Boots", "=ds=#s12#, #a3#", "", "4.31%"};
-			{ 20, 20265, "", "=q3=Peacekeeper Boots", "=ds=#s12#, #a4#", "", "6.99%"};
-			{ 21, 19923, "", "=q3=Jeklik's Opaline Talisman", "=ds=#s2#", "", "12.22%"};
-			{ 22, 19920, "", "=q3=Primalist's Band", "=ds=#s13#", "", "11.89%"};
-			{ 23, 19915, "", "=q3=Zulian Defender", "=ds=#w8#", "", " 11.36%"};
+			{ 1, 19918, "", "=q4=Jeklik's Crusher", "=ds=#h2#, #w6#", "", "3.96%"};
+			{ 2, 19928, "", "=q3=Animist's Spaulders", "=ds=#s3#, #a2#", "", "3.39%"};
+			{ 3, 20262, "", "=q3=Seafury Boots", "=ds=#s12#, #a3#", "", "4.31%"};
+			{ 4, 20265, "", "=q3=Peacekeeper Boots", "=ds=#s12#, #a4#", "", "6.99%"};
+			{ 5, 19923, "", "=q3=Jeklik's Opaline Talisman", "=ds=#s2#", "", "12.22%"};
+			{ 6, 19920, "", "=q3=Primalist's Band", "=ds=#s13#", "", "11.89%"};
+			{ 7, 19915, "", "=q3=Zulian Defender", "=ds=#w8#", "", " 11.36%"};
+			{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1"};
+			{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.8%"};
+			{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
 		};
 		{
 			Name = BabbleBoss["High Priest Venoxis"];
-			{ 1, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "11.01%"};
-			{ 2, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "10.55%"};
-			{ 3, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "10.18%"};
-			{ 4, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "5.93%"};
-			{ 5, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "5.67%"};
-			{ 6, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "5.52%"};
-			{ 7, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.18%"};
-			{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.02%"};
-			{ 9, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.00%"};
-			{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "6.0%"};
-			{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-			{ 13, 22216, "", "=q1=Venoxis's Venom Sac", "=ds=#m3#", "", "100%"};
-			{ 16, 19904, "", "=q4=Runed Bloodstained Hauberk", "=ds=#s5#, #a3#", "", "3.70%"};
-			{ 17, 19903, "", "=q4=Fang of Venoxis", "=ds=#h3#, #w4#", "", "3.68%"};
-			{ 19, 19907, "", "=q3=Zulian Tigerhide Cloak", "=ds=#s4#", "", "12.09%"};
-			{ 20, 19906, "", "=q3=Blooddrenched Footpads", "=ds=#s12#, #a2#", "", "11.36%"};
-			{ 21, 19905, "", "=q3=Zanzil's Band", "=ds=#s13#", "", "6.99%"};
-			{ 22, 19900, "", "=q3=Zulian Stone Axe", "=ds=#h2#, #w1#", "", "11.89%"};
+			{ 1, 19904, "", "=q4=Runed Bloodstained Hauberk", "=ds=#s5#, #a3#", "", "3.70%"};
+			{ 2, 19903, "", "=q4=Fang of Venoxis", "=ds=#h3#, #w4#", "", "3.68%"};
+			{ 4, 19907, "", "=q3=Zulian Tigerhide Cloak", "=ds=#s4#", "", "12.09%"};
+			{ 5, 19906, "", "=q3=Blooddrenched Footpads", "=ds=#s12#, #a2#", "", "11.36%"};
+			{ 6, 19905, "", "=q3=Zanzil's Band", "=ds=#s13#", "", "6.99%"};
+			{ 7, 19900, "", "=q3=Zulian Stone Axe", "=ds=#h2#, #w1#", "", "11.89%"};
+			{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1"};
+			{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "6.0%"};
+			{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
+			{ 21, 22216, "", "=q1=Venoxis's Venom Sac", "=ds=#m3#", "", "100%"};
 		};
 		{
 			Name = BabbleBoss["High Priestess Mar'li"];
-			{ 1, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "13.69%"};
-			{ 2, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "13.69%"};
-			{ 3, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "13.64%"};
-			{ 4, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "6.55%"};
-			{ 5, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "6.49%"};
-			{ 6, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "6.31%"};
-			{ 7, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.56%"};
-			{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.55%"};
-			{ 9, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.30%"};
-			{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "7.4%"};
-			{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-			{ 16, 20032, "", "=q4=Flowing Ritual Robes", "=ds=#s5#, #a1#", "", "4.46%"};
-			{ 17, 19927, "", "=q4=Mar'li's Touch", "=ds=#w12#", "", "4.35%"};
-			{ 19, 19919, "", "=q3=Bloodstained Greaves", "=ds=#s12#, #a3#", "", "11.89%"};
-			{ 20, 19871, "", "=q3=Talisman of Protection", "=ds=#s2#", "", "11.36%"};
-			{ 21, 19925, "", "=q3=Band of Jin", "=ds=#s13#", "", " 6.99%"};
-			{ 22, 19930, "", "=q3=Mar'li's Eye", "=ds=#s14#", "", "12.09%"};
+			{ 1, 20032, "", "=q4=Flowing Ritual Robes", "=ds=#s5#, #a1#", "", "4.46%"};
+			{ 2, 19927, "", "=q4=Mar'li's Touch", "=ds=#w12#", "", "4.35%"};
+			{ 3, 19919, "", "=q3=Bloodstained Greaves", "=ds=#s12#, #a3#", "", "11.89%"};
+			{ 4, 19871, "", "=q3=Talisman of Protection", "=ds=#s2#", "", "11.36%"};
+			{ 5, 19925, "", "=q3=Band of Jin", "=ds=#s13#", "", " 6.99%"};
+			{ 6, 19930, "", "=q3=Mar'li's Eye", "=ds=#s14#", "", "12.09%"};
+			{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1"};
+			{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "7.4%"};
+			{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
 		};
 		{
 			Name = BabbleBoss["Bloodlord Mandokir"];
-			{ 1, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "12.94%"};
-			{ 2, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "12.07%"};
-			{ 3, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "11.56%"};
-			{ 4, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "6.65%"};
-			{ 5, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "6.55%"};
-			{ 6, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "6.52%"};
-			{ 7, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "2.98%"};
-			{ 8, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "2.65%"};
-			{ 9, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "2.48%"};
-			{ 11, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#"};
-			{ 12, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "9.4%"};
-			{ 16, 19867, "", "=q4=Bloodlord's Defender", "=ds=#h1#, #w10#", "", "5.83%"};
-			{ 17, 19866, "", "=q4=Warblade of the Hakkari", "=ds=#h4#, #w10#", "", "3.96%"};
-			{ 18, 19874, "", "=q4=Halberd of Smiting", "=ds=#w7#", "", "6.35%"};
-			{ 19, 20038, "", "=q4=Mandokir's Sting", "=ds=#w2#", "", "5.96%"};
-			{ 20, 19872, "", "=q4=Swift Razzashi Raptor", "=ds=#e12#", "", "0.43%"};
-			{ 22, 19870, "", "=q3=Hakkari Loa Cloak", "=ds=#s4#", "", "12.54%"};
-			{ 23, 19895, "", "=q3=Bloodtinged Kilt", "=ds=#s11#, #a1#", "", "13.50%"};
-			{ 24, 19869, "", "=q3=Blooddrenched Grips", "=ds=#s9#, #a2#", "", "12.87%"};
-			{ 25, 19877, "", "=q3=Animist's Leggings", "=ds=#s11#, #a2#", "", "12.14%"};
-			{ 26, 19878, "", "=q3=Bloodsoaked Pauldrons", "=ds=#s9#, #a4#", "", "12.31%"};
-			{ 27, 19873, "", "=q3=Overlord's Crimson Band", "=ds=#s13#", "", "12.28%"};
-			{ 28, 19893, "", "=q3=Zanzil's Seal", "=ds=#s13#", "", "13.11%"};
-			{ 29, 19863, "", "=q3=Primalist's Seal", "=ds=#s13#", "", "12.32%"};
+			{ 1, 19867, "", "=q4=Bloodlord's Defender", "=ds=#h1#, #w10#", "", "5.83%"};
+			{ 2, 19866, "", "=q4=Warblade of the Hakkari", "=ds=#h4#, #w10#", "", "3.96%"};
+			{ 3, 19874, "", "=q4=Halberd of Smiting", "=ds=#w7#", "", "6.35%"};
+			{ 4, 20038, "", "=q4=Mandokir's Sting", "=ds=#w2#", "", "5.96%"};
+			{ 5, 19872, "", "=q4=Swift Razzashi Raptor", "=ds=#e12#", "", "0.43%"};
+			{ 7, 19870, "", "=q3=Hakkari Loa Cloak", "=ds=#s4#", "", "12.54%"};
+			{ 8, 19895, "", "=q3=Bloodtinged Kilt", "=ds=#s11#, #a1#", "", "13.50%"};
+			{ 9, 19869, "", "=q3=Blooddrenched Grips", "=ds=#s9#, #a2#", "", "12.87%"};
+			{ 10, 19877, "", "=q3=Animist's Leggings", "=ds=#s11#, #a2#", "", "12.14%"};
+			{ 11, 19878, "", "=q3=Bloodsoaked Pauldrons", "=ds=#s9#, #a4#", "", "12.31%"};
+			{ 12, 19873, "", "=q3=Overlord's Crimson Band", "=ds=#s13#", "", "12.28%"};
+			{ 13, 19893, "", "=q3=Zanzil's Seal", "=ds=#s13#", "", "13.11%"};
+			{ 14, 19863, "", "=q3=Primalist's Seal", "=ds=#s13#", "", "12.32%"};
+			{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1"};
+			{ 18, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#"};
+			{ 19, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "9.4%"};
 		};
 		{
 			Name = BabbleZone["Zul'Gurub"];
@@ -3743,68 +3711,47 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		};
 		{
 			Name = BabbleBoss["High Priest Thekal"];
-			{ 1, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", " 14.95%"};
-			{ 2, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", " 13.74%"};
-			{ 3, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", " 12.95%"};
-			{ 4, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", " 6.60%"};
-			{ 5, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", " 6.56%"};
-			{ 6, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", " 6.45%"};
-			{ 8, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.3%"};
-			{ 9, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-			{ 16, 19897, "", "=q4=Betrayer's Boots", "=ds=#s12#, #a1#", "", "5.83%"};
-			{ 17, 19896, "", "=q4=Thekal's Grasp", "=ds=#h3#, #w13#", "", "4.23%"};
-			{ 18, 19902, "", "=q4=Swift Zulian Tiger", "=ds=#e12#", "", "0.70%"};
-			{ 20, 19898, "", "=q3=Seal of Jin", "=ds=#s13#", "", "13.65%"};
-			{ 21, 19899, "", "=q3=Ritualistic Legguards", "=ds=#s11#, #a1#", "", "13.41%"};
-			{ 22, 20260, "", "=q3=Seafury Leggings", "=ds=#s11#, #a3#", "", "4.30%"};
-			{ 23, 20266, "", "=q3=Peacekeeper Leggings", "=ds=#s11#, #a4#", "", "8.69%"};
-			{ 24, 19901, "", "=q3=Zulian Slicer", "=ds=#h1#, #w10#, =q1=#e18#", "", "13.36%"};
+			{ 1, 19897, "", "=q4=Betrayer's Boots", "=ds=#s12#, #a1#", "", "5.83%"};
+			{ 2, 19896, "", "=q4=Thekal's Grasp", "=ds=#h3#, #w13#", "", "4.23%"};
+			{ 3, 19902, "", "=q4=Swift Zulian Tiger", "=ds=#e12#", "", "0.70%"};
+			{ 5, 19898, "", "=q3=Seal of Jin", "=ds=#s13#", "", "13.65%"};
+			{ 6, 19899, "", "=q3=Ritualistic Legguards", "=ds=#s11#, #a1#", "", "13.41%"};
+			{ 7, 20260, "", "=q3=Seafury Leggings", "=ds=#s11#, #a3#", "", "4.30%"};
+			{ 8, 20266, "", "=q3=Peacekeeper Leggings", "=ds=#s11#, #a4#", "", "8.69%"};
+			{ 9, 19901, "", "=q3=Zulian Slicer", "=ds=#h1#, #w10#, =q1=#e18#", "", "13.36%"};
+			{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1"};
+			{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.3%"};
+			{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
 		};
 		{
 			Name = BabbleBoss["High Priestess Arlokk"];
-			{ 1, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "15.49%"};
-			{ 2, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "12.52%"};
-			{ 3, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "13.17%"};
-			{ 4, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "6.94%"};
-			{ 5, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "6.65%"};
-			{ 6, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "6.21%"};
-			{ 7, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "2.75%"};
-			{ 8, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "2.60%"};
-			{ 9, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "2.41%"};
-			{ 11, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "5.6%"};
-			{ 12, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
-			{ 16, 19910, "", "=q4=Arlokk's Grasp", "=ds=#h4#, #w13#", "", "3.62%"};
-			{ 17, 19909, "", "=q4=Will of Arlokk", "=ds=#w9#", "", "5.14%"};
-			{ 19, 19913, "", "=q3=Bloodsoaked Greaves", "=ds=#s12#, #a4#", "", "13.29%"};
-			{ 20, 19912, "", "=q3=Overlord's Onyx Band", "=ds=#s13#", "", "13.95%"};
-			{ 21, 19922, "", "=q3=Arlokk's Hoodoo Stick", "=ds=#s15#", "", "13.66%"};
-			{ 22, 19914, "", "=q3=Panther Hide Sack", "=ds=#m14# #e1#", "", "14.03%"};
+			{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1"};
+			{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "5.6%"};
+			{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%"};
+			{ 1, 19910, "", "=q4=Arlokk's Grasp", "=ds=#h4#, #w13#", "", "3.62%"};
+			{ 2, 19909, "", "=q4=Will of Arlokk", "=ds=#w9#", "", "5.14%"};
+			{ 4, 19913, "", "=q3=Bloodsoaked Greaves", "=ds=#s12#, #a4#", "", "13.29%"};
+			{ 5, 19912, "", "=q3=Overlord's Onyx Band", "=ds=#s13#", "", "13.95%"};
+			{ 6, 19922, "", "=q3=Arlokk's Hoodoo Stick", "=ds=#s15#", "", "13.66%"};
+			{ 7, 19914, "", "=q3=Panther Hide Sack", "=ds=#m14# #e1#", "", "14.03%"};
 		};
 		{
 			Name = BabbleBoss["Jin'do the Hexxer"];
-			{ 1, 19723, "", "=q4=Primal Hakkari Kossack", "=ds=#m3#", "", "13.56%"};
-			{ 2, 19722, "", "=q4=Primal Hakkari Tabard", "=ds=#m3#", "", "13.48%"};
-			{ 3, 19724, "", "=q4=Primal Hakkari Aegis", "=ds=#m3#", "", "12.09%"};
-			{ 4, 19721, "", "=q4=Primal Hakkari Shawl", "=ds=#m3#", "", "7.30%"};
-			{ 5, 19719, "", "=q4=Primal Hakkari Girdle", "=ds=#m3#", "", "6.37%"};
-			{ 6, 19720, "", "=q4=Primal Hakkari Sash", "=ds=#m3#", "", "6.10%"};
-			{ 7, 19716, "", "=q4=Primal Hakkari Bindings", "=ds=#m3#", "", "2.85%"};
-			{ 8, 19717, "", "=q4=Primal Hakkari Armsplint", "=ds=#m3#", "", "2.70%"};
-			{ 9, 19718, "", "=q4=Primal Hakkari Stanchion", "=ds=#m3#", "", "2.36%"};
-			{ 11, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#"};
-			{ 12, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.4%"};
-			{ 16, 19885, "", "=q4=Jin'do's Evil Eye", "=ds=#s2#", "", "6.82%"};
-			{ 17, 19891, "", "=q4=Jin'do's Bag of Whammies", "=ds=#s15#", "", "7.70%"};
-			{ 18, 19890, "", "=q4=Jin'do's Hexxer", "=ds=#h3#, #w6#", "", "8.08%"};
-			{ 19, 19884, "", "=q4=Jin'do's Judgement", "=ds=#w9#", "", "8.36%"};
-			{ 21, 19888, "", "=q3=Overlord's Embrace", "=ds=#s4#", "", "12.72%"};
-			{ 22, 19886, "", "=q3=The Hexxer's Cover", "=ds=#s1#, #a1#", "", "12.11%"};
-			{ 23, 19929, "", "=q3=Bloodtinged Gloves", "=ds=#s9#, #a1#", "", "11.75%"};
-			{ 24, 19889, "", "=q3=Blooddrenched Leggings", "=ds=#s11#, #a2#", "", "11.97%"};
-			{ 25, 19892, "", "=q3=Animist's Boots", "=ds=#s12#, #a2#", "", "12.28%"};
-			{ 26, 19875, "", "=q3=Bloodstained Coif", "=ds=#s1#, #a3#", "", "13.73%"};
-			{ 27, 19887, "", "=q3=Bloodstained Legplates", "=ds=#s11#, #a3#", "", "11.11%"};
-			{ 28, 19894, "", "=q3=Bloodsoaked Gauntlets", "=ds=#s9#, #a4#", "", "12.93%"};
+			{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1"};
+			{ 18, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#"};
+			{ 19, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.4%"};
+			{ 1, 19885, "", "=q4=Jin'do's Evil Eye", "=ds=#s2#", "", "6.82%"};
+			{ 2, 19891, "", "=q4=Jin'do's Bag of Whammies", "=ds=#s15#", "", "7.70%"};
+			{ 3, 19890, "", "=q4=Jin'do's Hexxer", "=ds=#h3#, #w6#", "", "8.08%"};
+			{ 4, 19884, "", "=q4=Jin'do's Judgement", "=ds=#w9#", "", "8.36%"};
+			{ 6, 19888, "", "=q3=Overlord's Embrace", "=ds=#s4#", "", "12.72%"};
+			{ 7, 19886, "", "=q3=The Hexxer's Cover", "=ds=#s1#, #a1#", "", "12.11%"};
+			{ 8, 19929, "", "=q3=Bloodtinged Gloves", "=ds=#s9#, #a1#", "", "11.75%"};
+			{ 9, 19889, "", "=q3=Blooddrenched Leggings", "=ds=#s11#, #a2#", "", "11.97%"};
+			{ 10, 19892, "", "=q3=Animist's Boots", "=ds=#s12#, #a2#", "", "12.28%"};
+			{ 11, 19875, "", "=q3=Bloodstained Coif", "=ds=#s1#, #a3#", "", "13.73%"};
+			{ 12, 19887, "", "=q3=Bloodstained Legplates", "=ds=#s11#, #a3#", "", "11.11%"};
+			{ 13, 19894, "", "=q3=Bloodsoaked Gauntlets", "=ds=#s9#, #a4#", "", "12.93%"};
 		};
 		{
 			Name = BabbleBoss["Hakkar"];
@@ -3923,7 +3870,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 22820, "", "=q4=Wand of Fates", "=ds=#w12#","", "20%" },
 			{ 4, 22818, "", "=q4=The Plague Bearer", "=ds=#w8#","", "20%" },
 			{ 5, 22961, "", "=q4=Band of Reanimation", "=ds=#s13#","", "20%" },
-			{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#","", "100%", "=LT=T3SHOULDER"};
+			{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#","", "100%", "=TT=T3SHOULDER"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -3934,7 +3881,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 22803, "", "=q4=Midnight Haze", "=ds=#h3#, #w4#", "", "20%" },
 			{ 4, 22988, "", "=q4=The End of Dreams", "=ds=#h3#, #w6#","","20%" },
 			{ 5, 22810, "", "=q4=Toxin Injector", "=ds=#w5#", "","20%" },
-			{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#","", "100%", "=LT=T3SHOULDER"};
+			{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#","", "100%", "=TT=T3SHOULDER"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -3945,10 +3892,10 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 23075, "", "=q4=Death's Bargain", "=ds=#w8#", "","20%" },
 			{ 4, 22994, "", "=q4=Digested Hand of Power", "=ds=#s15#","","20%"},
 			{ 5, 22981, "", "=q4=Gluth's Missing Collar", "=ds=#s2#","","20%" },
-			{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#","", "100%", "=LT=T3SHOULDER"};
-			{ 17, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#","", "8.33%", "=LT=T3WRIST"};
-			{ 18, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#","", "8.33%", "=LT=T3WAIST"};
-			{ 19, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#","", "8.33%", "=LT=T3FEET"};
+			{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#","", "100%", "=TT=T3SHOULDER"};
+			{ 17, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#","", "8.33%", "=TT=T3WRIST"};
+			{ 18, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#","", "8.33%", "=TT=T3WAIST"};
+			{ 19, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#","", "8.33%", "=TT=T3FEET"};
 			{ 21, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 22, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -3959,7 +3906,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 22808, "", "=q4=The Castigator", "=ds=#h1#, #w6#" ,"", "20%"},
 			{ 4, 22801, "", "=q4=Spire of Twilight", "=ds=#w9#" ,"", "20%"},
 			{ 5, 23001, "", "=q4=Eye of Diminution", "=ds=#s14#" ,"", "20%"},
-			{ 16, 22353, "", "=q4=Desecrated Helmet", "=ds=#tt3#" ,"", "100%", "=LT=T3HEAD"};
+			{ 16, 22353, "", "=q4=Desecrated Helmet", "=ds=#tt3#" ,"", "100%", "=TT=T3HEAD"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -3970,7 +3917,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 22937, "", "=q4=Gem of Nerubis", "=ds=#s15#","", "20%" },
 			{ 4, 22939, "", "=q4=Band of Unanswered Prayers", "=ds=#s13#","", "20%" },
 			{ 5, 22935, "", "=q4=Touch of Frost", "=ds=#s2#", "", "20%" },
-			{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#","", "100%", "=LT=T3WRIST"};
+			{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#","", "100%", "=TT=T3WRIST"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -3981,7 +3928,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 22806, "", "=q4=Widow's Remorse", "=ds=#h1#, #w10#","", "20%" },
 			{ 4, 22942, "", "=q4=The Widow's Embrace", "=ds=#h3#, #w6#","", "20%" },
 			{ 5, 22943, "", "=q4=Malice Stone Pendant", "=ds=#s2#","", "20%" },
-			{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#" ,"", "100%", "=LT=T3WRIST"};
+			{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#" ,"", "100%", "=TT=T3WRIST"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -3992,7 +3939,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 22807, "", "=q4=Wraith Blade", "=ds=#h3#, #w10#","", "20%" },
 			{ 4, 22947, "", "=q4=Pendant of Forgotten Names", "=ds=#s2#","", "20%" },
 			{ 5, 22954, "", "=q4=Kiss of the Spider", "=ds=#s14#","", "20%" },
-			{ 16, 22357, "", "=q4=Desecrated Gauntlets", "=ds=#tt3#","", "100%", "=LT=T3HAND"};
+			{ 16, 22357, "", "=q4=Desecrated Gauntlets", "=ds=#tt3#","", "100%", "=TT=T3HAND"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -4004,7 +3951,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 4, 23009, "", "=q4=Wand of the Whispering Dead", "=ds=#w12#","", "16.67%" },
 			{ 5, 23004, "", "=q4=Idol of Longevity", "=ds=#s16#, #w14#","", "16.67%" },
 			{ 6, 23018, "", "=q4=Signet of the Fallen Defender", "=ds=#s13#","", "16.67%" },
-			{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#" ,"", "100%", "=LT=T3FEET"};
+			{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#" ,"", "100%", "=TT=T3FEET"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -4015,7 +3962,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 23020, "", "=q4=Polar Helmet", "=ds=#s1#, #a2#","", "20%"  },
 			{ 4, 23073, "", "=q4=Boots of Displacement", "=ds=#s12#, #a2#","", "20%"  },
 			{ 5, 23023, "", "=q4=Sadist's Collar", "=ds=#s2#","", "20%"  },
-			{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#" ,"", "100%", "=LT=T3SHOULDER"};
+			{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#" ,"", "100%", "=TT=T3SHOULDER"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -4027,7 +3974,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 4, 22811, "", "=q4=Soulstring", "=ds=#w2#","", "20%"  },
 			{ 5, 23025, "", "=q4=Seal of the Damned", "=ds=#s13#","", "16.67%"  },
 			{ 6, 23027, "", "=q4=Warmth of Forgiveness", "=ds=#s14#","", "16.67%"  },
-			{ 16, 22349, "", "=q4=Desecrated Breastplate", "=ds=#tt3#" ,"", "100%", "=LT=T3CHEST"};
+			{ 16, 22349, "", "=q4=Desecrated Breastplate", "=ds=#tt3#" ,"", "100%", "=TT=T3CHEST"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -4040,7 +3987,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 5, 23029, "", "=q4=Noth's Frigid Heart", "=ds=#s15#","", "14.29%" },
 			{ 6, 23031, "", "=q4=Band of the Inevitable", "=ds=#s13#","", "14.29%" },
 			{ 7, 23028, "", "=q4=Hailstone Band", "=ds=#s13#","", "14.29%" },
-			{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#" ,"", "100%", "=LT=T3WAIST"};
+			{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#" ,"", "100%", "=TT=T3WAIST"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -4051,7 +3998,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 23019, "", "=q4=Icebane Helmet", "=ds=#s1#, #a4#","", "20%" },
 			{ 4, 23068, "", "=q4=Legplates of Carnage", "=ds=#s11#, #a4#","", "20%" },
 			{ 5, 23036, "", "=q4=Necklace of Necropsy", "=ds=#s2#","", "20%" },
-			{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#" ,"", "100%", "=LT=T3WAIST"};
+			{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#" ,"", "100%", "=TT=T3WAIST"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -4062,7 +4009,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 3, 23037, "", "=q4=Ring of Spiritual Fervor", "=ds=#s13#","", "20%" },
 			{ 4, 23038, "", "=q4=Band of Unnatural Forces", "=ds=#s13#" ,"", "20%"},
 			{ 5, 23042, "", "=q4=Loatheb's Reflection", "=ds=#s14#","", "20%" },
-			{ 16, 22352, "", "=q4=Desecrated Legplates", "=ds=#tt3#" ,"", "100%", "=LT=T3LEGS"};
+			{ 16, 22352, "", "=q4=Desecrated Legplates", "=ds=#tt3#" ,"", "100%", "=TT=T3LEGS"};
 			{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 			{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 		};
@@ -4103,7 +4050,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 13, 691119, "", "=q4=The Phylactery of Kel'Thuzad", "=ds=#m2#","", "100%" },
 			{ 14, 23207, "", "=q4=Mark of the Champion", "=q1=#m4# =ds=#s14#" },
 			{ 15, 23206, "", "=q4=Mark of the Champion", "=q1=#m4# =ds=#s14#" },
-			{ 16, 1510496, "", "=q4=Desecrated Ring", "=ds=#tt3#","", "100%" , "=LT=T3FINGER"};
+			{ 16, 1510496, "", "=q4=Desecrated Ring", "=ds=#tt3#","", "100%" , "=TT=T3FINGER"};
 			{ 18, 22733, "", "=q1=Staff Head of Atiesh", "=ds=#m3#" },
 			{ 19, 22632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#"},
 			{ 20, 22589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#"},
@@ -4154,7 +4101,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 			{ 10, 18713, "", "=q4=Rhok'delar, Longbow of the Ancient Keepers", "=q1=#m4#: =ds=#w2#, =q1=#m1# =ds=#c2#" },
 			{ 12, 15410, "","=q3=Scale of Onyxia",	  "=ds=#e8#" },
 			{ 13, 17966, "", "=q2=Onyxia Hide Backpack", "=ds=#m14# #e1#","", "100%"},
-			{ 16, 2522460, "", "=q4=Chromatic Headpiece", "=ds=#tt2#", "", "100%", "=LT=T2HEAD"};
+			{ 16, 2522460, "", "=q4=Chromatic Headpiece", "=ds=#tt2#", "", "100%", "=TT=T2HEAD"};
 			{ 18, 18423, "", "=q4=Head of Onyxia","=ds=#m2#","", "100%" },
 			{ 19, 18404, "", "=q4=Onyxia Tooth Pendant", "=q1=#m4#: =ds=#s2#" },
 			{ 20, 18403, "", "=q4=Dragonslayer's Signet", "=q1=#m4#: =ds=#s13#" },

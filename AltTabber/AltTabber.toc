@@ -1,0 +1,34 @@
+## Title: Alt-Tabber
+## X-Curse-Packaged-Version: v1.6-2-gb054bc3
+## X-Curse-Project-Name: AltTabber
+## X-Curse-Project-ID: alttab
+## X-Curse-Repository-ID: wow/alttab/mainline
+
+## Notes: Plays a noise when you're alt-tabbed for a ready check and pvp queues (even when sound is turned off).  Also plays noise when you're alt-tabbed for the LFG queue.
+
+## Author: Ackis
+## eMail: ackis AT shaw DOT ca
+## X-Author-Faction: Horde
+## X-Author-Server: Thunderlord US
+
+## X-Donate: http://www.curseforge.com/projects/alttab/#w_donations
+
+## Interface: 30300
+## Version: v1.6-2-gb054bc3
+## X-Revision: b054bc3
+## X-Date: 2010-08-25T18:33:34Z
+
+## X-Category: Raid
+## X-Localizations: enUS, frFR, deDE, koKR, ruRU, zhCN, esES, zhTW
+## X-Website: http://www.wowwiki.com/AltTabber/
+## X-Feedback: http://wow.curse.com/downloads/wow-addons/details/alttab.aspx
+
+## Dependencies:
+## OptionalDeps: Ace3, LibStub, CallbackHandler-1.0, LibAboutPanel
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+embeds.xml
+
+Localization.lua
+AltTabber.lua
