@@ -1,11 +1,11 @@
-local PartyMemberIDs = { "player", "party1", "party2", "party3", "party4" }
-
-
+local PartyMembers = { }
 
 function Party:OnEnable()
-	print("prut")
-	print("prut")
-	print("prut")
+	PartyMembers.player = { HealthText = PlayerHealthText, ID = 0 }
+	PartyMembers.party1 = { HealthText = Party1HealthText, ID = 1 }
+	PartyMembers.party2 = { HealthText = Party2HealthText, ID = 2 }
+	PartyMembers.party3 = { HealthText = Party3HealthText, ID = 3 }
+	PartyMembers.party4 = { HealthText = Party4HealthText, ID = 4 }
 
 	Party:RegisterEvent("UNIT_HEALTH", function(InEvent, InUnit) Party:OnHealthChange(InUnit) end)
 	Party:RegisterEvent("PARTY_MEMBERS_CHANGED", function(InEvent) Party:OnPartyChange() end)
@@ -21,17 +21,13 @@ end
 
 
 function Party:OnHealthChange(InUnit)
-	local UnitHealth = Party:GetHealthPercent(InUnit)
-	local UnitHealthBar, UnitHealthText = Party:GetHealthBar(InUnit)
+	local HealthPercent = Party:GetHealthPercent(InUnit)
+	local HealthText = PartyMembers[InUnit].HealthText
 
 	if Party:CanHealUnit(InUnit) then
-		UnitHealthBar:SetStatusBarColor(0, 1, 0)
-		UnitHealthBar:SetValue(UnitHealth)
-		UnitHealthText:SetText(math.floor(UnitHealth))
+		HealthText:SetText(math.floor(HealthPercent))
 	else
-		UnitHealthBar:SetStatusBarColor(0.1, 0.1, 0.1)
-		UnitHealthBar:SetValue(100)
-		UnitHealthText:SetText("")
+		HealthText:SetText("---")
 	end
 end
 
@@ -40,24 +36,6 @@ function Party:GetHealthPercent(InUnit)
 		return (UnitHealth(InUnit) / UnitHealthMax(InUnit)) * 100
 	end
 	return UnitHealth(InUnit)
-end
-
-function Party:GetHealthBar(InUnit)
-	if InUnit == "player" then
-		return Party1Health, Party1HealthText
-	end
-	if InUnit == "party1" then
-		return Party2Health, Party2HealthText
-	end
-	if InUnit == "party2" then
-		return Party3Health, Party3HealthText
-	end
-	if InUnit == "party3" then
-		return Party4Health, Party4HealthText
-	end
-	if InUnit == "party4" then
-		return Party5Health, Party5HealthText
-	end
 end
 
 function Party:CanHealUnit(InUnit, InSpellName)
@@ -99,7 +77,7 @@ end
 function Party:OnPartyChange()
 	TankIndicator:Hide()
 
-	for i, id in pairs(PartyMemberIDs) do
+	for i, id in pairs(PartyMembers) do
 		if UnitInParty(id) ~= nil then
 			Party:OnHealthChange(id)
 			if Party:UnitIsTank(id) then
@@ -111,13 +89,7 @@ end
 
 function Party:SetTank(InUnit)
 	TankIndicator:Show()
-
-	for i, id in pairs(PartyMemberIDs) do
-		if InUnit == id then
-			TankIndicator:SetPoint("BOTTOMRIGHT", PartyFrame, "TOPLEFT", -141, 98 - 20 * i)
-			break
-		end
-	end
+	TankIndicator:SetText("T" .. PartyMembers[InUnit].ID)
 end
 
 function Party:UnitIsTank(InUnit)
@@ -128,22 +100,22 @@ end
 
 function Party:InitHealBindings()
 	-- Start Prefix
-	local BigHealsPrefix = "CTRL-SHIFT-NUMPAD"
-	local SmallHealsPrefix = "CTRL-ALT-NUMPAD"
-	local InstantHealsPrefix = "NUMPAD"
-	local AoEHealsPrefix = "ALT-NUMPAD"
-	local HoTHealsPrefix = "SHIFT-NUMPAD"
-	local ShortBuffsPrefix = "CTRL-NUMPAD"
+	local BigHealsPrefix = "CTRL-SHIFT-"
+	local SmallHealsPrefix = "CTRL-ALT-"
+	local InstantHealsPrefix = ""
+	local AoEHealsPrefix = "ALT-"
+	local HoTHealsPrefix = "SHIFT-"
+	local ShortBuffsPrefix = "CTRL-"
 	-- End Prefix
 
-	for i = 1, 9 do
-		SetBinding(BigHealsPrefix .. i)
-		SetBinding(SmallHealsPrefix .. i)
-		SetBinding(InstantHealsPrefix .. i)
-		SetBinding(AoEHealsPrefix .. i)
-		SetBinding(HoTHealsPrefix .. i)
-		SetBinding(ShortBuffsPrefix .. i)
-	end
+	--for i = 1, 9 do
+	--	SetBinding(BigHealsPrefix .. i)
+	--	SetBinding(SmallHealsPrefix .. i)
+	--	SetBinding(InstantHealsPrefix .. i)
+	--	SetBinding(AoEHealsPrefix .. i)
+	--	SetBinding(HoTHealsPrefix .. i)
+	--	SetBinding(ShortBuffsPrefix .. i)
+	--end
 
 	-- Start Binding
 	-- Big Heals
@@ -162,7 +134,13 @@ function Party:InitHealBindings()
 
 	-- Instant Heals
 	SetBindingSpell(InstantHealsPrefix .. "1", "Holy Nova") -- Priest
-	SetBindingSpell(InstantHealsPrefix .. "2", "Swiftmend") -- Druid
+
+
+	--SetBindingSpell(InstantHealsPrefix .. "2", "Swiftmend") -- Druid
+	SetBindingSpell(InstantHealsPrefix .. "2", "Rejuvenation") -- Druid
+
+
+
 	SetBindingSpell(InstantHealsPrefix .. "3", "Holy Shock") -- Paladin
 	SetBindingSpell(InstantHealsPrefix .. "4", "Lay on Hands") -- Paladin
 	SetBindingSpell(InstantHealsPrefix .. "5", "Prayer of Mending") -- Priest
@@ -180,7 +158,7 @@ function Party:InitHealBindings()
 
 	-- HoT Heals
 	SetBindingSpell(HoTHealsPrefix .. "1", "Renew") -- Priest
-	SetBindingSpell(HoTHealsPrefix .. "2", "Rejuvenation") -- Druid
+	local ok = SetBindingSpell(HoTHealsPrefix .. "2", "Rejuvenation") -- Druid
 	SetBindingSpell(HoTHealsPrefix .. "3", "Lifebloom") -- Druid
 
 	-- Short Buffs
@@ -189,4 +167,6 @@ function Party:InitHealBindings()
 	SetBindingSpell(ShortBuffsPrefix .. "3", "Beacon of Light") -- Paladin
 	SetBindingSpell(ShortBuffsPrefix .. "3", "Pain Suppression") -- Priest
 	-- End Binding
+
+	print(ok)
 end

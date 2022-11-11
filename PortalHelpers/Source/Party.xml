@@ -1,0 +1,55 @@
+<Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Party.lua" />
+	<Frame name="PartyFrame" parent="UIParent" toplevel="true">
+		<Size x="449" y="200" />
+		<Anchors>
+			<Anchor point="RIGHT">
+				<Offset x="-10" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\PortalHelpers\Textures\Square_White.tga">
+			<Color />
+			<BorderColor a="0" />
+		</Backdrop>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="PlayerHealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor x="-5" y="78" point="BOTTOMRIGHT" relativeTo="PartyFrame" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party1HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="TOPLEFT" relativeTo="PlayerHealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party2HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="TOPLEFT" relativeTo="Party1HealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party3HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="TOPLEFT" relativeTo="Party2HealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="Party4HealthText" inherits="GameFontNormal" text="100">
+					<Size x="30" y="20" />
+					<Anchors>
+						<Anchor y="-20" point="TOPLEFT" relativeTo="Party3HealthText" />
+					</Anchors>
+				</FontString>
+				<FontString name="TankIndicator" inherits="GameFontNormal" hidden="true" text="T1">
+					<Size x="20" y="20" />
+					<Anchors>
+						<Anchor x="-5" y="98" point="BOTTOMRIGHT" relativeTo="PartyFrame" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Frame>
+</Ui>

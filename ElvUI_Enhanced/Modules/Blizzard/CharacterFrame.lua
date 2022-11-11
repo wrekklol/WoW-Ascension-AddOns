@@ -108,6 +108,7 @@ local GREEN_FONT_COLOR_CODE = GREEN_FONT_COLOR_CODE
 local HEALTH_PER_STAMINA = HEALTH_PER_STAMINA
 local HIGHLIGHT_FONT_COLOR_CODE = HIGHLIGHT_FONT_COLOR_CODE
 local INVSLOT_BODY = INVSLOT_BODY
+local INVSLOT_RANGED = INVSLOT_RANGED
 local INVSLOT_MAINHAND = INVSLOT_MAINHAND
 local MANA_PER_INTELLECT = MANA_PER_INTELLECT
 local MANA_REGEN_FROM_SPIRIT = MANA_REGEN_FROM_SPIRIT
@@ -192,6 +193,14 @@ local PAPERDOLL_STATINFO = {
 
 	["PRIMARY_STAT"] = {
 		updateFunc = function(statFrame, unit) module:PrimaryStat(statFrame, unit) end
+	},
+
+	["PVE_POWER"] = {
+		updateFunc = function(statFrame, unit) module:PvEPower(statFrame, unit) end
+	},
+
+	["PVP_POWER"] = {
+		updateFunc = function(statFrame, unit) module:PvPPower(statFrame, unit) end
 	},
 
 	["FEL_COMM"] = {
@@ -324,14 +333,26 @@ local PAPERDOLL_STATCATEGORIES = {
 			"PRIMARY_STAT"
 		}
 	},
-	["FEL_COMM"] = {
+	["PVE_POWER"] = {
 		id = 3,
+		stats = {
+			"PVE_POWER"
+		}
+	},
+	["PVP_POWER"] = {
+		id = 4,
+		stats = {
+			"PVP_POWER"
+		}
+	},
+	["FEL_COMM"] = {
+		id = 5,
 		stats = {
 			"FEL_COMM"
 		}
 	},
 	["BASE_STATS"] = {
-		id = 4,
+		id = 6,
 		stats = {
 			"STRENGTH",
 			"AGILITY",
@@ -341,7 +362,7 @@ local PAPERDOLL_STATCATEGORIES = {
 		}
 	},
 	["MELEE_COMBAT"] = {
-		id = 5,
+		id = 7,
 		stats = {
 			"MELEE_DAMAGE",
 			"MELEE_DPS",
@@ -353,7 +374,7 @@ local PAPERDOLL_STATCATEGORIES = {
 		}
 	},
 	["RANGED_COMBAT"] = {
-		id = 6,
+		id = 8,
 		stats = {
 			"RANGED_COMBAT1",
 			"RANGED_COMBAT2",
@@ -363,7 +384,7 @@ local PAPERDOLL_STATCATEGORIES = {
 		}
 	},
 	["SPELL_COMBAT"] = {
-		id = 7,
+		id = 9,
 		stats = {
 			"SPELL_COMBAT1",
 			"SPELL_COMBAT2",
@@ -374,7 +395,7 @@ local PAPERDOLL_STATCATEGORIES = {
 		}
 	},
 	["DEFENSES"] = {
-		id = 8,
+		id = 10,
 		stats = {
 			"DEFENSES1",
 			"DEFENSES2",
@@ -385,7 +406,7 @@ local PAPERDOLL_STATCATEGORIES = {
 		}
 	},
 	["RESISTANCE"] = {
-		id = 9,
+		id = 11,
 		stats = {
 			"ARCANE",
 			"FIRE",
@@ -399,6 +420,8 @@ local PAPERDOLL_STATCATEGORIES = {
 local PAPERDOLL_STATCATEGORY_DEFAULTORDER = {
 	"ITEM_LEVEL",
 	"PRIMARY_STAT",
+	"PVE_POWER",
+	"PVP_POWER",
 	"FEL_COMM",
 	"BASE_STATS",
 	"MELEE_COMBAT",
@@ -787,13 +810,14 @@ end
 ]]
 
 local function GetAverageItemLevel()
-	local items = 16
+	local items = 15
 	local ilvl = 0
 	local colorCount, sumR, sumG, sumB = 0, 0, 0, 0
 
-	for slotID = 1, 18 do
-		if slotID ~= INVSLOT_BODY then
-			local itemLink = GetInventoryItemLink("player", slotID)
+	-- same ilvl calculation as C_Player:GetAverageItemLevel()
+	for slot = INVSLOT_FIRST_EQUIPPED, INVSLOT_LAST_EQUIPPED do
+		if slot ~= INVSLOT_BODY and slot ~= INVSLOT_TABARD and slot ~= INVSLOT_RANGED and slot ~= INVSLOT_OFFHAND then
+			local itemLink = GetInventoryItemLink("player", slot)
 
 			if itemLink then
 				local _, _, quality, itemLevel, _, _, _, _, itemEquipLoc = GetItemInfo(itemLink)
@@ -805,10 +829,6 @@ local function GetAverageItemLevel()
 					sumR = sumR + qualityColors[quality][1]
 					sumG = sumG + qualityColors[quality][2]
 					sumB = sumB + qualityColors[quality][3]
-
-					if slotID == INVSLOT_MAINHAND and (itemEquipLoc ~= "INVTYPE_2HWEAPON" or titanGrip) then
-						items = 17
-					end
 				end
 			end
 		end
@@ -874,6 +894,41 @@ function module:ItemLevel(statFrame, unit)
 	local avgItemLevel, r, g, b = GetAverageItemLevel()
 	statFrame.Label:SetFormattedText("%.1f", avgItemLevel)
 	statFrame.Label:SetTextColor(r, g, b)
+end
+
+function module:PvEPower(statFrame, unit)
+	if not self.Initialized then return end
+
+	statFrame.Label:SetText(PVE_POWER)
+	statFrame.Label:SetTextColor(ColorUtil:Lerp(ITEM_QUALITY_COLORS[1], ITEM_QUALITY_COLORS[4], PVE_POWER/PVE_POWER_CAP):GetRGB())
+	statFrame.tooltip = "PvE Power"
+
+	local text = format("Increases damage against creatures by: |cffFFFFFF%s%%|r", PVE_POWER * PVE_POWER_DAMAGE_MULTIPLIER)
+	text = text .. format("\nReduces damage taken from creatures by: |cffFFFFFF%s%%|r", PVE_POWER * PVE_POWER_DAMAGE_TAKEN_MULTIPLIER)
+	text = text .. format("\nIncreases healing done and absorption in |cffFFFFFFinstances|r by: |cffFFFFFF%s%%|r", PVE_POWER * PVE_POWER_HEALING_MULTIPLIER)
+	
+	if UnitLevel("player") < GetMaxLevel() then
+		text = text .. "\n" .. format("|cffFF0000Does not apply below level: %d|r", GetMaxLevel())
+	end
+	
+	statFrame.tooltip2 = text
+end
+
+function module:PvPPower(statFrame, unit)
+	if not self.Initialized then return end
+
+	statFrame.Label:SetText(PVP_POWER)
+	statFrame.Label:SetTextColor(ColorUtil:Lerp(ITEM_QUALITY_COLORS[1], ITEM_QUALITY_COLORS[5], PVP_POWER/PVP_POWER_CAP):GetRGB())
+	statFrame.tooltip = "PvE Power"
+
+	local text = format("Increases damage against players by: |cffFFFFFF%s%%|r", PVP_POWER * PVP_POWER_DAMAGE_MULTIPLIER)
+	text = text .. format("\nWhile your Primary Stat is |cffFFFFFFSpirit|r your healing and absorption in |cffFFFFFFArenas and Battlegrounds|r is increased by: |cffFFFFFF%s%%|r", PVP_POWER * PVP_POWER_DAMAGE_MULTIPLIER)
+	
+	if UnitLevel("player") < GetMaxLevel() then
+		text = text .. "\n" .. format("|cffFF0000Does not apply below level: %d|r", GetMaxLevel())
+	end
+	
+	statFrame.tooltip2 = text
 end
 
 local felCommText = AscensionUI.CharacterFrame.Extension.StatPanel.FelCommutation.Content.CostText
@@ -1274,6 +1329,10 @@ function module:PaperDollFrame_UpdateStatCategory(categoryFrame)
 		categoryFrame.NameText:SetText("Primary Stat")
 	elseif category == "FEL_COMM" then
 		categoryFrame.NameText:SetText("Fel Comm Cost")
+	elseif category == "PVE_POWER" then
+		categoryFrame.NameText:SetText("PvE Power")
+	elseif category == "PVP_POWER" then
+		categoryFrame.NameText:SetText("PvP Power")
 	elseif category == "RESISTANCE" then
 		categoryFrame.NameText:SetText(L["Resistance"])
 	elseif category == "DEFENSES" then
@@ -1302,7 +1361,7 @@ function module:PaperDollFrame_UpdateStatCategory(categoryFrame)
 				end
 				statFrame:Show()
 
-				if stat == "ITEM_LEVEL" then
+				if stat == "ITEM_LEVEL" or stat == "PVP_POWER" or stat == "PVE_POWER" then
 					statFrame:Height(30)
 					local label = statFrame.Label
 					label:Width(187)
@@ -1374,7 +1433,8 @@ function module:PaperDollFrame_UpdateStatCategory(categoryFrame)
 
 	for index = 1, numVisible do
 		local isSpecial = categoryInfo == PAPERDOLL_STATCATEGORIES["ITEM_LEVEL"] or
-						  categoryInfo == PAPERDOLL_STATCATEGORIES["PRIMARY_STAT"]
+						  categoryInfo == PAPERDOLL_STATCATEGORIES["PVE_POWER"] or
+						  categoryInfo == PAPERDOLL_STATCATEGORIES["FEL_COMM"]
 		if index % 2 == 0 or isSpecial then
 			local statFrame = categoryFrame.Stats[index]
 			if not statFrame.leftGrad then
@@ -2497,7 +2557,7 @@ do -- CharacterFrame
 	statsPaneScrollChild:Size(169, 0)
 	statsPaneScrollChild:Point("TOPLEFT")
 
-	for i = 1, 10 do
+	for i = 1, 12 do
 		local button = CreateFrame("Frame", "CharacterStatsPaneCategory"..i, statsPaneScrollChild)
 		button:Size(169, 0)
 

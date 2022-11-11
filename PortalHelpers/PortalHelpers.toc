@@ -7,6 +7,6 @@
 embeds.xml
 
 PortalHelpers.lua
-SpellMacroCreator.lua
 
-Party.xml
+Source\SpellMacroCreator.lua
+Source\Party.xml

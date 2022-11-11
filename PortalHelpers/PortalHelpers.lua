@@ -4,8 +4,6 @@ PortalHelpers:SetDefaultModuleLibraries("AceEvent-3.0")
 SpellMacroCreator = PortalHelpers:NewModule("SpellMacroCreator")
 Party = PortalHelpers:NewModule("Party")
 
-
-
 function PortalHelpers:OnInitialize()
 	self:Print("OnInitialize Event Fired")
 end
