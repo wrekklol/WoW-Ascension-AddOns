@@ -3,6 +3,7 @@ local C, L = unpack(select(2, ...))
 local WM = E:GetModule("WorldMap")
 local MM = E:GetModule("Minimap")
 local AB = E:GetModule("ActionBars")
+local MMk = E:GetModule("MapMarkers")
 
 E.Options.args.maps = {
 	type = "group",
@@ -119,6 +120,47 @@ E.Options.args.maps = {
 							disabled = function() return not E.global.general.WorldMapCoordinates.enable end,
 							min = -200, max = 200, step = 1
 						}
+					}
+				},
+				spacer2 = {
+					order = 6,
+					type = "description",
+					name = "\n"
+				},
+				mapMarkersGroup = {
+					order = 7,
+					type = "group",
+					name = L["Map Markers"],
+					guiInline = true,
+					disabled = function() return not WM.Initialized end,
+					args = {
+						enable = {
+							order = 1,
+							type = "toggle",
+							name = L["Enable"],
+							desc = L["Allows Map Markers to be created by middle clicking (Mouse3) on the world map.\nMarkers are automatically shared with raid members."],
+							get = function(info) return E.db.general.mapMarkers[info[#info]] end,
+							set = function(info, value) E.db.general.mapMarkers[info[#info]] = value E:StaticPopup_Show("PRIVATE_RL") end
+						},
+						showRaidMarkers = {
+							order = 2,
+							type = "toggle",
+							name = L["Receive from Raid Members"],
+							desc = L["Allows Raid Members to send you Map Markers"],
+							get = function(info) return E.db.general.mapMarkers[info[#info]] end,
+							set = function(info, value) E.db.general.mapMarkers[info[#info]] = value E:StaticPopup_Show("PRIVATE_RL") end,
+							disabled = function() return not E.db.general.mapMarkers.enable end,
+						},
+						iconSize = {
+							order = 3,
+							type = "range",
+							name = L["Icon Size"],
+							desc = L["Set the size of the map markers"],
+							min = 15, max = 50, step = 1,
+							get = function(info) return E.db.general.mapMarkers[info[#info]] end,
+							set = function(info, value) E.db.general.mapMarkers[info[#info]] = value MMk:ResizeAll() end,
+							disabled = function() return not E.db.general.mapMarkers.enable end,
+						},
 					}
 				}
 			}

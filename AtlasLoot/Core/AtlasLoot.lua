@@ -351,7 +351,7 @@ function AtlasLoot:CreateToken(dataID)
 	--orginal dataID
 	local orgID = dataID;
 	--list of item types to find
-	local names = { {"HEAD", "INVTYPE_HEAD", "Head"}, {"SHOULDER", "INVTYPE_SHOULDER", "Shoulders"}, {"CHEST", "INVTYPE_CHEST", "Chest", "INVTYPE_ROBE"}, {"WRIST", "INVTYPE_WRIST", "Wrists"}, {"HAND", "INVTYPE_HAND", "Hands"}, {"WAIST", "INVTYPE_WAIST", "Waist"}, {"LEGS", "INVTYPE_LEGS", "Legs"}, {"FEET", "INVTYPE_FEET", "Feet"}, {"FINGER", "INVTYPE_FINGER", "Rings"}};
+	local names = { {"HEAD", "INVTYPE_HEAD", "Head"}, {"SHOULDER", "INVTYPE_SHOULDER", "Shoulders"}, {"CHEST", "INVTYPE_CHEST", "Chest", "INVTYPE_ROBE"}, {"WRIST", "INVTYPE_WRIST", "Wrists"}, {"HAND", "INVTYPE_HAND", "Hands"}, {"WAIST", "INVTYPE_WAIST", "Waist"}, {"LEGS", "INVTYPE_LEGS", "Legs"}, {"FEET", "INVTYPE_FEET", "Feet"}, {"FINGER", "INVTYPE_FINGER", "Rings"}, {"BACK", "INVTYPE_CLOAK", "Back"}, {"NECK", "INVTYPE_NECK", "Necklace"}};
 	--finds the item type to create a list of
 	for a, b in pairs(names) do
 		dataID = gsub(dataID, b[1], "");
@@ -373,21 +373,28 @@ function AtlasLoot:CreateToken(dataID)
 			[1] = { Name = itemName };
 		};
 	end
-	--Fills table with items
 	local count = #AtlasLoot_Data[dataID][1] * #AtlasLoot_Data[dataID];
+	local function addItem(itemID, v, t)
+		if itemType == select(9, GetItemInfo(itemID)) or itemType2 == select(9, GetItemInfo(itemID)) then
+			table.insert(AtlasLoot_TokenData[orgID][1], {#AtlasLoot_TokenData[orgID][1] + 1, v[2], v[3], v[4], t.Name});
+		end
+		if count == 1 then
+			AtlasLoot:ShowItemsFrame(AtlasLootItemsFrame.refresh[1], AtlasLootItemsFrame.refresh[2], AtlasLootItemsFrame.refresh[3]);
+		end
+		count = count - 1;
+	end
+	--Fills table with items
 	for n, t in ipairs(AtlasLoot_Data[dataID]) do
 		for c, v in ipairs(t) do
 			if type(v) == "table" then
-				local item = Item:CreateFromID(v[2]);
-				item:ContinueOnLoad(function(itemID)
-					if itemType == select(9, GetItemInfo(itemID)) or itemType2 == select(9, GetItemInfo(itemID)) then
-						table.insert(AtlasLoot_TokenData[orgID][1], {#AtlasLoot_TokenData[orgID][1] + 1, v[2], v[3], v[4], t.Name});
-					end
-					if count == 1 then
-						AtlasLoot:ShowItemsFrame(AtlasLootItemsFrame.refresh[1], AtlasLootItemsFrame.refresh[2], AtlasLootItemsFrame.refresh[3]);
-					end
-					count = count - 1;
-				end)
+				if GetItemInfo(v[2]) then
+					addItem(v[2], v, t)
+				else
+					local item = Item:CreateFromID(v[2]);
+					item:ContinueOnLoad(function(itemID)
+						addItem(itemID, v, t)
+					end)
+				end
 			end
 		end
 	end
@@ -465,9 +472,9 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 	local difType = false;
 	-- Checks to see if type is the same
 	if ATLASLOOT_CURRENTTYPE ~= dataSource[dataID].Type then
-		if dataSource[dataID].Type == "Crafting" then
+		if dataSource[dataID].Type == "Crafting" or dataSource[dataID].Type == "CraftingNoBF" then
 			ItemindexID = "Pattern";
-		elseif ItemindexID == "Pattern" and dataSource[dataID].Type ~= "Crafting" then
+		elseif (ItemindexID == "Pattern" and dataSource[dataID].Type ~= "Crafting") or (ItemindexID == "Pattern" and dataSource[dataID].Type ~= "CraftingNoBF") then
 			ItemindexID = 2;
 		else
 			ItemindexID = ATLASLOOT_TYPE[dataSource[dataID].Type] or 2;
@@ -755,7 +762,7 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 		end
 
 		if dataSource_backup ~= "AtlasLoot_CurrentWishList" and dataID ~= "FilterList"  and dataSource[dataID].Back ~= true and dataID ~= "EmptyTable" then
-			if not AtlasLoot.db.profile.LastBoss then AtlasLoot.db.profile.LastBoss = {} end;
+			if not AtlasLoot.db.profile.LastBoss or type(AtlasLoot.db.profile.LastBoss) ~= "table" then AtlasLoot.db.profile.LastBoss = {} end;
 			AtlasLoot.db.profile.LastBoss[AtlasLoot_Expac] = {dataID, dataSource_backup, tablenum, ATLASLOOT_LASTMODULE, ATLASLOOT_CURRENTTABLE};
 			AtlasLoot.db.profile[ATLASLOOT_CURRENTTABLE] = {dataID, dataSource_backup, tablenum, ATLASLOOT_LASTMODULE, ATLASLOOT_CURRENTTABLE};
 		end
@@ -767,9 +774,11 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 		local function filterCheck(find)
 			local mtype = {"Crafting", "Reputations", "WorldEvents", "PVP", "Collections"}
 			for m, t in pairs (mtype) do
-				for i, v in ipairs (AtlasLoot_SubMenus[t..AtlasLoot_Expac]) do
-					if find == v[2] then
-						return true;
+				if AtlasLoot_SubMenus[t..AtlasLoot_Expac] then
+					for i, v in ipairs (AtlasLoot_SubMenus[t..AtlasLoot_Expac]) do
+						if find == v[2] then
+							return true;
+						end
 					end
 				end
 			end
@@ -808,7 +817,7 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 			tablenum = AtlasLootItemsFrame.refreshOri[3];
 		end
 
-		if AtlasLootItemsFrame.refresh and tablenum ~= #_G[AtlasLootItemsFrame.refreshOri[2]][AtlasLootItemsFrame.refreshOri[1]] and dataSource_backup ~= "AtlasLoot_TokenData" and dataID ~= "SearchResult" or tablenum ~= #_G[AtlasLootItemsFrame.refresh[2]][AtlasLootItemsFrame.refresh[1]] and dataID == "SearchResult" then
+		if AtlasLootItemsFrame.refresh and AtlasLootItemsFrame.refreshOri and tablenum ~= #_G[AtlasLootItemsFrame.refreshOri[2]][AtlasLootItemsFrame.refreshOri[1]] and dataSource_backup ~= "AtlasLoot_TokenData" and dataID ~= "SearchResult" or tablenum ~= #_G[AtlasLootItemsFrame.refresh[2]][AtlasLootItemsFrame.refresh[1]] and dataID == "SearchResult" then
 			_G["AtlasLootItemsFrame_NEXT"]:Show();
 			_G["AtlasLootItemsFrame_NEXT"].tablenum = tablenum + 1;
 			_G["AtlasLootItemsFrame_NEXT"].tablebase = tablebase;
@@ -880,7 +889,8 @@ AtlasLoot.ModuleName = {
 	["AtlasLootBurningCrusade"] = "AtlasLoot_BurningCrusade";
 	["AtlasLootCrafting"] = "AtlasLoot_Crafting";
 	["AtlasLootWorldEvents"] = "AtlasLoot_WorldEvents";
-	["AtlasLootWotLK"] = "AtlasLoot_WrathoftheLichKing"
+	["AtlasLootWotLK"] = "AtlasLoot_WrathoftheLichKing";
+	["AtlasLootVanity"] = "AtlasLoot_Vanity"
 }
 
 --[[
@@ -888,12 +898,13 @@ AtlasLoot:LoadAllModules()
 Used to load all available LoD modules
 ]]
 function AtlasLoot:LoadAllModules()
-	local orig, bc, wotlk, craft, world;
+	local orig, bc, wotlk, craft, world, vanity;
     orig, _ = LoadAddOn("AtlasLoot_OriginalWoW");
     bc, _ = LoadAddOn("AtlasLoot_BurningCrusade");
     craft, _ = LoadAddOn("AtlasLoot_Crafting");
     world, _ = LoadAddOn("AtlasLoot_WorldEvents");
     wotlk, _ = LoadAddOn("AtlasLoot_WrathoftheLichKing");
+	vanity, _ = LoadAddOn("AtlasLoot_Vanity");
     local flag=0;
 	if not orig then
 		LoadAddOn("AtlasLoot_OriginalWoW");
@@ -913,6 +924,10 @@ function AtlasLoot:LoadAllModules()
 	end
     if not wotlk then
 		LoadAddOn("AtlasLoot_WrathoftheLichKing");
+		flag=1;
+	end
+	if not vanity then
+		LoadAddOn("AtlasLoot_Vanity");
 		flag=1;
 	end
 	if flag == 1 then
@@ -1087,7 +1102,7 @@ function AtlasLoot:LoadItemIDsDatabase()
 		-- run for each item in the data
 	if index ~= 0 and data.Normal ~= 0 and not ItemIDsDatabase[data.Normal] then
 			ItemIDsDatabase[data.Normal] = {}
-			ItemIDsDatabase[data.Normal]["MythicRaid"] = data.Heroic + 1000000
+			ItemIDsDatabase[data.Normal]["MythicRaid"] = tonumber("13"..data.Normal);
 			table.insert(ItemIDsDatabase[data.Normal],data.Bloodforged);
 			table.insert(ItemIDsDatabase[data.Normal],data.Normal);
 			if data.Heroic ~= 0 then table.insert(ItemIDsDatabase[data.Normal],data.Heroic) end

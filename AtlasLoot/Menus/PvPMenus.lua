@@ -48,3 +48,25 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 		{ "", "ArenaWarlockTBC"};
 		{ "", "ArenaWarriorTBC"};
 	};
+
+	AtlasLoot_SubMenus["PVPWRATH"] = {
+		Module = "AtlasLootWotLK";
+		{ "PVP Factions", "LakeWintergrasp", "Header"};
+		{ "", "LakeWintergrasp"};
+		{ "", "VentureBay"};
+		{ "", "PvP80Misc"};
+		{ "", "PVPidolWRATH"};
+		{ "", "PvP80NonSet"};
+		{ "", "WeaponsWRATH"};
+		{ "PVP Sets", "ArenaDruidWRATH", "Header"};
+		{ "", "ArenaDruidWRATH"};
+		{ "", "ArenaHunterWRATH"};
+		{ "", "ArenaMageWRATH"};
+		{ "", "ArenaPaladinWRATH"};
+		{ "", "ArenaPriestWRATH"};
+		{ "", "ArenaRogueWRATH"};
+		{ "", "ArenaShamanWRATH"};
+		{ "", "ArenaWarlockWRATH"};
+		{ "", "ArenaWarriorWRATH"};
+		{ "", "ArenaDeathKnightWRATH"};
+	};

@@ -1,17 +1,3 @@
-local oldGetInstanceDifficulty = GetInstanceDifficulty
-if not _GetInstanceDifficulty then
-	function GetInstanceDifficulty()
-		local diff = oldGetInstanceDifficulty()
-		if diff == 1 then
-			local _, _, difficulty, _, maxPlayers = GetInstanceInfo()
-			if difficulty == 1 and maxPlayers == 25 then
-				diff = 2
-			end
-		end
-		return diff
-	end
-end
-
 if not IsInGroup then
 	function IsInGroup()
 		return GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0

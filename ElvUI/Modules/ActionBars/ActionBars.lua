@@ -324,9 +324,19 @@ function AB:PLAYER_REGEN_ENABLED()
 	self:UnregisterEvent("PLAYER_REGEN_ENABLED")
 end
 
+local function Vehicle_ExitVehicle(self)
+	VehicleExit();
+end
+
+local function Vehicle_CanExit()
+	return CanExitVehicle()
+end
+
 local function Vehicle_OnEvent(self, event)
-	if CanExitVehicle() and not E.db.general.minimap.icons.vehicleLeave.hide then
+	if Vehicle_CanExit() and not E.db.general.minimap.icons.vehicleLeave.hide then
 		self:Show()
+		self:Enable()
+		self:UnlockHighlight()
 	else
 		self:Hide()
 	end
@@ -350,13 +360,19 @@ function AB:CreateVehicleLeave()
 	vehicle:SetFrameStrata("HIGH")
 	vehicle:SetNormalTexture(E.Media.Textures.ExitVehicle)
 	vehicle:SetPushedTexture(E.Media.Textures.ExitVehicle)
-	vehicle:SetHighlightTexture(E.Media.Textures.ExitVehicle)
+	vehicle:GetPushedTexture():SetVertexColor(0.6, 0.6, 0.6)
+	vehicle:SetHighlightTexture(E.Media.Textures.ExitVehicle, "ADD")
 	vehicle:SetTemplate()
 	vehicle:EnableMouse(true)
 	vehicle:RegisterForClicks("AnyUp")
+	vehicle:SetMotionScriptsWhileDisabled(true)
 
-	vehicle:SetScript("OnClick", VehicleExit)
+	vehicle:SetScript("OnClick", Vehicle_ExitVehicle)
 	vehicle:SetScript("OnEvent", Vehicle_OnEvent)
+	if MainMenuBarVehicleLeaveButtonMixin then
+		vehicle:SetScript("OnEnter", MainMenuBarVehicleLeaveButtonMixin.OnEnter)
+	end
+	vehicle:SetScript("OnLeave", GameTooltip_Hide)
 	vehicle:RegisterEvent("PLAYER_ENTERING_WORLD")
 	vehicle:RegisterEvent("UPDATE_BONUS_ACTIONBAR")
 	vehicle:RegisterEvent("UPDATE_MULTI_CAST_ACTIONBAR")
@@ -792,6 +808,7 @@ function AB:UpdateButtonConfig(bar, buttonName)
 		button.keyBoundTarget = bar.buttonConfig.keyBoundTarget
 		button.postKeybind = AB.FixKeybindText
 		button:SetAttribute("buttonlock", self.db.lockActionBars)
+		button:SetAttribute("checkmouseovercast", true)
 		button:SetAttribute("checkselfcast", true)
 		button:SetAttribute("checkfocuscast", true)
 		if self.db.rightClickSelfCast then

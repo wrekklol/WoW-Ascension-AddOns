@@ -3540,12 +3540,12 @@ local _utf8sub = string.utf8sub
 				end,
 			})
 
-			if (databroker and not LDBIcon:IsRegistered ("Details")) then
-				LDBIcon:Register ("Details", databroker, self.minimap)
+			if databroker then
+				_detalhes.databroker = databroker
+				if not not LDBIcon:IsRegistered ("Details") then
+					LDBIcon:Register ("Details", databroker, self.minimap)
+				end
 			end
-
-			_detalhes.databroker = databroker
-
 		end
 	end
 

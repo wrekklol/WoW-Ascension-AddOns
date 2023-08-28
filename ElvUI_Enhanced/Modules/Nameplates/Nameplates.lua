@@ -125,7 +125,7 @@ end
 function ENP:ClassCache()
 	if E.db.enhanced.nameplates.classCache then
 		if not self:IsHooked(NP, "UnitClass") then
-			self:RawHook(NP, "UnitClass", UnitClassHook)
+			self:RawHook(NP, "UnitClass", UnitClassHook, true)
 		end
 	else
 		if self:IsHooked(NP, "UnitClass") then
@@ -520,7 +520,7 @@ function ENP:UpdateAllSettings()
 
 	if E.db.enhanced.nameplates.chatBubbles or E.db.enhanced.nameplates.titleCache then
 		if not ENP:IsHooked(NP, "OnHide") then
-			ENP:Hook(NP, "OnHide", OnHideHook)
+			ENP:Hook(NP, "OnHide", OnHideHook, true)
 		end
 	elseif not E.db.enhanced.nameplates.chatBubbles and not E.db.enhanced.nameplates.titleCache then
 		if ENP:IsHooked(NP, "OnHide") then

@@ -9,7 +9,7 @@
 				InterfaceOptions_AddCategory(self);
 			</OnLoad>
 			<OnShow>
-				local f = getglobal ("Atr_BasicOptionsFrame");
+				local f = _G["Atr_BasicOptionsFrame"];
 				if (f) then
 					InterfaceOptionsFrame_OpenToCategory (f)
 					self:Hide();
@@ -145,6 +145,20 @@
 				</Scripts>
 			</Frame>
 
+			<Frame name="AuctionatorOption_Remove_Bloodforge" inherits="Atr_SingleOptionTemplate">
+				<Anchors><Anchor point="TOP"><Offset><AbsDimension y="-220"/></Offset></Anchor></Anchors>
+				<Scripts>
+					<OnLoad>	AuctionatorOption_Remove_Bloodforge_CB_Text:SetText (ZT("Remove Bloodforge at the start of sell searchs"));	</OnLoad>
+				</Scripts>
+			</Frame>
+
+			<Frame name="AuctionatorOption_Remove_Suffix" inherits="Atr_SingleOptionTemplate">
+				<Anchors><Anchor point="TOP"><Offset><AbsDimension y="-255"/></Offset></Anchor></Anchors>
+				<Scripts>
+					<OnLoad>	AuctionatorOption_Remove_Suffix_CB_Text:SetText (ZT("Remove item suffixs (eg:of the Bear)"));	</OnLoad>
+				</Scripts>
+			</Frame>
+
 			<Frame name="AuctionatorOption_Durations" hidden="true">
 				<Size><AbsDimension x="250" y="25"/>	</Size>
 				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="40" y="-220"/></Offset></Anchor></Anchors>
@@ -152,21 +166,21 @@
 					<CheckButton name="Atr_RB_S" inherits="UIRadioButtonTemplate">
 						<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="0"/></Offset></Anchor></Anchors>
 						<Scripts>
-							<OnLoad> getglobal(self:GetName().."Text"):SetFormattedText(FORMATED_HOURS, 12); </OnLoad>
+							<OnLoad> _G[self:GetName().."Text"]:SetFormattedText(FORMATED_HOURS, 12); </OnLoad>
 							<OnClick> Atr_SetDurationOptionRB (self:GetName()); </OnClick>
 						</Scripts>
 					</CheckButton>
 					<CheckButton name="Atr_RB_M" inherits="UIRadioButtonTemplate">
 						<Anchors><Anchor point="LEFT" relativeTo="Atr_RB_SText" relativePoint="RIGHT"><Offset><AbsDimension x="20" y="0"/></Offset></Anchor></Anchors>
 						<Scripts>
-							<OnLoad> getglobal(self:GetName().."Text"):SetFormattedText(FORMATED_HOURS, 24); </OnLoad>
+							<OnLoad> _G[self:GetName().."Text"]:SetFormattedText(FORMATED_HOURS, 24); </OnLoad>
 							<OnClick> Atr_SetDurationOptionRB (self:GetName()); </OnClick>
 						</Scripts>
 					</CheckButton>
 					<CheckButton name="Atr_RB_L" inherits="UIRadioButtonTemplate">
 						<Anchors><Anchor point="LEFT" relativeTo="Atr_RB_MText" relativePoint="RIGHT"><Offset><AbsDimension x="20" y="0"/></Offset></Anchor></Anchors>
 						<Scripts>
-							<OnLoad> getglobal(self:GetName().."Text"):SetFormattedText(FORMATED_HOURS, 48); </OnLoad>
+							<OnLoad> _G[self:GetName().."Text"]:SetFormattedText(FORMATED_HOURS, 48); </OnLoad>
 							<OnClick> Atr_SetDurationOptionRB (self:GetName()); </OnClick>
 						</Scripts>
 					</CheckButton>
@@ -175,7 +189,7 @@
 
 			<Frame name="AuctionatorOption_Deftab_Text">
 				<Size><AbsDimension x="180" y="20" /></Size>		
-				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="30" y="-261"/></Offset></Anchor></Anchors>
+				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="30" y="-296"/></Offset></Anchor></Anchors>
 				<Layers>
 					<Layer level="ARTWORK">
 						<FontString name="$parent_Text" inherits="GameFontHighlight" text="Default Auctionator tab">
@@ -190,7 +204,7 @@
 			</Frame>
 
 			<Frame name="AuctionatorOption_Deftab" inherits="UIDropDownMenuTemplate">
-				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="165" y="-255"/></Offset></Anchor></Anchors>
+				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="165" y="-290"/></Offset></Anchor></Anchors>
 				<Scripts>
 					<OnLoad>
 						UIDropDownMenu_Initialize(self, AuctionatorOption_Deftab_Initialize);
@@ -227,21 +241,21 @@
 
 		<Frames>
 			<Frame name="ATR_tipsVendorOpt" inherits="Atr_SingleOptionTemplate">
-				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-70"/></Offset></Anchor></Anchors>
+				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-45"/></Offset></Anchor></Anchors>
 				<Scripts>
 					<OnLoad>	ATR_tipsVendorOpt_CB_Text:SetText (ZT("Show vendor prices in tooltips"));	</OnLoad>
 				</Scripts>
 			</Frame>
 
 			<Frame name="ATR_tipsAuctionOpt" inherits="Atr_SingleOptionTemplate">
-				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-95"/></Offset></Anchor></Anchors>
+				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-70"/></Offset></Anchor></Anchors>
 				<Scripts>
 					<OnLoad>	ATR_tipsAuctionOpt_CB_Text:SetText (ZT("Show auction house prices in tooltips"));	</OnLoad>
 				</Scripts>
 			</Frame>
 
 			<Frame name="ATR_tipsDisenchantOpt" inherits="Atr_SingleOptionTemplate">
-				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-120"/></Offset></Anchor></Anchors>
+				<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="20" y="-95"/></Offset></Anchor></Anchors>
 				<Scripts>
 					<OnLoad>	ATR_tipsDisenchantOpt_CB_Text:SetText (ZT("Show disenchant prices in tooltips"));	</OnLoad>
 				</Scripts>

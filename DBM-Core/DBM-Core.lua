@@ -42,10 +42,10 @@
 --  Globals/Default Options  --
 -------------------------------
 DBM = {
-	Revision = ("$Revision: 5015 $"):sub(12, -3),
-	Version = "5.15",
-	DisplayVersion = "5.15", -- the string that is shown as version
-	ReleaseRevision = 5013 -- the revision of the latest stable version that is available (for /dbm ver2)
+	Revision = ("$Revision: 5016 $"):sub(12, -3),
+	Version = "5.16",
+	DisplayVersion = "5.16", -- the string that is shown as version
+	ReleaseRevision = 5015 -- the revision of the latest stable version that is available (for /dbm ver2)
 }
 
 DBM_SavedOptions = {}
@@ -2358,6 +2358,22 @@ function DBM:Capitalize(str)
 	return str:sub(1, numBytes):upper()..str:sub(numBytes + 1):lower()
 end
 
+-- An anti spam function to throttle spammy events (e.g. SPELL_AURA_APPLIED on all group members)
+-- @param time the time to wait between two events (optional, default 2.5 seconds)
+-- @param id the id to distinguish different events (optional, only necessary if your mod keeps track of two different spam events at the same time)
+function DBM:AntiSpam(times, id)
+    if GetTime() - (id and (self["lastAntiSpam" .. tostring(id)] or 0) or self.lastAntiSpam or 0) > (times or 2.5) then
+        if id then
+            self["lastAntiSpam" .. tostring(id)] = GetTime()
+        else
+            self.lastAntiSpam = GetTime()
+        end
+        return true
+    else
+        return false
+    end
+end
+
 -----------------
 --  Map Sizes  --
 -----------------
@@ -2659,22 +2675,6 @@ function bossModPrototype:IsHealer()
      		or (select(2, UnitClass("player")) == "SHAMAN" and select(3, GetTalentTabInfo(3)) >= 51)
 			or (select(2, UnitClass("player")) == "DRUID" and select(3, GetTalentTabInfo(3)) >= 51)
 			or (select(2, UnitClass("player")) == "PRIEST" and select(3, GetTalentTabInfo(3)) < 51)
-end
-
--- An anti spam function to throttle spammy events (e.g. SPELL_AURA_APPLIED on all group members)
--- @param time the time to wait between two events (optional, default 2.5 seconds)
--- @param id the id to distinguish different events (optional, only necessary if your mod keeps track of two different spam events at the same time)
-function DBM:AntiSpam(time, id)
-    if GetTime() - (id and (self["lastAntiSpam" .. tostring(id)] or 0) or self.lastAntiSpam or 0) > (time or 2.5) then
-        if id then
-            self["lastAntiSpam" .. tostring(id)] = GetTime()
-        else
-            self.lastAntiSpam = GetTime()
-        end
-        return true
-    else
-        return false
-    end
 end
 
 

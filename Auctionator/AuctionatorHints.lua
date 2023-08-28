@@ -54,8 +54,8 @@ function Atr_BuildHints (itemName)
 
 	-- Auctionator Full Scan
 	
-	if (itemName ~= nil and gAtr_ScanDB[itemName] ~= nil) then
-		Atr_AppendHint (results, gAtr_ScanDB[itemName], ZT("Auctionator scan data"));
+	if (itemName ~= nil and Atr_ScanDB[itemName] ~= nil) then
+		Atr_AppendHint (results, Atr_ScanDB[itemName], ZT("Auctionator scan data"));
 	end
 
 	-- most recent historical price
@@ -149,7 +149,7 @@ function Atr_ShowHints ()
 
 		dataOffset = line + FauxScrollFrame_GetOffset (AuctionatorScrollFrame);
 
-		local lineEntry = getglobal ("AuctionatorEntry"..line);
+		local lineEntry = _G["AuctionatorEntry"..line];
 
 		lineEntry:SetID(dataOffset);
 
@@ -159,10 +159,10 @@ function Atr_ShowHints ()
 
 			local lineEntry_item_tag = "AuctionatorEntry"..line.."_PerItem_Price";
 
-			local lineEntry_item		= getglobal(lineEntry_item_tag);
-			local lineEntry_itemtext	= getglobal("AuctionatorEntry"..line.."_PerItem_Text");
-			local lineEntry_text		= getglobal("AuctionatorEntry"..line.."_EntryText");
-			local lineEntry_stack		= getglobal("AuctionatorEntry"..line.."_StackPrice");
+			local lineEntry_item		= _G[lineEntry_item_tag];
+			local lineEntry_itemtext	= _G["AuctionatorEntry"..line.."_PerItem_Text"];
+			local lineEntry_text		= _G["AuctionatorEntry"..line.."_EntryText"];
+			local lineEntry_stack		= _G["AuctionatorEntry"..line.."_StackPrice"];
 
 			lineEntry_item:Show();
 			lineEntry_itemtext:Hide();
@@ -194,9 +194,9 @@ end
 
 function Atr_SetMFcolor (frameName, blue)
 
-	local goldButton = getglobal(frameName.."GoldButton");
-	local silverButton = getglobal(frameName.."SilverButton");
-	local copperButton = getglobal(frameName.."CopperButton");
+	local goldButton = _G[frameName.."GoldButton"];
+	local silverButton = _G[frameName.."SilverButton"];
+	local copperButton = _G[frameName.."CopperButton"];
 
 	if (blue) then
 		goldButton:SetNormalFontObject(NumberFontNormalRightATRblue);
@@ -227,8 +227,8 @@ function Atr_GetAuctionPrice (item)  -- itemName or itemID
 		return nil;
 	end
 
-	if (gAtr_ScanDB[itemName]) then
-		return gAtr_ScanDB[itemName];
+	if (Atr_ScanDB[itemName]) then
+		return Atr_ScanDB[itemName];
 	end
 	
 	return Atr_GetMostRecentSale (itemName);
@@ -719,7 +719,6 @@ end
 -----------------------------------------
 
 function Atr_CalcDisenchantPrice (itemType, itemRarity, itemLevel)
-
 	if (Atr_IsWeaponType (itemType) or Atr_IsArmorType (itemType)) then
 		if (itemRarity == UNCOMMON or itemRarity == RARE or itemRarity == EPIC) then
 
@@ -739,50 +738,34 @@ function Atr_CalcDisenchantPrice (itemType, itemRarity, itemLevel)
 			return math.floor (dePrice/100);
 		end
 	end
-	
 	return nil;		-- can't be disenchanted
 end
 
 -----------------------------------------
 
-local function ShowTipWithPricing (tip, link, num)
+local function ShowTipWithPricing (tip, link, num, enchantID)
 
 	if (link == nil) then
 		return;
 	end
 
---[[
-	if (num == "tradeskill") then
-	
-		local skill = link;
-	
-		local n;
-		for n = 1,GetTradeSkillNumReagents(skill) do
-			local rname, _, rnum = GetTradeSkillReagentInfo(skill, n);
-			local rlink = GetTradeSkillReagentItemLink (skill, n);
-			zc.md (skill, rlink, rnum);
-		end
-	
-		return;
-	end
-]]--
-
 	local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, _, _, _, _, itemVendorPrice = GetItemInfo (link);
 
 	local itemID = zc.ItemIDfromLink (link);
 	itemID = tonumber(itemID);
-	
+
 	local vendorPrice	= 0;
 	local auctionPrice	= 0;
 	local dePrice		= nil;
-	
+	local enchantPrice = 0;
+
 	if (AUCTIONATOR_V_TIPS == 1) then vendorPrice	= itemVendorPrice; end;
 	if (AUCTIONATOR_A_TIPS == 1) then auctionPrice	= Atr_GetAuctionPrice (itemName); end;
 	if (AUCTIONATOR_D_TIPS == 1) then dePrice		= Atr_CalcDisenchantPrice (itemType, itemRarity, itemLevel); end;
-	
+
 	local xstring = "";
 	local showStackPrices = IsShiftKeyDown();
-	
+
 	if (AUCTIONATOR_SHIFT_TIPS == 2) then
 		showStackPrices = not IsShiftKeyDown();
 	end
@@ -799,14 +782,12 @@ local function ShowTipWithPricing (tip, link, num)
 	end
 
 	-- vendor info
-
 	if (AUCTIONATOR_V_TIPS == 1 and vendorPrice > 0) then
 		local vpadding = Atr_CalcTTpadding (vendorPrice, auctionPrice);
 		tip:AddDoubleLine (ZT("Vendor")..xstring, "|cFFFFFFFF"..zc.priceToMoneyString (vendorPrice))
 	end
-	
-	-- auction info
 
+	-- auction info
 	if (AUCTIONATOR_A_TIPS == 1) then
 		
 		local bonding = Atr_GetBonding(itemID);
@@ -823,9 +804,8 @@ local function ShowTipWithPricing (tip, link, num)
 			tip:AddDoubleLine (ZT("Auction")..xstring, "|cFFFFFFFF"..ZT("unknown").."  ");
 		end
 	end
-	
-	-- disenchanting info
 
+	-- disenchanting info
 	if (AUCTIONATOR_D_TIPS == 1 and dePrice ~= nil) then
 		if (dePrice > 0) then
 			tip:AddDoubleLine (ZT("Disenchant")..xstring, "|cFFFFFFFF"..zc.priceToMoneyString(dePrice));
@@ -835,13 +815,13 @@ local function ShowTipWithPricing (tip, link, num)
 	end
 
 	local showDetails = true;
-	
+
 	if (AUCTIONATOR_DE_DETAILS_TIPS == 1) then showDetails = IsShiftKeyDown(); end;
 	if (AUCTIONATOR_DE_DETAILS_TIPS == 2) then showDetails = IsControlKeyDown(); end;
 	if (AUCTIONATOR_DE_DETAILS_TIPS == 3) then showDetails = IsAltKeyDown(); end;
 	if (AUCTIONATOR_DE_DETAILS_TIPS == 4) then showDetails = false; end;
 	if (AUCTIONATOR_DE_DETAILS_TIPS == 5) then showDetails = true; end;
-	
+
 	if (showDetails and dePrice ~= nil) then
 		Atr_AddDEDetailsToTip (tip, itemType, itemRarity, itemLevel, Atr_DEReqLevel(itemID));
 	end
@@ -913,7 +893,6 @@ hooksecurefunc (GameTooltip, "SetTradeSkillItem",
 			link = GetTradeSkillReagentItemLink(skill, id);
 			num = select (3, GetTradeSkillReagentInfo(skill, id));
 		end
-
 		ShowTipWithPricing (tip, link, num);
 	end
 );
@@ -977,16 +956,6 @@ hooksecurefunc (GameTooltip, "SetHyperlink",
 hooksecurefunc (ItemRefTooltip, "SetHyperlink",
 	function (tip, itemstring)
 		local name, link = GetItemInfo (itemstring);
-		ShowTipWithPricing (tip, link);
+		ShowTipWithPricing (tip, link, nil);
 	end
 );
-
-
-
-
-
-
-
-
-
-

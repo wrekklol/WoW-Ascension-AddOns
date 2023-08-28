@@ -335,7 +335,7 @@ function zc.CheckDeferredCall ()
 	
 	for i = 1, #gDeferredCalls do
 		if (gDeferredCalls[i].when < now) then
-			local fcn = getglobal(gDeferredCalls[i].funcname);
+			local fcn = _G[gDeferredCalls[i].funcname];
 			local p1 = gDeferredCalls[i].param1;
 			local p2 = gDeferredCalls[i].param2;
 			table.remove (gDeferredCalls, i);
@@ -862,7 +862,7 @@ function zc.printstack (options)
 
 		if (a) then
 			filename = string.sub (v,a+1,b-1);
-			filename = string.gsub (filename, "\.lua", "");
+			filename = string.gsub (filename, "\\.lua", "");
 		end
 
 		local a,b = string.find (v, "in function `.*\'");

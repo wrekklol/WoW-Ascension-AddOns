@@ -105,6 +105,12 @@ function _G._detalhes:Start()
 			self:CreateCopyPasteWindow()
 			self.CreateCopyPasteWindow = nil
 
+			self:CreateImportWindow()
+			self.CreateImportWindow = nil
+
+			self:CreateExportWindow()
+			self.CreateExportWindow = nil
+
 	--> start instances
 		if (self:GetNumInstancesAmount() == 0) then
 			self:CriarInstancia()

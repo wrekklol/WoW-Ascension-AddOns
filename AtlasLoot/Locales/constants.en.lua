@@ -26,6 +26,7 @@ if AL then
 	AL["Select Sub-Table"] = true;
 	AL["Select Difficulty"] = true;
 	AL["Drop Rate: "] = true;
+	AL["Extra Info: "] = true;
 	AL["DKP"] = true;
 	AL["Priority:"] = true;
 	AL["Click boss name to view loot."] = true;
@@ -137,6 +138,7 @@ if AL then
 	AL["Tier 1 Set Token (Click)"] = true;
 	AL["Tier 2 Set Token (Click)"] = true;
 	AL["Tier 2.5 Set Token (Click)"] = true;
+	AL["Set Token (Click)"] = true;
 	AL["Tier 3 Set Token (Click)"] = true;
 	AL["Tier 4 Set Token (Click)"] = true;
 	AL["Tier 5 Set Token (Click)"] = true;
@@ -203,6 +205,7 @@ if AL then
 	AL["Legendary Items"] = true;
 	AL["Mounts"] = true;
 	AL["Vanity Pets"] = true;
+	AL["Vanity"] = true;
 	AL["Misc Sets"] = true;
 	AL["Classic Sets"] = true;
 	AL["Burning Crusade Sets"] = true;
@@ -922,6 +925,14 @@ if AL then
 	AL["Gift of the Gathering Storm"] = true;
 	AL["Implements of Unspoken Names"] = true;
 	AL["Battlegear of Unyielding Strength"] = true;
+	AL["Keepsakes of Endless Machinations"] = true;
+	AL["Regalia of Roaring Earth"] = true;
+	AL["Relics of Ferocious Vigor"] = true;
+	AL["Laurels of the Faithful Zealot"] = true;
+	AL["Instruments of Masterful Technique"] = true;
+	AL["Decorations of Martial Prowess"] = true;
+	AL["Trophies of Unrivaled Rage"] = true;
+	AL["Remnants of Expansive Research"] = true;
 
 	-- AQ40 Sets
 	AL["Genesis Raiment"] = true;
@@ -1575,6 +1586,8 @@ if AL then
 	AL["How to view an 'unsafe' item:"] = true;
 	AL["Unsafe items have a red border around the icon and are marked because you have not seen the item since the last patch or server restart. Right-click the item, then move your mouse back over the item or click the 'Query Server' button at the bottom of the loot page. This will also load any Bloodforged items."] = true;
 	AL["How to view an item in the Dressing Room:"] = true;
+	AL["How to open an item to its AscensionDB page in your browser window:"] = true;
+	AL["Alt+Right Click any item to open it in a browser window."] = true;
 	AL["Simply Ctrl+Left Click on the item.  Sometimes the dressing room window is hidden behind the Atlas or AtlasLoot windows, so if nothing seems to happen move your Atlas or AtlasLoot windows and see if anything is hidden."] = true;
 	AL["How to link an item to someone else:"] = true;
 	AL["Shift+Left Click the item like you would for any other in-game item"] = true;

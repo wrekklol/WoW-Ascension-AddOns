@@ -79,6 +79,8 @@ local timers = WeakAuras.timers;
 local LoadEvent, HandleEvent, HandleUnitEvent, TestForTriState, TestForToggle, TestForLongString, TestForMultiSelect
 local ConstructTest, ConstructFunction
 
+local nameplateExists = {}
+
 function WeakAuras.UnitExistsFixed(unit, smart)
   if smart and IsInRaid() then
     if unit:sub(1, 5) == "party" or unit == "player" then
@@ -197,7 +199,7 @@ function ConstructTest(trigger, arg)
       test = TestForMultiSelect(trigger, arg);
     elseif(arg.type == "toggle") then
       test = TestForToggle(trigger, arg);
-    elseif (arg.type == "spell") then
+    elseif (arg.type == "spell" or arg.type == "talent" or arg.type == "mysticenchant") then
       if arg.test then
         if arg.showExactOption then
           test = "("..arg.test:format(trigger[name], tostring(trigger["use_exact_" .. name]) or "false") ..")";
@@ -856,6 +858,11 @@ end
 
 function HandleEvent(frame, event, arg1, arg2, ...)
   Private.StartProfileSystem("generictrigger " .. event);
+  if event == "NAME_PLATE_UNIT_ADDED" then
+    nameplateExists[arg1] = true
+  elseif event == "NAME_PLATE_UNIT_REMOVED" then
+    nameplateExists[arg1] = false
+  end
   if not(WeakAuras.IsPaused()) then
     if(event == "COMBAT_LOG_EVENT_UNFILTERED") then
       WeakAuras.ScanEvents(event, arg1, arg2, ...);
@@ -929,6 +936,14 @@ local frame = CreateFrame("FRAME");
 frame.unitFrames = {};
 WeakAuras.frames["WeakAuras Generic Trigger Frame"] = frame;
 frame:RegisterEvent("PLAYER_ENTERING_WORLD");
+frame:HookEvent("NAME_PLATE_UNIT_ADDED", function(unit)
+  HandleEvent(frame, "NAME_PLATE_UNIT_ADDED", unit)
+end)
+frame:HookEvent("NAME_PLATE_UNIT_REMOVED", function(unit)
+  HandleEvent(frame, "NAME_PLATE_UNIT_REMOVED", unit)
+end)
+genericTriggerRegisteredEvents["NAME_PLATE_UNIT_ADDED"] = true
+genericTriggerRegisteredEvents["NAME_PLATE_UNIT_REMOVED"] = true
 genericTriggerRegisteredEvents["PLAYER_ENTERING_WORLD"] = true;
 frame:SetScript("OnEvent", HandleEvent);
 
@@ -970,6 +985,10 @@ local function MultiUnitLoop(Func, unit, includePets, ...)
     end
   elseif unit == "arena" then
     for i = 1, 5 do
+      Func(unit..i, ...)
+    end
+  elseif unit == "nameplate" then
+    for i = 1, 40 do
       Func(unit..i, ...)
     end
   elseif unit == "group" then
@@ -1433,9 +1452,9 @@ do
       update_frame = CreateFrame("FRAME");
     end
     if not(updating) then
-      update_frame:SetScript("OnUpdate", function()
+      update_frame:SetScript("OnUpdate", function(self, elapsed)
         if not(WeakAuras.IsPaused()) then
-          WeakAuras.ScanEvents("FRAME_UPDATE");
+          WeakAuras.ScanEvents("FRAME_UPDATE", elapsed);
         end
       end);
       updating = true;
@@ -1712,7 +1731,11 @@ do
   local spells = {};
   local spellKnown = {};
 
+  local spellCharges = {};
+  local spellChargesMax = {};
   local spellCounts = {}
+  local spellChargeGainTime = {}
+  local spellChargeLostTime = {}
 
   local items = {};
   local itemCdDurs = {};
@@ -1879,6 +1902,7 @@ do
 
   local spellCds = CreateSpellCDHandler();
   local spellCdsRune = CreateSpellCDHandler();
+  local spellCdsCharges = CreateSpellCDHandler();
 
   local spellDetails = {}
 
@@ -1887,6 +1911,7 @@ do
     WeakAuras.frames["Cooldown Trigger Handler"] = cdReadyFrame
     cdReadyFrame:RegisterEvent("RUNE_POWER_UPDATE");
     cdReadyFrame:RegisterEvent("RUNE_TYPE_UPDATE");
+    cdReadyFrame:RegisterEvent("SPELL_UPDATE_CHARGES");
     cdReadyFrame:RegisterEvent("PLAYER_TALENT_UPDATE");
     cdReadyFrame:RegisterEvent("CHARACTER_POINTS_CHANGED");
     cdReadyFrame:RegisterEvent("SPELL_UPDATE_COOLDOWN");
@@ -1899,7 +1924,7 @@ do
     cdReadyFrame:RegisterEvent("PLAYER_ENTERING_WORLD");
     cdReadyFrame:SetScript("OnEvent", function(self, event, ...)
       Private.StartProfileSystem("generictrigger cd tracking");
-      if(event == "SPELL_UPDATE_COOLDOWN"
+      if(event == "SPELL_UPDATE_COOLDOWN" or event == "SPELL_UPDATE_CHARGES"
         or event == "RUNE_POWER_UPDATE" or event == "RUNE_TYPE_UPDATE" or event == "ACTIONBAR_UPDATE_COOLDOWN"
         or event == "PLAYER_TALENT_UPDATE"
         or event == "CHARACTER_POINTS_CHANGED") then
@@ -1934,12 +1959,16 @@ do
     end
   end
 
-  function WeakAuras.GetSpellCooldown(id, ignoreRuneCD, showgcd)
+  function WeakAuras.GetSpellCooldown(id, ignoreRuneCD, showgcd, track)
     local startTime, duration, gcdCooldown, readyTime
-    if (ignoreRuneCD) then
-      startTime, duration, readyTime = spellCdsRune:FetchSpellCooldown(id)
+    if track == "charges" then
+      startTime, duration, readyTime, modRate = spellCdsCharges:FetchSpellCooldown(id)
     else
-      startTime, duration, readyTime = spellCds:FetchSpellCooldown(id)
+      if (ignoreRuneCD) then
+        startTime, duration, readyTime = spellCdsRune:FetchSpellCooldown(id)
+      else
+        startTime, duration, readyTime = spellCds:FetchSpellCooldown(id)
+      end
     end
 
     if (showgcd) then
@@ -1954,7 +1983,7 @@ do
   end
 
   function WeakAuras.GetSpellCharges(id)
-    return spellCounts[id];
+    return spellCharges[id], spellChargesMax[id], spellCounts[id], spellChargeGainTime[id], spellChargeLostTime[id]
   end
 
   function WeakAuras.GetItemCooldown(id, showgcd)
@@ -2079,9 +2108,13 @@ do
 
   function WeakAuras.GetSpellCooldownUnified(id, runeDuration)
     local startTimeCooldown, durationCooldown, enabled = GetSpellCooldown(id)
+    local charges, maxCharges, startTimeCharges, durationCharges = GetSpellCharges(C_Spell:GetSpellID(id));
 
     startTimeCooldown = startTimeCooldown or 0;
     durationCooldown = durationCooldown or 0;
+
+    startTimeCharges = startTimeCharges or 0;
+    durationCharges = durationCharges or 0;
 
     -- WORKAROUND Sometimes the API returns very high bogus numbers causing client freeezes, discard them here. WowAce issue #1008
     if (durationCooldown > 604800) then
@@ -2095,7 +2128,8 @@ do
       startTimeCooldown = startTimeCooldown - 2^32 / 1000
     end
 
-    local cooldownBecauseRune = false;
+    -- Default to GetSpellCharges
+    local cooldownBecauseRune = false
     if (enabled == 0) then
       startTimeCooldown, durationCooldown = 0, 0
     end
@@ -2105,7 +2139,29 @@ do
       cooldownBecauseRune = runeDuration and durationCooldown and abs(durationCooldown - runeDuration) < 0.001;
     end
 
-    return startTimeCooldown, durationCooldown, cooldownBecauseRune, GetSpellCount(id);
+    local startTime, duration = startTimeCooldown, durationCooldown
+    if (charges == nil) then
+      -- charges is nil if the spell has no charges.
+      -- Nothing to do in that case
+    elseif (charges == maxCharges) then
+      -- At max charges,
+      startTime, duration = 0, 0;
+      startTimeCharges, durationCharges = 0, 0
+    else
+      -- Spells can return both information via GetSpellCooldown and GetSpellCharges
+      -- E.g. Rune of Power see Github-Issue: #1060
+      -- So if GetSpellCooldown returned a cooldown, use that one, if it's a "significant" cooldown
+      --  Otherwise check GetSpellCharges
+      -- A few abilities have a minor cooldown just to prevent the user from triggering it multiple times,
+      -- ignore them since practically no one wants to see them
+      if duration and duration <= 1.5 or (duration == gcdDuration and startTime == gcdStart) then
+        startTime, duration = startTimeCharges, durationCharges
+      end
+    end
+
+    return charges, maxCharges, startTime, duration,
+           startTimeCooldown, durationCooldown, cooldownBecauseRune, startTimeCharges, durationCharges,
+           GetSpellCount(id)
   end
 
   function Private.CheckSpellKnown()
@@ -2134,14 +2190,28 @@ do
   end
 
   function Private.CheckSpellCooldown(id, runeDuration)
-    local startTimeCooldown, durationCooldown, cooldownBecauseRune, spellCount = WeakAuras.GetSpellCooldownUnified(id, runeDuration);
+    local charges, maxCharges, startTime, duration,
+          startTimeCooldown, durationCooldown, cooldownBecauseRune, startTimeCharges, durationCharges,
+          spellCount = WeakAuras.GetSpellCooldownUnified(id, runeDuration);
 
     local time = GetTime();
     local remaining = startTimeCooldown + durationCooldown - time;
 
-    local chargesChanged = spellCounts[id] ~= spellCount;
-    local chargesDifference = (spellCount or 0) - (spellCount or 0)
+    local chargesChanged = spellCharges[id] ~= charges or spellCounts[id] ~= spellCount
+                           or spellChargesMax[id] ~= maxCharges
+   local chargesDifference = (charges or spellCount or 0) - (spellCharges[id] or spellCounts[id] or 0)
+    spellCharges[id] = charges;
+    spellChargesMax[id] = maxCharges;
     spellCounts[id] = spellCount
+    if chargesDifference ~= 0 then
+      if chargesDifference > 0 then
+        spellChargeGainTime[id] = time
+        spellChargeLostTime[id] = nil
+      else
+        spellChargeGainTime[id] = nil
+        spellChargeLostTime[id] = time
+      end
+    end
 
     local changed = false
 
@@ -2150,6 +2220,10 @@ do
     if not cooldownBecauseRune then
       changed = spellCdsRune:HandleSpell(id, startTimeCooldown, durationCooldown) or changed
     end
+
+    local chargeChanged, chargeNowReady = spellCdsCharges:HandleSpell(id, startTimeCharges, durationCharges)
+    changed = chargeChanged or changed
+    nowReady = chargeNowReady or nowReady
 
     if not WeakAuras.IsPaused() then
       if nowReady then
@@ -2358,12 +2432,18 @@ do
     }
     spellKnown[id] = WeakAuras.IsSpellKnownIncludingPet(id);
 
-    local startTimeCooldown, durationCooldown, cooldownBecauseRune, spellCount = WeakAuras.GetSpellCooldownUnified(id, GetRuneDuration());
+    local charges, maxCharges, startTime, duration,
+          startTimeCooldown, durationCooldown, cooldownBecauseRune, startTimeCharges, durationCharges,
+          spellCount = WeakAuras.GetSpellCooldownUnified(id, GetRuneDuration());
+
+    spellCharges[id] = charges;
+    spellChargesMax[id] = maxCharges;
     spellCounts[id] = spellCount
     spellCds:HandleSpell(id, startTimeCooldown, durationCooldown)
     if not cooldownBecauseRune then
       spellCdsRune:HandleSpell(id, startTimeCooldown, durationCooldown)
     end
+    spellCdsCharges:HandleSpell(id, startTimeCharges, durationCharges)
   end
 
   function WeakAuras.WatchItemCooldown(id)
@@ -2436,6 +2516,7 @@ function WeakAuras.WatchUnitChange(unit)
     watchUnitChange.unitChangeGUIDS = {}
     watchUnitChange.unitRoles = {}
     watchUnitChange.inRaid = IsInRaid()
+    watchUnitChange.nameplateFaction = {}
     watchUnitChange.raidmark = {}
 
     WeakAuras.frames["Unit Change Frame"] = watchUnitChange;
@@ -2445,13 +2526,30 @@ function WeakAuras.WatchUnitChange(unit)
     watchUnitChange:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT");
     watchUnitChange:RegisterEvent("PARTY_MEMBERS_CHANGED");
     watchUnitChange:RegisterEvent("RAID_ROSTER_UPDATE");
+    watchUnitChange:HookEvent("NAME_PLATE_UNIT_ADDED", function(unit)
+      watchUnitChange:GetScript("OnEvent")(watchUnitChange, "NAME_PLATE_UNIT_ADDED", unit)
+    end)
+    watchUnitChange:HookEvent("NAME_PLATE_UNIT_REMOVED", function(unit)
+      watchUnitChange:GetScript("OnEvent")(watchUnitChange, "NAME_PLATE_UNIT_REMOVED", unit)
+    end)
     watchUnitChange:RegisterEvent("PLAYER_ENTERING_WORLD")
     watchUnitChange:RegisterEvent("UNIT_PET")
     watchUnitChange:RegisterEvent("RAID_TARGET_UPDATE")
 
     watchUnitChange:SetScript("OnEvent", function(self, event, unit)
       Private.StartProfileSystem("generictrigger unit change");
-      if event == "UNIT_PET" then
+      if event == "NAME_PLATE_UNIT_ADDED" or event == "NAME_PLATE_UNIT_REMOVED" then
+        local newGuid = WeakAuras.UnitExistsFixed(unit) and UnitGUID(unit) or ""
+        local newMarker = GetRaidTargetIndex(unit) or 0
+        if newGuid ~= watchUnitChange.unitChangeGUIDS[unit] then
+          WeakAuras.ScanEvents("UNIT_CHANGED_" .. unit, unit)
+          watchUnitChange.unitChangeGUIDS[unit] = newGuid
+          watchUnitChange.raidmark[unit] = newMarker
+        end
+        if event == "NAME_PLATE_UNIT_ADDED" then
+          watchUnitChange.nameplateFaction[unit] = WeakAuras.GetPlayerReaction(unit)
+        end
+      elseif event == "UNIT_PET" then
         local pet = WeakAuras.unitToPetUnit[unit]
         if pet then
           WeakAuras.ScanEvents("UNIT_CHANGED_" .. pet, pet)
@@ -3157,89 +3255,6 @@ do
     end
     playerMovingFrame.speed = GetUnitSpeed("player")
     playerMovingFrame:SetScript("OnUpdate", PlayerMoveSpeedUpdate)
-  end
-end
-
--- Nameplates
-do
-  local watchNameplates
-
-  local select = select
-  local gsub = string.gsub
-
-  local WorldFrame = WorldFrame
-  local WorldGetChildren = WorldFrame.GetChildren
-  local WorldGetNumChildren = WorldFrame.GetNumChildren
-
-  local lastUpdate = 0
-  local lastChildern, numChildren = 0, 0
-  local nameplateList = {}
-  local visibleNameplates = {}
-
-  local OVERLAY = [=[Interface\TargetingFrame\UI-TargetingFrame-Flash]=]
-  local FSPAT = "%s*"..(gsub(gsub(FOREIGN_SERVER_LABEL, "^%s", ""), "[%*()]", "%%%1")).."$"
-
-  local function nameplateShow(self)
-    Private.StartProfileSystem("nameplatetrigger")
-    local name = gsub(self.nameText:GetText() or "", FSPAT, "")
-    visibleNameplates[self] = name
-    WeakAuras.ScanEvents("NP_SHOW", self, name)
-	Private.StopProfileSystem("nameplatetrigger")
-  end
-
-  local function nameplateHide(self)
-    Private.StartProfileSystem("nameplatetrigger")
-    visibleNameplates[self] = nil
-    WeakAuras.ScanEvents("NP_HIDE", self, gsub(self.nameText:GetText() or "", FSPAT, ""))
-    Private.StopProfileSystem("nameplatetrigger")
-  end
-
-  local function findNewPlate(...)
-    for i = lastChildern + 1, numChildren do
-      local frame = select(i, ...)
-      local region, _, _, _, _, _, nameText = frame:GetRegions()
-      if (frame.UnitFrame or (region and region:GetObjectType() == "Texture" and region:GetTexture() == OVERLAY)) and not nameplateList[frame] then
-        frame.nameText = nameText
-        frame:HookScript("OnShow", nameplateShow)
-        frame:HookScript("OnHide", nameplateHide)
-        nameplateShow(frame)
-        nameplateList[frame] = true
-      end
-    end
-  end
-
-  local function nameplatesUpdate(_, elaps)
-    lastUpdate = lastUpdate + elaps
-    if lastUpdate < 1 then return end
-    numChildren = WorldGetNumChildren(WorldFrame)
-    if lastChildern ~= numChildren then
-      Private.StartProfileSystem("nameplatetrigger")
-      findNewPlate(WorldGetChildren(WorldFrame))
-      Private.StopProfileSystem("nameplatetrigger")
-      lastChildern = numChildren
-    end
-    lastUpdate = 0
-  end
-
-  local resultNameplates = {}
-  function WeakAuras.GetUnitNameplate(name, results)
-    if not name or name == "" then return end
-    results = results or resultNameplates
-    wipe(results)
-    for frame, nameplateName in pairs(visibleNameplates) do
-      if name == nameplateName then
-        results[#results + 1] = frame
-      end
-    end
-    return results[1], results
-  end
-
-  function WeakAuras.WatchNamePlates()
-    if not(watchNameplates) then
-      watchNameplates = CreateFrame("Frame")
-      WeakAuras.frames["Watch NamePlates Frames"] = watchNameplates
-    end
-    watchNameplates:SetScript("OnUpdate", nameplatesUpdate)
   end
 end
 

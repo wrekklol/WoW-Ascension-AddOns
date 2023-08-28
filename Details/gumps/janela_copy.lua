@@ -7,7 +7,7 @@ do
 
 	function _detalhes:CreateCopyPasteWindow()
 
-		local panel = CreateFrame ("Frame", "DetailsCopy", UIParent, "ButtonFrameTemplate")
+		local panel = CreateFrame ("Frame", "DetailsCopy", UIParent, "PortraitFrameTemplate")
 		panel:SetSize (512, 148)
 		tinsert (UISpecialFrames, "DetailsCopy")
 		panel:SetFrameStrata ("TOOLTIP")
@@ -51,6 +51,115 @@ do
 		panel.desc.height = 25
 		panel.desc.align = "|"
 		panel.desc.color = "gray"
+
+		panel:Hide()
+	end
+
+	function _detalhes:CreateImportWindow()
+		local panel = CreateFrame ("Frame", "DetailsImport", UIParent, "PortraitFrameTemplate")
+		panel:SetSize (512, 148)
+		tinsert (UISpecialFrames, "DetailsImport")
+		panel:SetFrameStrata ("TOOLTIP")
+		panel:SetPoint ("CENTER", UIParent, "CENTER")
+		panel.locked = false
+		panel:SetToplevel (true)
+		panel:SetMovable (true)
+		panel:SetScript ("OnMouseDown", function(self, button)
+			if (self.isMoving) then
+				return
+			end
+			if (button == "RightButton") then
+				self:Hide()
+			else
+				self:StartMoving()
+				self.isMoving = true
+			end
+		end)
+		panel:SetScript ("OnMouseUp", function(self, button)
+			if (self.isMoving and button == "LeftButton") then
+				self:StopMovingOrSizing()
+				self.isMoving = nil
+			end
+		end)
+
+		--> title
+		panel.TitleText:SetText ("Import")
+		panel.portrait:SetTexture ([[Interface\CHARACTERFRAME\TEMPORARYPORTRAIT-FEMALE-BLOODELF]])
+
+		panel.text = CreateFrame("EditBox", "$parentTextEntry", panel)
+		panel.text:SetBackdrop({bgFile = [["Interface\DialogFrame\UI-DialogBox-Background"]], tileSize = 64, tile = true, edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]], edgeSize = 10, insets = {left = 1, right = 1, top = 0, bottom = 0}})
+		panel.text:SetFontObject("GameFontHighlightSmall")
+		panel.text:SetBackdropColor(0, 0, 0, 0.9)
+		panel.text:SetSize(476, 14)
+		panel.text:SetPoint("TOPLEFT", 20, -127)
+		panel.text:SetScript("OnEnterPressed", function(self)
+			local importText = self:GetText()
+			local import = C_Serialize:DeserializeDecompressFromPrint(importText)
+			if import then
+				pcall(_detalhes.SaveConfig)
+				_detalhes.SaveConfig = nop
+				_detalhes_database.tabela_historico, _detalhes_database.tabela_overall, _detalhes_database.tabela_pets, _detalhes_database.savedbuffs = unpack(import)
+				ReloadUI()
+			end
+			self:SetText("")
+			panel:Hide()
+		end)
+
+		DetailsFrameWork:NewLabel (panel, _, _, "desc", "Paste import string and press enter.", "GameFontHighlight", 12)
+		panel.desc:SetPoint (340, -78)
+		panel.desc.width = 150
+		panel.desc.height = 25
+		panel.desc.align = "|"
+		panel.desc.color = "white"
+
+		panel:Hide()
+	end
+
+	function _detalhes:CreateExportWindow()
+
+		local panel = CreateFrame ("Frame", "DetailsExport", UIParent, "PortraitFrameTemplate")
+		panel:SetSize (512, 148)
+		tinsert (UISpecialFrames, "DetailsExport")
+		panel:SetFrameStrata ("TOOLTIP")
+		panel:SetPoint ("CENTER", UIParent, "CENTER")
+		panel.locked = false
+		panel:SetToplevel (true)
+		panel:SetMovable (true)
+		panel:SetScript ("OnMouseDown", function(self, button)
+			if (self.isMoving) then
+				return
+			end
+			if (button == "RightButton") then
+				self:Hide()
+			else
+				self:StartMoving()
+				self.isMoving = true
+			end
+		end)
+		panel:SetScript ("OnMouseUp", function(self, button)
+			if (self.isMoving and button == "LeftButton") then
+				self:StopMovingOrSizing()
+				self.isMoving = nil
+			end
+		end)
+	
+		--> title
+		panel.TitleText:SetText ("Export")
+		panel.portrait:SetTexture ([[Interface\CHARACTERFRAME\TEMPORARYPORTRAIT-FEMALE-BLOODELF]])
+
+		panel.text = CreateFrame("EditBox", "$parentTextEntry", panel)
+		panel.text:SetBackdrop({bgFile = [["Interface\DialogFrame\UI-DialogBox-Background"]], tileSize = 64, tile = true, edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]], edgeSize = 10, insets = {left = 1, right = 1, top = 0, bottom = 0}})
+		panel.text:SetFontObject("GameFontHighlightSmall")
+		panel.text:SetBackdropColor(0, 0, 0, 0.9)
+		panel.text:SetSize(476, 14)
+		panel.text:SetPoint("TOPLEFT", 20, -127)
+
+		DetailsFrameWork:NewLabel (panel, _, _, "desc", "Copy string below to share current segments.", "GameFontHighlight", 12)
+		panel.desc:SetPoint (340, -78)
+		panel.desc.width = 150
+		panel.desc.height = 25
+		panel.desc.align = "|"
+		panel.desc.color = "white"
 
 		panel:Hide()
 	end

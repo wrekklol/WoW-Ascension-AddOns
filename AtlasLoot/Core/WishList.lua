@@ -971,12 +971,27 @@ function AtlasLoot_GetWishList(wlstrg,sendername)
 	local success, wltab = ALModule:Deserialize(wlstrg);
 	if success then
 		for i,v in ipairs(wltab) do
-			v[8] = v[8].."|"..v[9].."|"..v[10];
-			table.remove(v,9)
-			table.remove(v,10)
+			if v[8] then
+				v[8] = v[8].."|"..v[9].."|"..v[10];
+				table.remove(v,9)
+				table.remove(v,10)
+			end
 		end
 		table.insert(AtlasLootWishList["Shared"],wltab)
 	end
+end
+
+local EscapePatterns={
+    "|[cC]%x%x%x%x%x%x";
+    "|T[^|]+|t";
+    "|H[^|]+|h%[(.-)%]|h";
+};
+ 
+local function StripEscapes(str)
+    for _,pattern in ipairs(EscapePatterns) do
+        str=str:gsub(pattern,pattern:find("%(.-[^%%]%)") and "%1" or "");
+    end
+    return str:gsub("^%s*(.-)%s*$","%1"):gsub("%s+"," ");-- Strip extra spaces
 end
 
 --[[
@@ -993,11 +1008,13 @@ function ALModule:OnCommReceived(prefix, message, distribution, sender)
 	elseif message == "AcceptWishlist" then
 		local wsltable = AtlasLoot:CloneTable(_G[curtable[2]][curtable[1]][curtable[3]]);
 			for i,v in ipairs(wsltable) do
-				v[4] = ""
-				local dataID, dataSource, dataPage = strsplit("|", v[8])
-				v[8] = dataID;
-				v[9] = dataSource;
-				v[10] = dataPage;
+				v[4] = gsub(StripEscapes(v[4]),"FF","");
+				if v[8] then
+					local dataID, dataSource, dataPage = strsplit("|", v[8])
+					v[8] = dataID;
+					v[9] = dataSource;
+					v[10] = dataPage;
+				end
 			end
 		local sendData = ALModule:Serialize(wsltable);
 		ALModule:SendCommMessage("AtlasLootWishlist", sendData, "WHISPER", sender);

@@ -816,13 +816,16 @@ local function GetAverageItemLevel()
 
 	-- same ilvl calculation as C_Player:GetAverageItemLevel()
 	for slot = INVSLOT_FIRST_EQUIPPED, INVSLOT_LAST_EQUIPPED do
-		if slot ~= INVSLOT_BODY and slot ~= INVSLOT_TABARD and slot ~= INVSLOT_RANGED and slot ~= INVSLOT_OFFHAND then
+		if slot ~= INVSLOT_BODY and slot ~= INVSLOT_TABARD then
 			local itemLink = GetInventoryItemLink("player", slot)
 
 			if itemLink then
 				local _, _, quality, itemLevel, _, _, _, _, itemEquipLoc = GetItemInfo(itemLink)
 
 				if itemLevel then
+					if slot == INVSLOT_RANGED or slot == INVSLOT_OFFHAND then
+						items = items + 1
+					end
 					ilvl = ilvl + itemLevel
 
 					colorCount = colorCount + 1
@@ -1016,18 +1019,22 @@ function module:SetStat(statFrame, unit, statIndex)
 			end
 		elseif statIndex == 2 then
 			local attackPower = GetAttackPowerForStat(statIndex, effectiveStat)
+			local meleeCrit = GetCritChanceFromAgility("player")
 
 			if attackPower > 0 then
-				statFrame.tooltip2 = format(STAT_ATTACK_POWER, attackPower)..format(statFrame.tooltip2, GetCritChanceFromAgility("player"), effectiveStat * ARMOR_PER_AGILITY)
+				statFrame.tooltip2 = format(STAT_ATTACK_POWER, attackPower)..format(statFrame.tooltip2, meleeCrit, effectiveStat * ARMOR_PER_AGILITY)
 			else
-				statFrame.tooltip2 = format(statFrame.tooltip2, GetCritChanceFromAgility("player"), effectiveStat * ARMOR_PER_AGILITY)
+				statFrame.tooltip2 = format(statFrame.tooltip2, meleeCrit, effectiveStat * ARMOR_PER_AGILITY)
 			end
+			statFrame.tooltip2 = statFrame.tooltip2 .. "\n" .. format(_G["DEFAULT_STAT"..statIndex.."_EXTRA"], meleeCrit*AGI_TO_SPELL_CRIT_PCT)
 		elseif statIndex == 4 then
 			local baseInt = min(20, effectiveStat)
 			local moreInt = effectiveStat - baseInt
+			local spellCrit = GetSpellCritChanceFromIntellect("player")
 
 			if UnitHasMana("player") then
-				statFrame.tooltip2 = format(statFrame.tooltip2, baseInt + moreInt * MANA_PER_INTELLECT, GetSpellCritChanceFromIntellect("player"))
+				statFrame.tooltip2 = format(statFrame.tooltip2, baseInt + moreInt * MANA_PER_INTELLECT, spellCrit, (baseInt + moreInt) * INT_TO_MELEE_CRIT_PCT)
+				statFrame.tooltip2 = statFrame.tooltip2 .. "\n" .. format(_G["DEFAULT_STAT"..statIndex.."_EXTRA"], spellCrit * INT_TO_MELEE_CRIT_PCT)
 			else
 				statFrame.tooltip2 = nil
 			end
@@ -1194,7 +1201,7 @@ function module:SetResilience(statFrame, unit)
 
 	module:SetLabelAndText(statFrame, STAT_RESILIENCE, minResilience)
 	statFrame.tooltip = HIGHLIGHT_FONT_COLOR_CODE..format(PAPERDOLLFRAME_TOOLTIP_FORMAT, STAT_RESILIENCE).." "..minResilience..FONT_COLOR_CODE_CLOSE
-	statFrame.tooltip2 = format(RESILIENCE_TOOLTIP, lowestRatingBonus, min(lowestRatingBonus * RESILIENCE_CRIT_CHANCE_TO_DAMAGE_REDUCTION_MULTIPLIER, maxRatingBonus), lowestRatingBonus * RESILIENCE_CRIT_CHANCE_TO_CONSTANT_DAMAGE_REDUCTION_MULTIPLIER)
+	statFrame.tooltip2 = format(RESILIENCE_TOOLTIP, min(lowestRatingBonus * RESILIENCE_CRIT_CHANCE_TO_CONSTANT_DAMAGE_REDUCTION_MULTIPLIER,maxRatingBonus))
 	statFrame:Show()
 end
 
@@ -1918,30 +1925,58 @@ function module:MysticEnchantPane_Update()
 	local buttons = PaperDollMysticEnchantPane.buttons
 	local name, texture, button
 
+	local enchantCount = {}
+	local equippedEnchants = {}
+
+	for index, slotInfo in ipairs(EnchantSlots) do
+		local enchant = GetInventoryItemMysticEnchant("player", slotInfo[1])
+		local RE
+		if enchant then
+			RE = GetREData(enchant)
+			if not enchantCount[RE.spellID] then
+				enchantCount[RE.spellID] = 1
+			else
+				enchantCount[RE.spellID] = enchantCount[RE.spellID] + 1
+			end
+		end
+
+		equippedEnchants[index] = {
+			slotID = slotInfo[1],
+			slotName = slotInfo[2],
+			spellID = RE and RE.spellID,
+			quality = RE and RE.quality,
+			limit = RE and RE.stackable,
+		}
+	end
+
 	for i = 1, #buttons do
 		button = buttons[i]
 		if (i + scrollOffset) <= 17 then
 			button:Show()
 			button:Enable()
-			local slot, slotStr = unpack(EnchantSlots[i + scrollOffset])
-			local enchant = GetInventoryItemMysticEnchant("player", slot)
+			local slotInfo = equippedEnchants[i + scrollOffset]
 
-			if enchant then
-				local RE = GetREData(enchant)
-				name, _, texture = GetSpellInfo(RE.spellID)
+			if slotInfo.spellID then
+				name, _, texture = GetSpellInfo(slotInfo.spellID)
 
 				if not name then
-					name = "|cffFF0000Unknown Enchant: " .. RE.spellID .. "|r"
+					name = "|cffFF0000Unknown Enchant: " .. slotInfo.spellID .. "|r"
 					texture = nil
 				else
-					name = ITEM_QUALITY_COLORS[RE.quality]:WrapText(name)
+					name = ITEM_QUALITY_COLORS[slotInfo.quality]:WrapText(name)
+				end
+
+				if enchantCount[slotInfo.spellID] > slotInfo.limit then
+					name = name .. " |cffFF0000" .. enchantCount[slotInfo.spellID] .. "/" .. slotInfo.limit .. "|r"
+				else
+					name = name .. " " .. enchantCount[slotInfo.spellID] .. "/" .. slotInfo.limit
 				end
 			else
 				name = nil
-				texture = select(2, GetInventorySlotInfo(slotStr))
+				texture = select(2, GetInventorySlotInfo(slotInfo.slotName))
 			end
 
-			local slotName = _G[slotStr]
+			local slotName = _G[slotInfo.slotName]
 			if name then
 				button.name = slotName .. "\n" .. name
 			else
@@ -2628,7 +2663,7 @@ do -- CharacterFrame
 
 	equipmentManagerPane.EquipSet = CreateFrame("Button", "$parentEquipSet", equipmentManagerPane, "UIPanelButtonTemplate")
 	equipmentManagerPane.EquipSet:SetText(EQUIPSET_EQUIP)
-	equipmentManagerPane.EquipSet:Size(93, 22)
+	equipmentManagerPane.EquipSet:Size(78, 22)
 	equipmentManagerPane.EquipSet:Point("TOPLEFT")
 	S:HandleButton(equipmentManagerPane.EquipSet)
 
@@ -2642,11 +2677,36 @@ do -- CharacterFrame
 
 	equipmentManagerPane.SaveSet = CreateFrame("Button", "$parentSaveSet", equipmentManagerPane, "UIPanelButtonTemplate")
 	equipmentManagerPane.SaveSet:SetText(SAVE)
-	equipmentManagerPane.SaveSet:Size(94, 22)
+	equipmentManagerPane.SaveSet:Size(78, 22)
 	equipmentManagerPane.SaveSet:Point("LEFT", "$parentEquipSet", "RIGHT", 3, 0)
 	S:HandleButton(equipmentManagerPane.SaveSet)
 
 	equipmentManagerPane.SaveSet:SetScript("OnClick", GearManagerDialogSaveSet_OnClick)
+
+	equipmentManagerPane.SendToBank = CreateFrame("CheckButton", "$parentSendToBank", equipmentManagerPane, "OptionsCheckButtonTemplate")
+	equipmentManagerPane.SendToBank:Size(28, 28)
+	equipmentManagerPane.SendToBank:Point("LEFT", "$parentSaveSet", "RIGHT", 12, 0)
+	S:HandleCheckBox(equipmentManagerPane.SendToBank)
+
+	equipmentManagerPane.SendToBank.Icon = equipmentManagerPane.SendToBank:CreateTexture(nil, "OVERLAY")
+	equipmentManagerPane.SendToBank.Icon:SetPoint("RIGHT", equipmentManagerPane.SendToBank, "LEFT", 2, 0)
+	equipmentManagerPane.SendToBank.Icon:SetSize(14, 14)
+	equipmentManagerPane.SendToBank.Icon:SetTexture("Interface\\GossipFrame\\BankerGossipIcon")
+
+	local cvar = C_CVar.GetBool("bankEquipmentManager")
+	equipmentManagerPane.SendToBank:SetChecked(cvar)
+	C_EquipmentSet.SetDstBank(cvar)
+
+	equipmentManagerPane.SendToBank:SetScript("OnClick", GearManagerDialogSendItemsToBank_OnClick)
+
+	equipmentManagerPane.SendToBank:SetScript("OnEnter", function(self)
+		GameTooltip:SetOwner(self, "ANCHOR_BOTTOMLEFT")
+		GameTooltip:SetText(EQUIPMENT_MANAGER_STORE_SETS_IN_BANK, 1, 1, 1, 1)
+		GameTooltip:AddLine(EQUIPMENT_MANAGER_STORE_SETS_IN_BANK_TOOLTIP, 1, 0.82, 0, true)
+		GameTooltip:Show()
+	end)
+
+	equipmentManagerPane.SendToBank:SetScript("OnLeave", GameTooltip_Hide)
 
 	equipmentManagerPane.scrollBar = CreateFrame("Slider", "$parentScrollBar", equipmentManagerPane, "HybridScrollBarTemplate")
 	equipmentManagerPane.scrollBar:Point("TOPLEFT", equipmentManagerPane, "TOPRIGHT", 2, -16)
@@ -2657,8 +2717,8 @@ do -- CharacterFrame
 	CreateSmoothScrollAnimation(equipmentManagerPane.scrollBar, true)
 
 	equipmentManagerPane.scrollBar.Show = function(self)
-		equipmentManagerPane.EquipSet:Width(83)
-		equipmentManagerPane.SaveSet:Width(83)
+		equipmentManagerPane.EquipSet:Width(64)
+		equipmentManagerPane.SaveSet:Width(64)
 
 		equipmentManagerPane:Width(169)
 		equipmentManagerPane:Point("TOPRIGHT", CharacterFrame.backdrop, -29, -64)
@@ -2669,8 +2729,8 @@ do -- CharacterFrame
 	end
 
 	equipmentManagerPane.scrollBar.Hide = function(self)
-		equipmentManagerPane.EquipSet:Width(93)
-		equipmentManagerPane.SaveSet:Width(94)
+		equipmentManagerPane.EquipSet:Width(76)
+		equipmentManagerPane.SaveSet:Width(76)
 
 		equipmentManagerPane:Width(190)
 		equipmentManagerPane:Point("TOPRIGHT", CharacterFrame.backdrop, -8, -64)
@@ -2802,6 +2862,13 @@ do -- CharacterFrame
 	if not E.private.enhanced.character.player.orderName2 then
 		E.private.enhanced.character.player.orderName2 = E.private.enhanced.character.player.orderName
 		E.private.enhanced.character.player.collapsedName2 = table.copy(E.private.enhanced.character.player.collapsedName)
+	end
+	
+	if C_Player:IsDefaultClass() then
+		-- default class has no primary stat
+		PAPERDOLL_STATCATEGORIES["PRIMARY_STAT"] = nil
+		PAPERDOLL_STATINFO["PRIMARY_STAT"] = nil
+		table.RemoveItem(PAPERDOLL_STATCATEGORY_DEFAULTORDER, "PRIMARY_STAT")
 	end
 
 	local activeSpec = GetActiveTalentGroup()

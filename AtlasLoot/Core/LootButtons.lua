@@ -69,7 +69,9 @@ function AtlasLootItem_OnEnter(self)
                     if ( AtlasLoot.db.profile.ItemIDs ) then
                         AtlasLootTooltip:AddLine(BLUE..AL["ItemID:"].." "..self.itemID, nil, nil, nil, 1);
                     end
-                    if( self.droprate ~= nil) then
+                    if( self.droprate ~= nil) and ( self.droprate:match("=EI=") ) then
+                        AtlasLootTooltip:AddLine(AL["Extra Info: "]..string.sub(self.droprate, 5), 1, 1, 0);
+                    elseif( self.droprate ~= nil) then
                         AtlasLootTooltip:AddLine(AL["Drop Rate: "]..self.droprate, 1, 1, 0);
                     end
                     if( DKP ~= nil and DKP ~= "" ) then
@@ -96,8 +98,10 @@ function AtlasLootItem_OnEnter(self)
                     if ( AtlasLoot.db.profile.ItemIDs ) then
                         AtlasLootTooltip:AddLine(BLUE..AL["ItemID:"].." "..self.itemID, nil, nil, nil, 1);
                     end
-                    if( self.droprate ~= nil) then
-                        AtlasLootTooltip:AddLine(AL["Drop Rate: "]..self.droprate, 1, 1, 0, 1);
+                    if( self.droprate ~= nil) and (self.droprate:match("=EI=")) then
+                        AtlasLootTooltip:AddLine(AL["Extra Info: "]..string.sub(self.droprate, 5), 1, 1, 0);
+                    elseif( self.droprate ~= nil) then
+                        AtlasLootTooltip:AddLine(AL["Drop Rate: "]..self.droprate, 1, 1, 0);
                     end
                     if( DKP ~= nil and DKP ~= "" ) then
                         AtlasLootTooltip:AddLine(RED..DKP.." "..AL["DKP"], 1, 1, 0);
@@ -118,8 +122,10 @@ function AtlasLootItem_OnEnter(self)
                 if ( AtlasLoot.db.profile.ItemIDs ) then
                     GameTooltip:AddLine(BLUE..AL["ItemID:"].." "..self.itemID, nil, nil, nil, 1);
                 end
-                if( self.droprate ~= nil) then
-                    GameTooltip:AddLine(AL["Drop Rate: "]..self.droprate, 1, 1, 0);
+                if( self.droprate ~= nil) and ( self.droprate:match("=EI=") ) then
+                    AtlasLootTooltip:AddLine(AL["Extra Info: "]..string.sub(self.droprate, 5), 1, 1, 0);
+                elseif( self.droprate ~= nil) then
+                    AtlasLootTooltip:AddLine(AL["Drop Rate: "]..self.droprate, 1, 1, 0);
                 end
                 if( DKP ~= nil and DKP ~= "" ) then
                     GameTooltip:AddLine(RED..DKP.." "..AL["DKP"], 1, 1, 0);
@@ -141,7 +147,9 @@ function AtlasLootItem_OnEnter(self)
                         if ( AtlasLoot.db.profile.ItemIDs ) then
                             AtlasLootTooltip:AddLine(BLUE..AL["ItemID:"].." "..self.itemID, nil, nil, nil, 1);
                         end
-                        if( self.droprate ~= nil) then
+                        if( self.droprate ~= nil) and ( self.droprate:match("=EI=") ) then
+                            AtlasLootTooltip:AddLine(AL["Extra Info: "]..string.sub(self.droprate, 5), 1, 1, 0);
+                        elseif( self.droprate ~= nil) then
                             AtlasLootTooltip:AddLine(AL["Drop Rate: "]..self.droprate, 1, 1, 0);
                         end
                         if( DKP ~= nil and DKP ~= "" ) then
@@ -219,6 +227,8 @@ function AtlasLootItem_OnClick(self ,arg1)
             StaticPopupDialogs.ATLASLOOT_ADD_CUSTOMHEADER.num = self.number;
         elseif (arg1=="LeftButton") and ATLASLOOT_ITEM_UNLOCK then
             AtlasLoot:MoveWishlistItem("Up",self.number);
+        elseif (arg1=="RightButton" and IsAltKeyDown()) then
+            OpenAscensionDBURL("?item="..self.itemID)
         elseif(arg1=="RightButton" and not iteminfo and self.itemID ~= 0) then
             AtlasLootTooltip:SetHyperlink("item:"..self.itemID..":0:0:0:0:0:0:0");
             if not AtlasLoot.db.profile.ItemSpam then
@@ -273,6 +283,8 @@ function AtlasLootItem_OnClick(self ,arg1)
         if IsShiftKeyDown() then
             spellID = string.sub(self.itemID, 2);
             ChatEdit_InsertLink(AtlasLoot_GetEnchantLink(spellID));
+        elseif (arg1=="RightButton" and IsAltKeyDown()) then
+            OpenAscensionDBURL("?item="..self.itemID)
         elseif IsAltKeyDown() then
             if AtlasLootItemsFrame.refresh[2] == "AtlasLoot_CurrentWishList" then
                 AtlasLoot_DeleteFromWishList(self.itemID, self.number);
@@ -321,11 +333,11 @@ function AtlasLootItem_ShowCompareItem(self)
    if ( not link ) then
       return
    end
-   
+
    ShoppingTooltip1:SetOwner(AtlasLootTooltip, "ANCHOR_NONE");
    ShoppingTooltip2:SetOwner(AtlasLootTooltip, "ANCHOR_NONE");
    ShoppingTooltip3:SetOwner(AtlasLootTooltip, "ANCHOR_NONE");
-   
+
    local item1 = nil;
    local item2 = nil;
    local item3 = nil;
@@ -342,7 +354,7 @@ function AtlasLootItem_ShowCompareItem(self)
    if not item1 and not item2 and not item3 then 
         return 
     end
-   
+
    if item3 then
         if not item1 then
             item1, item3 = true, nil;
@@ -356,11 +368,11 @@ function AtlasLootItem_ShowCompareItem(self)
         item1, item2 = true, nil;
         ShoppingTooltip1:SetHyperlinkCompareItem(link, 2, 1, AtlasLootTooltip);
     end
-   
+
    local left, right, anchor1, anchor2 = AtlasLootTooltip:GetLeft(), AtlasLootTooltip:GetRight(), "TOPLEFT", "TOPRIGHT";
    if not left or not right then return end
 	if (GetScreenWidth() - right) < left then anchor1, anchor2 = anchor2, anchor1 end
-    
+
     if item1 then
 		ShoppingTooltip1:ClearAllPoints();
 		ShoppingTooltip1:SetPoint(anchor1, AtlasLootTooltip, anchor2, 0, -10);
@@ -371,14 +383,14 @@ function AtlasLootItem_ShowCompareItem(self)
 			ShoppingTooltip2:SetPoint(anchor1, ShoppingTooltip1, anchor2);
 			ShoppingTooltip2:Show();
 		end
-        
+
         if item3 then
 			ShoppingTooltip3:ClearAllPoints();
 			ShoppingTooltip3:SetPoint(anchor1, ShoppingTooltip2, anchor2);
 			ShoppingTooltip3:Show();
 		end
 	end
-    
+
 end
 
-   
+

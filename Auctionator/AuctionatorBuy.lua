@@ -9,7 +9,7 @@ local ATR_BUY_JUST_BOUGHT				= 2;
 local ATR_BUY_PROCESSING_QUERY_RESULTS	= 3;
 local ATR_BUY_WAITING_FOR_AH_CAN_SEND	= 4;
 
-local gBuyState = ATR_BUY_NULL;
+local Atr_BuyState = ATR_BUY_NULL;
 
 -----------------------------------------
 
@@ -28,13 +28,13 @@ local gAtr_Buy_Pass;
 
 function Atr_Buy_Debug1 (yellow)
 
-	if (gBuyState == ATR_BUY_NULL)										then asstr = "ATR_BUY_NULL"; end;
-	if (gBuyState == ATR_BUY_QUERY_SENT)								then asstr = "ATR_BUY_QUERY_SENT"; end;
-	if (gBuyState == ATR_BUY_PROCESSING_QUERY_RESULTS)					then asstr = "ATR_BUY_PROCESSING_QUERY_RESULTS"; end;
-	if (gBuyState == ATR_BUY_JUST_BOUGHT)								then asstr = "ATR_BUY_JUST_BOUGHT"; end;
-	if (gBuyState == ATR_BUY_WAITING_FOR_AH_CAN_SEND)					then asstr = "ATR_BUY_WAITING_FOR_AH_CAN_SEND"; end;
+	if (Atr_BuyState == ATR_BUY_NULL)										then asstr = "ATR_BUY_NULL"; end;
+	if (Atr_BuyState == ATR_BUY_QUERY_SENT)								then asstr = "ATR_BUY_QUERY_SENT"; end;
+	if (Atr_BuyState == ATR_BUY_PROCESSING_QUERY_RESULTS)					then asstr = "ATR_BUY_PROCESSING_QUERY_RESULTS"; end;
+	if (Atr_BuyState == ATR_BUY_JUST_BOUGHT)								then asstr = "ATR_BUY_JUST_BOUGHT"; end;
+	if (Atr_BuyState == ATR_BUY_WAITING_FOR_AH_CAN_SEND)					then asstr = "ATR_BUY_WAITING_FOR_AH_CAN_SEND"; end;
 
-	if (gBuyState ~= ATR_BUY_NULL) then
+	if (Atr_BuyState ~= ATR_BUY_NULL) then
 		if (yellow) then
 			zc.msg (asstr, "curpage: ", gAtr_Buy_CurPage, "   gAtr_Buy_NumBought: ", gAtr_Buy_NumBought);
 		else
@@ -48,7 +48,7 @@ end
 
 function Atr_ClearBuyState()
 
-	gBuyState = ATR_BUY_NULL;
+	Atr_BuyState = ATR_BUY_NULL;
 
 end
 
@@ -105,7 +105,7 @@ function Atr_Buy_QueueQuery (page)
 
 --zc.msg_pink ("Queuing query for page ", page);
 
-	gBuyState = ATR_BUY_WAITING_FOR_AH_CAN_SEND;
+	Atr_BuyState = ATR_BUY_WAITING_FOR_AH_CAN_SEND;
 	gAtr_Buy_Waiting_Start = time();
 	
 	Atr_Buy_SendQuery();		-- give it a shot
@@ -117,7 +117,7 @@ function Atr_Buy_SendQuery ()
 
 	if (CanSendAuctionQuery()) then
 
-		gBuyState = ATR_BUY_QUERY_SENT;
+		Atr_BuyState = ATR_BUY_QUERY_SENT;
 
 		local queryString = zc.UTF8_Truncate (gAtr_Buy_ItemName,63);	-- attempting to reduce number of disconnects
 
@@ -133,12 +133,12 @@ local prevBuyState;
 
 function Atr_Buy_Idle ()
 
-	if (gBuyState ~= prevBuyState) then
-		prevBuyState = gBuyState;
+	if (Atr_BuyState ~= prevBuyState) then
+		prevBuyState = Atr_BuyState;
 --		Atr_Buy_Debug1 (true);
 	end
 	
-	if (gBuyState == ATR_BUY_WAITING_FOR_AH_CAN_SEND) then
+	if (Atr_BuyState == ATR_BUY_WAITING_FOR_AH_CAN_SEND) then
 	
 --		zc.md ("WAITING_FOR_AH_CAN_SEND: ", time() - gAtr_Buy_Waiting_Start);
 		
@@ -150,7 +150,7 @@ function Atr_Buy_Idle ()
 			Atr_Buy_SendQuery ();
 		end
 		
-	elseif (gBuyState == ATR_BUY_JUST_BOUGHT) then
+	elseif (Atr_BuyState == ATR_BUY_JUST_BOUGHT) then
 
 --		zc.msg_pink ("ATR_BUY_JUST_BOUGHT: ",  time() - gAtr_Buy_Waiting_Start);
 
@@ -168,18 +168,18 @@ function Atr_Buy_OnAuctionUpdate()
 
 --	Atr_Buy_Debug1();
 
-	if (gBuyState == ATR_BUY_QUERY_SENT) then
+	if (Atr_BuyState == ATR_BUY_QUERY_SENT) then
 		Atr_Buy_CheckForMatches ();
 	end
 
-	return (gBuyState ~= ATR_BUY_NULL);
+	return (Atr_BuyState ~= ATR_BUY_NULL);
 end
 
 -----------------------------------------
 
 function Atr_Buy_CheckForMatches ()
 
-	gBuyState = ATR_BUY_PROCESSING_QUERY_RESULTS;
+	Atr_BuyState = ATR_BUY_PROCESSING_QUERY_RESULTS;
 	
 	if (gAtr_Buy_Query:CheckForDuplicatePage(gAtr_Buy_CurPage)) then
 		Atr_Buy_QueueQuery (gAtr_Buy_CurPage);
@@ -337,7 +337,7 @@ function Atr_Buy_Confirm_OK ()
 --zc.msg (numJustBought, " from page ", gAtr_Buy_CurPage);
 	
 		AuctionatorSubtractFromScan (gAtr_Buy_ItemName, gAtr_Buy_StackSize, gAtr_Buy_BuyoutPrice, gAtr_Buy_NumBought);
-		gBuyState = ATR_BUY_JUST_BOUGHT;
+		Atr_BuyState = ATR_BUY_JUST_BOUGHT;
 		gAtr_Buy_Waiting_Start = time();
 		Atr_Buy_Confirm_OKBut:Disable();
 	else
@@ -358,7 +358,7 @@ end
 
 function Atr_Buy_Cancel (msg)
 	
-	gBuyState = ATR_BUY_NULL;
+	Atr_BuyState = ATR_BUY_NULL;
 
 	Atr_Buy_Confirm_Frame:Hide();
 	

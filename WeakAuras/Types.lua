@@ -25,6 +25,7 @@ Private.glow_action_types = {
 
 Private.glow_frame_types = {
   UNITFRAME = L["Unit Frame"],
+  NAMEPLATE = L["Nameplate"],
   FRAMESELECTOR = L["Frame Selector"]
 }
 
@@ -773,6 +774,7 @@ Private.unit_types_bufftrigger_2 = {
   boss = L["Boss"],
   arena = L["Arena"],
   pet = L["Pet"],
+  nameplate = L["Nameplate"],
   member = L["Specific Unit"],
   multi = L["Multi-target"]
 }
@@ -794,6 +796,7 @@ Private.actual_unit_types_cast = {
   raid = L["Raid"],
   boss = L["Boss"],
   arena = L["Arena"],
+  nameplate = L["Nameplate"],
   pet = L["Pet"],
   member = L["Specific Unit"],
 }
@@ -801,6 +804,7 @@ Private.actual_unit_types_cast = {
 Private.actual_unit_types_cast_tooltip = L["• |cff00ff00Player|r, |cff00ff00Target|r, |cff00ff00Focus|r, and |cff00ff00Pet|r correspond directly to those individual unitIDs.\n• |cff00ff00Specific Unit|r lets you provide a specific valid unitID to watch.\n|cffff0000Note|r: The game will not fire events for all valid unitIDs, making some untrackable by this trigger.\n• |cffffff00Party|r, |cffffff00Raid|r, |cffffff00Boss|r, |cffffff00Arena|r, and |cffffff00Nameplate|r can match multiple corresponding unitIDs.\n• |cffffff00Smart Group|r adjusts to your current group type, matching just the \"player\" when solo, \"party\" units (including \"player\") in a party or \"raid\" units in a raid.\n\n|cffffff00*|r Yellow Unit settings will create clones for each matching unit while this trigger is providing Dynamic Info to the Aura."]
 
 Private.threat_unit_types = {
+  nameplate = L["Nameplate"],
   target = L["Target"],
   focus = L["Focus"],
   boss = L["Boss"],
@@ -826,6 +830,11 @@ Private.unit_threat_situation_types = {
 WeakAuras.class_types = {}
 for i, class in ipairs(CLASS_SORT_ORDER) do
   WeakAuras.class_types[class] = string.format("|c%s%s|r", WA_GetClassColor(class), LOCALIZED_CLASS_NAMES_MALE[class])
+end
+
+WeakAuras.specialization_types = {}
+for i = 1, #SPEC_SWAP_SPELLS do
+  WeakAuras.specialization_types[i] = L["Talent Specialization"] .. " " .. i
 end
 
 Private.faction_group = {
@@ -1907,10 +1916,19 @@ Private.group_types = {
   raid = L["In Raid"]
 }
 
+Private.ruleset_types = {
+  one = L["None"],
+  pve = NO_RISK_PVE,
+  pvp = NO_RISK_PVP,
+  highrisk = HIGH_RISK_PVP,
+}
+
 Private.difficulty_types = {
   none = L["None"],
   normal = PLAYER_DIFFICULTY1,
-  heroic = PLAYER_DIFFICULTY2
+  heroic = PLAYER_DIFFICULTY2,
+  mythic = "Mythic",
+  ascended = "Ascended",
 }
 
 Private.classification_types = {
@@ -2622,6 +2640,7 @@ Private.baseUnitId = {
 }
 
 Private.multiUnitId = {
+  ["nameplate"] = true,
   ["boss"] = true,
   ["arena"] = true,
   ["group"] = true,
@@ -2634,6 +2653,7 @@ Private.multiUnitId = {
 }
 
 Private.multiUnitUnits = {
+  ["nameplate"] = {},
   ["boss"] = {},
   ["arena"] = {},
   ["group"] = {},
@@ -2669,6 +2689,8 @@ end
 for i = 1, 40 do
   Private.baseUnitId["raid"..i] = true
   Private.baseUnitId["raidpet"..i] = true
+  Private.baseUnitId["nameplate"..i] = true
+  Private.multiUnitUnits.nameplate["nameplate"..i] = true
   Private.multiUnitUnits.group["raid"..i] = true
   Private.multiUnitUnits.raid["raid"..i] = true
   Private.multiUnitUnits.group["raidpet"..i] = true

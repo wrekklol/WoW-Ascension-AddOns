@@ -1105,13 +1105,21 @@ function B:VendorGrayCheck()
 	end
 end
 
+local function BagUpdate(self, bagIDs)
+	for bagID in pairs(bagIDs) do
+		B.OnEvent(self, "BAG_UPDATE", bagID) 
+	end
+end
+
 function B:ContructContainerFrame(name, isBank)
 	local strata = E.db.bags.strata or "DIALOG"
 
 	local f = CreateFrame("Button", name, E.UIParent)
+	LibStub("AceBucket-3.0"):Embed(f)
 	f:SetTemplate("Transparent")
 	f:SetFrameStrata(strata)
-	f:RegisterEvent("BAG_UPDATE") -- Has to be on both frames
+	f.BagUpdate = BagUpdate
+	f:RegisterBucketEvent("BAG_UPDATE", 0.2, "BagUpdate") -- Has to be on both frames
 	f:RegisterEvent("BAG_UPDATE_COOLDOWN") -- Has to be on both frames
 	f.events = isBank and {"PLAYERBANKSLOTS_CHANGED"} or {"ITEM_LOCK_CHANGED", "ITEM_UNLOCKED", "QUEST_ACCEPTED", "QUEST_REMOVED", "QUEST_LOG_UPDATE"}
 
@@ -1192,6 +1200,7 @@ function B:ContructContainerFrame(name, isBank)
 		f.sortButton:SetScript("OnEnter", self.Tooltip_Show)
 		f.sortButton:SetScript("OnLeave", GameTooltip_Hide)
 		f.sortButton:SetScript("OnClick", function()
+			f:UnregisterAllBuckets()
 			f:UnregisterAllEvents() --Unregister to prevent unnecessary updates
 			if not f.registerUpdate then
 				B:SortingFadeBags(f, true)
@@ -1708,7 +1717,7 @@ function B:CreateSellFrame()
 	B.SellFrame:Size(200, 40)
 	B.SellFrame:Point("CENTER", E.UIParent)
 	B.SellFrame:CreateBackdrop("Transparent")
-	B.SellFrame:SetAlpha(E.db.bags.vendorGrays.progressBar and 1 or 0)
+	B.SellFrame:SetAlpha(1)
 	B.SellFrame:Hide()
 
 	B.SellFrame.title = B.SellFrame:CreateFontString(nil, "OVERLAY")
@@ -1729,21 +1738,12 @@ function B:CreateSellFrame()
 	B.SellFrame.statusbar.ValueText:SetText("0 / 0 ( 0s )")
 
 	B.SellFrame.Info = {
-		SellInterval = E.db.bags.vendorGrays.interval,
-		details = E.db.bags.vendorGrays.details,
+		SellInterval = 0.2,
+		details = false,
 		itemList = {}
 	}
 
 	B.SellFrame:SetScript("OnUpdate", B.VendorGreys_OnUpdate)
-end
-
-function B:UpdateSellFrameSettings()
-	if not B.SellFrame then return end
-
-	B.SellFrame.Info.SellInterval = E.db.bags.vendorGrays.interval
-	B.SellFrame.Info.details = E.db.bags.vendorGrays.details
-
-	B.SellFrame:SetAlpha(E.db.bags.vendorGrays.progressBar and 1 or 0)
 end
 
 B.BagIndice = {

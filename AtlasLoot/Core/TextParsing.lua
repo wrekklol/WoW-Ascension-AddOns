@@ -687,6 +687,14 @@ function AtlasLoot_FixText(text)
     text = gsub(text, "#aq20s7#", AL["Gift of the Gathering Storm"]);
     text = gsub(text, "#aq20s8#", AL["Implements of Unspoken Names"]);
     text = gsub(text, "#aq20s9#", AL["Battlegear of Unyielding Strength"]);
+    text = gsub(text, "#aq20s10#", AL["Keepsakes of Endless Machinations"]);
+    text = gsub(text, "#aq20s11#", AL["Regalia of Roaring Earth"]);
+    text = gsub(text, "#aq20s12#", AL["Relics of Ferocious Vigor"]);
+    text = gsub(text, "#aq20s13#", AL["Laurels of the Faithful Zealot"]);
+    text = gsub(text, "#aq20s14#", AL["Instruments of Masterful Technique"]);
+    text = gsub(text, "#aq20s15#", AL["Decorations of Martial Prowess"]);
+    text = gsub(text, "#aq20s16#", AL["Trophies of Unrivaled Rage"]);
+    text = gsub(text, "#aq20s17#", AL["Remnants of Expansive Research"]);
 
     -- AQ40 Sets
     text = gsub(text, "#aq40s1#", AL["Genesis Raiment"]);
@@ -703,6 +711,7 @@ function AtlasLoot_FixText(text)
     text = gsub(text, "#tt1#", AL["Tier 1 Set Token (Click)"]);
     text = gsub(text, "#tt2#", AL["Tier 2 Set Token (Click)"]);
     text = gsub(text, "#tt2.5#", AL["Tier 2.5 Set Token (Click)"]);
+    text = gsub(text, "#tt2.5A#", AL["Set Token (Click)"]); --Accessory tokens
     text = gsub(text, "#tt3#", AL["Tier 3 Set Token (Click)"]);
     text = gsub(text, "#tt4#", AL["Tier 4 Set Token (Click)"]);
     text = gsub(text, "#tt5#", AL["Tier 5 Set Token (Click)"]);
@@ -1120,6 +1129,7 @@ function AtlasLoot_FixText(text)
     text = gsub(text, "#halaaresearch#", "|TInterface\\Icons\\INV_Misc_Rune_09:0|t");
     text = gsub(text, "#spiritshard#", "|TInterface\\Icons\\INV_Jewelry_FrostwolfTrinket_04:0|t");
     text = gsub(text, "#wintergrasp#", "|TInterface\\Icons\\INV_Misc_Platnumdisks:0|t");
+    text = gsub(text, "#tokenofprestige#", "|TInterface\\Icons\\Spell_Holy_MindSooth:0|t");
     text = gsub(text, "#wintergraspmark#", "|TInterface\\Icons\\INV_Jewelry_Ring_66:0|t");
     text = gsub(text, "#venturecoin#", "|TInterface\\Icons\\INV_Misc_Coin_16:0|t");
     text = gsub(text, "#heroic#", "|TInterface\\Icons\\Spell_Holy_ChampionsBond:0|t");

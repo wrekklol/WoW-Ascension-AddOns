@@ -560,7 +560,7 @@ scrollFrame.scrollBar = scrollSlider
 local rows = setmetatable({}, { __index = function(t, i)
 	local row = CreateFrame("CheckButton", "$parentRow"..i, Atlasloot_Difficulty_ScrollFrame)
 	row:SetSize(230, ROW_HEIGHT);
-    --row:SetFrameStrata("Dialog");
+    row:SetFrameStrata("HIGH");
 	row:SetNormalFontObject(GameFontHighlightLeft);
     row:SetCheckedTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD");
     row:SetScript("OnClick", function()
@@ -575,7 +575,7 @@ local rows = setmetatable({}, { __index = function(t, i)
             end
             AtlasLoot:ScrollFrameUpdate();
         end
-       
+
     end)
 	if i == 1 then
 		row:SetPoint("TOPLEFT", scrollFrame, 8, -8)
@@ -654,7 +654,7 @@ local scrollSlider2 = CreateFrame("ScrollFrame","AtlasLootDefaultFrameSubTableSc
 local rows2 = setmetatable({}, { __index = function(t, i)
     local row = CreateFrame("CheckButton", "$parentRow"..i, Atlasloot_SubTableFrame)
     row:SetSize(230, ROW_HEIGHT);
-    --row:SetFrameStrata("Dialog");
+    row:SetFrameStrata("HIGH");
     row:SetNormalFontObject(GameFontHighlightLeft);
     row:SetCheckedTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD");
     row.Text = row:CreateFontString("$parentRow"..i.."Text","OVERLAY","GameFontNormal");

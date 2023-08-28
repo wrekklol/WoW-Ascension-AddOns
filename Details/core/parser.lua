@@ -22,28 +22,24 @@ local _IsInRaid = IsInRaid --wow api local
 local _IsInGroup = IsInGroup --wow api local
 local _GetNumGroupMembers = GetNumGroupMembers --wow api local
 local _GetTime = GetTime
-local _UnitBuff = UnitBuff
+local _IsAbsorbSpell = IsAbsorbSpell
 
-local _cstr = string.format --lua local
 local _str_sub = string.sub --lua local
 local _table_insert = table.insert --lua local
-local _select = select --lua local
 local _bit_band = bit.band --lua local
+local _bit_contains = bit.contains
 local _math_floor = math.floor --lua local
 local _table_remove = table.remove --lua local
 local _ipairs = ipairs --lua local
 local _pairs = pairs --lua local
 local _table_sort = table.sort --lua local
 local _type = type --lua local
-local _math_ceil = math.ceil --lua local
 local _table_wipe = table.wipe --lua local
-local _strsplit = strsplit
 local _tonumber = tonumber
 
 local _GetSpellInfo = _detalhes.getspellinfo --details api
 local escudo = _detalhes.escudos --details local
 local parser = _detalhes.parser --details local
-local absorb_spell_list = _detalhes.AbsorbSpells --details local
 local fire_ward_absorb_list = _detalhes.MageFireWardSpells
 local frost_ward_absorb_list = _detalhes.MageFrostWardSpells
 local shadow_ward_absorb_list = _detalhes.WarlockShadowWardSpells
@@ -1343,12 +1339,13 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 
 	function parser:heal_absorb(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, absorbed, spelltype)
 		local found_absorb
+		local isAbsorb, absorbSchool
 
 		escudo[alvo_name] = escudo[alvo_name] or {}
 		for _, absorb in ipairs(escudo[alvo_name]) do
 			-- check if we have twin val'kyr light essence and we took fire damage
 			if absorb.spellid == 65686 then
-				if _bit_band(spelltype, 0x4) == spelltype then
+				if _bit_contains(0x4, spelltype) == spelltype then
 					-- honestly I don't think this should be tracked as healing by details, the healing meters would be flooded with useless info.
 					--found_absorb = absorb
 					--break
@@ -1356,38 +1353,30 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 				end
 			-- check if we have twin val'kyr dark essence and we took shadow damage
 			elseif absorb.spellid == 65684 then
-				if _bit_band(spelltype, 0x20) == spelltype then
+				if bit.cotanins(0x20, spelltype) == spelltype then
 					-- see above
 					--found_absorb = absorb
 					--break
 					return
 				end
-			-- check if its a frost ward
-			elseif frost_ward_absorb_list[absorb.spellid] then
-				-- only pick if its frost damage
-				if (_bit_band(spelltype, 0x10) == spelltype) then
-					found_absorb = absorb
-					break -- exit since wards are priority
-				end
-			-- check if its a fire ward
-			elseif fire_ward_absorb_list[absorb.spellid] then
-				-- only pick if its fire damage
-				if (_bit_band(spelltype, 0x4) == spelltype) then
-					found_absorb = absorb
-					break -- exit since wards are priority
-				end
-			-- check if its a shadow ward
-			elseif shadow_ward_absorb_list[absorb.spellid] then
-				-- only pick if its shadow damage
-				if (_bit_band(spelltype, 0x20) == spelltype) then
-					found_absorb = absorb
-					break -- exit since wards are priority
-				end
 			else
-				found_absorb = absorb
-				break -- exit since this should be the oldest absorb added and not a ward
+				isAbsorb, absorbSchool = _IsAbsorbSpell(absorb.spellid)
+				if isAbsorb then
+					if absorbSchool and absorbSchool < 0x7E then -- absorb by school comes first
+						if _bit_contains(absorbSchool, spelltype) then
+							-- directly set found_absorb so this is consumed first
+							found_absorb = absorb
+							break
+						end
+					elseif not absorbSchool or _bit_contains(absorbSchool, spelltype) then
+						if not found_absorb then
+							found_absorb = absorb
+						end
+					end
+				end
 			end
 		end
+
 		if found_absorb then
 			return parser:heal(token, time, found_absorb.serial, found_absorb.name, found_absorb.flags, alvo_serial, alvo_name, alvo_flags, found_absorb.spellid, found_absorb.spellname, nil, absorbed, 0, 0, nil, true)
 		end -- should we do something if it expected to absorb but couldn't?
@@ -1709,7 +1698,7 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 	------------------------------------------------------------------------------------------------
 		--> healing done absorbs
 		-- this needs to be outside buff / debuffs for boss mechanics which absorb damage.
-		if(absorb_spell_list[spellid]) then
+		if(_IsAbsorbSpell(spellid)) then
 			escudo[alvo_name] = escudo[alvo_name] or {}
 
 			-- create absorb data
@@ -1943,7 +1932,7 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 	------------------------------------------------------------------------------------------------
 		--> healing done(shields)
 		-- this needs to be outside buff / debuffs for boss mechanics which absorb damage.
-		if(absorb_spell_list[spellid]) then
+		if(_IsAbsorbSpell(spellid)) then
 			escudo[alvo_name] = escudo[alvo_name] or {}
 
 			-- refresh absorb if it's already applied by this player
@@ -2095,7 +2084,7 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 	------------------------------------------------------------------------------------------------
 		--> healing done(shields)
 		-- this needs to be outside buff / debuffs for boss mechanics which absorb damage.
-		if absorb_spell_list[spellid] then
+		if _IsAbsorbSpell(spellid) then
 			escudo[alvo_name] = escudo[alvo_name] or {}
 			-- locate buff
 			for _, applied_absorb in ipairs(escudo[alvo_name]) do

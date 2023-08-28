@@ -537,24 +537,11 @@
 						<FontString name="Atr_Deposit_Text" inherits="GameFontHighlightSmall" text="">
 							<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="10" y="-342"/></Offset></Anchor></Anchors>
 						</FontString>
-						
-						<FontString inherits="GameFontHighlightSmall" text="Search by Mystic Enchant">
-							<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="216" y="22"/></Offset></Anchor></Anchors>
-						</FontString>
 
 					</Layer>
 				</Layers>
 				
 				<Frames>
-						<CheckButton name="Atr_RESearch" inherits="UICheckButtonTemplate" enableMouse="true">
-							<Size><AbsDimension x="30" y="30"/>	</Size>
-							<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="185" y="30"/></Offset></Anchor></Anchors>
-							<Scripts>
-							<OnLoad>Atr_RESearch:SetChecked(false)</OnLoad>
-							<OnClick>Atr_REsearch_Toggle()</OnClick>
-							</Scripts>
-						</CheckButton>
-
 					<Button name="$parent_Tex">
 						<Size><AbsDimension x="37" y="37"/></Size>
 						<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="11" y="-23"/></Offset></Anchor></Anchors>

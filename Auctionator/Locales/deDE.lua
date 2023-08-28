@@ -25,7 +25,7 @@ AtrL["There is a more recent version of Auctionator: VERSION"] = "Es gibt eine n
 AtrL["You can buy at most %d auctions"] = "Du kannst maximal %d Auktionen kaufen"            -- don't overspend!
 AtrL["You can create at most %d auctions"] = "Du kannst maximal %d Auktionen erstellen"
 AtrL["You can stack at most %d of these items"] = "Du kannst maximal %d davon pro Stack haben"
-AtrL["You may have no more than\n\n%d items on a shopping list."] = "Du kannst nicht mehr als\n\n\%d Items auf einer Einkaufsliste haben"
+AtrL["You may have no more than\n\n%d items on a shopping list."] = "Du kannst nicht mehr als\n\n%d Items auf einer Einkaufsliste haben"
 AtrL["Create Multiple Auctions failed.\nYou need at least one empty slot in your bags."] = "Mehrere Auktionen konnten nicht erstellt werden.\nDu benötigst wenigstens einen freien Taschenplatz."
 
 AtrL["You do not have enough gold\n\nto make any more purchases."] = "Du hast nicht genug Gold\n\num mehr zu kaufen."

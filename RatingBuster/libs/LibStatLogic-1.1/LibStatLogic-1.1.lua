@@ -5537,7 +5537,7 @@ setmetatable(cache, {__mode = "kv"}) -- weak table to enable garbage collection
 local tip = StatLogic.tip
 if not tip then
 	-- Create a custom tooltip for scanning
-	tip = CreateFrame("GameTooltip", "StatLogicTooltip", nil, "GameTooltipTemplate")
+	tip = CreateFrame("GameTooltip", "StatLogicTooltip", nil, "BasicTooltipTemplate")
 	StatLogic.tip = tip
 	tip:SetOwner(UIParent, "ANCHOR_NONE")
 	for i = 1, 30 do
@@ -5556,7 +5556,7 @@ end
 local tipMiner = StatLogic.tipMiner
 if not tipMiner then
 	-- Create a custom tooltip for data mining
-	tipMiner = CreateFrame("GameTooltip", "StatLogicMinerTooltip", nil, "GameTooltipTemplate")
+	tipMiner = CreateFrame("GameTooltip", "StatLogicMinerTooltip", nil, "BasicTooltipTemplate")
 	StatLogic.tipMiner = tipMiner
 	tipMiner:SetOwner(UIParent, "ANCHOR_NONE")
 	for i = 1, 30 do

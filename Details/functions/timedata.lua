@@ -571,6 +571,7 @@
 	end
 
 	function _detalhes:BrokerTick()
+		if not _detalhes.databroker then return end
 		_detalhes.databroker.text = parse_broker_text()
 	end
 

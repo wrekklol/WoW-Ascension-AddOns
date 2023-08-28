@@ -778,11 +778,11 @@ local function BuildABConfig()
 				disabled = function() return not E.db.actionbar.microbar.enabled end
 			},
 			buttonsPerRow = {
-				order = 8,
+				order = 11,
 				type = "range",
 				name = L["Buttons Per Row"],
 				desc = L["The amount of buttons to display per row."],
-				min = 1, max = 10, step = 1,
+				min = 1, max = 11, step = 1,
 				disabled = function() return not E.db.actionbar.microbar.enabled end
 			},
 			alpha = {

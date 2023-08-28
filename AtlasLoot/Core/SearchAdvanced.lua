@@ -1,5 +1,5 @@
 local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
-local modules = {"AtlasLoot_BurningCrusade", "AtlasLoot_Crafting", "AtlasLoot_OriginalWoW", "AtlasLoot_WorldEvents", "AtlasLoot_WrathoftheLichKing"};
+local modules = {"AtlasLoot_BurningCrusade", "AtlasLoot_Vanity", "AtlasLoot_Crafting", "AtlasLoot_OriginalWoW", "AtlasLoot_WorldEvents", "AtlasLoot_WrathoftheLichKing"};
 
 AtlasLoot_QualityMenu = AceLibrary("Dewdrop-2.0");
 AtlasLoot_DifficultyMenu = AceLibrary("Dewdrop-2.0");
@@ -144,7 +144,7 @@ AtlasLoot_AdvancedSearchArguments = {
             ["Primary Stats"] = {{"Stamina", "sta"}, {"Strength", "str"}, {"Agility", "agi"}, {"Intellect", "int"}, {"Spirit", "spi"}}
         },
         [2] = {
-            ["Secondary Stats"] = {{"Attack Power", "ap"}, {"Spell Power", "sp"}, {"Crit", "crit"}, {"Hit", "hit"}, {"Haste", "haste"}, {"Expertise", "exp"}, {"Armor Pen", "arp"}, {"Spell Pen", "spp"}}
+            ["Secondary Stats"] = {{"Attack Power", "ap"}, {"Spell Power", "sp"}, {"Crit", "crit"}, {"Hit", "hit"}, {"Haste", "haste"}, {"Expertise", "exp"}, {"Armor Pen", "arp"}, {"Spell Pen", "spp"}, {"Mana Per 5", "mp5"}}
         },
         [3] = {
             ["Defensive Stats"] = {{"Defense", "def"}, {"Dodge", "dodge"}, {"Parry", "parry"}, {"Block", "block"}, {"Block Value", "bv"}, {"Resilience", "res"}}

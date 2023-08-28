@@ -98,6 +98,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerNextRod:Cancel()
 		self.vb.phase = 2
 		timerNextTurbulentWinds:Start()
+		timerNextStorm:Cancel()
 	end
 end
 
@@ -109,7 +110,6 @@ function mod:SPELL_CAST_START(args)
 end
 
 function mod:UNIT_HEALTH(unit)
-	
 	if (self.vb.phase == 2) and (mod:GetUnitCreatureId(unit) == 23574) then
 		local hp = (math.max(0,UnitHealth(unit)) / math.max(1, UnitHealthMax(unit))) * 100;
 		if (hp>60 and hp<=65) and platform1 then
@@ -134,8 +134,10 @@ function mod:UNIT_HEALTH(unit)
 			nextLightningStrike:Start(21)
 			self:ScheduleMethod(21, "LightningStrike")
 			timerNextRod:Start(28)
+			timerNextStorm:Start(55)
 		end
 	end
+end
 
 function mod:UNIT_AURA(unit)
 	local Name = UnitName(unit)
@@ -149,6 +151,4 @@ function mod:UNIT_AURA(unit)
 			SendChatMessage(L.DBM_EOS_PLAYER, "YELL")
 		end
 	end
-end
-
 end

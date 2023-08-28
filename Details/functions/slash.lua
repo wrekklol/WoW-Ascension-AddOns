@@ -227,6 +227,40 @@ function SlashCmdList.DETAILS (msg, editbox)
 
 -------- debug ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+	elseif msg == "export" then
+		_G.DetailsExport:Show()
+
+		local defaultOptions = {
+			errorOnUnserializableType = false,
+			stable                    = false,
+			filter                    = nil,
+		}
+
+		_detalhes:SaveConfig()
+		print("|cffFF2222Important!|r Details will not function until you reload UI")
+		local export = {
+			_detalhes_database.tabela_historico,
+			_detalhes_database.tabela_overall,
+			_detalhes_database.tabela_pets,
+			_detalhes_database.savedbuffs,
+		}
+		
+		local serialized = C_Serialize:SerializeEx(defaultOptions, export)
+		local compressed = C_Deflate:CompressDeflate(serialized)
+		export = C_Deflate:EncodeForPrint(compressed)
+		
+		if not export then
+			print("Could not create Details Export")
+			return
+		end
+
+		_G.DetailsExport.text:SetText(export)
+		_G.DetailsExport.text:HighlightText()
+		_G.DetailsExport.text:SetFocus()
+		StaticPopup_Show("RELOAD_UI_NEEDED")
+	
+	elseif msg == "import" then
+		_G.DetailsImport:Show()
 
 	elseif (msg == "exitlog") then
 
@@ -449,8 +483,8 @@ function SlashCmdList.DETAILS (msg, editbox)
 
 	elseif (msg == "copy") then
 		_G.DetailsCopy:Show()
-		_G.DetailsCopy.MyObject.text:HighlightText()
-		_G.DetailsCopy.MyObject.text:SetFocus()
+		_G.DetailsCopy.text:HighlightText()
+		_G.DetailsCopy.text:SetFocus()
 
 	elseif (msg == "garbage") then
 		local a = {}

@@ -1225,6 +1225,9 @@ function Clique:ButtonOnClick(button)
 		local selected = self.textlistSelected - offset
 		local button = getglobal("CliqueTextList"..selected)
 		self.db:SetProfile(button.name:GetText())
+		if CliqueFrame then
+			CliqueFrame.title:SetText("Clique v. " .. self.version .. " - " .. tostring(self.db.keys.profile));
+		end
 	elseif button == CliqueButtonNewProfile then
 		StaticPopup_Show("CLIQUE_NEW_PROFILE")
 	elseif button == CliqueButtonDeleteProfile then

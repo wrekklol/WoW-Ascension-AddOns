@@ -138,15 +138,34 @@ local function ColorPath(self, ...)
 	--[[ Override: Health.UpdateColor(self, event, unit)
 	Used to completely override the internal function for updating the widgets' colors.
 
-	* self  - the parent object
-	* event - the event triggering the update (string)
-	* unit  - the unit accompanying the event (string)
-	--]]
-	(self.Health.UpdateColor or UpdateColor) (self, ...)
+		* self  - the parent object
+		* event - the event triggering the update (string)
+		* unit  - the unit accompanying the event (string)
+		--]]
+		local _, unit = ...
+		local args
+		if unit and self.isNamePlate then
+			if ((event == "UNIT_THREAT_SITUATION_UPDATE" or event == "UNIT_FLAGS") and unit == "player") or event == "UNIT_THREAT_LIST_UPDATE" then
+			args = { ... }
+			args[2] = self.unit
+		elseif unit:sub(1, 9) ~= "nameplate" then
+			local isUnit = self.unit and UnitIsUnit(self.unit, unit)
+			if isUnit then
+				args = { ... }
+				args[2] = self.unit
+			end
+		end
+	end
+	if args then
+		(self.Health.UpdateColor or UpdateColor) (self, unpack(args))
+	else
+		(self.Health.UpdateColor or UpdateColor) (self, ...)
+	end
 end
 
 local function Update(self, event, unit)
 	if(not unit or self.unit ~= unit) then return end
+
 	local element = self.Health
 
 	--[[ Callback: Health:PreUpdate(unit)
@@ -199,8 +218,14 @@ local function Path(self, ...)
 	* event - the event triggering the update (string)
 	* unit  - the unit accompanying the event (string)
 	--]]
+	local _, unit = ...
+	if unit and self.isNamePlate and unit:sub(1, 9) ~= "nameplate" then
+		local isUnit = self.unit and UnitIsUnit(self.unit, unit)
+		if isUnit then
+			unit = self.unit
+		end
+	end
 	(self.Health.Override or Update) (self, ...);
-
 	ColorPath(self, ...)
 end
 
@@ -238,6 +263,23 @@ local function SetColorHappiness(element, state)
 			element.__owner:RegisterEvent('UNIT_HAPPINESS', ColorPath)
 		else
 			element.__owner:UnregisterEvent('UNIT_HAPPINESS', ColorPath)
+		end
+	end
+end
+
+--[[ Health:SetColorSelection(state, isForced)
+Used to toggle coloring by the unit's selection.
+* self     - the Health element
+* state    - the desired state (boolean)
+* isForced - forces the event update even if the state wasn't changed (boolean)
+--]]
+local function SetColorSelection(element, state, isForced)
+	if(element.colorSelection ~= state or isForced) then
+		element.colorSelection = state
+		if(state) then
+			element.__owner:RegisterEvent('UNIT_FLAGS', ColorPath)
+		else
+			element.__owner:UnregisterEvent('UNIT_FLAGS', ColorPath)
 		end
 	end
 end
@@ -320,6 +362,7 @@ local function Enable(self, unit)
 		element.__owner = self
 		element.ForceUpdate = ForceUpdate
 		element.SetColorDisconnected = SetColorDisconnected
+		element.SetColorSelection = SetColorSelection
 		element.SetColorHappiness = SetColorHappiness
 		element.SetColorTapping = SetColorTapping
 		element.SetColorThreat = SetColorThreat
@@ -354,6 +397,18 @@ local function Enable(self, unit)
 
 		self:RegisterEvent('UNIT_MAXHEALTH', Path)
 
+		if self.isNamePlate then
+			local healthBar = self.nameplateAnchor.HealthBar
+			healthBar:SetScript("OnValueChanged", function()
+				Path(self, "UNIT_HEALTH", self.unit)
+			end)
+			healthBar:SetScript("OnMinMaxChanged", function()
+				Path(self, "UNIT_MAXHEALTH", self.unit)
+			end)
+			self:RegisterEvent('UNIT_THREAT_SITUATION_UPDATE', Path)
+			self:RegisterEvent('UNIT_FLAGS', Path)
+		end
+
 		if(element:IsObjectType('StatusBar') and not element:GetStatusBarTexture()) then
 			element:SetStatusBarTexture([[Interface\TargetingFrame\UI-StatusBar]])
 		end
@@ -379,6 +434,7 @@ local function Disable(self)
 		self:UnregisterEvent('UNIT_FACTION', ColorPath)
 		self:UnregisterEvent('UNIT_HAPPINESS', ColorPath)
 		self:UnregisterEvent('UNIT_THREAT_LIST_UPDATE', ColorPath)
+		self:UnregisterEvent(')UNIT_THREAT_SITUATION_UPDATE', ColorPath)
 	end
 end
 

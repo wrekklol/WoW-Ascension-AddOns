@@ -572,151 +572,129 @@ local fateList = {
 ----------------------------------------------------------------------------------------------------
 local dailyList = {
 	-- Ascension
-	["Forging Mystic Power"] = true,
-	["Call to Arms: Battleground"] = true,
-	-- High Risk - Tier 1 - Level 70
-	["Population Control: Shadow Tomb (High-Risk)"] = true,
-	["Population Control: Tomb of Lights (High-Risk)"] = true,
-	["Population Control: Veil Shalas (High-Risk)"] = true,
-	["Population Control: Burning Blade Ruins (High-Risk)"] = true,
-	["Population Control: Kilsorrow Fortress (High-Risk)"] = true,
-	["Population Control: Manaforge Bnaar (High-Risk)"] = true,
-	["Population Control: Darkcrest Shore (High-Risk)"] = true,
-	["Population Control: Funggor Cavern (High-Risk)"] = true,
-	["Population Control: The Twilight Ridge (High-Risk)"] = true,
-	["Population Control: Forge Camp Fear (High-Risk)"] = true,
-	["Population Control: Laughing Skull Ruins (High-Risk)"] = true,
-	["Population Control: Northwind Cleft (High-Risk)"] = true,
-	["Population Control: Sunspring Post (High-Risk)"] = true,
-	["War in Nagrand: Crystal Clear Solution (High-Risk)"] = true,
-	["War in Nagrand: Fields of Shadow (High-Risk)"] = true,
-	["War in Nagrand: Hate and Fear (High-Risk)"] = true,
-	["War in Zangarmarsh Umbrafen Village (High-Risk)"] = true,
-	["War in Zangarmarsh: Daggerfen Village (High-Risk)"] = true,
-	["War in Zangarmarsh: The Ango'rosh Stronghold (High-Risk)"] = true,
-	["War in Zangarmarsh: Lost Tribes (High-Risk)"] = true,
-	["War in Zangarmarsh: The Darkcrest (High-Risk)"] = true,
-	["War in Zangarmarsh: The Dead Mire (High-Risk)"] = true,
-	["War in Terokkar: Skettis (High-Risk)"] = true,
-	["War in Terokkar: Tomb of Lights (High-Risk)"] = true,
-	["War in Terokkar: Veil Shalas (High-Risk)"] = true,
-	-- High Risk - Tier 1 - Level 60
-	["Bloody Expedition: Kickin' Jurass"] = true,
-	["Bloody Expedition: Slithering Scar"] = true,
-	["Bloody Expedition: West Un'goro Crater Hunt"] = true,
+		["Forging Mystic Power"] = true,
 	-- Cooking/Fishing
-	["Bait Bandits"] = true,
-	["Crocolisks in the City"] = true,
-	["Felblood Fillet"] = true,
-	["Manalicious"] = true,
-	["Revenge is Tasty"] = true,
-	["Shrimpin' Ain't Easy"] = true,
-	["Soup for the Soul"] = true,
-	["Super Hot Stew"] = true,
-	["The One That Got Away"] = true,
+		["Bait Bandits"] = true,
+		["Crocolisks in the City"] = true,
+		["Felblood Fillet"] = true,
+		["Manalicious"] = true,
+		["Revenge is Tasty"] = true,
+		["Shrimpin' Ain't Easy"] = true,
+		["Soup for the Soul"] = true,
+		["Super Hot Stew"] = true,
+		["The One That Got Away"] = true,
 	-- Reputations
-	["A Slow Death"] = true,
-	["Banish More Demons"] = true,
-	["Bomb Them Again!"] = true,
-	["Disrupting the Twilight Portal"] = true,
-	["Dragons are the Least of Our Problems"] = true,
-	["Escape from Skettis"] = true,
-	["Fires Over Skettis"] = true,
-	["Nethercite Ore"] = true,
-	["Netherdust Pollen"] = true,
-	["Nethermine Flayer Hide"] = true,
-	["Netherwing Crystals"] = true,
-	["Picking up the Pieces..."] = true,
-	["The Booterang: A Cure For The Common Worthless Peon"] = true,
-	["The Deadliest Trap Ever Laid"] = true,
-	["The Not-So-Friendly Skies..."] = true,
-	["The Relic's Emanation"] = true,
-	["Wrangle More Aether Rays!"] = true,
+		["A Slow Death"] = true,
+		["Banish More Demons"] = true,
+		["Bomb Them Again!"] = true,
+		["Disrupting the Twilight Portal"] = true,
+		["Dragons are the Least of Our Problems"] = true,
+		["Escape from Skettis"] = true,
+		["Fires Over Skettis"] = true,
+		["Nethercite Ore"] = true,
+		["Netherdust Pollen"] = true,
+		["Nethermine Flayer Hide"] = true,
+		["Netherwing Crystals"] = true,
+		["Picking up the Pieces..."] = true,
+		["The Booterang: A Cure For The Common Worthless Peon"] = true,
+		["The Deadliest Trap Ever Laid"] = true,
+		["The Not-So-Friendly Skies..."] = true,
+		["The Relic's Emanation"] = true,
+		["Wrangle More Aether Rays!"] = true,
 	-- Instances (Normal)
-	["Wanted: Arcatraz Sentinels"] = true,
-	["Wanted: Coilfang Myrmidons"] = true,
-	["Wanted: Malicious Instructors"] = true,
-	["Wanted: Rift Lords"] = true,
-	["Wanted: Shattered Hand Centurions"] = true,
-	["Wanted: Sisters of Torment"] = true,
-	["Wanted: Sunseeker Channelers"] = true,
-	["Wanted: Tempest-Forge Destroyers"]= true,
+		["Wanted: Arcatraz Sentinels"] = true,
+		["Wanted: Coilfang Myrmidons"] = true,
+		["Wanted: Malicious Instructors"] = true,
+		["Wanted: Rift Lords"] = true,
+		["Wanted: Shattered Hand Centurions"] = true,
+		["Wanted: Sisters of Torment"] = true,
+		["Wanted: Sunseeker Channelers"] = true,
+		["Wanted: Tempest-Forge Destroyers"]= true,
 	-- Instances (Heroic)
-	["Wanted: A Black Stalker Egg"] = true,
-	["Wanted: A Warp Splinter Clipping"] = true,
-	["Wanted: Aeonus's Hourglass"] = true,
-	["Wanted: Bladefist's Seal"] = true,
-	["Wanted: Keli'dan's Feathered Stave"] = true,
-	["Wanted: Murmur's Whisper"] = true,
-	["Wanted: Nazan's Riding Crop"] = true,
-	["Wanted: Pathaleon's Projector"] = true,
-	["Wanted: Shaffar's Wondrous Pendant"] = true,
-	["Wanted: The Epoch Hunter's Head"] = true,
-	["Wanted: The Exarch's Soul Gem"] = true,
-	["Wanted: The Headfeathers of Ikiss"] = true,
-	["Wanted: The Heart of Quagmirran"] = true,
-	["Wanted: The Scroll of Skyriss"] = true,
-	["Wanted: The Signet Ring of Prince Kael'thas"] = true,
-	["Wanted: The Warlord's Treatise"] = true,
+		["Wanted: A Black Stalker Egg"] = true,
+		["Wanted: A Warp Splinter Clipping"] = true,
+		["Wanted: Aeonus's Hourglass"] = true,
+		["Wanted: Bladefist's Seal"] = true,
+		["Wanted: Keli'dan's Feathered Stave"] = true,
+		["Wanted: Murmur's Whisper"] = true,
+		["Wanted: Nazan's Riding Crop"] = true,
+		["Wanted: Pathaleon's Projector"] = true,
+		["Wanted: Shaffar's Wondrous Pendant"] = true,
+		["Wanted: The Epoch Hunter's Head"] = true,
+		["Wanted: The Exarch's Soul Gem"] = true,
+		["Wanted: The Headfeathers of Ikiss"] = true,
+		["Wanted: The Heart of Quagmirran"] = true,
+		["Wanted: The Scroll of Skyriss"] = true,
+		["Wanted: The Signet Ring of Prince Kael'thas"] = true,
+		["Wanted: The Warlord's Treatise"] = true,
 	-- PvP
-	["Call to Arms: Alterac Valley"] = true,
-	["Call to Arms: Arathi Basin"] = true,
-	["Call to Arms: Eye of the Storm"] = true,
-	["Call to Arms: Warsong Gulch"] = true,
-	["Enemies, Old and New"] = true,
-	["Hellfire Fortifications"] = true,
-	["In Defense of Halaa"] = true,
-	["Spirits of Auchindoun"] = true,
+		["Call to Arms: Battleground"] = true,
+		["Call to Arms: Alterac Valley"] = true,
+		["Call to Arms: Arathi Basin"] = true,
+		["Call to Arms: Eye of the Storm"] = true,
+		["Call to Arms: Warsong Gulch"] = true,
+		["Enemies, Old and New"] = true,
+		["Hellfire Fortifications"] = true,
+		["In Defense of Halaa"] = true,
+		["Spirits of Auchindoun"] = true,
 	-- Shattered Sun
-	["A Charitable Donation"] = false, -- pay gold, so disabled by default
-	["Arm the Wards!"] = true,
-	["Ata'mal Armaments"] = true,
-	["Blast the Gateway"] = true,
-	["Blood for Blood"] = true,
-	["Crush the Dawnblade"] = true,
-	["Discovering Your Roots"] = true,
-	["Disrupt the Greengill Coast"] = true,
-	["Distraction at the Dead Scar"] = true,
-	["Don't Stop Now...."] = true,
-	["Erratic Behavior"] = true,
-	["Further Conversions"] = true,
-	["Gaining the Advantage"] = true,
-	["Intercept the Reinforcements"] = true,
-	["Intercepting the Mana Cells"] = true,
-	["Keeping the Enemy at Bay"] = true,
-	["Know Your Ley Lines"] = true,
-	["Maintaining the Sunwell Portal"] = true,
-	["Making Ready"] = true,
-	["Open for Business"] = true,
-	["Rediscovering Your Roots"] = true,
-	["Sunfury Attack Plans"] = true,
-	["Taking the Harbor"] = true,
-	["The Air Strikes Must Continue"] = true,
-	["The Battle for the Sun's Reach Armory"] = true,
-	["The Battle Must Go On"] = true,
-	["The Multiphase Survey"] = true,
-	["The Sanctum Wards"] = true,
-	["Your Continued Support"] = false, -- pay gold, so disabled by default
+		["A Charitable Donation"] = false, -- pay gold, so disabled by default
+		["Arm the Wards!"] = true,
+		["Ata'mal Armaments"] = true,
+		["Blast the Gateway"] = true,
+		["Blood for Blood"] = true,
+		["Crush the Dawnblade"] = true,
+		["Discovering Your Roots"] = true,
+		["Disrupt the Greengill Coast"] = true,
+		["Distraction at the Dead Scar"] = true,
+		["Don't Stop Now...."] = true,
+		["Erratic Behavior"] = true,
+		["Further Conversions"] = true,
+		["Gaining the Advantage"] = true,
+		["Intercept the Reinforcements"] = true,
+		["Intercepting the Mana Cells"] = true,
+		["Keeping the Enemy at Bay"] = true,
+		["Know Your Ley Lines"] = true,
+		["Maintaining the Sunwell Portal"] = true,
+		["Making Ready"] = true,
+		["Open for Business"] = true,
+		["Rediscovering Your Roots"] = true,
+		["Sunfury Attack Plans"] = true,
+		["Taking the Harbor"] = true,
+		["The Air Strikes Must Continue"] = true,
+		["The Battle for the Sun's Reach Armory"] = true,
+		["The Battle Must Go On"] = true,
+		["The Multiphase Survey"] = true,
+		["The Sanctum Wards"] = true,
+		["Your Continued Support"] = false, -- pay gold, so disabled by default
 	-- Seasonal
-	["Bark for Drohn's Distillery!"] = true,
-	["Bark for T'chali's Voodoo Brewery!"] = true,
-	["Bark for the Barleybrews!"] = true,
-	["Bark for the Thunderbrews!"] = true,
-	["Call the Headless Horseman"] = true,
-	["Insult Coren Direbrew"] = true,
-	["More Torch Catching"] = true,
-	["More Torch Tossing"] = true,
-	["Smash the Pumpkin"] = true,
-	["Stop the Fires!"] = true,
-	["Striking Back"] = true,
-	["Summon Ahune"] = true,
-	["There and Back Again!"] = true,
-	["This One Time, When I Was Drunk..."] = true,
+		["Bark for Drohn's Distillery!"] = true,
+		["Bark for T'chali's Voodoo Brewery!"] = true,
+		["Bark for the Barleybrews!"] = true,
+		["Bark for the Thunderbrews!"] = true,
+		["Call the Headless Horseman"] = true,
+		["Insult Coren Direbrew"] = true,
+		["More Torch Catching"] = true,
+		["More Torch Tossing"] = true,
+		["Smash the Pumpkin"] = true,
+		["Stop the Fires!"] = true,
+		["Striking Back"] = true,
+		["Summon Ahune"] = true,
+		["There and Back Again!"] = true,
+		["This One Time, When I Was Drunk..."] = true,
 }
 
 ----------------------------------------------------------------------------------------------------
 -- helper functions
 ----------------------------------------------------------------------------------------------------
+
+local function IsHighRiskQuest(name)
+	return name:match("^Bloody Expedition:")
+		or name:match("^Ill Gotten Goods:")
+		or name:match("^High[- ]Risk")
+		or name:match("^War in")
+		or name:match("High[- ]Risk%)$")
+end
 
 local function IsQuestEnabled(name)
 	if AutoQuestSave.overrideList[name:lower()] ~= nil then
@@ -789,10 +767,11 @@ eventFrame:SetScript("OnEvent", function(self, event)
 			name, level = select(1 + ((on_quest-1)*5), GetGossipAvailableQuests())
 			if name and type(name) == "string" and not acceptedQuests[name] and IsQuestEnabled(name) then
 				acceptedQuests[name] = true
-				if (AutoQuestSave.autoDaily and dailyList[name])
-				or (AutoQuestSave.autoFate and fateList[name])
-				or AutoQuestSave.autoAccept
-				or IsQuestComplete(name, level) then
+				local accept = AutoQuestSave.autoAccept
+				if dailyList[name] then accept = AutoQuestSave.autoDaily end
+				if fateList[name] then accept = AutoQuestSave.autoFate end
+				if IsHighRiskQuest(name) then accept = AutoQuestSave.autoHR end
+				if accept or IsQuestComplete(name, level) then
 					SelectGossipAvailableQuest(on_quest)
 				end
 			end
@@ -806,13 +785,31 @@ eventFrame:SetScript("OnEvent", function(self, event)
 		if not AutoQuestSave.autoComplete and not AutoQuestSave.autoAccept then
 			return
 		end
+		local numActiveQuests = GetNumActiveQuests();
+		local numAvailableQuests = GetNumAvailableQuests();
 		local name, level
-		for i=1,GetNumActiveQuests() do
+		for i=1,numActiveQuests do
 			name = GetActiveTitle(i)
 			level = GetActiveLevel(i)
 			if IsQuestEnabled(name) and IsQuestComplete(name, level) then
 				SelectActiveQuest(i)
 				return
+			end
+		end
+		for i=numActiveQuests+1,numActiveQuests+numAvailableQuests do
+			local isTrivial, isDaily, isRepeatable = GetAvailableQuestInfo(i - numActiveQuests);
+			name = GetAvailableTitle(i - numActiveQuests)
+			level = GetAvailableLevel(i - numActiveQuests)
+			if name and type(name) == "string" and not acceptedQuests[name] and IsQuestEnabled(name) then
+				acceptedQuests[name] = true
+				local accept = AutoQuestSave.autoAccept
+				if dailyList[name] then accept = AutoQuestSave.autoDaily end
+				if fateList[name] then accept = AutoQuestSave.autoFate end
+				if IsHighRiskQuest(name) then accept = AutoQuestSave.autoHR end
+				if accept or IsQuestComplete(name, level) then
+					SelectAvailableQuest(i - numActiveQuests)
+					return
+				end
 			end
 		end
 		return
@@ -825,6 +822,7 @@ eventFrame:SetScript("OnEvent", function(self, event)
 			if AutoQuestSave.autoAccept 
 			or (AutoQuestSave.autoDaily and dailyList[name])
 			or (AutoQuestSave.autoFate and fateList[name])
+			or (AutoQuestSave.autoHR and IsHighRiskQuest(name))
 			or IsQuestComplete(name, 60) then
 				acceptedQuests[name] = true
 				AcceptQuest()
@@ -930,6 +928,18 @@ function SlashCmdList.AUTOQUEST(input)
 		return
 	end
 
+	if command == "hr" or command == "highrisk" or command == "autohr" then
+		if value == "on" then
+			AutoQuestSave.autoHR = true
+		elseif value == "off" then
+			AutoQuestSave.autoHR = false
+		else
+			DEFAULT_CHAT_FRAME:AddMessage('Syntax: /aq highrisk <"on"|"off">')
+		end
+		DEFAULT_CHAT_FRAME:AddMessage("Automatically accepting high-risk quests is now " .. (AutoQuestSave.autoFate and ON_TEXT or OFF_TEXT) .. ".")
+		return
+	end
+
 	if command == "accept" or command == "autoaccept" then
 		if value == "on" then
 			AutoQuestSave.autoAccept = true
@@ -956,6 +966,12 @@ function SlashCmdList.AUTOQUEST(input)
 
 	if command == "toggle" then
 		if value == "" then
+			DEFAULT_CHAT_FRAME:AddMessage("Disabled Quests:")
+			for k,v in pairs(AutoQuestSave.overrideList) do
+				if k and not v then
+					DEFAULT_CHAT_FRAME:AddMessage(k)
+				end
+			end
 			DEFAULT_CHAT_FRAME:AddMessage("Syntax: /aq toggle <quest name>")
 		else
 			local enabled = not IsQuestEnabled(value) -- toggle it
@@ -978,16 +994,16 @@ function SlashCmdList.AUTOQUEST(input)
 	end
 
 	DEFAULT_CHAT_FRAME:AddMessage("AutoQuest commands:", 1, 1, 0)
-	DEFAULT_CHAT_FRAME:AddMessage('/aq [accept,daily,fate,repeat,complete] <"on"|"off">')
+	DEFAULT_CHAT_FRAME:AddMessage('/aq [accept,daily,fate,repeat,complete,highrisk] <"on"|"off">')
 	DEFAULT_CHAT_FRAME:AddMessage('/aq toggle <quest name>')
 	DEFAULT_CHAT_FRAME:AddMessage(" ")
 	DEFAULT_CHAT_FRAME:AddMessage(string.format(
-		"AutoAccept:[%s], AutoDaily:[%s], AutoFate:[%s], AutoRepeat:[%s], AutoComplete:[%s]",
+		"AutoAccept:[%s], AutoDaily:[%s], AutoFate:[%s], AutoRepeat:[%s], AutoComplete:[%s], AutoHighRisk:[%s]",
 		AutoQuestSave.autoAccept and ON_TEXT or OFF_TEXT,
 		AutoQuestSave.autoDaily and ON_TEXT or OFF_TEXT,
 		AutoQuestSave.autoFate and ON_TEXT or OFF_TEXT,
 		AutoQuestSave.autoRepeat and ON_TEXT or OFF_TEXT,
-		AutoQuestSave.autoComplete and ON_TEXT or OFF_TEXT
+		AutoQuestSave.autoComplete and ON_TEXT or OFF_TEXT,
+		AutoQuestSave.autoHR and ON_TEXT or OFF_TEXT
 	))
 end
-
