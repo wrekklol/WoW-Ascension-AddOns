@@ -302,6 +302,9 @@ ItemIDsDatabase[1333809] = { 1333809, 1333809, 1433809, 1233809 };
 ItemIDsDatabase[450001] = { 450001, 450001, 450003, 450005, MythicRaid = 1450003 };
 ItemIDsDatabase[450000] = { 450000, 450000, 450002, 450004, MythicRaid = 1450002 };
 
+ItemIDsDatabase[1001620] = { 1001620, 1001620, 1001619, 1001622, MythicRaid = 1001621 };
+ItemIDsDatabase[98570] = { 98570, 98570, 98570, 98570, MythicRaid = 98570 };
+
 for _, v in pairs(ItemIDsDatabase) do
     if not v["MythicRaid"] then
         v["MythicRaid"] = tonumber("13"..v[2]);

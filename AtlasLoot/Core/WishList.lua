@@ -17,9 +17,6 @@ local BabbleFaction = AtlasLoot_GetLocaleLibBabble("LibBabble-Faction-3.0")
 
 local ALModule = AtlasLoot:NewModule("WishList", "AceSerializer-3.0", "AceComm-3.0")
 
-AtlasLoot_WishListDrop = AceLibrary("Dewdrop-2.0");
-AtlasLoot_WishListOptions = AceLibrary("Dewdrop-2.0");
-
 AtlasLoot_WishList = nil;
 local playerName = UnitName("player");
 local itemID, itemTexture, itemName, lootPage, sourcePage, xtyp, xarg2, xarg3, difficulty;
@@ -55,24 +52,23 @@ function AtlasLoot:ShowWishList(listType,arg2,arg3)
 			table.insert(AtlasLoot_CurrentWishList["Show"][math.ceil(v[1]/30)], {itemNum,v[2],v[3],v[4],v[5],v[6],v[7],v[8]});
 		end
 	AtlasLoot:ShowItemsFrame("Show", "AtlasLoot_CurrentWishList", arg3 or 1);
-	AtlasLoot_WishListDrop:Close(1)
 end
 
 --[[
 AtlasLoot_WishListAddDropClick(typ, arg2, arg3, arg4)
 Add a item too the wishlist or show the selected wishlist
 ]]
-function AtlasLoot_WishListAddDropClick(typ, arg2, arg3, arg4)
+function AtlasLoot_WishListAddDropClick(typ, arg2, arg3, arg4, itemID, itemTexture, itemName, lootPage, sourcePage)
 	if arg4 == true then
-		if typ == "addOwn" then
+		if typ == "Own" then
 			AtlasLoot:ShowWishList("Own",arg2);
-		elseif typ == "addShared" then
+		elseif typ == "Shared" then
 			AtlasLoot:ShowWishList("Shared",arg2);
 		end
 	else
 		xtyp = typ
 		xarg2 = arg2
-		if typ == "addOwn" then
+		if typ == "Own" then
 			if AtlasLoot_WishListCheck(itemID) then
 				DEFAULT_CHAT_FRAME:AddMessage(BLUE..AL["AtlasLoot"]..": "..AtlasLoot_FixText(itemName)..RED..AL[" already in the WishList!"]..WHITE.." ("..AtlasLootWishList["Own"][arg2].Name..")");
 				return;
@@ -87,8 +83,7 @@ function AtlasLoot_WishListAddDropClick(typ, arg2, arg3, arg4)
 				AtlasLoot:SortWishList(nil,"Own", arg2);
 			end
 			DEFAULT_CHAT_FRAME:AddMessage(RED..AL["AtlasLoot"]..": "..AtlasLoot_FixText(itemName)..GREY..AL[" added to the WishList."]..WHITE.." ("..AtlasLootWishList["Own"][arg2].Name..")");
-			AtlasLoot_WishListDrop:Close(1)
-		elseif typ == "addShared" then
+		elseif typ == "Shared" then
 			if AtlasLoot_WishListCheck(itemID) then
 				DEFAULT_CHAT_FRAME:AddMessage(BLUE..AL["AtlasLoot"]..": "..AtlasLoot_FixText(itemName)..RED..AL[" already in the WishList!"]..WHITE.." ("..AtlasLootWishList["Shared"][arg2].Name);
 				return;
@@ -98,7 +93,6 @@ function AtlasLoot_WishListAddDropClick(typ, arg2, arg3, arg4)
 				AtlasLoot:SortWishList(nil,"Shared", arg2);
 			end
 			DEFAULT_CHAT_FRAME:AddMessage(RED..AL["AtlasLoot"]..": "..AtlasLoot_FixText(itemName)..GREY..AL[" added to the WishList."]..WHITE.." ("..AtlasLootWishList["Shared"][arg2].Name..")");
-			AtlasLoot_WishListDrop:Close(1)
 		end
 	end
 end
@@ -138,7 +132,6 @@ function AtlasLoot:EditWishList()
     AtlasLootWishListNewName:SetText(AtlasLootWishList[AtlasLoot_CurrentWishList["Show"].ListType][AtlasLoot_CurrentWishList["Show"].ListNum].Name);
     curaddicon = AtlasLootWishList[AtlasLoot_CurrentWishList["Show"].ListType][AtlasLoot_CurrentWishList["Show"].ListNum].Icon;
     editName = true;
-    AtlasLoot_WishListDrop:Close(1);
 end
 
 -- Moves wishlist item
@@ -199,13 +192,11 @@ end
 function AtlasLoot:AddWishList()
 	AtlasLootWishList_AddFrame:Show();
     AtlasLottAddEditWishList:SetText(AL["Add Wishlist"]);
-    AtlasLoot_WishListDrop:Close(1);
 end
 
 -- Clones a shared wishlist to personal table
 function AtlasLoot:CloneSharedWishList()
 	table.insert(AtlasLootWishList["Own"],AtlasLootWishList[AtlasLootItemsFrame.refresh[1]][AtlasLootItemsFrame.refresh[3]]);
-    AtlasLoot_WishListDrop:Close(1);
 end
 
 -- Clones a shared wishlist to personal table
@@ -213,14 +204,12 @@ function AtlasLoot:SetDefaultWishList()
 	if AtlasLoot_CurrentWishList["Show"].ListType == "Own" then
 		AtlasLootWishList["Options"][playerName]["DefaultWishList"] = {AtlasLoot_CurrentWishList["Show"].ListType, "AtlasLootWishList", AtlasLoot_CurrentWishList["Show"].ListNum};
 	end
-    AtlasLoot_WishListDrop:Close(1);
 end
 
 -- Deletes current wishlist
 function AtlasLoot:DeleteWishList()
 	if AtlasLootItemsFrame.refresh[2] == "AtlasLoot_CurrentWishList" then
 		StaticPopup_Show("ATLASLOOT_DELETE_WISHLIST");
-		AtlasLoot_WishListDrop:Close(1);
 	end
 end
 
@@ -236,11 +225,11 @@ Main panel wishlistswap button
  function AtlasLoot:WishListSwapButton(xitemID, xitemTexture, xitemName, xlootPage, xsourcePage, button, show)
 	if AtlasLoot_CurrentWishList["Show"].ListType == "Own" then
 		if AtlasLootWishList["Shared"][1] then
-			AtlasLoot_WishListAddDropClick("addShared", 1, "", show);
+			AtlasLoot_WishListAddDropClick("Shared", 1, "", show);
 			AtlasLootItemsFrame_Wishlist_Swap:SetText("Own");
 		end
 	elseif AtlasLoot_CurrentWishList["Show"].ListType == "Shared" then
-		AtlasLoot_WishListAddDropClick("addOwn", AtlasLootWishList["Options"][playerName]["DefaultWishList"][3] or 1, "", show);
+		AtlasLoot_WishListAddDropClick("Own", AtlasLootWishList["Options"][playerName]["DefaultWishList"][3] or 1, "", show);
 		AtlasLootItemsFrame_Wishlist_Swap:SetText("Shared");
 	end
 end
@@ -254,7 +243,9 @@ function AtlasLoot:WishListButton(xitemID, xitemTexture, xitemName, xlootPage, x
 		AtlasLoot_ShowWishListDropDown(xitemID, xitemTexture, xitemName, xlootPage, xsourcePage, button, show, "Enable")
 	elseif buttonclick == "LeftButton" then
 		if AtlasLootWishList["Own"][1] then
-			AtlasLoot_WishListAddDropClick("addOwn", AtlasLootWishList["Options"][playerName]["DefaultWishList"][3] or 1, "", show)
+			local listNum = AtlasLootWishList["Options"][playerName]["DefaultWishList"]
+			if not AtlasLootWishList[listNum[1]][listNum[3]] then listNum[3] = 1 end
+			AtlasLoot_WishListAddDropClick("Own", listNum[3], "", show)
 		else
 			DEFAULT_CHAT_FRAME:AddMessage(RED..AL["AtlasLoot"]..": "..AL["Please Create a Wishlist First."]);
 		end
@@ -268,54 +259,59 @@ Show the dropdownlist with the wishlists
 function AtlasLoot_ShowWishListDropDown(xitemID, xitemTexture, xitemName, xlootPage, xsourcePage, button, show, panelButton)
 	itemID, itemTexture, itemName, lootPage, sourcePage = xitemID, xitemTexture, xitemName, xlootPage, xsourcePage
 	if AtlasLootWishList["Options"][playerName]["UseDefaultWishlist"] == true and panelButton ~= "Enable" then
-		AtlasLoot_WishListAddDropClick("addOwn", AtlasLootWishList["Options"][playerName]["DefaultWishList"][3], "", nil)
+		AtlasLoot_WishListAddDropClick("Own", AtlasLootWishList["Options"][playerName]["DefaultWishList"][3], "", nil)
 		return
 	else
-		if AtlasLoot_WishListDrop:IsOpen(button) then
-			AtlasLoot_WishListDrop:Close(1);
+		if AtlasLoot_Dewdrop:IsOpen(button) then
+			AtlasLoot_Dewdrop:Close(1);
 		else
 			local setOptions = function(level, value)
 				if level == 1 then
-					AtlasLoot_WishListDrop:AddLine(
+					AtlasLoot_Dewdrop:AddLine(
 						"text", AL["Own Wishlists"],
 						"tooltipTitle", AL["Own Wishlists"],
 						"value", "OwnWishlists",
 						"arg1", "1",
 						"hasArrow", true,
+						'textHeight', 12,
+						'textWidth', 12,
 						"func", AtlasLoot_WishListAddDropClick,
 						"notCheckable", true
 					);
-					AtlasLoot_WishListDrop:AddLine(
+					AtlasLoot_Dewdrop:AddLine(
 						"text", AL["Shared Wishlists"],
 						"tooltipTitle", AL["Shared Wishlists"],
 						"value", "SharedWishlists",
 						"arg1", "1",
 						"hasArrow", true,
+						'textHeight', 12,
+						'textWidth', 12,
 						"func", AtlasLoot_WishListAddDropClick,
 						"notCheckable", true
 					);
-					AtlasLoot_WishListDrop:AddLine(
+					AtlasLoot_Dewdrop:AddLine(
 						"text", AL["Add Wishlist"],
 						"func", function() AtlasLoot:AddWishList() end,
-						"notCheckable", true
-					);
-					AtlasLoot_WishListDrop:AddLine(
-						"text", AL["Close"],
-						"func", function() AtlasLoot_WishListDrop:Close(1) end,
+						'closeWhenClicked', true,
+						'textHeight', 12,
+						'textWidth', 12,
 						"notCheckable", true
 					);
 				elseif level == 2 then
 					if value == "OwnWishlists" then
 						for k,v in pairs(AtlasLootWishList["Own"]) do
 							if type(v) == "table" then
-								AtlasLoot_WishListDrop:AddLine(
+								AtlasLoot_Dewdrop:AddLine(
 									"text", v.Name,
 									"tooltipTitle", v.Name,
 									"func", AtlasLoot_WishListAddDropClick,
-									"arg1", "addOwn",
+									"arg1", "Own",
 									"arg2", k,
 									"arg3", "",
 									"arg4", show,
+									'textHeight', 12,
+									'textWidth', 12,
+									'closeWhenClicked', true,
 									"notCheckable", true
 								);
 							end
@@ -323,22 +319,35 @@ function AtlasLoot_ShowWishListDropDown(xitemID, xitemTexture, xitemName, xlootP
 					elseif value == "SharedWishlists" then
 						for k,v in pairs(AtlasLootWishList["Shared"]) do
 							if type(v) == "table" then
-								AtlasLoot_WishListDrop:AddLine(
+								AtlasLoot_Dewdrop:AddLine(
 									"text", v.Name,
 									"tooltipTitle", v.Name,
 									"func", AtlasLoot_WishListAddDropClick,
-									"arg1", "addShared",
+									"arg1", "Shared",
 									"arg2", k,
 									"arg3", "",
 									"arg4", show,
+									'textHeight', 12,
+									'textWidth', 12,
+									'closeWhenClicked', true,
 									"notCheckable", true
 								);
 							end
 						end
 					end
 				end
+				AtlasLoot_Dewdrop:AddLine(
+                'text', AL["Close Menu"],
+                'textR', 0,
+                'textG', 1,
+                'textB', 1,
+                'textHeight', 12,
+                'textWidth', 12,
+                'closeWhenClicked', true,
+                'notCheckable', true
+            )
 			end
-			AtlasLoot_WishListDrop:Open(button,
+			AtlasLoot_Dewdrop:Open(button,
 				"point", function(parent)
 					return "TOP", "BOTTOM";
 				end,
@@ -435,13 +444,13 @@ function AtlasLoot_WishListCheck(itemID, all)
 			return true, rettex
 		end
 	else
-		if xtyp == "addOwn" then
+		if xtyp == "Own" then
 			for _, v in ipairs(AtlasLootWishList["Own"][xarg2]) do
 				if v[2] == itemID then
 					return true;
 				end
 			end
-		elseif xtyp == "addShared" then
+		elseif xtyp == "Shared" then
 			for _, v in ipairs(AtlasLootWishList["Shared"][xarg2]) do
 				if v[2] == itemID then
 					return true;
@@ -453,61 +462,85 @@ function AtlasLoot_WishListCheck(itemID, all)
 end
 
 --[[
-AtlasLoot:WishListOptionsRegister:
+AtlasLoot:WishListOptionsOpen:
 Constructs the wishlist options category menu.
 ]]
-function AtlasLoot:WishListOptionsRegister()
-	AtlasLoot_WishListOptions:Register(AtlasLootItemsFrame_Wishlist_Options,
+function AtlasLoot:WishListOptionsOpen()
+	local frame = AtlasLootItemsFrame_Wishlist_Options
+	if AtlasLoot_Dewdrop:IsOpen(frame) then AtlasLoot_Dewdrop:Close() return end
+	AtlasLoot_Dewdrop:Register(frame,
 		'point', function(parent)
 			return "TOP", "BOTTOM"
 		end,
 		'children', function(level, value)
-				AtlasLoot_WishListOptions:AddLine(
+				AtlasLoot_Dewdrop:AddLine(
 					"text", AL["Add Wishlist"],
 					"func", function() AtlasLoot:AddWishList() end,
+					'textHeight', 12,
+					'textWidth', 12,
+					'closeWhenClicked', true,
 					"notCheckable", true
 				);
-				AtlasLoot_WishListOptions:AddLine(
+				AtlasLoot_Dewdrop:AddLine(
 					"text", AL["Edit Wishlist"],
 					"func", function() AtlasLoot:EditWishList() end,
+					'textHeight', 12,
+					'textWidth', 12,
+					'closeWhenClicked', true,
 					"notCheckable", true
 				);
-				AtlasLoot_WishListOptions:AddLine(
+				AtlasLoot_Dewdrop:AddLine(
 					"text", AL["Sort Wishlist"],
+					'textHeight', 12,
+					'textWidth', 12,
+					'closeWhenClicked', true,
 					"func", function() AtlasLoot:SortWishList(true,AtlasLoot_CurrentWishList["Show"].ListType,AtlasLoot_CurrentWishList["Show"].ListNum) end,
 					"notCheckable", true
 				);
 				if  AtlasLootItemsFrame.refresh[2] == "AtlasLoot_CurrentWishList" and AtlasLoot_CurrentWishList["Show"].ListType == "Shared" then
-					AtlasLoot_WishListOptions:AddLine(
+					AtlasLoot_Dewdrop:AddLine(
 						"text", AL["Copy Wishlist To Own"],
+						'textHeight', 12,
+						'textWidth', 12,
+						'closeWhenClicked', true,
 						"func", function() AtlasLoot:CloneSharedWishList() end,
 						"notCheckable", true
 					);
 				end
 				if AtlasLootItemsFrame.refresh[2] == "AtlasLoot_CurrentWishList" and AtlasLoot_CurrentWishList["Show"].ListType == "Own" then
-					AtlasLoot_WishListOptions:AddLine(
+					AtlasLoot_Dewdrop:AddLine(
 						"text", AL["Make Wishlist Default"],
+						'textHeight', 12,
+						'textWidth', 12,
+						'closeWhenClicked', true,
 						"func", function() AtlasLoot:SetDefaultWishList() end,
 						"notCheckable", true
 					);
 				end
-				AtlasLoot_WishListOptions:AddLine(
+				AtlasLoot_Dewdrop:AddLine(
 					"text", AL["Delete Wishlist"],
+					'textHeight', 12,
+					'textWidth', 12,
+					'closeWhenClicked', true,
 					"func", function() AtlasLoot:DeleteWishList() end,
 					"notCheckable", true
 				);
 				--Close button
-				AtlasLoot_WishListOptions:AddLine(
+				AtlasLoot_Dewdrop:AddLine()
+				AtlasLoot_Dewdrop:AddLine(
 					'text', AL["Close Menu"],
+					'textHeight', 12,
+					'textWidth', 12,
 					'textR', 0,
 					'textG', 1,
 					'textB', 1,
-					'func', function() AtlasLoot_WishListOptions:Close() end,
+					'closeWhenClicked', true,
 					'notCheckable', true
 				);
 			end,
 			'dontHook', true
 		)
+		AtlasLoot_Dewdrop:Open(frame)
 end
 
 -- **********************************************************************
@@ -546,10 +579,10 @@ StaticPopupDialogs["ATLASLOOT_DELETE_WISHLIST"] = {
 		else
 			AtlasLoot:ShowWishList(AtlasLoot_CurrentWishList["Show"].ListType, 1);
 		end
-		AtlasLoot_WishListDrop:Close(1);
+		AtlasLoot_Dewdrop:Close(1);
 	end,
 	OnCancel = function ()
-		AtlasLoot_WishListDrop:Close(1);
+		AtlasLoot_Dewdrop:Close(1);
 	end,
 	timeout = 0,
 	whileDead = 1,

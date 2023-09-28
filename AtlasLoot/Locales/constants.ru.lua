@@ -23,8 +23,6 @@ if AL then
     AL["Select Loot Table"] = "Таблица добычи";
     AL["Select Sub-Table"] = "Выбор Под-Таблицы";
     AL["Drop Rate: "] = "Шанс выпада: ";
-    AL["DKP"] = "ДКП";
-    AL["Priority:"] = "Приоритет:";
     AL["Click boss name to view loot."] = "Кликните по имени босса для просмотра трофеев.";
     AL["Various Locations"] = "Разное местонахождение";
     AL["This is a loot browser only.  To view maps as well, install either Atlas or Alphamap."] = "Это только обозреватель добычи. Для обзора карт, установите Atlas или Alphamap.";

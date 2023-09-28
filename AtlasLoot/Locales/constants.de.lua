@@ -11,8 +11,6 @@ if AL then
 	AL["Select Loot Table"] = "Beuteverzeichnis";
 	AL["Select Sub-Table"] = "Unterverzeichnis";
 	AL["Drop Rate: "] = "Droprate: ";
-	-- AL["DKP"] = "DKP";
-	AL["Priority:"] = "Priorität:";
 	AL["Click boss name to view loot."] = "Boss klicken um Beute zu sehen.";
 	AL["Various Locations"] = "Verschiedene Orte";
 	AL["This is a loot browser only.  To view maps as well, install either Atlas or Alphamap."] = "Atlasloot zeigt nur Loot an. Falls Sie Karten wünschen, installieren Sie 'Atlas' oder 'Alphamap'.";

@@ -1,9 +1,8 @@
 local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
-local BabbleInventory = AtlasLoot_GetLocaleLibBabble("LibBabble-Inventory-3.0")
-local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 
 	AtlasLoot_SubMenus["CraftingCLASSIC"] = {
 		Module = "AtlasLootCrafting";
+		{"Normal:", "", "Header"};
 		{ "", "AlchemyCLASSIC"};
 		{ "", "SmithingCLASSIC"};
 		{ "", "EnchantingCLASSIC"};
@@ -25,6 +24,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 
 	AtlasLoot_SubMenus["CraftingTBC"] = {
 		Module = "AtlasLootCrafting";
+		{"Normal:", "", "Header"};
 		{ "", "AlchemyTBC"};
 		{ "", "SmithingTBC"};
 		{ "", "EnchantingTBC"};
@@ -48,6 +48,7 @@ local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 
 	AtlasLoot_SubMenus["CraftingWRATH"] = {
 		Module = "AtlasLootCrafting";
+		{"Normal:", "", "Header"};
 		{ "", "AlchemyWRATH"};
 		{ "", "SmithingWRATH"};
 		{ "", "EnchantingWRATH"};

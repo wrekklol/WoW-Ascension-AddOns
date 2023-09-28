@@ -24,8 +24,6 @@ if AL then
 	AL["Select Loot Table"] = "选择掉落表";
 	AL["Select Sub-Table"] = "选择二级表";
 	AL["Drop Rate: "] = "掉落率: ";
-	AL["DKP"] = "DKP";
-	AL["Priority:"] = "优先: ";
 	AL["Click boss name to view loot."] = "点击首领名以浏览掉落";
 	AL["Various Locations"] = "多个位置";
 	AL["This is a loot browser only.  To view maps as well, install either Atlas or Alphamap."] = "这只是个掉落浏览器，如果要同时查看地图，请安装Atlas或者Alphamap";

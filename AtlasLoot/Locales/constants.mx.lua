@@ -24,8 +24,6 @@ if AL then
 	AL["Select Loot Table"] = "Selecciona tabla";
 	AL["Select Sub-Table"] = "Selecciona subtabla";
 	AL["Drop Rate: "] = "Prob. de conseguirse: ";
-	--AL["DKP"] = true,
-	AL["Priority:"] = "Prioridad:";
 	AL["Click boss name to view loot."] = "Haz click sobre el nombre del jefe para ver el botín.";
 	AL["Various Locations"] = "Se obtiene en diferentes sitios";
 	AL["This is a loot browser only.  To view maps as well, install either Atlas or Alphamap."] = "Esto es tan solo un buscador de botines. Para ver el mapa instala el Atlas o Alphamap";

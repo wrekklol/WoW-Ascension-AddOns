@@ -34,7 +34,7 @@ Added "armour" and "armourpen" / "armourpenetration" as a keyword
 Fixed armor penetration stat search filter
 
 v5.13.6 06/25/2021
-THIS REPLACES NORMAL/HEROIC MODE LOOT 
+THIS REPLACES NORMAL/HEROIC MODE LOOT
 Fixed Normal SSC loot
 Fixed some m0 items like keys and recipes
 Added @Krazh's initial search filter (allows to search for items with ">40 crit" from your cached items)
@@ -44,7 +44,7 @@ Fixed Heroic Flex Gruul's Lair and Magtheridon's Lair item IDs.
 
 v5.13.4 04/29/2021
 Added new Heroic Flex difficulty
-Repurposed the 10/25 man button to go between Normal/Heroic/Ascended items 
+Repurposed the 10/25 man button to go between Normal/Heroic/Ascended items
 This still works as normal for Wotlk raids, but the button text will be wrong
 Added Heroic Flex raid dropped items
 Added Heroic Flex set items to Sets/Collections using the old 10/25 man button
@@ -55,8 +55,8 @@ v5.13.3 04/25/2021
 Fixed the order of t2.5 warrior set
 Added T3 warrior dps set
 Fixed the names of t1 and t2 warrior dps set
-Added additional drop locations of some BWL items 
-Added Naxxramas heroic items and new item from Sapphiron 
+Added additional drop locations of some BWL items
+Added Naxxramas heroic items and new item from Sapphiron
 
 v5.13.2 03/26/2021
 Added cross boss loot in BWL for first three bosses
@@ -356,7 +356,7 @@ Added Tier 8 (Ulduar) Sets
 Added Cooking to 450 skill, all professions updated for Patch 3.1
 Added new WotLK Darkmoon Faire items and revamped its menu
 Added WotLK new World BoE Items
-Added drop rates for Utgarde Keep and The Nexus 
+Added drop rates for Utgarde Keep and The Nexus
 Trash Mob updates from Pucelle
 Added Key to the Focusing Iris (Normal/Heroic) Rewards
 The dressingroom and comparison tooltips should now work for crafted items
@@ -573,7 +573,7 @@ Updated for Patch 2.4
 Updated for Atlas 1.11.0
 Added Sunwell Plateau loot
 Added Magisters' Terrace loot
-Added new Faction - Shattered Sun Offensive 
+Added new Faction - Shattered Sun Offensive
 Added new Set - Latro's Flurry
 Added new heroic items from Sunwell Isle
 Added Reputation PvP sets
@@ -587,7 +587,7 @@ Many minor loot fixes/additions/translations
 v4.03.00
 Added the 'WishList'.  Alt-click on any item to add it to the wishlist, alt-clicking on an item in the wishlist deletes it.  There are buttons added to the Atlas panel and the loot browser to open the wishlist.
 PvP Non Set Epics now have the correct menu titles (Cloth/Leather and Mail/Plate)
-'/atlasloot reset' now also resets the loot browser and options menu to the middle of the screen in case they are accidentally dragged away 
+'/atlasloot reset' now also resets the loot browser and options menu to the middle of the screen in case they are accidentally dragged away
 Horde/Alliance PvP tokens and World PvP tokens switch depending on the faction of the character you are logged in as.  Due to this a number of loot tables have been cleaned up and had duplicate items removed.
 Many minor loot fixes/additions/translations
 
@@ -1042,7 +1042,6 @@ Korean Update
 German Update
 French Update
 Major XML and LUA reworking (HUGE Props to Telic for the ideas and most of the implementation)
-Stub for Fixed price DKP entry
 Added BRD Houndmaster
 Fixed some dodgy MC colouring
 More Naxx data :-)
@@ -1135,7 +1134,7 @@ Re-arrangement of AQ20 Class Sets
 AQ and ZG Class Sets now labeled with class name
 Moved Solekar Flamewreath to his own table (de only)
 Added AQ Enchants
-Added Tier 0.5 Quest Summonables 
+Added Tier 0.5 Quest Summonables
 Added ZG Enchants
 
 v1.12.10

@@ -23,8 +23,6 @@ if AL then
 	AL["Select Loot Table"] = "Choisir une liste";
 	AL["Select Sub-Table"] = "Choisir une sous-liste";
 	AL["Drop Rate: "] = "Chance de tomber : ";
-	--AL["DKP"] = true,
-	AL["Priority:"] = "Priorité :";
 	AL["Click boss name to view loot."] = "Cliquez sur le nom du boss pour afficher les objets.";
 	AL["Various Locations"] = "Lieux divers";
 	AL["This is a loot browser only.  To view maps as well, install either Atlas or Alphamap."] = "Ceci est un navigateur de loot. Pour afficher les cartes, veuillez installer Atlas ou Alphamap.";

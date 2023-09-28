@@ -19,6 +19,8 @@
 ## X-Curse-Project-ID: atlasloot-enhanced
 ## X-Curse-Repository-ID: wow/atlasloot-enhanced/mainline
 
+npcs.lua
+extraCraftingData.lua
 craftingCLASSIC.lua
 craftingTBC.lua
 craftingWRATH.lua

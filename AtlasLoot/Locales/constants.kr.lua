@@ -26,8 +26,6 @@ if AL then
 	AL["Select Loot Table"] = "루팅 테이블 선택";
 	AL["Select Sub-Table"] = "하위 테이블 선택";
 	AL["Drop Rate: "] = "드랍률: ";
---	AL["DKP"] = true;
-	AL["Priority:"] = "우선도: ";
 	AL["Click boss name to view loot."] = "보스이름을 클릭하면 루팅을 볼수 있습니다.";
 	AL["Various Locations"] = "다양한 위치";
 	AL["This is a loot browser only.  To view maps as well, install either Atlas or Alphamap."] = "이것은 루팅정보만 보여줍니다.  맵정보를 확인하려면 Atlas 또는 Alphamap을 설치하셔야 합니다";

@@ -1,0 +1,6 @@
+﻿## Interface: 30300
+## Title: Auctionator_Pricing_History
+## Notes: AH data for Auctionator
+## Dependencies: Auctionator
+## LoadOnDemand: 0
+## SavedVariables: AUCTIONATOR_PRICING_HISTORY

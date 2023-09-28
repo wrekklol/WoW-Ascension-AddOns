@@ -456,7 +456,7 @@ AtlasLoot_Data["AuchShadowLab"] = {
 AtlasLoot_Data["BlackTemple"] = {
 	Name = BabbleZone["Black Temple"];
 	Type = "BCRaid";
-	Map = "BlackTempleStart";
+	Map = "BlackTemple";
 	{
 		Name = BabbleBoss["High Warlord Naj'entus"];
 		{ 1, 32239, "", "=q4=Slippers of the Seacaller", "=ds=#s12#, #a1#", "", "15%" };
@@ -835,65 +835,71 @@ AtlasLoot_Data["CoTHyjal"] = {
 	Map = "CoTHyjal";
 	{
 		Name = BabbleBoss["Rage Winterchill"];
-		{ 1, 30871, "", "=q4=Bracers of Martyrdom", "=ds=#s8#, #a1#", "", "17%" };
-		{ 2, 30870, "", "=q4=Cuffs of Devastation", "=ds=#s8#, #a1#", "", "16%" };
-		{ 3, 30863, "", "=q4=Deadly Cuffs", "=ds=#s8#, #a2#", "", "15%" };
-		{ 4, 30868, "", "=q4=Rejuvenating Bracers", "=ds=#s8#, #a2#", "", "16%" };
-		{ 5, 30864, "", "=q4=Bracers of the Pathfinder", "=ds=#s8#, #a3#", "", "15%" };
-		{ 6, 30869, "", "=q4=Howling Wind Bracers", "=ds=#s8#, #a3#", "", "12%" };
-		{ 7, 30873, "", "=q4=Stillwater Boots", "=ds=#s12#, #a3#", "", "14%" };
-		{ 8, 30866, "", "=q4=Blood-stained Pauldrons", "=ds=#s3#, #a4#", "", "15%" };
-		{ 9, 30862, "", "=q4=Blessed Adamantite Bracers", "=ds=#s8#, #a4#", "", "15%" };
-		{ 10, 30861, "", "=q4=Furious Shackles", "=ds=#s8#, #a4#", "", "15%" };
-		{ 16, 30865, "", "=q4=Tracker's Blade", "=ds=#h1#, #w4#", "", "15%" };
-		{ 17, 30872, "", "=q4=Chronicle of Dark Secrets", "=ds=#s15#", "", "16%" };
-		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
-		{ 21, 32459, "", "=q1=Time-Phased Phylactery", "=ds=#m3#", "", "8%" };
+		{ 1, 30871, "", "=q4=Bracers of Martyrdom", "=ds=#s8#, #a1#", "", "" };
+		{ 2, 30870, "", "=q4=Cuffs of Devastation", "=ds=#s8#, #a1#", "", "" };
+		{ 3, 30863, "", "=q4=Deadly Cuffs", "=ds=#s8#, #a2#", "", "" };
+		{ 4, 30868, "", "=q4=Rejuvenating Bracers", "=ds=#s8#, #a2#", "", "" };
+		{ 5, 30864, "", "=q4=Bracers of the Pathfinder", "=ds=#s8#, #a3#", "", "" };
+		{ 6, 30869, "", "=q4=Howling Wind Bracers", "=ds=#s8#, #a3#", "", "" };
+		{ 7, 30873, "", "=q4=Stillwater Boots", "=ds=#s12#, #a3#", "", "" };
+		{ 8, 30866, "", "=q4=Blood-stained Pauldrons", "=ds=#s3#, #a4#", "", "" };
+		{ 9, 30862, "", "=q4=Blessed Adamantite Bracers", "=ds=#s8#, #a4#", "", "" };
+		{ 10, 30861, "", "=q4=Furious Shackles", "=ds=#s8#, #a4#", "", "" };
+		{ 16, 30865, "", "=q4=Tracker's Blade", "=ds=#h1#, #w4#", "", "" };
+		{ 17, 30872, "", "=q4=Chronicle of Dark Secrets", "=ds=#s15#", "", "" };
+		{ 18, 30891 , "", "Black Featherlight Boots", "", "",""};
+		{ 19, 30914 , "", "Belt of the Crescent Moon", "", "",""};
+		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 22, 98570, "", "Mystic Orbs", "=ds=#m17#", "", "100%" };
+		{ 24, 32459, "", "=q1=Time-Phased Phylactery", "=ds=#m3#", "", "8%" };
+		{ 26, 61196, "", "Sigil of Winterchill", "=ds=#e13#", "", "1%" };
 	};
 	{
 		Name = BabbleBoss["Anetheron"];
-		{ 1, 30884, "", "=q4=Hatefury Mantle", "=ds=#s3#, #a1#", "", "16%" };
-		{ 2, 30888, "", "=q4=Anetheron's Noose", "=ds=#s10#, #a1#", "", "16%" };
-		{ 3, 30885, "", "=q4=Archbishop's Slippers", "=ds=#s12#, #a1#", "", "17%" };
-		{ 4, 30879, "", "=q4=Don Alejandro's Money Belt", "=ds=#s10#, #a2#", "", "16%" };
-		{ 5, 30886, "", "=q4=Enchanted Leather Sandals", "=ds=#s12#, #a2#", "", "15%" };
-		{ 6, 30887, "", "=q4=Golden Links of Restoration", "=ds=#s5#, #a3#", "", "16%" };
-		{ 7, 30880, "", "=q4=Quickstrider Moccasins", "=ds=#s12#, #a3#", "", "16%" };
-		{ 8, 30878, "", "=q4=Glimmering Steel Mantle", "=ds=#s3#, #a4#", "", "16%" };
-		{ 16, 30874, "", "=q4=The Unbreakable Will", "=ds=#h1#, #w10#", "", "16%" };
-		{ 17, 30881, "", "=q4=Blade of Infamy", "=ds=#h1#, #w10#", "", "15%" };
-		{ 18, 30883, "", "=q4=Pillar of Ferocity", "=ds=#h2#, #w9#", "", "16%" };
-		{ 19, 30882, "", "=q4=Bastion of Light", "=ds=#w8#", "", "15%" };
-		{ 21, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 1, 30884, "", "=q4=Hatefury Mantle", "=ds=#s3#, #a1#", "", ""};
+		{ 2, 30888, "", "=q4=Anetheron's Noose", "=ds=#s10#, #a1#", "", ""};
+		{ 3, 30885, "", "=q4=Archbishop's Slippers", "=ds=#s12#, #a1#", "", ""};
+		{ 4, 30879, "", "=q4=Don Alejandro's Money Belt", "=ds=#s10#, #a2#", "", ""};
+		{ 5, 30886, "", "=q4=Enchanted Leather Sandals", "=ds=#s12#, #a2#", "", ""};
+		{ 6, 30887, "", "=q4=Golden Links of Restoration", "=ds=#s5#, #a3#", "", ""};
+		{ 7, 30880, "", "=q4=Quickstrider Moccasins", "=ds=#s12#, #a3#", "", ""};
+		{ 8, 30878, "", "=q4=Glimmering Steel Mantle", "=ds=#s3#, #a4#", "", ""};
+		{ 16, 30874, "", "=q4=The Unbreakable Will", "=ds=#h1#, #w10#", "", ""};
+		{ 17, 30881, "", "=q4=Blade of Infamy", "=ds=#h1#, #w10#", "", ""};
+		{ 18, 30883, "", "=q4=Pillar of Ferocity", "=ds=#h2#, #w9#", "", ""};
+		{ 19, 30882, "", "=q4=Bastion of Light", "=ds=#w8#", "", ""};
+		{ 20, 30916, "", "Leggings of Channeled Elements", "", "", ""};
+		{ 21, 30919, "", "Valestalker Girdle", "", "", ""};
+		{ 23, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 24, 98570, "", "Mystic Orbs", "=ds=#m17#", "", "100%" };
+		{ 26, 61287, "", "Sigil of Anetheron", "=ds=#e13#", "", "1%" };
 	};
 	{
 		Name = BabbleBoss["Kaz'rogal"];
-		{ 1, 30895, "", "=q4=Angelista's Sash", "=ds=#s10#, #a1#", "", "16%" };
-		{ 2, 30916, "", "=q4=Leggings of Channeled Elements", "=ds=#s11#, #a1#", "", "17%" };
-		{ 3, 30894, "", "=q4=Blue Suede Shoes", "=ds=#s12#, #a1#", "", "16%" };
-		{ 4, 30917, "", "=q4=Razorfury Mantle", "=ds=#s3#, #a2#", "", "17%" };
-		{ 5, 30914, "", "=q4=Belt of the Crescent Moon", "=ds=#s10#, #a2#", "", "9%" };
-		{ 6, 30891, "", "=q4=Black Featherlight Boots", "=ds=#s12#, #a2#", "", "14%" };
-		{ 7, 30892, "", "=q4=Beast-tamer's Shoulders", "=ds=#s3#, #a3#", "", "15%" };
-		{ 8, 30919, "", "=q4=Valestalker Girdle", "=ds=#s10#, #a3#", "", "15%" };
-		{ 9, 30893, "", "=q4=Sun-touched Chain Leggings", "=ds=#s11#, #a3#", "", "15%" };
-		{ 10, 30915, "", "=q4=Belt of Seething Fury", "=ds=#s10#, #a4#", "", "17%" };
-		{ 16, 30918, "", "=q4=Hammer of Atonement", "=ds=#h3#, #w6#", "", "17%" };
-		{ 17, 30889, "", "=q4=Kaz'rogal's Hardened Heart", "=ds=#w8#", "", "16%" };
-		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 1, 30889, "", "Kaz\'rogal\'s Hardened Heart", "", "", "" };
+		{ 2, 30893, "", "Sun-touched Chain Leggings", "", "", "" };
+		{ 3, 30894, "", "Blue Suede Shoes", "", "", "" };
+		{ 4, 30895, "", "Angelista\'s Sash", "", "", "" };
+		{ 5, 30898, "", "Shady Dealer\'s Pantaloons", "", "", "" };
+		{ 6, 30900, "", "Bow-stitched Leggings", "", "", "" };
+		{ 7, 30915, "", "Belt of Seething Fury", "", "", "" };
+		{ 8, 30918, "", "Hammer of Atonement", "", "", "" };
+		{ 16, 31092, "", "Gloves of the Forgotten Conqueror", "=ds=#tt6#", "", "100%", lootTable = {"T6HAND","Token"} };
+		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 19, 98570, "", "Mystic Orbs", "=ds=#m17#", "", "100%" };
 	};
 	{
 		Name = BabbleBoss["Azgalor"];
-		{ 1, 30899, "", "=q4=Don Rodrigo's Poncho", "=ds=#s5#, #a2#", "", "15%" };
-		{ 2, 30898, "", "=q4=Shady Dealer's Pantaloons", "=ds=#s11#, #a2#", "", "16%" };
-		{ 3, 30900, "", "=q4=Bow-stitched Leggings", "=ds=#s11#, #a3#", "", "15%" };
-		{ 4, 30896, "", "=q4=Glory of the Defender", "=ds=#s5#, #a4#", "", "15%" };
-		{ 5, 30897, "", "=q4=Girdle of Hope", "=ds=#s10#, #a4#", "", "15%" };
-		{ 6, 30901, "", "=q4=Boundless Agony", "=ds=#h1#, #w4#", "", "16%" };
-		{ 16, 31092, "", "=q4=Gloves of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "74%" };
-		{ 17, 31094, "", "=q4=Gloves of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "73%" };
-		{ 18, 31093, "", "=q4=Gloves of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "73%" };
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 1, 30892, "", "Beast-tamer\'s Shoulders", "", "", "" };
+		{ 2, 30896, "", "Glory of the Defender", "", "", "" };
+		{ 3, 30897, "", "Girdle of Hope", "", "", "" };
+		{ 4, 30899, "", "Don Rodrigo\'s Poncho", "", "", "" };
+		{ 5, 30901, "", "Boundless Agony", "", "", "" };
+		{ 6, 30917, "", "Razorfury Mantle", "", "", "" };
+		{ 16, 31098, "", "=q4=Leggings of the Forgotten Conqueror", "=ds=#tt6#", "", "100%", lootTable = {"T6LEGS","Token"} };
+		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 19, 98570, "", "Mystic Orbs", "=ds=#m17#", "", "100%" };
+		{ 21, 61289, "", "Sigil of Azgalor", "=ds=#e15#", "", "1%" };
 	};
 	{
 		Name = BabbleBoss["Archimonde"];
@@ -909,32 +915,83 @@ AtlasLoot_Data["CoTHyjal"] = {
 		{ 11, 30908, "", "=q4=Apostle of Argus", "=ds=#h2#, #w9#", "", "15%" };
 		{ 12, 30909, "", "=q4=Antonidas's Aegis of Rapt Concentration", "=ds=#w8#", "", "15%" };
 		{ 13, 30906, "", "=q4=Bristleblitz Striker", "=ds=#w2#", "", "16%" };
-		{ 16, 31097, "", "=q4=Helm of the Forgotten Conqueror", "=q1=#m1# =ds=#c4#, #c5#, #c8#", "", "70%" };
-		{ 17, 31095, "", "=q4=Helm of the Forgotten Protector", "=q1=#m1# =ds=#c9#, #c2#, #c7#", "", "72%" };
-		{ 18, 31096, "", "=q4=Helm of the Forgotten Vanquisher", "=q1=#m1# =ds=#c6#, #c3#, #c1#", "", "73%" };
-		{ 20, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 16, 31097, "", "=q4=Helm of the Forgotten Conqueror", "=ds=#tt6#", "", "100%", lootTable = {"T6HEAD","Token"} };
+		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
+		{ 19, 98570, "", "Mystic Orbs", "=ds=#m17#", "", "100%" };
+		{ 21, 61557, "", "Sigil of Archimonde", "=ds=#e13#", "", "1%" };
+		{ 23, 1001620, "", "Annihilator Mount", "=ds=#e12#", "", "1%"};
 	};
 	{
-		Name = AL["Trash Mobs"];
+		Name = AL["Trash Mobs"].." - Items";
 		{ 1, 32590, "", "=q4=Nethervoid Cloak", "=ds=#s4#", "", "1%" };
-		{ 2, 34010, "", "=q4=Pepe's Shroud of Pacification", "=ds=#s4#", "", "1%" };
-		{ 3, 32609, "", "=q4=Boots of the Divine Light", "=ds=#s12#, #a1#", "", "1%" };
-		{ 4, 32592, "", "=q4=Chestguard of Relentless Storms", "=ds=#s5#, #a3#", "", "1%" };
-		{ 5, 32591, "", "=q4=Choker of Serrated Blades", "=ds=#s2#", "", "1%" };
-		{ 6, 32589, "", "=q4=Hellfire-Encased Pendant", "=ds=#s2#", "", "1%" };
-		{ 7, 34009, "", "=q4=Hammer of Judgement", "=ds=#h3#, #w6#", "", "1%" };
-		{ 8, 32946, "", "=q4=Claw of Molten Fury", "=ds=#h3#, #w13#", "", "0.46%" };
-		{ 9, 32945, "", "=q4=Fist of Molten Fury", "=ds=#h4#, #w13#", "", "0.42%" };
-		{ 11, 32428, "", "=q3=Heart of Darkness", "=ds=#e8#", "", "16%" };
-		{ 12, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "27%" };
-		{ 16, 32285, "", "=q4=Design: Flashing Crimson Spinel", "=ds=#p12# (375)", "", "4%" };
-		{ 17, 32296, "", "=q4=Design: Great Lionseye", "=ds=#p12# (375)", "", "3%" };
-		{ 18, 32303, "", "=q4=Design: Inscribed Pyrestone", "=ds=#p12# (375)", "", "3%" };
-		{ 19, 32295, "", "=q4=Design: Mystic Lionseye", "=ds=#p12# (375)", "", "4%" };
-		{ 20, 32298, "", "=q4=Design: Shifting Shadowsong Amethyst", "=ds=#p12# (375)", "", "4%" };
-		{ 21, 32297, "", "=q4=Design: Sovereign Shadowsong Amethyst", "=ds=#p12# (375)", "", "4%" };
-		{ 22, 32289, "", "=q4=Design: Stormy Empyrean Sapphire", "=ds=#p12# (375)", "", "4%" };
-		{ 23, 32307, "", "=q4=Design: Veiled Pyrestone", "=ds=#p12# (375)", "", "3%" };
+		{ 2, 34010, "", "=q4=Pepe's Shroud of Pacification", "=ds=#s4#", "", "" };
+		{ 3, 32609, "", "=q4=Boots of the Divine Light", "=ds=#s12#, #a1#", "", "" };
+		{ 4, 32592, "", "=q4=Chestguard of Relentless Storms", "=ds=#s5#, #a3#", "", "" };
+		{ 5, 32591, "", "=q4=Choker of Serrated Blades", "=ds=#s2#", "", "%" };
+		{ 6, 32589, "", "=q4=Hellfire-Encased Pendant", "=ds=#s2#", "", "%" };
+		{ 7, 34009, "", "=q4=Hammer of Judgement", "=ds=#h3#, #w6#", "", "%" };
+		{ 8, 32946, "", "=q4=Claw of Molten Fury", "=ds=#h3#, #w13#", "", "%" };
+		{ 9, 32945, "", "=q4=Fist of Molten Fury", "=ds=#h4#, #w13#", "", "" };
+		{ 1, 14986, "", "The Pulverizer", "", "", "" };
+		{ 11, 32428, "", "=q3=Heart of Darkness", "=ds=#e8#", "", "" };
+		{ 12, 32897, "", "=q2=Mark of the Illidari", "=ds=#m20#", "", "" };
+		{ 16, 32227, "", "Crimson Spinel", "", "", "" };
+		{ 17, 32228, "", "Empyrean Sapphire", "", "", "" };
+		{ 18, 32229, "", "Lionseye", "", "", "" };
+		{ 19, 32230, "", "Shadowsong Amethyst", "", "", "" };
+		{ 20, 32231, "", "Pyrestone", "", "", "" };
+		{ 21, 32249, "", "Seaspray Emerald", "", "", "" };
+	};
+	{
+		Name = "Crafting Recipe Drops";
+		{ 1, 15315, "", "Design: Purified Shadowsong Amethyst", "=ds=#p12# (375)", "", "" };
+		{ 2, 32274, "", "Design: Bold Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 3, 32277, "", "Design: Delicate Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 4, 32281, "", "Design: Teardrop Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 5, 32282, "", "Design: Runed Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 6, 32283, "", "Design: Bright Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 7, 32284, "", "Design: Subtle Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 8, 32285, "", "Design: Flashing Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 9, 32286, "", "Design: Solid Empyrean Sapphire", "=ds=#p12# (375)", "", "" };
+		{ 10, 32287, "", "Design: Sparkling Empyrean Sapphire", "=ds=#p12# (375)", "", "" };
+		{ 11, 32288, "", "Design: Lustrous Empyrean Sapphire", "=ds=#p12# (375)", "", "" };
+		{ 12, 32289, "", "Design: Stormy Empyrean Sapphire", "=ds=#p12# (375)", "", "" };
+		{ 13, 32290, "", "Design: Brilliant Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 14, 32291, "", "Design: Smooth Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 15, 32292, "", "Design: Rigid Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 16, 32293, "", "Design: Gleaming Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 17, 32294, "", "Design: Thick Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 18, 32295, "", "Design: Mystic Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 19, 32296, "", "Design: Great Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 20, 32297, "", "Design: Sovereign Shadowsong Amethyst", "=ds=#p12# (375)", "", "" };
+		{ 21, 32298, "", "Design: Shifting Shadowsong Amethyst", "=ds=#p12# (375)", "", "" };
+		{ 22, 32299, "", "Design: Balanced Shadowsong Amethyst", "=ds=#p12# (375)", "", "" };
+		{ 23, 32300, "", "Design: Infused Shadowsong Amethyst", "=ds=#p12# (375)", "", "" };
+		{ 24, 32301, "", "Design: Glowing Shadowsong Amethyst", "=ds=#p12# (375)", "", "" };
+		{ 25, 32302, "", "Design: Royal Shadowsong Amethyst", "=ds=#p12# (375)", "", "" };
+		{ 26, 32303, "", "Design: Inscribed Pyrestone", "=ds=#p12# (375)", "", "" };
+		{ 27, 32304, "", "Design: Potent Pyrestone", "=ds=#p12# (375)", "", "" };
+		{ 28, 32305, "", "Design: Luminous Pyrestone", "=ds=#p12# (375)", "", "" };
+		{ 29, 32306, "", "Design: Glinting Pyrestone", "=ds=#p12# (375)", "", "" };
+		{ 30, 32307, "", "Design: Veiled Pyrestone", "=ds=#p12# (375)", "", "" };
+		{ 1, 32308, "", "Design: Wicked Pyrestone", "=ds=#p12# (375)", "", "" };
+		{ 2, 32309, "", "Design: Enduring Seaspray Emerald", "=ds=#p12# (375)", "", "" };
+		{ 3, 32310, "", "Design: Radiant Seaspray Emerald", "=ds=#p12# (375)", "", "" };
+		{ 4, 32311, "", "Design: Dazzling Seaspray Emerald", "=ds=#p12# (375)", "", "" };
+		{ 5, 32312, "", "Design: Jagged Seaspray Emerald", "=ds=#p12# (375)", "", "" };
+		{ 6, 35762, "", "Design: Reckless Pyrestone", "=ds=#p12# (375)", "", "" };
+		{ 7, 35763, "", "Design: Quick Lionseye", "=ds=#p12# (375)", "", "" };
+		{ 8, 35764, "", "Design: Steady Seaspray Emerald", "=ds=#p12# (375)", "", "" };
+		{ 9, 35765, "", "Design: Forceful Seaspray Emerald", "=ds=#p12# (375)", "", "" };
+		{ 10, 884039,"","Design: Fractured Crimson Spinel", "=ds=#p12# (375)", "", "" };
+		{ 16, 32736, "", "Plans: Swiftsteel Bracers", "=ds=#p12# (375)", "", "" };
+		{ 17, 32739, "", "Plans: Dawnsteel Shoulders", "=ds=#p12# (375)", "", "" };
+		{ 18, 32745, "", "Pattern: Shoulderpads of Renewed Life", "=ds=#p12# (375)", "", "" };
+		{ 19, 32746, "", "Pattern: Swiftstrike Bracers", "=ds=#p12# (375)", "", "" };
+		{ 20, 32748, "", "Pattern: Bindings of Lightning Reflexes", "=ds=#p12# (375)", "", "" };
+		{ 21, 32751, "", "Pattern: Living Earth Shoulders", "=ds=#p12# (375)", "", "" };
+		{ 22, 32752, "", "Pattern: Swiftheal Wraps", "=ds=#p12# (375)", "", "" };
+		{ 23, 32755, "", "Pattern: Mantle of Nimble Thought", "=ds=#p12# (375)", "", "" };
 	};
 };
 
@@ -1255,7 +1312,7 @@ AtlasLoot_Data["CFRSerpentshrine"] = {
 		{ 4, 30096, "", "=q4=Girdle of the Invulnerable", "=ds=#s10#, #a4#", "", "14%" };
 		{ 5, 30627, "", "=q4=Tsunami Talisman", "=ds=#s14#", "", "15%" };
 		{ 6, 30095, "", "=q4=Fang of the Leviathan", "=ds=#h3#, #w10#", "", "14%" };
-		{ 16, 30240, "", "=q4=Gloves of the Vanquished Defender", "=ds=#tt5#", "", "100%", "=TT=T5HAND" };
+		{ 16, 30240, "", "=q4=Gloves of the Vanquished Defender", "=ds=#tt5#", "", "100%", lootTable = {"T5HAND","Token"} };
 		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 	};
 	{
@@ -1266,7 +1323,7 @@ AtlasLoot_Data["CFRSerpentshrine"] = {
 		{ 4, 30663, "", "=q4=Fathom-Brooch of the Tidewalker", "=ds=#s14#, =q1=#m1# =ds=#c7#", "", "15%" };
 		{ 5, 30626, "", "=q4=Sextant of Unstable Currents", "=ds=#s14#", "", "14%" };
 		{ 6, 30090, "", "=q4=World Breaker", "=ds=#h2#, #w6#", "", "15%" };
-		{ 16, 30246, "", "=q4=Leggings of the Vanquished Defender", "=ds=#tt5#", "", "100%", "=TT=T5LEGS" };
+		{ 16, 30246, "", "=q4=Leggings of the Vanquished Defender", "=ds=#tt5#", "", "100%", lootTable = {"T5LEGS","Token"} };
 		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 	};
 	{
@@ -1300,7 +1357,7 @@ AtlasLoot_Data["CFRSerpentshrine"] = {
 		{ 10, 30103, "", "=q4=Fang of Vashj", "=ds=#h1#, #w4#", "", "14%" };
 		{ 11, 30108, "", "=q4=Lightfathom Scepter", "=ds=#h3#, #w6#", "", "14%" };
 		{ 12, 30105, "", "=q4=Serpent Spine Longbow", "=ds=#w2#", "", "13%" };
-		{ 16, 30243, "", "=q4=Helm of the Vanquished Defender", "=ds=#tt5#", "", "100%", "=TT=T5HEAD" };
+		{ 16, 30243, "", "=q4=Helm of the Vanquished Defender", "=ds=#tt5#", "", "100%", lootTable = {"T5HEAD","Token"} };
 		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 		{ 19, 29906, "", "=q1=Vashj's Vial Remnant", "=ds=#m3#", "", "35%" };
 		{ 21, 450000, "", "=q5=Intact Vial of Lady Vashj", "", "", "5%" };
@@ -1351,7 +1408,7 @@ AtlasLoot_Data["GruulsLair"] = {
 		{ 4, 28801, "", "=q4=Maulgar's Warhelm", "=ds=#s1#, #a3#", "", "21.32%" };
 		{ 5, 28795, "", "=q4=Bladespire Warbands", "=ds=#s8#, #a4#", "", "12.02%" };
 		{ 6, 28800, "", "=q4=Hammer of the Naaru", "=ds=#h2#, #w6#", "", "15.87%" };
-		{ 16, 29764, "", "=q4=Pauldrons of the Fallen Defender", "=ds=#tt4#", "", "100%", "=TT=T4SHOULDER" };
+		{ 16, 29764, "", "=q4=Pauldrons of the Fallen Defender", "=ds=#tt4#", "", "100%", lootTable = {"T4SHOULDER","Token"} };
 		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 		{ 19, 816252, "", "=q3=Formula: Enchant Weapon - Undaunted Might", "=ds=#p4# (375)", "", "N:2%/H:5%/A:10%" };
 	};
@@ -1367,7 +1424,7 @@ AtlasLoot_Data["GruulsLair"] = {
 		{ 8, 28823, "", "=q4=Eye of Gruul", "=ds=#s14#", "", "6.73%" };
 		{ 9, 28830, "", "=q4=Dragonspine Trophy", "=ds=#s14#", "", "11.72%" };
 		{ 11, 31750, "", "=q1=Earthen Signet", "=ds=#m3#", "", "100%" };
-		{ 16, 29767, "", "=q4=Leggings of the Fallen Defender", "=ds=#tt4#", "", "100%", "=TT=T4LEGS" };
+		{ 16, 29767, "", "=q4=Leggings of the Fallen Defender", "=ds=#tt4#", "", "100%", lootTable = {"T4LEGS","Token"} };
 		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 		{ 20, 28802, "", "=q4=Bloodmaw Magus-Blade", "=ds=#h3#, #w10#", "", "9.23%" };
 		{ 21, 28794, "", "=q4=Axe of the Gronn Lords", "=ds=#h2#, #w1#", "", "6.73%" };
@@ -1673,7 +1730,7 @@ AtlasLoot_Data["HCMagtheridon"] = {
 		{ 12, 28783, "", "=q4=Eredar Wand of Obliteration", "=ds=#w12#" };
 		{ 14, 34845, "", "=q4=Pit Lord's Satchel", "=ds=#e1# #m15#" };
 		{ 15, 34846, "", "=q2=Black Sack of Gems", "=ds=#e1#" };
-		{ 16, 29753, "", "=q4=Chestguard of the Fallen Defender", "=ds=#tt4#", "", "100%", "=TT=T4CHEST" };
+		{ 16, 29753, "", "=q4=Chestguard of the Fallen Defender", "=ds=#tt4#", "", "100%", lootTable = {"T4CHEST","Token"} };
 		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 		{ 19, 32385, "", "=q4=Magtheridon's Head", "=ds=#m2#", "", "100%" };
 		{ 20, 28791, "", "=q4=Ring of the Recalcitrant", "=q1=#m4#: =ds=#s13#" };
@@ -1691,7 +1748,7 @@ AtlasLoot_Data["HCMagtheridon"] = {
 AtlasLoot_Data["Karazhan"] = {
 	Name = "Karazhan";
 	Type = "BCRaid";
-	Map = "KarazhanStart";
+	Map = "Karazhan";
 	Loadfirst = 3;
 	{
 		Name = "Charred Bone Fragment (" .. AL["Quest Item"] .. ")";
@@ -1826,7 +1883,7 @@ AtlasLoot_Data["Karazhan"] = {
 		{ 5, 28649, "", "=q4=Garona's Signet Ring", "=ds=#s13#", "", "12.07%" };
 		{ 6, 28633, "", "=q4=Staff of Infinite Mysteries", "=ds=#h2#, #w9#", "", "12.28%" };
 		{ 8, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
-		{ 16, 29758, "", "=q4=Gloves of the Fallen Defender", "=ds=#tt4#", "", "100%", "=TT=T4HAND" };
+		{ 16, 29758, "", "=q4=Gloves of the Fallen Defender", "=ds=#tt4#", "", "100%", lootTable = {"T4HAND","Token"} };
 	};
 	{
 		Name = BabbleBoss["Terestian Illhoof"];
@@ -1911,7 +1968,7 @@ AtlasLoot_Data["Karazhan"] = {
 		{ 11, 28773, "", "=q4=Gorehowl", "=ds=#h2#, #w1#", "", "12.63%" };
 		{ 12, 28771, "", "=q4=Light's Justice", "=ds=#h3#, #w6#", "", "11.17%" };
 		{ 13, 28772, "", "=q4=Sunfury Bow of the Phoenix", "=ds=#w2#", "", "9.97%" };
-		{ 16, 29761, "", "=q4=Helm of the Fallen Defender", "=ds=#tt4#", "", "100%", "=TT=T4HEAD" };
+		{ 16, 29761, "", "=q4=Helm of the Fallen Defender", "=ds=#tt4#", "", "100%", lootTable = {"T4HEAD","Token"} };
 		{ 18, 229739, "", "=q4=Tome of Untold Secrets", "=ds=#e15#", "", "100%" };
 		{ 19, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 		{ 21, 499438, "", "=q4=Smoldering Emberwyrm", "=ds=#e12#", [AtlasLoot_Difficulty.MIN_DIF] = AtlasLoot_Difficulty.Heroic,"" };
@@ -2565,7 +2622,7 @@ AtlasLoot_Data["TKEye"] = {
 		{ 5, 32515, "", "=q4=Wristguards of Determination", "=ds=#s8#, #a4#", "", "13%" };
 		{ 6, 30619, "", "=q4=Fel Reaver's Piston", "=ds=#s14#", "", "13%" };
 		{ 7, 30450, "", "=q4=Warp-Spring Coil", "=ds=#s14#, =q1=#m1# =ds=#c6#", "", "12%" };
-		{ 16, 30249, "", "=q4=Pauldrons of the Vanquished Defender", "=ds=#tt5#", "", "100%", "=TT=T5SHOULDER" };
+		{ 16, 30249, "", "=q4=Pauldrons of the Vanquished Defender", "=ds=#tt5#", "", "100%", lootTable = {"T5SHOULDER","Token"} };
 		{ 18, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
 	};
 	{
@@ -2600,7 +2657,7 @@ AtlasLoot_Data["TKEye"] = {
 		{ 11, 29996, "", "=q4=Rod of the Sun King", "=ds=#h1#, #w6#", "", "15%" };
 		{ 12, 29988, "", "=q4=The Nexus Key", "=ds=#h2#, #w9#", "", "14%" };
 		{ 14, 29434, "", "=q4=Badge of Justice", "=ds=#e15#", "", "100%" };
-		{ 16, 30237, "", "=q4=Chestguard of the Vanquished Defender", "=ds=#tt5#", "", "100%", "=TT=T5CHEST" };
+		{ 16, 30237, "", "=q4=Chestguard of the Vanquished Defender", "=ds=#tt5#", "", "100%", lootTable = {"T5CHEST","Token"} };
 		{ 18, 32458, "", "=q4=Ashes of Al'ar", "=ds=#e12#", "", "2%" };
 		{ 19, 32405, "", "=q4=Verdant Sphere", "=ds=#m2#", "", "100%" };
 		{ 20, 30018, "", "=q4=Lord Sanguinar's Claim", "=q1=#m4#: =ds=#s2#" };
@@ -5247,7 +5304,7 @@ AtlasLoot_Data["WeaponsTBC"] = {
 			{ 5, 29078, "", "=q4=Legwraps of the Aldor", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		};
 		{
-			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Retribution"];
+			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Protection"];
 			{ 1, 29068, "", "=q4=Justicar Faceguard", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
 			{ 2, 29070, "", "=q4=Justicar Shoulderguards", "=ds="..BabbleBoss["High King Maulgar"]};
 			{ 3, 29066, "", "=q4=Justicar Chestguard", "=ds="..BabbleBoss["Magtheridon"]};
@@ -5255,7 +5312,7 @@ AtlasLoot_Data["WeaponsTBC"] = {
 			{ 5, 29069, "", "=q4=Justicar Legguards", "=ds="..BabbleBoss["Gruul the Dragonkiller"]};
 		};
 		{
-			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Protection"];
+			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Retribution"];
 			{ 1, 29073, "", "=q4=Justicar Crown", "=ds="..BabbleBoss["Prince Malchezaar"].." ("..BabbleZone["Karazhan"]..")"};
 			{ 2, 29075, "", "=q4=Justicar Shoulderplates", "=ds="..BabbleBoss["High King Maulgar"]};
 			{ 3, 29071, "", "=q4=Justicar Breastplate", "=ds="..BabbleBoss["Magtheridon"]};
@@ -5568,7 +5625,7 @@ AtlasLoot_Data["T5"] = {
 			{ 8, 34574, "", "=q4=Boots of the Tempest", "=ds="..BabbleBoss["Felmyst"].." ("..BabbleZone["Sunwell Plateau"]..")"};
 		};
 		{
-			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Retribution"];
+			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Protection"];
 			{ 1, 30987, "", "=q4=Lightbringer Faceguard", "=ds="..BabbleBoss["Archimonde"].." ("..BabbleZone["Hyjal Summit"]..")"};
 			{ 2, 30998, "", "=q4=Lightbringer Shoulderguards", "=ds="..BabbleBoss["Mother Shahraz"].." ("..BabbleZone["Black Temple"]..")"};
 			{ 3, 30991, "", "=q4=Lightbringer Chestguard", "=ds="..BabbleBoss["Illidan Stormrage"].." ("..BabbleZone["Black Temple"]..")"};
@@ -5579,7 +5636,7 @@ AtlasLoot_Data["T5"] = {
 			{ 8, 34560, "", "=q4=Lightbringer Greaves", "=ds="..BabbleBoss["Felmyst"].." ("..BabbleZone["Sunwell Plateau"]..")"};
 		};
 		{
-			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Protection"];
+			Name = LOCALIZED_CLASS_NAMES_MALE["PALADIN"].." - "..AL["Retribution"];
 			{ 1, 30989, "", "=q4=Lightbringer War-Helm", "=ds="..BabbleBoss["Archimonde"].." ("..BabbleZone["Hyjal Summit"]..")"};
 			{ 2, 30997, "", "=q4=Lightbringer Shoulderbraces", "=ds="..BabbleBoss["Mother Shahraz"].." ("..BabbleZone["Black Temple"]..")"};
 			{ 3, 30990, "", "=q4=Lightbringer Breastplate", "=ds="..BabbleBoss["Illidan Stormrage"].." ("..BabbleZone["Black Temple"]..")"};

@@ -8,12 +8,9 @@ local ORANGE = "|cffFF8400";
 
 local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
 local modules = {"AtlasLoot_BurningCrusade", "AtlasLoot_Vanity", "AtlasLoot_Crafting", "AtlasLoot_OriginalWoW", "AtlasLoot_WorldEvents", "AtlasLoot_WrathoftheLichKing"};
-local currentPage = 1;
-local SearchResult = nil;
 
 -- Supported Operators
 local OP_AND = "&"
-local BINARYOPERATORS = {OP_AND};
 -- multi-character patterns must come before single-character patterns
 local RELATIONAL_OPERATORS = {">=", "<=", "<>", "<", ">", "="};
 

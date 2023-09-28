@@ -3,7 +3,6 @@ local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
 local BabbleSubZone = AtlasLoot_GetLocaleLibBabble("LibBabble-SubZone-3.0");
 local BabbleZone = AtlasLoot_GetLocaleLibBabble("LibBabble-Zone-3.0")
 
-AtlasLoot_MapMenu = AceLibrary("Dewdrop-2.0");
 
 local BLUE = "|cff6666ff";
 local GREY = "|cff999999";
@@ -79,35 +78,43 @@ function AtlasLoot:MapMenuClick(mapID)
     AtlasLoot:MapSelect(mapID);
     AtlasLootDefaultFrame_MapSelectButton:SetText(AtlasLoot_MapData[mapID].ZoneName[1]);
     ATLASLOOT_CURRENT_MAP = mapID;
-    AtlasLoot_MapMenu:Close();
 end
 
-function AtlasLoot:MapMenuRegister(mapID)
-	AtlasLoot_MapMenu:Register(AtlasLootDefaultFrame_MapSelectButton,
+function AtlasLoot:MapMenuOpen()
+    local mapID = ATLASLOOT_CURRENT_MAP;
+    local frame = AtlasLootDefaultFrame_MapSelectButton;
+    if AtlasLoot_Dewdrop:IsOpen(frame) then AtlasLoot_Dewdrop:Close() return end
+	AtlasLoot_Dewdrop:Register(frame,
         'point', function(parent)
             return "TOP", "BOTTOM"
         end,
         'children', function(level, value)
                 for k,v in pairs(AtlasLoot_MultiMapData[mapID]) do
-                    AtlasLoot_MapMenu:AddLine(
+                    AtlasLoot_Dewdrop:AddLine(
                         'text', AtlasLoot_MapData[v].ZoneName[1],
                         'func', function(arg1) AtlasLoot:MapMenuClick(arg1) end,
                         'arg1', v,
+                        'textHeight', 12,
+                        'textWidth', 12,
                         'notCheckable', true
                     )
                 end
                 --Close button
-                AtlasLoot_MapMenu:AddLine(
+                AtlasLoot_Dewdrop:AddLine()
+                AtlasLoot_Dewdrop:AddLine(
 					'text', AL["Close Menu"],
                     'textR', 0,
                     'textG', 1,
                     'textB', 1,
-					'func', function() AtlasLoot_MapMenu:Close() end,
+                    'textHeight', 12,
+                    'textWidth', 12,
+					'func', function() AtlasLoot_Dewdrop:Close() end,
 					'notCheckable', true
 				)
 		end,
 		'dontHook', true
 	)
+    AtlasLoot_Dewdrop:Open(frame)
 end
 
 function AtlasLoot:LoadMapData()
@@ -158,7 +165,7 @@ AtlasLoot_MapData = {
 --************************************************
 
 ["AuchindounEnt"] = {
-    ZoneName = {AL["Entrance"]};
+    ZoneName = {AL["Entrance"], 3519};
     Location = { BabbleZone["Terokkar Forest"], 3519 };
     LevelRange = "63-70";
     MinLevel = "55";
@@ -220,7 +227,7 @@ AtlasLoot_MapData = {
     { WHITE.."7) "..AL["Scarshield Quartermaster <Scarshield Legion>"], NPC, 9046 };
 };
 ["CoilfangReservoirEnt"] = {
-    ZoneName = { AL["Entrance"]};
+    ZoneName = { AL["Entrance"], 3521};
     Location = { BabbleZone["Zangarmarsh"], 3521 };
     LevelRange = "61-70";
     MinLevel = "55";
@@ -236,7 +243,7 @@ AtlasLoot_MapData = {
     { WHITE.."2) "..AL["Mortog Steamhead"], NPC, 23373 };
 };
 ["CoTEnt"] = {
-    ZoneName = { AL["Entrance"]};
+    ZoneName = { AL["Entrance"], 440};
     Location = { BabbleZone["Tanaris"], 440 };
     LevelRange = "66-70";
     MinLevel = "66";
@@ -1548,7 +1555,7 @@ AtlasLoot_MapData = {
     { WHITE..INDENT..AL["Young Blanchy"], NPC, 18651 };
 };
 ["GruulsLair"] = {
-    ZoneName = { BabbleZone["Gruul's Lair"], 3618 };
+    ZoneName = { BabbleZone["Gruul's Lair"], 3923 };
     Location = { BabbleZone["Blade's Edge Mountains"], 3522 };
     LevelRange = "70";
     MinLevel = "65";
@@ -1631,7 +1638,7 @@ AtlasLoot_MapData = {
     { WHITE..INDENT..AL["Captain Boneshatter"].." ("..AL["Horde"]..", "..AL["Heroic"]..")", NPC, 17296 };
 };
 ["KarazhanStart"] = {
-    ZoneName = { BabbleZone["Karazhan"].." [A] ("..AL["Start"]..")", 2562 };
+    ZoneName = { BabbleZone["Karazhan"].." [A] ("..AL["Start"]..")", 3457 };
     Location = { BabbleZone["Deadwind Pass"], 41 };
     LevelRange = "70";
     MinLevel = "68";
@@ -1688,7 +1695,7 @@ AtlasLoot_MapData = {
     { WHITE..INDENT..AL["Nightbane"].." ("..AL["Summon"]..")", NPC, 17225 };
 };
 ["KarazhanEnd"] = {
-    ZoneName = { BabbleZone["Karazhan"].." [B] ("..AL["End"]..")", 2562 };
+    ZoneName = { BabbleZone["Karazhan"].." [B] ("..AL["End"]..")", 3457 };
     Location = { BabbleZone["Deadwind Pass"], 41 };
     LevelRange = "70";
     MinLevel = "68";
@@ -1823,7 +1830,7 @@ AtlasLoot_MapData = {
     { WHITE.."5) "..AL["Pathaleon the Calculator"], NPC, 19220 };
 };
 ["TempestKeepTheEye"] = {
-    ZoneName = { BabbleZone["The Eye"], 3842 };
+    ZoneName = { BabbleZone["The Eye"], 3845 };
     Location = { BabbleZone["Netherstorm"], 3523 };
     LevelRange = "70";
     MinLevel = "70";

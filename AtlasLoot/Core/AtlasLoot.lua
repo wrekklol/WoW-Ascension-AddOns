@@ -44,8 +44,7 @@ ATLASLOOT_INDENT = "   ";
 
 --Make the Dewdrop menu in the standalone loot browser accessible here
 AtlasLoot_Dewdrop = AceLibrary("Dewdrop-2.0");
-AtlasLoot_DewdropSubMenu = AceLibrary("Dewdrop-2.0");
-AtlasLoot_DewdropExpansionMenu = AceLibrary("Dewdrop-2.0");
+
 --Variable to cap debug spam
 ATLASLOOT_DEBUGSHOWN = false;
 ATLASLOOT_FILTER_ENABLE = false;
@@ -69,6 +68,7 @@ SearchPrevData = {"", "", ""};
 AtlasLootCharDB = {};
 AtlasLoot_TokenData = {};
 
+local realmName = GetRealmName()
 
 local AtlasLootDBDefaults = {
     profile = {
@@ -101,6 +101,18 @@ local AtlasLootDBDefaults = {
         AtlasType = "Release";
     }
 }
+
+--makes a list of trade skills
+local profCheck = false
+local currentTradeSkills = {}
+local function tradeSkill()
+	if C_Professions:GetFirstProfession() then currentTradeSkills[C_Professions:GetFirstProfession().Name] = true end
+	if C_Professions:GetSecondProfession() then currentTradeSkills[C_Professions:GetSecondProfession().Name] = true end
+	if C_Professions:GetCooking() then currentTradeSkills[C_Professions:GetCooking().Name] = true end
+	if C_Professions:GetFishing() then currentTradeSkills[C_Professions:GetFishing().Name] = true end
+	if C_Professions:GetFirstAid() then currentTradeSkills[C_Professions:GetFirstAid().Name] = true end
+	profCheck = true;
+end
 
 -- Popup Box for first time users
 StaticPopupDialogs["ATLASLOOT_SETUP"] = {
@@ -148,6 +160,10 @@ function AtlasLoot:OnEnable()
 		ATLASLOOT_ATLASLOADED = true;
 		AtlasLootDefaultFrame_MapButton:Enable();
 		AtlasLootDefaultFrame_MapSelectButton:Enable();
+	end
+
+	if IsAddOnLoaded("TomTom") then
+		ATLASLOOT_TOMTOM_LOADED = true;
 	end
 
     --Add the loot browser to the special frames tables to enable closing wih the ESC key
@@ -206,9 +222,6 @@ function AtlasLoot:OnEnable()
 			AtlasLoot_ShowMenu
 		);
 	end
-	--Set up the menu in the loot browser
-	AtlasLoot:DewdropRegister();
-	AtlasLoot:DewdropExpansionMenuRegister();
 	--If EquipCompare is available, use it
 	if((EquipCompare_RegisterTooltip) and (AtlasLoot.db.profile.EquipCompare == true)) then
 		EquipCompare_RegisterTooltip(AtlasLootTooltip);
@@ -240,6 +253,8 @@ function AtlasLoot:OnEnable()
 		AtlasLootItemsFrame_Wishlist_UnLock:Enable();
 	end
 	AtlasLoot:LoadItemIDsDatabase();
+	AtlasLoot:LoadTradeskillRecipes();
+	AtlasLoot:PopulateProfessions();
 end
 
 function AtlasLoot_Reset(data)
@@ -345,6 +360,112 @@ function AtlasLoot:CleandataID(newID, listnum)
 	return newID;
 end
 
+function AtlasLoot:RecipeSource(itemID)
+	local craftingData = AtlasLoot_CraftingData["ExtraCraftingData"][itemID]
+	if not craftingData then return end
+	local data = {}
+	 --extra information on where to find the recipe
+	 local aquireType = AtlasLoot_CraftingData["AquireType"][craftingData[2]]
+		local sources = {[1] = true, [5] = true, [7] = true}
+	 	if sources[craftingData[2]] then
+			tinsert(data, {AL["Source"]..": "..WHITE..aquireType})
+		elseif craftingData[2] == 8 then
+			if type(aquireType[craftingData[3]]) == "table" then
+				tinsert(data, {AL["Source"]..": "..WHITE..aquireType[craftingData[3]][1]})
+					local cords
+					if aquireType[craftingData[3]][3] ~= 0 or aquireType[craftingData[3]][4] ~= 0 then
+						cords = {aquireType[craftingData[3]][3], aquireType[craftingData[3]][4]}
+					end
+				tinsert(data, {AL["Zone"]..": "..WHITE..aquireType[craftingData[3]][2], cords})
+			else
+				tinsert(data, {AL["Source"]..": "..WHITE..aquireType[craftingData[3]]})
+			end
+		end
+		 --vendor recipe
+		if craftingData.vendor then
+			tinsert(data, {AL["Source"]..": "..WHITE..AtlasLoot_CraftingData["AquireType"][2]})
+			for _,v in pairs(craftingData.vendor) do
+				local vendor = AtlasLoot_CraftingData["VendorList"][v]
+				tinsert(data, {vendor[1], vendor[2], cords = {vendor[3], vendor[4]}, fac = vendor[5]})
+			end
+		end
+		 --limited vendor recipes
+		if craftingData.limitedVendor then
+			tinsert(data, {AL["Source"]..": "..WHITE..AtlasLoot_CraftingData["AquireType"][2]})
+			local sort = {}
+			local limited = false
+			for i,v in pairs(craftingData.limitedVendor) do
+				 if limited then
+					 tinsert(sort[i-1],v)
+					 limited = false
+				 else
+					 sort[i] = {v}
+					 limited = true
+				 end
+			end
+			for _,v in pairs(sort) do
+				 local vendor = AtlasLoot_CraftingData["VendorList"][v[1]]
+				 tinsert(data, {vendor[1], vendor[2], cords = {vendor[3], vendor[4]}, fac = vendor[5], limited = v[2]})
+			end
+		end
+		 --mob drop
+		if craftingData.mobDrop then
+			tinsert(data, {AL["Source"]..": "..WHITE..AtlasLoot_CraftingData["AquireType"][3]})
+			for _,v in pairs(craftingData.mobDrop) do
+				local mob = AtlasLoot_CraftingData["MobList"][v]
+				local cords = nil
+				if mob[3] ~= 0 and mob[4] ~= 0 then
+					cords = {mob[3], mob[4]}
+				end
+				tinsert(data, {mob[1], WHITE..mob[2], cords})
+			end
+		end
+		 --quest
+		if craftingData.quest then
+			tinsert(data, {AL["Source"]..": "..WHITE..AtlasLoot_CraftingData["AquireType"][4]})
+			for _,v in pairs(craftingData.quest) do
+				local quest = AtlasLoot_CraftingData["QuestList"][v]
+				tinsert(data, {quest[1], cords = {quest[2], quest[3]}, fac = quest[4]})
+			end
+		end
+		 --rep vendor
+		if craftingData.repVendor then
+			tinsert(data, {AL["Source"]..": "..WHITE..AtlasLoot_CraftingData["AquireType"][6]})
+			local line1, line2
+			local repVendor = {}
+			for i,v in pairs(craftingData.repVendor) do
+				 if type(v) == "table" then
+					 for i,v in pairs(v) do
+						 if i == 1 then
+							 line1 = AL["Faction"]..": "..WHITE..v
+						 elseif i == 2 then
+							 line2 = AL["Required Reputation"]..": "..WHITE..v
+						 else
+							 tinsert(repVendor,AtlasLoot_CraftingData["VendorList"][v])
+						 end
+					 end
+				 else
+					 if i == 1 then
+						 line1 = AL["Faction"]..": "..WHITE..v
+					 elseif i == 2 then
+						 line2 = AL["Required Reputation"]..": "..WHITE..v
+					 else
+						 tinsert(repVendor,AtlasLoot_CraftingData["VendorList"][v])
+					 end
+				 end
+			end
+			tinsert(data, {line1, line2})
+			for _,v in pairs(repVendor) do
+				local cords
+				if v[3] ~= 0 and v[4] ~= 0 then
+					cords = {v[3], v[4]}
+				end
+				tinsert(data, {v[1], WHITE..v[2], cords, fac = v[5]})
+			end
+		end
+	return data
+end
+
 --Creates tables for raid tokens from the collections tables
 function AtlasLoot:CreateToken(dataID)
 	local itemType, slotType, itemName, itemType2
@@ -414,8 +535,10 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 	local text, extra;
 	local isValid, isItem, toShow, IDfound;
 	local spellName, spellIcon;
-
 	SearchPrevData = {dataID, dataSource_backup, tablenum};
+
+	--builds a list of tradeskills
+	if not profCheck then tradeSkill() end
 
     --If the loot table name has not been passed, throw up a debugging statement
 	if dataID == nil then
@@ -450,11 +573,7 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 		AtlasLootDefaultFrame_MapSelectButton:Enable();
 		-- Stops map reseting to default while still in the same raid/instance table
 		if AtlasLootItemsFrame.refresh == nil or dataID ~= AtlasLootItemsFrame.refresh[1] then
-			AtlasLoot_MapMenu:Unregister(AtlasLootDefaultFrame_MapSelectButton);
 			ATLASLOOT_CURRENT_MAP = dataSource[dataID].Map
-			if AtlasLoot_MultiMapData[ATLASLOOT_CURRENT_MAP] ~= nil then
-				AtlasLoot:MapMenuRegister(ATLASLOOT_CURRENT_MAP);
-			end
 			AtlasLoot:MapSelect(ATLASLOOT_CURRENT_MAP);
 		end
 	else
@@ -535,6 +654,8 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
         _G["AtlasLootItem_"..i]:Hide();
         _G["AtlasLootItem_"..i].itemID = 0;
         _G["AtlasLootItem_"..i].spellitemID = 0;
+		_G["AtlasLootItem_"..i.."_Highlight"]:Hide();
+		_G["AtlasLootItem_"..i].hasTrade = false;
 	end
 
 	-- Sets the main page lable
@@ -625,6 +746,20 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 						text = dataSource[dataID][tablenum][i][4];
 						text = AtlasLoot_FixText(text);
 					end
+					--Adds button highlights if you know a recipe or have a char that knows one
+					if currentTradeSkills[dataSource[dataID].Name] and CA_IsSpellKnown(string.sub(IDfound, 2)) then
+						_G["AtlasLootItem_"..dataSource[dataID][tablenum][i][1]].hasTrade = true;
+						_G["AtlasLootItem_"..dataSource[dataID][tablenum][i][1].."_Highlight"]:SetTexture("Interface\\AddOns\\AtlasLoot\\Images\\knownGreen");
+						_G["AtlasLootItem_"..dataSource[dataID][tablenum][i][1].."_Highlight"]:Show();
+					else
+						_G["AtlasLootItem_"..dataSource[dataID][tablenum][i][1]].hasTrade = false;
+						for key,v in pairs(AtlasLoot.db.profiles) do
+							if gsub(key,"-",""):match(gsub(realmName,"-","")) and v.knownRecipes and v.knownRecipes[tonumber(string.sub(IDfound, 2))] then
+								_G["AtlasLootItem_"..dataSource[dataID][tablenum][i][1].."_Highlight"]:SetTexture("Interface\\AddOns\\AtlasLoot\\Images\\knownBlue");
+								_G["AtlasLootItem_"..dataSource[dataID][tablenum][i][1].."_Highlight"]:Show();
+							end
+						end
+					end
 				end
 
 				--Store data about the state of the items frame to allow minor tweaks or a recall of the current loot page
@@ -641,6 +776,8 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 				--Insert the item description
 				if dataSource[dataID][tablenum][i][6] and dataSource[dataID][tablenum][i][6] ~= "" then
 					extra = dataSource[dataID][tablenum][i][6];
+				elseif AtlasLoot_CraftingData["ExtraCraftingData"] and AtlasLoot_CraftingData["ExtraCraftingData"][tonumber(string.sub(dataSource[dataID][tablenum][i][2],2))] then
+					extra = "#sr# "..WHITE..AtlasLoot_CraftingData["ExtraCraftingData"][tonumber(string.sub(dataSource[dataID][tablenum][i][2],2))][1];
 				elseif dataSource[dataID][tablenum][i][5] then
 					extra = dataSource[dataID][tablenum][i][5];
 				else
@@ -718,7 +855,8 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 				    itemButton.iteminfo.idcore = IDfound;
 					itemButton.iteminfo.icontexture = GetItemIcon(IDfound);
                     itemButton.storeID = IDfound;
-                    itemButton.dressingroomID = IDfound;
+                    itemButton.dressingroomID = dataSource[dataID][tablenum][i][3];
+					itemButton.craftingData = AtlasLoot:RecipeSource(tonumber(string.sub(IDfound, 2)))
 				end
 
 				itemButton.tablenum = tablenum;
@@ -727,13 +865,13 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 				itemButton.desc = dataSource[dataID][tablenum][i][5] or nil;
 				itemButton.price = dataSource[dataID][tablenum][i][6] or nil;
 				itemButton.droprate = dataSource[dataID][tablenum][i][7] or nil;
+				itemButton.extraInfo = dataSource[dataID][tablenum][i].extraInfo or nil;
+				itemButton.quest = dataSource[dataID][tablenum][i].quest or nil;
 
 				if (dataID == "SearchResult" or dataSource_backup == "AtlasLoot_CurrentWishList") and dataSource[dataID][tablenum][i][8] then
 					itemButton.sourcePage = dataSource[dataID][tablenum][i][8];
-				elseif dataSource[dataID][tablenum][i][8] ~= nil and dataSource[dataID][tablenum][i][8]:match("=TT=") then
-					itemButton.sourcePage = string.sub(dataSource[dataID][tablenum][i][8], 5);
-				elseif dataSource[dataID][tablenum][i][8] ~= nil and dataSource[dataID][tablenum][i][8]:match("=LT=") then
-					itemButton.sourcePage = dataSource[dataID][tablenum][i][8];
+				elseif dataSource[dataID][tablenum][i].lootTable then
+					itemButton.sourcePage = dataSource[dataID][tablenum][i].lootTable;
 				else
 					itemButton.sourcePage = nil;
 				end
@@ -763,8 +901,8 @@ function AtlasLoot:ShowItemsFrame(dataID, dataSource_backup, tablenum)
 
 		if dataSource_backup ~= "AtlasLoot_CurrentWishList" and dataID ~= "FilterList"  and dataSource[dataID].Back ~= true and dataID ~= "EmptyTable" then
 			if not AtlasLoot.db.profile.LastBoss or type(AtlasLoot.db.profile.LastBoss) ~= "table" then AtlasLoot.db.profile.LastBoss = {} end;
-			AtlasLoot.db.profile.LastBoss[AtlasLoot_Expac] = {dataID, dataSource_backup, tablenum, ATLASLOOT_LASTMODULE, ATLASLOOT_CURRENTTABLE};
-			AtlasLoot.db.profile[ATLASLOOT_CURRENTTABLE] = {dataID, dataSource_backup, tablenum, ATLASLOOT_LASTMODULE, ATLASLOOT_CURRENTTABLE};
+			AtlasLoot.db.profile.LastBoss[AtlasLoot_Expac] = {dataID, dataSource_backup, tablenum, ATLASLOOT_LASTMODULE, ATLASLOOT_CURRENTTABLE, ATLASLOOT_MODUELNAME};
+			AtlasLoot.db.profile[ATLASLOOT_CURRENTTABLE] = {dataID, dataSource_backup, tablenum, ATLASLOOT_LASTMODULE, ATLASLOOT_CURRENTTABLE, ATLASLOOT_MODUELNAME};
 		end
 
         --This is a valid QuickLook, so show the UI objects
@@ -1117,3 +1255,75 @@ function AtlasLoot:LoadItemIDsDatabase()
 	-- This will run over time (usually about 30s for a file this size), but will maintain playable fps while running.
 	content:ParseAsync()
 	end
+
+function AtlasLoot:PopulateProfessions()
+	if not AtlasLoot.db.profile.knownRecipes then AtlasLoot.db.profile.knownRecipes = {} end
+	for _,prof in pairs(TRADESKILL_RECIPES) do
+	   for _,cat in pairs(prof) do
+		  for _,recipe in pairs(cat) do
+			 if CA_IsSpellKnown(recipe.SpellEntry) then
+				AtlasLoot.db.profile.knownRecipes[recipe.SpellEntry] = true;
+			 end
+		  end
+	   end
+	end
+end
+
+function AtlasLoot:LoadTradeskillRecipes()
+	if TRADESKILL_RECIPES then return end
+		TRADESKILL_RECIPES = {}
+		TRADESKILL_CRAFTS = {}
+
+		local fmtSubClass = "ITEM_SUBCLASS_%d_%d"
+		local fmtTotem = "SPELL_TOTEM_%d"
+		local fmtObject = "SPELL_FOCUS_OBJECT_%d"
+
+		local content = C_ContentLoader:Load("TradeSkillRecipeData")
+
+		local function GetToolName(toolID)
+			return _G[format(fmtTotem, toolID)]
+		end
+
+		content:SetParser(function(_, data)
+			if not TRADESKILL_RECIPES[data.SkillIndex] then
+				TRADESKILL_RECIPES[data.SkillIndex] = {}
+			end
+			
+			data.Category = _G[format(fmtSubClass, data.CreatedItemClass, data.CreatedItemSubClass)]
+
+			if not TRADESKILL_RECIPES[data.SkillIndex][data.Category] then
+				TRADESKILL_RECIPES[data.SkillIndex][data.Category] = {}
+			end
+			
+			data.IsHighRisk = toboolean(data.IsHighRisk)
+
+			-- reformat reagents
+			data.Reagents = {}
+			local reagents = data.ReagentData:SplitToTable(",")
+			for _, reagentString in ipairs(reagents) do
+				local item, count = reagentString:match("(%d*):(%d*)")
+				item = tonumber(item)
+				count = tonumber(count)
+				if item and item ~= 0 and count and count ~= 0 then
+					tinsert(data.Reagents, {item, count})
+				end
+			end
+
+			if #data.Reagents > 0 then
+				data.ReagentData = nil
+
+				-- reformat tools (totems)
+				data.Tools = data.TotemCategories:SplitToTable(",", GetToolName)
+				data.TotemCategories = nil
+				
+				data.SpellFocusObject = _G[format(fmtObject, data.SpellFocusObject)]
+
+				tinsert(TRADESKILL_RECIPES[data.SkillIndex][data.Category], data)
+				if data.CreatedItemEntry > 0 then
+					TRADESKILL_CRAFTS[data.CreatedItemEntry] = data
+				end
+			end
+		end)
+
+		content:Parse()
+end

@@ -14,8 +14,6 @@ AtlasLoote_CreateFilterOptions()
 local BabbleInventory = AtlasLoot_GetLocaleLibBabble("LibBabble-Inventory-3.0")
 local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
 
-local OptionsLoadet = false
-
 AtlasLoot_FilterMenu = AceLibrary("Dewdrop-2.0");
 AtlasLoot_SetFiltersMenu = AceLibrary("Dewdrop-2.0");
 

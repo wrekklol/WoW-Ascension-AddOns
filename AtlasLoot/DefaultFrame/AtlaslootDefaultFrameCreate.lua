@@ -20,26 +20,29 @@ local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
         titleSize = 32,
     });
     mainframe:SetScript("OnShow", function()
-     AtlasLootDefaultFrame_OnShow();
+        AtlasLootDefaultFrame_OnShow();
+    end);
+    mainframe:SetScript("OnMouseDown", function()
+        AtlasLoot_Dewdrop:Close();
+    end);
+    mainframe:SetScript("OnHide", function() AtlasLootDefaultFrame_OnHide() end)
+    mainframe:SetScript("OnDragStart", function(self)
+        self:StartMoving();
+        self.isMoving = true;
+    end);
+    mainframe:SetScript("OnDragStop", function(self)
+        self:StopMovingOrSizing();
+        self.isMoving = false;
      end);
-     mainframe:SetScript("OnHide", function() AtlasLootDefaultFrame_OnHide() end)
-     mainframe:SetScript("OnDragStart", function(self)
-         self:StartMoving();
-         self.isMoving = true;
-     end);
-     mainframe:SetScript("OnDragStop", function(self)
-         self:StopMovingOrSizing();
-         self.isMoving = false;
-     end);
-     mainframe.header = mainframe:CreateTexture("AtlasLootDefaultFrameHeader","ARTWORK");
-     mainframe.header:SetSize(425,64);
-     mainframe.header:SetPoint("TOP",0,12);
-     mainframe.header:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header");
-     mainframe.header.txt = mainframe:CreateFontString(nil,"ARTWORK","GameFontNormal");
-     mainframe.header.txt:SetPoint("TOP",0,-1);
-     mainframe.header.txt:SetText(ATLASLOOT_VERSION);
-     mainframe.header.notice = mainframe:CreateFontString("AtlasLootDefaultFrame_Notice","ARTWORK","GameFontNormal");
-     mainframe.header.notice:SetPoint("BOTTOM",0,17);
+    mainframe.header = mainframe:CreateTexture("AtlasLootDefaultFrameHeader","ARTWORK");
+    mainframe.header:SetSize(425,64);
+    mainframe.header:SetPoint("TOP",0,12);
+    mainframe.header:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header");
+    mainframe.header.txt = mainframe:CreateFontString(nil,"ARTWORK","GameFontNormal");
+    mainframe.header.txt:SetPoint("TOP",0,-1);
+    mainframe.header.txt:SetText(ATLASLOOT_VERSION);
+    mainframe.header.notice = mainframe:CreateFontString("AtlasLootDefaultFrame_Notice","ARTWORK","GameFontNormal");
+    mainframe.header.notice:SetPoint("BOTTOM",0,17);
 
     --Loot Background
 local lootbground = CreateFrame("Frame", "AtlasLootDefaultFrame_LootBackground",AtlasLootDefaultFrame);
@@ -58,10 +61,6 @@ local lootbground = CreateFrame("Frame", "AtlasLootDefaultFrame_LootBackground",
             AtlasLoot_AdvancedSearchClose();
         end
         AtlasLoot_Dewdrop:Close();
-        AtlasLoot_DewdropSubMenu:Close();
-        AtlasLoot_DewdropExpansionMenu:Close();
-        AtlasLoot_WishListDrop:Close();
-        AtlasLoot_WishListOptions:Close();
     end);
 
 ----------------------------------- Item Loot Panel -------------------------------------------
@@ -96,6 +95,11 @@ for num = 1, 30 do
         button.icon = button:CreateTexture("AtlasLootItem_"..num.."_Icon","ARTWORK");
         button.icon:SetSize(25,25);
         button.icon:SetPoint("TOPLEFT", "AtlasLootItem_"..num,"TOPLEFT",1,-1);
+        button.Highlight = button:CreateTexture("AtlasLootItem_"..num.."_Highlight", "OVERLAY");
+        button.Highlight:SetSize(26,26);
+        button.Highlight:SetPoint("CENTER", button.icon, 0, 0);
+        button.Highlight:SetTexture("Interface\\AddOns\\AtlasLoot\\Images\\knownGreen");
+        button.Highlight:Hide();
         button.name = button:CreateFontString("AtlasLootItem_"..num.."_Name","ARTWORK","GameFontNormal");
         button.name:SetSize(205,12);
         button.name:SetPoint("TOPLEFT","AtlasLootItem_"..num.."_Icon","TOPRIGHT",3,0);
@@ -184,13 +188,7 @@ local swapbtn = CreateFrame("Button", "AtlasLootItemsFrame_Wishlist_Swap", Atlas
 local optionsbtn = CreateFrame("Button", "AtlasLootItemsFrame_Wishlist_Options", AtlasLootItemsFrame, "OptionsButtonTemplate");
         optionsbtn:SetPoint("BOTTOM", "AtlasLootItemsFrame_Wishlist_Swap", "BOTTOM",-100,0);
         optionsbtn:SetText(AL["Options"]);
-        optionsbtn:SetScript("OnClick", function(self)
-            if AtlasLoot_WishListOptions:IsOpen() then
-                AtlasLoot_WishListOptions:Close();
-            else
-                AtlasLoot_WishListOptions:Open(self);
-            end
-        end);
+        optionsbtn:SetScript("OnClick", function(self) AtlasLoot:WishListOptionsOpen(); end);
         optionsbtn:Hide();
 
         -- Wishlist Item Lock button
@@ -290,12 +288,8 @@ local menubtn = CreateFrame("Button", "AtlasLootDefaultFrame_Menu", AtlasLootDef
     menubtn.Lable:SetText("Select Module");
     menubtn.Lable:Show();
     menubtn:SetText(AL["Select Loot Table"]);
-    menubtn:SetScript("OnClick", function(self) 
-        if AtlasLoot_Dewdrop:IsOpen() then
-            AtlasLoot_Dewdrop:Close();
-        else
-            AtlasLoot_Dewdrop:Open(self);
-        end
+    menubtn:SetScript("OnClick", function(self)
+        AtlasLoot:DewdropOpen()
     end);
 
     --SubMenu Button
@@ -312,11 +306,7 @@ local submenubtn = CreateFrame("Button", "AtlasLootDefaultFrame_SubMenu", AtlasL
     submenubtn.Text:SetSize(190,25);
     submenubtn.Text:Show();
     submenubtn:SetScript("OnClick", function(self)
-        if AtlasLoot_DewdropSubMenu:IsOpen() then
-            AtlasLoot_DewdropSubMenu:Close();
-        else
-            AtlasLoot_DewdropSubMenu:Open(self);
-        end
+        AtlasLoot:DewdropSubMenuOpen(AtlasLoot_SubMenus[ATLASLOOT_CURRENTTABLE]);
     end);
 
     --Expansion Menu Button
@@ -329,11 +319,7 @@ local expansionmenubtn = CreateFrame("Button", "AtlasLootDefaultFrame_ExpansionM
     expansionmenubtn.Lable:SetText("Select Expansion");
     expansionmenubtn.Lable:Show();
     expansionmenubtn:SetScript("OnClick", function(self)
-        if AtlasLoot_DewdropExpansionMenu:IsOpen() then
-            AtlasLoot_DewdropExpansionMenu:Close();
-        else
-            AtlasLoot_DewdropExpansionMenu:Open(self);
-        end
+        AtlasLoot:DewdropExpansionMenuOpen();
     end);
 
 ---------------------------------------- Buttons Under the loot and subtable frames -------------------------------------------
@@ -706,18 +692,19 @@ local mapbtn = CreateFrame("Button","AtlasLootDefaultFrame_MapButton", AtlasLoot
 local mapSelbtn = CreateFrame("Button","AtlasLootDefaultFrame_MapSelectButton", AtlasLootDefaultFrame,"OptionsButtonTemplate");
     mapSelbtn:SetSize(180,24);
     mapSelbtn:SetPoint("BOTTOMRIGHT",Atlasloot_SubTableFrame,5,-27.5);
-    mapSelbtn:SetScript("OnClick", function(self)
-        if AtlasLoot_MapMenu:IsOpen() then
-            AtlasLoot_MapMenu:Close();
-        else
-            AtlasLoot_MapMenu:Open(self);
-        end
-    end);
+    mapSelbtn:SetScript("OnClick", function(self) AtlasLoot:MapMenuOpen() end);
     mapSelbtn:SetText("No Map");
 
     -- Load Current Instance Button
 local currentInstance = CreateFrame("Button","AtlasLootDefaultFrame_LoadInstanceButton", AtlasLootDefaultFrame,"OptionsButtonTemplate");
-    currentInstance:SetSize(283,24);
-    currentInstance:SetPoint("BOTTOMRIGHT",Atlasloot_SubTableFrame,10,-58);
+    currentInstance:SetSize(135,24);
+    currentInstance:SetPoint("BOTTOMRIGHT",Atlasloot_SubTableFrame,-133,-58);
     currentInstance:SetScript("OnClick", function() AtlasLoot:ShowInstance(); end)
-    currentInstance:SetText("Load Current Instance");
+    currentInstance:SetText("Current Instance");
+
+    -- Load Current Map in ascension db
+local openDB = CreateFrame("Button","AtlasLootDefaultFrame_LoadInstanceDBButton", AtlasLootDefaultFrame,"OptionsButtonTemplate");
+    openDB:SetSize(135,24);
+    openDB:SetPoint("RIGHT",AtlasLootDefaultFrame_LoadInstanceButton,135,0);
+    openDB:SetScript("OnClick", function() AtlasLoot:OpenDBURL(AtlasLoot_MapData[ATLASLOOT_CURRENT_MAP].ZoneName[2] , "zone") end)
+    openDB:SetText("Open In DB");

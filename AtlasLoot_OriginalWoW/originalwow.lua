@@ -122,7 +122,7 @@ AtlasLoot_Data["RuinsofAQ"] = {
 		{ 6, 21502, "", "=q3=Sand Reaver Wristguards", "=ds=#s8#, #a3#", "", "13.79%" };
 		{ 7, 21503, "", "=q3=Belt of the Sand Reaver", "=ds=#s10#, #a4#", "", "14.38%" };
 		{ 9, 22217, "", "=q1=Kurinnaxx's Venom Sac", "=ds=#m3#", "", "100%" };
-		{ 16, 1506051, "", "=q4=Ceremonial Qiraji Drape", "=ds=#tt2.5A#", "", "100%", "=TT=AQ20SetsBACK" };
+		{ 16, 1506051, "", "=q4=Ceremonial Qiraji Drape", "=ds=#tt2.5A#", "", "100%", lootTable = {"AQ20SetsBACK","Token"} };
 	};
 	{
 		Name = BabbleBoss["General Rajaxx"];
@@ -136,7 +136,7 @@ AtlasLoot_Data["RuinsofAQ"] = {
 		{ 10, 21810, "", "=q3=Treads of the Wandering Nomad", "=ds=#s12#, #a1#", "", "3.11%" };
 		{ 11, 21809, "", "=q3=Fury of the Forgotten Swarm", "=ds=#s2#", "", "3.20%" };
 		{ 12, 21806, "", "=q3=Gavel of Qiraji Authority", "=ds=#h2#, #w6#", "", "3.04%" };
-		{ 16, 1506051, "", "=q4=Ceremonial Qiraji Drape", "=ds=#tt2.5A#", "", "100%", "=TT=AQ20SetsBACK" };
+		{ 16, 1506051, "", "=q4=Ceremonial Qiraji Drape", "=ds=#tt2.5A#", "", "100%", lootTable = {"AQ20SetsBACK","Token"} };
 		{ 18, 0, "INV_Box_01", "=q6=" .. BabbleBoss["Lieutenant General Andorov"], "" };
 		{ 19, 22221, "", "=q1=Plans: Obsidian Mail Tunic", "=ds=#p2# (300)" };
 		{ 20, 22219, "", "=q1=Plans: Jagged Obsidian Shield", "=ds=#p2# (300)" };
@@ -156,7 +156,7 @@ AtlasLoot_Data["RuinsofAQ"] = {
 		{ 12, 21475, "", "=q3=Legplates of the Destroyer", "=ds=#s11#, #a4#", "", "10.39%" };
 		{ 13, 21477, "", "=q3=Ring of Fury", "=ds=#s13#", "", "14.42%" };
 		{ 14, 21473, "", "=q3=Eye of Moam", "=ds=#s14#", "", "14.74%" };
-		{ 16, 1506053, "", "=q4=Ceremonial Qiraji Pendant", "=ds=#tt2.5A#", "", "100%", "=TT=AQ20SetsNECK" };
+		{ 16, 1506053, "", "=q4=Ceremonial Qiraji Pendant", "=ds=#tt2.5A#", "", "100%", lootTable = {"AQ20SetsNECK","Token"} };
 		{ 18, 22220, "", "=q3=Plans: Black Grasp of the Destroyer", "=ds=#p2# (300)", "", "4.11%" };
 		{ 19, 22194, "", "=q4=Black Grasp of the Destroyer", "=ds=#s9#, #a3#" };
 	};
@@ -169,7 +169,7 @@ AtlasLoot_Data["RuinsofAQ"] = {
 		{ 6, 21491, "", "=q3=Scaled Bracers of the Gorger", "=ds=#s8#, #a2#", "", "16.51%" };
 		{ 7, 21490, "", "=q3=Slime Kickers", "=ds=#s12#, #a4#", "", "15.99%" };
 		{ 8, 21488, "", "=q3=Fetish of Chitinous Spikes", "=ds=#s14#", "", "17.22%" };
-		{ 16, 1506052, "", "=q4=Ceremonial Qiraji Ring", "=ds=#tt2.5A#", "", "100%", "=TT=AQ20SetsFINGER" };
+		{ 16, 1506052, "", "=q4=Ceremonial Qiraji Ring", "=ds=#tt2.5A#", "", "100%", lootTable = {"AQ20SetsFINGER","Token"} };
 	};
 	{
 		Name = BabbleBoss["Ayamiss the Hunter"];
@@ -181,7 +181,7 @@ AtlasLoot_Data["RuinsofAQ"] = {
 		{ 7, 21482, "", "=q3=Boots of the Fiery Sands", "=ds=#s12#, #a3#", "", "4.92%" };
 		{ 8, 21481, "", "=q3=Boots of the Desert Protector", "=ds=#s12#, #a4#", "", "11.08%" };
 		{ 9, 21483, "", "=q3=Ring of the Desert Winds", "=ds=#s13#", "", "16.32%" };
-		{ 16, 1506052, "", "=q4=Ceremonial Qiraji Ring", "=ds=#tt2.5A#", "", "100%", "=TT=AQ20SetsFINGER" };
+		{ 16, 1506052, "", "=q4=Ceremonial Qiraji Ring", "=ds=#tt2.5A#", "", "100%", lootTable = {"AQ20SetsFINGER","Token"} };
 	};
 	{
 		Name = BabbleBoss["Ossirian the Unscarred"];
@@ -203,7 +203,7 @@ AtlasLoot_Data["RuinsofAQ"] = {
 		{ 18, 21507, "", "=q4=Amulet of the Shifting Sands", "=q1=#m4#: =ds=#s2#" };
 		{ 19, 21505, "", "=q4=Choker of the Shifting Sands", "=q1=#m4#: =ds=#s2#" };
 		{ 20, 21506, "", "=q4=Pendant of the Shifting Sands", "=q1=#m4#: =ds=#s2#" };
-		{ 22, 1506053, "", "=q4=Ceremonial Qiraji Pendant", "=ds=#tt2.5A#", "", "100%", "=TT=AQ20SetsNECK" };
+		{ 22, 1506053, "", "=q4=Ceremonial Qiraji Pendant", "=ds=#tt2.5A#", "", "100%", lootTable = {"AQ20SetsNECK","Token"} };
 	};
 	{
 		Name = AL["Trash Mobs"];
@@ -289,7 +289,7 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 27, 22222, "", "=q3=Plans: Thick Obsidian Breastplate", "=ds=#p2# (300)", "", "5.00%" };
 		{ 28, 22196, "", "=q4=Thick Obsidian Breastplate", "=ds=#s5#, #a4#" };
 
-		{ 30, 20928, "", "=q4=Bindings of the Lost Nomad", "=ds=#tt2.5#", "", "100%", "=TT=T2.5FEET" };
+		{ 30, 20928, "", "=q4=Bindings of the Lost Nomad", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5FEET","Token"} };
 	};
 	{
 		Name = BabbleBoss["The Bug Family"];
@@ -318,7 +318,7 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 24, 21683, "", "=q4=Mantle of the Desert Crusade", "=ds=#s3#, #a4#", "", "14%" };
 		{ 25, 21687, "", "=q4=Ukko's Ring of Darkness", "=ds=#s13#", "", "20%" };
 
-		{ 27, 20928, "", "=q4=Bindings of the Lost Nomad", "=ds=#tt2.5#", "", "100%", "=TT=T2.5FEET" };
+		{ 27, 20928, "", "=q4=Bindings of the Lost Nomad", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5FEET","Token"} };
 	};
 	{
 		Name = BabbleBoss["Battleguard Sartura"];
@@ -348,7 +348,7 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#" };
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#" };
 
-		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=TT=T2.5SHOULDER" };
+		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5SHOULDER","Token"} };
 	};
 	{
 		Name = BabbleBoss["Fankriss the Unyielding"];
@@ -377,7 +377,7 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#" };
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#" };
 
-		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=TT=T2.5SHOULDER" };
+		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5SHOULDER","Token"} };
 	};
 	{
 		Name = BabbleBoss["Viscidus"];
@@ -403,10 +403,10 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#" };
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#" };
 
-		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=TT=T2.5SHOULDER" };
-		{ 28, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", "=TT=T2.5LEGS" };
-		{ 29, 20930, "", "=q4=Diadem of the Desert Prince", "=ds=#tt2.5#", "", "100%", "=TT=T2.5HEAD" };
-		{ 30, 20928, "", "=q4=Bindings of the Lost Nomad", "=ds=#tt2.5#", "", "100%", "=TT=T2.5FEET" };
+		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5SHOULDER","Token"} };
+		{ 28, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5LEGS","Token"} };
+		{ 29, 20930, "", "=q4=Diadem of the Desert Prince", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5HEAD","Token"} };
+		{ 30, 20928, "", "=q4=Bindings of the Lost Nomad", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5FEET","Token"} };
 	};
 	{ 
 		Name = BabbleBoss["Princess Huhuran"];
@@ -434,8 +434,8 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#" };
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#" };
 
-		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", "=TT=T2.5SHOULDER" };
-		{ 28, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", "=TT=T2.5LEGS" };
+		{ 27, 20932, "", "=q4=Spaulders of the Imperial Guard", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5SHOULDER","Token"} };
+		{ 28, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5LEGS","Token"} };
 	};
 	{
 		Name = BabbleBoss["The Twin Emperors"];
@@ -452,7 +452,7 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 11, 21272, "", "=q4=Blessed Qiraji Musket", "=q1=#m4#, =ds=#w5#" };
 		{ 12, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4#, =ds=#h1#, #w4#" };
 		{ 13, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4#, =ds=#w8#" };
-		{ 15, 20930, "", "=q4=Diadem of the Desert Prince", "=ds=#tt2.5#", "", "100%", "=TT=T2.5HEAD" };
+		{ 15, 20930, "", "=q4=Diadem of the Desert Prince", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5HEAD","Token"} };
 
 		{ 16, 21604, "", "=q4=Bracelets of Royal Redemption", "=ds=#s8#, #a1#", "", "12.51%" };
 		{ 17, 21605, "", "=q4=Gloves of the Hidden Temple", "=ds=#s9#, #a2#", "", "15.45%" };
@@ -492,7 +492,7 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 24, 21244, "", "=q4=Blessed Qiraji Pugio", "=q1=#m4# =ds=#h1#, #w4#" };
 		{ 25, 21269, "", "=q4=Blessed Qiraji Bulwark", "=q1=#m4# =ds=#w8#" };
 
-		{ 27, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", "=TT=T2.5LEGS" };
+		{ 27, 20931, "", "=q4=Hardened Qiraj Chitin", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5LEGS","Token"} };
 	};
 	{
 		Name = BabbleBoss["C'Thun"];
@@ -522,7 +522,7 @@ AtlasLoot_Data["TempleofAQ"] = {
 		{ 23, 22631, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c5#" };
 		{ 24, 22630, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c8#" };
 		
-		{ 26, 20933, "", "=q4=Husk of the Old God", "=ds=#tt2.5#", "", "100%", "=TT=T2.5CHEST" };
+		{ 26, 20933, "", "=q4=Husk of the Old God", "=ds=#tt2.5#", "", "100%", lootTable = {"T2.5CHEST","Token"} };
 	};
 	{
 		Name = AL["Trash Mobs"];
@@ -1293,7 +1293,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 9, 19147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "2.23%" };
 		{ 10, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.23%" };
 		{ 11, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "1.60%" };
-		{ 16, 2522362, "", "=q4=Molten Wristguards", "=ds=#tt1#", "", "100%", "=TT=T1WRIST" };
+		{ 16, 2522362, "", "=q4=Molten Wristguards", "=ds=#tt1#", "", "100%", lootTable = {"T1WRIST","Token"} };
 		{ 18, 17329, "", "=q1=Hand of Lucifron", "=ds=#m3#" };
 	};
 	{
@@ -1313,7 +1313,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 13, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "5.68%" };
 		{ 14, 17073, "", "=q4=Earthshaker", "=ds=#h2#, #w6#", "", "16.75%" };
 		{ 15, 17069, "", "=q4=Striker's Mark", "=ds=#w2#", "", "16.37%" };
-		{ 16, 2522359, "", "=q4=Molten Leggaurds", "=ds=#tt1#", "", "100%", "=TT=T1LEGS" };
+		{ 16, 2522359, "", "=q4=Molten Leggaurds", "=ds=#tt1#", "", "100%", lootTable = {"T1LEGS","Token"} };
 	};
 	{
 		Name = BabbleBoss["Gehennas"];
@@ -1327,7 +1327,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 8, 19147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "3.78%" };
 		{ 9, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "3.79%" };
 		{ 10, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "3.34%" };
-		{ 16, 2522364, "", "=q4=Molten Girdle", "=ds=#tt1#", "", "100%", "=TT=T1HAND" };
+		{ 16, 2522364, "", "=q4=Molten Girdle", "=ds=#tt1#", "", "100%", lootTable = {"T1HAND","Token"} };
 		{ 18, 17331, "", "=q1=Hand of Gehennas", "=ds=#m3#" };
 	};
 	{
@@ -1347,7 +1347,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 13, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "4.09%" };
 		{ 14, 17105, "", "=q4=Aurastone Hammer", "=ds=#h3#, #w6#", "", "12.67%" };
 		{ 15, 17066, "", "=q4=Drillborer Disk", "=ds=#w8#", "", "11.85%" };
-		{ 16, 2522360, "", "=q4=Molten Headpiece", "=ds=#tt1#", "", "100%", "=TT=T1HEAD" };
+		{ 16, 2522360, "", "=q4=Molten Headpiece", "=ds=#tt1#", "", "100%", lootTable = {"T1HEAD","Token"} };
 		{ 18, 18564, "", "=q5=Bindings of the Windseeker", "=ds=#m3#, =q1=#m9#", "", "3.74%" };
 		{ 19, 19019, "", "=q5=Thunderfury, Blessed Blade of the Windseeker", "=q1=#m4#: =ds=#h1#, #w10#" };
 		{ 21, 17782, "", "=q5=Talisman of Binding Shard", "=ds=#s2#", "", "" };
@@ -1365,7 +1365,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 8, 19147, "", "=q4=Ring of Spell Power", "=ds=#s13#", "", "1.99%" };
 		{ 9, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.27%" };
 		{ 10, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "3.32%" };
-		{ 16, 2522363, "", "=q4=Molten Handgaurds", "=ds=#tt1#", "", "100%", "=TT=T1WAIST" };
+		{ 16, 2522363, "", "=q4=Molten Handgaurds", "=ds=#tt1#", "", "100%", lootTable = {"T1WAIST","Token"} };
 		{ 18, 17332, "", "=q1=Hand of Shazzrah", "=ds=#m3#" };
 	};
 	{
@@ -1382,7 +1382,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 10, 18820, "", "=q4=Talisman of Ephemeral Power", "=ds=#s14#", "", "2.68%" };
 		{ 11, 19142, "", "=q4=Fire Runed Grimoire", "=ds=#s15#", "", "2.59%" };
 		{ 12, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "2.70%" };
-		{ 16, 2522361, "", "=q4=Molten Spaulders", "=ds=#tt1#", "", "100%", "=TT=T1SHOULDER" };
+		{ 16, 2522361, "", "=q4=Molten Spaulders", "=ds=#tt1#", "", "100%", lootTable = {"T1SHOULDER","Token"} };
 		{ 18, 18563, "", "=q5=Bindings of the Windseeker", " =ds=#m3#, =q1=#m10#", "", "3.78%" };
 		{ 19, 19019, "", "=q5=Thunderfury, Blessed Blade of the Windseeker", "=q1=#m4#: =ds=#h1#, #w10#" };
 	};
@@ -1402,7 +1402,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 12, 18822, "", "=q4=Obsidian Edged Blade", "=ds=#h2#, #w10#", "", "2.89%" };
 		{ 13, 18842, "", "=q4=Staff of Dominance", "=ds=#w9#", "", "18.95%" };
 		{ 14, 17072, "", "=q4=Blastershot Launcher", "=ds=#w5#", "", "17.83%" };
-		{ 16, 2522350, "", "=q4=Molten Tunic", "=ds=#tt1#", "", "100%", "=TT=T1CHEST" };
+		{ 16, 2522350, "", "=q4=Molten Tunic", "=ds=#tt1#", "", "100%", lootTable = {"T1CHEST","Token"} };
 		{ 18, 17203, "", "=q4=Sulfuron Ingot", "=ds=#m3#", "", "11.98%" };
 		{ 19, 17182, "", "=q5=Sulfuras, Hand of Ragnaros", "=q1=#m4#: =ds=#h2#, #w6#" };
 	};
@@ -1419,7 +1419,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 9, 18878, "", "=q4=Sorcerous Dagger", "=ds=#h3#, #w4#", "", "2.53%" };
 		{ 10, 17074, "", "=q4=Shadowstrike", "=ds=#w7#", "", "23.50%" };
 		{ 11, 17077, "", "=q4=Crimson Shocker", "=ds=#w12#", "", "2.26%" };
-		{ 16, 2522365, "", "=q4=Molten Boots", "=ds=#tt1#", "", "100%", "=TT=T1FEET" };
+		{ 16, 2522365, "", "=q4=Molten Boots", "=ds=#tt1#", "", "100%", lootTable = {"T1FEET","Token"} };
 		{ 18, 17330, "", "=q1=Hand of Sulfuron", "=ds=#m3#" };
 	};
 	{
@@ -1455,7 +1455,7 @@ AtlasLoot_Data["MoltenCore"] = {
 		{ 12, 17104, "", "=q4=Spinal Reaper", "=ds=#h2#, #w1#", "", " 4.63%" };
 		{ 13, 17106, "", "=q4=Malistar's Defender", "=ds=#w8#", "", "13.88%" };
 		{ 14, 17083, "", "=q4=Blade of Dragon Bone", "=ds=#h3#, #w10#", "", "13.88%" };
-		{ 16, 2522459, "", "=q4=Chromatic Leggaurds", "=ds=#tt2#", "", "100%", "=TT=T2LEGS" };
+		{ 16, 2522459, "", "=q4=Chromatic Leggaurds", "=ds=#tt2#", "", "100%", lootTable = {"T2LEGS","Token"} };
 		{ 18, 21110, "", "=q1=Draconic for Dummies", "=ds=#m3#", "", "100%" };
 		{ 20, 17204, "", "=q5=Eye of Sulfuras", "=ds=#m3#", "", "3.42%" };
 		{ 21, 17182, "", "=q5=Sulfuras, Hand of Ragnaros", "=q1=#m4#: =ds=#h2#, #w6#" };
@@ -1514,7 +1514,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 9, 19397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%" };
 		{ 10, 19357, "", "=q4=Herald of Woe", "=ds=#h2#, #w6#", "", "16.67%" };
 		{ 11, 19405, "", "=q4=Malfurion's Blessed Bulwark", "=ds=#s5#, #a2#", "", "16.67%" };
-		{ 16, 2522462, "", "=q4=Chromatic Wristguards", "=ds=#tt2#", "", "100%", "=TT=T2WRIST" };
+		{ 16, 2522462, "", "=q4=Chromatic Wristguards", "=ds=#tt2#", "", "100%", lootTable = {"T2WRIST","Token"} };
 	};
 	{
 		Name = BabbleBoss["Vaelastrasz the Corrupt"];
@@ -1528,7 +1528,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 8, 19403, "", "=q4=Band of Forced Concentration", "=ds=#s13#", "", "16.67%" };
 		{ 9, 19367, "", "=q4=Dragon's Touch", "=ds=#w12#", "", "16.67%" };
 		{ 10, 14000, "", "=q4=Ring of Trinity Force", "=ds=#s13#", "", "12.5%" };
-		{ 16, 2522463, "", "=q4=Chromatic Girdle", "=ds=#tt2#", "", "100%", "=TT=T2WAIST" };
+		{ 16, 2522463, "", "=q4=Chromatic Girdle", "=ds=#tt2#", "", "100%", lootTable = {"T2WAIST","Token"} };
 	};
 	{
 		Name = BabbleBoss["Broodlord Lashlayer"];
@@ -1542,7 +1542,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 8, 19402, "", "=q4=Legguards of the Fallen Crusader", "=ds=#s11#, #a4#", "", "12.5%" };
 		{ 9, 19365, "", "=q4=Claw of the Black Drake", "=ds=#h3#, #w13#", "", "12.5%" };
 		{ 10, 19432, "", "=q4=Circle of Applied Force", "=ds=#s13#", "", "16.67%" };
-		{ 16, 2522465, "", "=q4=Chromatic Boots", "=ds=#tt2#", "", "100%", "=TT=T2FEET" };
+		{ 16, 2522465, "", "=q4=Chromatic Boots", "=ds=#tt2#", "", "100%", lootTable = {"T2FEET","Token"} };
 		{ 18, 20383, "", "=q1=Head of the Broodlord Lashlayer", "=ds=#m3#", "", "100%" };
 	};
 	{
@@ -1561,7 +1561,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 12, 19402, "", "=q4=Legguards of the Fallen Crusader", "=ds=#s11#, #a4#", "", "12.5%" };
 		{ 13, 19397, "", "=q4=Ring of Blackrock", "=ds=#s13#", "", "6.67%" };
 		{ 14, 19395, "", "=q4=Rejuvenating Gem", "=ds=#s14#", "", "6.67%" };
-		{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=TT=T2HAND" };
+		{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", lootTable = {"T2HAND","Token"} };
 	};
 	{
 		Name = BabbleBoss["Ebonroc"];
@@ -1577,7 +1577,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 10, 19353, "", "=q4=Drake Talon Cleaver", "=ds=#h2#, #w1#", "", "6.67%" };
 		{ 11, 19355, "", "=q4=Shadow Wing Focus Staff", "=ds=#w9#", "", "6.67%" };
 		{ 12, 19368, "", "=q4=Dragonbreath Hand Cannon", "=ds=#w5#", "", "16.67%" };
-		{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=TT=T2HAND" };
+		{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", lootTable = {"T2HAND","Token"} };
 	};
 	{
 		Name = BabbleBoss["Flamegor"];
@@ -1593,7 +1593,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 10, 19357, "", "=q4=Herald of Woe", "=ds=#h2#, #w6#", "", "16.67%" };
 		{ 11, 19355, "", "=q4=Shadow Wing Focus Staff", "=ds=#w9#", "", "6.67%" };
 		{ 12, 19367, "", "=q4=Dragon's Touch", "=ds=#w12#", "", "16.67%" };
-		{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", "=TT=T2HAND" };
+		{ 16, 2522464, "", "=q4=Chromatic Handgaurds", "=ds=#tt2#", "", "100%", lootTable = {"T2HAND","Token"} };
 	};
 	{
 		Name = BabbleBoss["Chromaggus"];
@@ -1610,7 +1610,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 12, 19352, "", "=q4=Chromatically Tempered Sword", "=ds=#h1#, #w10#", "", "10%" };
 		{ 13, 19349, "", "=q4=Elementium Reinforced Bulwark", "=ds=#w8#", "", "10%" };
 		{ 14, 19361, "", "=q4=Ashjre'thul, Crossbow of Smiting", "=ds=#w3#", "", "10%" };
-		{ 16, 2522461, "", "=q4=Chromatic Spaulders", "=ds=#tt2#", "", "100%", "=TT=T2SHOULDER" };
+		{ 16, 2522461, "", "=q4=Chromatic Spaulders", "=ds=#tt2#", "", "100%", lootTable = {"T2SHOULDER","Token"} };
 	};
 	{
 		Name = BabbleBoss["Nefarian"];
@@ -1627,7 +1627,7 @@ AtlasLoot_Data["BlackwingLair"] = {
 		{ 11, 19360, "", "=q4=Lok'amir il Romathis", "=ds=#h3#, #w6#", "", "16.67%" };
 		{ 12, 19356, "", "=q4=Staff of the Shadow Flame", "=ds=#w9#", "", "16.67%%" };
 		{ 13, 14001, "", "=q4=Archimtiros' Ring of Armageddon", "=ds=#s13#", "", "16.67%%" };
-		{ 16, 2522450, "", "=q4=Chromatic Tunic", "=ds=#tt2#", "", "100%", "=TT=T2CHEST" };
+		{ 16, 2522450, "", "=q4=Chromatic Tunic", "=ds=#tt2#", "", "100%", lootTable = {"T2CHEST","Token"} };
 		{ 18, 19003, "", "=q4=Head of Nefarian", "=ds=#m2#", "", "100%" };
 		{ 19, 19383, "", "=q4=Master Dragonslayer's Medallion", "=q1=#m4#: =ds=#s2#" };
 		{ 20, 19384, "", "=q4=Master Dragonslayer's Ring", "=q1=#m4#: =ds=#s13#" };
@@ -3642,7 +3642,7 @@ AtlasLoot_Data["ZulGurub"] = {
 		{ 5, 19923, "", "=q3=Jeklik's Opaline Talisman", "=ds=#s2#", "", "12.22%" };
 		{ 6, 19920, "", "=q3=Primalist's Band", "=ds=#s13#", "", "11.89%" };
 		{ 7, 19915, "", "=q3=Zulian Defender", "=ds=#w8#", "", " 11.36%" };
-		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1" };
+		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", lootTable = {"ZGSets|AtlasLoot_Data|1","Source"} };
 		{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.8%" };
 		{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%" };
 	};
@@ -3654,7 +3654,7 @@ AtlasLoot_Data["ZulGurub"] = {
 		{ 5, 19906, "", "=q3=Blooddrenched Footpads", "=ds=#s12#, #a2#", "", "11.36%" };
 		{ 6, 19905, "", "=q3=Zanzil's Band", "=ds=#s13#", "", "6.99%" };
 		{ 7, 19900, "", "=q3=Zulian Stone Axe", "=ds=#h2#, #w1#", "", "11.89%" };
-		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1" };
+		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", lootTable = {"ZGSets|AtlasLoot_Data|1","Source"} };
 		{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "6.0%" };
 		{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%" };
 		{ 21, 22216, "", "=q1=Venoxis's Venom Sac", "=ds=#m3#", "", "100%" };
@@ -3667,7 +3667,7 @@ AtlasLoot_Data["ZulGurub"] = {
 		{ 4, 19871, "", "=q3=Talisman of Protection", "=ds=#s2#", "", "11.36%" };
 		{ 5, 19925, "", "=q3=Band of Jin", "=ds=#s13#", "", " 6.99%" };
 		{ 6, 19930, "", "=q3=Mar'li's Eye", "=ds=#s14#", "", "12.09%" };
-		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1" };
+		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", lootTable = {"ZGSets|AtlasLoot_Data|1","Source"} };
 		{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "7.4%" };
 		{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%" };
 	};
@@ -3686,7 +3686,7 @@ AtlasLoot_Data["ZulGurub"] = {
 		{ 12, 19873, "", "=q3=Overlord's Crimson Band", "=ds=#s13#", "", "12.28%" };
 		{ 13, 19893, "", "=q3=Zanzil's Seal", "=ds=#s13#", "", "13.11%" };
 		{ 14, 19863, "", "=q3=Primalist's Seal", "=ds=#s13#", "", "12.32%" };
-		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1" };
+		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", lootTable = {"ZGSets|AtlasLoot_Data|1","Source"} };
 		{ 18, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#" };
 		{ 19, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "9.4%" };
 	};
@@ -3727,13 +3727,13 @@ AtlasLoot_Data["ZulGurub"] = {
 		{ 7, 20260, "", "=q3=Seafury Leggings", "=ds=#s11#, #a3#", "", "4.30%" };
 		{ 8, 20266, "", "=q3=Peacekeeper Leggings", "=ds=#s11#, #a4#", "", "8.69%" };
 		{ 9, 19901, "", "=q3=Zulian Slicer", "=ds=#h1#, #w10#, =q1=#e18#", "", "13.36%" };
-		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1" };
+		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", lootTable = {"ZGSets|AtlasLoot_Data|1","Source"} };
 		{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.3%" };
 		{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%" };
 	};
 	{
 		Name = BabbleBoss["High Priestess Arlokk"];
-		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1" };
+		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", lootTable = {"ZGSets|AtlasLoot_Data|1","Source"} };
 		{ 18, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "5.6%" };
 		{ 19, 19881, "", "=q1=Channeler's Head", "=ds=#m3#", "", "100%" };
 		{ 1, 19910, "", "=q4=Arlokk's Grasp", "=ds=#h4#, #w13#", "", "3.62%" };
@@ -3745,7 +3745,7 @@ AtlasLoot_Data["ZulGurub"] = {
 	};
 	{
 		Name = BabbleBoss["Jin'do the Hexxer"];
-		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", "=LT=ZGSets|AtlasLoot_Data|1" };
+		{ 16, 0, "INV_Banner_01", "=q4=ZG Sets", "=ds=#m3#", "", "", lootTable = {"ZGSets|AtlasLoot_Data|1","Source"} };
 		{ 18, 22637, "", "=q3=Primal Hakkari Idol", "=ds=#m3#" };
 		{ 19, 19943, "", "=q1=Massive Mojo", "=ds=#e8#", "", "8.4%" };
 		{ 1, 19885, "", "=q4=Jin'do's Evil Eye", "=ds=#s2#", "", "6.82%" };
@@ -3878,7 +3878,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 22820, "", "=q4=Wand of Fates", "=ds=#w12#", "", "20%" },
 		{ 4, 22818, "", "=q4=The Plague Bearer", "=ds=#w8#", "", "20%" },
 		{ 5, 22961, "", "=q4=Band of Reanimation", "=ds=#s13#", "", "20%" },
-		{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#", "", "100%", "=TT=T3SHOULDER" };
+		{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#", "", "100%", lootTable = {"T3SHOULDER","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3889,7 +3889,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 22803, "", "=q4=Midnight Haze", "=ds=#h3#, #w4#", "", "20%" },
 		{ 4, 22988, "", "=q4=The End of Dreams", "=ds=#h3#, #w6#", "", "20%" },
 		{ 5, 22810, "", "=q4=Toxin Injector", "=ds=#w5#", "", "20%" },
-		{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#", "", "100%", "=TT=T3SHOULDER" };
+		{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#", "", "100%", lootTable = {"T3SHOULDER","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3900,10 +3900,10 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 23075, "", "=q4=Death's Bargain", "=ds=#w8#", "", "20%" },
 		{ 4, 22994, "", "=q4=Digested Hand of Power", "=ds=#s15#", "", "20%" },
 		{ 5, 22981, "", "=q4=Gluth's Missing Collar", "=ds=#s2#", "", "20%" },
-		{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#", "", "100%", "=TT=T3SHOULDER" };
-		{ 17, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#", "", "8.33%", "=TT=T3WRIST" };
-		{ 18, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#", "", "8.33%", "=TT=T3WAIST" };
-		{ 19, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#", "", "8.33%", "=TT=T3FEET" };
+		{ 16, 22354, "", "=q4=Desecrated Pauldrons", "=ds=#tt3#", "", "100%", lootTable = {"T3SHOULDER","Token"} };
+		{ 17, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#", "", "8.33%", lootTable = {"T3WRIST","Token"} };
+		{ 18, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#", "", "8.33%", lootTable = {"T3WAIST","Token"} };
+		{ 19, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#", "", "8.33%", lootTable = {"T3FEET","Token"} };
 		{ 21, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 22, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3914,7 +3914,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 22808, "", "=q4=The Castigator", "=ds=#h1#, #w6#", "", "20%" },
 		{ 4, 22801, "", "=q4=Spire of Twilight", "=ds=#w9#", "", "20%" },
 		{ 5, 23001, "", "=q4=Eye of Diminution", "=ds=#s14#", "", "20%" },
-		{ 16, 22353, "", "=q4=Desecrated Helmet", "=ds=#tt3#", "", "100%", "=TT=T3HEAD" };
+		{ 16, 22353, "", "=q4=Desecrated Helmet", "=ds=#tt3#", "", "100%", lootTable = {"T3HEAD","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3925,7 +3925,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 22937, "", "=q4=Gem of Nerubis", "=ds=#s15#", "", "20%" },
 		{ 4, 22939, "", "=q4=Band of Unanswered Prayers", "=ds=#s13#", "", "20%" },
 		{ 5, 22935, "", "=q4=Touch of Frost", "=ds=#s2#", "", "20%" },
-		{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#", "", "100%", "=TT=T3WRIST" };
+		{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#", "", "100%", lootTable = {"T3WRIST","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3936,7 +3936,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 22806, "", "=q4=Widow's Remorse", "=ds=#h1#, #w10#", "", "20%" },
 		{ 4, 22942, "", "=q4=The Widow's Embrace", "=ds=#h3#, #w6#", "", "20%" },
 		{ 5, 22943, "", "=q4=Malice Stone Pendant", "=ds=#s2#", "", "20%" },
-		{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#", "", "100%", "=TT=T3WRIST" };
+		{ 16, 22355, "", "=q4=Desecrated Bracers", "=ds=#tt3#", "", "100%", lootTable = {"T3WRIST","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3947,7 +3947,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 22807, "", "=q4=Wraith Blade", "=ds=#h3#, #w10#", "", "20%" },
 		{ 4, 22947, "", "=q4=Pendant of Forgotten Names", "=ds=#s2#", "", "20%" },
 		{ 5, 22954, "", "=q4=Kiss of the Spider", "=ds=#s14#", "", "20%" },
-		{ 16, 22357, "", "=q4=Desecrated Gauntlets", "=ds=#tt3#", "", "100%", "=TT=T3HAND" };
+		{ 16, 22357, "", "=q4=Desecrated Gauntlets", "=ds=#tt3#", "", "100%", lootTable = {"T3HAND","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3959,7 +3959,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 4, 23009, "", "=q4=Wand of the Whispering Dead", "=ds=#w12#", "", "16.67%" },
 		{ 5, 23004, "", "=q4=Idol of Longevity", "=ds=#s16#, #w14#", "", "16.67%" },
 		{ 6, 23018, "", "=q4=Signet of the Fallen Defender", "=ds=#s13#", "", "16.67%" },
-		{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#", "", "100%", "=TT=T3FEET" };
+		{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#", "", "100%", lootTable = {"T3FEET","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3970,7 +3970,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 23020, "", "=q4=Polar Helmet", "=ds=#s1#, #a2#", "", "20%" },
 		{ 4, 23073, "", "=q4=Boots of Displacement", "=ds=#s12#, #a2#", "", "20%" },
 		{ 5, 23023, "", "=q4=Sadist's Collar", "=ds=#s2#", "", "20%" },
-		{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#", "", "100%", "=TT=T3SHOULDER" };
+		{ 16, 22358, "", "=q4=Desecrated Sabatons", "=ds=#tt3#", "", "100%", lootTable = {"T3SHOULDER","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3982,7 +3982,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 4, 22811, "", "=q4=Soulstring", "=ds=#w2#", "", "20%" },
 		{ 5, 23025, "", "=q4=Seal of the Damned", "=ds=#s13#", "", "16.67%" },
 		{ 6, 23027, "", "=q4=Warmth of Forgiveness", "=ds=#s14#", "", "16.67%" },
-		{ 16, 22349, "", "=q4=Desecrated Breastplate", "=ds=#tt3#", "", "100%", "=TT=T3CHEST" };
+		{ 16, 22349, "", "=q4=Desecrated Breastplate", "=ds=#tt3#", "", "100%", lootTable = {"T3CHEST","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -3995,7 +3995,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 5, 23029, "", "=q4=Noth's Frigid Heart", "=ds=#s15#", "", "14.29%" },
 		{ 6, 23031, "", "=q4=Band of the Inevitable", "=ds=#s13#", "", "14.29%" },
 		{ 7, 23028, "", "=q4=Hailstone Band", "=ds=#s13#", "", "14.29%" },
-		{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#", "", "100%", "=TT=T3WAIST" };
+		{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#", "", "100%", lootTable = {"T3WAIST","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -4006,7 +4006,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 23019, "", "=q4=Icebane Helmet", "=ds=#s1#, #a4#", "", "20%" },
 		{ 4, 23068, "", "=q4=Legplates of Carnage", "=ds=#s11#, #a4#", "", "20%" },
 		{ 5, 23036, "", "=q4=Necklace of Necropsy", "=ds=#s2#", "", "20%" },
-		{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#", "", "100%", "=TT=T3WAIST" };
+		{ 16, 22356, "", "=q4=Desecrated Waistguard", "=ds=#tt3#", "", "100%", lootTable = {"T3WAIST","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -4017,7 +4017,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 3, 23037, "", "=q4=Ring of Spiritual Fervor", "=ds=#s13#", "", "20%" },
 		{ 4, 23038, "", "=q4=Band of Unnatural Forces", "=ds=#s13#", "", "20%" },
 		{ 5, 23042, "", "=q4=Loatheb's Reflection", "=ds=#s14#", "", "20%" },
-		{ 16, 22352, "", "=q4=Desecrated Legplates", "=ds=#tt3#", "", "100%", "=TT=T3LEGS" };
+		{ 16, 22352, "", "=q4=Desecrated Legplates", "=ds=#tt3#", "", "100%", lootTable = {"T3LEGS","Token"} };
 		{ 18, 22726, "", "=q5=Splinter of Atiesh", "=ds=#m3#", "", "30%" },
 		{ 19, 22727, "", "=q5=Frame of Atiesh", "=ds=#m2#" },
 	};
@@ -4058,7 +4058,7 @@ AtlasLoot_Data["Naxxramas60"] = {
 		{ 13, 22520, "", "=q4=The Phylactery of Kel'Thuzad", "=ds=#m2#", "", "100%" },
 		{ 14, 23207, "", "=q4=Mark of the Champion", "=q1=#m4# =ds=#s14#" },
 		{ 15, 23206, "", "=q4=Mark of the Champion", "=q1=#m4# =ds=#s14#" },
-		{ 16, 1510496, "", "=q4=Desecrated Ring", "=ds=#tt3#", "", "100%", "=TT=T3FINGER" };
+		{ 16, 1510496, "", "=q4=Desecrated Ring", "=ds=#tt3#", "", "100%", lootTable = {"T3FINGER","Token"} };
 		{ 18, 22733, "", "=q1=Staff Head of Atiesh", "=ds=#m3#" },
 		{ 19, 22632, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c1#" },
 		{ 20, 22589, "", "=q5=Atiesh, Greatstaff of the Guardian", "=ds=#m4#, =q1=#m1# =ds=#c3#" },
@@ -4110,7 +4110,7 @@ AtlasLoot_Data["Onyxia60"] = {
 		{ 10, 18211, "", "=q4=Wand of the Noble", "=ds=#w12#", "", "28.57%" },
 		{ 11, 17084, "", "=q4=Mace of the Dragon Knight", "=ds=#h2#, #w6#", "", "28.57%" },
 		{ 12, 18212, "", "=q4=Band of Nyxondra", "=ds=#s13#", "", "28.57%" },
-		{ 16, 2522460, "", "=q4=Chromatic Headpiece", "=ds=#tt2#", "", "100%", "=TT=T2HEAD" };
+		{ 16, 2522460, "", "=q4=Chromatic Headpiece", "=ds=#tt2#", "", "100%", lootTable = {"T2HEAD","Token"} };
 		{ 18, 18423, "", "=q4=Head of Onyxia", "=ds=#m2#", "", "100%" },
 		{ 19, 18404, "", "=q4=Onyxia Tooth Pendant", "=q1=#m4#: =ds=#s2#" },
 		{ 20, 18403, "", "=q4=Dragonslayer's Signet", "=q1=#m4#: =ds=#s13#" },

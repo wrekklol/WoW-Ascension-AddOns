@@ -1,5 +1,4 @@
 local AL = LibStub("AceLocale-3.0"):GetLocale("AtlasLoot");
-local modules = {"AtlasLoot_BurningCrusade", "AtlasLoot_Vanity", "AtlasLoot_Crafting", "AtlasLoot_OriginalWoW", "AtlasLoot_WorldEvents", "AtlasLoot_WrathoftheLichKing"};
 
 AtlasLoot_QualityMenu = AceLibrary("Dewdrop-2.0");
 AtlasLoot_DifficultyMenu = AceLibrary("Dewdrop-2.0");
